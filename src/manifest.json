@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+ 
+  "name": "CaretTab - New Tab Page",
+  "short_name": "CaretTab",
+  "description": "A simple New Tab Page replacement which provides the current time on the page and on the tab. Also includes a Google search bar, and customization options.",
+  "version": "0.1.0",
+  "version_name": "0.1.0 Alpha",
+
+  "icons": { "16": "img/icon16.png",
+             "48": "img/icon48.png",
+            "128": "img/icon128.png" },
+
+  "chrome_url_overrides" : {
+    "newtab": "carettab.htm"
+  }
+}

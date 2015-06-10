@@ -1,17 +1,17 @@
 jQuery(function($){
 
 	var getSeconds = localStorage.getItem('toggleSeconds');
-	if (getSeconds != "on") {
-		$('.toggle-seconds').removeClass(getSeconds);
+	if (getSeconds == "off") {
+		$('.toggle-seconds').removeClass("on");
 		$('.second').hide();
 	} else {
-		$('.toggle-seconds').addClass(getSeconds);
+		$('.toggle-seconds').addClass("on");
 		$('.second').show();
 	}
 
 	var getSearch = localStorage.getItem('toggleSearch');
 	var noSearch = "no-search";
-	if (getSearch != "on") {
+	if (getSearch == "off") {
 		$('.toggle-search').removeClass(getSearch);
 		$('#wrapper').addClass(noSearch);
 		$('.search').hide();
@@ -26,10 +26,13 @@ jQuery(function($){
         var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
         var dt = new Date();
-        var hr = dt.getHours() > 12 ? dt.getHours() - 12 : dt.getHours();
+        var hh = dt.getHours();
+        var hr = hh;
+	        if (hr > 12) {hr = hh-12;}
+	        if (hr == 0) {hr = 12;}
         var mi = dt.getMinutes() < 10 ? "0" + dt.getMinutes() : dt.getMinutes();
         var sd = dt.getSeconds() < 10 ? "0" + dt.getSeconds() : dt.getSeconds();
-        var meridiem = dt.getHours() > 12 ? "pm" : "am";
+        var meridiem = hh >= 12 ? "pm" : "am";
         var div = dt.getMilliseconds() < 500 ? ":" : "";
 
         var getSeconds = localStorage.getItem('toggleSeconds');
@@ -44,10 +47,10 @@ jQuery(function($){
 
         $('.time-divider').text(div);
 
-        if (getSeconds == "on") {
-	        document.title = hr + ":" + mi + ":" + sd + " " + meridiem;
-        } else {
+        if (getSeconds == "off") {
 	        document.title = hr + ":" + mi + " " + meridiem;
+        } else {
+	        document.title = hr + ":" + mi + ":" + sd + " " + meridiem;
         }
 
         setTimeout(update_time, 500);
@@ -58,13 +61,13 @@ jQuery(function($){
 $('.toggle-seconds').click(function() {
 	if ($('.toggle-seconds').hasClass('on')) {
 		$('.second').hide();
+		var toggleSeconds = "off";
 		localStorage.removeItem('toggleSeconds');
+		localStorage.setItem('toggleSeconds',toggleSeconds);
 		$('.toggle-seconds').toggleClass('on');
 	} else {
 		$('.second').show();
-		var toggleSeconds = "on";
 		localStorage.removeItem('toggleSeconds');
-		localStorage.setItem('toggleSeconds',toggleSeconds);
 		$('.toggle-seconds').toggleClass('on');
 	}
 });
@@ -73,14 +76,14 @@ $('.toggle-search').click(function() {
 	var noSearch = "no-search";
 	if ($('.toggle-search').hasClass('on')) {
 		$('.search').hide();
+		var toggleSearch = "off";
 		localStorage.removeItem('toggleSearch');
+		localStorage.setItem('toggleSearch',toggleSearch);
 		$('.toggle-search').toggleClass('on');
 		$('#wrapper').addClass(noSearch);
 	} else {
 		$('.search').show();
-		var toggleSearch = "on";
 		localStorage.removeItem('toggleSearch');
-		localStorage.setItem('toggleSearch',toggleSearch);
 		$('.toggle-search').toggleClass('on');
 		$('#wrapper').removeClass(noSearch);
 	}
@@ -130,7 +133,7 @@ function currentTheme() {
 		color	= themeBlue;
 	}
 	else {
-		color	== themeLight;
+		color	= themeLight;
 	}
 	return color;
 }
@@ -234,21 +237,3 @@ $(document).ready(function(){
 	$(".green").css({"background-color": themeGreen});
 	$(".blue").css({"background-color": themeBlue});
 });
-
-
-// GOOGLE ANALYTICS
-
-var _AnalyticsCode = 'UA-63895389-1';
-
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', _AnalyticsCode]);
-_gaq.push(['_trackPageview']);
-
-(function() {
-  var ga = document.createElement('script');
-  ga.type = 'text/javascript';
-  ga.async = true;
-  ga.src = 'https://ssl.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(ga, s);
-})();

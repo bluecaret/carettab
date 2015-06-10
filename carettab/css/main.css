@@ -1,35 +1,32 @@
-html {
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #dcdcdc;
+    color: rgba(0,0,0,0.6);
     font-size: 20px;
     line-height: 1.4;
     font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
     @media only screen and (max-width: 1200px) {
-        html {
+        body {
             font-size: 16px;
         }
     }
     @media only screen and (max-width: 900px) {
-        html {
+        body {
             font-size: 12px;
         }
     }
     @media only screen and (max-width: 700px) {
-        html {
+        body {
             font-size: 8px;
         }
     }
     @media only screen and (max-width: 450px) {
-        html {
+        body {
             font-size: 4px;
         }
     }
-
-body {
-    background-color: #dcdcdc;
-    color: rgba(0,0,0,0.6);
-    margin: 0;
-    padding: 0;
-}
 
 img {
     vertical-align: middle;
@@ -116,7 +113,7 @@ input {
     .menu {
         display: inline-block;
         cursor: pointer;
-        opacity: 0.2;
+        opacity: 0.35;
     }
     .menu-icon {
         display: inline-block;
@@ -131,7 +128,7 @@ input {
         vertical-align: middle;
     }
     .menu:hover {
-        opacity: 0.5;
+        opacity: 0.65;
     }
 
 .settings {

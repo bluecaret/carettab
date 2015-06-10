@@ -13,5 +13,7 @@
 
   "chrome_url_overrides" : {
     "newtab": "carettab.htm"
-  }
+  },
+
+  "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'"
 }

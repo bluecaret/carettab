@@ -7,54 +7,191 @@
         <meta name="description" content="A Chrome New Tab Page replacement">
         <meta name="author" content="BlueCaret - http://bluecaret.com">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/fonts.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
-    <body>
+    <body class="animation-on">
 
-		<section id="wrapper">
+ 		<div id="wrapper">
+ 			<section id="content">
+		        <aside class="clock">
+		        	<time class="time fadein">
+			        	<span class="braces">{ </span><span class="hour">9</span><span class="time-divider">:</span><span class="minute">99</span><span class="time-divider second on">:</span><span class="second on">99</span><span class="braces"> }</span>
+		        	</time>
+		        	<time class="full-date fadein">
+			        	<span class="day">Wednesday</span>, <span class="month">September</span> <span class="date">99th</span>, <span class="year">9999</span>
+		        	</time>
+		        </aside>
+		        <aside class="search fadein">
+		        	<form id="search-form" method="get" action="https://www.google.com/search">
+		        		<input type="text" id="search-box" name="q" placeholder="search google" autofocus />
+		        		<button type="submit"><i class="flaticon-magnifying-glass32"></i></button>
+		        	</form>
+		        </aside>
+		        <aside class="quick-links fadein" style="display: none;">
+		        </aside>
+			</section>
+		</div>
 
-	        <aside class="search">
-	        	<form method="get" action="https://www.google.com/search">
-	        	<input type="text" name="q" placeholder="search google" autofocus>
-	        	</form>
-	        </aside>
+		<a href="#" id="settings-toggle" class="slideup">
+			<i class="flaticon-gears10"></i>
+		</a>
 
-	        <aside class="clock">
-	        	<time class="time" datetime="9999-99-99 99:99">
-		        	{ <span class="hour">99</span><span class="time-divider">:</span><span class="minute">99</span><span class="time-divider second on">:</span><span class="second on">99</span> }
-	        	</time>
-	        	<time class="full-date" datetime="9999-99-99 99:99">
-		        	<span class="day">Wednesday</span>, <span class="month">September</span> <span class="date">99th</span>, <span class="year">9999</span>
-	        	</time>
-	        </aside>
+		<div id="settings">
+			<div class="close" title="Close Settings Menu"><i class="flaticon-cancel30"></i></div>
+			<h1>Settings</h1>
+			<section class="settings-section">
+				<div class="section-theme">
+					<h2>Background Color</h2>
+					<div class="theme">
+						<div class="theme-options">
+							<div class="light1" title="Select Theme"></div>
+							<div class="light2" title="Select Theme"></div>
+							<div class="light3" title="Select Theme"></div>
+							<div class="dark1" title="Select Theme"></div>
+							<div class="dark2" title="Select Theme"></div>
+							<div class="dark3" title="Select Theme"></div>
+							<div class="red1" title="Select Theme"></div>
+							<div class="red2" title="Select Theme"></div>
+							<div class="red3" title="Select Theme"></div>
+							<div class="blue1" title="Select Theme"></div>
+							<div class="blue2" title="Select Theme"></div>
+							<div class="blue3" title="Select Theme"></div>
+							<div class="green1" title="Select Theme"></div>
+							<div class="green2" title="Select Theme"></div>
+							<div class="green3" title="Select Theme"></div>
+							<div class="purple1" title="Select Theme"></div>
+							<div class="purple2" title="Select Theme"></div>
+							<div class="purple3" title="Select Theme"></div>
+						</div>
 
-	        <aside class="menu-group">
-	        	<div class="menu">
-	        		<div class="menu-icon"></div>
-	        		<div class="menu-text">settings</div>
-	        	</div>
-	        </aside>
-
-			<aside class="settings" style="display: none;">
-				<div class="theme">
-					<div class="light" title="Select Light Theme"></div>
-					<div class="dark" title="Select Dark Theme"></div>
-					<div class="red" title="Select Red Theme"></div>
-					<div class="green" title="Select Green Theme"></div>
-					<div class="blue" title="Select Blue Theme"></div>
+						<!-- <div class="light on" title="Select Theme"></div>
+						<div class="dark" title="Select Theme"></div>
+						<div class="red" title="Select Theme"></div>
+						<div class="green" title="Select Theme"></div>
+						<div class="blue" title="Select Theme"></div> -->
+					</div>
 				</div>
-				<div class="icon toggle-seconds on" title="Toggle Seconds Display">&#128339;</div>
-				<div class="icon toggle-search on" title="Toggle Search Box">&#128270;</div>
-				<div class="icon close" title="Close Settings Menu">&#10005;</div>
-				<div class="credits">CaretTab by <a href="http://bluecaret.com">BlueCaret</a> &bullet; <a href="https://twitter.com/BlueCaret">@BlueCaret</a></div>
-			</aside>
-
-		</section>
+				<div class="section-text">
+					<h2>Text Color</h2>
+					<div class="toggle-switch" title="Toggle text color">
+						<div class="toggle-off">white</div>
+						<div class="toggle-on">black</div>
+						<input id="text-switch" class="switch" type="checkbox" checked="checked">
+						<label for="text-switch"></label>
+					</div>
+				</div>
+				<div class="section-time">
+					<h2>Time</h2>
+					<div class="toggle-switch" title="Toggle time display">
+						<div class="toggle-off">off</div>
+						<div class="toggle-on">on</div>
+						<input id="time-switch" class="switch" type="checkbox" checked="checked">
+						<label for="time-switch"></label>
+					</div>
+				</div>
+				<div class="section-seconds">
+					<h2>Seconds</h2>
+					<div class="toggle-switch" title="Toggle seconds display (only applies if time is on)">
+						<div class="toggle-off">off</div>
+						<div class="toggle-on">on</div>
+						<input id="seconds-switch" class="switch" type="checkbox" checked="checked">
+						<label for="seconds-switch"></label>
+					</div>
+				</div>
+				<div class="section-braces">
+					<h2>Curly Braces</h2>
+					<div class="toggle-switch" title="Toggle curly braces display (only applies if time is on)">
+						<div class="toggle-off">off</div>
+						<div class="toggle-on">on</div>
+						<input id="braces-switch" class="switch" type="checkbox" checked="checked">
+						<label for="braces-switch"></label>
+					</div>
+				</div>
+				<div class="section-date">
+					<h2>Date</h2>
+					<div class="toggle-switch" title="Toggle date display">
+						<div class="toggle-off">off</div>
+						<div class="toggle-on">on</div>
+						<input id="date-switch" class="switch" type="checkbox" checked="checked">
+						<label for="date-switch"></label>
+					</div>
+				</div>
+				<div class="section-search">
+					<h2>Search</h2>
+					<div class="toggle-switch" title="Toggle search box display">
+						<div class="toggle-off">off</div>
+						<div class="toggle-on">on</div>
+						<input id="search-switch" class="switch" type="checkbox" checked="checked">
+						<label for="search-switch"></label>
+					</div>
+				</div>
+				<div class="section-engine">
+					<h2>Search Engine</h2>
+					<div class="toggle-switch" title="Toggle search engine (only applies if search is on)">
+						<div class="toggle-off">Bing</div>
+						<div class="toggle-on">Google</div>
+						<input id="engine-switch" class="switch" type="checkbox" checked="checked">
+						<label for="engine-switch"></label>
+					</div>
+				</div>
+				<div class="section-animation">
+					<h2>Intro Animation</h2>
+					<div class="toggle-switch" title="Toggle the animation that is shown when the tab is loaded">
+						<div class="toggle-off">off</div>
+						<div class="toggle-on">on</div>
+						<input id="animation-switch" class="switch" type="checkbox" checked="checked">
+						<label for="animation-switch"></label>
+					</div>
+				</div>
+				<div class="section-links">
+					<h2>Quick Links [beta]</h2>
+					<div class="toggle-switch" title="Toggle the animation that is shown when the tab is loaded">
+						<div class="toggle-off">off</div>
+						<div class="toggle-on">on</div>
+						<input id="links-switch" class="switch" type="checkbox">
+						<label for="links-switch"></label>
+					</div>
+				</div>
+				<div class="section-urls" style="display: none;">
+					<h2>Configure Links [beta]</h2>
+					<div class="section-link1">
+						<div class="link-label">1</div>
+						<input type="text" id="url-link1" placeholder="http://">
+						<a href="#" class="save-link save-link1"><i class="flaticon-save29"></i></a>
+					</div>
+					<div class="section-link2">
+						<div class="link-label">2</div>
+						<input type="text" id="url-link2" placeholder="http://">
+						<a href="#" class="save-link save-link2"><i class="flaticon-save29"></i></a>
+					</div>
+					<div class="section-link3">
+						<div class="link-label">3</div>
+						<input type="text" id="url-link3" placeholder="http://">
+						<a href="#" class="save-link save-link3"><i class="flaticon-save29"></i></a>
+					</div>
+					<div class="section-link4">
+						<div class="link-label">4</div>
+						<input type="text" id="url-link4" placeholder="http://">
+						<a href="#" class="save-link save-link4"><i class="flaticon-save29"></i></a>
+					</div>
+				</div>
+			</section>
+			<h1>Credits</h1>
+			<section class="settings-section">
+				<div class="credits">
+					<p>
+						CaretTab is designed and coded by <a href="http://bluecaret.com">BlueCaret</a> <small>(Follow <a href="https://twitter.com/BlueCaret">@BlueCaret</a>)</small> and is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
+					</p>
+					<p>
+						<small>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, <a href="http://www.flaticon.com/authors/egor-rumyantsev" title="Egor Rumyantsev">Egor Rumyantsev</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></small>
+					</p>
+				</div>
+			</section>
+		</div>
 
 
         <script src="js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="js/vendor/jquery.color.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

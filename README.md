@@ -8,7 +8,7 @@ CaretTab is a simple New Tab page replacement for Google Chrome.
 - Customize everything! Toggle the time, seconds, date, search, animation and more.
 - Theme selection. Choose from a handful of different background colors.
 
-Have any suggesetions? Let me know on Twitter @BlueCaret
+Have any suggestions? Let me know on Twitter @BlueCaret
 
 ## Changelog
 

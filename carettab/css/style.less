@@ -47,6 +47,64 @@ h1, h2, h3 {
     font-weight: 100;
 }
 
+.updated, .installed {
+    position: fixed;
+    bottom: 40px;
+    width: 200px;
+    text-align: center;
+    right: 40px;
+    background: #71A1DE;
+    color: #fff;
+    border-radius: 35px;
+    border-bottom-right-radius: 0;
+    z-index: 9999;
+    padding: 1rem;
+    h1 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 0 1rem 1rem;
+    }
+    p {
+        font-size: 0.8rem;
+    }
+    a {
+        color:#fff;
+        text-decoration: underline;
+    }
+    .status-x {
+        position: absolute;
+        top: 0.6rem;
+        right: 1.2rem;
+        cursor: pointer;
+        &:hover, &:focus {
+            opacity: 0.7;
+        }
+        .flaticon-cancel30:before {
+            font-size: 0.9rem;
+        }
+    }
+    @media only screen and (min-width: @sm) {
+        width: 340px;
+        border-radius: 35px;
+        border-bottom-right-radius: 0;
+        padding: 1rem;
+        h1 {
+            font-size: 1.1rem;
+            margin: 0 1rem 1rem;
+        }
+        p {
+            font-size: 1rem;
+        }
+        .status-x {
+            top: 0.6rem;
+            right: 1.2rem;
+            .flaticon-cancel30:before {
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
 #wrapper {
     position: absolute;
     top: 0; bottom: 0; left: 0; right: 0;
@@ -164,8 +222,14 @@ time {
         position: relative;
         opacity: 0.5;
         transition: opacity 0.3s ease;
+        overflow: hidden;
+        color: #000;
+        line-height: 0.8;
+        font-size: 90px;
+        text-decoration: none;
         &:hover {
             opacity: 1;
+            color: #000;
         }
         img {
             width: 32px;
@@ -180,6 +244,7 @@ time {
         a.link {
             width: 70px;
             height: 70px;
+            font-size: 70px;
         }
     }
     @media only screen and (max-width: @md) {
@@ -187,12 +252,14 @@ time {
             width: 58px;
             height: 58px;
             border-width: 2px;
+            font-size: 58px;
         }
     }
     @media only screen and (max-width: @sm) {
         a.link {
             width: 32px;
             height: 32px;
+            font-size: 32px;
             margin-top: 2em;
             img {
                 width: 16px;
@@ -205,6 +272,7 @@ time {
         a.link {
             width: 26px;
             height: 26px;
+            font-size: 26px;
             border-width: 0px;
         }
     }
@@ -576,6 +644,7 @@ body {
         transform: translateY(0%);
     }   
 }
+
 // .menu-group {
 //     margin: 0.2em auto 0.2em auto;
 //     position: fixed;

@@ -3,9 +3,9 @@
  
   "name": "CaretTab - New Tab Page",
   "short_name": "CaretTab",
-  "description": "A simple New Tab Page replacement which provides the time and a Google search bar, and customization options.",
-  "version": "0.1.1",
-  "version_name": "0.1.1 Alpha",
+  "description": "A simple New Tab Page replacement which provides the time, date, search bar, and customization options.",
+  "version": "0.2.0",
+  "version_name": "0.2.0 Beta",
 
   "icons": { "16": "img/icon16.png",
              "48": "img/icon48.png",
@@ -13,5 +13,10 @@
 
   "chrome_url_overrides" : {
     "newtab": "carettab.htm"
+  },
+  
+  "background": {
+    "scripts": ["js/update.js"],
+    "persistent": false
   }
 }

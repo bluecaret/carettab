@@ -1,4 +1,14 @@
+
 jQuery(function($){
+
+	var getStatus = localStorage.getItem('caretTabStatus');
+	if (getStatus == "installed") {
+        $('.installed').delay(1500).show(0);
+        localStorage.setItem('caretTabStatus','current');
+	} else if (getStatus == "updated") {
+        $('.updated').delay(1500).show(0);
+        localStorage.setItem('caretTabStatus','current');
+	}
 
 	var getTime = localStorage.getItem('toggleTime');
 	if (getTime == "off") {
@@ -8,7 +18,7 @@ jQuery(function($){
 		$('#time-switch').attr('Checked','Checked');
 		$('.time').show();
 	}
-
+    
 	if ($('.time').is(":visible")) {
 		$('.section-seconds').show();
 		var getSeconds = localStorage.getItem('toggleSeconds');
@@ -146,7 +156,7 @@ function update_time() {
     }
 
     setTimeout(update_time, 500);
-    clearTimeout();
+    clearTimeout(update_time);
 };
 
 function update_date() { 
@@ -161,8 +171,15 @@ function update_date() {
     $('.year').text(dt.getFullYear());
 
     setTimeout(update_date, 60000);
-    clearTimeout();
+    clearTimeout(update_date);
 };
+
+$('.carettab-status').click(function() { 
+    $('.carettab-status').fadeOut();
+});   
+$('.carettab-status').click(function() { 
+    $('.carettab-status').fadeOut();
+});   
 
 
 $('#time-switch').click(function() {
@@ -339,7 +356,9 @@ $('.save-link4').click(function() {
 });
 
 $('#settings-toggle').click(function() {
+	$('#settings-toggle').blur();
 	$('#settings').toggleClass("on");
+    $('.carettab-status').fadeOut();
 });
 $('.close').click(function() {
 	$('#settings').toggleClass("on");
@@ -363,10 +382,11 @@ function processLinkOne() {
 		localStorage.removeItem('linkOne');
 	} else {
 		$('.link1').remove();
-		var icon = 'http://grabicon.com/icon?domain='+link+'&size=32&origin=bluecaret.com';
+		//var icon = 'http://grabicon.com/icon?domain='+link+'&size=32&origin=bluecaret.com';
 		localStorage.removeItem('linkOne');
 		localStorage.setItem('linkOne',link);
-		var html = "<a href='"+link+"' class='link link1'><img src='"+icon+"'></a>";
+		//var html = "<a href='"+link+"' class='link link1'><img src='"+icon+"'></a>";
+		var html = "<a href='"+link+"' class='link link1'>1</a>";
 		$('.quick-links').append(html);
 	}
 }
@@ -378,10 +398,11 @@ function processLinkTwo() {
 		localStorage.removeItem('linkTwo');
 	} else {
 		$('.link2').remove();
-		var icon = 'http://grabicon.com/icon?domain='+link+'&size=32&origin=bluecaret.com';
+		// var icon = 'http://grabicon.com/icon?domain='+link+'&size=32&origin=bluecaret.com';
 		localStorage.removeItem('linkTwo');
 		localStorage.setItem('linkTwo',link);
-		var html = "<a href='"+link+"' class='link link2'><img src='"+icon+"'></a>";
+		// var html = "<a href='"+link+"' class='link link2'><img src='"+icon+"'></a>";
+		var html = "<a href='"+link+"' class='link link2'>2</a>";
 		$('.quick-links').append(html);
 	}
 }
@@ -393,10 +414,11 @@ function processLinkThree() {
 		localStorage.removeItem('linkThree');
 	} else {
 		$('.link3').remove();
-		var icon = 'http://grabicon.com/icon?domain='+link+'&size=32&origin=bluecaret.com';
+		// var icon = 'http://grabicon.com/icon?domain='+link+'&size=32&origin=bluecaret.com';
 		localStorage.removeItem('linkThree');
 		localStorage.setItem('linkThree',link);
-		var html = "<a href='"+link+"' class='link link3'><img src='"+icon+"'></a>";
+		// var html = "<a href='"+link+"' class='link link3'><img src='"+icon+"'></a>";
+		var html = "<a href='"+link+"' class='link link3'>3</a>";
 		$('.quick-links').append(html);
 	}
 }
@@ -408,10 +430,11 @@ function processLinkFour() {
 		localStorage.removeItem('linkFour');
 	} else {
 		$('.link4').remove();
-		var icon = 'http://grabicon.com/icon?domain='+link+'&size=32&origin=bluecaret.com';
+		// var icon = 'http://grabicon.com/icon?domain='+link+'&size=32&origin=bluecaret.com';
 		localStorage.removeItem('linkFour');
 		localStorage.setItem('linkFour',link);
-		var html = "<a href='"+link+"' class='link link4'><img src='"+icon+"'></a>";
+		// var html = "<a href='"+link+"' class='link link4'><img src='"+icon+"'></a>";
+		var html = "<a href='"+link+"' class='link link4'>5</a>";
 		$('.quick-links').append(html);
 	}
 }

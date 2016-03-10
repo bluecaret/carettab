@@ -1,6 +1,8 @@
 # CaretTab
 CaretTab is a simple New Tab page replacement for Google Chrome.
 
+For more information visit the [CaretTab project page](http://bluecaret.com/project/carettab)
+
 Get CaretTab from the [Chrome Web Store](https://chrome.google.com/webstore/detail/carettab-new-tab-page/cojpndognjdcakkimaloeealehpkljna?hl=en-US)
 
 ## Features

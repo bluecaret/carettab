@@ -1,6 +1,8 @@
 # CaretTab
 CaretTab is a simple New Tab page replacement for Google Chrome.
 
+Get CaretTab from the [Chrome Web Store](https://chrome.google.com/webstore/detail/carettab-new-tab-page/cojpndognjdcakkimaloeealehpkljna?hl=en-US)
+
 ## Features
 - Displays time on the page and in the tab.
 - Search Google/Bing from new tab page.

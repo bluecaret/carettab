@@ -192,7 +192,8 @@ $('#time-switch').click(function() {
 		$('.time').slideDown();
 		$('.section-seconds').slideDown();
 		$('.section-braces').slideDown();
-		store.remove('toggleTime');
+		var toggleTime = "on";
+		store.set('toggleTime',toggleTime);
 		$('#time-switch').attr('Checked','Checked');
 		update_time();
 	} else {
@@ -201,7 +202,6 @@ $('#time-switch').click(function() {
 		$('.section-seconds').slideUp();
 		$('.section-braces').slideUp();
 		var toggleTime = "off";
-		store.remove('toggleTime');
 		store.set('toggleTime',toggleTime);
 		$('#time-switch').removeAttr('Checked');
 	}
@@ -211,13 +211,13 @@ $('#seconds-switch').click(function() {
 	if ($('#seconds-switch').is(':checked')) {
 		$('.full-date').removeClass('sm');
 		$('.second').show();
-		store.remove('toggleSeconds');
+		var toggleSeconds = "on";
+		store.set('toggleSeconds',toggleSeconds);
 		$('#seconds-switch').attr('Checked','Checked');
 	} else {
 		$('.full-date').addClass('sm');
 		$('.second').hide();
 		var toggleSeconds = "off";
-		store.remove('toggleSeconds');
 		store.set('toggleSeconds',toggleSeconds);
 		$('#seconds-switch').removeAttr('Checked');
 	}
@@ -226,12 +226,12 @@ $('#seconds-switch').click(function() {
 $('#braces-switch').click(function() {
 	if ($('#braces-switch').is(':checked')) {
 		$('.braces').show();
-		store.remove('toggleBraces');
+		var toggleBraces = "on";
+		store.set('toggleBraces',toggleBraces);
 		$('#braces-switch').attr('Checked','Checked');
 	} else {
 		$('.braces').hide();
 		var toggleBraces = "off";
-		store.remove('toggleBraces');
 		store.set('toggleBraces',toggleBraces);
 		$('#braces-switch').removeAttr('Checked');
 	}
@@ -240,13 +240,13 @@ $('#braces-switch').click(function() {
 $('#date-switch').click(function() {
 	if ($('#date-switch').is(':checked')) {
 		$('.full-date').slideDown();
-		store.remove('toggleDate');
+		var toggleDate = "on";
+		store.set('toggleDate',toggleDate);
 		$('#date-switch').attr('Checked','Checked');
 		update_date();
 	} else {
 		$('.full-date').slideUp();
 		var toggleDate = "off";
-		store.remove('toggleDate');
 		store.set('toggleDate',toggleDate);
 		$('#date-switch').removeAttr('Checked');
 	}
@@ -256,13 +256,13 @@ $('#search-switch').click(function() {
 	if ($('#search-switch').is(':checked')) {
 		$('.search').slideDown();
 		$('.section-engine').slideDown();
-		store.remove('toggleSearch');
+		var toggleSearch = "on";
+		store.set('toggleSearch',toggleSearch);
 		$('#search-switch').attr('Checked','Checked');
 	} else {
 		$('.search').slideUp();
 		$('.section-engine').slideUp();
 		var toggleSearch = "off";
-		store.remove('toggleSearch');
 		store.set('toggleSearch',toggleSearch);
 		$('#search-switch').removeAttr('Checked');
 	}
@@ -272,13 +272,13 @@ $('#engine-switch').click(function() {
 	if ($('#engine-switch').is(':checked')) {
 		$('#search-form').attr('action', 'https://www.google.com/search');
 		$('#search-box').attr('placeholder', 'search google');
-		store.remove('toggleEngine');
+		var toggleEngine = "google";
+		store.set('toggleEngine',toggleEngine);
 		$('#engine-switch').attr('Checked','Checked');
 	} else {
 		$('#search-form').attr('action', 'http://www.bing.com/search');
 		$('#search-box').attr('placeholder', 'search bing');
 		var toggleEngine = "bing";
-		store.remove('toggleEngine');
 		store.set('toggleEngine',toggleEngine);
 		$('#engine-switch').removeAttr('Checked');
 	}
@@ -287,12 +287,12 @@ $('#engine-switch').click(function() {
 $('#animation-switch').click(function() {
 	if ($('#animation-switch').is(':checked')) {
 		$('body').addClass("animation-on");
-		store.remove('toggleAnimation');
+		var toggleAnimation = "on";
+		store.set('toggleAnimation',toggleAnimation);
 		$('#animation-switch').attr('Checked','Checked');
 	} else {
 		$('body').removeClass("animation-on");
 		var toggleAnimation = "off";
-		store.remove('toggleAnimation');
 		store.set('toggleAnimation',toggleAnimation);
 		$('#animation-switch').removeAttr('Checked');
 	}
@@ -325,14 +325,12 @@ $('#links-switch').click(function() {
 		$('.quick-links').slideDown();
 		$('.section-urls').slideDown();
 		var toggleLinks = "on";
-		store.remove('toggleLinks');
 		store.set('toggleLinks',toggleLinks);
 		$('#links-switch').attr('Checked','Checked');
 	} else {
 		$('.quick-links').slideUp();
 		$('.section-urls').slideUp();
 		var toggleLinks = "off";
-		store.remove('toggleLinks');
 		store.set('toggleLinks',toggleLinks);
 		$('#links-switch').removeAttr('Checked');
 	}
@@ -378,11 +376,10 @@ function processLinkOne() {
 	var link = $("#url-link1").val();
 	if (link == "") {
 		$('.link1').remove();
-		store.remove('linkOne');
+		store.set('linkOne','');
 	} else {
 		$('.link1').remove();
 		//var icon = 'http://grabicon.com/icon?domain='+link+'&size=32&origin=bluecaret.com';
-		store.remove('linkOne');
 		store.set('linkOne',link);
 		//var html = "<a href='"+link+"' class='link link1'><img src='"+icon+"'></a>";
 		var html = "<a href='"+link+"' class='link link1'>1</a>";
@@ -394,11 +391,10 @@ function processLinkTwo() {
 	var link = $("#url-link2").val();
 	if (link == "") {
 		$('.link2').remove();
-		store.remove('linkTwo');
+		store.set('linkTwo','');
 	} else {
 		$('.link2').remove();
 		// var icon = 'http://grabicon.com/icon?domain='+link+'&size=32&origin=bluecaret.com';
-		store.remove('linkTwo');
 		store.set('linkTwo',link);
 		// var html = "<a href='"+link+"' class='link link2'><img src='"+icon+"'></a>";
 		var html = "<a href='"+link+"' class='link link2'>2</a>";
@@ -410,11 +406,10 @@ function processLinkThree() {
 	var link = $("#url-link3").val();
 	if (link == "") {
 		$('.link3').remove();
-		store.remove('linkThree');
+		store.set('linkThree','');
 	} else {
 		$('.link3').remove();
 		// var icon = 'http://grabicon.com/icon?domain='+link+'&size=32&origin=bluecaret.com';
-		store.remove('linkThree');
 		store.set('linkThree',link);
 		// var html = "<a href='"+link+"' class='link link3'><img src='"+icon+"'></a>";
 		var html = "<a href='"+link+"' class='link link3'>3</a>";
@@ -426,11 +421,10 @@ function processLinkFour() {
 	var link = $("#url-link4").val();
 	if (link == "") {
 		$('.link4').remove();
-		store.remove('linkFour');
+		store.set('linkFour','');
 	} else {
 		$('.link4').remove();
 		// var icon = 'http://grabicon.com/icon?domain='+link+'&size=32&origin=bluecaret.com';
-		store.remove('linkFour');
 		store.set('linkFour',link);
 		// var html = "<a href='"+link+"' class='link link4'><img src='"+icon+"'></a>";
 		var html = "<a href='"+link+"' class='link link4'>5</a>";
@@ -524,6 +518,7 @@ function currentTheme() {
 		color	= light;
 		$('.theme-options > div').removeClass("on");
 		$(themeClass).addClass("on");
+        console.log(color + "selected");
 	}
 	else if (getTheme == "dark") {
 		color	= dark;
@@ -636,9 +631,9 @@ function currentTheme() {
 		$(themeClass).addClass("on");
 	}
 	else {
-		color	= light1;
+		color	= light;
 		$('.theme-options > div').removeClass("on");
-		$(".light1").addClass("on");
+		$(".light").addClass("on");
 	}
 	return color;
 }
@@ -665,22 +660,21 @@ $('.theme-options > div').click(function() {
 	var selectedTheme = $(this).attr("class");
 	$('.theme-options > div').removeClass("on");
 	$(this).addClass("on");
-	store.remove('theme');
 	store.set('theme',selectedTheme);
 	processColor();
 });
 
 $('#text-switch').click(function() {
 	if ($('#text-switch').is(':checked')) {
+		var toggleText = "black";
 		$('body').removeClass("text-white");
 		$('body').addClass("text-black");
-		store.remove('toggleText');
+		store.set('toggleText',toggleText);
 		$('#text-switch').attr('Checked','Checked');
 	} else {
 		var toggleText = "white";
 		$('body').removeClass("text-black");
 		$('body').addClass("text-white");
-		store.remove('toggleText');
 		store.set('toggleText',toggleText);
 		$('#text-switch').removeAttr('Checked');
 	}

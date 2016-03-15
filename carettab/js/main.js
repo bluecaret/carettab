@@ -85,42 +85,6 @@ jQuery(function($){
 		$('body').addClass("animation-on");
 	}
 
-	var getLinks = store.get('toggleLinks');
-	if (getLinks == "on") {
-		$('#links-switch').attr('Checked','Checked');
-		$('.quick-links').show();
-		$('.section-urls').show();
-	} else {
-		$('#links-switch').removeAttr('Checked');
-		$('.quick-links').hide();
-		$('.section-urls').hide();
-	}
-
-	if (getLinks == "on") {
-		var getLinkOne = store.get('linkOne');
-		if (getLinkOne != "" && getLinkOne != null) {
-			$("#url-link1").val(getLinkOne);
-			processLinkOne();
-		}
-		var getLinkTwo = store.get('linkTwo');
-		if (getLinkTwo != "" && getLinkTwo != null) {
-			$("#url-link2").val(getLinkTwo);
-			processLinkTwo();
-		}
-
-		var getLinkThree = store.get('linkThree');
-		if (getLinkThree != "" && getLinkThree != null) {
-			$("#url-link3").val(getLinkThree);
-			processLinkThree();
-		}
-
-		var getLinkFour = store.get('linkFour');
-		if (getLinkFour != "" && getLinkFour != null) {
-			$("#url-link4").val(getLinkFour);
-			processLinkFour();
-		}
-	}
-
 	if ($('.time').is(":visible")) {
 	    update_time();
 	}
@@ -298,60 +262,6 @@ $('#animation-switch').click(function() {
 	}
 });
 
-$('#links-switch').click(function() {
-	if ($('#links-switch').is(':checked')) {
-		var getLinkOne = store.get('linkOne');
-		if (getLinkOne != "" && getLinkOne != null) {
-			$("#url-link1").val(getLinkOne);
-			processLinkOne();
-		}
-		var getLinkTwo = store.get('linkTwo');
-		if (getLinkTwo != "" && getLinkTwo != null) {
-			$("#url-link2").val(getLinkTwo);
-			processLinkTwo();
-		}
-
-		var getLinkThree = store.get('linkThree');
-		if (getLinkThree != "" && getLinkThree != null) {
-			$("#url-link3").val(getLinkThree);
-			processLinkThree();
-		}
-
-		var getLinkFour = store.get('linkFour');
-		if (getLinkFour != "" && getLinkFour != null) {
-			$("#url-link4").val(getLinkFour);
-			processLinkFour();
-		}
-		$('.quick-links').slideDown();
-		$('.section-urls').slideDown();
-		var toggleLinks = "on";
-		store.set('toggleLinks',toggleLinks);
-		$('#links-switch').attr('Checked','Checked');
-	} else {
-		$('.quick-links').slideUp();
-		$('.section-urls').slideUp();
-		var toggleLinks = "off";
-		store.set('toggleLinks',toggleLinks);
-		$('#links-switch').removeAttr('Checked');
-	}
-});
-
-$('.save-link1').click(function() {
-	processLinkOne();
-});
-
-$('.save-link2').click(function() {
-	processLinkTwo();
-});
-
-$('.save-link3').click(function() {
-	processLinkThree();
-});
-
-$('.save-link4').click(function() {
-	processLinkFour();
-});
-
 $('#settings-toggle').click(function() {
 	$('#settings-toggle').blur();
 	$('#settings').toggleClass("on");
@@ -370,68 +280,6 @@ $(document).mouseup(function (e) {
 	    }
     }
 });
-
-
-function processLinkOne() {
-	var link = $("#url-link1").val();
-	if (link == "") {
-		$('.link1').remove();
-		store.set('linkOne','');
-	} else {
-		$('.link1').remove();
-		//var icon = 'http://grabicon.com/icon?domain='+link+'&size=32&origin=bluecaret.com';
-		store.set('linkOne',link);
-		//var html = "<a href='"+link+"' class='link link1'><img src='"+icon+"'></a>";
-		var html = "<a href='"+link+"' class='link link1'>1</a>";
-		$('.quick-links').append(html);
-	}
-}
-
-function processLinkTwo() {
-	var link = $("#url-link2").val();
-	if (link == "") {
-		$('.link2').remove();
-		store.set('linkTwo','');
-	} else {
-		$('.link2').remove();
-		// var icon = 'http://grabicon.com/icon?domain='+link+'&size=32&origin=bluecaret.com';
-		store.set('linkTwo',link);
-		// var html = "<a href='"+link+"' class='link link2'><img src='"+icon+"'></a>";
-		var html = "<a href='"+link+"' class='link link2'>2</a>";
-		$('.quick-links').append(html);
-	}
-}
-
-function processLinkThree() {
-	var link = $("#url-link3").val();
-	if (link == "") {
-		$('.link3').remove();
-		store.set('linkThree','');
-	} else {
-		$('.link3').remove();
-		// var icon = 'http://grabicon.com/icon?domain='+link+'&size=32&origin=bluecaret.com';
-		store.set('linkThree',link);
-		// var html = "<a href='"+link+"' class='link link3'><img src='"+icon+"'></a>";
-		var html = "<a href='"+link+"' class='link link3'>3</a>";
-		$('.quick-links').append(html);
-	}
-}
-
-function processLinkFour() {
-	var link = $("#url-link4").val();
-	if (link == "") {
-		$('.link4').remove();
-		store.set('linkFour','');
-	} else {
-		$('.link4').remove();
-		// var icon = 'http://grabicon.com/icon?domain='+link+'&size=32&origin=bluecaret.com';
-		store.set('linkFour',link);
-		// var html = "<a href='"+link+"' class='link link4'><img src='"+icon+"'></a>";
-		var html = "<a href='"+link+"' class='link link4'>5</a>";
-		$('.quick-links').append(html);
-	}
-}
-
 
 
 

@@ -439,24 +439,6 @@ function processLinkFour() {
    Theme Options
    ========================================================================== */
 
-var theme = {
-	light1:"#ffffff",
-	light2:"#dcdcdc",
-	light3:"#b7b7b7",
-	dark1:"#787878",
-	dark2:"#595959",
-	dark3:"#373737",
-	dark4:"#000000",
-	red1:"#fcd8cd",
-	red2:"#f76262",
-	red3:"#6f0e00",
-	light:"#dcdcdc",
-	dark:"#444444",
-	red:"#963636",
-	green:"#548C57",
-	blue:"#1688DA",
-};
-
 var light1 = "#ffffff";
 var light2 = "#D6D6D6";
 var light3 = "#5B6677";
@@ -631,9 +613,9 @@ function currentTheme() {
 		$(themeClass).addClass("on");
 	}
 	else {
-		color	= light;
+		color	= light1;
 		$('.theme-options > div').removeClass("on");
-		$(".light").addClass("on");
+		$(".light1").addClass("on");
 	}
 	return color;
 }
@@ -658,8 +640,6 @@ function processColor() {
 
 $('.theme-options > div').click(function() {
 	var selectedTheme = $(this).attr("class");
-	$('.theme-options > div').removeClass("on");
-	$(this).addClass("on");
 	store.set('theme',selectedTheme);
 	processColor();
 });

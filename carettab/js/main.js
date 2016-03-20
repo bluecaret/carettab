@@ -47,12 +47,46 @@ jQuery(function($){
 		$('.section-braces').hide();
 	}
 
-    // Populate timezone select menu
-    var timezoneSelect1 = document.getElementById("timezone1-zone");
-    var timezoneSelect2 = document.getElementById("timezone2-zone");
-    processTimezones(timezoneSelect1);
-    processTimezones(timezoneSelect2);
-    
+	var getDate = store.get('toggleDate');
+	if (getDate == "off") {
+		$('#date-switch').removeAttr('Checked');
+		$('.full-date').hide();
+	} else {
+		$('#date-switch').attr('Checked','Checked');
+		$('.full-date').show();
+	}
+
+	var getSearch = store.get('toggleSearch');
+	if (getSearch == "off") {
+		$('#search-switch').removeAttr('Checked');
+		$('.search').hide();
+		$('.section-engine').hide();
+	} else {
+		$('#search-switch').attr('Checked','Checked');
+		$('.search').show();
+		$('.section-engine').show();
+	}
+
+	var getEngine = store.get('toggleEngine');
+	if (getEngine == "bing") {
+		$('#engine-switch').removeAttr('Checked');
+		$('#search-form').attr('action', 'http://www.bing.com/search');
+		$('#search-box').attr('placeholder', 'search bing');
+	} else {
+		$('#engine-switch').attr('Checked','Checked');
+		$('#search-form').attr('action', 'https://www.google.com/search');
+		$('#search-box').attr('placeholder', 'search google');
+	}
+
+	var getAnimation = store.get('toggleAnimation');
+	if (getAnimation == "off") {
+		$('#animation-switch').removeAttr('Checked');
+		$('body').removeClass("animation-on");
+	} else {
+		$('#animation-switch').attr('Checked','Checked');
+		$('body').addClass("animation-on");
+	}
+   
     $(".current-timezone").text(moment.tz.guess());
     
     // Show/Hide First Timezone
@@ -96,50 +130,8 @@ jQuery(function($){
         // $('#timezone2-zone > option:eq('+getSecondTimezoneZone+')').prop('selected', true);
         $('.zone2 .label').text(getSecondTimezoneLabel);
         $('#timezone2-label').val(getSecondTimezoneLabel);
-        console.log(getSecondTimezoneZone);
-        console.log($('[name="timezone2-zone"]').val());
     }
     
-	var getDate = store.get('toggleDate');
-	if (getDate == "off") {
-		$('#date-switch').removeAttr('Checked');
-		$('.full-date').hide();
-	} else {
-		$('#date-switch').attr('Checked','Checked');
-		$('.full-date').show();
-	}
-
-	var getSearch = store.get('toggleSearch');
-	if (getSearch == "off") {
-		$('#search-switch').removeAttr('Checked');
-		$('.search').hide();
-		$('.section-engine').hide();
-	} else {
-		$('#search-switch').attr('Checked','Checked');
-		$('.search').show();
-		$('.section-engine').show();
-	}
-
-	var getEngine = store.get('toggleEngine');
-	if (getEngine == "bing") {
-		$('#engine-switch').removeAttr('Checked');
-		$('#search-form').attr('action', 'http://www.bing.com/search');
-		$('#search-box').attr('placeholder', 'search bing');
-	} else {
-		$('#engine-switch').attr('Checked','Checked');
-		$('#search-form').attr('action', 'https://www.google.com/search');
-		$('#search-box').attr('placeholder', 'search google');
-	}
-
-	var getAnimation = store.get('toggleAnimation');
-	if (getAnimation == "off") {
-		$('#animation-switch').removeAttr('Checked');
-		$('body').removeClass("animation-on");
-	} else {
-		$('#animation-switch').attr('Checked','Checked');
-		$('body').addClass("animation-on");
-	}
-
 	if ($('.time').is(":visible")) {
 	    update_time();
 	}
@@ -210,17 +202,6 @@ function update_timezoneTwo() {
     setTimeout(update_timezoneTwo, 500);
     clearTimeout(update_timezoneTwo);
 };
-
-function processTimezones(timezoneSelect) {
-    
-    for(var i = 0; i < moment.tz.names().length; i++) {
-        var opt = moment.tz.names()[i];
-        var el = document.createElement("option");
-        el.textContent = opt;
-        el.value = opt;
-        timezoneSelect.appendChild(el);
-    }
-}
 
 
 function update_date() { 
@@ -503,7 +484,6 @@ function currentTheme() {
 		color	= light;
 		$('.theme-options > div').removeClass("on");
 		$(themeClass).addClass("on");
-        console.log(color + "selected");
 	}
 	else if (getTheme == "dark") {
 		color	= dark;

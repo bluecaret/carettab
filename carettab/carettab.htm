@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>CaretTab</title>
+        <title>New Tab</title>
         <meta name="description" content="A Chrome New Tab Page replacement">
         <meta name="author" content="BlueCaret - http://bluecaret.com">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,6 +38,16 @@
 		        		<button type="submit"><i class="flaticon-magnifying-glass32"></i></button>
 		        	</form>
 		        </aside>
+		        <aside class="timezones fadein">
+                    <div class="zone1 zone">
+                        <div class="label">Secondary Clock</div>
+                        <span class="tztime">99:99</span><span class="meridiem">am</span>
+                    </div>
+                    <div class="zone2 zone">
+                        <div class="label">Tertiary Clock</div>
+                        <span class="tztime">99:99</span><span class="meridiem">am</span>
+                    </div>
+		        </aside>
 			</section>
 		</div>
 
@@ -47,7 +57,7 @@
 
 		<div id="settings">
 			<div class="close" title="Close Settings Menu"><i class="flaticon-cancel30"></i></div>
-			<h1>Settings</h1>
+			<h1>CaretTab Settings</h1>
 			<section class="settings-section">
 				<div class="section-theme">
 					<h2>Background Color</h2>
@@ -116,6 +126,40 @@
 						<label for="braces-switch"></label>
 					</div>
 				</div>
+				<div class="section-timezone1 section-timezones">
+					<h2>Enable 2nd Clock</h2>
+					<div class="toggle-switch" title="Toggle display of 2nd clock (only applies if time is on)">
+						<div class="toggle-off">off</div>
+						<div class="toggle-on">on</div>
+						<input id="timezone1-switch" class="switch" type="checkbox">
+						<label for="timezone1-switch"></label>
+					</div>
+                    <div class="timezone1-settings timezone-settings" style="display:none;">
+                        <label for="timezone1-zone">TIMEZONE*</label>
+                        <select name="timezone1-zone" id="timezone1-zone">
+                        </select>
+                        <label for="timezone1-label">LABEL</label>
+                        <input type="text" id="timezone1-label">
+                        <label style="margin-bottom:10px">*Note that display of additional timezones is based on the timezone your computer is set to. The detection of your current timezone is pretty much an educated guess and may not reflect your actual timezone, thus causing the additional timezones time to be off. Currently CaretTab is detecting your current timezone to be: "<span class="current-timezone"></span>"</label>
+                    </div>
+				</div>
+				<div class="section-timezone2 section-timezones">
+					<h2>Enable 3rd Clock</h2>
+					<div class="toggle-switch" title="Toggle display of 3rd clock (only applies if time is on)">
+						<div class="toggle-off">off</div>
+						<div class="toggle-on">on</div>
+						<input id="timezone2-switch" class="switch" type="checkbox">
+						<label for="timezone2-switch"></label>
+					</div>
+                    <div class="timezone2-settings timezone-settings" style="display:none;">
+                        <label for="timezone2-zone">TIMEZONE*</label>
+                        <select name="timezone2-zone" id="timezone2-zone">
+                        </select>
+                        <label for="timezone2-label">LABEL</label>
+                        <input type="text" id="timezone2-label">
+                        <label style="margin-bottom:10px">*Note that display of additional timezones is based on the timezone your computer is set to. The detection of your current timezone is pretty much an educated guess and may not reflect your actual timezone, thus causing the additional timezones time to be off. Currently CaretTab is detecting your current timezone to be: "<span class="current-timezone"></span>"</label>
+                    </div>
+				</div>
 				<div class="section-date">
 					<h2>Date</h2>
 					<div class="toggle-switch" title="Toggle date display">
@@ -162,6 +206,7 @@
 					<p>
 						<small>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, <a href="http://www.flaticon.com/authors/egor-rumyantsev" title="Egor Rumyantsev">Egor Rumyantsev</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></small>
 					</p>
+                    <p><small>CaretTab will not be liable for any issues that may arrise due to the accuracy of this extension. If you're late to work because the time shown was wrong, it's all on you.</small></p>
 				</div>
 			</section>
 		</div>
@@ -170,6 +215,8 @@
         <script src="js/vendor/store.old.js"></script>
         <script src="js/vendor/jquery-2.2.1.min.js"></script>
         <script src="js/vendor/jquery.color.js"></script>
+        <script src="js/vendor/moment.locale.js"></script>
+        <script src="js/vendor/moment.timezone.2010.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

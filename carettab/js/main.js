@@ -19,6 +19,7 @@ jQuery(function($){
 	}
     
 	if ($('.time').is(":visible")) {
+        // Show/Hide Seconds if time is on
 		$('.section-seconds').show();
 		var getSeconds = store.get('toggleSeconds');
 		if (getSeconds == "off") {
@@ -30,6 +31,7 @@ jQuery(function($){
 			$('.full-date').removeClass('sm');
 			$('.second').show();
 		}
+        // Show/Hide Braces if time is on
 		$('.section-braces').show();
 		var getBraces = store.get('toggleBraces');
 		if (getBraces == "off") {
@@ -45,6 +47,59 @@ jQuery(function($){
 		$('.section-braces').hide();
 	}
 
+    // Populate timezone select menu
+    var timezoneSelect1 = document.getElementById("timezone1-zone");
+    var timezoneSelect2 = document.getElementById("timezone2-zone");
+    processTimezones(timezoneSelect1);
+    processTimezones(timezoneSelect2);
+    
+    $(".current-timezone").text(moment.tz.guess());
+    
+    // Show/Hide First Timezone
+    $('.section-timezone1').show();
+    var getTimezoneOne = store.get('toggleFirstTimezone');
+    var getFirstTimezoneZone = store.get('firstTimezoneZone');
+    if (getFirstTimezoneZone == '' || getFirstTimezoneZone == null) { getFirstTimezoneZone = moment.tz.guess(); }
+    var getFirstTimezoneLabel = store.get('firstTimezoneLabel');
+    if (getFirstTimezoneLabel == '' || getFirstTimezoneLabel == null) { getFirstTimezoneLabel = 'Secondary Clock' }
+    if (getTimezoneOne == "off") {
+        $('#timezone1-switch').removeAttr('Checked');
+        $('.timezone1-settings').hide();
+        $('.zone1').hide();
+    } else {
+        $('#timezone1-switch').attr('Checked','Checked');
+        update_timezoneOne();
+        $('.timezone1-settings').show();
+        $('.zone1').show();
+        $('#timezone1-zone[name="timezone1-zone"]').val(getFirstTimezoneZone);
+        $('.zone1 .label').text(getFirstTimezoneLabel);
+        $('#timezone1-label').val(getFirstTimezoneLabel);
+    }
+    
+    // Show/Hide Second Timezone
+    $('.section-timezone2').show();
+    var getTimezoneTwo = store.get('toggleSecondTimezone');
+    var getSecondTimezoneZone = store.get('secondTimezoneZone');
+    if (getSecondTimezoneZone == '' || getSecondTimezoneZone == null) { getSecondTimezoneZone = moment.tz.guess(); }
+    var getSecondTimezoneLabel = store.get('secondTimezoneLabel');
+    if (getSecondTimezoneLabel == '' || getSecondTimezoneLabel == null) { getSecondTimezoneLabel = 'Tertiary Clock' }
+    if (getTimezoneTwo == "off") {
+        $('#timezone2-switch').removeAttr('Checked');
+        $('.timezone2-settings').hide();
+        $('.zone2').hide();
+    } else {
+        $('#timezone2-switch').attr('Checked','Checked');
+        update_timezoneTwo();
+        $('.timezone2-settings').show();
+        $('.zone2').show();
+        $('#timezone2-zone[name="timezone2-zone"]').val(getSecondTimezoneZone).change();
+        // $('#timezone2-zone > option:eq('+getSecondTimezoneZone+')').prop('selected', true);
+        $('.zone2 .label').text(getSecondTimezoneLabel);
+        $('#timezone2-label').val(getSecondTimezoneLabel);
+        console.log(getSecondTimezoneZone);
+        console.log($('[name="timezone2-zone"]').val());
+    }
+    
 	var getDate = store.get('toggleDate');
 	if (getDate == "off") {
 		$('#date-switch').removeAttr('Checked');
@@ -88,6 +143,15 @@ jQuery(function($){
 	if ($('.time').is(":visible")) {
 	    update_time();
 	}
+    
+	if ($('.zone1').is(":visible")) {
+	    update_timezoneOne();
+	}
+    
+	if ($('.zone2').is(":visible")) {
+	    update_timezoneTwo();
+	}
+    
 	if ($('.full-date').is(":visible")) {
 	    update_date();
 	}
@@ -95,32 +159,69 @@ jQuery(function($){
 
 function update_time() { 
     var dt = new Date();
-    var hh = dt.getHours();
-    var hr = hh;
-        if (hr > 12) {hr = hh-12;}
-        if (hr == 0) {hr = 12;}
-    var mi = dt.getMinutes() < 10 ? "0" + dt.getMinutes() : dt.getMinutes();
-    var sd = dt.getSeconds() < 10 ? "0" + dt.getSeconds() : dt.getSeconds();
-    var meridiem = hh >= 12 ? "pm" : "am";
     var div = dt.getMilliseconds() < 500 ? ":" : "";
 
     var getSeconds = store.get('toggleSeconds');
 
-    $('.hour').text(hr);
-    $('.minute').text(mi);
-    $('.second').text(sd);
+    $('.clock .hour').text(moment().format('h'));
+    $('.clock .minute').text(moment().format('mm'));
+    if (getSeconds == "on") {
+        $('.clock .second').text(moment().format('ss'));
+    }
 
     $('.time-divider').text(div);
 
     if (getSeconds == "off") {
-        document.title = hr + ":" + mi + " " + meridiem;
+        document.title = moment().format('h:mm a');
     } else {
-        document.title = hr + ":" + mi + ":" + sd + " " + meridiem;
+        document.title = moment().format('h:mm:ss a');
     }
 
     setTimeout(update_time, 500);
     clearTimeout(update_time);
 };
+
+function update_timezoneOne() { 
+    var getZone = store.get('firstTimezoneZone');
+    if (getZone == "" || getZone == null) {
+        getZone = moment.tz.guess()
+    }
+    var time = moment().tz(getZone).format('h:mm');    
+    var meridiem = moment().tz(getZone).format('a');    
+    
+    $('.zone1 .tztime').text(time);
+    $('.zone1 .meridiem').text(meridiem);
+
+    setTimeout(update_timezoneOne, 500);
+    clearTimeout(update_timezoneOne);
+};
+
+function update_timezoneTwo() { 
+    var getZone = store.get('secondTimezoneZone');
+    if (getZone == "" || getZone == null) {
+        getZone = moment.tz.guess()
+    }
+    var time = moment().tz(getZone).format('h:mm');    
+    var meridiem = moment().tz(getZone).format('a');    
+    
+    $('.zone2 .tztime').text(time);
+    $('.zone2 .meridiem').text(meridiem);
+
+    setTimeout(update_timezoneTwo, 500);
+    clearTimeout(update_timezoneTwo);
+};
+
+function processTimezones(timezoneSelect) {
+    
+    for(var i = 0; i < moment.tz.names().length; i++) {
+        var opt = moment.tz.names()[i];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        timezoneSelect.appendChild(el);
+    }
+}
+
 
 function update_date() { 
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -146,7 +247,6 @@ $('.carettab-status').click(function() {
 
 
 $('#time-switch').click(function() {
-
 	if ($('#time-switch').is(':checked')) {
 		if ($('#seconds-switch').is(':checked')) {
 			$('.full-date').removeClass('sm');
@@ -199,6 +299,62 @@ $('#braces-switch').click(function() {
 		store.set('toggleBraces',toggleBraces);
 		$('#braces-switch').removeAttr('Checked');
 	}
+});
+
+$('#timezone1-switch').click(function() {
+	if ($('#timezone1-switch').is(':checked')) {
+		update_timezoneOne();
+		$('.timezone1-settings').slideDown();
+        $('.zone1').slideDown();
+		var toggleTimezoneOne = "on";
+		store.set('toggleFirstTimezone',toggleTimezoneOne);
+		$('#links-switch').attr('Checked','Checked');
+	} else {
+		$('.timezone1-settings').slideUp();
+        $('.zone1').slideUp();
+		var toggleTimezoneOne = "off";
+		store.set('toggleFirstTimezone',toggleTimezoneOne);
+		$('#timezone1-switch').removeAttr('Checked');
+	}
+});
+
+$('#timezone1-zone[name="timezone1-zone"]').change(function(){
+    var firstTimezoneZone = $(this).val();
+    store.set('firstTimezoneZone',firstTimezoneZone);
+});
+
+$('#timezone1-label').on('input',function(e){
+    var firstTimezoneLabel = $(this).val();
+    store.set('firstTimezoneLabel',firstTimezoneLabel);
+    $('.zone1 .label').text($(this).val());
+});
+
+$('#timezone2-switch').click(function() {
+	if ($('#timezone2-switch').is(':checked')) {
+		update_timezoneTwo();
+		$('.timezone2-settings').slideDown();
+        $('.zone2').slideDown();
+		var toggleTimezoneTwo = "on";
+		store.set('toggleSecondTimezone',toggleTimezoneTwo);
+		$('#links-switch').attr('Checked','Checked');
+	} else {
+		$('.timezone2-settings').slideUp();
+        $('.zone2').slideUp();
+		var toggleTimezoneTwo = "off";
+		store.set('toggleSecondTimezone',toggleTimezoneTwo);
+		$('#timezone2-switch').removeAttr('Checked');
+	}
+});
+
+$('#timezone2-zone[name="timezone2-zone"]').change(function(){
+    var secondTimezoneZone = $(this).val();
+    store.set('secondTimezoneZone',secondTimezoneZone);
+});
+
+$('#timezone2-label').on('input',function(e){
+    var secondTimezoneLabel = $(this).val();
+    store.set('secondTimezoneLabel',secondTimezoneLabel);
+    $('.zone2 .label').text($(this).val());
 });
 
 $('#date-switch').click(function() {
@@ -280,7 +436,6 @@ $(document).mouseup(function (e) {
 	    }
     }
 });
-
 
 
 /* ==========================================================================

@@ -11,16 +11,8 @@
 
 @settings: 300px;
 
-body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #dcdcdc;
-    color: rgba(0,0,0,0.6);
+html {
     font-size: 20px;
-    line-height: 1.4;
-    font-family: "Roboto", Helvetica, Arial, sans-serif;
     @media only screen and (max-width: @lg) {
         font-size: 16px;
     }
@@ -33,6 +25,17 @@ body {
     @media only screen and (max-width: @xsm) {
         font-size: 4px;
     }
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #dcdcdc;
+    color: rgba(0,0,0,0.6);
+    line-height: 1.4;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
 *, *:before, *:after {
@@ -170,7 +173,7 @@ time {
         border: 1px solid rgba(0,0,0,1);
         border-radius: 3px;
         background-color: transparent;
-        text-align: center;
+        text-align: left;
         outline: none;
         width: 85%;
         opacity: 0.5;
@@ -209,71 +212,59 @@ time {
 }
     ::-webkit-input-placeholder {  color: inherit; opacity: 0.7;  }
     :-ms-input-placeholder {  color: inherit; opacity: 0.7;  }
-
-.quick-links {
-    a.link {
+    
+.timezones {
+    margin: 20px 0 0 0;
+    .zone {
         display: inline-block;
-        width: 90px;
-        height: 90px;
-        border-radius: 50%;
-        margin: 1.5em 10px 0;
-        border: 5px solid #000;
-        cursor: pointer;
-        position: relative;
-        opacity: 0.5;
-        transition: opacity 0.3s ease;
-        overflow: hidden;
-        color: #000;
-        line-height: 0.8;
-        font-size: 90px;
-        text-decoration: none;
-        &:hover {
-            opacity: 1;
-            color: #000;
+        margin:1rem;
+        padding:1rem 1.5rem;
+        font-size: 4rem;
+        font-weight: 300;
+        width: 13rem;
+        vertical-align: top;
+        // background:rgba(0,0,0,0.1);
+        border-radius: 5px;
+        line-height: 1.1;
+        opacity: 0.6;
+        .label {
+            font-size:1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            opacity: 0.6;
         }
-        img {
-            width: 32px;
-            height: 32px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin: -16px;
-        }
-    }
-    @media only screen and (max-width: @lg) {
-        a.link {
-            width: 70px;
-            height: 70px;
-            font-size: 70px;
-        }
-    }
-    @media only screen and (max-width: @md) {
-        a.link {
-            width: 58px;
-            height: 58px;
-            border-width: 2px;
-            font-size: 58px;
+        .meridiem {
+            display: block;
+            font-size: 1rem;
+            font-weight: 300;
+            text-transform: uppercase;
         }
     }
     @media only screen and (max-width: @sm) {
-        a.link {
-            width: 32px;
-            height: 32px;
-            font-size: 32px;
-            margin-top: 2em;
-            img {
-                width: 16px;
-                height: 16px;
-                margin: -8px;
+        .zone {
+            font-size: 5rem;
+            width: 17rem;
+            .label {
+                font-size:1.5rem;
+            }
+            .meridiem {
+                font-size: 1.5rem;
             }
         }
     }
     @media only screen and (max-width: @xsm) {
-        a.link {
-            width: 26px;
-            height: 26px;
-            font-size: 26px;
-            border-width: 0px;
+        .zone {
+            font-size: 5rem;
+            width: 20rem;
+            .label {
+                font-size:2rem;
+            }
+            .meridiem {
+                font-size: 2rem;
+            }
         }
     }
 }
@@ -415,50 +406,41 @@ time {
     }
 }
 
-.section-urls {
-    > div {
-        position: relative;
-        margin-bottom: 15px;
-        &:last-of-type {
-            margin-bottom: 0;
+.section-timezones {
+    .timezone-settings {
+        > div {
+            position: relative;
+            margin-bottom: 15px;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
         }
-    }
-    input {
-        background-color: #1C1F27;
-        border: 1px solid #eee;
-        padding: 2px 5px;
-        height: auto;
-        font-size: 14px;
-        vertical-align: middle;
-        color: #eee;
-        font-weight: 300;
-        width: 205px;
-        margin: -2px 0px 0 20px;
-        border-radius: 3px;
-    }
-    .link-label {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        line-height: 22px;
-        font-size: 20px;
-        font-weight: 100;
-    }
-    .save-link {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        line-height: 21px;
-        font-size: 24px;
-        font-weight: 100;
-        color: #ccc;
-        &:hover, &:active, &:focus {
-            color: #8ce196;
+        input, select {
+            background-color: #1C1F27;
+            border: 1px solid #eee;
+            padding: 2px 5px;
+            height: auto;
+            font-size: 14px;
+            vertical-align: middle;
+            color: #eee;
+            font-weight: 300;
+            display: block;
+            width: 100%;
+            margin: 0 0 10px;
+            border-radius: 12px;
         }
-        &:hover {
-            cursor: pointer;
+        input:focus, select:focus {
+            outline: none;
+            background-color: #3C3F47;
+        }
+        input {
+            padding: 3px 9px;
+        }
+        label {
+            display: block;
+            font-size: 10px;
+            line-height: 1;
+            margin: 5px 10px 3px;
         }
     }
 }
@@ -551,18 +533,8 @@ input.switch:checked + label:after {
 
 body {
     color: rgba(0,0,0,0.6);
-    // transition: color 0.5s;
-        .quick-links a.link {
-            // transition: border-color 0.5s;
-        }
-        .search input {
-            // transition: border-color 0.5s;
-        }
     &.text-white {
         color: rgba(255,255,255,0.6);
-        .quick-links a.link {
-            border-color: rgba(255,255,255,1);
-        }
         .search input {
             border-color: rgba(255,255,255,1);
         }
@@ -645,85 +617,6 @@ body {
     }   
 }
 
-// .menu-group {
-//     margin: 0.2em auto 0.2em auto;
-//     position: fixed;
-//     bottom: 0;
-//     left: 0;
-//     right: 0;
-// }
-//     .menu {
-//         display: inline-block;
-//         cursor: pointer;
-//         opacity: 0.35;
-//     }
-//     .menu-icon {
-//         display: inline-block;
-//         vertical-align: middle;
-//         position: relative;
-//     }
-//     .menu-icon:before {
-//         content: '\2630';
-//     }
-//     .menu-text {
-//         display: inline-block;
-//         vertical-align: middle;
-//     }
-//     .menu:hover {
-//         opacity: 0.65;
-//     }
-
-// .settings {
-//     text-align: center;
-//     margin: 0.2em auto 0.2em auto;
-//     position: fixed;
-//     bottom: 0;
-//     left: 0;
-//     right: 0;
-//     .icon {
-//         display: inline-block;
-//         line-height: 1em;
-//         font-size: 1em;
-//         vertical-align: middle;
-//         width: 1em;
-//         height: 1em;
-//         cursor: pointer;
-//         margin: 0 0.1em;
-//         .close {
-//             margin-left: 1em;
-//         }
-//     }
-// }
-//     .theme {
-//         display: inline-block;
-//         div {
-//             display: inline-block;
-//             width: 1em;
-//             height: 1em;
-//             line-height: 1em;
-//             padding: 0;
-//             margin: 0 0.1em;
-//             border: 1px dotted rgba(0,0,0,0.15);
-//             cursor: pointer;
-//             vertical-align: middle;
-//             text-align: center;
-//             line-height: 0.9em;
-//             font-size: 0.9em;
-//         }
-//     }
-// .settings, .menu-group {
-//     font-size: 18px;
-// }
-
-// .credits {
-//     display: block;
-//     font-size: 9px;
-//     opacity: 0.4;
-//     margin-top: 5px;
-//     a, a:link, a:visited, a:hover, a:active {
-//         color: inherit;
-//     }
-// }
 
 /* ==========================================================================
    Helper Classes

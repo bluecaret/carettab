@@ -7,8 +7,8 @@ Get CaretTab from the [Chrome Web Store](https://chrome.google.com/webstore/deta
 
 ## Features
 - Displays time on the page and in the tab.
+- Add 2 additional clocks with customizable label and timezone.
 - Search Google/Bing from new tab page.
-- Set custom Quick Links to jump to your favorite page from the new tab page (BETA)
 - Customize everything! Toggle the time, seconds, date, search, animation and more.
 - Theme selection. Choose from a handful of different background colors.
 

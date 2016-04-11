@@ -16,6 +16,10 @@ Have any suggestions? Let me know on Twitter @BlueCaret
 
 ## Changelog
 
+### 0.3.0
+- Multiple clocks! Add up to 2 additional clocks with different timezones with a customizable label
+- Removed "Quick Links" feature due to performance issues. We will continue to look at this for a potential comeback.
+
 ### 0.2.0 Beta
 - Complete overhaul of extension
 - New Settings panel

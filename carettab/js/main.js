@@ -2,9 +2,11 @@ jQuery(function($){
 
 	var getStatus = store.get('caretTabStatus');
 	if (getStatus == "installed") {
+        $('.installed').addClass("carettab-status-style");
         $('.installed').delay(1500).show(0);
         store.set('caretTabStatus','current');
 	} else if (getStatus == "updated") {
+        $('.updated').addClass("carettab-status-style");
         $('.updated').delay(1500).show(0);
         store.set('caretTabStatus','current');
 	}
@@ -90,12 +92,11 @@ jQuery(function($){
     $(".current-timezone").text(moment.tz.guess());
     
     // Show/Hide First Timezone
-    $('.section-timezone1').show();
     var getTimezoneOne = store.get('toggleFirstTimezone');
     var getFirstTimezoneZone = store.get('firstTimezoneZone');
-    if (getFirstTimezoneZone == '' || getFirstTimezoneZone == null) { getFirstTimezoneZone = moment.tz.guess(); }
+    if (getFirstTimezoneZone == '' || getFirstTimezoneZone == null) { getFirstTimezoneZone = 'America/New_York' }
     var getFirstTimezoneLabel = store.get('firstTimezoneLabel');
-    if (getFirstTimezoneLabel == '' || getFirstTimezoneLabel == null) { getFirstTimezoneLabel = 'Secondary Clock' }
+    if (getFirstTimezoneLabel == '' || getFirstTimezoneLabel == null) { getFirstTimezoneLabel = 'New York' }
     if (getTimezoneOne == "off") {
         $('#timezone1-switch').removeAttr('Checked');
         $('.timezone1-settings').hide();
@@ -111,12 +112,11 @@ jQuery(function($){
     }
     
     // Show/Hide Second Timezone
-    $('.section-timezone2').show();
     var getTimezoneTwo = store.get('toggleSecondTimezone');
     var getSecondTimezoneZone = store.get('secondTimezoneZone');
-    if (getSecondTimezoneZone == '' || getSecondTimezoneZone == null) { getSecondTimezoneZone = moment.tz.guess(); }
+    if (getSecondTimezoneZone == '' || getSecondTimezoneZone == null) { getSecondTimezoneZone = 'Europe/London' }
     var getSecondTimezoneLabel = store.get('secondTimezoneLabel');
-    if (getSecondTimezoneLabel == '' || getSecondTimezoneLabel == null) { getSecondTimezoneLabel = 'Tertiary Clock' }
+    if (getSecondTimezoneLabel == '' || getSecondTimezoneLabel == null) { getSecondTimezoneLabel = 'London' }
     if (getTimezoneTwo == "off") {
         $('#timezone2-switch').removeAttr('Checked');
         $('.timezone2-settings').hide();
@@ -157,7 +157,7 @@ function update_time() {
 
     $('.clock .hour').text(moment().format('h'));
     $('.clock .minute').text(moment().format('mm'));
-    if (getSeconds == "on") {
+    if (getSeconds == "on" || getSeconds == null) {
         $('.clock .second').text(moment().format('ss'));
     }
 
@@ -176,7 +176,7 @@ function update_time() {
 function update_timezoneOne() { 
     var getZone = store.get('firstTimezoneZone');
     if (getZone == "" || getZone == null) {
-        getZone = moment.tz.guess()
+        getZone = 'America/New_York';
     }
     var time = moment().tz(getZone).format('h:mm');    
     var meridiem = moment().tz(getZone).format('a');    
@@ -191,7 +191,7 @@ function update_timezoneOne() {
 function update_timezoneTwo() { 
     var getZone = store.get('secondTimezoneZone');
     if (getZone == "" || getZone == null) {
-        getZone = moment.tz.guess()
+        getZone = 'Europe/London';
     }
     var time = moment().tz(getZone).format('h:mm');    
     var meridiem = moment().tz(getZone).format('a');    
@@ -219,12 +219,9 @@ function update_date() {
     clearTimeout(update_date);
 };
 
-$('.carettab-status').click(function() { 
+$('.carettab-status .status-x').click(function() { 
     $('.carettab-status').fadeOut();
-});   
-$('.carettab-status').click(function() { 
-    $('.carettab-status').fadeOut();
-});   
+});
 
 
 $('#time-switch').click(function() {

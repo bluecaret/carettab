@@ -3,9 +3,9 @@
  
   "name": "CaretTab - New Tab Page",
   "short_name": "CaretTab",
-  "description": "A New Tab Page replacement which provides the time, date, search, and customization options.",
-  "version": "0.3.0",
-  "version_name": "0.3.0",
+  "description": "A simplistic New Tab page with options for displaying time, date, search, favorite links, and more!",
+  "version": "1.0.0",
+  "version_name": "1.0.0",
 
   "icons": { "16": "img/icon16.png",
              "48": "img/icon48.png",
@@ -18,5 +18,7 @@
   "background": {
     "scripts": ["js/vendor/store.js","js/update.js"],
     "persistent": false
-  }
+  },
+
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://ssl.google-analytics.com; object-src 'self'"
 }

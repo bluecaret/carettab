@@ -1,287 +1,594 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>New Tab</title>
-        <meta name="description" content="A Chrome New Tab Page replacement">
-        <meta name="author" content="BlueCaret - http://bluecaret.com">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/style.css?v=0.3.0">
-    </head>
-    <body class="animation-on">
-        
+<!--<html class="on-links on-message on-clock1 on-additionalclocks on-seconds on-meridiem on-military on-delimiter on-blinking on-brackets on-date on-day on-year on-shortdate on-search">-->
 
- 		<div id="wrapper">
-            <div class="installed slideup carettab-status" style="display:none;">
-                <div class="status-x"><i class="flaticon-cancel30"></i></div>
-                <h1>Thank you for using CaretTab</h1>
-                <p>Click the <i class="flaticon-gears10"></i> to configure just about everything!</p>
-            </div>
-            <div class="updated slideup carettab-status" style="display:none;">
-                <div class="status-x"><i class="flaticon-cancel30"></i></div>
-                <h1>CaretTab has been updated to 0.3.0!</h1>
-                <div class="newfeature"></div>
-                <ul>
-                    <li>You can now add multiple clocks with different timezones, check it out in the settings panel!</li>
-                    <li>The "Quick Links" feature has been removed due to poor performance.</li>
-                </ul>
-                <p><a href="http://bluecaret.com/project/carettab">Visit the official CaretTab webpage for more details.</a></p>
-            </div>
- 			<section id="content">
-		        <aside class="clock">
-		        	<time class="time fadein">
-			        	<span class="braces">{ </span><span class="hour">9</span><span class="time-divider">:</span><span class="minute">99</span><span class="time-divider second on">:</span><span class="second on">99</span><span class="braces"> }</span>
-		        	</time>
-		        	<time class="full-date fadein">
-			        	<span class="day">Wednesday</span>, <span class="month">September</span> <span class="date">99th</span>, <span class="year">9999</span>
-		        	</time>
-		        </aside>
-		        <aside class="search fadein">
-		        	<form id="search-form" method="get" action="https://www.google.com/search">
-		        		<input type="text" id="search-box" name="q" placeholder="search google" autofocus />
-		        		<button type="submit"><i class="flaticon-magnifying-glass32"></i></button>
-		        	</form>
-		        </aside>
-		        <aside class="timezones fadein">
-                    <div class="zone1 zone">
-                        <div class="label">Secondary Clock</div>
-                        <span class="tztime">99:99</span><span class="meridiem">am</span>
-                    </div>
-                    <div class="zone2 zone">
-                        <div class="label">Tertiary Clock</div>
-                        <span class="tztime">99:99</span><span class="meridiem">am</span>
-                    </div>
-		        </aside>
-			</section>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>New Tab</title>
+	<meta name="description" content="A New Tab Page replacement for your Browser">
+	<meta name="author" content="BlueCaret - http://bluecaret.com">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css?v=1.0.0">
+</head>
+
+<body>
+
+	<div id="wrapper">
+		<!--########################################################
+			Status (Updated/Installed)
+			########################################################-->
+
+		<div id="installed" class="carettab-status" style="display: none;">
+			<div class="status-x"><i class="i-close"></i></div>
+			<h2>Welcome to CaretTab!</h2>
+			<p>Click the gear icon <i class="i-settings"></i> to configure... everything!</p>
+			<p>Be sure to check out every tab on the left side for all of the settings.</p>
+		</div>
+		<div id="updated" class="carettab-status" style="display: none;">
+			<div class="status-x"><i class="i-close"></i></div>
+			<h2>CaretTab has been updated to 1.0.0!</h2>
+			<p>This is a HUGE update for CaretTab! Just about any customization we could think of has been added. Best just open up settings and check it out!</p>
+			<p>NEW FEATURES: More color themes; Custom colors; New font; Improved layout; 24 hour time; Extra date formats; Up to 3 additional clocks; Favorite Links; Extra search engines; Lot's more!</li>
+			<p><small>Unfortunately due to the size of the update, your previous settings may not have transferred over.</small></p>
+			</ul>
 		</div>
 
-		<a href="javascript:void(0);" id="settings-toggle" class="slideup">
-			<i class="flaticon-gears10"></i>
+		<!--########################################################
+			Content
+			########################################################-->
+		<section id="content">
+			<aside class="links fadein">
+				<a href="#" id="link1" class="link1 btn"></a>
+				<a href="#" id="link2" class="link2 btn"></a>
+				<a href="#" id="link3" class="link3 btn"></a>
+				<a href="#" id="link4" class="link4 btn"></a>
+				<a href="#" id="link5" class="link5 btn"></a>
+				<a href="#" id="link6" class="link6 btn"></a>
+			</aside>
+			<aside class="message fadein">
+				<p></p>
+			</aside>
+			<aside class="search fadein">
+				<form id="search-form" method="get" action="https://www.google.com/search">
+					<input type="text" id="search-box" name="q" placeholder="Search Google" autofocus="">
+					<button type="submit">
+						<i class="i-search"></i>
+					</button>
+				</form>
+			</aside>
+			<aside class="clock1 fadein">
+				<div class="brackets">{</div><time datetime="99:99:99"><span class="hour">99</span><span class="delimiter">:</span><span class="minute">99</span><span class="seconds-wrap"><span class="delimiter delimiter-seconds">:</span><span class="seconds">99</span></span><span class="meridiem">PM</span></time><div class="brackets">}</div>
+			</aside>
+			<aside class="date fadein">
+				<time datetime=""></time>
+			</aside>
+			<div class="additional-clocks">
+				<aside class="clock2 fadein">
+					<time datetime="99:99"><span class="hour">99</span><span class="delimiter">:</span><span class="minute">99</span></time><span class="meridiem">PM</span>
+					<span class="label"></span>
+				</aside>
+				<aside class="clock3 fadein">
+					<time datetime="99:99"><span class="hour">99</span><span class="delimiter">:</span><span class="minute">99</span></time><span class="meridiem">PM</span>
+					<span class="label"></span>
+				</aside>
+				<aside class="clock4 fadein">
+					<time datetime="99:99"><span class="hour">99</span><span class="delimiter">:</span><span class="minute">99</span></time><span class="meridiem">PM</span>
+					<span class="label"></span>
+				</aside>
+			</div>
+		</section>
+		<!--########################################################
+			Settings Toggle
+			########################################################-->
+		<a id="settings-toggle" href="#" class="slideup">
+			<i class="i-settings"></i>
 		</a>
+		<!--########################################################
+			Settings Menu
+			########################################################-->
+		<section id="settings">
+			<div id="close-settings"><i class="i-close"></i></div>
+			<!-- /////////////////////// Tabs /////////////////////// -->
+			<aside id="settings-tabs">
+				<ul>
+					<li id="settings-tab-time" data-tab="settings-time" title="Time Settings" class="active"><i class="i-time"></i></li>
+					<li id="settings-tab-date" data-tab="settings-date" title="Date Settings"><i class="i-date"></i></li>
+					<li id="settings-tab-color" data-tab="settings-color" title="Color Settings"><i class="i-color"></i></li>
+					<li id="settings-tab-links" data-tab="settings-links" title="Style Settings"><i class="i-links"></i></li>
+					<li id="settings-tab-extra" data-tab="settings-extra" title="Extra Settings"><i class="i-config"></i></li>
+					<li id="settings-tab-about" data-tab="settings-about" title="About CaretTab"><i class="i-about"></i></li>
+				</ul>
+			</aside>
+			<!-- /////////////////////// Time /////////////////////// -->
+			<article id="settings-time" class="settings-content active">
+				<h1>Time Settings</h1>
+				<div class="setting" id="setting-clock1">
+					<h3>Display Primary Clock</h3>
+					<small>Toggle the primary clock display on/off.</small>
+					<div class="toggle">
+						<input id="set-clock1" class="switch" type="checkbox">
+						<label for="set-clock1"></label>
+						<div class="toggle-off">OFF</div>
+						<div class="toggle-on">ON</div>
+					</div>
+				</div>
+				<div class="setting" id="setting-seconds">
+					<h3>Display Seconds</h3>
+					<small>If enabled, displays the seconds on the primary time (applies only to the 'primary clock').</small>
+					<div class="toggle">
+						<input id="set-seconds" class="switch" type="checkbox">
+						<label for="set-seconds"></label>
+						<div class="toggle-off">OFF <small>(12:30)</small></div>
+						<div class="toggle-on">ON <small>(12:30:40)</small></div>
+					</div>
+				</div>
+				<div class="setting" id="setting-meridiem">
+					<h3>Display Meridiem</h3>
+					<small>Toggle the meridiem (am/pm) on/off (only applies to the 'primary clock' and if set to 12 hour format).</small>
+					<div class="toggle">
+						<input id="set-meridiem" class="switch" type="checkbox">
+						<label for="set-meridiem"></label>
+						<div class="toggle-off">OFF <small>(12:30)</small></div>
+						<div class="toggle-on">ON <small>(12:30 AM)</small></div>
+					</div>
+				</div>
+				<div class="setting" id="setting-military">
+					<h3>24 Hour Clock</h3>
+					<small>If enabled, displays all clocks in a 24 hour format, i.e. military time (the meridiem will be hidden if this is enabled).</small>
+					<div class="toggle">
+						<input id="set-military" class="switch" type="checkbox">
+						<label for="set-military"></label>
+						<div class="toggle-off">12 Hour</div>
+						<div class="toggle-on">24 hour</div>
+					</div>
+				</div>
+				<div class="setting" id="setting-delimiter">
+					<h3>Display Delimiter</h3>
+					<small>Toggle the delimiter (:) in all clocks on/off.</small>
+					<div class="toggle">
+						<input id="set-delimiter" class="switch" type="checkbox">
+						<label for="set-delimiter"></label>
+						<div class="toggle-off">OFF <small>(12 30 40)</small></div>
+						<div class="toggle-on">ON <small>(12:30:40)</small></div>
+					</div>
+				</div>
+				<div class="setting" id="setting-blinking">
+					<h3>Blink Delimiter</h3>
+					<small>Toggle the blinking of the delimiter (:) in the time (only applies to the 'primary clock').</small>
+					<div class="toggle">
+						<input id="set-blinking" class="switch" type="checkbox">
+						<label for="set-blinking"></label>
+						<div class="toggle-off">OFF</div>
+						<div class="toggle-on">ON</div>
+					</div>
+				</div>
+				<div class="setting" id="setting-brackets">
+					<h3>Display Brackets</h3>
+					<small>Toggle the brackets that surround the primary clock on/off.</small>
+					<div class="toggle">
+						<input id="set-brackets" class="switch" type="checkbox">
+						<label for="set-brackets"></label>
+						<div class="toggle-off">OFF</div>
+						<div class="toggle-on">ON</div>
+					</div>
+				</div>
+				<div class="setting" id="setting-time2">
+					<h3>Enable 2nd Clock</h3>
+					<small>If enabled, displays an additional clock that can be used to display time in other timezones.</small>
+					<div class="toggle">
+						<input id="set-time2" class="switch" type="checkbox">
+						<label for="set-time2"></label>
+						<div class="toggle-off">OFF</div>
+						<div class="toggle-on">ON</div>
+					</div>
+					<label for="set-time2-zone">Timezone*</label>
+					<select name="set-time2-zone" id="set-time2-zone">
+						<option value="Pacific/Midway">(GMT -11:00) Midway Island, Samoa</option>
+						<option value="Pacific/Honolulu">(GMT -10:00) Hawaii</option>
+						<option value="America/Anchorage">(GMT -9:00) Alaska</option>
+						<option value="America/Los_Angeles">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+						<option value="America/Boise">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+						<option value="America/Chicago">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+						<option value="America/New_York">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+						<option value="America/Caracas">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
+						<option value="Canada/Newfoundland">(GMT -3:30) Newfoundland</option>
+						<option value="America/Argentina/Buenos_Aires">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+						<option value="Atlantic/South_Georgia">(GMT -2:00) Mid-Atlantic</option>
+						<option value="Atlantic/Azores">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
+						<option value="Europe/London">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
+						<option value="Europe/Paris">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
+						<option value="Europe/Kaliningrad">(GMT +2:00) Kaliningrad, South Africa</option>
+						<option value="Asia/Baghdad">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+						<option value="Asia/Tehran">(GMT +3:30) Tehran</option>
+						<option value="Asia/Muscat">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+						<option value="Asia/Kabul">(GMT +4:30) Kabul</option>
+						<option value="Asia/Karachi">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+						<option value="Asia/Calcutta">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+						<option value="Asia/Kathmandu">(GMT +5:45) Kathmandu</option>
+						<option value="Asia/Almaty">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+						<option value="Asia/Bangkok">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+						<option value="Asia/Hong_Kong">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+						<option value="Asia/Tokyo">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+						<option value="Australia/Adelaide">(GMT +9:30) Adelaide, Darwin</option>
+						<option value="Pacific/Guam">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+						<option value="Asia/Magadan">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
+						<option value="Pacific/Auckland">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>-->
+					</select>
+					<label for="set-time2-label">Clock Label</label>
+					<input type="text" id="set-time2-label">
+				</div>
+				<div class="setting" id="setting-time3">
+					<h3>Enable 3rd Clock</h3>
+					<small>If enabled, displays an additional clock that can be used to display time in other timezones.</small>
+					<div class="toggle">
+						<input id="set-time3" class="switch" type="checkbox">
+						<label for="set-time3"></label>
+						<div class="toggle-off">OFF</div>
+						<div class="toggle-on">ON</div>
+					</div>
+					<label for="set-time3-zone">Timezone*</label>
+					<select name="set-time3-zone" id="set-time3-zone">
+						<option value="Pacific/Midway">(GMT -11:00) Midway Island, Samoa</option>
+						<option value="Pacific/Honolulu">(GMT -10:00) Hawaii</option>
+						<option value="America/Anchorage">(GMT -9:00) Alaska</option>
+						<option value="America/Los_Angeles">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+						<option value="America/Boise">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+						<option value="America/Chicago">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+						<option value="America/New_York">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+						<option value="America/Caracas">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
+						<option value="Canada/Newfoundland">(GMT -3:30) Newfoundland</option>
+						<option value="America/Argentina/Buenos_Aires">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+						<option value="Atlantic/South_Georgia">(GMT -2:00) Mid-Atlantic</option>
+						<option value="Atlantic/Azores">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
+						<option value="Europe/London">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
+						<option value="Europe/Paris">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
+						<option value="Europe/Kaliningrad">(GMT +2:00) Kaliningrad, South Africa</option>
+						<option value="Asia/Baghdad">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+						<option value="Asia/Tehran">(GMT +3:30) Tehran</option>
+						<option value="Asia/Muscat">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+						<option value="Asia/Kabul">(GMT +4:30) Kabul</option>
+						<option value="Asia/Karachi">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+						<option value="Asia/Calcutta">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+						<option value="Asia/Kathmandu">(GMT +5:45) Kathmandu</option>
+						<option value="Asia/Almaty">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+						<option value="Asia/Bangkok">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+						<option value="Asia/Hong_Kong">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+						<option value="Asia/Tokyo">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+						<option value="Australia/Adelaide">(GMT +9:30) Adelaide, Darwin</option>
+						<option value="Pacific/Guam">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+						<option value="Asia/Magadan">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
+						<option value="Pacific/Auckland">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>-->
+					</select>
+					<label for="set-time3-label">Clock Label</label>
+					<input type="text" id="set-time3-label">
+				</div>
+				<div class="setting" id="setting-time4">
+					<h3>Enable 4th Clock</h3>
+					<small>If enabled, displays an additional clock that can be used to display time in other timezones.</small>
+					<div class="toggle">
+						<input id="set-time4" class="switch" type="checkbox">
+						<label for="set-time4"></label>
+						<div class="toggle-off">OFF</div>
+						<div class="toggle-on">ON</div>
+					</div>
+					<label for="set-time4-zone">Timezone*</label>
+					<select name="set-time4-zone" id="set-time4-zone">
+						<option value="Pacific/Midway">(GMT -11:00) Midway Island, Samoa</option>
+						<option value="Pacific/Honolulu">(GMT -10:00) Hawaii</option>
+						<option value="America/Anchorage">(GMT -9:00) Alaska</option>
+						<option value="America/Los_Angeles">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+						<option value="America/Boise">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+						<option value="America/Chicago">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+						<option value="America/New_York">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+						<option value="America/Caracas">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
+						<option value="Canada/Newfoundland">(GMT -3:30) Newfoundland</option>
+						<option value="America/Argentina/Buenos_Aires">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+						<option value="Atlantic/South_Georgia">(GMT -2:00) Mid-Atlantic</option>
+						<option value="Atlantic/Azores">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
+						<option value="Europe/London">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
+						<option value="Europe/Paris">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
+						<option value="Europe/Kaliningrad">(GMT +2:00) Kaliningrad, South Africa</option>
+						<option value="Asia/Baghdad">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+						<option value="Asia/Tehran">(GMT +3:30) Tehran</option>
+						<option value="Asia/Muscat">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+						<option value="Asia/Kabul">(GMT +4:30) Kabul</option>
+						<option value="Asia/Karachi">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+						<option value="Asia/Calcutta">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+						<option value="Asia/Kathmandu">(GMT +5:45) Kathmandu</option>
+						<option value="Asia/Almaty">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+						<option value="Asia/Bangkok">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+						<option value="Asia/Hong_Kong">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+						<option value="Asia/Tokyo">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+						<option value="Australia/Adelaide">(GMT +9:30) Adelaide, Darwin</option>
+						<option value="Pacific/Guam">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+						<option value="Asia/Magadan">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
+						<option value="Pacific/Auckland">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>-->
+					</select>
+					<label for="set-time4-label">Clock Label</label>
+					<input type="text" id="set-time4-label">
+				</div>
+				<p><small>*Note that display of the primary clock and additional clocks is based on the timezone your computer is set to. The detection of your current timezone is pretty much an educated guess and may not reflect your actual timezone, thus causing the additional clocks time to be off. Currently CaretTab is detecting your current timezone to be: "<span class="current-timezone"></span>"</small></p>
+			</article>
+			<!-- /////////////////////// Date /////////////////////// -->
+			<article id="settings-date" class="settings-content">
+				<h1>Date Settings</h1>
+				<div class="setting" id="setting-date">
+					<h3>Display Date</h3>
+					<small>Toggle the date display on/off.</small>
+					<div class="toggle">
+						<input id="set-date" class="switch" type="checkbox">
+						<label for="set-date"></label>
+						<div class="toggle-off">OFF</div>
+						<div class="toggle-on">ON</div>
+					</div>
+				</div>
+				<div class="setting" id="setting-day">
+					<h3>Display Day</h3>
+					<small>Toggle the day of the week on/off (only applies if 'short form' is off).</small>
+					<div class="toggle">
+						<input id="set-day" class="switch" type="checkbox">
+						<label for="set-day"></label>
+						<div class="toggle-off">OFF <small>(January 31, 2000)</small></div>
+						<div class="toggle-on">ON <small>(Saturday, January 31, 2000)</small></div>
+					</div>
+				</div>
+				<div class="setting" id="setting-year">
+					<h3>Display Year</h3>
+					<small>Toggle display of the year on/off.</small>
+					<div class="toggle">
+						<input id="set-year" class="switch" type="checkbox">
+						<label for="set-year"></label>
+						<div class="toggle-off">OFF <small>(January 31)</small></div>
+						<div class="toggle-on">ON <small>(January 31, 2000)</small></div>
+					</div>
+				</div>
+				<div class="setting" id="setting-shortdate">
+					<h3>Short Form</h3>
+					<small>If enabled, displays the date in a short format.</small>
+					<div class="toggle">
+						<input id="set-shortdate" class="switch" type="checkbox">
+						<label for="set-shortdate"></label>
+						<div class="toggle-off">OFF <small>(Saturday, January 31, 2000)</small></div>
+						<div class="toggle-on">ON <small>(01/31/2016)</small></div>
+					</div>
+				</div>
+				<div class="setting" id="setting-dateformat">
+					<h3>Date Format</h3>
+					<small>If enabled, displays the date in the format used by the United States.</small>
+					<div class="radio-switch" title="Toggle time display">
+						<input id="middle" value="middle" class="radio" type="radio" name="set-dateformat">
+						<label for="middle"></label>
+						<div class="radio-label">January 31, 2000 <small>(01/31/00)</small></div>
+					</div>
+					<div class="radio-switch" title="Toggle time display">
+						<input id="little" value="little" class="radio" type="radio" name="set-dateformat">
+						<label for="little"></label>
+						<div class="radio-label">31 January 2000 <small>(31/01/00)</small></div>
+					</div>
+					<div class="radio-switch" title="Toggle time display">
+						<input id="big" value="big" class="radio" type="radio" name="set-dateformat">
+						<label for="big"></label>
+						<div class="radio-label">2000 January 31 <small>(00/01/31)</small></div>
+					</div>
+				</div>
 
-		<div id="settings">
-			<div class="close" title="Close Settings Menu"><i class="flaticon-cancel30"></i></div>
-			<h1>CaretTab Settings</h1>
-			<section class="settings-section">
-				<div class="section-theme">
-					<h2>Background Color</h2>
-					<div class="theme">
-						<div class="theme-options">
-							<div class="light1" title="Select Theme"></div>
-							<div class="light2" title="Select Theme"></div>
-							<div class="light3" title="Select Theme"></div>
-							<div class="dark1" title="Select Theme"></div>
-							<div class="dark2" title="Select Theme"></div>
-							<div class="dark3" title="Select Theme"></div>
-							<div class="red1" title="Select Theme"></div>
-							<div class="red2" title="Select Theme"></div>
-							<div class="red3" title="Select Theme"></div>
-							<div class="blue1" title="Select Theme"></div>
-							<div class="blue2" title="Select Theme"></div>
-							<div class="blue3" title="Select Theme"></div>
-							<div class="green1" title="Select Theme"></div>
-							<div class="green2" title="Select Theme"></div>
-							<div class="green3" title="Select Theme"></div>
-							<div class="purple1" title="Select Theme"></div>
-							<div class="purple2" title="Select Theme"></div>
-							<div class="purple3" title="Select Theme"></div>
-						</div>
+			</article>
+			<!-- /////////////////////// Color /////////////////////// -->
+			<article id="settings-color" class="settings-content">
+				<h1>Colors</h1>
+				<div class="setting" id="setting-background">
+					<h3>Set custom background color</h3>
+					<small>Click in the text box below and type in a color code in HEX, or use the popup controls to choose a color.</small>
+					<input type="text" id="set-background" value="#FFFFFF" class="jscolor" data-jscolor="{width:200, height:120, position:'bottom', hash:true, padding:3, borderRadius: 2, borderColor: 'rgba(255,255,255,0.2)', backgroundColor:'rgba(255,255,255,0.1)', container:'setting-background'}">
+				</div>
+				<div class="setting" id="setting-foreground">
+					<h3>Set custom foreground color</h3>
+					<small>Click in the text box below and type in a color code in HEX, or use the popup controls to choose a color.</small>
+					<input type="text" id="set-foreground" value="#000000" class="jscolor" data-jscolor="{width:200, height:120, position:'bottom', hash:true, padding:3, borderRadius: 2, borderColor: 'rgba(255,255,255,0.2)', backgroundColor:'rgba(255,255,255,0.1)', container:'setting-foreground'}">
+				</div>
+				<div class="setting" id="setting-theme">
+					<h3>Choose a color theme</h3>
+					<small>Click on a circle to choose a color theme. The top color represents the background color and the bottom color represents the foreground (text) color.</small>
+					<a href="#" class="theme" id="theme01" style="background:#FFFFFF"><span style="border-bottom-color:#000000"></span></a>
+					<a href="#" class="theme" id="theme02" style="background:#d6d6d6"><span style="border-bottom-color:#565656"></span></a>
+					<a href="#" class="theme" id="theme03" style="background:#A6AAB2"><span style="border-bottom-color:#373a3d"></span></a>
+					<a href="#" class="theme" id="theme04" style="background:#5b6677"><span style="border-bottom-color:#bdc2c8"></span></a>
+					<a href="#" class="theme" id="theme05" style="background:#313840"><span style="border-bottom-color:#acafb2"></span></a>
+					<a href="#" class="theme" id="theme06" style="background:#1f2327"><span style="border-bottom-color:#a5a7a8"></span></a>
+					<a href="#" class="theme" id="theme07" style="background:#000000"><span style="border-bottom-color:#FFFFFF"></span></a>
+					<a href="#" class="theme" id="theme08" style="background:#3FA9F5"><span style="border-bottom-color:#FFFFFF"></span></a>
+					<a href="#" class="theme" id="theme09" style="background:#ff8f7e"><span style="border-bottom-color:#663932"></span></a>
+					<a href="#" class="theme" id="theme10" style="background:#cc3e28"><span style="border-bottom-color:#ebb1a9"></span></a>
+					<a href="#" class="theme" id="theme11" style="background:#7f2719"><span style="border-bottom-color:#cca8a3"></span></a>
+					<a href="#" class="theme" id="theme12" style="background:#70adff"><span style="border-bottom-color:#2d4566"></span></a>
+					<a href="#" class="theme" id="theme13" style="background:#1c68cc"><span style="border-bottom-color:#a4c2eb"></span></a>
+					<a href="#" class="theme" id="theme14" style="background:#12417f"><span style="border-bottom-color:#a0b3cc"></span></a>
+					<a href="#" class="theme" id="theme15" style="background:#FFFFFF"><span style="border-bottom-color:#3FA9F5"></span></a>
+					<a href="#" class="theme" id="theme16" style="background:#d2ffbf"><span style="border-bottom-color:#54664c"></span></a>
+					<a href="#" class="theme" id="theme17" style="background:#7dcc5c"><span style="border-bottom-color:#325225"></span></a>
+					<a href="#" class="theme" id="theme18" style="background:#4e7f39"><span style="border-bottom-color:#b8ccaf"></span></a>
+					<a href="#" class="theme" id="theme19" style="background:#d08eff"><span style="border-bottom-color:#533966"></span></a>
+					<a href="#" class="theme" id="theme20" style="background:#a672cc"><span style="border-bottom-color:#422d52"></span></a>
+					<a href="#" class="theme" id="theme21" style="background:#68477f"><span style="border-bottom-color:#c2b5cc"></span></a>
+					<a href="#" class="theme" id="theme22" style="background:#F646C0"><span style="border-bottom-color:#70127C"></span></a>
+					<a href="#" class="theme" id="theme23" style="background:#6F8ACE"><span style="border-bottom-color:#FDBDFF"></span></a>
+					<a href="#" class="theme" id="theme24" style="background:#6E1F7F"><span style="border-bottom-color:#FF970B"></span></a>
+					<a href="#" class="theme" id="theme25" style="background:#F4742B"><span style="border-bottom-color:#760909"></span></a>
+					<a href="#" class="theme" id="theme26" style="background:#DFF490"><span style="border-bottom-color:#4A5A48"></span></a>
+					<a href="#" class="theme" id="theme27" style="background:#A0F4CD"><span style="border-bottom-color:#403F94"></span></a>
+					<a href="#" class="theme" id="theme28" style="background:#F4A2E5"><span style="border-bottom-color:#D80090"></span></a>
+				</div>
+			</article>
+			<!-- /////////////////////// Links /////////////////////// -->
+			<article id="settings-links" class="settings-content">
+				<h1>Favorite Links</h1>
+				<div class="setting" id="setting-link1">
+					<h3>Enable 1st Link</h3>
+					<small>Display a link to your favorite website at the top of the page.</small>
+					<div class="toggle">
+						<input id="set-link1" class="switch" type="checkbox">
+						<label for="set-link1"></label>
+						<div class="toggle-off">OFF</div>
+						<div class="toggle-on">ON</div>
+					</div>
+					<label for="set-link1-url">URL (Web Address, including http://)</label>
+					<input type="text" id="set-link1-url" placeholder="http://">
+					<label for="set-link1-label">Link Label (max 20 characters)</label>
+					<input type="text" id="set-link1-label" placeholder="My Favorite Site" max="20">
+				</div>
+				<div class="setting" id="setting-link2">
+					<h3>Enable 2nd Link</h3>
+					<small>Display a link to your favorite website at the top of the page.</small>
+					<div class="toggle">
+						<input id="set-link2" class="switch" type="checkbox">
+						<label for="set-link2"></label>
+						<div class="toggle-off">OFF</div>
+						<div class="toggle-on">ON</div>
+					</div>
+					<label for="set-link2-url">URL (Web Address, including http://)</label>
+					<input type="text" id="set-link2-url" placeholder="http://">
+					<label for="set-link2-label">Link Label (max 20 characters)</label>
+					<input type="text" id="set-link2-label" placeholder="My Favorite Site" max="20">
+				</div>
+				<div class="setting" id="setting-link3">
+					<h3>Enable 3rd Link</h3>
+					<small>Display a link to your favorite website at the top of the page.</small>
+					<div class="toggle">
+						<input id="set-link3" class="switch" type="checkbox">
+						<label for="set-link3"></label>
+						<div class="toggle-off">OFF</div>
+						<div class="toggle-on">ON</div>
+					</div>
+					<label for="set-link3-url">URL (Web Address, including http://)</label>
+					<input type="text" id="set-link3-url" placeholder="http://">
+					<label for="set-link3-label">Link Label (max 20 characters)</label>
+					<input type="text" id="set-link3-label" placeholder="My Favorite Site" max="20">
+				</div>
+				<div class="setting" id="setting-link4">
+					<h3>Enable 4th Link</h3>
+					<small>Display a link to your favorite website at the top of the page.</small>
+					<div class="toggle">
+						<input id="set-link4" class="switch" type="checkbox">
+						<label for="set-link4"></label>
+						<div class="toggle-off">OFF</div>
+						<div class="toggle-on">ON</div>
+					</div>
+					<label for="set-link4-url">URL (Web Address, including http://)</label>
+					<input type="text" id="set-link4-url" placeholder="http://">
+					<label for="set-link4-label">Link Label (max 20 characters)</label>
+					<input type="text" id="set-link4-label" placeholder="My Favorite Site" max="20">
+				</div>
+				<div class="setting" id="setting-link5">
+					<h3>Enable 5th Link</h3>
+					<small>Display a link to your favorite website at the top of the page.</small>
+					<div class="toggle">
+						<input id="set-link5" class="switch" type="checkbox">
+						<label for="set-link5"></label>
+						<div class="toggle-off">OFF</div>
+						<div class="toggle-on">ON</div>
+					</div>
+					<label for="set-link5-url">URL (Web Address, including http://)</label>
+					<input type="text" id="set-link5-url" placeholder="http://">
+					<label for="set-link5-label">Link Label (max 20 characters)</label>
+					<input type="text" id="set-link5-label" placeholder="My Favorite Site" max="20">
+				</div>
+				<div class="setting" id="setting-link6">
+					<h3>Enable 6th Link</h3>
+					<small>Display a link to your favorite website at the top of the page.</small>
+					<div class="toggle">
+						<input id="set-link6" class="switch" type="checkbox">
+						<label for="set-link6"></label>
+						<div class="toggle-off">OFF</div>
+						<div class="toggle-on">ON</div>
+					</div>
+					<label for="set-link6-url">URL (Web Address, including http://)</label>
+					<input type="text" id="set-link6-url" placeholder="http://">
+					<label for="set-link6-label">Link Label (max 20 characters)</label>
+					<input type="text" id="set-link6-label" placeholder="My Favorite Site" max="20">
+				</div>
+			</article>
+			<!-- /////////////////////// Extra /////////////////////// -->
+			<article id="settings-extra" class="settings-content">
+				<h1>Extra Settings</h1>
+				<div class="setting" id="setting-message">
+					<h3>Custom Message</h3>
+					<small>Display a personal message at the top of the page.</small>
+					<div class="toggle">
+						<input id="set-message" class="switch" type="checkbox">
+						<label for="set-message"></label>
+						<div class="toggle-off">OFF</div>
+						<div class="toggle-on">ON</div>
+					</div>
+					<label for="set-message-text">Message Text</label>
+					<input type="text" id="set-message-text" placeholder="Hello World!">
+				</div>
+				<div class="setting" id="setting-search">
+					<h3>Display Search Box</h3>
+					<small>Toggle the display of the search box on/off.</small>
+					<div class="toggle">
+						<input id="set-search" class="switch" type="checkbox">
+						<label for="set-search"></label>
+						<div class="toggle-off">OFF</div>
+						<div class="toggle-on">ON</div>
+					</div>
+				</div>
+				<div class="setting" id="setting-engine">
+					<h3>Search Engine</h3>
+					<small>Choose a search engine to use with the search box.</small>
+					<div class="radio-switch">
+						<input id="google" value="google" class="radio" type="radio" name="set-engine">
+						<label for="google"></label>
+						<div class="radio-label">Google</div>
+					</div>
+					<div class="radio-switch">
+						<input id="bing" value="bing" class="radio" type="radio" name="set-engine">
+						<label for="bing"></label>
+						<div class="radio-label">Bing</div>
+					</div>
+					<div class="radio-switch">
+						<input id="duckduckgo" value="duckduckgo" class="radio" type="radio" name="set-engine">
+						<label for="duckduckgo"></label>
+						<div class="radio-label">DuckDuckGo</div>
+					</div>
+				</div>
+				<div class="setting" id="setting-animation">
+					<h3>Toggle Intro Animation</h3>
+					<small>Toggle a fade-in animation for the foreground on load.</small>
+					<div class="toggle">
+						<input id="set-animation" class="switch" type="checkbox">
+						<label for="set-animation"></label>
+						<div class="toggle-off">OFF</div>
+						<div class="toggle-on">ON</div>
+					</div>
+				</div>
+			</article>
+			<!-- /////////////////////// About /////////////////////// -->
+			<article id="settings-about" class="settings-content">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><style>.a{fill:#3FA9F5;}.b{fill:#3FA9F5;}</style><rect x="24" y="80" width="16" height="16" class="a"/><rect x="40" y="64" width="16" height="16" class="a"/><rect x="56" y="48" width="16" height="16" class="a"/><rect x="72" y="64" width="16" height="16" class="a"/><rect x="88" y="80" width="16" height="16" class="a"/><path d="M123 20V0H88v20h-9V0H44v20h-9V10 0H25 10 0v10 10 10 20 78h128V20H123zM118 118H10V10h15v20h19 35 9 30V118z" class="b"/></svg></p>
+				<h1>About CaretTab</h1>
+				<p><a href="http://bluecaret.com/project/carettab" id="CaretTabProjectPage">CaretTab</a> is designed and coded by <a href="http://bluecaret.com" id="BluecaretCom">BlueCaret</a>					and is licensed under the <a href="https://opensource.org/licenses/MIT" id="MITLicense">MIT License</a></p>
+				<p>Follow <a href="https://twitter.com/BlueCaret" id="Twitter">@BlueCaret</a> for the latest news on CaretTab!</p>
+				<hr>
+				<p>Like what you see? Consider a <a href="https://www.paypal.me/bluecaret/">donation</a> to show your support!</p>
+				<a href="https://www.paypal.me/bluecaret/" class="btn" id="donate">Donate via PayPal</a>
+				<hr>
+				<p>CaretTab will not be liable for any issues that may arrise due to the accuracy of this extension. If you're late to work
+					because the time shown was wrong, it's all on you.</p>
+				<hr>
+				<p><a href="#" class="btn" id="reset">Reset Defaults</a></p>
+			</article>
+		</section>
+	</div>
 
-						<!-- <div class="light on" title="Select Theme"></div>
-						<div class="dark" title="Select Theme"></div>
-						<div class="red" title="Select Theme"></div>
-						<div class="green" title="Select Theme"></div>
-						<div class="blue" title="Select Theme"></div> -->
-					</div>
-				</div>
-				<div class="section-text">
-					<h2>Text Color</h2>
-					<div class="toggle-switch" title="Toggle text color">
-						<div class="toggle-off">white</div>
-						<div class="toggle-on">black</div>
-						<input id="text-switch" class="switch" type="checkbox" checked="checked">
-						<label for="text-switch"></label>
-					</div>
-				</div>
-				<div class="section-time">
-					<h2>Time</h2>
-					<div class="toggle-switch" title="Toggle time display">
-						<div class="toggle-off">off</div>
-						<div class="toggle-on">on</div>
-						<input id="time-switch" class="switch" type="checkbox" checked="checked">
-						<label for="time-switch"></label>
-					</div>
-				</div>
-				<div class="section-seconds">
-					<h2>Seconds</h2>
-					<div class="toggle-switch" title="Toggle seconds display (only applies if time is on)">
-						<div class="toggle-off">off</div>
-						<div class="toggle-on">on</div>
-						<input id="seconds-switch" class="switch" type="checkbox" checked="checked">
-						<label for="seconds-switch"></label>
-					</div>
-				</div>
-				<div class="section-braces">
-					<h2>Curly Braces</h2>
-					<div class="toggle-switch" title="Toggle curly braces display (only applies if time is on)">
-						<div class="toggle-off">off</div>
-						<div class="toggle-on">on</div>
-						<input id="braces-switch" class="switch" type="checkbox" checked="checked">
-						<label for="braces-switch"></label>
-					</div>
-				</div>
-				<div class="section-timezone1 section-timezones">
-					<h2>Enable 2nd Clock</h2>
-					<div class="toggle-switch" title="Toggle display of 2nd clock (only applies if time is on)">
-						<div class="toggle-off">off</div>
-						<div class="toggle-on">on</div>
-						<input id="timezone1-switch" class="switch" type="checkbox">
-						<label for="timezone1-switch"></label>
-					</div>
-                    <div class="timezone1-settings timezone-settings" style="display:none;">
-                        <label for="timezone1-zone">TIMEZONE*</label>
-                        <select name="timezone1-zone" id="timezone1-zone">
-                            <option value="Pacific/Midway">(GMT -11:00) Midway Island, Samoa</option>
-                            <option value="Pacific/Honolulu">(GMT -10:00) Hawaii</option>
-                            <option value="America/Anchorage">(GMT -9:00) Alaska</option>
-                            <option value="America/Los_Angeles">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
-                            <option value="America/Boise">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
-                            <option value="America/Chicago">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
-                            <option value="America/New_York">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
-                            <option value="America/Caracas">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
-                            <option value="Canada/Newfoundland">(GMT -3:30) Newfoundland</option>
-                            <option value="America/Argentina/Buenos_Aires">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
-                            <option value="Atlantic/South_Georgia">(GMT -2:00) Mid-Atlantic</option>
-                            <option value="Atlantic/Azores">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
-                            <option value="Europe/London">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
-                            <option value="Europe/Paris">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
-                            <option value="Europe/Kaliningrad">(GMT +2:00) Kaliningrad, South Africa</option>
-                            <option value="Asia/Baghdad">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
-                            <option value="Asia/Tehran">(GMT +3:30) Tehran</option>
-                            <option value="Asia/Muscat">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
-                            <option value="Asia/Kabul">(GMT +4:30) Kabul</option>
-                            <option value="Asia/Karachi">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
-                            <option value="Asia/Calcutta">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
-                            <option value="Asia/Kathmandu">(GMT +5:45) Kathmandu</option>
-                            <option value="Asia/Almaty">(GMT +6:00) Almaty, Dhaka, Colombo</option>
-                            <option value="Asia/Bangkok">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
-                            <option value="Asia/Hong_Kong">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
-                            <option value="Asia/Tokyo">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
-                            <option value="Australia/Adelaide">(GMT +9:30) Adelaide, Darwin</option>
-                            <option value="Pacific/Guam">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
-                            <option value="Asia/Magadan">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
-                            <option value="Pacific/Auckland">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>-->
-                        </select>
-                        <label for="timezone1-label">LABEL</label>
-                        <input type="text" id="timezone1-label">
-                        <label style="margin-bottom:10px">*Note that display of additional timezones is based on the timezone your computer is set to. The detection of your current timezone is pretty much an educated guess and may not reflect your actual timezone, thus causing the additional timezones time to be off. Currently CaretTab is detecting your current timezone to be: "<span class="current-timezone"></span>"</label>
-                    </div>
-				</div>
-				<div class="section-timezone2 section-timezones">
-					<h2>Enable 3rd Clock</h2>
-					<div class="toggle-switch" title="Toggle display of 3rd clock (only applies if time is on)">
-						<div class="toggle-off">off</div>
-						<div class="toggle-on">on</div>
-						<input id="timezone2-switch" class="switch" type="checkbox">
-						<label for="timezone2-switch"></label>
-					</div>
-                    <div class="timezone2-settings timezone-settings" style="display:none;">
-                        <label for="timezone2-zone">TIMEZONE*</label>
-                        <select name="timezone2-zone" id="timezone2-zone">
-                            <option value="Pacific/Midway">(GMT -11:00) Midway Island, Samoa</option>
-                            <option value="Pacific/Honolulu">(GMT -10:00) Hawaii</option>
-                            <option value="America/Anchorage">(GMT -9:00) Alaska</option>
-                            <option value="America/Los_Angeles">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
-                            <option value="America/Boise">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
-                            <option value="America/Chicago">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
-                            <option value="America/New_York">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
-                            <option value="America/Caracas">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
-                            <option value="Canada/Newfoundland">(GMT -3:30) Newfoundland</option>
-                            <option value="America/Argentina/Buenos_Aires">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
-                            <option value="Atlantic/South_Georgia">(GMT -2:00) Mid-Atlantic</option>
-                            <option value="Atlantic/Azores">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
-                            <option value="Europe/London">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
-                            <option value="Europe/Paris">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
-                            <option value="Europe/Kaliningrad">(GMT +2:00) Kaliningrad, South Africa</option>
-                            <option value="Asia/Baghdad">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
-                            <option value="Asia/Tehran">(GMT +3:30) Tehran</option>
-                            <option value="Asia/Muscat">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
-                            <option value="Asia/Kabul">(GMT +4:30) Kabul</option>
-                            <option value="Asia/Karachi">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
-                            <option value="Asia/Calcutta">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
-                            <option value="Asia/Kathmandu">(GMT +5:45) Kathmandu</option>
-                            <option value="Asia/Almaty">(GMT +6:00) Almaty, Dhaka, Colombo</option>
-                            <option value="Asia/Bangkok">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
-                            <option value="Asia/Hong_Kong">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
-                            <option value="Asia/Tokyo">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
-                            <option value="Australia/Adelaide">(GMT +9:30) Adelaide, Darwin</option>
-                            <option value="Pacific/Guam">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
-                            <option value="Asia/Magadan">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
-                            <option value="Pacific/Auckland">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>-->
-                        </select>
-                        <label for="timezone2-label">LABEL</label>
-                        <input type="text" id="timezone2-label">
-                        <label style="margin-bottom:10px">*Note that display of additional timezones is based on the timezone your computer is set to. The detection of your current timezone is pretty much an educated guess and may not reflect your actual timezone, thus causing the additional timezones time to be off. Currently CaretTab is detecting your current timezone to be: "<span class="current-timezone"></span>"</label>
-                    </div>
-				</div>
-				<div class="section-date">
-					<h2>Date</h2>
-					<div class="toggle-switch" title="Toggle date display">
-						<div class="toggle-off">off</div>
-						<div class="toggle-on">on</div>
-						<input id="date-switch" class="switch" type="checkbox" checked="checked">
-						<label for="date-switch"></label>
-					</div>
-				</div>
-				<div class="section-search">
-					<h2>Search</h2>
-					<div class="toggle-switch" title="Toggle search box display">
-						<div class="toggle-off">off</div>
-						<div class="toggle-on">on</div>
-						<input id="search-switch" class="switch" type="checkbox" checked="checked">
-						<label for="search-switch"></label>
-					</div>
-				</div>
-				<div class="section-engine">
-					<h2>Search Engine</h2>
-					<div class="toggle-switch" title="Toggle search engine (only applies if search is on)">
-						<div class="toggle-off">Bing</div>
-						<div class="toggle-on">Google</div>
-						<input id="engine-switch" class="switch" type="checkbox" checked="checked">
-						<label for="engine-switch"></label>
-					</div>
-				</div>
-				<div class="section-animation">
-					<h2>Intro Animation</h2>
-					<div class="toggle-switch" title="Toggle the animation that is shown when the tab is loaded">
-						<div class="toggle-off">off</div>
-						<div class="toggle-on">on</div>
-						<input id="animation-switch" class="switch" type="checkbox" checked="checked">
-						<label for="animation-switch"></label>
-					</div>
-				</div>
-			</section>
-			<h1>Credits</h1>
-			<section class="settings-section">
-				<div class="credits">
-					<p>
-						<a href="http://bluecaret.com/project/carettab">CaretTab</a> is designed and coded by <a href="http://bluecaret.com">BlueCaret</a> (Follow <a href="https://twitter.com/BlueCaret">@BlueCaret</a>) and is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>
-					</p>
-					<p>
-						<small>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, <a href="http://www.flaticon.com/authors/egor-rumyantsev" title="Egor Rumyantsev">Egor Rumyantsev</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></small>
-					</p>
-                    <p><small>CaretTab will not be liable for any issues that may arrise due to the accuracy of this extension. If you're late to work because the time shown was wrong, it's all on you.</small></p>
-				</div>
-			</section>
-		</div>
+	<script src="js/vendor/store.js"></script>
+	<script src="js/vendor/store.old.js"></script>
+	<script src="js/vendor/jquery-2.2.1.min.js"></script>
+	<script src="js/vendor/jquery.color.js"></script>
+	<script src="js/vendor/moment.locale.js"></script>
+	<script src="js/vendor/moment.timezone.2010.js"></script>
+	<script src="js/vendor/jscolor.js"></script>
+	<script src="js/main.js"></script>
+</body>
 
-        <script src="js/vendor/store.js"></script>
-        <script src="js/vendor/store.old.js"></script>
-        <script src="js/vendor/jquery-2.2.1.min.js"></script>
-        <script src="js/vendor/jquery.color.js"></script>
-        <script src="js/vendor/moment.locale.js"></script>
-        <script src="js/vendor/moment.timezone.2010.js"></script>
-        <script src="js/main.js"></script>
-    </body>
 </html>

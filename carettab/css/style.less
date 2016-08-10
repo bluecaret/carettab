@@ -3,85 +3,67 @@
 @import "icons.css";
 
 /* ==========================================================================
-   Extension Installed/Updated
-   ========================================================================== */
+Extension Installed/Updated
+========================================================================== */
 
-    // .carettab-status-style {
-    //     position: fixed;
-    //     bottom: 40px;
-    //     width: 200px;
-    //     text-align: center;
-    //     right: 40px;
-    //     background: #71A1DE;
-    //     color: #fff;
-    //     border-radius: 35px;
-    //     border-bottom-right-radius: 0;
-    //     z-index: 9999;
-    //     padding: 1rem;
-    //     h1 {
-    //         font-size: 1.1rem;
-    //         font-weight: 700;
-    //         margin: 0 1rem 1rem;
-    //     }
-    //     p, ul {
-    //         font-size: 0.8rem;
-    //     }
-    //     ul {
-    //         text-align: left;
-    //     }
-    //     a {
-    //         color: #ffffff;
-    //         text-decoration: underline;
-    //     }
-    //     .newfeature {
-    //         background-size: 100%;
-    //         background-repeat: no-repeat;
-    //         width: 100%;
-    //         height: 61px;
-    //         margin: 10px auto;
-    //         background-image: url("../img/multiclock.png");
-    //     }
-    //     .status-x {
-    //         position: absolute;
-    //         top: 0.6rem;
-    //         right: 1.2rem;
-    //         cursor: pointer;
-    //         &:hover, &:focus {
-    //             opacity: 0.7;
-    //         }
-    //         .flaticon-cancel30:before {
-    //             font-size: 0.9rem;
-    //         }
-    //     }
-    //     @media only screen and (min-width: @sm) {
-    //         width: 340px;
-    //         border-radius: 35px;
-    //         border-bottom-right-radius: 0;
-    //         padding: 1rem;
-    //         h1 {
-    //             font-size: 1.1rem;
-    //             margin: 0 1rem 1rem;
-    //         }
-    //         p, ul {
-    //             font-size: 1rem;
-    //         }
-    //         .newfeature {
-    //             height: 102px;
-    //         }
-    //         .status-x {
-    //             top: 0.6rem;
-    //             right: 1.2rem;
-    //             .flaticon-cancel30:before {
-    //                 font-size: 0.9rem;
-    //             }
-    //         }
-    //     }
-    // }
-
+    .carettab-status {
+        position: fixed;
+        bottom: 40px;
+        width: 85vw;
+        max-width: 500px;
+        text-align: center;
+        right: 40px;
+        background: #71A1DE;
+        color: #fff;
+        border-radius: 15px;
+        border-bottom-right-radius: 0;
+        z-index: 99;
+        padding: 1rem;
+        transform: scale(0);
+        transform-origin: bottom right;
+        animation: status 0.5s ease 1.5s forwards;
+        p, ul {
+            font-size: 1rem;
+            line-height: 1.3;
+        }
+        ul {
+            text-align: left;
+        }
+        a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        .status-x {
+            position: absolute;
+            top: 0.6rem;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+            cursor: pointer;
+            &:hover, &:focus {
+                opacity: 0.7;
+            }
+        }
+        @media only screen and (min-width: 500px) {
+            border-radius: 15px;
+            border-bottom-right-radius: 0;
+            padding: 1rem;
+            p, ul {
+                font-size: 1rem;
+            }
+            .status-x {
+                top: 0.6rem;
+            }
+        }
+    }
+    @keyframes status {
+        0% {transform: scale(0);}
+        100% {transform: scale(1);}
+    }
 
 /* ==========================================================================
-   Global Styles
-   ========================================================================== */
+Global Styles
+========================================================================== */
 
     *, *:before, *:after {
         box-sizing: border-box;
@@ -96,8 +78,24 @@
         line-height: 1;
     }
 
-    body.on-small {
-        font-size: 1em;
+    ::-webkit-scrollbar {
+        width: 14px;
+        height: 14px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgb(15, 20, 25);
+        border-left: 0;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: rgb(60, 60, 60);
+        border-left: 0;
+    }
+
+    ::-webkit-scrollbar-button:start, ::-webkit-scrollbar-button:end {
+        background: rgb(40, 40, 40);
+        border-left: 0;
     }
 
     @media (min-width: 200px) {
@@ -137,9 +135,14 @@
     }
 
     body {
-        background-color: #dcdcdc;
-        color: rgba(0, 0, 0, 0.6);
+        background-color: #ffffff;
         font-family: "Exo 2", Helvetica, Arial, sans-serif;
+        color: #000000;
+        transition: background 0.3s, color 0.3s;
+        a {
+            color: #000000;
+            transition: color 0.3s;
+        }
     }
 
     #wrapper {
@@ -154,32 +157,211 @@
     #wrapper #content {
         display: block;
         margin: auto;
-        padding: 10px 0;
+        padding: 2rem;
+        // transition: opacity 0.3s, filter 0.2s, -webkit-filter 0.2s, -moz-filter 0.2s, -o-filter 0.2s, -ms-filter 0.2s;
+        transition: opacity 0.3s;
     }
 
-    .blur {
-        filter: blur(5px);
-        -webkit-filter: blur(5px);
-        -moz-filter: blur(5px);
-        -o-filter: blur(5px);
-        -ms-filter: blur(5px);
-        filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='svgMask'><feGaussianBlur stdDeviation='5' /></filter></svg>#svgMask");
+    @media (min-width: 500px) {
+        .blur {
+            opacity: 0.3;
+            // filter: blur(4px);
+            // -webkit-filter: blur(4px);
+            // -moz-filter: blur(4px);
+            // -o-filter: blur(4px);
+            // -ms-filter: blur(4px);
+            // filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='svgMask'><feGaussianBlur stdDeviation='4' /></filter></svg>#svgMask");
+        }
     }
 
-    .settings-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+    .btn {
+        display: inline-block;
+        padding: 0 0.6em;
+        border: 1px solid #3FA9F5;
+        border-radius: 4px;
+        line-height: 2.5em;
+        font-size: 1.2em;
+        text-decoration: none;
+        transition: background 0.2s;
     }
 
 
 /* ==========================================================================
-   Time
-   ========================================================================== */
+Links
+========================================================================== */
 
-    .primary-clock {
+    .links {
+        margin: 0;
+        position: absolute;
+        z-index: 90;
+        top: 0;
+        left: 0.4rem;
+        right: 0.4rem;
+        // text-align: left;
+    }
+
+    .links .btn {
+        margin: 0.7rem 0.3rem;
+        padding: 0 0.4em;
+        font-size: 1em;
+        line-height: 1.6em;
+        border: 0;
+        opacity: 0.5;
+        transition: opacity 0.2s;
+        &:hover, &:focus {
+            opacity: 1;
+        }
+    }
+
+    .on-message .links, .on-search .links, .on-clock1 .links, .on-date .links, .on-additionalclocks .links {
+        margin: 0 0 1rem 0;
+    }
+
+    .link1,
+    .link2,
+    .link3,
+    .link4,
+    .link5,
+    .link6 {
+        display: none;
+    }
+
+    .on-link1 .link1,
+    .on-link2 .link2,
+    .on-link3 .link3,
+    .on-link4 .link4,
+    .on-link5 .link5,
+    .on-link6 .link6 {
+        display: inline-block;
+    }
+
+
+/* ==========================================================================
+Message
+========================================================================== */
+
+    .message {
+        display: none;
+        margin: 0;
+    }
+
+    .message p {
+        font-size: 2rem;
+        margin: 0;
+        opacity: 0.5;
+    }
+
+    .on-search .message, .on-clock1 .message, .on-date .message, .on-additionalclocks .message {
+        margin: 0 0 1.5rem 0;
+    }
+
+    .on-message .message {
+        display: block;
+    }
+
+
+/* ==========================================================================
+Search
+========================================================================== */
+
+    .search {
+        display: none;
+        margin: 0;
+    }
+
+    form {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        width: 80vw;
+        max-width: 31rem;
+    }
+
+    .search input {
+        margin: 0;
+        padding: .5rem 4rem .5rem 1rem;
+        font-size: 2rem;
+        vertical-align: middle;
+        height: 4rem;
+        color: inherit;
+        border: 0;
+        border-bottom: 1px solid #000;
+        background-color: transparent;
+        text-align: left;
+        outline: none;
+        width: 100%;
+        opacity: .4;
+        transition: opacity .2s;
+        &::-webkit-input-placeholder {
+            color: inherit;
+        }
+        &:-ms-input-placeholder {
+            color: inherit;
+        }
+        &:input-placeholder {
+            color: inherit;
+        }
+    }
+
+    .search button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0.5rem;
+        height: 4rem;
+        width: 4rem;
+        text-align: center;
+        background-color: transparent;
+        border: 0;
+        outline: none;
+        opacity: 0.3;
+        transition: opacity .2s;
+        i {
+            font-size: 1.5rem;
+            vertical-align: sub;
+            vertical-align: -webkit-baseline-middle;
+        }
+    }
+
+    .maglens {
+        vertical-align: middle;
+        height: 1.5rem;
+    }
+
+    .maglens path {
+        fill: #000000;
+    }
+
+    .search input:active, .search input:hover, .search input:focus, .search button:active, .search button:hover, .search button:focus {
+        opacity: 1;
+    }
+
+    .on-search .search {
+        display: block;
+    }
+
+    @media (min-width: 400px) {
+        .search input {
+            padding: .5rem 3rem .5rem 1rem;
+            font-size: 1.5rem;
+            height: 3rem;
+        }
+        .search button {
+            padding: 0.5rem;
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+
+
+/* ==========================================================================
+Time
+========================================================================== */
+
+    .clock1 {
+        display: none;
         position: relative;
         margin: -2rem auto 0;
         width: 43.5rem;
@@ -187,20 +369,28 @@
         font-weight: 400;
     }
 
-    .primary-clock time {
+    .clock1 time {
         display: inline-block;
         line-height: 1;
         vertical-align: middle;
     }
 
-    .primary-clock .meridiem {
-        display: inline-block;
+    .meridiem {
+        display: none;
+        vertical-align: 0.6em;
+        font-size: 0.35em;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+
+    .clock1 .meridiem {
         vertical-align: 0.6em;
         font-size: 0.35em;
         font-weight: 300;
     }
 
     .brackets {
+        display: none;
         position: absolute;
         top: 0.04em;
         font-size: 1.2em;
@@ -214,21 +404,70 @@
         }
     }
 
+    .minute span,
+    .hour span,
+    .seconds span {
+        display: inline-block;
+        width: 0.6em;
+        text-align: center;
+    }
+
     .seconds {
-        opacity: 1;
+        display: none;
+        opacity: 0.5;
+        // width: 1.2em;
+        // text-align: left;
+    }
+
+    .on-clock1 .clock1,
+    .on-brackets .brackets {
+        display: block;
+    }
+
+    .on-seconds .seconds {
+        display: inline-block;
     }
 
     .delimiter {
-        opacity: 0.5;
+        display: inline-block;
+        opacity: 0;
         vertical-align: 0.12em;
     }
 
-    .on-search .primary-clock {
-        margin: 0 auto;
+    .on-delimiter .delimiter {
+        opacity: 0.5;
     }
 
-    .on-fadeseconds .seconds {
+    .delimiter-seconds.delimiter {
+        display: none;
+    }
+
+    .on-seconds .delimiter-seconds.delimiter {
+        display: inline-block;
+        opacity: 0;
+    }
+
+    .on-seconds.on-delimiter .delimiter-seconds.delimiter {
+        display: inline-block;
         opacity: 0.5;
+    }
+
+    .on-meridiem .clock1 .meridiem {
+        display: inline-block;
+    }
+    
+    .on-meridiem.on-military .clock1 .meridiem {
+        display: none;
+    }
+
+    .on-military .clock2 .meridiem,
+    .on-military .clock3 .meridiem,
+    .on-military .clock4 .meridiem {
+        display: none;
+    }
+
+    .on-search .clock1 {
+        margin: 0 auto;
     }
 
     .on-date .brackets {
@@ -243,27 +482,113 @@
     }
 
     @media (min-width: 200px) {
-        .primary-clock {
+        .clock1 {
             font-weight: 200;
         }
     }
 
     @media (min-width: 400px) {
-        .primary-clock {
+        .clock1 {
             font-weight: 100;
         }
     }
 
     @media (min-width: 500px) {
-        .primary-clock .meridiem {
+        .clock1 .meridiem {
             font-weight: 200;
         }
     }
 
 
 /* ==========================================================================
-   Additional Clocks
-   ========================================================================== */
+Date
+========================================================================== */
+
+    .date {
+        display: none;
+        margin: 0;
+        font-size: 4.5rem;
+        line-height: 1.1em;
+        font-weight: 200;
+        // .day {
+        //     display: none;
+        // }
+        // .year {
+        //     display: none;
+        // }
+    }
+
+    .date time {
+        display: block;
+    }
+
+    .on-date .date {
+        display: block;
+    }
+
+    .on-day .date {
+        font-size: 4.5rem;
+        line-height: 1.1em;
+        font-weight: 400;
+        .day {
+            display: block;
+        }
+    }
+
+    // .on-year .date {
+    //     .year {
+    //         display: inline-block;
+    //     }
+    // }
+
+    @media (min-width: 400px) {
+        .on-day .date {
+            font-size: 3rem;
+            line-height: 1.1em;
+            font-weight: 300;
+            .day {
+                display: inline;
+            }
+        }
+    }
+
+    @media (min-width: 600px) {
+        .on-day .date {
+            font-weight: 200;
+        }
+    }
+
+    .on-shortdate .date {
+        font-size: 7rem;
+        line-height: 1.1em;
+        font-weight: 400;
+    }
+
+    @media (min-width: 400px) {
+        .on-shortdate .date {
+            font-size: 5rem;
+            font-weight: 200;
+        }
+    }
+
+    .on-search .date {
+        margin: 2rem 0 0 0;
+    }
+
+    .on-clock1.on-search .date {
+        margin: 0;
+    }
+
+    .on-clock1 .date {
+        font-size: 2.2rem;
+        line-height: 1.1em;
+        font-weight: 400;
+    }
+
+
+/* ==========================================================================
+Additional Clocks
+========================================================================== */
 
     .additional-clocks {
         margin: 0 auto;
@@ -274,7 +599,6 @@
     }
 
     .additional-clocks aside {
-        display: block;
         width: 33%;
         max-width: 18rem;
         padding: 0;
@@ -301,8 +625,20 @@
         margin: 0.4em 0 0 0;
     }
 
-    .on-primarytime .additional-clocks, .on-date .additional-clocks, .on-search .additional-clocks {
-        margin: 3rem 0 0 0;
+    .on-clock1 .additional-clocks, .on-date .additional-clocks, .on-search .additional-clocks {
+        margin: 2rem 0 0 0;
+    }
+
+    .clock2,
+    .clock3,
+    .clock4 {
+        display: none;
+    }
+
+    .on-clock2 .clock2,
+    .on-clock3 .clock3,
+    .on-clock4 .clock4 {
+        display: block;
     }
 
     @media (min-width: 200px) {
@@ -371,200 +707,46 @@
 
 
 /* ==========================================================================
-   Date
-   ========================================================================== */
+Settings
+========================================================================== */
 
-    .date {
-        margin: 0;
-        font-size: 4.5rem;
-        line-height: 1.1em;
-        font-weight: 200;
-    }
-
-    .date time {
-        display: block;
-    }
-
-    .on-day .date {
-        font-size: 4.5rem;
-        line-height: 1.1em;
-        font-weight: 400;
-        .day {
-            display: block;
-        }
-    }
-
-    @media (min-width: 400px) {
-        .on-day .date {
-            font-size: 3rem;
-            line-height: 1.1em;
-            font-weight: 300;
-            .day {
-                display: inline;
-            }
-        }
-    }
-
-    @media (min-width: 600px) {
-        .on-day .date {
-            font-weight: 200;
-        }
-    }
-
-    .on-shortdate .date {
-        font-size: 7rem;
-        line-height: 1.1em;
-        font-weight: 400;
-    }
-
-    @media (min-width: 400px) {
-        .on-shortdate .date {
-            font-size: 5rem;
-            font-weight: 200;
-        }
-    }
-
-    .on-search .date {
-        margin: 2rem 0 0 0;
-    }
-
-    .on-primarytime.on-search .date {
-        margin: 0;
-    }
-
-    .on-primarytime .date {
-        font-size: 2.2rem;
-        line-height: 1.1em;
-        font-weight: 400;
-    }
-
-
-/* ==========================================================================
-   Search
-   ========================================================================== */
-
-    .search {
-        margin: 0;
-    }
-
-    form {
-        position: relative;
-        display: block;
-        margin: 0 auto;
-        padding: 0;
-        width: 80vw;
-        max-width: 39.5rem;
-    }
-
-    .search input {
-        margin: 0;
-        padding: .5rem 4rem .5rem 1rem;
-        font-size: 2rem;
-        vertical-align: middle;
-        height: 4rem;
-        border: 1px solid #000;
-        border-radius: 3px;
-        background-color: transparent;
-        text-align: left;
-        outline: none;
-        width: 100%;
-        opacity: .4;
-        transition: opacity .2s;
-    }
-
-    .search button {
-        position: absolute;
-        top: 0;
+    #settings-toggle {
+        position: fixed;
+        z-index: 98;
+        bottom: 0;
         right: 0;
-        margin: 0;
-        padding: 0.5rem;
-        height: 4rem;
-        width: 4rem;
-        text-align: center;
-        background-color: transparent;
-        border: 0;
-        outline: none;
-        opacity: 0.3;
-        transition: opacity .2s;
-    }
-
-    .maglens {
-        vertical-align: middle;
-        height: 1.5rem;
-    }
-
-    .maglens path {
-        fill: #000000;
-    }
-
-    .search input:active, .search input:hover, .search input:focus, .search button:active, .search button:hover, .search button:focus {
-        opacity: 1;
-    }
-
-    @media (min-width: 400px) {
-        .search input {
-            padding: .5rem 3rem .5rem 1rem;
+        font-size: 3rem;
+        padding: 0.6rem;
+        text-decoration: none;
+        opacity: 0.5;
+        transition: opacity .2s, transform .3s ease-in-out;
+        &:hover, &:active, &:focus {
+            opacity: 1;
+            transform: rotate(360deg);
+        }
+        @media (min-width: 400px) {
+            font-size: 2rem;
+        }
+        @media (min-width: 500px) {
             font-size: 1.5rem;
-            height: 3rem;
         }
-        .search button {
-            padding: 0.5rem;
-            width: 3rem;
-            height: 3rem;
+        @media (min-width: 800px) {
+            font-size: 1.1rem;
         }
-    }
-
-
-/* ==========================================================================
-   Text Color Changes
-   ========================================================================== */
-
-    // body {
-    //     color: rgba(0, 0, 0, 0.6);
-    //     &.text-white {
-    //         color: rgba(255, 255, 255, 0.6);
-    //         .search input {
-    //             border-color: rgba(255, 255, 255, 1);
-    //         }
-    //     }
-    // }
-
-
-/* ==========================================================================
-   Settings
-   ========================================================================== */
-
-    ::-webkit-scrollbar {
-        width: 14px;
-        height: 14px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: rgba(15, 20, 25, .4);
-        border-left: 0;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, .2);
-        border-left: 0;
-    }
-
-    ::-webkit-scrollbar-button:start, ::-webkit-scrollbar-button:end {
-        background: rgba(255, 255, 255, .17);
-        border-left: 0;
     }
 
     #settings {
         position: fixed;
         right: -110vw;
-        z-index: 9990;
-        background: rgba(15, 20, 25, 0.9);
+        z-index: 99;
+        background: rgba(15, 20, 25, 1);
         width: 100vw;
         height: 100vh;
         padding: 1px;
         box-shadow: -2px 0 15px 0 rgba(0, 0, 0, 0.7);
         font-size: 16px;
         text-align: left;
+        transition: right 0.3s;
         @media (min-width: 500px) {
             right: -470px;
             padding: 2px;
@@ -577,16 +759,14 @@
 
     #close-settings {
         position: absolute;
-        z-index: 9999;
+        z-index: 99;
         top: 10px;
         right: 10px;
         width: 44px;
         height: 44px;
         padding: 10px;
         cursor: pointer;
-        background-size: 24px 24px;
-        background-repeat: no-repeat;
-        background-position: center;
+        font-size: 24px;
     }
 
     #settings-tabs {
@@ -601,22 +781,22 @@
             flex-direction: column;
             li {
                 display: block;
+                font-size: 16px;
                 margin: 1px;
                 padding: 5px;
                 flex-grow: 1;
-                text-align: center;
                 background: rgba(255, 255, 255, 0.1);
                 border-radius: 2px;
                 display: flex;
+                justify-content: center;
                 align-items: center;
                 transition: background 0.2s;
+                color: #fff;
                 &:hover, &:active {
-                    // background: rgba(63,169,245,0.5);
                     background: rgba(255, 255, 255, 0.2);
                     cursor: pointer;
                 }
                 &.active {
-                    // background: #3fa9f5;
                     background: rgba(63, 169, 245, 0.5);
                     cursor: default;
                 }
@@ -628,6 +808,7 @@
                 li {
                     margin: 2px;
                     padding: 10px;
+                    font-size: 24px;
                 }
             }
         }
@@ -663,13 +844,8 @@
         .setting {
             display: block;
             margin: 0 -10px 10px;
-            // border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
             padding: 10px;
-            background: rgba(15, 20, 25, 1);
-            // &:first-of-type {
-            //     border-top: 2px solid rgba(255, 255, 255, 0.2);
-            // }
+            background: rgba(4, 7, 8, 1);
         }
         h1 {
             font-size: 1.6em;
@@ -697,27 +873,17 @@
             line-height: 1.5em;
         }
         a {
-            color: #3FA9F5;
+            color: #3FA9F5 !important;
         }
         .btn {
-            display: inline-block;
-            padding: 0 0.6em;
-            border: 1px solid #3FA9F5;
-            border-radius: 4px;
-            line-height: 2.5em;
-            font-size: 1.2em;
-            text-decoration: none;
-            transition: background 0.2s;
-        }
-        .btn:hover, .btn:focus {
-            background: rgba(255, 255, 255, 0.1);
+            border-color: #3FA9F5 !important;
+            color: #3FA9F5 !important;
         }
         p small {
             color: rgba(255, 255, 255, 0.5);
         }
         @media (min-width:500px) {
             left: 62px;
-            padding: 20px;
             h1 {
                 font-size: 2.5em;
                 line-height: 1.25em;
@@ -731,9 +897,6 @@
                 line-height: 1.25em;
             }
         }
-    }
-
-    .timezone-settings {
         input, select {
             background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -765,286 +928,252 @@
         }
     }
 
-    /* ###################### CHECKBOX SWITCH ###################### */
-
-        .checkbox-switch {
-            position: relative;
-            margin: 0;
+    .theme {
+        position: relative;
+        display: inline-block;
+        width: 2em;
+        height: 2em;
+        margin: 0.3em;
+        background: transparent;
+        border: 2px solid #FFF;
+        border-radius: 50%;
+        overflow: hidden;
+        box-sizing: content-box;
+        cursor: pointer;
+        transform: translateZ(0);
+        transition: transform 0.3s;
+        &:hover, &:focus {
+            transform: rotate(45deg);
         }
-
-        .checkbox-label {
-            width: 70%;
-            width: ~"calc(100% - 36px)";
-            display: inline-block;
-            font-size: 18px;
-            line-height: 26px;
-            vertical-align: top;
-            font-weight: 300;
-            letter-spacing: 1px;
-            opacity: 0.5;
-            transition: opacity 0.25s;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-
-        .checkbox {
+        span {
             position: absolute;
-            margin-left: -9999px;
-            visibility: hidden;
-            -webkit-user-select: none;
-            user-select: none;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 2em 2em;
+            border-color: transparent transparent transparent transparent;
         }
-
-        input.checkbox + label {
-            display: inline-block;
-            position: relative;
-            cursor: pointer;
-            outline: none;
-            user-select: none;
-            padding: 2px;
-            width: 22px;
-            height: 22px;
-            background-color: #ccc;
-            border-radius: 3px;
-            transition: background 0.25s;
-            -webkit-user-select: none;
-            user-select: none;
-            margin: 3px 10px 3px 0;
-        }
-
-        input.checkbox + label:before, input.checkbox + label:after {
-            display: block;
-            position: absolute;
-            content: "";
-        }
-
-        input.checkbox + label:before {
-            top: 2px;
-            left: 2px;
-            bottom: 2px;
-            right: 2px;
-            background-color: #1C1F27;
-            border-radius: 2px;
-            transition: background 0.25s;
-        }
-
-        input.checkbox + label:after {
-            top: 6px;
-            left: 6px;
-            bottom: 4px;
-            width: 10px;
-            height: 10px;
-            background-color: #1C1F27;
-            border-radius: 2px;
-            transition: margin 0.25s, background 0.25s;
-        }
-
-        input.checkbox:checked + label {
-            background-color: #3FA9F5;
-        }
-
-        input.checkbox:checked + label:after {
-            background-color: #3FA9F5;
-        }
-
-        input.checkbox:checked ~ .checkbox-label {
-            opacity: 0.9;
-        }
+    }
 
 
-    /* ###################### RADIO SWITCH ###################### */
+    /* ###################### CHECKBOX and RADIO SWITCH ###################### */
 
-        .radio-switch {
-            display: block;
-            width: 100%;
-            position: relative;
-            margin: 0;
-        }
+    .checkbox-switch, .radio-switch {
+        display: block;
+        width: 100%;
+        position: relative;
+        margin: 0;
+    }
 
-        .radio-label {
-            width: 70%;
-            width: ~"calc(100% - 36px)";
-            display: inline-block;
-            font-size: 18px;
-            line-height: 26px;
-            vertical-align: top;
-            font-weight: 300;
-            letter-spacing: 1px;
-            opacity: 0.5;
-            transition: opacity 0.25s;
-            -webkit-user-select: none;
-            user-select: none;
-        }
+    .checkbox-label, .radio-label {
+        width: 70%;
+        width: ~"calc(100% - 36px)";
+        display: inline-block;
+        font-size: 18px;
+        line-height: 26px;
+        vertical-align: top;
+        font-weight: 300;
+        letter-spacing: 1px;
+        opacity: 0.5;
+        transition: opacity 0.25s;
+        -webkit-user-select: none;
+        user-select: none;
+    }
 
-        .radio {
-            position: absolute;
-            margin-left: -9999px;
-            visibility: hidden;
-            -webkit-user-select: none;
-            user-select: none;
-        }
+    .checkbox, .radio {
+        position: absolute;
+        margin-left: -9999px;
+        visibility: hidden;
+        -webkit-user-select: none;
+        user-select: none;
+    }
 
-        input.radio + label {
-            display: inline-block;
-            position: relative;
-            cursor: pointer;
-            outline: none;
-            user-select: none;
-            padding: 2px;
-            width: 22px;
-            height: 22px;
-            background-color: #ccc;
-            border-radius: 18px;
-            transition: background 0.25s;
-            -webkit-user-select: none;
-            user-select: none;
-            margin: 3px 10px 3px 0;
-        }
+    input.checkbox + label, input.radio + label {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        outline: none;
+        user-select: none;
+        padding: 2px;
+        width: 22px;
+        height: 22px;
+        background-color: #ccc;
+        border-radius: 3px;
+        transition: background 0.25s;
+        -webkit-user-select: none;
+        user-select: none;
+        margin: 3px 10px 3px 0;
+    }
 
-        input.radio + label:before, input.radio + label:after {
-            display: block;
-            position: absolute;
-            content: "";
-        }
+    input.radio + label {
+        border-radius: 18px;
+    }
 
-        input.radio + label:before {
-            top: 2px;
-            left: 2px;
-            bottom: 2px;
-            right: 2px;
-            background-color: #1C1F27;
-            border-radius: 60px;
-            transition: background 0.25s;
-        }
+    input.checkbox + label:before, input.checkbox + label:after, input.radio + label:before, input.radio + label:after {
+        display: block;
+        position: absolute;
+        content: "";
+    }
 
-        input.radio + label:after {
-            top: 4px;
-            left: 4px;
-            bottom: 4px;
-            width: 14px;
-            background-color: #1C1F27;
-            border-radius: 50%;
-            transition: margin 0.25s, background 0.25s;
-        }
+    input.checkbox + label:before, input.radio + label:before {
+        top: 2px;
+        left: 2px;
+        bottom: 2px;
+        right: 2px;
+        background-color: #1C1F27;
+        border-radius: 2px;
+        transition: background 0.25s;
+    }
 
-        input.radio:checked + label {
-            background-color: #3FA9F5;
-            cursor: default;
-        }
+    input.radio + label:before {
+        border-radius: 60px;
+    }
 
-        input.radio:checked + label:after {
-            background-color: #3FA9F5;
-        }
+    input.checkbox + label:after, input.radio + label:after {
+        background-color: #1C1F27;
+        transition: margin 0.25s, background 0.25s;
+    }
 
-        input.radio:checked ~ .radio-label {
-            opacity: 0.9;
-        }
+    input.checkbox + label:after {
+        top: 6px;
+        left: 6px;
+        bottom: 4px;
+        width: 10px;
+        height: 10px;
+        border-radius: 2px;
+    }
+
+    input.radio + label:after {
+        top: 4px;
+        left: 4px;
+        bottom: 4px;
+        width: 14px;
+        border-radius: 50%;
+    }
+
+    input.checkbox:checked + label, input.radio:checked + label {
+        background-color: #3FA9F5;
+    }
+
+    input.radio:checked + label {
+        cursor: default;
+    }
+
+    input.checkbox:checked + label:after, input.radio:checked + label:after {
+        background-color: #3FA9F5;
+    }
+
+    input.checkbox:checked ~ .checkbox-label, input.radio:checked ~ .radio-label {
+        opacity: 0.9;
+    }
 
 
     /* ###################### TOGGLE SWITCH ###################### */
 
-        .toggle-switch {
-            position: relative;
-            margin: 0;
-        }
+    .toggle {
+        position: relative;
+        margin: 0;
+    }
 
-        .toggle-off, .toggle-on {
-            position: absolute;
-            left: 60px;
-            top: 0;
-            font-size: 18px;
-            line-height: 26px;
-            vertical-align: top;
-            font-weight: 300;
-            letter-spacing: 1px;
-            opacity: 0.5;
-            transition: opacity 0.25s;
-            -webkit-user-select: none;
-            user-select: none;
-        }
+    .toggle-off, .toggle-on {
+        position: absolute;
+        left: 60px;
+        top: 0;
+        font-size: 18px;
+        line-height: 26px;
+        vertical-align: top;
+        font-weight: 300;
+        letter-spacing: 1px;
+        opacity: 0.5;
+        transition: opacity 0.25s;
+        -webkit-user-select: none;
+        user-select: none;
+    }
 
-        .toggle-on {
-            opacity: 0.9;
-        }
+    .toggle-on {
+        opacity: 0.9;
+    }
 
-        .switch {
-            position: absolute;
-            margin-left: -9999px;
-            visibility: hidden;
-            -webkit-user-select: none;
-            user-select: none;
-        }
+    .switch {
+        position: absolute;
+        margin-left: -9999px;
+        visibility: hidden;
+        -webkit-user-select: none;
+        user-select: none;
+    }
 
-        input.switch + label {
-            display: inline-block;
-            position: relative;
-            cursor: pointer;
-            outline: none;
-            user-select: none;
-            padding: 2px;
-            width: 50px;
-            height: 22px;
-            background-color: #ccc;
-            border-radius: 18px;
-            transition: background 0.25s;
-            -webkit-user-select: none;
-            user-select: none;
-            margin: 3px 0 3px 0;
-        }
+    input.switch + label {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        outline: none;
+        user-select: none;
+        padding: 2px;
+        width: 50px;
+        height: 22px;
+        background-color: #ccc;
+        border-radius: 18px;
+        transition: background 0.25s;
+        -webkit-user-select: none;
+        user-select: none;
+        margin: 3px 0 3px 0;
+    }
 
-        input.switch + label:before, input.switch + label:after {
-            display: block;
-            position: absolute;
-            content: "";
-        }
+    input.switch + label:before, input.switch + label:after {
+        display: block;
+        position: absolute;
+        content: "";
+    }
 
-        input.switch + label:before {
-            top: 2px;
-            left: 2px;
-            bottom: 2px;
-            right: 2px;
-            background-color: #1C1F27;
-            border-radius: 60px;
-            transition: background 0.25s;
-        }
+    input.switch + label:before {
+        top: 2px;
+        left: 2px;
+        bottom: 2px;
+        right: 2px;
+        background-color: #1C1F27;
+        border-radius: 60px;
+        transition: background 0.25s;
+    }
 
-        input.switch + label:after {
-            top: 4px;
-            left: 4px;
-            bottom: 4px;
-            width: 22px;
-            background-color: #ccc;
-            border-radius: 22px;
-            transition: margin 0.25s, background 0.25s;
-        }
+    input.switch + label:after {
+        top: 4px;
+        left: 4px;
+        bottom: 4px;
+        width: 22px;
+        background-color: #ccc;
+        border-radius: 22px;
+        transition: margin 0.25s, background 0.25s;
+    }
 
-        input.switch:checked + label {
-            background-color: #3FA9F5;
-        }
+    input.switch:checked + label {
+        background-color: #3FA9F5;
+    }
 
-        input.switch:checked + label:after {
-            margin-left: 20px;
-            background-color: #3FA9F5;
-        }
+    input.switch:checked + label:after {
+        margin-left: 20px;
+        background-color: #3FA9F5;
+    }
 
-        input.switch:checked ~ .toggle-off, input.switch:not(:checked) ~ .toggle-on {
-            opacity: 0;
-        }
+    input.switch:checked ~ .toggle-off, input.switch:not(:checked) ~ .toggle-on {
+        opacity: 0;
+    }
 
-        input.switch:checked ~ .toggle-on, input.switch:not(:checked) ~ .toggle-off {
-            opacity: 0.5;
-        }
+    input.switch:checked ~ .toggle-on, input.switch:not(:checked) ~ .toggle-off {
+        opacity: 0.5;
+    }
 
-        input.switch:checked ~ .toggle-on {
-            opacity: 0.9;
-        }
+    input.switch:checked ~ .toggle-on {
+        opacity: 0.9;
+    }
 
 
 /* ==========================================================================
-   Animations
-   ========================================================================== */
+Animations
+========================================================================== */
 
-    .animation-on .fadein {
+    .on-animation .fadein {
         animation-name: fadeIn;
         animation-duration: 1.1s;
         animation-timing-function: ease-in-out;
@@ -1062,7 +1191,7 @@
         }
     }
 
-    .animation-on .pulldown {
+    .on-animation .pulldown {
         animation-name: pullDown;
         animation-duration: 1.1s;
         animation-timing-function: ease-out;
@@ -1093,7 +1222,7 @@
         }
     }
 
-    .animation-on .slideup {
+    .on-animation .slideup {
         animation-name: slideUp;
         animation-duration: 1s;
         animation-timing-function: ease;
@@ -1123,8 +1252,8 @@
 
 
 /* ==========================================================================
-   Helper Classes
-   ========================================================================== */
+Helper Classes
+========================================================================== */
 
     .clearfix {
         *zoom: 1;
@@ -1134,5 +1263,97 @@
         }
         &:after {
             clear: both;
+        }
+    }
+
+
+/* ==========================================================================
+Icons
+========================================================================== */
+
+    @i-about: "\e900";
+    @i-close: "\e901";
+    @i-color: "\e902";
+    @i-config: "\e903";
+    @i-date: "\e904";
+    @i-links: "\e905";
+    @i-logo: "\e906";
+    @i-search: "\e90c";
+    @i-settings: "\e90d";
+    @i-time: "\e90e";
+
+    @font-face {
+        font-family: 'carettab';
+        src:
+            url('../fonts/carettab.ttf?suhqyz') format('truetype'),
+            url('../fonts/carettab.woff?suhqyz') format('woff'),
+            url('../fonts/carettab.svg?suhqyz#carettab') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    i {
+        /* use !important to prevent issues with browser extensions that change fonts */
+        font-family: 'carettab' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .i-about {
+        &:before {
+            content: @i-about;
+        }
+    }
+    .i-close {
+        &:before {
+            content: @i-close;
+        }
+    }
+    .i-color {
+        &:before {
+            content: @i-color;
+        }
+    }
+    .i-config {
+        &:before {
+            content: @i-config;
+        }
+    }
+    .i-date {
+        &:before {
+            content: @i-date;
+        }
+    }
+    .i-links {
+        &:before {
+            content: @i-links;
+        }
+    }
+    .i-logo {
+        &:before {
+            content: @i-logo;
+        }
+    }
+    .i-search {
+        &:before {
+            content: @i-search;
+        }
+    }
+    .i-settings {
+        &:before {
+            content: @i-settings;
+        }
+    }
+    .i-time {
+        &:before {
+            content: @i-time;
         }
     }

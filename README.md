@@ -1,20 +1,41 @@
 # CaretTab
-CaretTab is a simple New Tab page replacement for Google Chrome.
+A simplistic New Tab page extension with options for displaying time, date, search, favorite links, and more!
 
 For more information visit the [CaretTab project page](http://bluecaret.com/project/carettab)
 
 Get CaretTab from the [Chrome Web Store](https://chrome.google.com/webstore/detail/carettab-new-tab-page/cojpndognjdcakkimaloeealehpkljna?hl=en-US)
 
 ## Features
-- Displays time on the page and in the tab.
-- Add 2 additional clocks with customizable label and timezone.
-- Search Google/Bing from new tab page.
-- Customize everything! Toggle the time, seconds, date, search, animation and more.
-- Theme selection. Choose from a handful of different background colors.
+- Display time and date on new tab page (time shows on tab).
+- Add 3 additional clocks with customizable label and timezone.
+- Search Google/Bing/DuckDuckGo from new tab page.
+- Display up to six favorite links for quick access.
+- Include a custom message on the page.
+- Choose from a handful of different color themes or choose your own custom color.
+- Customize everything! Toggle the time, seconds, time format, date, date format, search engine, and more.
 
 Have any suggestions? Let me know on Twitter @BlueCaret
 
 ## Changelog
+
+### 1.0.0
+- Added option to toggle meridiem
+- Added 24 hour time option
+- Added option to toggle time delimiter
+- Added option to toggle blinking of time delimiter
+- Added a third additional clock
+- Added option to toggle day of week
+- Added option to toggle year
+- Added short/long date format
+- Added additional date formats (MM/DD/YYYY, DD/MM/YYYY, etc)
+- Added more color themes
+- Added option to choose custom colors for background and foreground
+- Added favorite links
+- Added custom message
+- Added DuckDuckGo search engine option
+- Changed font used
+- Updated layout
+- Refactored code
 
 ### 0.3.0
 - Multiple clocks! Add up to 2 additional clocks with different timezones with a customizable label

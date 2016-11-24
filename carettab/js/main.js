@@ -884,24 +884,6 @@ function updateTime() {
             $('.clock1 .seconds').each(function (index) { var characters = $(this).text().split(""); $this = $(this); $this.empty(); $.each(characters, function (i, el) { $this.append("<span>" + el + "</span"); }); });
         }
         
-        // Set document title
-        if (sMilitary == "on") {
-            if (sSeconds == "on") {
-                    document.title = moment().format('H:mm:ss');
-            } else {
-                    document.title = moment().format('H:mm');
-            }
-        } else {
-            if (sSeconds == "on" && sMeridiem == "on") {
-                    document.title = moment().format('h:mm:ss a');
-            } else if (sSeconds == "on" && sMeridiem == "off") {
-                    document.title = moment().format('h:mm:ss');
-            } else if (sSeconds == "off" && sMeridiem == "on") {
-                    document.title = moment().format('h:mm a');
-            } else if (sSeconds == "off" && sMeridiem == "off") {
-                    document.title = moment().format('h:mm');
-            }
-        }
         
         // Blink delimiter every half second
         var dt = new Date();

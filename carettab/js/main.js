@@ -387,7 +387,7 @@ $('.status-x').click(function() {
 });
 
 // Close settings panel via clicking outside menu
-$(document).mouseup(function (e) {
+$(document).mousedown(function (e) {
     var container = $("#settings");
     if (container.hasClass("active")) {
 	    if (!container.is(e.target) && container.has(e.target).length === 0) {

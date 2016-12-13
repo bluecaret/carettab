@@ -511,6 +511,27 @@
 			<!-- /////////////////////// Extra /////////////////////// -->
 			<article id="settings-extra" class="settings-content">
 				<h1>Extra Settings</h1>
+                <div class="setting" id="setting-new-tab-title">
+					<h3>Tab title</h3>
+					<small>Choose what to display in the New Tab title (shows on the tab itself as well as in the browsers title).</small>
+					<div class="radio-switch">
+						<input id="tab-time" value="tab-time" class="radio" type="radio" name="set-tab-title">
+						<label for="tab-time"></label>
+						<div class="radio-label">Display Time</div>
+					</div>
+					<div class="radio-switch">
+						<input id="new-tab" value="new-tab" class="radio" type="radio" name="set-tab-title">
+						<label for="new-tab"></label>
+						<div class="radio-label">Display "New Tab"</div>
+					</div>
+					<div class="radio-switch">
+						<input id="tab-custom" value="tab-custom" class="radio" type="radio" name="set-tab-title">
+						<label for="tab-custom"></label>
+						<div class="radio-label">Display Custom Text</div>
+					</div>
+					<label for="set-tab-custom-message">Custom New Tab Title Text</label>
+					<input type="text" id="set-tab-custom-message" placeholder="New Tab">
+				</div>
 				<div class="setting" id="setting-message">
 					<h3>Custom Message</h3>
 					<small>Display a personal message at the top of the page.</small>
@@ -522,26 +543,6 @@
 					</div>
 					<label for="set-message-text">Message Text</label>
 					<input type="text" id="set-message-text" placeholder="Hello World!">
-				</div>
-                <div class="setting" id="setting-new-tab-title">
-					<h3>Tab title</h3>
-					<div class="radio-switch">
-						<input id="tab-time" value="tab-time" class="radio" type="radio" name="set-tab-title">
-						<label for="tab-time"></label>
-						<div class="radio-label">Use Time</div>
-					</div>
-					<div class="radio-switch">
-						<input id="new-tab" value="new-tab" class="radio" type="radio" name="set-tab-title">
-						<label for="new-tab"></label>
-						<div class="radio-label">Use "New Tab"</div>
-					</div>
-					<div class="radio-switch">
-						<input id="tab-custom" value="tab-custom" class="radio" type="radio" name="set-tab-title">
-						<label for="tab-custom"></label>
-						<div class="radio-label">Use custom message text</div>
-					</div>
-					<label for="set-tab-custom-message">Custom New Tab Title Text</label>
-					<input type="text" id="set-tab-custom-message" placeholder="New Tab">
 				</div>
 				<div class="setting" id="setting-search">
 					<h3>Display Search Box</h3>

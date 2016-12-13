@@ -59,12 +59,12 @@ function loadSettings() {
 	if (store.get('s6thLink')) { s6thLink = store.get('s6thLink'); t6thLink(); } else { t6thLink(); }
 	if (store.get('s6thLinkUrl')) { s6thLinkUrl = store.get('s6thLinkUrl'); t6thLinkUrl(s6thLinkUrl); } else { t6thLinkUrl(s6thLinkUrl); }
 	if (store.get('s6thLinkLabel')) { s6thLinkLabel = store.get('s6thLinkLabel'); t6thLinkLabel(s6thLinkLabel); } else { t6thLinkLabel(s6thLinkLabel); }
+    if (store.get('sTabTitle')) { sTabTitle = store.get('sTabTitle'); tTabTitle();} else { tTabTitle(); }
+    if (store.get('sTabTitleCustomMessage')) { sTabTitleCustomMessage = store.get('sTabTitleCustomMessage'); tTabTitleCustomMessage(sTabTitleCustomMessage);} else { tTabTitleCustomMessage(sTabTitleCustomMessage); }
 	if (store.get('sCustomMessage')) { sCustomMessage = store.get('sCustomMessage'); tCustomMessage(); } else { tCustomMessage(); }
 	if (store.get('sCustomMessageText')) { sCustomMessageText = store.get('sCustomMessageText'); tCustomMessageText(sCustomMessageText); } else { tCustomMessageText(sCustomMessageText); }
 	if (store.get('sSearch')) { sSearch = store.get('sSearch'); tSearch(); } else { tSearch(); }
 	if (store.get('sEngine')) { sEngine = store.get('sEngine'); tEngine(); } else { tEngine(); }
-    if (store.get('sTabTitle')) { sTabTitle = store.get('sTabTitle'); tTabTitle();} else { tTabTitle(); }
-    if (store.get('sTabTitleCustomMessage')) { sTabTitleCustomMessage = store.get('sTabTitleCustomMessage'); tTabTitleCustomMessage(sTabTitleCustomMessage);} else { tTabTitleCustomMessage(sTabTitleCustomMessage); }
 	if (store.get('sAnimation')) { sAnimation = store.get('sAnimation'); tAnimation(); } else { tAnimation(); }
 }
 
@@ -73,7 +73,7 @@ function loadSettings() {
 // ##############################################
 
 function setVars() {
-	sPrimaryClock = 'on'; sSeconds = 'on'; sMeridiem = 'on'; sMilitary = 'off'; sDelimiter = 'on'; sBlinking = 'off'; sBrackets = 'on'; s2ndClock = 'off'; s2ndClockTimezone = moment.tz.guess(); s2ndClockLabel = 'Secondary Clock'; s3rdClock = 'off'; s3rdClockTimezone = moment.tz.guess(); s3rdClockLabel = 'Tertiary Clock'; s4thClock = 'off'; s4thClockTimezone = moment.tz.guess(); s4thClockLabel = 'Quaternary Clock'; sDate = 'on'; sDay = 'on'; sYear = 'on'; sShortDate = 'off'; sDateFormat = 'middle'; sBackground = '#FFFFFF'; sForeground = '#000000'; s1stLink = 'off'; s1stLinkUrl = ''; s1stLinkLabel = ''; s2ndLink = 'off'; s2ndLinkUrl = ''; s2ndLinkLabel = ''; s3rdLink = 'off'; s3rdLinkUrl = ''; s3rdLinkLabel = ''; s4thLink = 'off'; s4thLinkUrl = ''; s4thLinkLabel = ''; s5thLink = 'off'; s5thLinkUrl = ''; s5thLinkLabel = ''; s6thLink = 'off'; s6thLinkUrl = ''; s6thLinkLabel = ''; sCustomMessage = ''; sCustomMessageText = ''; sSearch = 'on'; sEngine = 'google'; sAnimation = 'on'; sTabTitle = 'new-tab'; sTabTitleCustomMessage = '';
+	sPrimaryClock = 'on'; sSeconds = 'on'; sMeridiem = 'on'; sMilitary = 'off'; sDelimiter = 'on'; sBlinking = 'off'; sBrackets = 'on'; s2ndClock = 'off'; s2ndClockTimezone = moment.tz.guess(); s2ndClockLabel = 'Secondary Clock'; s3rdClock = 'off'; s3rdClockTimezone = moment.tz.guess(); s3rdClockLabel = 'Tertiary Clock'; s4thClock = 'off'; s4thClockTimezone = moment.tz.guess(); s4thClockLabel = 'Quaternary Clock'; sDate = 'on'; sDay = 'on'; sYear = 'on'; sShortDate = 'off'; sDateFormat = 'middle'; sBackground = '#FFFFFF'; sForeground = '#000000'; s1stLink = 'off'; s1stLinkUrl = ''; s1stLinkLabel = ''; s2ndLink = 'off'; s2ndLinkUrl = ''; s2ndLinkLabel = ''; s3rdLink = 'off'; s3rdLinkUrl = ''; s3rdLinkLabel = ''; s4thLink = 'off'; s4thLinkUrl = ''; s4thLinkLabel = ''; s5thLink = 'off'; s5thLinkUrl = ''; s5thLinkLabel = ''; s6thLink = 'off'; s6thLinkUrl = ''; s6thLinkLabel = ''; sTabTitle = 'tab-time'; sTabTitleCustomMessage = 'New Tab'; sCustomMessage = ''; sCustomMessageText = ''; sSearch = 'on'; sEngine = 'google'; sAnimation = 'on';
 }
 
 function setDefaults() {
@@ -83,7 +83,7 @@ function setDefaults() {
     store.set('sLoad','1.0.0'); 
     setVars();
     
-    tPrimaryClock(); tSeconds(); tMeridiem(); tMilitary(); tDelimiter(); tBlinking(); tBrackets(); t2ndClock(); t2ndClockTimezone(s2ndClockTimezone); t2ndClockLabel(s2ndClockLabel); t3rdClock(); t3rdClockTimezone(s3rdClockTimezone); t3rdClockLabel(s3rdClockLabel); t4thClock(); t4thClockTimezone(s4thClockTimezone); t4thClockLabel(s4thClockLabel); tDate(); tDay(); tYear(); tShortDate(); tDateFormat(); tBackground(sBackground); tForeground(sForeground); t1stLink(); t1stLinkUrl(s1stLinkUrl); t1stLinkLabel(s1stLinkLabel); t2ndLink(); t2ndLinkUrl(s2ndLinkUrl); t2ndLinkLabel(s2ndLinkLabel); t3rdLink(); t3rdLinkUrl(s3rdLinkUrl); t3rdLinkLabel(s3rdLinkLabel); t4thLink(); t4thLinkUrl(s4thLinkUrl); t4thLinkLabel(s4thLinkLabel); t5thLink(); t5thLinkUrl(s5thLinkUrl); t5thLinkLabel(s5thLinkLabel); t6thLink(); t6thLinkUrl(s6thLinkUrl); t6thLinkLabel(s6thLinkLabel); tCustomMessage(); tCustomMessageText(sCustomMessageText); tSearch(); tEngine(); tAnimation(); tTabTitleCustomMessage(sTabTitleCustomMessage); tTabTitle();
+    tPrimaryClock(); tSeconds(); tMeridiem(); tMilitary(); tDelimiter(); tBlinking(); tBrackets(); t2ndClock(); t2ndClockTimezone(s2ndClockTimezone); t2ndClockLabel(s2ndClockLabel); t3rdClock(); t3rdClockTimezone(s3rdClockTimezone); t3rdClockLabel(s3rdClockLabel); t4thClock(); t4thClockTimezone(s4thClockTimezone); t4thClockLabel(s4thClockLabel); tDate(); tDay(); tYear(); tShortDate(); tDateFormat(); tBackground(sBackground); tForeground(sForeground); t1stLink(); t1stLinkUrl(s1stLinkUrl); t1stLinkLabel(s1stLinkLabel); t2ndLink(); t2ndLinkUrl(s2ndLinkUrl); t2ndLinkLabel(s2ndLinkLabel); t3rdLink(); t3rdLinkUrl(s3rdLinkUrl); t3rdLinkLabel(s3rdLinkLabel); t4thLink(); t4thLinkUrl(s4thLinkUrl); t4thLinkLabel(s4thLinkLabel); t5thLink(); t5thLinkUrl(s5thLinkUrl); t5thLinkLabel(s5thLinkLabel); t6thLink(); t6thLinkUrl(s6thLinkUrl); t6thLinkLabel(s6thLinkLabel); tTabTitle(); tTabTitleCustomMessage(sTabTitleCustomMessage); tCustomMessage(); tCustomMessageText(sCustomMessageText); tSearch(); tEngine(); tAnimation();
 }
 
 // ##############################################
@@ -145,15 +145,11 @@ $('#set-shortdate').click(function() {
 	if ($('#set-shortdate').is(':checked')) { sShortDate = 'on'; tShortDate(); _gaq.push(['_trackEvent', 'Settings', 'Toggle', 'sShortDate on']); } 
 	else { sShortDate = 'off'; tShortDate(); _gaq.push(['_trackEvent', 'Settings', 'Toggle', 'sShortDate off']); } });
 $('input[name="set-dateformat"]').click(function() { 
-	sDateFormat = $(this).val(); 
-	tDateFormat();
-	_gaq.push(['_trackEvent', 'Settings', 'Radio', 'sDateFormat '+sDateFormat]); });
+	sDateFormat = $(this).val(); tDateFormat(); _gaq.push(['_trackEvent', 'Settings', 'Radio', 'sDateFormat '+sDateFormat]); });
 $('#set-background').change(function() { 
-	sBackground = $(this).val(); tBackground(sBackground); 
-	_gaq.push(['_trackEvent', 'sBackground', 'Type', sBackground]); });
+	sBackground = $(this).val(); tBackground(sBackground); _gaq.push(['_trackEvent', 'sBackground', 'Type', sBackground]); });
 $('#set-foreground').change(function() { 
-	sForeground = $(this).val(); tForeground(sForeground); 
-	_gaq.push(['_trackEvent', 'sForeground', 'Type', sForeground]); });
+	sForeground = $(this).val(); tForeground(sForeground); _gaq.push(['_trackEvent', 'sForeground', 'Type', sForeground]); });
 $('#set-link1').click(function() { 
 	if ($('#set-link1').is(':checked')) { s1stLink = 'on'; t1stLink(); _gaq.push(['_trackEvent', 'Settings', 'Toggle', 's1stLink on']); } 
 	else { s1stLink = 'off'; t1stLink(); _gaq.push(['_trackEvent', 'Settings', 'Toggle', 's1stLink off']); } });
@@ -196,43 +192,20 @@ $('#set-link6-url').change(function() {
 	s6thLinkUrl = $(this).val(); t6thLinkUrl(s6thLinkUrl); _gaq.push(['_trackEvent', 'Settings', 'Type', 's6thLinkUrl']); });
 $('#set-link6-label').change(function() { 
 	s6thLinkLabel = $(this).val(); t6thLinkLabel(s6thLinkLabel); _gaq.push(['_trackEvent', 'Settings', 'Type', 's6thLinkLabel']); });
+$('input[name="set-tab-title"]').click(function() { 
+	sTabTitle = $(this).val(); tTabTitle(); _gaq.push(['_trackEvent', 'Settings', 'Radio', 'sTabTitle '+sTabTitle]); });
+$('#set-tab-custom-message').change(function() { 
+	sTabTitleCustomMessage = $(this).val(); tTabTitleCustomMessage(sTabTitleCustomMessage); _gaq.push(['_trackEvent', 'Settings', 'Type', 'sTabTitleCustomMessage']); });
 $('#set-message').click(function() { 
 	if ($('#set-message').is(':checked')) { sCustomMessage = 'on'; tCustomMessage(); _gaq.push(['_trackEvent', 'Settings', 'Toggle', 'sCustomMessage on']); } 
 	else { sCustomMessage = 'off'; tCustomMessage(); _gaq.push(['_trackEvent', 'Settings', 'Toggle', 'sCustomMessage off']); } });
-$('#set-message-text').change(function() { 
-	sCustomMessageText = $(this).val(); tCustomMessageText(sCustomMessageText); _gaq.push(['_trackEvent', 'Settings', 'Type', 'sCustomMessageText']); });
-$('#tab-time').click(function() { 
-	if ($('#tab-time').is(':checked')) { 
-        sTabTitle = 'time';
-        tTabTitle();
-        _gaq.push(['_trackEvent', 'Settings', 'Type', 'sTabTitle']);
-    }
-});
-$('#new-tab').click(function() { 
-	if ($('#new-tab').is(':checked')) { 
-        sTabTitle = 'new-tab';
-        tTabTitle();
-        _gaq.push(['_trackEvent', 'Settings', 'Type', 'sTabTitle']);
-    }
-});
-$('#tab-custom').click(function() { 
-	if ($('#tab-custom').is(':checked')) { 
-        sTabTitle = 'custom';
-        tTabTitle();
-        _gaq.push(['_trackEvent', 'Settings', 'Type', 'sTabTitle']);
-    }
-}); sTabTitle = 'new-tab'; sTabTitleCustomMessage = '';
-$('#set-tab-custom-message').change(function() { 
-	sTabTitleCustomMessage = $(this).val(); tTabTitleCustomMessage(sTabTitleCustomMessage); _gaq.push(['_trackEvent', 'Settings', 'Type', 'sTabTitleCustomMessage']); });
 $('#set-message-text').change(function() { 
 	sCustomMessageText = $(this).val(); tCustomMessageText(sCustomMessageText); _gaq.push(['_trackEvent', 'Settings', 'Type', 'sCustomMessageText']); });
 $('#set-search').click(function() { 
 	if ($('#set-search').is(':checked')) { sSearch = 'on'; tSearch(); _gaq.push(['_trackEvent', 'Settings', 'Toggle', 'sSearch on']); } 
 	else { sSearch = 'off'; tSearch(); _gaq.push(['_trackEvent', 'Settings', 'Toggle', 'sSearch off']); } });
 $('input[name="set-engine"]').click(function() { 
-	sEngine = $(this).val(); 
-	tEngine();
-	_gaq.push(['_trackEvent', 'Settings', 'Radio', 'sEngine '+sEngine]); });
+	sEngine = $(this).val(); tEngine(); _gaq.push(['_trackEvent', 'Settings', 'Radio', 'sEngine '+sEngine]); });
 $('#set-animation').click(function() { 
 	if ($('#set-animation').is(':checked')) { sAnimation = 'on'; tAnimation(); _gaq.push(['_trackEvent', 'Settings', 'Toggle', 'sAnimation on']); } 
 	else { sAnimation = 'off'; tAnimation(); _gaq.push(['_trackEvent', 'Settings', 'Toggle', 'sAnimation off']); } });
@@ -435,35 +408,6 @@ $('#reset').click(function() {
 // ##############################################
 // Settings Functions
 // ##############################################
-function tTabTitle() {
-    console.log(sTabTitle);
-	if (sTabTitle == 'time') {
-        store.set('sTabTitle', 'time');
-        $('#new-tab').prop('checked', false);
-        $("#tab-time").prop('checked', true);
-        $("#tab-custom").prop('checked', false);
-        $("#set-tab-custom-message").prop("disabled", true)
-    } else if (sTabTitle == 'new-tab') {
-        store.set('sTabTitle', 'new-tab');
-        $('#new-tab').prop('checked', true);
-        $("#tab-time").prop('checked', false);
-        $("#tab-custom").prop('checked', false);
-        $("#set-tab-custom-message").prop("disabled", true)
-    } else {
-        store.set('sTabTitle', 'custom');
-        $('#new-tab').prop('checked', false);
-        $("#tab-time").prop('checked', false);
-        $("#tab-custom").prop('checked', true);
-        $("#set-tab-custom-message").prop("disabled", false)
-	}
-    updateTabTitle();
-}
-
-function tTabTitleCustomMessage(value) {
-	store.set('sTabTitleCustomMessage',value);
-	$('#set-tab-custom-message').val(value);
-	updateTabTitle();
-}
 function tPrimaryClock() {
 	if (sPrimaryClock == 'on') {
 		store.set('sPrimaryClock','on');
@@ -483,10 +427,12 @@ function tSeconds() {
 		$('html').addClass('on-seconds');
 		$('#set-seconds').attr('Checked','Checked');
         updateTime();
+		if (sTabTitle == "tab-time") { updateTabTitle(); }
 	} else {
 		store.set('sSeconds','off');
 		$('html').removeClass('on-seconds');
 		$('#set-seconds').removeAttr('Checked');
+		if (sTabTitle == "tab-time") { updateTabTitle(); }
 	}
 }
 
@@ -495,11 +441,13 @@ function tMeridiem() {
 		store.set('sMeridiem','on');
 		$('html').addClass('on-meridiem');
 		$('#set-meridiem').attr('Checked','Checked');
+		if (sTabTitle == "tab-time") { updateTabTitle(); }
         updateTime();
 	} else {
 		store.set('sMeridiem','off');
 		$('html').removeClass('on-meridiem');
 		$('#set-meridiem').removeAttr('Checked');
+		if (sTabTitle == "tab-time") { updateTabTitle(); }
 	}
 }
 
@@ -858,6 +806,18 @@ function t6thLinkLabel(value) {
 	$('.link6').text(value);
 }
 
+function tTabTitle() {
+    store.set('sTabTitle',sTabTitle);
+    $('input[name="set-tab-title"][value="'+sTabTitle+'"]').attr('Checked','Checked');
+    updateTabTitle();
+}
+
+function tTabTitleCustomMessage(value) {
+	store.set('sTabTitleCustomMessage',value);
+	$('#set-tab-custom-message').val(value);
+	updateTabTitle();
+}
+
 function tCustomMessage() {
 	if (sCustomMessage == 'on') {
 		store.set('sCustomMessage','on');
@@ -939,7 +899,6 @@ function updateTime() {
             $('.clock1 .seconds').each(function (index) { var characters = $(this).text().split(""); $this = $(this); $this.empty(); $.each(characters, function (i, el) { $this.append("<span>" + el + "</span"); }); });
         }
         
-        
         // Blink delimiter every half second
         var dt = new Date();
         if (sDelimiter == "on" && sBlinking == "on") {
@@ -1018,27 +977,33 @@ function updateAdditionalClocks() {
 };
     
 function updateTabTitle()  {
-    if (sTabTitle == "time") {
-        if (sMilitary == "on") {
-             if (sSeconds == "on") {
-                     document.title = moment().format('H:mm:ss');
-             } else {
-                     document.title = moment().format('H:mm');
-             }
-         } else {
-             if (sSeconds == "on" && sMeridiem == "on") {
-                     document.title = moment().format('h:mm:ss a');
-             } else if (sSeconds == "on" && sMeridiem == "off") {
-                     document.title = moment().format('h:mm:ss');
-             } else if (sSeconds == "off" && sMeridiem == "on") {
-                     document.title = moment().format('h:mm a');
-             } else if (sSeconds == "off" && sMeridiem == "off") {
-                     document.title = moment().format('h:mm');
-             }
-         }
+    if (sTabTitle == "tab-time") {
+		if (sMilitary == "on") {
+			if (sSeconds == "on") {
+					document.title = moment().format('H:mm:ss');
+			} else {
+					document.title = moment().format('H:mm');
+			}
+		} else {
+			if (sSeconds == "on" && sMeridiem == "on") {
+					document.title = moment().format('h:mm:ss a');
+			} else if (sSeconds == "on" && sMeridiem == "off") {
+					document.title = moment().format('h:mm:ss');
+			} else if (sSeconds == "off" && sMeridiem == "on") {
+					document.title = moment().format('h:mm a');
+			} else if (sSeconds == "off" && sMeridiem == "off") {
+					document.title = moment().format('h:mm');
+			}
+		}
+		if (sSeconds == 'off') {
+			setTimeout(updateTabTitle, 60000);
+		} else {
+			setTimeout(updateTabTitle, 500);
+		}
+		clearTimeout(updateTabTitle);
     } else if (sTabTitle == "new-tab") {
         document.title = "New Tab";
-    } else {
+    } else if (sTabTitle == "tab-custom") {
         document.title = sTabTitleCustomMessage;
     }
 };

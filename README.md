@@ -18,6 +18,11 @@ Have any suggestions? Let me know on Twitter @BlueCaret
 
 ## Changelog
 
+### 1.1.0
+- Added option to customize Tab title text
+- Fixed text field selection bug
+- Fixed color of close menu icon
+
 ### 1.0.0
 - Added option to toggle meridiem
 - Added 24 hour time option

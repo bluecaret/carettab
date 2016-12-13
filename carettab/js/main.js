@@ -458,12 +458,14 @@ function tMilitary() {
 		$('#set-military').attr('Checked','Checked');
         updateTime();
         updateAdditionalClocks();
+		if (sTabTitle == "tab-time") { updateTabTitle(); }
 	} else {
 		store.set('sMilitary','off');
 		$('html').removeClass('on-military');
 		$('#set-military').removeAttr('Checked');
         updateTime();
         updateAdditionalClocks();
+		if (sTabTitle == "tab-time") { updateTabTitle(); }
 	}
 }
 
@@ -605,11 +607,13 @@ function tDay() {
 		$('html').addClass('on-day');
 		$('#set-day').attr('Checked','Checked');
         updateDate();
+		if (sTabTitle == "tab-date") { updateTabTitle(); }
 	} else {
 		store.set('sDay','off');
 		$('html').removeClass('on-day');
 		$('#set-day').removeAttr('Checked');
         updateDate();
+		if (sTabTitle == "tab-date") { updateTabTitle(); }
 	}
 }
 
@@ -619,11 +623,13 @@ function tYear() {
 		$('html').addClass('on-year');
 		$('#set-year').attr('Checked','Checked');
         updateDate();
+		if (sTabTitle == "tab-date") { updateTabTitle(); }
 	} else {
 		store.set('sYear','off');
 		$('html').removeClass('on-year');
 		$('#set-year').removeAttr('Checked');
         updateDate();
+		if (sTabTitle == "tab-date") { updateTabTitle(); }
 	}
 }
 
@@ -633,11 +639,13 @@ function tShortDate() {
 		$('html').addClass('on-shortdate');
 		$('#set-shortdate').attr('Checked','Checked');
         updateDate();
+		if (sTabTitle == "tab-date") { updateTabTitle(); }
 	} else {
 		store.set('sShortDate','off');
 		$('html').removeClass('on-shortdate');
 		$('#set-shortdate').removeAttr('Checked');
         updateDate();
+		if (sTabTitle == "tab-date") { updateTabTitle(); }
 	}
 }
 
@@ -645,6 +653,7 @@ function tDateFormat() {
     store.set('sDateFormat',sDateFormat);
     $('input[name="set-dateformat"][value="'+sDateFormat+'"]').attr('Checked','Checked');
     updateDate();
+	if (sTabTitle == "tab-date") { updateTabTitle(); }
 }
 
 function tBackground(value) {
@@ -975,51 +984,23 @@ function updateAdditionalClocks() {
     }
     clearTimeout(updateAdditionalClocks);
 };
-    
-function updateTabTitle()  {
-    if (sTabTitle == "tab-time") {
-		if (sMilitary == "on") {
-			if (sSeconds == "on") {
-					document.title = moment().format('H:mm:ss');
-			} else {
-					document.title = moment().format('H:mm');
-			}
-		} else {
-			if (sSeconds == "on" && sMeridiem == "on") {
-					document.title = moment().format('h:mm:ss a');
-			} else if (sSeconds == "on" && sMeridiem == "off") {
-					document.title = moment().format('h:mm:ss');
-			} else if (sSeconds == "off" && sMeridiem == "on") {
-					document.title = moment().format('h:mm a');
-			} else if (sSeconds == "off" && sMeridiem == "off") {
-					document.title = moment().format('h:mm');
-			}
-		}
-		if (sSeconds == 'off') {
-			setTimeout(updateTabTitle, 60000);
-		} else {
-			setTimeout(updateTabTitle, 500);
-		}
-		clearTimeout(updateTabTitle);
-    } else if (sTabTitle == "new-tab") {
-        document.title = "New Tab";
-    } else if (sTabTitle == "tab-custom") {
-        document.title = sTabTitleCustomMessage;
-    }
-};
+
+function getDateVars() {
+    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    dt = new Date();
+    day = days[dt.getDay()];
+    year = dt.getFullYear();
+    shortYear = dt.getFullYear().toString().substr(2,2);
+    month = months[dt.getMonth()];
+    shortMonth = ("0" + (dt.getMonth() + 1)).slice(-2); // Returns a double digit month (01 vs 1)
+    date = dt.getDate();
+    shortDate = ("0" + dt.getDate()).slice(-2); // Returns a double digit date (01 vs 1)
+}
     
 function updateDate() { 
-    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-    var dt = new Date();
-    var day = days[dt.getDay()];
-    var year = dt.getFullYear();
-    var shortYear = dt.getFullYear().toString().substr(2,2);
-    var month = months[dt.getMonth()];
-    var shortMonth = ("0" + (dt.getMonth() + 1)).slice(-2); // Returns a double digit month (01 vs 1)
-    var date = dt.getDate();
-    var shortDate = ("0" + dt.getDate()).slice(-2); // Returns a double digit date (01 vs 1)
+	getDateVars();
     
     $('.date time').attr('datetime',year+'-'+shortMonth+'-'+shortDate);
     
@@ -1081,6 +1062,99 @@ function updateDate() {
 
     setTimeout(updateDate, 60000);
     clearTimeout(updateDate);
+};
+    
+function updateTabTitle()  {
+    if (sTabTitle == "tab-time") {
+		if (sMilitary == "on") {
+			if (sSeconds == "on") {
+					document.title = moment().format('H:mm:ss');
+			} else {
+					document.title = moment().format('H:mm');
+			}
+		} else {
+			if (sSeconds == "on" && sMeridiem == "on") {
+					document.title = moment().format('h:mm:ss a');
+			} else if (sSeconds == "on" && sMeridiem == "off") {
+					document.title = moment().format('h:mm:ss');
+			} else if (sSeconds == "off" && sMeridiem == "on") {
+					document.title = moment().format('h:mm a');
+			} else if (sSeconds == "off" && sMeridiem == "off") {
+					document.title = moment().format('h:mm');
+			}
+		}
+		if (sSeconds == 'off') {
+			setTimeout(updateTabTitle, 60000);
+		} else {
+			setTimeout(updateTabTitle, 500);
+		}
+		clearTimeout(updateTabTitle);
+    } else if (sTabTitle == "tab-date") {
+        getDateVars();
+
+		if (sDateFormat == 'little') {
+			if (sShortDate == 'on') {
+				if (sYear == 'on') {
+					document.title = shortDate+'/'+shortMonth+'/'+shortYear;
+				} else {
+					document.title = shortDate+'/'+shortMonth;
+				}
+			} else {
+				if (sDay == 'on' && sYear == 'on') {
+					document.title = day+', '+date+' '+month+' '+year;
+				} else if (sDay == 'off' && sYear == 'on') {
+					document.title = date+' '+month+' '+year;
+				} else if (sDay == 'on' && sYear == 'off') {
+					document.title = day+', '+date+' '+month;
+				} else if (sDay == 'off' && sYear == 'off') {
+					document.title = date+' '+month;
+				}
+			}
+		} else if (sDateFormat == 'big') {
+			if (sShortDate == 'on') {
+				if (sYear == 'on') {
+					document.title = shortYear+'/'+shortMonth+'/'+shortDate;
+				} else {
+					document.title = shortMonth+'/'+shortDate;
+				}
+			} else {
+				if (sDay == 'on' && sYear == 'on') {
+					document.title = day+', '+year+' '+month+' '+date;
+				} else if (sDay == 'off' && sYear == 'on') {
+					document.title = year+' '+month+' '+date;
+				} else if (sDay == 'on' && sYear == 'off') {
+					document.title = day+', '+month+' '+date;
+				} else if (sDay == 'off' && sYear == 'off') {
+					document.title = month+' '+date;
+				}
+			}
+		} else {
+			if (sShortDate == 'on') {
+				if (sYear == 'on') {
+					document.title = shortMonth+'/'+shortDate+'/'+shortYear;
+				} else {
+					document.title = shortMonth+'/'+shortDate;
+				}
+			} else {
+				if (sDay == 'on' && sYear == 'on') {
+					document.title = day+', '+month+' '+date+', '+year;
+				} else if (sDay == 'off' && sYear == 'on') {
+					document.title = month+' '+date+', '+year;
+				} else if (sDay == 'on' && sYear == 'off') {
+					document.title = day+', '+month+' '+date;
+				} else if (sDay == 'off' && sYear == 'off') {
+					document.title = month+' '+date;
+				}
+			}
+		}
+		
+		setTimeout(updateTabTitle, 60000);
+    	clearTimeout(updateTabTitle);
+    } else if (sTabTitle == "new-tab") {
+        document.title = "New Tab";
+    } else if (sTabTitle == "tab-custom") {
+        document.title = sTabTitleCustomMessage;
+    }
 };
 
 // Analytics

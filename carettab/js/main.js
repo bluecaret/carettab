@@ -671,6 +671,11 @@ function tForeground(value) {
 	$('.btn').css({'border-color':value, 'color':value});
 }
 
+function checkLink(value) {
+	if (!~value.indexOf('://')) return ('http://' + value);
+	return value;
+}
+
 function t1stLink() {
 	if (s1stLink == 'on') {
 		store.set('s1stLink','on');
@@ -684,6 +689,7 @@ function t1stLink() {
 }
 
 function t1stLinkUrl(value) {
+	value = checkLink(value);
 	store.set('s1stLinkUrl',value);
 	$('#set-link1-url').val(value);
 	$('.link1').attr('href',value);
@@ -708,6 +714,7 @@ function t2ndLink() {
 }
 
 function t2ndLinkUrl(value) {
+	value = checkLink(value);
 	store.set('s2ndLinkUrl',value);
 	$('#set-link2-url').val(value);
 	$('.link2').attr('href',value);
@@ -732,6 +739,7 @@ function t3rdLink() {
 }
 
 function t3rdLinkUrl(value) {
+	value = checkLink(value);
 	store.set('s3rdLinkUrl',value);
 	$('#set-link3-url').val(value);
 	$('.link3').attr('href',value);
@@ -756,6 +764,7 @@ function t4thLink() {
 }
 
 function t4thLinkUrl(value) {
+	value = checkLink(value);
 	store.set('s4thLinkUrl',value);
 	$('#set-link4-url').val(value);
 	$('.link4').attr('href',value);
@@ -780,6 +789,7 @@ function t5thLink() {
 }
 
 function t5thLinkUrl(value) {
+	value = checkLink(value);
 	store.set('s5thLinkUrl',value);
 	$('#set-link5-url').val(value);
 	$('.link5').attr('href',value);
@@ -804,6 +814,7 @@ function t6thLink() {
 }
 
 function t6thLinkUrl(value) {
+	value = checkLink(value);
 	store.set('s6thLinkUrl',value);
 	$('#set-link6-url').val(value);
 	$('.link6').attr('href',value);

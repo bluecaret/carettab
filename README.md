@@ -13,19 +13,24 @@ Get CaretTab from the [Chrome Web Store](https://chrome.google.com/webstore/deta
 - Include a custom message on the page.
 - Choose from a handful of different color themes or choose your own custom color.
 - Customize everything! Toggle the time, seconds, time format, date, date format, search engine, and more.
+- Chrome Sync support. Keep your settings across all devices. (Requires storage permissions)
 
 Have any suggestions? Let me know on Twitter @BlueCaret
 
 ## Changelog
 
+### 1.2.0
+- Added Google Chrome Sync support - Suggested by 'Joel Gwartney' and 'C. Coates'
+- Fixed bug where links without protocol (http://) wouldn't work - Contributions by 'ivankayzer!'
+
 ### 1.1.0
-- Added option to customize Tab title text
+- Added option to customize Tab title text - Suggested by 'tanmay kumar', Contributions by 'bil-elmoussaoui'
 - Fixed text field selection bug
 - Fixed color of close menu icon
 
 ### 1.0.0
 - Added option to toggle meridiem
-- Added 24 hour time option
+- Added 24 hour time option - Suggested by 'Busimus'
 - Added option to toggle time delimiter
 - Added option to toggle blinking of time delimiter
 - Added a third additional clock
@@ -37,13 +42,13 @@ Have any suggestions? Let me know on Twitter @BlueCaret
 - Added option to choose custom colors for background and foreground
 - Added favorite links
 - Added custom message
-- Added DuckDuckGo search engine option
+- Added DuckDuckGo search engine option - Suggested by 'deejay253'
 - Changed font used
 - Updated layout
 - Refactored code
 
 ### 0.3.0
-- Multiple clocks! Add up to 2 additional clocks with different timezones with a customizable label
+- Multiple clocks! Add up to 2 additional clocks with different timezones with a customizable label - Suggested by 'Microsoft Employee'
 - Removed "Quick Links" feature due to performance issues. We will continue to look at this for a potential comeback.
 
 ### 0.2.0 Beta

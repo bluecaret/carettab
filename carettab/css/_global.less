@@ -1,0 +1,182 @@
+@breakpoint-md: 800px;
+@blue: #3FA9F5;
+@green: #5CB85C;
+@grey: #778888;
+
+html {
+    font-size: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.6rem;
+    color: #000;
+}
+
+.on-animation body {
+    transition: background-color 0.4s;
+}
+body.font-amatic-sc {
+    font-family: 'Amatic SC', sans-serif;
+}
+body.font-anton {
+    font-family: 'Anton', cursive;
+}
+body.font-eb-garamond {
+    font-family: 'EB Garamond', cursive;
+}
+body.font-exo-2 {
+    font-family: 'Exo 2', cursive;
+}
+body.font-lobster {
+    font-family: 'Lobster', serif;
+}
+body.font-monoton {
+    font-family: 'Monoton', sans-serif;
+}
+body.font-press-start-2p {
+    font-family: 'Press Start 2P', sans-serif;
+}
+body.font-quicksand {
+    font-family: 'Quicksand', monospace;
+}
+body.font-special-elite {
+    font-family: 'Special Elite', serif;
+}
+
+::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+}
+
+::-webkit-scrollbar-track {
+    background: #444;
+    border-left: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #666;
+    border-left: 0;
+}
+
+::-webkit-scrollbar-button:start, ::-webkit-scrollbar-button:end {
+    background: #444;
+    border-left: 0;
+    height: 0;
+}
+
+.setup-positioning() {
+    position: absolute;
+    top: 0; right: 0; left: 0; bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: +1;
+}
+
+#carettab {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    // Scaling
+    font-size: 100vw;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0 0.6em;
+    border: 1px solid @blue;
+    border-radius: 4px;
+    line-height: 2.5em;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    &:hover {
+        background: @blue;
+        color: #fff !important;
+    }
+}
+
+#settings-toggle {
+    position: fixed;
+    right: 0; top: 0;
+    z-index: +1;
+    padding: 10px;
+    cursor: pointer;
+    font-family: "Quicksand", sans-serif;
+    font-size: 36px;
+    transform: rotate(0deg) scale(1, 1);
+    transition: transform 0.3s;
+    svg {
+        width: auto;
+        height: 36px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        .st0 { fill:white; }
+    }
+    &:hover {
+        transform: rotate(-90deg) scale(1.75, 1.75);
+        svg {
+            opacity: 1;
+        }
+    }
+}
+&.on-settings-toggle #settings-toggle {
+    svg {
+        opacity: 0.3;
+        transition: opacity 0.3s;
+    }
+    &:hover {
+        svg {
+            opacity: 1;
+        }
+    }
+}
+
+// Setup alignment of main items
+.top, .middle, .bottom {
+    display: flex;
+    align-items: center;
+}
+.top {
+    display: flex;
+    flex-direction: column;
+}
+.middle {
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    // flex-grow: 1;
+}
+.bottom {
+}
+
+.left, .right, .center {
+    display: flex;
+    align-items: center;
+}
+.left {
+    justify-content: flex-end;
+}
+.right {
+    justify-content: flex-start;
+}
+.center {
+    justify-content: center;
+    flex-direction: column;
+}
+
+// Hide/show
+.hidden {
+    display: none !important;
+}

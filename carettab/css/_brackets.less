@@ -1,0 +1,124 @@
+.brackets {
+    display: none;
+}
+.on-brackets {
+    .brackets {
+        font-size: 10%;
+        line-height: 1;
+        font-weight: 300;
+        text-align: center;
+        &.bracket-1 { padding-right: .25em; }
+        &.bracket-2 { padding-left: .25em; }
+    }
+    &.on-dimbrackets .brackets {
+        opacity: 0.5;
+    }
+    &.on-date .brackets,
+    &.on-clock1 .brackets {
+        display: block;
+    }
+    &.on-date .brackets {
+        font-size: 12%;
+    }
+    &.on-clock1 .brackets {
+        font-size: 13%;
+    }
+    &.on-date.on-clock1 .brackets {
+        font-size: 20%;
+    }
+
+    // Bracket Styles
+    &.brackets-curly {
+        .bracket-1:before { content: '{'; }
+        .bracket-2:before { content: '}'; }
+    }
+    &.brackets-square {
+        .bracket-1:before { content: '['; }
+        .bracket-2:before { content: ']'; }
+    }
+    &.brackets-paran {
+        .bracket-1:before { content: '('; }
+        .bracket-2:before { content: ')'; }
+    }
+    &.brackets-straight { 
+        .bracket-1:before { content: '|'; }
+        .bracket-2:before { content: '|'; }
+    }
+    &.brackets-slash {
+        .bracket-1:before { content: '/'; }
+        .bracket-2:before { content: '/'; }
+    }
+}
+
+// Sepcial Cases
+.on-clock1.on-date .font-press-start-2p {
+    .brackets { 
+        // font-size: 18%; 
+        &.bracket-1 { padding-right: .15em; }
+        &.bracket-2 { padding-left: .15em; }
+    }
+    // .left, .right { margin-bottom: -0.02em; }
+}
+
+.brackets-curly .font-exo-2 {
+    // .left, .right { margin-bottom: 0.014em; }
+}
+
+.brackets-curly .font-quicksand {
+    // .left, .right { margin-bottom: 0.019em; }
+}
+
+.brackets-curly .font-amatic-sc {
+    // .left, .right { margin-bottom: 0; }
+}
+.brackets-curly.on-clock1 .font-amatic-sc {
+    // .left, .right { margin-bottom: 0; }
+    // .brackets { font-size: 17%; }
+}
+.brackets-curly.on-clock1.on-date .font-amatic-sc {
+    // .left, .right { margin-bottom: -0.01em; }
+    // .brackets { font-size: 25%; }
+}
+
+.brackets-curly .font-anton {
+    // .left, .right { margin-bottom: 0; }
+}
+.brackets-curly.on-clock1 .font-anton {
+    // .left, .right { margin-bottom: 0; }
+}
+.brackets-curly.on-clock1.on-date .font-anton {
+    // .left, .right { margin-bottom: -0.01em; }
+    // .brackets { font-size: 25%; }
+}
+
+.brackets-curly .font-eb-garamond {
+    // .left, .right { margin-bottom: 0; }
+}
+
+.brackets-curly .font-lobster {
+    // .left, .right { margin-bottom: 0.02em; }
+}
+
+.brackets-curly .font-monoton {
+    // .left, .right { margin-bottom: 0.015em; }
+}
+
+.brackets-curly .font-press-start-2p {
+    // .left, .right { margin-bottom: 0; }
+}
+.brackets-curly.on-clock1.on-date .font-press-start-2p {
+    // .left, .right { margin-bottom: -0.02em; }
+}
+
+.brackets-curly .font-special-elite {
+    // .left, .right { margin-bottom: -0.02em; }
+}
+.brackets-curly.on-clock1.on-date .font-special-elite {
+    // .left, .right { margin-bottom: -0.04em; }
+}
+
+.on-analog.on-clock1.on-brackets {
+    .brackets {
+        display: none;
+    }
+}

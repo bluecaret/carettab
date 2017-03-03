@@ -20,9 +20,11 @@
     "persistent": false
   },
 
+  "offline_enabled": true,
+
   "permissions": [
-    "storage"
-  ],
+    "storage",
+    "<all_urls>"
+  ]
   
-  "content_security_policy": "script-src 'self' 'unsafe-eval' https://ssl.google-analytics.com; object-src 'self'"
 }

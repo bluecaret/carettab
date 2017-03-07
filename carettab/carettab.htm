@@ -86,31 +86,31 @@
         <div class="bottom">
             <div id="additional-clocks">
                 <div class="clock2 fadein">
-                    <time datetime="00:00">
+                    <time id="display-clock2-time" datetime="00:00">
                         <span class="hour">00</span>
                         <span class="delimiter">:</span>
                         <span class="minute">00</span>
                         <span class="meridiem">AM</span>
                     </time>
-                    <span class="label"></span>
+                    <span id="display-clock2-label" class="label"></span>
                 </div>
                 <div class="clock3 fadein">
-                    <time datetime="00:00">
+                    <time id="display-clock3-time" datetime="00:00">
                         <span class="hour">00</span>
                         <span class="delimiter">:</span>
                         <span class="minute">00</span>
                         <span class="meridiem">AM</span>
                     </time>
-                    <span class="label"></span>
+                    <span id="display-clock3-label" class="label"></span>
                 </div>
                 <div class="clock4 fadein">
-                    <time datetime="00:00">
+                    <time id="display-clock4-time" datetime="00:00">
                         <span class="hour">00</span>
                         <span class="delimiter">:</span>
                         <span class="minute">00</span>
                         <span class="meridiem">AM</span>
                     </time>
-                    <span class="label"></span>
+                    <span id="display-clock4-label" class="label"></span>
                 </div>
             </div>
         </div>
@@ -175,6 +175,7 @@
                     <li><b>Minimal!</b> Hide the settings button for a minimal look.</li>
                     <li><b>Restyled!</b> An improved and updated settings panel.</li>
                     <li><b>Responsive!</b> Even more responsive at various window sizes.</li>
+                    <li><b>Efficient!</b> Less CPU and Memory usage.</li>
                 </ul>
             </div>
             <hr>
@@ -488,7 +489,7 @@
                 </div>
             </div>
             <div class="row">
-                <p><small><b>Note</b> that display of the primary clock and additional clocks is based on the time and timezone your computer is set to. The detection of your current timezone is pretty much an educated guess and may not reflect your actual timezone, thus causing the additional clocks time to be off. Currently CaretTab is detecting your current timezone to be: "<span class="current-timezone"></span>"</small></p>
+                <p><small><b>Note</b> that display of the primary clock and additional clocks is based on the time and timezone your computer is set to. The detection of your current timezone is pretty much an educated guess and may not reflect your actual timezone, thus causing the additional clocks time to be off. Currently CaretTab is detecting your current timezone to be: "<span id="current-timezone"></span>"</small></p>
             </div>
         </div>
         <!-- ############################################### -->

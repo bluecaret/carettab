@@ -89,8 +89,16 @@
 .changelog {
     font-size: 0.9em;
     margin-top: 0;
+    padding: 0;
+    list-style: none;
     li {
-        padding: 0 10px 5px 5px;
+        padding: 0 10px 5px 20px;
+        &:before {
+            content: '\2714';
+            display: inline-block;
+            color: @green;
+            padding: 0 10px 0 0;
+        }
     }
 }
 

@@ -91,6 +91,7 @@ function setDefaults(caretTabStatus, sLoad, loaded) {
 
     setVars();
 
+    tAnimation();
     tPrimaryClock();
     tSeconds();
     tDimSeconds();
@@ -141,7 +142,6 @@ function setDefaults(caretTabStatus, sLoad, loaded) {
     tCustomMessageText(sCustomMessageText);
     tSearch();
     tEngine(sEngine);
-    tAnimation();
     tScale();
     tBrackets();
     tDimBrackets();

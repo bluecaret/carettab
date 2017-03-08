@@ -183,17 +183,22 @@
         flex-wrap: wrap;
         li {
             padding: 0;
-            a {
+            button {
                 display: inline-block;
                 line-height: 40px;
                 padding: 0 5px;
                 margin: 0 5px;
+                background: transparent;
+                border: 0;
                 border-bottom: 2px solid transparent;
                 color: lighten(@grey, 20%);
                 text-decoration: none;
                 &.active {
                     border-bottom-color: @blue;
                     color: #FAFAFA;
+                }
+                &:focus {
+                    outline: 0;
                 }
                 @media screen and (max-width: 560px) {
                     font-size: 12px;
@@ -431,15 +436,16 @@ input[type="color"]::-webkit-color-swatch {
 .theme {
     width: 35px;
     height: 35px;
-    font-size: 21px;
+    font-size: 22px;
     display: block;
     text-decoration: none;
     text-align: center;
     text-align: center;
-    line-height: 30px;
     vertical-align: middle;
+    border: 0;
     box-shadow: 0 0 5px rgba(0,0,0,1);
     margin: 0 10px;
+    padding: 0 0 4px;
     border-radius: 50%;
     transition: transform 0.2s;
     &:after {
@@ -448,6 +454,9 @@ input[type="color"]::-webkit-color-swatch {
     }
     &:hover {
         transform: scale(1.7, 1.7);
+    }
+    &:focus {
+        outline: 0;
     }
 }
 #theme01 {background:#FFFFFF; color:#000000 !important;}

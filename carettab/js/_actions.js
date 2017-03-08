@@ -806,9 +806,9 @@ $('#theme48').click(function() {
 });
 
 // Change tabs in Settings panel
-$('nav li a').click(function() {
+$('nav li button').click(function() {
     var tab_id = $(this).attr('data-tab');
-    $('nav li a').removeClass('active');
+    $('nav li button').removeClass('active');
     $('.section').removeClass('active');
     $(this).addClass('active');
     $("#" + tab_id).addClass('active');

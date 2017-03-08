@@ -6,18 +6,38 @@ For more information visit the [CaretTab project page](http://bluecaret.com/proj
 Get CaretTab from the [Chrome Web Store](https://chrome.google.com/webstore/detail/carettab-new-tab-page/cojpndognjdcakkimaloeealehpkljna?hl=en-US)
 
 ## Features
-- Display time and date on new tab page (time shows on tab).
-- Add 3 additional clocks with customizable label and timezone.
-- Search Google/Bing/DuckDuckGo from new tab page.
-- Display up to six favorite links for quick access.
-- Include a custom message on the page.
-- Choose from a handful of different color themes or choose your own custom color.
-- Customize everything! Toggle the time, seconds, time format, date, date format, search engine, and more.
-- Chrome Sync support. Keep your settings across all devices. (Requires storage permissions)
+✔ Display time and date on new tab page.
+✔ Digital/Analog clock options.
+✔ Add 3 additional clocks with labels.
+✔ Customizable timezones for all clocks.
+✔ Search Google/Bing/Baidu and more from new tab page.
+✔ Display up to six favorite links for quick access.
+✔ Include a custom message on the page.
+✔ Choose from a several different color themes or choose your own custom colors.
+✔ Select your desired size.
+✔ Choose from a handful of fonts.
+✔ Customize everything! Toggle the time, seconds, time format, date, date format, search engine, 24 hour time, week numbers, tab title and more.
+✔ Chrome Sync support. Keep your settings across all devices. (Requires storage permissions)
 
 Have any suggestions? Let me know on Twitter @BlueCaret
 
 ## Changelog
+
+### 2.0.0
+- Fonts! Change the font for a different style.
+- Scaling! Scale the size of the elements down or up.
+- More brackets! Change the style of brackets.
+- Analog! Choose between a digital and analog clock.
+- Primary timezone! Select a timezone for the primary clock.
+- Week Numbers! Show the week number below the date.
+- Delimiter Options! Change the style of the date's delimiter.
+- More search! Additional search engines available.
+- Dimming! Lower opacity of additional elements.
+- Themes! Additional color themes to choose from.
+- Minimal! Hide the settings button for a minimal look.
+- Restyled! An improved and updated settings panel.
+- Responsive! Even more responsive at various window sizes.
+- Efficient! Less CPU and Memory usage.
 
 ### 1.2.0
 - Added Google Chrome Sync support - Suggested by 'Joel Gwartney' and 'C. Coates'

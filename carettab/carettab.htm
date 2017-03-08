@@ -1,6 +1,5 @@
 <!doctype html>
-<html>
-<!--<html class="on-links on-message on-clock1 on-additionalclocks on-seconds on-meridiem on-military on-delimiter on-blinking on-brackets on-date on-day on-year on-shortdate on-search">-->
+<html class="">
 
 <head>
 	<meta charset="utf-8">
@@ -9,610 +8,1073 @@
 	<meta name="description" content="A New Tab Page replacement for your Browser">
 	<meta name="author" content="BlueCaret - http://bluecaret.com">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/style.css?v=1.0.0">
+	<link rel="stylesheet" href="css/normalize.css?v=2.0.0">
+	<link rel="stylesheet" href="css/fonts.css?v=2.0.0">
+	<link rel="stylesheet" href="css/carettab.css?v=2.0.0">
 </head>
 
 <body>
 
-	<div id="wrapper">
-		<!--########################################################
-			Status (Updated/Installed)
-			########################################################-->
+    <!-- Installed/Updated popup -->
+    <div id="installed" class="carettab-status" style="display: none;">
+        <h2>Welcome to CaretTab!</h2>
+        <p>Click the caret icon to configure... everything!</p>
+        <p>Be sure to check out every tab for all of the settings.</p>
+    </div>
+    <div id="updated" class="carettab-status" style="display: none;">
+        <h2>CaretTab has been updated to 2.0.0!</h2>
+        <p>The biggest update yet! So much that it can't fit in this tiny popup. Click the new settings button to see a complete list of everything new.</p>
+    </div>
 
-		<div id="installed" class="carettab-status" style="display: none;">
-			<div class="status-x"><i class="i-close"></i></div>
-			<h2>Welcome to CaretTab!</h2>
-			<p>Click the gear icon <i class="i-settings"></i> to configure... everything!</p>
-			<p>Be sure to check out every tab for all of the settings.</p>
-			<p>If you like CaretTab, show your support by going to the About tab in settings and <a href="https://www.paypal.me/bluecaret/">donate</a>.</p>
+    <!-- Main CaretTab Interface -->
+    <div id="carettab">
+        <div id="links" class="fadein">
+            <a href="#" id="link1" class="link">Link</a>
+            <a href="#" id="link2" class="link">Link</a>
+            <a href="#" id="link3" class="link">Link</a>
+            <a href="#" id="link4" class="link">Link</a>
+            <a href="#" id="link5" class="link">Link</a>
+            <a href="#" id="link6" class="link">Link</a>
+        </div>
+        <div class="top">
+            <div id="message" class="fadein"></div>
+            <form id="search" class="fadein" method="get" action="https://www.google.com/search">
+                <input type="text" id="search-box" name="q" placeholder="Google">
+                <button type="submit">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 451 451" xml:space="preserve">
+                        <path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
+                            s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4
+                            C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3
+                            s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+        <div class="middle">
+            <div class="left">
+                <div class="bracket-1 brackets fadein-dim"></div>
+            </div>
+            <div class="center">
+                <time id="time" class="fadein" datetime="00:00:00">
+                    <div class="time-numbers hour"><span>0</span><span>0</span></div>
+                    <div class="delimiter-1 delimiter">:</div>
+                    <div class="time-numbers minute"><span>0</span><span>0</span></div>
+                    <div class="delimiter-2 delimiter">:</div>
+                    <div class="time-numbers second"><span>0</span><span>0</span></div>
+                    <div class="meridiem">AM</div>
+                </time>
+                <div id="analog">
+                    <div class="analog-face fadein">
+                        <svg version="1.1" id="analog-face-01" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" xml:space="preserve">
+                            <circle cx="250" cy="11.4" r="11.4"/>
+                            <ellipse transform="matrix(0.5 -0.866 0.866 0.5 147.13 341.5063)" cx="369.3" cy="43.3" rx="11.4" ry="11.4"/>
+                            <ellipse transform="matrix(0.866 -0.5 0.5 0.866 -4.1594 245.8406)" cx="456.7" cy="130.7" rx="11.4" ry="11.4"/>
+                            <circle cx="488.6" cy="250" r="11.4"/>
+                            <ellipse transform="matrix(0.5 -0.866 0.866 0.5 -91.5063 580.1427)" cx="456.7" cy="369.3" rx="11.4" ry="11.4"/>
+                            <ellipse transform="matrix(0.866 -0.5 0.5 0.866 -178.8533 245.8406)" cx="369.3" cy="456.7" rx="11.4" ry="11.4"/>
+                            <circle cx="250" cy="488.6" r="11.4"/>
+                            <ellipse transform="matrix(0.5 -0.866 0.866 0.5 -330.1427 341.5063)" cx="130.7" cy="456.7" rx="11.4" ry="11.4"/>
+                            <ellipse transform="matrix(0.866 -0.5 0.5 0.866 -178.8533 71.1467)" cx="43.3" cy="369.3" rx="11.4" ry="11.4"/>
+                            <circle cx="11.4" cy="250" r="11.4"/>
+                            <ellipse transform="matrix(0.5 -0.866 0.866 0.5 -91.5063 102.87)" cx="43.3" cy="130.7" rx="11.4" ry="11.4"/>
+                            <ellipse transform="matrix(0.866 -0.5 0.5 0.866 -4.1594 71.1467)" cx="130.7" cy="43.3" rx="11.4" ry="11.4"/>
+                        </svg>
+                        <div id="analog-center" class="analog-center"></div>
+                        <div id="analog-hour" class="analog-hour"></div>
+                        <div id="analog-minute" class="analog-minute"></div>
+                        <div id="analog-second" class="analog-second"></div>
+                    </div>
+                </div>
+                <div id="date" class="fadein">
+                    <time datetime="">00/00/00</time>
+                    <div class="week"></div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="bracket-2 brackets fadein-dim"></div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div id="additional-clocks">
+                <div class="clock2 fadein">
+                    <time id="display-clock2-time" datetime="00:00">
+                        <span class="hour">00</span>
+                        <span class="delimiter">:</span>
+                        <span class="minute">00</span>
+                        <span class="meridiem">AM</span>
+                    </time>
+                    <span id="display-clock2-label" class="label"></span>
+                </div>
+                <div class="clock3 fadein">
+                    <time id="display-clock3-time" datetime="00:00">
+                        <span class="hour">00</span>
+                        <span class="delimiter">:</span>
+                        <span class="minute">00</span>
+                        <span class="meridiem">AM</span>
+                    </time>
+                    <span id="display-clock3-label" class="label"></span>
+                </div>
+                <div class="clock4 fadein">
+                    <time id="display-clock4-time" datetime="00:00">
+                        <span class="hour">00</span>
+                        <span class="delimiter">:</span>
+                        <span class="minute">00</span>
+                        <span class="meridiem">AM</span>
+                    </time>
+                    <span id="display-clock4-label" class="label"></span>
+                </div>
+            </div>
+        </div>
+        <div id="settings-toggle">
+            <!-- &#8801; -->
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+                <rect x="24" y="80" class="st0" width="16" height="16"/>
+                <rect x="40" y="64" class="st0" width="16" height="16"/>
+                <rect x="56" y="48" class="st0" width="16" height="16"/>
+                <rect x="72" y="64" class="st0" width="16" height="16"/>
+                <rect x="88" y="80" class="st0" width="16" height="16"/>
+            </svg>
+        </div>
+    </div>
+
+ 	<div id="config">
+		<!-- Settings Panel -->
+		<div class="header">
+			<h1>
+				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+					<rect x="24" y="80" class="st0" width="16" height="16"/>
+					<rect x="40" y="64" class="st0" width="16" height="16"/>
+					<rect x="56" y="48" class="st0" width="16" height="16"/>
+					<rect x="72" y="64" class="st0" width="16" height="16"/>
+					<rect x="88" y="80" class="st0" width="16" height="16"/>
+					<path class="st1" d="M123,20V0H88v20h-9V0H44v20h-9V10V0H25H10H0v10v10v10v20v78h128V20H123z M118,118H10V10h15v20h19h35h9h30V118z"/>
+				</svg>CaretTab
+			</h1>
+			<div class="close" id="close-settings">&#10005;</div>
 		</div>
-		<div id="updated" class="carettab-status" style="display: none;">
-			<div class="status-x"><i class="i-close"></i></div>
-			<h2>CaretTab has been updated to 1.2.0!</h2>
-			<p>CaretTab will now sync its settings across all your computers with Google Chrome sync!</p>
-			<p><small>Due to the change to Chrome Sync, you will need to reapply your settings (but only for one computer!). Apologies for the inconvenience.</small></p>
-			<p>Like what you see?<br><a href="https://www.paypal.me/bluecaret/">Donate to show your support!</a></p>
-		</div>
+		<nav>
+			<ul>
+				<li><button data-tab="config-about" class="active">About</button></li>
+				<li><button data-tab="config-color">Color</button></li>
+                <li><button data-tab="config-time">Time</button></li>
+                <li><button data-tab="config-date">Date</button></li>
+                <li><button data-tab="config-links">Links</button></li>
+                <li><button data-tab="config-search">Extras</button></li>
+                <li><button data-tab="config-style">Style</button></li>
+            </ul>
+        </nav>
+        <!-- ############################################### -->
+        <!-- ABOUT -->
+        <!-- ############################################### -->
+        <div id="config-about" class="section active">
+            <div>
+                <h2>Latest Update</h2>
+            </div>
+            <div>
+                <p>Version 2.0.0 - March 7th, 2017<br><small>The biggest update yet!</small></p>
+                <ul class="changelog">
+                    <li><b>Fonts!</b> Change the font for a different style.</li>
+                    <li><b>Scaling!</b> Scale the size of the elements down or up.</li>
+                    <li><b>More brackets!</b> Change the style of brackets.</li>
+                    <li><b>Analog!</b> Choose between a digital and analog clock.</li>
+                    <li><b>Primary timezone!</b> Select a timezone for the primary clock.</li>
+                    <li><b>Week Numbers!</b> Show the week number below the date.</li>
+                    <li><b>Delimiter Options!</b> Change the style of the date's delimiter.</li>
+                    <li><b>More search!</b> Additional search engines available.</li>
+                    <li><b>Dimming!</b> Lower opacity of additional elements.</li>
+                    <li><b>Themes!</b> Additional color themes to choose from.</li>
+                    <li><b>Minimal!</b> Hide the settings button for a minimal look.</li>
+                    <li><b>Restyled!</b> An improved and updated settings panel.</li>
+                    <li><b>Responsive!</b> Even more responsive at various window sizes.</li>
+                    <li><b>Efficient!</b> Less CPU and Memory usage.</li>
+                </ul>
+            </div>
+            <hr>
+            <div class="tipjar">
+                <div class="tipjar-left">
+                    <svg version="1.1" id="tipjar-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 382 467" xml:space="preserve">
+                    <path class="jar" d="M189.8,10c0,0,130.9,2.1,131.2,19.4s0,46.2,0,46.2s51,10.4,51,46.2s0,279.4,0,279.4S342.9,457,189.8,457
+                        S10,401.1,10,401.1s0-243.8,0-279.4s51-46.2,51-46.2s0.4-29.7,0-46.2S189.8,10,189.8,10z M192.2,432.7
+                        c116.7-0.3,155.5-38.9,155.5-38.9s-0.1-257.5,0-269.7s-24.3-24.3-24.3-24.3s-49,16.9-133.6,17s-131.2-17-131.2-17
+                        s-24,10.7-24.3,26.7s0,267.2,0,267.2S75.5,433,192.2,432.7z"/>
+                    <path class="heart" d="M191,212.6c-30.3-70.7-116.4-54.2-117,27.9C73.7,287.9,187.7,360.2,191.1,372c3.1-12.2,117.2-84.9,116.9-132
+                        C307.5,157.6,219.9,144.6,191,212.6z"/>
+                    </svg>
+                </div>
+                <div class="tipjar-right">
+                    <h2>Keep CaretTab free, Tip the Developer</h2>
+                    <p>If you find CaretTab useful, consider supporting it by leaving a tip in the tip jar. Tips will help keep this clear of ads and free! The developer highly appreciates it!</p>
+                    <div class="prices">
+                        <div class="price"><a href="https://www.paypal.me/bluecaret/1" class="btn"><small>Generous<br>tip of</small><span>$1.00</span></a></div>
+                        <div class="price"><a href="https://www.paypal.me/bluecaret/3" class="btn"><small>Large<br>tip of</small><span>$3.00</span></a></div>
+                        <div class="price"><a href="https://www.paypal.me/bluecaret/5" class="btn"><small>Massive<br>tip of</small><span>$5.00</span></a></div>
+                        <div class="price"><a href="https://www.paypal.me/bluecaret/" class="btn"><small>Anything<br>helps!</small><span>Other</span></a></div>
+                        <div class="price paypal">Tips payed<br>via PayPal<br><b>Thank you!</b></div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div>
+                <h2>Support</h2>
+            </div>
+            <div>
+                <p>If you need support or have a suggestion or other comment you can contact the developer, <a href="http://bluecaret.com">BlueCaret</a> on Twitter <a href="https://twitter.com/BlueCaret">@BlueCaret</a> or view CaretTab on <a href="https://github.com/bluecaret/carettab">GitHub</a>.</p>
+                <p>If you would like to reset all settings back to the default, you can use the following button (refresh the page after).</p>
+                <p><button class="btn" id="reset">Reset Defaults</button></p>
+            </div>
+            <hr>
+            <div>
+                <p><small><a href="http://bluecaret.com/project/carettab">CaretTab</a> is designed and coded by <a href="http://jwh.design">JWH Design, LLC</a> (<a href="http://bluecaret.com">BlueCaret</a>) and is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</small></p>
+                <p><small>CaretTab will not be liable for any issues that may arrise due to the accuracy of this extension. If you're late to work because the time shown was wrong, it's all on you.</small></p>
+            </div>
+        </div>
+        <!-- ############################################### -->
+        <!-- DESIGN SETTINGS -->
+        <!-- ############################################### -->
+        <div id="config-color" class="section">
+            <div class="row">
+                <h2>Custom Colors</h2>
+            </div>
+            <div class="row">
+                <div class="label">
+                    Background Color
+                    <small>Color of the page background.</small>
+                </div>
+                <div class="input">
+                    <input id="set-background" type="color" value="#3FA9F5">
+                </div>
+                <div class="input input-text short">
+                    <input id="set-background-value" value="#3FA9F5" type="text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">
+                    Foreground Color
+                    <small>Color of fonts and icons.</small>
+                </div>
+                <div class="input">
+                    <input id="set-foreground" type="color" value="#3FA9F5">
+                </div>
+                <div class="input input-text short">
+                    <input id="set-foreground-value" value="#3FA9F5" type="text">
+                </div>
+            </div>
+            <div class="row">
+                <h2>Themes</h2>
+            </div>
+            <div class="row" id="themes">
+                <div class="input"><button class="theme" id="theme01"></button></div>
+                <div class="input"><button class="theme" id="theme02"></button></div>
+                <div class="input"><button class="theme" id="theme03"></button></div>
+                <div class="input"><button class="theme" id="theme04"></button></div>
+                <div class="input"><button class="theme" id="theme05"></button></div>
+                <div class="input"><button class="theme" id="theme06"></button></div>
+                <div class="input"><button class="theme" id="theme07"></button></div>
+                <div class="input"><button class="theme" id="theme08"></button></div>
+                <div class="input"><button class="theme" id="theme09"></button></div>
+                <div class="input"><button class="theme" id="theme10"></button></div>
+                <div class="input"><button class="theme" id="theme11"></button></div>
+                <div class="input"><button class="theme" id="theme12"></button></div>
+                <div class="input"><button class="theme" id="theme13"></button></div>
+                <div class="input"><button class="theme" id="theme14"></button></div>
+                <div class="input"><button class="theme" id="theme15"></button></div>
+                <div class="input"><button class="theme" id="theme16"></button></div>
+                <div class="input"><button class="theme" id="theme17"></button></div>
+                <div class="input"><button class="theme" id="theme18"></button></div>
+                <div class="input"><button class="theme" id="theme19"></button></div>
+                <div class="input"><button class="theme" id="theme20"></button></div>
+                <div class="input"><button class="theme" id="theme21"></button></div>
+                <div class="input"><button class="theme" id="theme22"></button></div>
+                <div class="input"><button class="theme" id="theme23"></button></div>
+                <div class="input"><button class="theme" id="theme24"></button></div>
+                <div class="input"><button class="theme" id="theme25"></button></div>
+                <div class="input"><button class="theme" id="theme26"></button></div>
+                <div class="input"><button class="theme" id="theme27"></button></div>
+                <div class="input"><button class="theme" id="theme28"></button></div>
+                <div class="input"><button class="theme" id="theme29"></button></div>
+                <div class="input"><button class="theme" id="theme30"></button></div>
+                <div class="input"><button class="theme" id="theme31"></button></div>
+                <div class="input"><button class="theme" id="theme32"></button></div>
+                <div class="input"><button class="theme" id="theme33"></button></div>
+                <div class="input"><button class="theme" id="theme34"></button></div>
+                <div class="input"><button class="theme" id="theme35"></button></div>
+                <div class="input"><button class="theme" id="theme36"></button></div>
+                <div class="input"><button class="theme" id="theme37"></button></div>
+                <div class="input"><button class="theme" id="theme38"></button></div>
+                <div class="input"><button class="theme" id="theme39"></button></div>
+                <div class="input"><button class="theme" id="theme40"></button></div>
+                <div class="input"><button class="theme" id="theme41"></button></div>
+                <div class="input"><button class="theme" id="theme42"></button></div>
+                <div class="input"><button class="theme" id="theme43"></button></div>
+                <div class="input"><button class="theme" id="theme44"></button></div>
+                <div class="input"><button class="theme" id="theme45"></button></div>
+                <div class="input"><button class="theme" id="theme46"></button></div>
+                <div class="input"><button class="theme" id="theme47"></button></div>
+                <div class="input"><button class="theme" id="theme48"></button></div>
+            </div>
+        </div>
+        <!-- ############################################### -->
+        <!-- TIME SETTINGS -->
+        <!-- ############################################### -->
+        <div id="config-time" class="section">
+            <div class="row">
+                <h2>Primary Clock</h2>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-clock1" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-clock1" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Primary Clock
+                    <small>Shows the primary clock in the middle of the page.</small>
+                </div>
+                <div class="preview">
+                    <b>12:00:00 AM</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-analog" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-analog" data-on="DIGITAL" data-off="ANALOG" class="alt"></label>
+                </div>
+                <div class="label">
+                    Clock Style
+                    <small>Switch between a digital and analog clock (brackets will be hidden if enabled).</small>
+                </div>
+                <div class="preview">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-seconds" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-seconds" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Seconds
+                    <small>Shows the seconds on the primary clock.</small>
+                </div>
+                <div class="preview">
+                    12:00<b>:00</b> AM
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-meridiem" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-meridiem" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Meridiem
+                    <small>Shows AM/PM on the primary clock.</small>
+                </div>
+                <div class="preview">
+                    12:00:00 <b>AM</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-military" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-military" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    24 Hour
+                    <small>Uses a 24 hour clock versus a 12 hour (disables meridiem).</small>
+                </div>
+                <div class="preview">
+                    <b>24</b>:00:00
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-delimiter" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-delimiter" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Delimiter
+                    <small>Shows a seperator between numbers on all clocks.</small>
+                </div>
+                <div class="preview">
+                    12<b>:</b>00<b>:</b>00 AM
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">
+                    Timezone
+                    <small>Choose a timezone for the primary clock (the default is your local timezone).</small>
+                </div>
+                <div class="input input-select">
+                    <select id="set-time1-zone" class="timezones">
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <h2>Additional Clocks</h2>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-time2" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-time2" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    2nd Clock
+                    <small>Shows an additional clock below the primary clock.</small>
+                </div>
+            </div>
+            <div id="clock2-timezone" class="row" style="display: none;">
+                <div class="label">
+                    2nd Clock Timezone
+                    <small>Choose a timezone for this clock.</small>
+                </div>
+                <div class="input input-select">
+                    <select id="set-time2-zone" class="timezones">
+                    </select>
+                </div>
+            </div>
+            <div id="clock2-label" class="row" style="display: none;">
+                <div class="label">
+                    2nd Clock Label
+                    <small>Enter a label for this clock (leave blank for none).</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-time2-label" type="text" value="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-time3" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-time3" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    3rd Clock
+                    <small>Shows an additional clock below the primary clock.</small>
+                </div>
+            </div>
+            <div id="clock3-timezone" class="row" style="display: none;">
+                <div class="label">
+                    3rd Clock Timezone
+                    <small>Choose a timezone for this clock.</small>
+                </div>
+                <div class="input input-select">
+                    <select id="set-time3-zone" class="timezones">
+                    </select>
+                </div>
+            </div>
+            <div id="clock3-label" class="row" style="display: none;">
+                <div class="label">
+                    3rd Clock Label
+                    <small>Enter a label for this clock (leave blank for none).</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-time3-label" type="text" value="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-time4" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-time4" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    4th Clock
+                    <small>Shows an additional clock below the primary clock.</small>
+                </div>
+            </div>
+            <div id="clock4-timezone" class="row" style="display: none;">
+                <div class="label">
+                    4th Clock Timezone
+                    <small>Choose a timezone for this clock.</small>
+                </div>
+                <div class="input input-select">
+                    <select id="set-time4-zone" class="timezones">
+                    </select>
+                </div>
+            </div>
+            <div id="clock4-label" class="row" style="display: none;">
+                <div class="label">
+                    4th Clock Label
+                    <small>Enter a label for this clock (leave blank for none).</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-time4-label" type="text" value="">
+                </div>
+            </div>
+            <div class="row">
+                <p><small><b>Note</b> that display of the primary clock and additional clocks is based on the time and timezone your computer is set to. The detection of your current timezone is pretty much an educated guess and may not reflect your actual timezone, thus causing the additional clocks time to be off. Currently CaretTab is detecting your current timezone to be: "<span id="current-timezone"></span>"</small></p>
+            </div>
+        </div>
+        <!-- ############################################### -->
+        <!-- DATE SETTINGS -->
+        <!-- ############################################### -->
+        <div id="config-date" class="section">
+            <div class="row">
+                <h2>Date</h2>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-date" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-date" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Date
+                    <small>Shows the date in the middle of the page.</small>
+                </div>
+                <div class="preview">
+                    <b>Monday, January 1, 2017</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-day" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-day" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Day
+                    <small>Shows day of the week (only applies if 'short form' is off).</small>
+                </div>
+                <div class="preview">
+                    <b>Monday,</b> January 1, 2017
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-year" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-year" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Year
+                    <small>Shows the year with the date.</small>
+                </div>
+                <div class="preview">
+                    Monday, January 1, <b>2017</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-shortdate" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-shortdate" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Short Form
+                    <small>Shows the date in a short format.</small>
+                </div>
+                <div class="preview">
+                    <b>01/31/2016</b>
+                </div>
+            </div>
+            <div class="row date-delimiter">
+                <div class="label">
+                    Short Date Delimiter 
+                    <small>Shows a seperator between numbers on the short form date.</small>
+                </div>
+                <div class="input">
+                    <input name="set-date-delimiter" id="set-date-delimiter-slash" value="slash" class="toggle toggle-yes-no" type="radio" checked="checked">
+                    <label for="set-date-delimiter-slash" data-on="/" data-off="/" class="sm date-delimiter-toggle"></label>
+                </div>
+                <div class="input">
+                    <input name="set-date-delimiter" id="set-date-delimiter-period" value="period" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-date-delimiter-period" data-on="." data-off="." class="sm date-delimiter-toggle"></label>
+                </div>
+                <div class="input">
+                    <input name="set-date-delimiter" id="set-date-delimiter-dash" value="dash" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-date-delimiter-dash" data-on="-" data-off="-" class="sm date-delimiter-toggle"></label>
+                </div>
+                <div class="input">
+                    <input name="set-date-delimiter" id="set-date-delimiter-space" value="space" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-date-delimiter-space" data-on=" " data-off=" " class="sm date-delimiter-toggle"></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">
+                    Date Format
+                    <small>Determines how the date is shown.</small>
+                </div>
+                <div class="input input-select">
+                    <select id="set-dateformat" name="set-dateformat">
+                        <option value="middle">Middle-Endian (January 31, 2000) (01/31/00)</option>
+                        <option value="little">Little-Endian (31 January 2000) (31/01/00)</option>
+                        <option value="big">Big-Endian (2000 January 31) (00/01/31)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-week" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-week" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Week Number
+                    <small>Shows week number below the date.</small>
+                </div>
+            </div>
+            <div class="row date-delimiter">
+                <div class="label">
+                    Week Number Label 
+                    <small>Choose a label to show next to the week number.</small>
+                </div>
+                <div class="input">
+                    <input name="set-week-label" id="set-week-label-week" value="week" class="toggle toggle-yes-no" type="radio" checked="checked">
+                    <label for="set-week-label-week" data-on="Week" data-off="Week" class="week-label-toggle"></label>
+                </div>
+                <div class="input">
+                    <input name="set-week-label" id="set-week-label-wk" value="wk" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-week-label-wk" data-on="Wk." data-off="Wk." class="week-label-toggle"></label>
+                </div>
+                <div class="input">
+                    <input name="set-week-label" id="set-week-label-pound" value="pound" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-week-label-pound" data-on="#" data-off="#" class="week-label-toggle"></label>
+                </div>
+                <div class="input">
+                    <input name="set-week-label" id="set-week-label-none" value="none" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-week-label-none" data-on=" " data-off=" " class="week-label-toggle"></label>
+                </div>
+            </div>
+        </div>
+        <!-- ############################################### -->
+        <!-- LINKS SETTINGS -->
+        <!-- ############################################### -->
+        <div id="config-links" class="section">
+            <div class="row">
+                <h2>Quick Links</h2>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-link1" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-link1" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Link 1
+                    <small>Shows a custom quick link at the top of the page.</small>
+                </div>
+            </div>
+            <div id="settings-link1-url" class="row" style="display: none;">
+                <div class="label">
+                    Link 1 URL
+                    <small>Enter a URL for this link (including http:// or https://)</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-link1-url" type="text" value="http://">
+                </div>
+            </div>
+            <div id="settings-link1-label" class="row" style="display: none;">
+                <div class="label">
+                    Link 1 Label
+                    <small>Enter a label for this link.</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-link1-label" type="text" value="Link">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-link2" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-link2" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Link 2
+                    <small>Shows a custom quick link at the top of the page.</small>
+                </div>
+            </div>
+            <div id="settings-link2-url" class="row" style="display: none;">
+                <div class="label">
+                    Link 2 URL
+                    <small>Enter a URL for this link (including http:// or https://)</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-link2-url" type="text" value="http://">
+                </div>
+            </div>
+            <div id="settings-link2-label" class="row" style="display: none;">
+                <div class="label">
+                    Link 2 Label
+                    <small>Enter a label for this link.</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-link2-label" type="text" value="Link">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-link3" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-link3" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Link 3
+                    <small>Shows a custom quick link at the top of the page.</small>
+                </div>
+            </div>
+            <div id="settings-link3-url" class="row" style="display: none;">
+                <div class="label">
+                    Link 3 URL
+                    <small>Enter a URL for this link (including http:// or https://)</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-link3-url" type="text" value="http://">
+                </div>
+            </div>
+            <div id="settings-link3-label" class="row" style="display: none;">
+                <div class="label">
+                    Link 3 Label
+                    <small>Enter a label for this link.</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-link3-label" type="text" value="Link">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-link4" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-link4" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Link 4
+                    <small>Shows a custom quick link at the top of the page.</small>
+                </div>
+            </div>
+            <div id="settings-link4-url" class="row" style="display: none;">
+                <div class="label">
+                    Link 4 URL
+                    <small>Enter a URL for this link (including http:// or https://)</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-link4-url" type="text" value="http://">
+                </div>
+            </div>
+            <div id="settings-link4-label" class="row" style="display: none;">
+                <div class="label">
+                    Link 4 Label
+                    <small>Enter a label for this link.</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-link4-label" type="text" value="Link">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-link5" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-link5" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Link 5
+                    <small>Shows a custom quick link at the top of the page.</small>
+                </div>
+            </div>
+            <div id="settings-link5-url" class="row" style="display: none;">
+                <div class="label">
+                    Link 5 URL
+                    <small>Enter a URL for this link (including http:// or https://)</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-link5-url" type="text" value="http://">
+                </div>
+            </div>
+            <div id="settings-link5-label" class="row" style="display: none;">
+                <div class="label">
+                    Link 5 Label
+                    <small>Enter a label for this link.</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-link5-label" type="text" value="Link">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-link6" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-link6" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Link 6
+                    <small>Shows a custom quick link at the top of the page.</small>
+                </div>
+            </div>
+            <div id="settings-link6-url" class="row" style="display: none;">
+                <div class="label">
+                    Link 6 URL
+                    <small>Enter a URL for this link (including http:// or https://)</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-link6-url" type="text" value="http://">
+                </div>
+            </div>
+            <div id="settings-link6-label" class="row" style="display: none;">
+                <div class="label">
+                    Link 6 Label
+                    <small>Enter a label for this link.</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-link6-label" type="text" value="Link">
+                </div>
+            </div>
+        </div>
+        <!-- ############################################### -->
+        <!-- EXTRAS SETTINGS -->
+        <!-- ############################################### -->
+        <div id="config-search" class="section">
+            <div class="row">
+                <h2>Search</h2>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-search" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-search" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Search Box
+                    <small>Shows a search box above the time.</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">
+                    Search Engine
+                    <small>Choose a search engine to use with the search box.</small>
+                </div>
+                <div class="input input-select">
+                    <select id="set-engine" name="set-engine">
+                        <option value="google">Google</option>
+                        <option value="bing">Bing</option>
+                        <option value="baidu">Baidu</option>
+                        <option value="yahoo">Yahoo</option>
+                        <option value="ask">Ask.com</option>
+                        <option value="duckduckgo">DuckDuckGo</option>
+                        <option value="wolframalpha">Wolframalpha</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <h2>Message</h2>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-message" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-message" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Custom Message
+                    <small>Shows a custom message (set below).</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">
+                    Custom Message Text
+                    <small>Enter text for the custom message.</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-message-text" type="text" value="Welcome to the World Wide Web!">
+                </div>
+            </div>
+            <div class="row">
+                <h2>Brackets</h2>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-brackets" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-brackets" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Brackets
+                    <small>Shows brackets around the primary clock and date (hidden if analog clock is on).</small>
+                </div>
+                <div class="preview">
+                    <b>{</b> 12:00:00 <b>}</b>
+                </div>
+            </div>
+            <div class="row bracket-style">
+                <div class="label">
+                    Bracket Type
+                </div>
+                <div class="input">
+                    <input name="set-bracket-style" id="set-bracket-style-curly" value="curly" class="toggle toggle-yes-no" type="radio" checked="checked">
+                    <label for="set-bracket-style-curly" data-on="}" data-off="{" class="sm brackets-toggle"></label>
+                </div>
+                <div class="input">
+                    <input name="set-bracket-style" id="set-bracket-style-square" value="square" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-bracket-style-square" data-on="]" data-off="[" class="sm brackets-toggle"></label>
+                </div>
+                <div class="input">
+                    <input name="set-bracket-style" id="set-bracket-style-paran" value="paran" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-bracket-style-paran" data-on=")" data-off="(" class="sm brackets-toggle"></label>
+                </div>
+                <div class="input">
+                    <input name="set-bracket-style" id="set-bracket-style-straight" value="straight" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-bracket-style-straight" data-on="|" data-off="|" class="sm brackets-toggle"></label>
+                </div>
+                <div class="input">
+                    <input name="set-bracket-style" id="set-bracket-style-slash" value="slash" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-bracket-style-slash" data-on="\" data-off="/" class="sm"></label>
+                </div>
+            </div>
+            <div class="row">
+                <h2>Miscellaneous</h2>
+            </div>
+            <div class="row">
+                <div class="label">
+                    Tab Title
+                    <small>Choose what to display in the New Tab title (shows on the tab itself as well as in the browsers title bar).</small>
+                </div>
+                <div class="input input-select">
+                    <select id="set-tab-title" name="set-tab-title">
+                        <option value="tab-time">Time</option>
+                        <option value="tab-date">Date</option>
+                        <option value="tab-timedate">Time, then Date</option>
+                        <option value="tab-datetime">Date, then time</option>
+                        <option value="new-tab">"New Tab"</option>
+                        <option value="tab-custom">Custom Text</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">
+                    Custom Tab Title Text
+                    <small>Enter text for the custom tab title.</small>
+                </div>
+                <div class="input input-text">
+                    <input id="set-tab-custom-message" type="text" value="Welcome to the World Wide Web!">
+                </div>
+            </div>
+        </div>
+        <!-- ############################################### -->
+        <!-- STYLE SETTINGS -->
+        <!-- ############################################### -->
+        <div id="config-style" class="section">
+            <div class="row">
+                <h2>Global Style</h2>
+            </div>
+            <div class="row font-choice">
+                <div class="label">
+                    Font
+                    <small>Changes font used<br>for all elements.</small>
+                </div>
+                <div class="input">
+                    <input name="set-font" id="set-font-exo-2" value="exo-2" class="toggle toggle-yes-no" type="radio" checked="checked">
+                    <label for="set-font-exo-2" data-on="a" data-off="a" class="sm" title="Exo 2"></label>
+                </div>
+                <div class="input">
+                    <input name="set-font" id="set-font-quicksand" value="quicksand" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-font-quicksand" data-on="a" data-off="a" class="sm" title="Quicksand"></label>
+                </div>
+                <div class="input">
+                    <input name="set-font" id="set-font-amatic-sc" value="amatic-sc" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-font-amatic-sc" data-on="a" data-off="a" class="sm" title="Amatic SC"></label>
+                </div>
+                <div class="input">
+                    <input name="set-font" id="set-font-anton" value="anton" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-font-anton" data-on="a" data-off="a" class="sm" title="Anton"></label>
+                </div>
+                <div class="input">
+                    <input name="set-font" id="set-font-eb-garamond" value="eb-garamond" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-font-eb-garamond" data-on="a" data-off="a" class="sm" title="EB Garamond"></label>
+                </div>
+                <div class="input">
+                    <input name="set-font" id="set-font-lobster" value="lobster" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-font-lobster" data-on="a" data-off="a" class="sm" title="Lobster"></label>
+                </div>
+                <div class="input">
+                    <input name="set-font" id="set-font-monoton" value="monoton" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-font-monoton" data-on="a" data-off="a" class="sm" title="Monoton"></label>
+                </div>
+                <div class="input">
+                    <input name="set-font" id="set-font-press-start-2p" value="press-start-2p" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-font-press-start-2p" data-on="a" data-off="a" class="sm" title="Press Start 2P"></label>
+                </div>
+                <div class="input">
+                    <input name="set-font" id="set-font-special-elite" value="special-elite" class="toggle toggle-yes-no" type="radio">
+                    <label for="set-font-special-elite" data-on="a" data-off="a" class="sm" title="Special Elite"></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input type="range" class="range" id="set-scale" name="set-scale" value="77" min="50" max="100">
+                </div>
+                <div class="label">
+                    Scale Display
+                    <small>Change the size of the elements. If items start to overlap, reduce the size.</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-animation" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-animation" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Animation
+                    <small>Animates all elements on page load.</small>
+                </div>
+            </div>
+            <div class="row">
+                <h2>Dimming</h2>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-dimseconds" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-dimseconds" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Dim Seconds
+                    <small>Makes the seconds 50% transparent.</small>
+                </div>
+                <div class="preview">
+                    12:00:<b>00</b> AM
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-dimdelimiter" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-dimdelimiter" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Dim Delimiter
+                    <small>Makes the delimiter 50% transparent (only applies if blink delimiter is off).</small>
+                </div>
+                <div class="preview">
+                    12<b>:</b>00<b>:</b>00 AM
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-dimbrackets" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-dimbrackets" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Dim Brackets
+                    <small>Makes the brackets 50% transparent.</small>
+                </div>
+                <div class="preview">
+                    <b>{</b> 12:00:00 <b>}</b>
+                </div>
+            </div>
+            <div class="row">
+                <h2>Miscellaneous</h2>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-blinking" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-blinking" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Blink Delimiter
+                    <small>Blinks the delimiter on the primary clock.</small>
+                </div>
+                <div class="preview">
+                    12<b>:</b>00<b>:</b>00 AM
+                </div>
+            </div>
+            <div class="row">
+                <div class="input">
+                    <input id="set-hide-settings-toggle" class="toggle toggle-yes-no" type="checkbox">
+                    <label for="set-hide-settings-toggle" data-on="ON" data-off="OFF"></label>
+                </div>
+                <div class="label">
+                    Hide Settings Button
+                    <small>The settings button opens the settings box. Enable this to hide the icon. You can still open settings by clicking in the top-right corner of the page.</small>
+                </div>
+            </div>
+        </div>
+    </div>
 
-		<!--########################################################
-			Content
-			########################################################-->
-		<section id="content">
-			<aside class="links fadein">
-				<a href="#" id="link1" class="link1 btn"></a>
-				<a href="#" id="link2" class="link2 btn"></a>
-				<a href="#" id="link3" class="link3 btn"></a>
-				<a href="#" id="link4" class="link4 btn"></a>
-				<a href="#" id="link5" class="link5 btn"></a>
-				<a href="#" id="link6" class="link6 btn"></a>
-			</aside>
-			<aside class="message fadein">
-				<p></p>
-			</aside>
-			<aside class="search fadein">
-				<form id="search-form" method="get" action="https://www.google.com/search">
-					<input type="text" id="search-box" name="q" placeholder="Search Google" autofocus="">
-					<button type="submit">
-						<i class="i-search"></i>
-					</button>
-				</form>
-			</aside>
-			<aside class="clock1 fadein">
-				<div class="brackets">{</div><time datetime="99:99:99"><span class="hour">99</span><span class="delimiter">:</span><span class="minute">99</span><span class="seconds-wrap"><span class="delimiter delimiter-seconds">:</span><span class="seconds">99</span></span><span class="meridiem">PM</span></time><div class="brackets">}</div>
-			</aside>
-			<aside class="date fadein">
-				<time datetime=""></time>
-			</aside>
-			<div class="additional-clocks">
-				<aside class="clock2 fadein">
-					<time datetime="99:99"><span class="hour">99</span><span class="delimiter">:</span><span class="minute">99</span></time><span class="meridiem">PM</span>
-					<span class="label"></span>
-				</aside>
-				<aside class="clock3 fadein">
-					<time datetime="99:99"><span class="hour">99</span><span class="delimiter">:</span><span class="minute">99</span></time><span class="meridiem">PM</span>
-					<span class="label"></span>
-				</aside>
-				<aside class="clock4 fadein">
-					<time datetime="99:99"><span class="hour">99</span><span class="delimiter">:</span><span class="minute">99</span></time><span class="meridiem">PM</span>
-					<span class="label"></span>
-				</aside>
-			</div>
-		</section>
-		<!--########################################################
-			Settings Toggle
-			########################################################-->
-		<a id="settings-toggle" href="#" class="slideup">
-			<i class="i-settings"></i>
-		</a>
-		<!--########################################################
-			Settings Menu
-			########################################################-->
-		<section id="settings">
-			<div id="close-settings"><i class="i-close"></i></div>
-			<!-- /////////////////////// Tabs /////////////////////// -->
-			<aside id="settings-tabs">
-				<ul>
-					<li id="settings-tab-time" data-tab="settings-time" title="Time Settings" class="active"><i class="i-time"></i></li>
-					<li id="settings-tab-date" data-tab="settings-date" title="Date Settings"><i class="i-date"></i></li>
-					<li id="settings-tab-color" data-tab="settings-color" title="Color Settings"><i class="i-color"></i></li>
-					<li id="settings-tab-links" data-tab="settings-links" title="Style Settings"><i class="i-links"></i></li>
-					<li id="settings-tab-extra" data-tab="settings-extra" title="Extra Settings"><i class="i-config"></i></li>
-					<li id="settings-tab-about" data-tab="settings-about" title="About CaretTab"><i class="i-about"></i></li>
-				</ul>
-			</aside>
-			<!-- /////////////////////// Time /////////////////////// -->
-			<article id="settings-time" class="settings-content active">
-				<h1>Time Settings</h1>
-				<div class="setting" id="setting-clock1">
-					<h3>Display Primary Clock</h3>
-					<small>Toggle the primary clock display on/off.</small>
-					<div class="toggle">
-						<input id="set-clock1" class="switch" type="checkbox">
-						<label for="set-clock1"></label>
-						<div class="toggle-off">OFF</div>
-						<div class="toggle-on">ON</div>
-					</div>
-				</div>
-				<div class="setting" id="setting-seconds">
-					<h3>Display Seconds</h3>
-					<small>If enabled, displays the seconds on the primary time (applies only to the 'primary clock').</small>
-					<div class="toggle">
-						<input id="set-seconds" class="switch" type="checkbox">
-						<label for="set-seconds"></label>
-						<div class="toggle-off">OFF <small>(12:30)</small></div>
-						<div class="toggle-on">ON <small>(12:30:40)</small></div>
-					</div>
-				</div>
-				<div class="setting" id="setting-meridiem">
-					<h3>Display Meridiem</h3>
-					<small>Toggle the meridiem (am/pm) on/off (only applies to the 'primary clock' and if set to 12 hour format).</small>
-					<div class="toggle">
-						<input id="set-meridiem" class="switch" type="checkbox">
-						<label for="set-meridiem"></label>
-						<div class="toggle-off">OFF <small>(12:30)</small></div>
-						<div class="toggle-on">ON <small>(12:30 AM)</small></div>
-					</div>
-				</div>
-				<div class="setting" id="setting-military">
-					<h3>24 Hour Clock</h3>
-					<small>If enabled, displays all clocks in a 24 hour format, i.e. military time (the meridiem will be hidden if this is enabled).</small>
-					<div class="toggle">
-						<input id="set-military" class="switch" type="checkbox">
-						<label for="set-military"></label>
-						<div class="toggle-off">12 Hour</div>
-						<div class="toggle-on">24 hour</div>
-					</div>
-				</div>
-				<div class="setting" id="setting-delimiter">
-					<h3>Display Delimiter</h3>
-					<small>Toggle the delimiter (:) in all clocks on/off.</small>
-					<div class="toggle">
-						<input id="set-delimiter" class="switch" type="checkbox">
-						<label for="set-delimiter"></label>
-						<div class="toggle-off">OFF <small>(12 30 40)</small></div>
-						<div class="toggle-on">ON <small>(12:30:40)</small></div>
-					</div>
-				</div>
-				<div class="setting" id="setting-blinking">
-					<h3>Blink Delimiter</h3>
-					<small>Toggle the blinking of the delimiter (:) in the time (only applies to the 'primary clock').</small>
-					<div class="toggle">
-						<input id="set-blinking" class="switch" type="checkbox">
-						<label for="set-blinking"></label>
-						<div class="toggle-off">OFF</div>
-						<div class="toggle-on">ON</div>
-					</div>
-				</div>
-				<div class="setting" id="setting-time2">
-					<h3>Enable 2nd Clock</h3>
-					<small>If enabled, displays an additional clock that can be used to display time in other timezones.</small>
-					<div class="toggle">
-						<input id="set-time2" class="switch" type="checkbox">
-						<label for="set-time2"></label>
-						<div class="toggle-off">OFF</div>
-						<div class="toggle-on">ON</div>
-					</div>
-					<label for="set-time2-zone">Timezone*</label>
-					<select name="set-time2-zone" id="set-time2-zone">
-						<option value="Pacific/Midway">(GMT -11:00) Midway Island, Samoa</option>
-						<option value="Pacific/Honolulu">(GMT -10:00) Hawaii</option>
-						<option value="America/Anchorage">(GMT -9:00) Alaska</option>
-						<option value="America/Los_Angeles">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
-						<option value="America/Boise">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
-						<option value="America/Chicago">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
-						<option value="America/New_York">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
-						<option value="America/Caracas">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
-						<option value="Canada/Newfoundland">(GMT -3:30) Newfoundland</option>
-						<option value="America/Argentina/Buenos_Aires">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
-						<option value="Atlantic/South_Georgia">(GMT -2:00) Mid-Atlantic</option>
-						<option value="Atlantic/Azores">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
-						<option value="Europe/London">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
-						<option value="Europe/Paris">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
-						<option value="Europe/Kaliningrad">(GMT +2:00) Kaliningrad, South Africa</option>
-						<option value="Asia/Baghdad">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
-						<option value="Asia/Tehran">(GMT +3:30) Tehran</option>
-						<option value="Asia/Muscat">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
-						<option value="Asia/Kabul">(GMT +4:30) Kabul</option>
-						<option value="Asia/Karachi">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
-						<option value="Asia/Calcutta">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
-						<option value="Asia/Kathmandu">(GMT +5:45) Kathmandu</option>
-						<option value="Asia/Almaty">(GMT +6:00) Almaty, Dhaka, Colombo</option>
-						<option value="Asia/Bangkok">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
-						<option value="Asia/Hong_Kong">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
-						<option value="Asia/Tokyo">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
-						<option value="Australia/Adelaide">(GMT +9:30) Adelaide, Darwin</option>
-						<option value="Pacific/Guam">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
-						<option value="Asia/Magadan">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
-						<option value="Pacific/Auckland">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>-->
-					</select>
-					<label for="set-time2-label">Clock Label</label>
-					<input type="text" id="set-time2-label">
-				</div>
-				<div class="setting" id="setting-time3">
-					<h3>Enable 3rd Clock</h3>
-					<small>If enabled, displays an additional clock that can be used to display time in other timezones.</small>
-					<div class="toggle">
-						<input id="set-time3" class="switch" type="checkbox">
-						<label for="set-time3"></label>
-						<div class="toggle-off">OFF</div>
-						<div class="toggle-on">ON</div>
-					</div>
-					<label for="set-time3-zone">Timezone*</label>
-					<select name="set-time3-zone" id="set-time3-zone">
-						<option value="Pacific/Midway">(GMT -11:00) Midway Island, Samoa</option>
-						<option value="Pacific/Honolulu">(GMT -10:00) Hawaii</option>
-						<option value="America/Anchorage">(GMT -9:00) Alaska</option>
-						<option value="America/Los_Angeles">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
-						<option value="America/Boise">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
-						<option value="America/Chicago">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
-						<option value="America/New_York">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
-						<option value="America/Caracas">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
-						<option value="Canada/Newfoundland">(GMT -3:30) Newfoundland</option>
-						<option value="America/Argentina/Buenos_Aires">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
-						<option value="Atlantic/South_Georgia">(GMT -2:00) Mid-Atlantic</option>
-						<option value="Atlantic/Azores">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
-						<option value="Europe/London">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
-						<option value="Europe/Paris">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
-						<option value="Europe/Kaliningrad">(GMT +2:00) Kaliningrad, South Africa</option>
-						<option value="Asia/Baghdad">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
-						<option value="Asia/Tehran">(GMT +3:30) Tehran</option>
-						<option value="Asia/Muscat">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
-						<option value="Asia/Kabul">(GMT +4:30) Kabul</option>
-						<option value="Asia/Karachi">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
-						<option value="Asia/Calcutta">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
-						<option value="Asia/Kathmandu">(GMT +5:45) Kathmandu</option>
-						<option value="Asia/Almaty">(GMT +6:00) Almaty, Dhaka, Colombo</option>
-						<option value="Asia/Bangkok">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
-						<option value="Asia/Hong_Kong">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
-						<option value="Asia/Tokyo">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
-						<option value="Australia/Adelaide">(GMT +9:30) Adelaide, Darwin</option>
-						<option value="Pacific/Guam">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
-						<option value="Asia/Magadan">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
-						<option value="Pacific/Auckland">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>-->
-					</select>
-					<label for="set-time3-label">Clock Label</label>
-					<input type="text" id="set-time3-label">
-				</div>
-				<div class="setting" id="setting-time4">
-					<h3>Enable 4th Clock</h3>
-					<small>If enabled, displays an additional clock that can be used to display time in other timezones.</small>
-					<div class="toggle">
-						<input id="set-time4" class="switch" type="checkbox">
-						<label for="set-time4"></label>
-						<div class="toggle-off">OFF</div>
-						<div class="toggle-on">ON</div>
-					</div>
-					<label for="set-time4-zone">Timezone*</label>
-					<select name="set-time4-zone" id="set-time4-zone">
-						<option value="Pacific/Midway">(GMT -11:00) Midway Island, Samoa</option>
-						<option value="Pacific/Honolulu">(GMT -10:00) Hawaii</option>
-						<option value="America/Anchorage">(GMT -9:00) Alaska</option>
-						<option value="America/Los_Angeles">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
-						<option value="America/Boise">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
-						<option value="America/Chicago">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
-						<option value="America/New_York">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
-						<option value="America/Caracas">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
-						<option value="Canada/Newfoundland">(GMT -3:30) Newfoundland</option>
-						<option value="America/Argentina/Buenos_Aires">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
-						<option value="Atlantic/South_Georgia">(GMT -2:00) Mid-Atlantic</option>
-						<option value="Atlantic/Azores">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
-						<option value="Europe/London">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
-						<option value="Europe/Paris">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
-						<option value="Europe/Kaliningrad">(GMT +2:00) Kaliningrad, South Africa</option>
-						<option value="Asia/Baghdad">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
-						<option value="Asia/Tehran">(GMT +3:30) Tehran</option>
-						<option value="Asia/Muscat">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
-						<option value="Asia/Kabul">(GMT +4:30) Kabul</option>
-						<option value="Asia/Karachi">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
-						<option value="Asia/Calcutta">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
-						<option value="Asia/Kathmandu">(GMT +5:45) Kathmandu</option>
-						<option value="Asia/Almaty">(GMT +6:00) Almaty, Dhaka, Colombo</option>
-						<option value="Asia/Bangkok">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
-						<option value="Asia/Hong_Kong">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
-						<option value="Asia/Tokyo">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
-						<option value="Australia/Adelaide">(GMT +9:30) Adelaide, Darwin</option>
-						<option value="Pacific/Guam">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
-						<option value="Asia/Magadan">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
-						<option value="Pacific/Auckland">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>-->
-					</select>
-					<label for="set-time4-label">Clock Label</label>
-					<input type="text" id="set-time4-label">
-				</div>
-				<p><small>*Note that display of the primary clock and additional clocks is based on the timezone your computer is set to. The detection of your current timezone is pretty much an educated guess and may not reflect your actual timezone, thus causing the additional clocks time to be off. Currently CaretTab is detecting your current timezone to be: "<span class="current-timezone"></span>"</small></p>
-			</article>
-			<!-- /////////////////////// Date /////////////////////// -->
-			<article id="settings-date" class="settings-content">
-				<h1>Date Settings</h1>
-				<div class="setting" id="setting-date">
-					<h3>Display Date</h3>
-					<small>Toggle the date display on/off.</small>
-					<div class="toggle">
-						<input id="set-date" class="switch" type="checkbox">
-						<label for="set-date"></label>
-						<div class="toggle-off">OFF</div>
-						<div class="toggle-on">ON</div>
-					</div>
-				</div>
-				<div class="setting" id="setting-day">
-					<h3>Display Day</h3>
-					<small>Toggle the day of the week on/off (only applies if 'short form' is off).</small>
-					<div class="toggle">
-						<input id="set-day" class="switch" type="checkbox">
-						<label for="set-day"></label>
-						<div class="toggle-off">OFF <small>(January 31, 2000)</small></div>
-						<div class="toggle-on">ON <small>(Saturday, January 31, 2000)</small></div>
-					</div>
-				</div>
-				<div class="setting" id="setting-year">
-					<h3>Display Year</h3>
-					<small>Toggle display of the year on/off.</small>
-					<div class="toggle">
-						<input id="set-year" class="switch" type="checkbox">
-						<label for="set-year"></label>
-						<div class="toggle-off">OFF <small>(January 31)</small></div>
-						<div class="toggle-on">ON <small>(January 31, 2000)</small></div>
-					</div>
-				</div>
-				<div class="setting" id="setting-shortdate">
-					<h3>Short Form</h3>
-					<small>If enabled, displays the date in a short format.</small>
-					<div class="toggle">
-						<input id="set-shortdate" class="switch" type="checkbox">
-						<label for="set-shortdate"></label>
-						<div class="toggle-off">OFF <small>(Saturday, January 31, 2000)</small></div>
-						<div class="toggle-on">ON <small>(01/31/2016)</small></div>
-					</div>
-				</div>
-				<div class="setting" id="setting-dateformat">
-					<h3>Date Format</h3>
-					<small>If enabled, displays the date in the format used by the United States.</small>
-					<div class="radio-switch" title="Toggle time display">
-						<input id="middle" value="middle" class="radio" type="radio" name="set-dateformat">
-						<label for="middle"></label>
-						<div class="radio-label">January 31, 2000 <small>(01/31/00)</small></div>
-					</div>
-					<div class="radio-switch" title="Toggle time display">
-						<input id="little" value="little" class="radio" type="radio" name="set-dateformat">
-						<label for="little"></label>
-						<div class="radio-label">31 January 2000 <small>(31/01/00)</small></div>
-					</div>
-					<div class="radio-switch" title="Toggle time display">
-						<input id="big" value="big" class="radio" type="radio" name="set-dateformat">
-						<label for="big"></label>
-						<div class="radio-label">2000 January 31 <small>(00/01/31)</small></div>
-					</div>
-				</div>
-
-			</article>
-			<!-- /////////////////////// Color /////////////////////// -->
-			<article id="settings-color" class="settings-content">
-				<h1>Colors</h1>
-				<div class="setting" id="setting-background">
-					<h3>Set custom background color</h3>
-					<small>Click in the text box below and type in a color code in HEX, or use the popup controls to choose a color.</small>
-					<input type="text" id="set-background" value="#FFFFFF" class="jscolor" data-jscolor="{width:200, height:120, position:'bottom', hash:true, padding:3, borderRadius: 2, borderColor: 'rgba(255,255,255,0.2)', backgroundColor:'rgba(255,255,255,0.1)', container:'setting-background'}">
-				</div>
-				<div class="setting" id="setting-foreground">
-					<h3>Set custom foreground color</h3>
-					<small>Click in the text box below and type in a color code in HEX, or use the popup controls to choose a color.</small>
-					<input type="text" id="set-foreground" value="#000000" class="jscolor" data-jscolor="{width:200, height:120, position:'bottom', hash:true, padding:3, borderRadius: 2, borderColor: 'rgba(255,255,255,0.2)', backgroundColor:'rgba(255,255,255,0.1)', container:'setting-foreground'}">
-				</div>
-				<div class="setting" id="setting-theme">
-					<h3>Choose a color theme</h3>
-					<small>Click on a circle to choose a color theme. The top color represents the background color and the bottom color represents the foreground (text) color.</small>
-					<a href="#" class="theme" id="theme01" style="background:#FFFFFF"><span style="border-bottom-color:#000000"></span></a>
-					<a href="#" class="theme" id="theme02" style="background:#d6d6d6"><span style="border-bottom-color:#565656"></span></a>
-					<a href="#" class="theme" id="theme03" style="background:#A6AAB2"><span style="border-bottom-color:#373a3d"></span></a>
-					<a href="#" class="theme" id="theme04" style="background:#5b6677"><span style="border-bottom-color:#bdc2c8"></span></a>
-					<a href="#" class="theme" id="theme05" style="background:#313840"><span style="border-bottom-color:#acafb2"></span></a>
-					<a href="#" class="theme" id="theme06" style="background:#1f2327"><span style="border-bottom-color:#a5a7a8"></span></a>
-					<a href="#" class="theme" id="theme07" style="background:#000000"><span style="border-bottom-color:#FFFFFF"></span></a>
-					<a href="#" class="theme" id="theme08" style="background:#3FA9F5"><span style="border-bottom-color:#FFFFFF"></span></a>
-					<a href="#" class="theme" id="theme09" style="background:#ff8f7e"><span style="border-bottom-color:#663932"></span></a>
-					<a href="#" class="theme" id="theme10" style="background:#cc3e28"><span style="border-bottom-color:#ebb1a9"></span></a>
-					<a href="#" class="theme" id="theme11" style="background:#7f2719"><span style="border-bottom-color:#cca8a3"></span></a>
-					<a href="#" class="theme" id="theme12" style="background:#70adff"><span style="border-bottom-color:#2d4566"></span></a>
-					<a href="#" class="theme" id="theme13" style="background:#1c68cc"><span style="border-bottom-color:#a4c2eb"></span></a>
-					<a href="#" class="theme" id="theme14" style="background:#12417f"><span style="border-bottom-color:#a0b3cc"></span></a>
-					<a href="#" class="theme" id="theme15" style="background:#FFFFFF"><span style="border-bottom-color:#3FA9F5"></span></a>
-					<a href="#" class="theme" id="theme16" style="background:#d2ffbf"><span style="border-bottom-color:#54664c"></span></a>
-					<a href="#" class="theme" id="theme17" style="background:#7dcc5c"><span style="border-bottom-color:#325225"></span></a>
-					<a href="#" class="theme" id="theme18" style="background:#4e7f39"><span style="border-bottom-color:#b8ccaf"></span></a>
-					<a href="#" class="theme" id="theme19" style="background:#d08eff"><span style="border-bottom-color:#533966"></span></a>
-					<a href="#" class="theme" id="theme20" style="background:#a672cc"><span style="border-bottom-color:#422d52"></span></a>
-					<a href="#" class="theme" id="theme21" style="background:#68477f"><span style="border-bottom-color:#c2b5cc"></span></a>
-					<a href="#" class="theme" id="theme22" style="background:#F646C0"><span style="border-bottom-color:#70127C"></span></a>
-					<a href="#" class="theme" id="theme23" style="background:#6F8ACE"><span style="border-bottom-color:#FDBDFF"></span></a>
-					<a href="#" class="theme" id="theme24" style="background:#6E1F7F"><span style="border-bottom-color:#FF970B"></span></a>
-					<a href="#" class="theme" id="theme25" style="background:#F4742B"><span style="border-bottom-color:#760909"></span></a>
-					<a href="#" class="theme" id="theme26" style="background:#DFF490"><span style="border-bottom-color:#4A5A48"></span></a>
-					<a href="#" class="theme" id="theme27" style="background:#A0F4CD"><span style="border-bottom-color:#403F94"></span></a>
-					<a href="#" class="theme" id="theme28" style="background:#F4A2E5"><span style="border-bottom-color:#D80090"></span></a>
-				</div>
-			</article>
-			<!-- /////////////////////// Links /////////////////////// -->
-			<article id="settings-links" class="settings-content">
-				<h1>Favorite Links</h1>
-				<div class="setting" id="setting-link1">
-					<h3>Enable 1st Link</h3>
-					<small>Display a link to your favorite website at the top of the page.</small>
-					<div class="toggle">
-						<input id="set-link1" class="switch" type="checkbox">
-						<label for="set-link1"></label>
-						<div class="toggle-off">OFF</div>
-						<div class="toggle-on">ON</div>
-					</div>
-					<label for="set-link1-url">URL (Web Address, including http://)</label>
-					<input type="text" id="set-link1-url" placeholder="http://">
-					<label for="set-link1-label">Link Label (max 20 characters)</label>
-					<input type="text" id="set-link1-label" placeholder="My Favorite Site" max="20">
-				</div>
-				<div class="setting" id="setting-link2">
-					<h3>Enable 2nd Link</h3>
-					<small>Display a link to your favorite website at the top of the page.</small>
-					<div class="toggle">
-						<input id="set-link2" class="switch" type="checkbox">
-						<label for="set-link2"></label>
-						<div class="toggle-off">OFF</div>
-						<div class="toggle-on">ON</div>
-					</div>
-					<label for="set-link2-url">URL (Web Address, including http://)</label>
-					<input type="text" id="set-link2-url" placeholder="http://">
-					<label for="set-link2-label">Link Label (max 20 characters)</label>
-					<input type="text" id="set-link2-label" placeholder="My Favorite Site" max="20">
-				</div>
-				<div class="setting" id="setting-link3">
-					<h3>Enable 3rd Link</h3>
-					<small>Display a link to your favorite website at the top of the page.</small>
-					<div class="toggle">
-						<input id="set-link3" class="switch" type="checkbox">
-						<label for="set-link3"></label>
-						<div class="toggle-off">OFF</div>
-						<div class="toggle-on">ON</div>
-					</div>
-					<label for="set-link3-url">URL (Web Address, including http://)</label>
-					<input type="text" id="set-link3-url" placeholder="http://">
-					<label for="set-link3-label">Link Label (max 20 characters)</label>
-					<input type="text" id="set-link3-label" placeholder="My Favorite Site" max="20">
-				</div>
-				<div class="setting" id="setting-link4">
-					<h3>Enable 4th Link</h3>
-					<small>Display a link to your favorite website at the top of the page.</small>
-					<div class="toggle">
-						<input id="set-link4" class="switch" type="checkbox">
-						<label for="set-link4"></label>
-						<div class="toggle-off">OFF</div>
-						<div class="toggle-on">ON</div>
-					</div>
-					<label for="set-link4-url">URL (Web Address, including http://)</label>
-					<input type="text" id="set-link4-url" placeholder="http://">
-					<label for="set-link4-label">Link Label (max 20 characters)</label>
-					<input type="text" id="set-link4-label" placeholder="My Favorite Site" max="20">
-				</div>
-				<div class="setting" id="setting-link5">
-					<h3>Enable 5th Link</h3>
-					<small>Display a link to your favorite website at the top of the page.</small>
-					<div class="toggle">
-						<input id="set-link5" class="switch" type="checkbox">
-						<label for="set-link5"></label>
-						<div class="toggle-off">OFF</div>
-						<div class="toggle-on">ON</div>
-					</div>
-					<label for="set-link5-url">URL (Web Address, including http://)</label>
-					<input type="text" id="set-link5-url" placeholder="http://">
-					<label for="set-link5-label">Link Label (max 20 characters)</label>
-					<input type="text" id="set-link5-label" placeholder="My Favorite Site" max="20">
-				</div>
-				<div class="setting" id="setting-link6">
-					<h3>Enable 6th Link</h3>
-					<small>Display a link to your favorite website at the top of the page.</small>
-					<div class="toggle">
-						<input id="set-link6" class="switch" type="checkbox">
-						<label for="set-link6"></label>
-						<div class="toggle-off">OFF</div>
-						<div class="toggle-on">ON</div>
-					</div>
-					<label for="set-link6-url">URL (Web Address, including http://)</label>
-					<input type="text" id="set-link6-url" placeholder="http://">
-					<label for="set-link6-label">Link Label (max 20 characters)</label>
-					<input type="text" id="set-link6-label" placeholder="My Favorite Site" max="20">
-				</div>
-			</article>
-			<!-- /////////////////////// Extra /////////////////////// -->
-			<article id="settings-extra" class="settings-content">
-				<h1>Extra Settings</h1>
-                <div class="setting" id="setting-new-tab-title">
-					<h3>Tab title</h3>
-					<small>Choose what to display in the New Tab title (shows on the tab itself as well as in the browsers title).</small>
-					<div class="radio-switch">
-						<input id="tab-time" value="tab-time" class="radio" type="radio" name="set-tab-title">
-						<label for="tab-time"></label>
-						<div class="radio-label">Display Time</div>
-					</div>
-					<div class="radio-switch">
-						<input id="tab-date" value="tab-date" class="radio" type="radio" name="set-tab-title">
-						<label for="tab-date"></label>
-						<div class="radio-label">Display Date</div>
-					</div>
-					<div class="radio-switch">
-						<input id="new-tab" value="new-tab" class="radio" type="radio" name="set-tab-title">
-						<label for="new-tab"></label>
-						<div class="radio-label">Display "New Tab"</div>
-					</div>
-					<div class="radio-switch">
-						<input id="tab-custom" value="tab-custom" class="radio" type="radio" name="set-tab-title">
-						<label for="tab-custom"></label>
-						<div class="radio-label">Display Custom Text</div>
-					</div>
-					<label for="set-tab-custom-message">Custom New Tab Title Text</label>
-					<input type="text" id="set-tab-custom-message" placeholder="New Tab">
-				</div>
-				<div class="setting" id="setting-message">
-					<h3>Custom Message</h3>
-					<small>Display a personal message at the top of the page.</small>
-					<div class="toggle">
-						<input id="set-message" class="switch" type="checkbox">
-						<label for="set-message"></label>
-						<div class="toggle-off">OFF</div>
-						<div class="toggle-on">ON</div>
-					</div>
-					<label for="set-message-text">Message Text</label>
-					<input type="text" id="set-message-text" placeholder="Hello World!">
-				</div>
-				<div class="setting" id="setting-brackets">
-					<h3>Display Brackets</h3>
-					<small>Toggle the brackets that surround the primary clock on/off.</small>
-					<div class="toggle">
-						<input id="set-brackets" class="switch" type="checkbox">
-						<label for="set-brackets"></label>
-						<div class="toggle-off">OFF</div>
-						<div class="toggle-on">ON</div>
-					</div>
-				</div>
-				<div class="setting" id="setting-search">
-					<h3>Display Search Box</h3>
-					<small>Toggle the display of the search box on/off.</small>
-					<div class="toggle">
-						<input id="set-search" class="switch" type="checkbox">
-						<label for="set-search"></label>
-						<div class="toggle-off">OFF</div>
-						<div class="toggle-on">ON</div>
-					</div>
-				</div>
-				<div class="setting" id="setting-engine">
-					<h3>Search Engine</h3>
-					<small>Choose a search engine to use with the search box.</small>
-					<div class="radio-switch">
-						<input id="google" value="google" class="radio" type="radio" name="set-engine">
-						<label for="google"></label>
-						<div class="radio-label">Google</div>
-					</div>
-					<div class="radio-switch">
-						<input id="bing" value="bing" class="radio" type="radio" name="set-engine">
-						<label for="bing"></label>
-						<div class="radio-label">Bing</div>
-					</div>
-					<div class="radio-switch">
-						<input id="duckduckgo" value="duckduckgo" class="radio" type="radio" name="set-engine">
-						<label for="duckduckgo"></label>
-						<div class="radio-label">DuckDuckGo</div>
-					</div>
-				</div>
-				<div class="setting" id="setting-animation">
-					<h3>Toggle Intro Animation</h3>
-					<small>Toggle a fade-in animation for the foreground on load.</small>
-					<div class="toggle">
-						<input id="set-animation" class="switch" type="checkbox">
-						<label for="set-animation"></label>
-						<div class="toggle-off">OFF</div>
-						<div class="toggle-on">ON</div>
-					</div>
-				</div>
-			</article>
-			<!-- /////////////////////// About /////////////////////// -->
-			<article id="settings-about" class="settings-content">
-				<p><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><style>.a{fill:#3FA9F5;}.b{fill:#3FA9F5;}</style><rect x="24" y="80" width="16" height="16" class="a"/><rect x="40" y="64" width="16" height="16" class="a"/><rect x="56" y="48" width="16" height="16" class="a"/><rect x="72" y="64" width="16" height="16" class="a"/><rect x="88" y="80" width="16" height="16" class="a"/><path d="M123 20V0H88v20h-9V0H44v20h-9V10 0H25 10 0v10 10 10 20 78h128V20H123zM118 118H10V10h15v20h19 35 9 30V118z" class="b"/></svg></p>
-				<h1>About CaretTab</h1>
-				<p><a href="http://bluecaret.com/project/carettab" id="CaretTabProjectPage">CaretTab</a> is designed and coded by <a href="http://bluecaret.com" id="BluecaretCom">BlueCaret</a>					and is licensed under the <a href="https://opensource.org/licenses/MIT" id="MITLicense">MIT License</a></p>
-				<p>Follow <a href="https://twitter.com/BlueCaret" id="Twitter">@BlueCaret</a> for the latest news on CaretTab!</p>
-				<hr>
-				<p>Like what you see? Consider a <a href="https://www.paypal.me/bluecaret/">donation</a> to show your support!</p>
-				<a href="https://www.paypal.me/bluecaret/" class="btn" id="donate">Donate via PayPal</a>
-				<hr>
-				<p>CaretTab will not be liable for any issues that may arrise due to the accuracy of this extension. If you're late to work
-					because the time shown was wrong, it's all on you.</p>
-				<hr>
-				<p><a href="#" class="btn" id="reset">Reset Defaults</a></p>
-			</article>
-		</section>
-	</div>
-
-	<script src="js/vendor/jquery-2.2.1.min.js"></script>
-	<script src="js/vendor/jquery.color.js"></script>
-	<script src="js/vendor/moment.locale.js"></script>
-	<script src="js/vendor/moment.timezone.2010.js"></script>
-	<script src="js/vendor/jscolor.js"></script>
-	<script src="js/main.js"></script>
+    <script src="js/vendor/jquery-2.2.1.min.js"></script>
+    <script src="js/vendor/moment.locale.js"></script>
+    <script src="js/vendor/moment.timezone.2010.js"></script>
+    <script src="js/main.min.js"></script>
 </body>
 
 </html>

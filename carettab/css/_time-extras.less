@@ -1,0 +1,72 @@
+#additional-clocks {
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    text-align: center;
+    padding: 0.02em 0 0 0;
+    & > div {
+        display: none;
+        padding: 0 .05em;
+    }
+    time {
+        font-size: 4.4%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 300;
+        line-height: 1;
+        .meridiem {
+            font-size: 40%;
+            margin-left: 0.2em;
+        }
+    }
+    .label {
+        display: block;
+        font-size: 1.3%;
+        font-weight: 700;
+        line-height: 1;
+        margin-top: 0.3em;
+    }
+    .delimiter {
+        opacity: 0;
+    }
+
+}
+.on-delimiter {
+    #additional-clocks .delimiter {
+        opacity: 1;
+    }
+}
+.on-delimiter.on-dimdelimiter {
+    #additional-clocks .delimiter {
+        opacity: 0.5;
+    }
+}
+.on-military {
+    #additional-clocks .meridiem {
+        display: none;
+    }
+}
+.on-clock2 #additional-clocks .clock2 { display: block; }
+.on-clock3 #additional-clocks .clock3 { display: block; }
+.on-clock4 #additional-clocks .clock4 { display: block; }
+
+// Special Cases
+.font-exo-2 #additional-clocks {
+    .delimiter {
+        margin-bottom: 0.25em;
+    }
+}
+.font-quicksand #additional-clocks {
+    .delimiter {
+        margin-bottom: 0.15em;
+    }
+}
+.font-press-start-2p #additional-clocks {
+    time {
+        font-size: 4.0%;
+    }
+    .label {
+        font-size: 1.2%;
+    }
+}

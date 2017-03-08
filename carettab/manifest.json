@@ -1,11 +1,11 @@
 {
   "manifest_version": 2,
  
-  "name": "CaretTab - New Tab Page",
+  "name": "CaretTab - New Tab Clock and Date",
   "short_name": "CaretTab",
-  "description": "A simplistic New Tab page with options for displaying time, date, search, favorite links, and more!",
-  "version": "1.2.0",
-  "version_name": "1.2.0",
+  "description": "A beautifully simplistic New Tab page that includes multiple clocks, date, search, quick links, and more! Fully customizable!",
+  "version": "2.0.0",
+  "version_name": "2.0.0",
 
   "icons": { "16": "img/icon16.png",
              "48": "img/icon48.png",
@@ -20,9 +20,10 @@
     "persistent": false
   },
 
+  "offline_enabled": true,
+
   "permissions": [
     "storage"
-  ],
+  ]
   
-  "content_security_policy": "script-src 'self' 'unsafe-eval' https://ssl.google-analytics.com; object-src 'self'"
 }

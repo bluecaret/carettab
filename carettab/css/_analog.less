@@ -1,0 +1,101 @@
+#analog {
+    display: none;
+    width: .4em;
+    height: .4em;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 50%;
+    // background: url(../img/analog-01.svg) 0 50%;
+    .analog-face {
+        width: 100%;
+        height: 100%;
+        svg {
+            opacity: 0.5;   
+            position: absolute;
+            top: 0; right: 0; left: 0; bottom: 0;
+        }
+    }
+    .analog-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 4%;
+        height: 4%;
+        margin: -2% 0 0 -2%;
+        background: black;
+        border-radius: 50%;
+        display: block;
+    }
+    .analog-hour {
+        background: #000;
+        height: 25%;
+        left: 49%;
+        position: absolute;
+        top: 25%;
+        transform-origin: 50% 100%;
+        width: 2%;
+    }
+    .analog-minute {
+        background: #000;
+        height: 35%;
+        left: 49.25%;
+        position: absolute;
+        top: 15%;
+        transform-origin: 50% 100%;
+        width: 1.5%;
+    }
+    .analog-second {
+        display: none;
+        background: #000;
+        height: 48%;
+        left: 49.7%;
+        position: absolute;
+        top: 11%;
+        transform-origin: 50% 80%;
+        width: 0.6%;
+        z-index: 8;
+    }
+}
+
+.on-clock1.on-analog {
+    #analog {
+        display: block;
+    }
+    #time {
+        display: none;
+    }
+    &.on-seconds {
+        #analog .analog-second {
+            display: block;
+        }
+    }
+    &.on-clock2,
+    &.on-clock3,
+    &.on-clock4,
+    &.on-date {
+        #analog {
+            width: .3em;
+            height: .3em;
+        }
+    }
+    &.on-date {
+        #analog {
+            width: .3em;
+            height: .3em;
+            margin: 0 auto 0.03em auto;
+        }
+    }
+    &.on-clock2.on-date,
+    &.on-clock3.on-date,
+    &.on-clock4.on-date {
+        #analog {
+            width: .2em;
+            height: .2em;
+        }
+    }
+    &.on-dimseconds #analog .analog-second {
+        opacity: 0.5;
+    }
+}
+
+

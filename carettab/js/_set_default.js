@@ -152,4 +152,5 @@ function setDefaults(caretTabStatus, sLoad, loaded) {
     tHideSettingsToggle();
     tAnalog();
 
+    updateAll();
 }

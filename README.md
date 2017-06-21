@@ -23,6 +23,12 @@ Have any suggestions? Let me know on Twitter @BlueCaret
 
 ## Changelog
 
+### 2.1.0
+- More display scaling sizes. Make it even smaller or larger!
+- Added GitHub as a search engine option.
+- Added an additional Timezone for Central America.
+- Fixed Atlantic Timezone setting.
+
 ### 2.0.0
 - Fonts! Change the font for a different style.
 - Scaling! Scale the size of the elements down or up.

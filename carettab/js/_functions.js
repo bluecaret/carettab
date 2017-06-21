@@ -1175,6 +1175,11 @@ function tEngine(value, loaded) {
         $('#search-box').attr('placeholder', 'Wolframalpha');
         $('#search-box').attr('name', 'i');
     }
+    else if (sEngine == "github") {
+        $('#search').attr('action', 'https://www.github.com/search');
+        $('#search-box').attr('placeholder', 'GitHub');
+        $('#search-box').attr('name', 'q');
+    }
     else {
         $('#search').attr('action', 'https://www.google.com/search');
         $('#search-box').attr('placeholder', 'Google');

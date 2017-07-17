@@ -4,8 +4,8 @@
   "name": "CaretTab - New Tab Clock and Date",
   "short_name": "CaretTab",
   "description": "A beautifully simplistic New Tab page that includes multiple clocks, date, search, quick links, and more! Fully customizable!",
-  "version": "2.1.0",
-  "version_name": "2.1.0",
+  "version": "2.1.1",
+  "version_name": "2.1.1",
 
   "icons": { "16": "img/icon16.png",
              "48": "img/icon48.png",

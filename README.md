@@ -23,6 +23,9 @@ Have any suggestions? Let me know on Twitter @BlueCaret
 
 ## Changelog
 
+### 2.1.1
+- Fixed GitHub search bug.
+
 ### 2.1.0
 - More display scaling sizes. Make it even smaller or larger!
 - Added GitHub as a search engine option.

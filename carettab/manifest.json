@@ -24,6 +24,12 @@
 
   "permissions": [
     "storage"
-  ]
+  ],
+
+  "applications": {
+    "gecko": {
+      "id": "carettab@bluecaret.com"
+    }
+  }
   
 }

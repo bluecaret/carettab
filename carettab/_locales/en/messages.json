@@ -1,0 +1,439 @@
+{
+  "appName": {
+    "message": "CaretTab - New Tab Clock and Date",
+    "description": "The title of the application, displayed in the web store."
+  },
+  "appDesc": {
+    "message": "A beautifully simplistic New Tab page that includes multiple clocks, date, search, quick links, and more! Fully customizable!", 
+    "description":"The description of the application, displayed in the web store."
+  },
+
+  "welcome": {
+    "message": "Welcome to CaretTab!"
+  },
+  "welcomeUpdated": {
+    "message": "CaretTab has been updated to"
+  },
+  "configureEverything": {
+    "message": "Click the caret icon to configure... everything!"
+  },
+  "settingsPanel": {
+    "message": "Be sure to check out every tab for all of the settings."
+  },
+
+  "tabAbout": {
+    "message": "About"
+  },
+  "tabColor": {
+    "message": "Color"
+  },
+  "tabTime": {
+    "message": "Time"
+  },
+  "tabDate": {
+    "message": "Date"
+  },
+  "tabLinks": {
+    "message": "Links"
+  },
+  "tabExtras": {
+    "message": "Extras"
+  },
+  "tabStyle": {
+    "message": "Style"
+  },
+  
+  "latestUpdate": {
+    "message": "Latest Update"
+  },
+  "keepFree": {
+    "message": "Keep CaretTab free, Tip the Developer"
+  },
+  "keepFreeDesc": {
+    "message": "If you find CaretTab useful, consider supporting it by leaving a tip in the tip jar. Tips will help keep this clear of ads and free! The developer highly appreciates it!"
+  },
+  "generousTip": {
+    "message": "Generous<br>tip of"
+  },
+  "largeTip": {
+    "message": "Large<br>tip of"
+  },
+  "massiveTip": {
+    "message": "Massive<br>tip of"
+  },
+  "anythingHelps": {
+    "message": "Anything<br>helps!"
+  },
+  "otherTip": {
+    "message": "Other"
+  },
+  "viaPaypal": {
+    "message": "Tips payed<br>via PayPal<br><b>Thank you!</b>"
+  },
+  "supportTitle": {
+    "message": "Support"
+  },
+  "supportDesc": {
+    "message": "If you need support or have a suggestion or other comment you can contact the developer, <a href=\"http://bluecaret.com\">BlueCaret</a> on Twitter <a href=\"https://twitter.com/BlueCaret\">@BlueCaret</a> or view CaretTab on <a href=\"https://github.com/bluecaret/carettab\">GitHub</a>."
+  },
+  "resetDesc": {
+    "message": "If you would like to reset all settings back to the default, you can use the following button (refresh the page after)."
+  },
+  "resetButton": {
+    "message": "Reset Defaults"
+  },
+  "credit": {
+    "message": "<a href=\"http://bluecaret.com/project/carettab\">CaretTab</a> is designed and coded by <a href=\"http://jwh.design\">JWH Design, LLC</a> (<a href=\"http://bluecaret.com\">BlueCaret</a>) and is licensed under the <a href=\"https://opensource.org/licenses/MIT\">MIT License</a>."
+  },
+  "disclaimer": {
+    "message": "CaretTab will not be liable for any issues that may arrise due to the accuracy of this extension. If you're late to work because the time shown was wrong, it's all on you."
+  },
+
+  "customColor": {
+    "message": "Custom Colors"
+  },
+  "bg": {
+    "message": "Background Color"
+  },
+  "bgDesc": {
+    "message": "Color of the page background."
+  },
+  "fg": {
+    "message": "Foreground Color"
+  },
+  "fgDesc": {
+    "message": "Color of fonts and icons."
+  },
+  "themes": {
+    "message": "Themes"
+  },
+
+  "primaryClock": {
+    "message": "Primary Clock"
+  },
+  "primaryClockDesc": {
+    "message": "Shows the primary clock in the middle of the page."
+  },
+  "clockStyle": {
+    "message": "Clock Style"
+  },
+  "clockStyleDesc": {
+    "message": "Switch between a digital and analog clock (brackets will be hidden if enabled)."
+  },
+  "seconds": {
+    "message": "Seconds"
+  },
+  "secondsDesc": {
+    "message": "Shows the seconds on the primary clock."
+  },
+  "meridiem": {
+    "message": "Meridiem"
+  },
+  "meridiemDesc": {
+    "message": "Shows AM/PM on the primary clock."
+  },
+  "military": {
+    "message": "24 Hour"
+  },
+  "militaryDesc": {
+    "message": "Uses a 24 hour clock versus a 12 hour (disables meridiem)."
+  },
+  "delimiter": {
+    "message": "Delimiter"
+  },
+  "delimiterDesc": {
+    "message": "Shows a seperator between numbers on all clocks."
+  },
+  "timezone": {
+    "message": "Timezone"
+  },
+  "timezoneDesc": {
+    "message": "Choose a timezone for the primary clock (the default is your local timezone)."
+  },
+  "additionalClocks": {
+    "message": "Additional Clocks"
+  },
+  "secondClock": {
+    "message": "2nd Clock"
+  },
+  "secondClockDesc": {
+    "message": "Shows an additional clock below the primary clock."
+  },
+  "secondClockTimezone": {
+    "message": "2nd Clock Timezone"
+  },
+  "secondClockTimezoneDesc": {
+    "message": "Choose a timezone for this clock."
+  },
+  "secondClockLabel": {
+    "message": "2nd Clock Label"
+  },
+  "secondClockLabelDesc": {
+    "message": "Enter a label for this clock (leave blank for none)."
+  },
+  "thirdClock": {
+    "message": "3rd Clock"
+  },
+  "thirdClockDesc": {
+    "message": "Shows an additional clock below the primary clock."
+  },
+  "thirdClockTimezone": {
+    "message": "3rd Clock Timezone"
+  },
+  "thirdClockTimezoneDesc": {
+    "message": "Choose a timezone for this clock."
+  },
+  "thirdClockLabel": {
+    "message": "3rd Clock Label"
+  },
+  "thirdClockLabelDesc": {
+    "message": "Enter a label for this clock (leave blank for none)."
+  },
+  "fourthClock": {
+    "message": "4th Clock"
+  },
+  "fourthClockDesc": {
+    "message": "Shows an additional clock below the primary clock."
+  },
+  "fourthClockTimezone": {
+    "message": "4th Clock Timezone"
+  },
+  "fourthClockTimezoneDesc": {
+    "message": "Choose a timezone for this clock."
+  },
+  "fourthClockLabel": {
+    "message": "4th Clock Label"
+  },
+  "fourthClockLabelDesc": {
+    "message": "Enter a label for this clock (leave blank for none)."
+  },
+  "timeDisclaimer": {
+    "message": "<b>Note</b> that display of the primary clock and additional clocks is based on the time and timezone your computer is set to. The detection of your current timezone is pretty much an educated guess and may not reflect your actual timezone, thus causing the additional clocks time to be off. Currently CaretTab is detecting your current timezone to be:"
+  },
+
+  "date": {
+    "message": "Date"
+  },
+  "dateDesc": {
+    "message": "Shows the date in the middle of the page."
+  },
+  "day": {
+    "message": "Day"
+  },
+  "dayDesc": {
+    "message": "Shows day of the week (only applies if 'short form' is off)."
+  },
+  "year": {
+    "message": "Year"
+  },
+  "yearDesc": {
+    "message": "Shows the year with the date."
+  },
+  "shortForm": {
+    "message": "Short Form"
+  },
+  "shortFormDesc": {
+    "message": "Shows the date in a short format."
+  },
+  "showDelimiter": {
+    "message": "Short Date Delimiter"
+  },
+  "showDelimiterDesc": {
+    "message": "Shows a seperator between numbers on the short form date."
+  },
+  "dateFormat": {
+    "message": "Date Format"
+  },
+  "dateFormatDesc": {
+    "message": "Determines how the date is shown."
+  },
+  "weekNumber": {
+    "message": "Week Number"
+  },
+  "weekNumberDesc": {
+    "message": "Shows week number below the date."
+  },
+  "weekLabel": {
+    "message": "Week Number Label"
+  },
+  "weekLabelDesc": {
+    "message": "Choose a label to show next to the week number."
+  },
+
+  "quickLinks": {
+    "message": "Quick Links"
+  },
+  "linkDesc": {
+    "message": "Shows a custom quick link at the top of the page."
+  },
+  "linkUrlDesc": {
+    "message": "Enter a URL for this link (including http:// or https://)"
+  },
+  "linkLabelDesc": {
+    "message": "Enter a label for this link."
+  },
+  "link1": {
+    "message": "Link 1"
+  },
+  "link1Url": {
+    "message": "Link 1 URL"
+  },
+  "link1Label": {
+    "message": "Link 1 Label"
+  },
+  "link2": {
+    "message": "Link 2"
+  },
+  "link2Url": {
+    "message": "Link 2 URL"
+  },
+  "link2Label": {
+    "message": "Link 2 Label"
+  },
+  "link3": {
+    "message": "Link 3"
+  },
+  "link3Url": {
+    "message": "Link 3 URL"
+  },
+  "link3Label": {
+    "message": "Link 3 Label"
+  },
+  "link4": {
+    "message": "Link 4"
+  },
+  "link4Url": {
+    "message": "Link 4 URL"
+  },
+  "link4Label": {
+    "message": "Link 4 Label"
+  },
+  "link5": {
+    "message": "Link 5"
+  },
+  "link5Url": {
+    "message": "Link 5 URL"
+  },
+  "link5Label": {
+    "message": "Link 5 Label"
+  },
+  "link6": {
+    "message": "Link 6"
+  },
+  "link6Url": {
+    "message": "Link 6 URL"
+  },
+  "link6Label": {
+    "message": "Link 6 Label"
+  },
+
+  "search": {
+    "message": "Search"
+  },
+  "searchBox": {
+    "message": "Search Box"
+  },
+  "searchBoxDesc": {
+    "message": "Shows a search box above the time."
+  },
+  "searchEngine": {
+    "message": "Search Engine"
+  },
+  "searchEngineDesc": {
+    "message": "Choose a search engine to use with the search box."
+  },
+  "messageTitle": {
+    "message": "Message"
+  },
+  "customMessage": {
+    "message": "Custom Message"
+  },
+  "customMessageDesc": {
+    "message": "Shows a custom message (set below)."
+  },
+  "customMessageText": {
+    "message": "Custom Message Text"
+  },
+  "customMessageTextDesc": {
+    "message": "Enter text for the custom message."
+  },
+  "brackets": {
+    "message": "Brackets"
+  },
+  "bracketsDesc": {
+    "message": "Shows brackets around the primary clock and date (hidden if analog clock is on)."
+  },
+  "bracketsType": {
+    "message": "Bracket Type"
+  },
+  "miscellaneous": {
+    "message": "Miscellaneous"
+  },
+  "tabTitle": {
+    "message": "Tab Title"
+  },
+  "tabTitleDesc": {
+    "message": "Choose what to display in the New Tab title (shows on the tab itself as well as in the browsers title bar)."
+  },
+  "customTabText": {
+    "message": "Custom Tab Title Text"
+  },
+  "customTabTextDesc": {
+    "message": "Enter text for the custom tab title."
+  },
+
+  "globalStyle": {
+    "message": "Global Style"
+  },
+  "font": {
+    "message": "Font"
+  },
+  "fontDesc": {
+    "message": "Changes font used<br>for all elements."
+  },
+  "scaleDisplay": {
+    "message": "Scale Display"
+  },
+  "scaleDisplayDesc": {
+    "message": "Change the size of the elements. If items start to overlap, reduce the size."
+  },
+  "animation": {
+    "message": "Animation"
+  },
+  "animationDesc": {
+    "message": "Animates all elements on page load."
+  },
+  "dimming": {
+    "message": "Dimming"
+  },
+  "dimSeconds": {
+    "message": "Dim Seconds"
+  },
+  "dimSecondsDesc": {
+    "message": "Makes the seconds 50% transparent."
+  },
+  "dimDelimiter": {
+    "message": "Dim Delimiter"
+  },
+  "dimDelimiterDesc": {
+    "message": "Makes the delimiter 50% transparent (only applies if blink delimiter is off)."
+  },
+  "dimBrackets": {
+    "message": "Dim Brackets"
+  },
+  "dimBracketsDesc": {
+    "message": "Makes the brackets 50% transparent."
+  },
+  "blinkDelimiter": {
+    "message": "Blink Delimiter"
+  },
+  "blinkDelimiterDesc": {
+    "message": "Blinks the delimiter on the primary clock."
+  },
+  "hideSettingsButton": {
+    "message": "Hide Settings Button"
+  },
+  "hideSettingsButtonDesc": {
+    "message": "The settings button opens the settings box. Enable this to hide the icon. You can still open settings by clicking in the top-right corner of the page."
+  }
+}

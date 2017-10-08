@@ -1,11 +1,12 @@
 {
   "manifest_version": 2,
  
-  "name": "CaretTab - New Tab Clock and Date",
+  "name": "__MSG_appName__",
   "short_name": "CaretTab",
-  "description": "A beautifully simplistic New Tab page that includes multiple clocks, date, search, quick links, and more! Fully customizable!",
+  "description": "__MSG_appDesc__",
   "version": "2.1.4",
   "version_name": "2.1.4",
+  "default_locale": "en",
 
   "icons": { "16": "img/icon16.png",
              "48": "img/icon48.png",

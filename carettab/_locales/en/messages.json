@@ -1,11 +1,9 @@
 {
   "appName": {
-    "message": "CaretTab - New Tab Clock and Date",
-    "description": "The title of the application, displayed in the web store."
+    "message": "CaretTab - New Tab Clock and Date"
   },
   "appDesc": {
-    "message": "A beautifully simplistic New Tab page that includes multiple clocks, date, search, quick links, and more! Fully customizable!", 
-    "description":"The description of the application, displayed in the web store."
+    "message": "A beautifully simplistic New Tab page that includes multiple clocks, date, search, quick links, and more! Fully customizable!"
   },
 
   "welcome": {

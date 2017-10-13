@@ -1,11 +1,9 @@
 {
   "appName": {
-    "message": "CaretTab - Nouvel onglet avec date et heure",
-    "description": "Le titre de l'application, affiché dans le Chrome Web Store."
+    "message": "CaretTab - Nouvel onglet avec date et heure"
   },
   "appDesc": {
-    "message": "Une simple page ‘Nouvel onglet’ qui inclus plusieurs horloges, la date et heure, une barre de recherche, des liens pour accès rapide et bien plus ! Totalement configurable !",
-    "description": "La description de l'application, affichée dans le Chrome Web Store."
+    "message": "Une simple page ‘Nouvel onglet’ qui inclus plusieurs horloges, la date et heure, une barre de recherche, des liens pour accès rapide et bien plus ! Totalement configurable !"
   },
 
   "welcome": {

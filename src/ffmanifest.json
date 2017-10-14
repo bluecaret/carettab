@@ -5,7 +5,6 @@
   "short_name": "CaretTab",
   "description": "__MSG_appDesc__",
   "version": "2.2.0",
-  "version_name": "2.2.0",
   "default_locale": "en",
 
   "icons": { "16": "img/icon16.png",
@@ -17,11 +16,8 @@
   },
   
   "background": {
-    "scripts": ["js/update.js"],
-    "persistent": false
+    "scripts": ["js/update.js"]
   },
-
-  "offline_enabled": true,
 
   "permissions": [
     "storage"
@@ -30,7 +26,7 @@
   "applications": {
     "gecko": {
       "id": "{1ab49626-2e16-405b-ad65-dcaab8decd7b}",
-      "strict_min_version": "54.0"
+      "strict_min_version": "57.0"
     }
   }
   

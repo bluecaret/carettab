@@ -4,6 +4,7 @@ var timezoneOptions = '\
   <option value="America/Anchorage">(GMT -9:00) Alaska</option>\
   <option value="America/Los_Angeles">(GMT -8:00) Pacific Time (US &amp; Canada)</option>\
   <option value="America/Boise">(GMT -7:00) Mountain Time (US &amp; Canada)</option>\
+  <option value="America/Phoenix">(GMT -7:00) Mountain Standard Time (US &amp; Canada), America/Phoenix</option>\
   <option value="America/Chicago">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>\
   <option value="America/Belize">(GMT -6:00) Central Standard Time (America), Belize, Costa Rica</option>\
   <option value="America/New_York">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>\

@@ -22,7 +22,7 @@
   },
 
   "tabAbout": {
-    "message": "このアプリについて"
+    "message": "説明"
   },
   "tabColor": {
     "message": "色"
@@ -37,7 +37,7 @@
     "message": "リンク"
   },
   "tabExtras": {
-    "message": "拡張設定"
+    "message": "余分な"
   },
   "tabStyle": {
     "message": "スタイル"

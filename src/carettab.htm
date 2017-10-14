@@ -8,7 +8,7 @@
 	<meta name="description" content="A New Tab Page replacement for your Browser">
 	<meta name="author" content="BlueCaret - http://bluecaret.com">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="./css/app.css?v=2.0.0">
+	<link rel="stylesheet" href="./css/app.css?v=2.2.0">
 </head>
 
 <body>
@@ -20,8 +20,10 @@
         <p data-i18n="settingsPanel">Be sure to check out every tab for all of the settings.</p>
     </div>
     <div id="updated" class="carettab-status" style="display: none;">
-        <h2><span data-i18n="welcomeUpdated"></span> 2.1.4!</h2>
+        <h2><span data-i18n="welcomeUpdated"></span> 2.2.0!</h2>
+        <p>Multiple languages now supported! Automatic translation based on your browser settings.</p>
         <p>CaretTab is now available on <a href="https://addons.mozilla.org/en-US/firefox/addon/carettab/">Firefox</a>!</p>
+        <p>Added timezone for Arizona (Mountain Standard Time)</p>
     </div>
 
     <!-- Main CaretTab Interface -->
@@ -169,6 +171,12 @@
                 <h2 data-i18n="latestUpdate">Latest Update</h2>
             </div>
             <div>
+                <p>Version 2.2.0 - October 14, 2017<br><!-- <small></small> --></p>
+                <ul class="changelog">
+                    <li>Multiple languages now supported! Current supported languages: English, French, Chinese (Simplified &amp; Traditional), Japanese.  Automatic translation is based on your browser settings (the ability to set the language in the extension will come later).</li>
+                    <li>Back on Firefox! Sorry about the last update, the extension got kicked off Firefox due to some issues but I should have those fixed now and hopefully will be all good. Download for <a href="https://addons.mozilla.org/en-US/firefox/addon/carettab/"></a>Firefox here</a>.</li>
+                    <li>Added timezone for Arizona (Mountain Standard Time).</li>
+                </ul>
                 <p>Version 2.1.4 - October 3, 2017<br><!-- <small></small> --></p>
                 <ul class="changelog">
                     <li>Now available on <a href="https://addons.mozilla.org/en-US/firefox/addon/carettab/">Firefox</a>!</li>
@@ -1064,7 +1072,7 @@
     <script src="./js/vendor/jquery-3.2.1.min.js"></script>
     <script src="./js/vendor/moment-with-locales.js"></script>
     <script src="./js/vendor/moment-timezone-with-data-2012-2022.js"></script>
-    <script src="./js/app.min.js"></script>
+    <script src="./js/app.min.js?v=2.2.0"></script>
 </body>
 
 </html>

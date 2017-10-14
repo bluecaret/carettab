@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+ 
+  "name": "__MSG_appName__",
+  "short_name": "CaretTab",
+  "description": "__MSG_appDesc__",
+  "version": "2.1.4",
+  "version_name": "2.1.4",
+  "default_locale": "en",
+
+  "icons": { "16": "img/icon16.png",
+             "48": "img/icon48.png",
+            "128": "img/icon128.png" },
+
+  "chrome_url_overrides" : {
+    "newtab": "carettab.htm"
+  },
+  
+  "background": {
+    "scripts": ["js/update.js"],
+    "persistent": false
+  },
+
+  "offline_enabled": true,
+
+  "permissions": [
+    "storage"
+  ],
+
+  "applications": {
+    "gecko": {
+      "id": "{1ab49626-2e16-405b-ad65-dcaab8decd7b}",
+      "strict_min_version": "54.0"
+    }
+  }
+  
+}

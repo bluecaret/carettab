@@ -1,0 +1,53 @@
+{
+  "name": "carettab",
+  "version": "2.1.4",
+  "description": "CaretTab: New Tab Clock and Date - A simplistic New Tab page extension with options for displaying time, date, search, favorite links, and more!",
+  "main": "src/app.js",
+  "scripts": {
+    "scss": "node-sass --output-style compressed -o dist/css src/scss --source-map true --source-map-embed true",
+    "lint": "eslint src/js",
+    "uglify": "mkdirp dist/js && uglifyjs src/js/app.js src/js/install_status.js src/js/load.js src/js/set_default.js src/js/actions.js src/js/functions.js src/js/run.js -c -m --output dist/js/app.min.js --source-map url=inline",
+    "js": "cp -R src/js/vendor dist/js/vendor",
+    "html": "cp src/carettab.htm dist/",
+    "locales": "cp -R src/_locales dist/_locales",
+    "fonts": "cp -R src/fonts dist/fonts",
+    "img": "cp -R src/img dist/img",
+    "favicon": "cp src/favicon.ico dist/favicon.ico",
+    "update": "cp src/js/update.js dist/js/update.js",
+    "manifest:chrome": "cp src/manifest.json dist/manifest.json",
+    "manifest:firefox": "cp src/ffmanifest.json dist/manifest.json",
+    "copy:chrome": "npm run html && npm run locales && npm run js && npm run fonts && npm run img && npm run favicon && npm run update && npm run manifest:chrome",
+    "copy:firefox": "npm run html && npm run locales && npm run js && npm run fonts && npm run img && npm run favicon && npm run update && npm run manifest:firefox",
+    "zip:chrome": "rimraf carettab-chrome.zip && bestzip carettab-chrome.zip dist/*",
+    "zip:firefox": "rimraf carettab-firefox.zip && bestzip carettab-firefox.zip dist/*",
+    "build:css": "npm run scss",
+    "build:js": "npm run uglify",
+    "build:chrome": "rimraf dist && npm run build:css && npm run build:js && npm run copy:chrome && npm run zip:chrome",
+    "build:firefox": "rimraf dist && npm run build:css && npm run build:js && npm run copy:firefox && npm run zip:firefox",
+    "watch:html": "onchange \"src/*.htm\" -v -- npm run html",
+    "watch:css": "onchange \"src/scss/*.scss\" -- npm run build:css",
+    "watch:js": "onchange \"src/js/*.js\" -- npm run build:js",
+    "watch": "npm run build:chrome && parallelshell \"npm run watch:css\" \"npm run watch:js\" \"npm run watch:html\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluecaret/carettab.git"
+  },
+  "author": "BlueCaret <john@jwh.design>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bluecaret/carettab/issues"
+  },
+  "homepage": "https://github.com/bluecaret/carettab#readme",
+  "devDependencies": {
+    "bestzip": "^1.1.4",
+    "eslint": "^4.8.0",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^4.5.3",
+    "onchange": "^3.2.1",
+    "parallelshell": "^3.0.1",
+    "rimraf": "^2.6.2",
+    "uglify-js": "^3.1.3"
+  },
+  "dependencies": {}
+}

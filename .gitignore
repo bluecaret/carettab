@@ -1,3 +1,4 @@
 carettab.pem
-carettab.zip
+*.zip
 node_modules/
+dist/

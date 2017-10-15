@@ -4,7 +4,7 @@
   "name": "__MSG_appName__",
   "short_name": "CaretTab",
   "description": "__MSG_appDesc__",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "default_locale": "en",
 
   "icons": { "16": "img/icon16.png",

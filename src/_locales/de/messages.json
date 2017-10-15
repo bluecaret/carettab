@@ -1,11 +1,9 @@
 {
   "appName": {
-    "message": "CaretTab - Neuer Tab-Seite mit Uhrzeit und Datum",
-    "description": "Der Titel der Anwendung, der im Web Store angezeigt wird."
+    "message": "CaretTab - Neuer Tab-Seite mit Uhrzeit und Datum"
   },
   "appDesc": {
-    "message": "Eine wunderschön einfache Neuer Tab-Seite, die mehrere Uhren, Datum, Suche, Schnellzugriffe und mehr! Vollständig anpassbar!",
-    "description":"Die Beschreibung der Anwendung, die im Web Store angezeigt wird."
+    "message": "Eine wunderschön einfache Neuer Tab-Seite, die mehrere Uhren, Datum, Suche, Schnellzugriffe und mehr! Vollständig anpassbar!"
   },
 
   "sunday": {
@@ -439,6 +437,12 @@
   },
   "customTabTextDesc": {
     "message": "Geben Sie einen eigenen Text für den Titel ein."
+  },
+  "language": {
+    "message": "Sprache"
+  },
+  "languageDesc": {
+    "message": "CaretTab unterstützt mehrere Sprachen, die automatisch basierend auf den Einstellungen Ihres Browsers übersetzt werden (die manuelle Einstellung der Sprache in der Erweiterung wird später erfolgen). Aktuelle unterstützte Sprachen: Englisch, Französisch, Chinesisch (vereinfacht und traditionell), Japanisch, Deutsch."
   },
 
   "globalStyle": {

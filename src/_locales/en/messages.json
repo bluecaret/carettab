@@ -438,6 +438,12 @@
   "customTabTextDesc": {
     "message": "Enter text for the custom tab title."
   },
+  "language": {
+    "message": "Language"
+  },
+  "languageDesc": {
+    "message": "CaretTab supports multiple languages that are automatically translated based on your browser's settings (the ability to manually set the language in the extension will come later). Current supported languages: English, French, Chinese (Simplified &amp; Traditional), Japanese, German."
+  },
 
   "globalStyle": {
     "message": "Global Style"

@@ -1,11 +1,9 @@
 {
   "appName": {
-    "message": "CaretTab - New Tab Clock and Date",
-    "description": "Webストアで表示されるアプリケーションのタイトル"
+    "message": "CaretTab - New Tab Clock and Date"
   },
   "appDesc": {
-    "message": "新しいタブを開いた際，検索ボックスに加えて日時やリンクを美しい見た目で表示します．カスタマイズも容易です．",
-    "description":"Webストアで表示されるアプリケーションの説明"
+    "message": "新しいタブを開いた際，検索ボックスに加えて日時やリンクを美しい見た目で表示します．カスタマイズも容易です．"
   },
 
   "sunday": {
@@ -439,6 +437,12 @@
   },
   "customTabTextDesc": {
     "message": "タブタイトルに表示したい内容を入力してください"
+  },
+  "language": {
+    "message": "言語"
+  },
+  "languageDesc": {
+    "message": "CaretTabは、ブラウザの設定に基づいて自動的に翻訳される複数の言語をサポートしています（拡張機能で言語を手動で設定できるようになります）。 現在サポートされている言語：英語、フランス語、中国語（簡体字と繁体）、日本語、ドイツ語"
   },
 
   "globalStyle": {

@@ -438,6 +438,12 @@
   "customTabTextDesc": {
     "message": "Entrez le texte pour le titre de l'onglet personnalisé."
   },
+  "language": {
+    "message": "La langue"
+  },
+  "languageDesc": {
+    "message": "CaretTab prend en charge plusieurs langues qui sont automatiquement traduites en fonction des paramètres de votre navigateur (la possibilité de définir manuellement la langue dans l'extension viendra plus tard). Langues prises en charge actuellement: anglais, français, chinois (simplifié et traditionnel), japonais, allemand."
+  },
 
   "globalStyle": {
     "message": "Style global"

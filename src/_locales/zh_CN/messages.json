@@ -438,6 +438,12 @@
   "customTabTextDesc": {
     "message": "输入自定义标签标题。"
   },
+  "language": {
+    "message": "语言"
+  },
+  "languageDesc": {
+    "message": "CaretTab支持根据您的浏览器设置自动翻译的多种语言（手动设置扩展名中的语言的功能将在稍后进行）。 当前支持的语言：英语，法语，中文（简体和繁体），日语，德语。"
+  },
 
   "globalStyle": {
     "message": "全局样式"

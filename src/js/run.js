@@ -164,14 +164,36 @@ function updateAll() {
   }
 
   // Date
+
   if (
     (sDate == 'on') ||
     (sDate == 'off' && sTabTitle == 'tab-date') ||
     (sDate == 'off' && sTabTitle == 'tab-timedate') ||
     (sDate == 'off' && sTabTitle == 'tab-datetime')
   ) {
-    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    months = [
+      chrome.i18n.getMessage("january"), 
+      chrome.i18n.getMessage("february"), 
+      chrome.i18n.getMessage("march"), 
+      chrome.i18n.getMessage("april"), 
+      chrome.i18n.getMessage("may"), 
+      chrome.i18n.getMessage("june"), 
+      chrome.i18n.getMessage("july"), 
+      chrome.i18n.getMessage("august"), 
+      chrome.i18n.getMessage("september"), 
+      chrome.i18n.getMessage("october"),
+      chrome.i18n.getMessage("november"), 
+      chrome.i18n.getMessage("december")
+    ];
+    days = [
+      chrome.i18n.getMessage("sunday"), 
+      chrome.i18n.getMessage("monday"), 
+      chrome.i18n.getMessage("tuesday"), 
+      chrome.i18n.getMessage("wednesday"), 
+      chrome.i18n.getMessage("thursday"), 
+      chrome.i18n.getMessage("friday"), 
+      chrome.i18n.getMessage("saturday")
+    ];
     day = days[dt.getDay()];
     year = dt.getFullYear();
     shortYear = dt.getFullYear().toString().substr(2, 2);

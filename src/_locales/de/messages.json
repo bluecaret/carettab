@@ -8,6 +8,65 @@
     "description":"Die Beschreibung der Anwendung, die im Web Store angezeigt wird."
   },
 
+  "sunday": {
+    "message": "Sonntag"
+  },
+  "monday": {
+    "message": "Montag"
+  },
+  "tuesday": {
+    "message": "Dienstag"
+  },
+  "wednesday": {
+    "message": "Mittwoch"
+  },
+  "thursday": {
+    "message": "Donnerstag"
+  },
+  "friday": {
+    "message": "Freitag"
+  },
+  "saturday": {
+    "message": "Samstag"
+  },
+
+  "january": {
+    "message": "Januar"
+  },
+  "february": {
+    "message": "Februar"
+  },
+  "march": {
+    "message": "März"
+  },
+  "april": {
+    "message": "April"
+  },
+  "may": {
+    "message": "Kann"
+  },
+  "june": {
+    "message": "Juni"
+  },
+  "july": {
+    "message": "Juli"
+  },
+  "august": {
+    "message": "August"
+  },
+  "september": {
+    "message": "September"
+  },
+  "october": {
+    "message": "Oktober"
+  },
+  "november": {
+    "message": "November"
+  },
+  "december": {
+    "message": "Dezember"
+  },
+
   "welcome": {
     "message": "Willkommen bei CaretTab!"
   },

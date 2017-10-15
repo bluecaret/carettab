@@ -6,6 +6,65 @@
     "message": "Une simple page ‘Nouvel onglet’ qui inclus plusieurs horloges, la date et heure, une barre de recherche, des liens pour accès rapide et bien plus ! Totalement configurable !"
   },
 
+  "sunday": {
+    "message": "Dimanche"
+  },
+  "monday": {
+    "message": "Lundi"
+  },
+  "tuesday": {
+    "message": "Mardi"
+  },
+  "wednesday": {
+    "message": "Mercredi"
+  },
+  "thursday": {
+    "message": "Jeudi"
+  },
+  "friday": {
+    "message": "Vendredi"
+  },
+  "saturday": {
+    "message": "Samedi"
+  },
+
+  "january": {
+    "message": "Janvier"
+  },
+  "february": {
+    "message": "Février"
+  },
+  "march": {
+    "message": "Mars"
+  },
+  "april": {
+    "message": "Avril"
+  },
+  "may": {
+    "message": "Mai"
+  },
+  "june": {
+    "message": "Juin"
+  },
+  "july": {
+    "message": "Juillet"
+  },
+  "august": {
+    "message": "Août"
+  },
+  "september": {
+    "message": "Septembre"
+  },
+  "october": {
+    "message": "Octobre"
+  },
+  "november": {
+    "message": "Novembre"
+  },
+  "december": {
+    "message": "Décembre"
+  },
+
   "welcome": {
     "message": "Bienvenue sur CaretTab !"
   },

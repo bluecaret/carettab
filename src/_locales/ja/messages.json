@@ -8,6 +8,65 @@
     "description":"Webストアで表示されるアプリケーションの説明"
   },
 
+  "sunday": {
+    "message": "日曜日"
+  },
+  "monday": {
+    "message": "月曜"
+  },
+  "tuesday": {
+    "message": "火曜日"
+  },
+  "wednesday": {
+    "message": "水曜日"
+  },
+  "thursday": {
+    "message": "木曜日"
+  },
+  "friday": {
+    "message": "金曜日"
+  },
+  "saturday": {
+    "message": "土曜日"
+  },
+
+  "january": {
+    "message": "一月"
+  },
+  "february": {
+    "message": "二月"
+  },
+  "march": {
+    "message": "三月"
+  },
+  "april": {
+    "message": "四月"
+  },
+  "may": {
+    "message": "五月"
+  },
+  "june": {
+    "message": "六月"
+  },
+  "july": {
+    "message": "七月"
+  },
+  "august": {
+    "message": "八月"
+  },
+  "september": {
+    "message": "九月"
+  },
+  "october": {
+    "message": "十月"
+  },
+  "november": {
+    "message": "十一月"
+  },
+  "december": {
+    "message": "十二月"
+  },
+
   "welcome": {
     "message": "CaretTabにようこそ!"
   },

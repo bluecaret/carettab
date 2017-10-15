@@ -6,6 +6,65 @@
     "message": "一个精美简单、完全可定制的新式标签页，包括多个时钟、日期、搜索、快速链接等等！"
   },
 
+  "sunday": {
+    "message": "星期日"
+  },
+  "monday": {
+    "message": "星期一"
+  },
+  "tuesday": {
+    "message": "星期二"
+  },
+  "wednesday": {
+    "message": "星期三"
+  },
+  "thursday": {
+    "message": "星期四"
+  },
+  "friday": {
+    "message": "星期五"
+  },
+  "saturday": {
+    "message": "星期六"
+  },
+
+  "january": {
+    "message": "一月"
+  },
+  "february": {
+    "message": "二月"
+  },
+  "march": {
+    "message": "游行"
+  },
+  "april": {
+    "message": "四月"
+  },
+  "may": {
+    "message": "可能"
+  },
+  "june": {
+    "message": "六月"
+  },
+  "july": {
+    "message": "七月"
+  },
+  "august": {
+    "message": "八月"
+  },
+  "september": {
+    "message": "九月"
+  },
+  "october": {
+    "message": "十月"
+  },
+  "november": {
+    "message": "十一月"
+  },
+  "december": {
+    "message": "十二月"
+  },
+
   "welcome": {
     "message": "欢迎来到 CaretTab！"
   },

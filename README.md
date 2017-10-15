@@ -18,7 +18,7 @@ Get CaretTab from the [Chrome Web Store](https://chrome.google.com/webstore/deta
 - Choose from a handful of fonts.
 - Customize everything! Toggle the time, seconds, time format, date, date format, search engine, 24 hour time, week numbers, tab title and more.
 - Chrome Sync support. Keep your settings across all devices. (Requires storage permissions)
-- Supports English, French, Chinese (Simplified &amp; Traditional), Japanese.
+- Supports English, French, Chinese (Simplified &amp; Traditional), Japanese, German.
 
 Have any suggestions? Let me know on Twitter @BlueCaret
 

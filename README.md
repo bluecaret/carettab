@@ -26,6 +26,24 @@ Have any suggestions? Let me know on Twitter @BlueCaret
 
 [View the changelog on the wiki](https://github.com/bluecaret/carettab/wiki/Changelog)
 
+## Install
+
+You can install CaretTab through the Chrome and Firefox web stores
+
+**Chrome:**
+[https://chrome.google.com/webstore/detail/carettab-new-tab-page/cojpndognjdcakkimaloeealehpkljna?hl=en-US](https://chrome.google.com/webstore/detail/carettab-new-tab-page/cojpndognjdcakkimaloeealehpkljna?hl=en-US)
+
+**Firefox:**
+[https://addons.mozilla.org/en-US/firefox/addon/carettab/](https://addons.mozilla.org/en-US/firefox/addon/carettab/)
+
+## Build
+
+```
+npm install
+npm run build:chrome
+npm run build:firefox
+```
+
 ## Credit
 CaretTab was designed and developed by BlueCaret (John W Hancock)
 http://bluecaret.com

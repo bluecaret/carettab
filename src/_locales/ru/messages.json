@@ -1,0 +1,502 @@
+{
+  "appName": {
+    "message": "CaretTab - New Tab Clock and Date"
+  },
+  "appDesc": {
+    "message": "Максимально упрощенная «Новая вкладка», которая включает в себя несколько часов, дату, поиск, быстрые ссылки и многое другое! Полная кастомизация!"
+  },
+
+  "sunday": {
+    "message": "Воскресенье"
+  },
+  "monday": {
+    "message": "Понедельник"
+  },
+  "tuesday": {
+    "message": "Вторник"
+  },
+  "wednesday": {
+    "message": "Среда"
+  },
+  "thursday": {
+    "message": "Четверг"
+  },
+  "friday": {
+    "message": "Пятница"
+  },
+  "saturday": {
+    "message": "Суббота"
+  },
+
+  "january": {
+    "message": "Январь"
+  },
+  "february": {
+    "message": "Февраль"
+  },
+  "march": {
+    "message": "Март"
+  },
+  "april": {
+    "message": "Апрель"
+  },
+  "may": {
+    "message": "Май"
+  },
+  "june": {
+    "message": "Июнь"
+  },
+  "july": {
+    "message": "Июль"
+  },
+  "august": {
+    "message": "Август"
+  },
+  "september": {
+    "message": "Сентябрь"
+  },
+  "october": {
+    "message": "Октябрь"
+  },
+  "november": {
+    "message": "Ноябрь"
+  },
+  "december": {
+    "message": "Декабрь"
+  },
+
+  "welcome": {
+    "message": "Добро пожаловать в CaretTab!"
+  },
+  "welcomeUpdated": {
+    "message": "CaretTab был обновлен до"
+  },
+  "configureEverything": {
+    "message": "Нажмите на иконку стрелку для настройки... всего!"
+  },
+  "settingsPanel": {
+    "message": "Обязательно посмотрите все вкладки для полной настройки."
+  },
+
+  "tabAbout": {
+    "message": "О приложении"
+  },
+  "tabColor": {
+    "message": "Цвет"
+  },
+  "tabTime": {
+    "message": "Время"
+  },
+  "tabDate": {
+    "message": "Дата"
+  },
+  "tabLinks": {
+    "message": "Ссылки"
+  },
+  "tabExtras": {
+    "message": "Дополнительно"
+  },
+  "tabStyle": {
+    "message": "Стиль"
+  },
+  
+  "latestUpdate": {
+    "message": "Последнее обновление"
+  },
+  "keepFree": {
+    "message": "Помогите оставить CaretTab бесплатным, поддержите разработчика"
+  },
+  "keepFreeDesc": {
+    "message": "Если вам нравится CaretTab, подумайте о поддержке приложения, оставив копеечку в копилке. Это поможет оставить приложение свободным от рекламы и бесплатным! Разработчик высоко оценит это!"
+  },
+  "generousTip": {
+    "message": "Большой<br>донат в"
+  },
+  "largeTip": {
+    "message": "Огромный<br>донат в"
+  },
+  "massiveTip": {
+    "message": "Солидный<br>донат в"
+  },
+  "anythingHelps": {
+    "message": "Любая<br>помощь!"
+  },
+  "otherTip": {
+    "message": "Другая"
+  },
+  "viaPaypal": {
+    "message": "Оплата через<br>PayPal<br><b>Спасибо!</b>"
+  },
+  "supportTitle": {
+    "message": "Поддержка"
+  },
+  "supportDesc": {
+    "message": "Если вам нужна помощь или есть предложение/комментарий, вы можете связаться с разработчиком <a href=\"http://bluecaret.com\">BlueCaret</a> в Twitter <a href=\"https://twitter.com/BlueCaret\">@BlueCaret</a> или посмотреть CaretTab на <a href=\"https://github.com/bluecaret/carettab\">GitHub</a>."
+  },
+  "resetDesc": {
+    "message": "Если вы хотите сбросить все настройки к стандартным, вы можете использовать кнопку ниже (перезагрузите страницу после нажатия)."
+  },
+  "resetButton": {
+    "message": "Сбросить настройки"
+  },
+  "credit": {
+    "message": "<a href=\"http://bluecaret.com/project/carettab\">CaretTab</a> придуман и написан <a href=\"http://jwh.design\">JWH Design, LLC</a> (<a href=\"http://bluecaret.com\">BlueCaret</a>) и лицензирован под <a href=\"https://opensource.org/licenses/MIT\">MIT License</a>."
+  },
+  "disclaimer": {
+    "message": "CaretTab не несет ответственности за любые проблемы, которые могут возникнуть из-за точности работы этого расширения. Если вы опаздываете на работу, потому что показанное время было неправильным, это ваша вина."
+  },
+
+  "customColor": {
+    "message": "Настраиваемые цвета"
+  },
+  "bg": {
+    "message": "Цвет фона"
+  },
+  "bgDesc": {
+    "message": "Цвет фона страницы."
+  },
+  "fg": {
+    "message": "Основной цвет"
+  },
+  "fgDesc": {
+    "message": "Цвет шрифтов и иконок."
+  },
+  "themes": {
+    "message": "Темы"
+  },
+
+  "primaryClock": {
+    "message": "Основные часы"
+  },
+  "primaryClockDesc": {
+    "message": "Показывает основные часы посередине страницы."
+  },
+  "clockStyle": {
+    "message": "Стиль часов"
+  },
+  "clockStyleDesc": {
+    "message": "Переключает между цифровыми и аналоговыми часами (скобки будут скрыты, если включено)."
+  },
+  "seconds": {
+    "message": "Секунды"
+  },
+  "secondsDesc": {
+    "message": "Показывает секунды в основных часах."
+  },
+  "meridiem": {
+    "message": "Интервалы"
+  },
+  "meridiemDesc": {
+    "message": "Показывает AM/PM в основных часах."
+  },
+  "military": {
+    "message": "24 часа"
+  },
+  "militaryDesc": {
+    "message": "Использует 24-часовой формат часов вместо 12-часового (выключает интервалы)."
+  },
+  "delimiter": {
+    "message": "Разделитель"
+  },
+  "delimiterDesc": {
+    "message": "Показывает разделитель между цифрами во всех часах."
+  },
+  "timezone": {
+    "message": "Часовой пояс"
+  },
+  "timezoneDesc": {
+    "message": "Выберите часовой пояс для основных часов (по умолчанию ваш местный часовой пояс)."
+  },
+  "additionalClocks": {
+    "message": "Дополнительные часы"
+  },
+  "secondClock": {
+    "message": "Вторые часы"
+  },
+  "secondClockDesc": {
+    "message": "Показывает дополнительные часы под основными."
+  },
+  "secondClockTimezone": {
+    "message": "Часовой пояс для 2-х часов"
+  },
+  "secondClockTimezoneDesc": {
+    "message": "Выберите часовой пояс для этих часов."
+  },
+  "secondClockLabel": {
+    "message": "Описание для 2-х часов"
+  },
+  "secondClockLabelDesc": {
+    "message": "Введите описание для этих часов (оставьте пустым, чтобы скрыть)."
+  },
+  "thirdClock": {
+    "message": "Третьи часы"
+  },
+  "thirdClockDesc": {
+    "message": "Показывает дополнительные часы под основными."
+  },
+  "thirdClockTimezone": {
+    "message": "Часовой пояс для 3-х часов"
+  },
+  "thirdClockTimezoneDesc": {
+    "message": "Выберите часовой пояс для этих часов."
+  },
+  "thirdClockLabel": {
+    "message": "Описание для 3-х часов"
+  },
+  "thirdClockLabelDesc": {
+    "message": "Введите описание для этих часов (оставьте пустым, чтобы скрыть)."
+  },
+  "fourthClock": {
+    "message": "Четвертые часы"
+  },
+  "fourthClockDesc": {
+    "message": "Показывает дополнительные часы под основными."
+  },
+  "fourthClockTimezone": {
+    "message": "Часовой пояс для 4-х часов"
+  },
+  "fourthClockTimezoneDesc": {
+    "message": "Выберите часовой пояс для этих часов."
+  },
+  "fourthClockLabel": {
+    "message": "Описание для 3-х часов"
+  },
+  "fourthClockLabelDesc": {
+    "message": "Введите описание для этих часов (оставьте пустым, чтобы скрыть)."
+  },
+  "timeDisclaimer": {
+    "message": "<b>Помните</b>, что отображение времени основных и дополнительных часов зависит от времени и часового пояса вашего компьютера. Определение вашего текущего часового пояса в значительной степени носит предположительный характер и может не отражать вашего реального часового пояса, что может привести к отключению дополнительных часов. Сейчас CaretTab определил ваш часовой пояс как:"
+  },
+
+  "date": {
+    "message": "Дата"
+  },
+  "dateDesc": 
+{    "message": "Показывает дату посередине страницы."
+  },
+  "day": {
+    "message": "День"
+  },
+  "dayDesc": {
+    "message": "Показывает день недели (только если 'краткая форма' выключена)."
+  },
+  "year": {
+    "message": "Год"
+  },
+  "yearDesc": {
+    "message": "Показывает год вместе с датой."
+  },
+  "shortForm": {
+    "message": "Краткая форма"
+  },
+  "shortFormDesc": {
+    "message": "Показывает дату в числовом формате."
+  },
+  "showDelimiter": {
+    "message": "Разделитель в краткой форме"
+  },
+  "showDelimiterDesc": {
+    "message": "Показывает разделитель между цифрами в краткой форме даты."
+  },
+  "dateFormat": {
+    "message": "Формат даты"
+  },
+  "dateFormatDesc": {
+    "message": "Определяет, как будет показана дата."
+  },
+  "weekNumber": {
+    "message": "Число недель"
+  },
+  "weekNumberDesc": {
+    "message": "Показывает число недель под датой."
+  },
+  "weekLabel": {
+    "message": "Описание числа недель"
+  },
+  "weekLabelDesc": {
+    "message":  "Выберите вариант текста перед числом недель."
+  },
+
+  "quickLinks": {
+    "message": "Быстрые ссылки"
+  },
+  "linkDesc": {
+    "message": "Показывает настраиваемые быстрые ссылки вверху страницы."
+  },
+  "linkUrlDesc": {
+    "message": "Введите URL-адрес для этой ссылки (включая http:// или https://)"
+  },
+  "linkLabelDesc": {
+    "message": "Введите название для этой ссылки."
+  },
+  "link1": {
+    "message": "Ссылка 1"
+  },
+  "link1Url": {
+    "message": "Адрес ссылки 1"
+  },
+  "link1Label": {
+    "message": "Текст ссылки 1"
+  },
+  "link2": {
+    "message": "Ссылка 2"
+  },
+  "link2Url": {
+    "message": "Адрес ссылки 2"
+  },
+  "link2Label": {
+    "message": "Текст ссылки 2"
+  },
+  "link3": {
+    "message": "Ссылка 3"
+  },
+  "link3Url": {
+    "message": "Адрес ссылки 3"
+  },
+  "link3Label": {
+    "message": "Текст ссылки 3"
+  },
+  "link4": {
+    "message": "Ссылка 4"
+  },
+  "link4Url": {
+    "message": "Адрес ссылки 4"
+  },
+  "link4Label": {
+    "message": "Текст ссылки 4"
+  },
+  "link5": {
+    "message": "Ссылка 5"
+  },
+  "link5Url": {
+    "message": "Адрес ссылки 5"
+  },
+  "link5Label": {
+    "message": "Текст ссылки 5"
+  },
+  "link6": {
+    "message": "Ссылка 6"
+  },
+  "link6Url": {
+    "message": "Адрес ссылки 6"
+  },
+  "link6Label": {
+    "message": "Текст ссылки 6"
+  },
+
+  "search": {
+    "message": "Поиск"
+  },
+  "searchBox": {
+    "message": "Поле поиска"
+  },
+  "searchBoxDesc": {
+    "message": "Показывает поле поиска выше часов."
+  },
+  "searchEngine": {
+    "message": "Поисковая система"
+  },
+  "searchEngineDesc": {
+    "message": "Выберите поисковую систему, которая будет использоваться в поле поиска."
+  },
+  "messageTitle": {
+    "message": "Сообщение"
+  },
+  "customMessage": {
+    "message": "Настраиваемое сообщение"
+  },
+  "customMessageDesc": {
+    "message": "Показывает настраиваемое сообщение (из поля ниже)."
+  },
+  "customMessageText": {
+    "message": "Текст настраиваемого сообщения"
+  },
+  "customMessageTextDesc": {
+    "message": "Введите текст для настраиваемого сообщения."
+  },
+  "brackets": {
+    "message": "Скобки"
+  },
+  "bracketsDesc": {
+    "message": "Показывает скобки вокруг основных часов и даты (скрыты, если включены аналоговые часы)."
+  },
+  "bracketsType": {
+    "message": "Тип скобок"
+  },
+  "miscellaneous": {
+    "message": "Разное"
+  },
+  "tabTitle": {
+    "message": "Название вкладки"
+  },
+  "tabTitleDesc": {
+    "message": "Выберите что показывать в названии вкладки (показывается как на вкладке, так и в строке заголовка браузера)."
+  },
+  "customTabText": {
+    "message": "Настраиваемое название вкладки"
+  },
+  "customTabTextDesc": {
+    "message": "Введите текст для названия вкладки."
+  },
+  "language": {
+    "message": "Язык"
+  },
+  "languageDesc": {
+    "message": "CaretTab поддерживает несколько языков, на которые автоматически переводится в зависимости от языка в браузере (возможность ручного выбора языка в приложении будет позже). Поддерживаемые языки: English, French, Chinese (Simplified &amp; Traditional), Japanese, German."
+  },
+
+  "globalStyle": {
+    "message": "Общие стили"
+  },
+  "font": {
+    "message": "Шрифт"
+  },
+  "fontDesc": {
+    "message": "Изменение шрифта для<br>всех элементов."
+  },
+  "scaleDisplay": {
+    "message": "Масштаб элементов"
+  },
+  "scaleDisplayDesc": {
+    "message": "Изменяет размер элементов. Если элементы начинают перекрываться, уменьшите размер."
+  },
+  "animation": {
+    "message": "Анимация"
+  },
+  "animationDesc": {
+    "message": "Анимирует все элементы при загрузке страницы."
+  },
+  "dimming": {
+    "message": "Затемнение"
+  },
+  "dimSeconds": {
+    "message": "Затемнение секунд"
+  },
+  "dimSecondsDesc": {
+    "message": "Делает секунды на 50% прозрачнее."
+  },
+  "dimDelimiter": {
+    "message": "Затемнение разделителя"
+  },
+  "dimDelimiterDesc": {
+    "message": "Делает разделитель на 50% прозрачнее (только если выключено мигание разделителя)."
+  },
+  "dimBrackets": {
+    "message": "Затемнение скобок"
+  },
+  "dimBracketsDesc": {
+    "message": "Делает скобки на 50% прозрачнее."
+  },
+  "blinkDelimiter": {
+    "message": "Мигание разделителя"
+  },
+  "blinkDelimiterDesc": {
+    "message": "Включает мигание разделителя в основных часах."
+  },
+  "hideSettingsButton": {
+    "message": "Скрыть кнопку настроек"
+  },
+  "hideSettingsButtonDesc": {
+    "message": "Кнопка настроек открывает настройки. Включите это для скрытия иконки. Вы все еще можете открыть настройки нажав на верхний правый угол страницы."
+  }
+}

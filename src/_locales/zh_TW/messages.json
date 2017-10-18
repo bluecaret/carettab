@@ -35,13 +35,13 @@
     "message": "二月"
   },
   "march": {
-    "message": "遊行"
+    "message": "三月"
   },
   "april": {
     "message": "四月"
   },
   "may": {
-    "message": "可能"
+    "message": "五月"
   },
   "june": {
     "message": "六月"
@@ -110,19 +110,19 @@
     "message": "如果您認為 CaretTab 對您是有用的, 請考慮給一點小費來贊助它。小費會幫助它保持沒有廣告和免費！開發者衷心感謝您的支援！"
   },
   "generousTip": {
-    "message": "慷慨的<br>小費"
+    "message": "少量的<br>小費"
   },
   "largeTip": {
-    "message": "大量的<br>小費"
+    "message": "普通的<br>小費"
   },
   "massiveTip": {
-    "message": "少量的<br>小費"
+    "message": "大量的<br>小費"
   },
   "anythingHelps": {
     "message": "任何形式的<br>幫助！"
   },
   "otherTip": {
-    "message": "其他"
+    "message": "其他金額"
   },
   "viaPaypal": {
     "message": "小費通過<br>PayPal支付<br><b>謝謝！</b>"

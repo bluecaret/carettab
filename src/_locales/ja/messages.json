@@ -69,7 +69,7 @@
     "message": "CaretTabにようこそ!"
   },
   "welcomeUpdated": {
-    "message": "CaretTabのアップデートがあります．"
+    "message": "アップデート履歴"
   },
   "configureEverything": {
     "message": "設定を行う際には三角の矢印アイコンをクリックしてください．"
@@ -94,7 +94,7 @@
     "message": "リンク"
   },
   "tabExtras": {
-    "message": "余分な"
+    "message": "その他"
   },
   "tabStyle": {
     "message": "スタイル"
@@ -119,7 +119,7 @@
     "message": "たくさんの<br>寄付"
   },
   "anythingHelps": {
-    "message": "これら以外の<br>寄付"
+    "message": "任意金額の<br>寄付"
   },
   "otherTip": {
     "message": "任意金額"
@@ -265,14 +265,14 @@
     "message": "この時計のラベルを入力してください(特にない場合は空白にしてください)．"
   },
   "timeDisclaimer": {
-    "message": "<b>注意</b>時計の時刻は，PCに設定されている時刻とタイムゾーンを基にしているため，誤った時刻が表示される可能性があります．PCのタイムゾーン:"
+    "message": "<b>注意</b>　時計の時刻は，PCに設定されている時刻とタイムゾーンを基にしているため，誤った時刻が表示される可能性があります．PCのタイムゾーン:"
   },
 
   "date": {
     "message": "日付"
   },
   "dateDesc": {
-    "message": "ページの中央に日付を表示します．"
+    "message": "日付を表示します．"
   },
   "day": {
     "message": "曜日"
@@ -314,7 +314,7 @@
     "message": "週番号のラベル"
   },
   "weekLabelDesc": {
-    "message": "週番号の横に表示されるラベルを選択してくださ．"
+    "message": "週番号の横に表示されるラベルを選択してください．"
   },
 
   "quickLinks": {
@@ -397,7 +397,7 @@
     "message": "サーチエンジン"
   },
   "searchEngineDesc": {
-    "message": "サーチエンジンを洗濯してください．"
+    "message": "サーチエンジンを選択してください．"
   },
   "messageTitle": {
     "message": "メッセージ"
@@ -491,7 +491,7 @@
     "message": "デリミタの点滅"
   },
   "blinkDelimiterDesc": {
-    "message": "時計のデリミタの点滅の有効/無効"
+    "message": "時計のデリミタを点滅します．"
   },
   "hideSettingsButton": {
     "message": "設定ボタンを隠す"

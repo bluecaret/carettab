@@ -69,7 +69,7 @@
     "message": "CaretTabにようこそ!"
   },
   "welcomeUpdated": {
-    "message": "アップデート履歴"
+    "message": "CaretTabが更新されました:"
   },
   "configureEverything": {
     "message": "設定を行う際には三角の矢印アイコンをクリックしてください．"
@@ -101,7 +101,7 @@
   },
 
   "latestUpdate": {
-    "message": "最新のアップデート"
+    "message": "アップデート履歴"
   },
   "keepFree": {
     "message": "CaretTabのメンテナンスのため，開発者への投げ銭をお願いします．"

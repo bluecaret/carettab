@@ -30,12 +30,12 @@
     <!-- Main CaretTab Interface -->
     <div id="carettab">
         <div id="links" class="fadein">
-            <a href="#" id="link1" class="link">Link</a>
+            <!-- <a href="#" id="link1" class="link">Link</a>
             <a href="#" id="link2" class="link">Link</a>
             <a href="#" id="link3" class="link">Link</a>
             <a href="#" id="link4" class="link">Link</a>
             <a href="#" id="link5" class="link">Link</a>
-            <a href="#" id="link6" class="link">Link</a>
+            <a href="#" id="link6" class="link">Link</a> -->
         </div>
         <div class="top">
             <div id="message" class="fadein"></div>
@@ -635,6 +635,17 @@
             <div class="row">
                 <h2 data-i18n="quickLinks">Quick Links</h2>
             </div>
+            <div class="row">
+                <div class="label">
+                    <span>Links</span>
+                    <small>Enter a URL for this link (including http:// or https://)</small>
+                </div>
+                <div class="input input-text">
+                    <input id="s-link-url" type="text" value="http://">
+                </div>
+                <button class="btn" id="s-link-add">Add</button>
+            </div>
+            <div id="s-links"></div>
             <div class="row">
                 <div class="input">
                     <input id="set-link1" class="toggle toggle-yes-no" type="checkbox">

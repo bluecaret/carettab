@@ -800,6 +800,18 @@ $('#settings-toggle').click(function() {
   });
 });
 
+// Close status message
+$('.status-message-close').click(function() {
+  $('.carettab-status').fadeOut();
+  chrome.storage.sync.set({
+    'caretTabStatus': "existing"
+  }, function() {
+    if (!chrome.runtime.lastError) {
+      console.log("^CaretTab - Set Status: existing");
+    }
+  });
+});
+
 // Close settings panel via close button
 $('#close-settings').click(function() {
   $('#config').toggleClass("active");

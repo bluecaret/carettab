@@ -30,14 +30,7 @@
 
     <!-- Main CaretTab Interface -->
     <div id="carettab">
-        <div id="links" class="fadein">
-            <!-- <a href="#" id="link1" class="link">Link</a>
-            <a href="#" id="link2" class="link">Link</a>
-            <a href="#" id="link3" class="link">Link</a>
-            <a href="#" id="link4" class="link">Link</a>
-            <a href="#" id="link5" class="link">Link</a>
-            <a href="#" id="link6" class="link">Link</a> -->
-        </div>
+        <div id="links" class="fadein"></div>
         <div class="top">
             <div id="message" class="fadein"></div>
             <form id="search" class="fadein" method="get" action="https://www.google.com/search">
@@ -637,184 +630,25 @@
             </div>
             <div class="row">
                 <div class="label">
-                    <span>Links</span>
-                    <small>Enter a URL for this link (including http:// or https://)</small>
+                    <small data-i18n="quickLinksDesc">Shows a custom quick link at the top of the page.</small>
                 </div>
-                <div class="input input-text">
-                    <input id="s-link-label" type="text" value="Link">
-                    <input id="s-link-url" type="text" value="http://">
-                </div>
-                <button class="btn" id="s-link-add">Add</button>
             </div>
+            <div class="row">
+                <div class="label">
+                    <span data-i18n="addLink">New Link</span>
+                </div>
+                <div class="input input-text" style="width:35%">
+                    <input id="s-link-label" type="text" placeholder="Label">
+                </div>
+                <div class="input input-text" style="width:35%">
+                    <input id="s-link-url" type="text" placeholder="http://">
+                </div>
+                <div class="label" style="flex: 0 0 auto;">
+                    <button class="btn" id="s-link-add">&#10010;</button>
+                </div>
+            </div>
+            <hr>
             <div id="s-links"></div>
-            <div class="row">
-                <div class="input">
-                    <input id="set-link1" class="toggle toggle-yes-no" type="checkbox">
-                    <label for="set-link1" data-on="ON" data-off="OFF"></label>
-                </div>
-                <div class="label">
-                    <span data-i18n="link1">Link 1</span>
-                    <small data-i18n="linkDesc">Shows a custom quick link at the top of the page.</small>
-                </div>
-            </div>
-            <div id="settings-link1-url" class="row" style="display: none;">
-                <div class="label">
-                    <span data-i18n="link1Url">Link 1 URL</span>
-                    <small data-i18n="linkUrlDesc">Enter a URL for this link (including http:// or https://)</small>
-                </div>
-                <div class="input input-text">
-                    <input id="set-link1-url" type="text" value="http://">
-                </div>
-            </div>
-            <div id="settings-link1-label" class="row" style="display: none;">
-                <div class="label">
-                    <span data-i18n="link1Label">Link 1 Label</span>
-                    <small data-i18n="linkLabelDesc">Enter a label for this link.</small>
-                </div>
-                <div class="input input-text">
-                    <input id="set-link1-label" type="text" value="Link">
-                </div>
-            </div>
-            <div class="row">
-                <div class="input">
-                    <input id="set-link2" class="toggle toggle-yes-no" type="checkbox">
-                    <label for="set-link2" data-on="ON" data-off="OFF"></label>
-                </div>
-                <div class="label">
-                    <span data-i18n="link2">Link 2</span>
-                    <small data-i18n="linkDesc">Shows a custom quick link at the top of the page.</small>
-                </div>
-            </div>
-            <div id="settings-link2-url" class="row" style="display: none;">
-                <div class="label">
-                    <span data-i18n="link2Url">Link 2 URL</span>
-                    <small data-i18n="linkUrlDesc">Enter a URL for this link (including http:// or https://)</small>
-                </div>
-                <div class="input input-text">
-                    <input id="set-link2-url" type="text" value="http://">
-                </div>
-            </div>
-            <div id="settings-link2-label" class="row" style="display: none;">
-                <div class="label">
-                    <span data-i18n="link2Label">Link 2 Label</span>
-                    <small data-i18n="linkLabelDesc">Enter a label for this link.</small>
-                </div>
-                <div class="input input-text">
-                    <input id="set-link2-label" type="text" value="Link">
-                </div>
-            </div>
-            <div class="row">
-                <div class="input">
-                    <input id="set-link3" class="toggle toggle-yes-no" type="checkbox">
-                    <label for="set-link3" data-on="ON" data-off="OFF"></label>
-                </div>
-                <div class="label">
-                    <span data-i18n="link3">Link 3</span>
-                    <small data-i18n="linkDesc">Shows a custom quick link at the top of the page.</small>
-                </div>
-            </div>
-            <div id="settings-link3-url" class="row" style="display: none;">
-                <div class="label">
-                    <span data-i18n="link3Url">Link 3 URL</span>
-                    <small data-i18n="linkUrlDesc">Enter a URL for this link (including http:// or https://)</small>
-                </div>
-                <div class="input input-text">
-                    <input id="set-link3-url" type="text" value="http://">
-                </div>
-            </div>
-            <div id="settings-link3-label" class="row" style="display: none;">
-                <div class="label">
-                    <span data-i18n="link3Label">Link 3 Label</span>
-                    <small data-i18n="linkLabelDesc">Enter a label for this link.</small>
-                </div>
-                <div class="input input-text">
-                    <input id="set-link3-label" type="text" value="Link">
-                </div>
-            </div>
-            <div class="row">
-                <div class="input">
-                    <input id="set-link4" class="toggle toggle-yes-no" type="checkbox">
-                    <label for="set-link4" data-on="ON" data-off="OFF"></label>
-                </div>
-                <div class="label">
-                    <span data-i18n="link4">Link 4</span>
-                    <small data-i18n="linkDesc">Shows a custom quick link at the top of the page.</small>
-                </div>
-            </div>
-            <div id="settings-link4-url" class="row" style="display: none;">
-                <div class="label">
-                    <span data-i18n="link4Url">Link 4 URL</span>
-                    <small data-i18n="linkUrlDesc">Enter a URL for this link (including http:// or https://)</small>
-                </div>
-                <div class="input input-text">
-                    <input id="set-link4-url" type="text" value="http://">
-                </div>
-            </div>
-            <div id="settings-link4-label" class="row" style="display: none;">
-                <div class="label">
-                    <span data-i18n="link4Label">Link 4 Label</span>
-                    <small data-i18n="linkLabelDesc">Enter a label for this link.</small>
-                </div>
-                <div class="input input-text">
-                    <input id="set-link4-label" type="text" value="Link">
-                </div>
-            </div>
-            <div class="row">
-                <div class="input">
-                    <input id="set-link5" class="toggle toggle-yes-no" type="checkbox">
-                    <label for="set-link5" data-on="ON" data-off="OFF"></label>
-                </div>
-                <div class="label">
-                    <span data-i18n="link5">Link 5</span>
-                    <small data-i18n="linkDesc">Shows a custom quick link at the top of the page.</small>
-                </div>
-            </div>
-            <div id="settings-link5-url" class="row" style="display: none;">
-                <div class="label">
-                    <span data-i18n="link5Url">Link 5 URL</span>
-                    <small data-i18n="linkUrlDesc">Enter a URL for this link (including http:// or https://)</small>
-                </div>
-                <div class="input input-text">
-                    <input id="set-link5-url" type="text" value="http://">
-                </div>
-            </div>
-            <div id="settings-link5-label" class="row" style="display: none;">
-                <div class="label">
-                    <span data-i18n="link5Label">Link 5 Label</span>
-                    <small data-i18n="linkLabelDesc">Enter a label for this link.</small>
-                </div>
-                <div class="input input-text">
-                    <input id="set-link5-label" type="text" value="Link">
-                </div>
-            </div>
-            <div class="row">
-                <div class="input">
-                    <input id="set-link6" class="toggle toggle-yes-no" type="checkbox">
-                    <label for="set-link6" data-on="ON" data-off="OFF"></label>
-                </div>
-                <div class="label">
-                    <span data-i18n="link6">Link 6</span>
-                    <small data-i18n="linkDesc">Shows a custom quick link at the top of the page.</small>
-                </div>
-            </div>
-            <div id="settings-link6-url" class="row" style="display: none;">
-                <div class="label">
-                    <span data-i18n="link6Url">Link 6 URL</span>
-                    <small data-i18n="linkUrlDesc">Enter a URL for this link (including http:// or https://)</small>
-                </div>
-                <div class="input input-text">
-                    <input id="set-link6-url" type="text" value="http://">
-                </div>
-            </div>
-            <div id="settings-link6-label" class="row" style="display: none;">
-                <div class="label">
-                    <span data-i18n="link6Label">Link 6 Label</span>
-                    <small data-i18n="linkLabelDesc">Enter a label for this link.</small>
-                </div>
-                <div class="input input-text">
-                    <input id="set-link6-label" type="text" value="Link">
-                </div>
-            </div>
         </div>
         <!-- ############################################### -->
         <!-- EXTRAS SETTINGS -->

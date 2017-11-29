@@ -1,41 +1,79 @@
-var storage = chrome.storage.local;
-var links = new Array();
+var storage = chrome.storage.sync;
+var err = chrome.runtime.lastError;
+var addBtn = document.getElementById('s-link-add');
+var newLabel = document.getElementById('s-link-label');
+var newUrl = document.getElementById('s-link-url');
+
+function link (theLabel, theUrl) {
+  this.label = theLabel;
+  this.url = theUrl;
+}
 
 function add() {
-  var link = {};
-  link.label = document.getElementById('s-link-label').value;
-  link.url = document.getElementById('s-link-url').value;
-  console.log('link: ', link);
-  storage.get('links', function(data) { 
-    links = data;
-    console.log('links: ', links);
-    links.push(label);
-    chrome.storage.sync.set({'links': JSON.stringify(links) }, function() { if (!chrome.runtime.lastError) { console.log("^CaretTab - SAVED links (added)"); } });
-    
+  storage.get('links', function(data) {
+    var allLinks = data.links ? data.links : [];
+    var newLink = new link(newLabel.value, newUrl.value);
+
+    allLinks.push(newLink);
+    storage.set({'links': allLinks }, function() { if (err) { console.log('Error Saving Link: ' + err); } });
+
     showLinksInterface();
     showLinksSettings();
-  return false;
   });
 }
 
 function remove() {
   var id = this.getAttribute('id').replace('s-link-remove-','');
-  links.splice(id, 1);
-  chrome.storage.sync.set({'links': JSON.stringify(links) }, function() { if (!chrome.runtime.lastError) { console.log("^CaretTab - SAVED links (removed)"); } });
+  storage.get('links', function(data) {
+    var allLinks = data.links ? data.links : [];
 
-  showLinksInterface();
-  showLinksSettings();
+    for(var i = 0; i < allLinks.length; i++) {
+      if (i == id) {
+        allLinks.splice(i, 1);
+      }
+    };
 
-  return false;
+    storage.set({'links': allLinks }, function() { if (err) { console.log('Error Removing Link: ' + err); } });
+
+    showLinksInterface();
+    showLinksSettings();
+  });
+}
+
+function edit() {
+  var id = this.getAttribute('id').replace('s-link-edit-','');
+  var editLabel = document.getElementById('s-link-label-'+id);
+  var editUrl = document.getElementById('s-link-url-'+id);
+
+  storage.get('links', function(data) {
+    var allLinks = data.links ? data.links : [];
+    var editLink = new link(editLabel.value, editUrl.value);
+
+    for(var i = 0; i < allLinks.length; i++) {
+      if (i == id) {
+        allLinks[i] = editLink;
+      }
+    };
+    
+    storage.set({'links': allLinks }, function() { if (err) { console.log('Error Editing Link: ' + err); } });
+
+    showLinksInterface();
+    showLinksSettings();
+  });
 }
 
 function showLinksInterface() {
   storage.get('links', function(data) {
-    links = data.links;
-    if (links != undefined) {
-      for(var i=0; i<links.length; i++) {
-        var html = '<a href="' + links[i] + '" id="i-link-' + i  + '" class="link">' + links[i] + '</a>';
+    var allLinks = data.links;
+
+    if (allLinks != undefined) {
+      console.log('start link interface: ', allLinks);
+      var html = ''
+
+      for(var i = 0; i < allLinks.length; i++) {
+        html += '<a href="' + allLinks[i].url + '" id="i-link-' + i  + '" class="link">' + allLinks[i].label + '</a>';
       };
+
       document.getElementById('links').innerHTML = html;
     }
   });
@@ -43,32 +81,51 @@ function showLinksInterface() {
 
 function showLinksSettings() {
   storage.get('links', function(data) {
-    links = data;
-    console.log(links);
-    if (links != undefined) {
+    var allLinks = data.links;
+
+    if (allLinks != undefined) {
       var html = '';
-      for(var i=0; i<links.length; i++) {
+      
+      for(var i = 0; i < allLinks.length; i++) {
         html += '<div id="s-link-' + i  + '" class="row">';
         html += '  <div class="label">';
-        html += '    <span data-i18n="link1Url">Link 1 URL</span>';
-        html += '    <small data-i18n="linkUrlDesc">Enter a URL for this link (including http:// or https://)</small>';
+        html += '    <span data-i18n="'+ chrome.i18n.getMessage("link") +' ">Link </span>' + (i + 1);
         html += '  </div>';
-        html += '  <div class="input input-text">';
-        html += '    <input id="s-link-url-' + i  + '" type="text" value="' + links[i] + '"><button class="remove" id="s-link-remove' + i  + '">x</button>';
+        html += '  <div class="input input-text" style="width:30%">';
+        html += '    <input id="s-link-label-' + i  + '" type="text" value="' + allLinks[i].label + '">';
+        html += '  </div>';
+        html += '  <div class="input input-text" style="width:30%">';
+        html += '    <input id="s-link-url-' + i  + '" type="text" value="' + allLinks[i].url + '">';
+        html += '  </div>';
+        html += '  <div class="label" style="flex: 0 0 auto;">';
+        html += '    <button class="edit-link btn" id="s-link-edit-' + i  + '">&#9998;</button>';
+        html += '    <button class="remove-link btn" id="s-link-remove-' + i  + '">&#10006;</button>';
         html += '  </div>';
         html += '</div>';
       };
 
       document.getElementById('s-links').innerHTML = html;
 
-      var buttons = document.getElementsByClassName('remove');
-      for (var i=0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', remove);
+      var removeBtns = document.getElementsByClassName('remove-link');
+      for (var i=0; i < removeBtns.length; i++) {
+        removeBtns[i].addEventListener('click', remove);
+      };
+
+      var editBtns = document.getElementsByClassName('edit-link');
+      for (var i=0; i < editBtns.length; i++) {
+        editBtns[i].addEventListener('click', edit);
       };
     };
   });
 }
 
-document.getElementById('s-link-add').addEventListener('click', add);
+function checkLink(value, loaded) {
+  if (value != undefined) {
+    value = (value.indexOf('//') === -1) ? 'http://' + value : value;
+  }
+  return value;
+}
+
+addBtn.addEventListener('click', add);
 showLinksInterface();
 showLinksSettings();

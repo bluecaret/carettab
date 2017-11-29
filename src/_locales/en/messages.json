@@ -320,68 +320,14 @@
   "quickLinks": {
     "message": "Quick Links"
   },
-  "linkDesc": {
+  "quickLinksDesc": {
     "message": "Shows a custom quick link at the top of the page."
   },
-  "linkUrlDesc": {
-    "message": "Enter a URL for this link (including http:// or https://)"
+  "addLink": {
+    "message": "Add Link"
   },
-  "linkLabelDesc": {
-    "message": "Enter a label for this link."
-  },
-  "link1": {
-    "message": "Link 1"
-  },
-  "link1Url": {
-    "message": "Link 1 URL"
-  },
-  "link1Label": {
-    "message": "Link 1 Label"
-  },
-  "link2": {
-    "message": "Link 2"
-  },
-  "link2Url": {
-    "message": "Link 2 URL"
-  },
-  "link2Label": {
-    "message": "Link 2 Label"
-  },
-  "link3": {
-    "message": "Link 3"
-  },
-  "link3Url": {
-    "message": "Link 3 URL"
-  },
-  "link3Label": {
-    "message": "Link 3 Label"
-  },
-  "link4": {
-    "message": "Link 4"
-  },
-  "link4Url": {
-    "message": "Link 4 URL"
-  },
-  "link4Label": {
-    "message": "Link 4 Label"
-  },
-  "link5": {
-    "message": "Link 5"
-  },
-  "link5Url": {
-    "message": "Link 5 URL"
-  },
-  "link5Label": {
-    "message": "Link 5 Label"
-  },
-  "link6": {
-    "message": "Link 6"
-  },
-  "link6Url": {
-    "message": "Link 6 URL"
-  },
-  "link6Label": {
-    "message": "Link 6 Label"
+  "singleLink": {
+    "message": "Link"
   },
 
   "search": {

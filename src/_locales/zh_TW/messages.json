@@ -320,68 +320,14 @@
   "quickLinks": {
     "message": "快速連結"
   },
-  "linkDesc": {
+  "quickLinksDesc": {
     "message": "在頁面最上面顯示一個自定義的快速連結。"
   },
-  "linkUrlDesc": {
-    "message": "輸入這個連結的 URL（包括 http:// 或 https://）"
+  "addLink": {
+    "message": "添加鏈接"
   },
-  "linkLabelDesc": {
-    "message": "輸入這個連結的標籤。"
-  },
-  "link1": {
-    "message": "連結一"
-  },
-  "link1Url": {
-    "message": "連結一的 URL"
-  },
-  "link1Label": {
-    "message": "連結一的標籤"
-  },
-  "link2": {
-    "message": "連結二"
-  },
-  "link2Url": {
-    "message": "連結二的 URL"
-  },
-  "link2Label": {
-    "message": "連結二的標籤"
-  },
-  "link3": {
-    "message": "連結三"
-  },
-  "link3Url": {
-    "message": "連結三的 URL"
-  },
-  "link3Label": {
-    "message": "連結三的標籤"
-  },
-  "link4": {
-    "message": "連結四"
-  },
-  "link4Url": {
-    "message": "連結四的 URL"
-  },
-  "link4Label": {
-    "message": "連結四的標籤"
-  },
-  "link5": {
-    "message": "連結五"
-  },
-  "link5Url": {
-    "message": "連結五的 URL"
-  },
-  "link5Label": {
-    "message": "連結五的標籤"
-  },
-  "link6": {
-    "message": "連結六"
-  },
-  "link6Url": {
-    "message": "連結六的 URL"
-  },
-  "link6Label": {
-    "message": "連結六的標籤"
+  "singleLink": {
+    "message": "連結"
   },
 
   "search": {

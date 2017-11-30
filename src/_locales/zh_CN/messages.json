@@ -320,68 +320,14 @@
   "quickLinks": {
     "message": "快速链接"
   },
-  "linkDesc": {
+  "quickLinksDesc": {
     "message": "在页面最上面显示一个自定义的快速链接。"
   },
-  "linkUrlDesc": {
-    "message": "输入这个链接的 URL（包括 http:// 或 https://）"
+  "addLink": {
+    "message": "添加链接"
   },
-  "linkLabelDesc": {
-    "message": "输入这个链接的标签。"
-  },
-  "link1": {
-    "message": "链接一"
-  },
-  "link1Url": {
-    "message": "链接一的 URL"
-  },
-  "link1Label": {
-    "message": "链接一的标签"
-  },
-  "link2": {
-    "message": "链接二"
-  },
-  "link2Url": {
-    "message": "链接二的 URL"
-  },
-  "link2Label": {
-    "message": "链接二的标签"
-  },
-  "link3": {
-    "message": "链接三"
-  },
-  "link3Url": {
-    "message": "链接三的 URL"
-  },
-  "link3Label": {
-    "message": "链接三的标签"
-  },
-  "link4": {
-    "message": "链接四"
-  },
-  "link4Url": {
-    "message": "链接四的 URL"
-  },
-  "link4Label": {
-    "message": "链接四的标签"
-  },
-  "link5": {
-    "message": "链接五"
-  },
-  "link5Url": {
-    "message": "链接五的 URL"
-  },
-  "link5Label": {
-    "message": "链接五的标签"
-  },
-  "link6": {
-    "message": "链接六"
-  },
-  "link6Url": {
-    "message": "链接六的 URL"
-  },
-  "link6Label": {
-    "message": "链接六的标签"
+  "singleLink": {
+    "message": "链接"
   },
 
   "search": {

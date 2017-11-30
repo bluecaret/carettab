@@ -320,68 +320,14 @@
   "quickLinks": {
     "message": "Быстрые ссылки"
   },
-  "linkDesc": {
+  "quickLinksDesc": {
     "message": "Показывает настраиваемые быстрые ссылки вверху страницы."
   },
-  "linkUrlDesc": {
-    "message": "Введите URL-адрес для этой ссылки (включая http:// или https://)"
+  "addLink": {
+    "message": "Добавить ссылку"
   },
-  "linkLabelDesc": {
-    "message": "Введите название для этой ссылки."
-  },
-  "link1": {
-    "message": "Ссылка 1"
-  },
-  "link1Url": {
-    "message": "Адрес ссылки 1"
-  },
-  "link1Label": {
-    "message": "Текст ссылки 1"
-  },
-  "link2": {
-    "message": "Ссылка 2"
-  },
-  "link2Url": {
-    "message": "Адрес ссылки 2"
-  },
-  "link2Label": {
-    "message": "Текст ссылки 2"
-  },
-  "link3": {
-    "message": "Ссылка 3"
-  },
-  "link3Url": {
-    "message": "Адрес ссылки 3"
-  },
-  "link3Label": {
-    "message": "Текст ссылки 3"
-  },
-  "link4": {
-    "message": "Ссылка 4"
-  },
-  "link4Url": {
-    "message": "Адрес ссылки 4"
-  },
-  "link4Label": {
-    "message": "Текст ссылки 4"
-  },
-  "link5": {
-    "message": "Ссылка 5"
-  },
-  "link5Url": {
-    "message": "Адрес ссылки 5"
-  },
-  "link5Label": {
-    "message": "Текст ссылки 5"
-  },
-  "link6": {
-    "message": "Ссылка 6"
-  },
-  "link6Url": {
-    "message": "Адрес ссылки 6"
-  },
-  "link6Label": {
-    "message": "Текст ссылки 6"
+  "singleLink": {
+    "message": "Ссылка"
   },
 
   "search": {

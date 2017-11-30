@@ -320,68 +320,14 @@
   "quickLinks": {
     "message": "クイックリンク"
   },
-  "linkDesc": {
+  "quickLinksDesc": {
     "message": "ページの上部にリンクを表示します．"
   },
-  "linkUrlDesc": {
-    "message": "このリンクのURLを入力してください(http:// や https:// も含めてください)"
+  "addLink": {
+    "message": "リンクを追加"
   },
-  "linkLabelDesc": {
-    "message": "このリンクのラベルを入力してください．"
-  },
-  "link1": {
-    "message": "リンク 1"
-  },
-  "link1Url": {
-    "message": "リンク 1 URL"
-  },
-  "link1Label": {
-    "message": "リンク 1 ラベル"
-  },
-  "link2": {
-    "message": "リンク 2"
-  },
-  "link2Url": {
-    "message": "リンク 2 URL"
-  },
-  "link2Label": {
-    "message": "リンク 2 ラベル"
-  },
-  "link3": {
-    "message": "リンク 3"
-  },
-  "link3Url": {
-    "message": "リンク 3 URL"
-  },
-  "link3Label": {
-    "message": "リンク 3 ラベル"
-  },
-  "link4": {
-    "message": "リンク 4"
-  },
-  "link4Url": {
-    "message": "リンク 4 URL"
-  },
-  "link4Label": {
-    "message": "リンク 4 ラベル"
-  },
-  "link5": {
-    "message": "リンク 5"
-  },
-  "link5Url": {
-    "message": "リンク 5 URL"
-  },
-  "link5Label": {
-    "message": "リンク 5 ラベル"
-  },
-  "link6": {
-    "message": "リンク 6"
-  },
-  "link6Url": {
-    "message": "リンク 6 URL"
-  },
-  "link6Label": {
-    "message": "リンク 6 Label"
+  "singleLink": {
+    "message": "リンク"
   },
 
   "search": {

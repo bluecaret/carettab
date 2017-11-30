@@ -320,68 +320,14 @@
   "quickLinks": {
     "message": "Liens personnalisés"
   },
-  "linkDesc": {
+  "quickLinksDesc": {
     "message": "Affiche un lien personnalisé en haut de la page."
   },
-  "linkUrlDesc": {
-    "message": "Entrez une URL pour ce lien (incluant http:// ou https://)"
+  "addLink": {
+    "message": "Ajouter un lien"
   },
-  "linkLabelDesc": {
-    "message": "Entrez un nom pour ce lien."
-  },
-  "link1": {
-    "message": "Lien 1"
-  },
-  "link1Url": {
-    "message": "URL du lien 1"
-  },
-  "link1Label": {
-    "message": "Nom du lien 1"
-  },
-  "link2": {
-    "message": "Lien 2"
-  },
-  "link2Url": {
-    "message": "URL du lien 2"
-  },
-  "link2Label": {
-    "message": "Nom du lien 2"
-  },
-  "link3": {
-    "message": "Lien 3"
-  },
-  "link3Url": {
-    "message": "URL du lien 3"
-  },
-  "link3Label": {
-    "message": "Nom du lien 3"
-  },
-  "link4": {
-    "message": "Lien 4"
-  },
-  "link4Url": {
-    "message": "URL du lien 4"
-  },
-  "link4Label": {
-    "message": "Nom du lien 4"
-  },
-  "link5": {
-    "message": "Lien 5"
-  },
-  "link5Url": {
-    "message": "URL du lien 5"
-  },
-  "link5Label": {
-    "message": "Nom du lien 5"
-  },
-  "link6": {
-    "message": "Lien 6"
-  },
-  "link6Url": {
-    "message": "URL du lien 6"
-  },
-  "link6Label": {
-    "message": "Nom du lien 6"
+  "singleLink": {
+    "message": "Lien"
   },
 
   "search": {

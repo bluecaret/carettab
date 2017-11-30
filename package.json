@@ -1,12 +1,12 @@
 {
   "name": "carettab",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "CaretTab: New Tab Clock and Date - A simplistic New Tab page extension with options for displaying time, date, search, favorite links, and more!",
   "main": "src/app.js",
   "scripts": {
     "scss": "node-sass --output-style compressed -o dist/css src/scss --source-map true --source-map-embed true",
     "lint": "eslint src/js",
-    "uglify": "mkdirp dist/js && uglifyjs src/js/app.js src/js/install_status.js src/js/links.js src/js/load.js src/js/set_default.js src/js/actions.js src/js/functions.js src/js/run.js -c -m --output dist/js/app.min.js --source-map url=inline",
+    "uglify": "mkdirp dist/js && uglifyjs src/js/app.js src/js/links.js src/js/install_status.js src/js/load.js src/js/set_default.js src/js/actions.js src/js/functions.js src/js/run.js -c -m --output dist/js/app.min.js --source-map url=inline",
     "copy": "cp src/carettab.htm dist/ && cp -R src/assets/ dist/assets/ && cp -R src/js/vendor dist/js/vendor && cp -R src/_locales dist/_locales && cp src/js/update.js dist/js/update.js",
     "copy:chrome": "npm run copy && cp src/manifest.json dist/manifest.json",
     "copy:firefox": "npm run copy && cp src/ffmanifest.json dist/manifest.json",

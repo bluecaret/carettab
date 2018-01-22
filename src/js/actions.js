@@ -1,5 +1,5 @@
 // ##############################################
-// Actions 
+// Actions
 // ##############################################
 $('#set-clock1').click(function() {
   if ($('#set-clock1').is(':checked')) {
@@ -273,6 +273,10 @@ $('input[name="set-bracket-style"]').click(function() {
   tBracketStyle();
 });
 $('input[name="set-font"]').click(function() {
+  sFont = $(this).val();
+  tFont();
+});
+$('#select_fontfamily').click(function() {
   sFont = $(this).val();
   tFont();
 });

@@ -10,6 +10,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/app.css?v=2.2.0">
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+
+	<link rel="stylesheet" href="./assets/css/select2.css">
+	<link rel="stylesheet" href="./assets/css/fonts.css">
+
+	<script src="./js/vendor/jquery.min.js"></script>
+	<script src="./js/vendor/select2.full.min.js"></script>
+	<script src="./js/vendor/webfont.js"></script>
+	<script src="./js/vendor/fonts.js"></script>
+
 </head>
 
 <body>
@@ -794,7 +803,10 @@
                     <span data-i18n="font">Font</span>
                     <small data-i18n="fontDesc">Changes font used<br>for all elements.</small>
                 </div>
-                <div class="input">
+								<div>
+									<select id="select_fontfamily"></select>
+								</div>
+                <!-- <div class="input">
                     <input name="set-font" id="set-font-exo-2" value="exo-2" class="toggle toggle-yes-no" type="radio" checked="checked">
                     <label for="set-font-exo-2" data-on="a" data-off="a" class="sm" title="Exo 2"></label>
                 </div>
@@ -830,7 +842,7 @@
                     <input name="set-font" id="set-font-special-elite" value="special-elite" class="toggle toggle-yes-no" type="radio">
                     <label for="set-font-special-elite" data-on="a" data-off="a" class="sm" title="Special Elite"></label>
                 </div>
-            </div>
+            </div> -->
             <div class="row">
                 <div class="input">
                     <input type="range" class="range" id="set-scale" name="set-scale" value="77" min="20" max="200">
@@ -921,10 +933,10 @@
         </div>
     </div>
 
-    <script src="./js/vendor/jquery-3.2.1.min.js"></script>
     <script src="./js/vendor/moment-with-locales.js"></script>
     <script src="./js/vendor/moment-timezone-with-data-2012-2022.js"></script>
     <script src="./js/app.min.js?v=2.2.0"></script>
+	</div>
 </body>
 
 </html>

@@ -939,6 +939,8 @@ function tFont(loaded) {
   $('input[name="set-font"][value="' + sFont + '"]').attr('Checked', 'Checked');
   $('body').removeClass("font-exo-2 font-quicksand font-amatic-sc font-anton font-eb-garamond font-lobster font-monoton font-press-start-2p font-special-elite");
   $('body').addClass('font-' + sFont + '');
+  $('.select2-selection__placeholder').text(sFont)
+  $('body').css('font-family', sFont);
 }
 
 function tHideSettingsToggle(loaded) {

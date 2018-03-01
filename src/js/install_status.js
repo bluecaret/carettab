@@ -9,9 +9,9 @@ $(function() {
     // Check if extension was just installed or updated
     var caretTabStatus = data.caretTabStatus;
     console.log("^CaretTab - Status: " + caretTabStatus);
-    if (caretTabStatus == 'installed') {
+    if (caretTabStatus == "installed") {
       $("#installed").show();
-    } else if (caretTabStatus == 'updated') {
+    } else if (caretTabStatus == "updated") {
       $("#updated").show();
     }
 

@@ -1,39 +1,39 @@
-var timezoneOptions = '\
-  <option value="Pacific/Midway">(GMT -11:00) Midway Island, Samoa</option>\
-  <option value="Pacific/Honolulu">(GMT -10:00) Hawaii</option>\
-  <option value="America/Anchorage">(GMT -9:00) Alaska</option>\
-  <option value="America/Los_Angeles">(GMT -8:00) Pacific Time (US &amp; Canada)</option>\
-  <option value="America/Boise">(GMT -7:00) Mountain Time (US &amp; Canada)</option>\
-  <option value="America/Phoenix">(GMT -7:00) Mountain Standard Time (US &amp; Canada), America/Phoenix</option>\
-  <option value="America/Chicago">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>\
-  <option value="America/Belize">(GMT -6:00) Central Standard Time (America), Belize, Costa Rica</option>\
-  <option value="America/New_York">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>\
-  <option value="Atlantic/Bermuda">(GMT -4:00) Atlantic Time (Canada), Canada/Atlantic</option>\
-  <option value="Canada/Newfoundland">(GMT -3:30) Newfoundland</option>\
-  <option value="America/Argentina/Buenos_Aires">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>\
-  <option value="Atlantic/South_Georgia">(GMT -2:00) Mid-Atlantic</option>\
-  <option value="Atlantic/Azores">(GMT -1:00 hour) Azores, Cape Verde Islands</option>\
-  <option value="Europe/London">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>\
-  <option value="Europe/Paris">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>\
-  <option value="Europe/Kaliningrad">(GMT +2:00) Kaliningrad, South Africa</option>\
-  <option value="Asia/Baghdad">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>\
-  <option value="Asia/Tehran">(GMT +3:30) Tehran</option>\
-  <option value="Asia/Muscat">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>\
-  <option value="Asia/Kabul">(GMT +4:30) Kabul</option>\
-  <option value="Asia/Karachi">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>\
-  <option value="Asia/Calcutta">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>\
-  <option value="Asia/Kathmandu">(GMT +5:45) Kathmandu</option>\
-  <option value="Asia/Almaty">(GMT +6:00) Almaty, Dhaka, Colombo</option>\
-  <option value="Asia/Bangkok">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>\
-  <option value="Asia/Hong_Kong">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>\
-  <option value="Asia/Tokyo">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>\
-  <option value="Australia/Adelaide">(GMT +9:30) Adelaide, Darwin</option>\
-  <option value="Pacific/Guam">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>\
-  <option value="Asia/Magadan">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>\
-  <option value="Pacific/Auckland">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>\
-  ';
+var timezoneOptions = "\
+  <option value=\"Pacific/Midway\">(GMT -11:00) Midway Island, Samoa</option>\
+  <option value=\"Pacific/Honolulu\">(GMT -10:00) Hawaii</option>\
+  <option value=\"America/Anchorage\">(GMT -9:00) Alaska</option>\
+  <option value=\"America/Los_Angeles\">(GMT -8:00) Pacific Time (US &amp; Canada)</option>\
+  <option value=\"America/Boise\">(GMT -7:00) Mountain Time (US &amp; Canada)</option>\
+  <option value=\"America/Phoenix\">(GMT -7:00) Mountain Standard Time (US &amp; Canada), America/Phoenix</option>\
+  <option value=\"America/Chicago\">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>\
+  <option value=\"America/Belize\">(GMT -6:00) Central Standard Time (America), Belize, Costa Rica</option>\
+  <option value=\"America/New_York\">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>\
+  <option value=\"Atlantic/Bermuda\">(GMT -4:00) Atlantic Time (Canada), Canada/Atlantic</option>\
+  <option value=\"Canada/Newfoundland\">(GMT -3:30) Newfoundland</option>\
+  <option value=\"America/Argentina/Buenos_Aires\">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>\
+  <option value=\"Atlantic/South_Georgia\">(GMT -2:00) Mid-Atlantic</option>\
+  <option value=\"Atlantic/Azores\">(GMT -1:00 hour) Azores, Cape Verde Islands</option>\
+  <option value=\"Europe/London\">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>\
+  <option value=\"Europe/Paris\">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>\
+  <option value=\"Europe/Kaliningrad\">(GMT +2:00) Kaliningrad, South Africa</option>\
+  <option value=\"Asia/Baghdad\">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>\
+  <option value=\"Asia/Tehran\">(GMT +3:30) Tehran</option>\
+  <option value=\"Asia/Muscat\">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>\
+  <option value=\"Asia/Kabul\">(GMT +4:30) Kabul</option>\
+  <option value=\"Asia/Karachi\">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>\
+  <option value=\"Asia/Calcutta\">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>\
+  <option value=\"Asia/Kathmandu\">(GMT +5:45) Kathmandu</option>\
+  <option value=\"Asia/Almaty\">(GMT +6:00) Almaty, Dhaka, Colombo</option>\
+  <option value=\"Asia/Bangkok\">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>\
+  <option value=\"Asia/Hong_Kong\">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>\
+  <option value=\"Asia/Tokyo\">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>\
+  <option value=\"Australia/Adelaide\">(GMT +9:30) Adelaide, Darwin</option>\
+  <option value=\"Pacific/Guam\">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>\
+  <option value=\"Asia/Magadan\">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>\
+  <option value=\"Pacific/Auckland\">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>\
+  ";
 $(function() {
-  $('.timezones').html(timezoneOptions);
+  $(".timezones").html(timezoneOptions);
 });
 
 // ##############################################
@@ -214,7 +214,7 @@ function loadSettings(caretTabStatus, sLoad, data, loaded) {
   tAnalog(loaded);
 
   // Run updateAll on load
-  if (sPrimaryClock == 'on' || s2ndClock == 'on' || s3rdClock == 'on' || s4thClock == 'on' || sDate == 'on' || sTabTitle == 'tab-time' || sTabTitle == 'tab-timedate' || sTabTitle == 'tab-datetime' || sTabTitle == 'tab-date') {
+  if (sPrimaryClock == "on" || s2ndClock == "on" || s3rdClock == "on" || s4thClock == "on" || sDate == "on" || sTabTitle == "tab-time" || sTabTitle == "tab-timedate" || sTabTitle == "tab-datetime" || sTabTitle == "tab-date") {
     updateAll();
   }
 

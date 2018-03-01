@@ -1,8 +1,13 @@
 {
   "env": {
-    "browser": true
+    "browser": true,
+    "jquery": true,
+    "webextensions": true
   },
   "extends": "eslint:recommended",
+  "globals": {
+    "moment": false
+  },
   "rules": {
     "indent": [
       "error",
@@ -11,6 +16,9 @@
     "linebreak-style": [
       "error",
       "windows"
+    ],
+    "no-console": [
+      "off"
     ],
     "quotes": [
       "error",

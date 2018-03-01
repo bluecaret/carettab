@@ -12,7 +12,7 @@ console.log("## Created by BlueCaret - http://bluecaret.com/project/carettab");
 console.log("                                        "); 
 
 // Translate HTML via data-i18n attribute
-var objects = document.getElementsByTagName('*'), i;
+var objects = document.getElementsByTagName("*"), i;
 for(i = 0; i < objects.length; i++) {
   if (objects[i].dataset && objects[i].dataset.i18n) {
     objects[i].innerHTML = chrome.i18n.getMessage(objects[i].dataset.i18n);

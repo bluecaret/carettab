@@ -5,6 +5,9 @@
     "webextensions": true
   },
   "extends": "eslint:recommended",
+  "globals": {
+    "moment": false
+  },
   "rules": {
     "indent": [
       "error",

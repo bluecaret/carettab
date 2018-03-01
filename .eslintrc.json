@@ -14,6 +14,9 @@
       "error",
       "windows"
     ],
+    "no-console": [
+      "off"
+    ],
     "quotes": [
       "error",
       "double"

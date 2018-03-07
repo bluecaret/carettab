@@ -1,0 +1,945 @@
+<main id="interface" class="interface--settingsOpen">
+  <div style="font-size: 10vw;">12:00:00</div>
+  <button id="toggleSettings" class="toggleSettings--open" title="Open Settings"><span><i class="fas fa-ellipsis-v"></i></span></button>
+</main>
+<aside id="settings">
+  <div class="settings__wrapper">
+    <nav>
+      <header>
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+          <rect x="24" y="80" class="st0" width="16" height="16"/>
+          <rect x="40" y="64" class="st0" width="16" height="16"/>
+          <rect x="56" y="48" class="st0" width="16" height="16"/>
+          <rect x="72" y="64" class="st0" width="16" height="16"/>
+          <rect x="88" y="80" class="st0" width="16" height="16"/>
+          <path class="st1" d="M123,20V0H88v20h-9V0H44v20h-9V10V0H25H10H0v10v10v10v20v78h128V20H123z M118,118H10V10h15v20h19h35h9h30V118z"/>
+        </svg>
+        <span>CaretTab</span>
+      </header>
+      <ul>
+        <li><button type="button" class="pageLink active" data-page="dashboard"><i class="fas fa-fw fa-sliders-h"></i>Dashboard</button></li>
+        <li><button type="button" class="pageLink" data-page="design"><i class="fas fa-fw fa-paint-brush"></i>Design</button></li>
+        <li><button type="button" class="pageLink" data-page="time"><i class="fas fa-fw fa-clock"></i>Time</button></li>
+        <li><button type="button" class="pageLink" data-page="date"><i class="fas fa-fw fa-calendar-alt"></i>Date</button></li>
+        <li><button type="button" class="pageLink" data-page="bookmarks"><i class="fas fa-fw fa-link"></i>Bookmarks</button></li>
+        <li><button type="button" class="pageLink" data-page="search"><i class="fas fa-fw fa-search"></i>Search Box</button></li>
+        <li><button type="button" class="pageLink" data-page="message"><i class="fas fa-fw fa-quote-left"></i>Custom Message</button></li>
+        <li><button type="button" class="pageLink" data-page="extra"><i class="fas fa-fw fa-clone"></i>Extras</button></li>
+        <li>
+          <button type="button" class="pageLink" data-page="about">
+            <i class="fa-fw">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+                <rect x="24" y="80" class="st0" width="16" height="16"/>
+                <rect x="40" y="64" class="st0" width="16" height="16"/>
+                <rect x="56" y="48" class="st0" width="16" height="16"/>
+                <rect x="72" y="64" class="st0" width="16" height="16"/>
+                <rect x="88" y="80" class="st0" width="16" height="16"/>
+                <path class="st1" d="M123,20V0H88v20h-9V0H44v20h-9V10V0H25H10H0v10v10v10v20v78h128V20H123z M118,118H10V10h15v20h19h35h9h30V118z"/>
+              </svg>
+            </i>
+            About
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <section>
+    <!-- PAGE: DASHBOARD ################################################################### -->
+      <div id="page-dashboard" class="page active">
+        <h1>
+          Settings Dashboard
+        </h1>
+        <button type="button" data-page="about" class="link notice notice--success">
+          <div class="flex-set w10rem">
+            <i class="fas fa-thumbs-up"></i>
+          </div>
+          <div>
+            CaretTab has been updated... Click to see what's new!
+          </div>
+          <div>
+            <div class="btn btn--transparent"><i class="fas fa-times"></i></div>
+          </div>
+        </button>
+        <fieldset>
+          <div class="row dashWrapper">
+            <div class="col12 colSm6 colMd4 colLg3">
+              <a href="#" class="dashBox" data-page="design">
+                <div class="dashBox__icon"><i class="fas fa-paint-brush fa-fw"></i></div>
+                <div class="dashBox__title">Design</div>
+                <div class="dashBox__hero">
+                  <span class="dashBox__label">
+                    <span class="inlineBlock mt pl pr bgWhite textBlack">&nbsp;&nbsp;abc 123&nbsp;&nbsp;</span>
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div class="col12 colSm6 colMd4 colLg3">
+              <a href="#" class="dashBox" data-page="time">
+                <div class="dashBox__icon"><i class="fas fa-clock fa-fw"></i></div>
+                <div class="dashBox__title">Time</div>
+                <div class="dashBox__hero">
+                  <span class="dashBox__number">2</span>
+                  <span class="dashBox__label">clocks</span>
+                </div>
+              </a>
+            </div>
+            <div class="col12 colSm6 colMd4 colLg3">
+              <a href="#" class="dashBox" data-page="date">
+                <div class="dashBox__icon"><i class="fas fa-calendar-alt fa-fw"></i></div>
+                <div class="dashBox__title">Date</div>
+                <div class="dashBox__hero">
+                  <span class="dashBox__number">On</span>
+                </div>
+              </a>
+            </div>
+            <div class="col12 colSm6 colMd4 colLg3">
+              <a href="#" class="dashBox" data-page="bookmarks">
+                <div class="dashBox__icon"><i class="fas fa-link fa-fw"></i></div>
+                <div class="dashBox__title">Bookmarks</div>
+                <div class="dashBox__hero">
+                  <span class="dashBox__number">12</span>
+                  <span class="dashBox__label">links</span>
+                </div>
+              </a>
+            </div>
+            <div class="col12 colSm6 colMd4 colLg3">
+              <a href="#" class="dashBox" data-page="search">
+                <div class="dashBox__icon"><i class="fas fa-search fa-fw"></i></div>
+                <div class="dashBox__title">Search</div>
+                <div class="dashBox__hero">
+                  <span class="dashBox__number">On</span>
+                </div>
+              </a>
+            </div>
+            <div class="col12 colSm6 colMd4 colLg3">
+              <a href="#" class="dashBox" data-page="message">
+                <div class="dashBox__icon"><i class="fas fa-quote-left fa-fw"></i></div>
+                <div class="dashBox__title">Message</div>
+                <div class="dashBox__hero">
+                  <span class="dashBox__number">On</span>
+                </div>
+              </a>
+            </div>
+            <div class="col12 colSm6 colMd4 colLg3">
+              <a href="#" class="dashBox" data-page="extra">
+                <div class="dashBox__icon"><i class="fas fa-text-height fa-fw"></i></div>
+                <div class="dashBox__title">Scale</div>
+                <div class="dashBox__hero">
+                  <span class="dashBox__number">50%</span>
+                </div>
+              </a>
+            </div>
+            <div class="col12 colSm6 colMd4 colLg3">
+              <a href="#" class="dashBox" data-page="extra">
+                <div class="dashBox__icon"><i class="fas fa-font fa-fw"></i></div>
+                <div class="dashBox__title">Language</div>
+                <div class="dashBox__hero">
+                  <span class="dashBox__label">English</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    <!-- PAGE: DESIGN ################################################################### -->
+      <div id="page-design" class="page">
+        <h1>
+          Design
+          <small>Configure the colors and general style of CaretTab.</small>
+        </h1>
+        <fieldset>
+          <div class="row row--gap">
+            <div class="col8">
+              <div class="fieldGroup">
+                <label for="searchBox" class="fieldGroup__label"><help title="Select a font included with CaretTab. Changes font used for all objects.">CaretTab Fonts</help></label>
+                <div class="btnGroup flex--wrap fontOptions">
+                  <input type="radio" name="font" id="font1" />
+                  <label for="font1" title="Exo 2">abc 123</label>
+                  <input type="radio" name="font" id="font2" />
+                  <label for="font2" title="Quicksand">abc 123</label>
+                  <input type="radio" name="font" id="font3" />
+                  <label for="font3" title="Amatic SC">abc 123</label>
+                  <input type="radio" name="font" id="font4" />
+                  <label for="font4" title="Anton">abc 123</label>
+                  <input type="radio" name="font" id="font5" />
+                  <label for="font5" title="EB Garamond">abc 123</label>
+                  <input type="radio" name="font" id="font6" />
+                  <label for="font6" title="Lobster">abc 123</label>
+                  <input type="radio" name="font" id="font7" />
+                  <label for="font7" title="Monoton">abc 123</label>
+                  <input type="radio" name="font" id="font8" />
+                  <label for="font8" title="Press Start 2P">abc 123</label>
+                  <input type="radio" name="font" id="font9" />
+                  <label for="font9" title="Special Elite">abc 123</label>
+                </div>
+              </div>
+            </div>
+            <div class="col4">
+              <div class="fieldGroup">
+                <label for="searchBoxEngine" class="fieldGroup__label"><help title="Select a font that is installed on your computer. Changes font used for all objects.">System Fonts</help></label>
+                <select name="searchBoxEngine" id="searchBoxEngine" class="fieldGroup__field">
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+            <div class="col12">
+              <div class="fieldGroup">
+                <label for="searchBox" class="fieldGroup__label"><help title="Choose a preset color combination or pick custom colors from the following field.">Preset Colors</help></label>
+                <div class="btnGroup btnGroup--justified presetColors">
+                  <input type="radio" name="presetColors" id="presetColor01" />
+                  <label for="presetColor01">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor02" />
+                  <label for="presetColor02">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor03" />
+                  <label for="presetColor03">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor04" />
+                  <label for="presetColor04">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor05" />
+                  <label for="presetColor05">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor06" />
+                  <label for="presetColor06">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor07" />
+                  <label for="presetColor07">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor08" />
+                  <label for="presetColor08">abc 123</label>
+                </div>
+                <div class="btnGroup btnGroup--justified presetColors">
+                  <input type="radio" name="presetColors" id="presetColor09" />
+                  <label for="presetColor09">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor10" />
+                  <label for="presetColor10">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor11" />
+                  <label for="presetColor11">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor12" />
+                  <label for="presetColor12">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor13" />
+                  <label for="presetColor13">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor14" />
+                  <label for="presetColor14">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor15" />
+                  <label for="presetColor15">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor16" />
+                  <label for="presetColor16">abc 123</label>
+                </div>
+                <div class="btnGroup btnGroup--justified presetColors">
+                  <input type="radio" name="presetColors" id="presetColor17" />
+                  <label for="presetColor17">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor18" />
+                  <label for="presetColor18">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor19" />
+                  <label for="presetColor19">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor20" />
+                  <label for="presetColor20">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor21" />
+                  <label for="presetColor21">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor22" />
+                  <label for="presetColor22">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor23" />
+                  <label for="presetColor23">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor24" />
+                  <label for="presetColor24">abc 123</label>
+                </div>
+                <div class="btnGroup btnGroup--justified presetColors">
+                  <input type="radio" name="presetColors" id="presetColor25" />
+                  <label for="presetColor25">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor26" />
+                  <label for="presetColor26">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor27" />
+                  <label for="presetColor27">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor28" />
+                  <label for="presetColor28">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor29" />
+                  <label for="presetColor29">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor30" />
+                  <label for="presetColor30">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor31" />
+                  <label for="presetColor31">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor32" />
+                  <label for="presetColor32">abc 123</label>
+                </div>
+                <div class="btnGroup btnGroup--justified presetColors">
+                  <input type="radio" name="presetColors" id="presetColor33" />
+                  <label for="presetColor33">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor34" />
+                  <label for="presetColor34">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor35" />
+                  <label for="presetColor35">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor36" />
+                  <label for="presetColor36">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor37" />
+                  <label for="presetColor37">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor38" />
+                  <label for="presetColor38">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor39" />
+                  <label for="presetColor39">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor40" />
+                  <label for="presetColor40">abc 123</label>
+                </div>
+                <div class="btnGroup btnGroup--justified presetColors">
+                  <input type="radio" name="presetColors" id="presetColor41" />
+                  <label for="presetColor41">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor42" />
+                  <label for="presetColor42">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor43" />
+                  <label for="presetColor43">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor44" />
+                  <label for="presetColor44">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor45" />
+                  <label for="presetColor45">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor46" />
+                  <label for="presetColor46">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor47" />
+                  <label for="presetColor47">abc 123</label>
+                  <input type="radio" name="presetColors" id="presetColor48" />
+                  <label for="presetColor48">abc 123</label>
+                </div>
+              </div>
+            </div>
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label class="fieldGroup__label">
+                  <help title="Color of the page background.">Custom Background Color</help>
+                </label>
+                <div class="flex">
+                  <input type="color" class="fieldGroup__field flex__auto" id="set-background" value="#3FA9F5">
+                  <input type="text" class="fieldGroup__field colorLabel flex__set" value="#3FA9F5">
+                </div>
+                <small>Click the color box to choose a color.</small>
+              </div>
+            </div>
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label class="fieldGroup__label">
+                  <help title="Color of fonts and icons.">Custom Foreground Color</help>
+                </label>
+                <div class="flex">
+                  <input type="color" class="fieldGroup__field flex__auto" id="set-background" value="#3FA9F5">
+                  <input type="text" class="fieldGroup__field colorLabel flex__set" value="#3FA9F5">
+                </div>
+                <small>Click the color box to choose a color.</small>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    <!-- PAGE: TIME ################################################################### -->
+      <div id="page-time" class="page">
+        <h1>
+          Time
+          <small>Add multiple clocks with multiple timezones.</small>
+        </h1>
+        <article class="bgGrayL p mb">
+          <fieldset class="p">
+            <div class="floatRight">
+              <div class="btnGroup flex--end">
+                <input type="checkbox" id="clockPrimaryEnable" checked="checked">
+                <label for="clockPrimaryEnable" title="Enable Primary Clock"><i class="fas fa-check"></i></label>
+              </div>
+            </div>
+            <h2 class="mt0">
+              Primary Clock 
+            </h2>
+            <div class="row row--gap">
+              <div class="col12 colMd4">
+                <div class="fieldGroup">
+                  <label class="fieldGroup__label"><help title="Choose a timezone for the clock (the default is your local timezone).">Timezone</help></label>
+                  <select name="clock1Timezone" id="clock1Timezone" class="fieldGroup__field">
+                    <option value=""></option>
+                  </select>
+                </div>
+                <div class="fieldGroup">
+                  <label for="clock1Label" class="fieldGroup__label">Clock Label</label>
+                  <input type="text" class="fieldGroup__field" id="clock1Label" placeholder="Enter a label for this clock.">
+                </div>
+                <div class="fieldGroup">
+                  <label for="clockSize" class="fieldGroup__label"><help title="Change the size of the clock.">Size</help></label>
+                  <div class="flex">
+                    <input id="clockSize" type="range" class="fieldGroup__field flex__auto" value="50" min="0" max="100">
+                    <input class="fieldGroup__field rangeLabel flex__set" value="50">
+                  </div>
+                </div>
+              </div>
+              <div class="col12 colMd8">
+                <div class="fieldGroup mb0">
+                  <label class="fieldGroup__label">Clock Options</label>
+                  <div class="clockOption">
+                    <div class="toggle">
+                      <input type="checkbox" id="clockFormat">
+                      <label for="clockFormat" title="Display clock in 24-Hour format instead of 12-Hour (will disable meridiem)."><help>24-Hour Format</help></label>
+                    </div>
+                  </div>
+                  <div class="clockOption">
+                    <div class="toggle">
+                      <input type="checkbox" id="clockSeconds">
+                      <label for="clockSeconds" title="Display the seconds on the clock."><help>Seconds</help></label>
+                    </div>
+                    <div class="clockHoverOptions btnGroup">
+                      <input type="checkbox" id="clockSecondsBlink">
+                      <label for="clockSecondsBlink" title="Flashes the seconds display every second."><i class="fas fa-eye"></i> <help>Blink</help></label>
+                      <input type="checkbox" id="clockSecondsDim">
+                      <label for="clockSecondsDim" title="Makes the seconds 50% transparent."><i class="fas fa-adjust"></i> <help>Dim</help></label>
+                    </div>
+                  </div>
+                  <div class="clockOption">
+                    <div class="toggle">
+                      <input type="checkbox" id="clockMeridiem">
+                      <label for="clockMeridiem" title="Displays AM/PM on the clock (only for 12-Hour format)"><help>Meridiem</help></label>
+                    </div>
+                    <div class="clockHoverOptions btnGroup">
+                      <input type="checkbox" id="clockMeridiemDim">
+                      <label for="clockMeridiemDim" title="Makes the meridiem 50% transparent."><i class="fas fa-adjust"></i> <help>Dim</help></label>
+                    </div>
+                  </div>
+                  <div class="clockOption">
+                    <div class="toggle">
+                      <input type="checkbox" id="clockDelimiter">
+                      <label for="clockDelimiter" title="Shows a seperator between hours/minutes/seconds."><help>Delimiter</help></label>
+                    </div>
+                    <div class="clockHoverOptions btnGroup">
+                      <input type="checkbox" id="clockDelimiterBlink">
+                      <label for="clockDelimiterBlink" title="Flashes the delimiter display every second."><i class="fas fa-eye"></i> <help>Blink</help></label>
+                      <input type="checkbox" id="clockDelimiterDim">
+                      <label for="clockDelimiterDim" title="Makes the delimiter 50% transparent."><i class="fas fa-adjust"></i> <help>Dim</help></label>
+                    </div>
+                  </div>
+                  <div class="clockOption">
+                    <div class="toggle">
+                      <input type="checkbox" id="clockBrackets">
+                      <label for="clockBrackets" title="Shows brackets around clock. Type a symbol in the text boxes to choose what type of bracket."><help>Brackets</help></label>
+                    </div>
+                    <div class="clockHoverOptions btnGroup clockBracketType">
+                      <input type="text" id="clockBracketsLeft" class="fieldGroup__field" value="{" maxlength="1">
+                      <input type="text" id="clockBracketsRight" class="fieldGroup__field" value="}" maxlength="1">
+                      <input type="checkbox" id="clockBracketDim">
+                      <label for="clockBracketDim" title="Makes the bracket 50% transparent."><i class="fas fa-adjust"></i> <help>Dim</help></label>
+                    </div>
+                  </div>
+                  <div class="clockOption">
+                    <div class="toggle">
+                      <input type="checkbox" id="clockAnalog">
+                      <label for="clockAnalog" title="Displays the clock in an analog style instead of digital."><help>Analog clock</help></label>
+                    </div>
+                    <div class="clockHoverOptions">
+                      <select name="clockAnalogStyle" id="clockAnalogStyle" class="fieldGroup__field w10Rem" title="Choose the style of analog clock.">
+                        <option value="">Style 1</option>
+                        <option value="">Style 2</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </article>
+        <article class="bgGrayL p mb">
+          <fieldset class="p">
+            <div class="floatRight">
+              <button class="btn btn--border" disabled="disabled" title="Move clock up in list."><i class="fas fa-long-arrow-alt-up"></i></button> 
+              <button class="btn btn--border" disabled="disabled" title="Move clock down in list."><i class="fas fa-long-arrow-alt-down"></i></button> 
+              <button class="btn btn--border" title="Delete clock."><i class="fas fa-trash-alt"></i></button> 
+            </div>
+            <h2 class="mt0">
+              Secondary Clock 1
+            </h2>
+            <div class="row row--gap">
+              <div class="col12 colMd4">
+                <div class="fieldGroup">
+                  <label class="fieldGroup__label"><help title="Choose a timezone for the clock (the default is your local timezone).">Timezone</help></label>
+                  <select name="clock1Timezone" id="clock1Timezone" class="fieldGroup__field">
+                    <option value=""></option>
+                  </select>
+                </div>
+                <div class="fieldGroup">
+                  <label for="clock1Label" class="fieldGroup__label"><help title="Leave blank for no label.">Clock Label</help></label>
+                  <input type="text" class="fieldGroup__field" id="clock1Label" placeholder="Enter a label for this clock.">
+                </div>
+                <div class="fieldGroup">
+                  <label for="clockSize" class="fieldGroup__label"><help title="Change the size of the clock.">Size</help></label>
+                  <div class="flex">
+                    <input id="clockSize" type="range" class="fieldGroup__field flex__auto" value="50" min="0" max="100">
+                    <input class="fieldGroup__field rangeLabel flex__set" value="50">
+                  </div>
+                </div>
+              </div>
+              <div class="col12 colMd8">
+                <div class="fieldGroup mb0">
+                  <label class="fieldGroup__label">Clock Options</label>
+                  <div class="clockOption">
+                    <div class="toggle">
+                      <input type="checkbox" id="clockFormat">
+                      <label for="clockFormat" title="Display clock in 24-Hour format instead of 12-Hour (will disable meridiem)."><help>24-Hour Format</help></label>
+                    </div>
+                  </div>
+                  <div class="clockOption">
+                    <div class="toggle">
+                      <input type="checkbox" id="clockSeconds">
+                      <label for="clockSeconds" title="Display the seconds on the clock."><help>Seconds</help></label>
+                    </div>
+                    <div class="clockHoverOptions btnGroup">
+                      <input type="checkbox" id="clockSecondsBlink">
+                      <label for="clockSecondsBlink" title="Flashes the seconds display every second."><i class="fas fa-eye"></i> <help>Blink</help></label>
+                      <input type="checkbox" id="clockSecondsDim">
+                      <label for="clockSecondsDim" title="Makes the seconds 50% transparent."><i class="fas fa-adjust"></i> <help>Dim</help></label>
+                    </div>
+                  </div>
+                  <div class="clockOption">
+                    <div class="toggle">
+                      <input type="checkbox" id="clockMeridiem">
+                      <label for="clockMeridiem" title="Displays AM/PM on the clock (only for 12-Hour format)"><help>Meridiem</help></label>
+                    </div>
+                    <div class="clockHoverOptions btnGroup">
+                      <input type="checkbox" id="clockMeridiemDim">
+                      <label for="clockMeridiemDim" title="Makes the meridiem 50% transparent."><i class="fas fa-adjust"></i> <help>Dim</help></label>
+                    </div>
+                  </div>
+                  <div class="clockOption">
+                    <div class="toggle">
+                      <input type="checkbox" id="clockDelimiter">
+                      <label for="clockDelimiter" title="Shows a seperator between hours/minutes/seconds."><help>Delimiter</help></label>
+                    </div>
+                    <div class="clockHoverOptions btnGroup">
+                      <input type="checkbox" id="clockDelimiterBlink">
+                      <label for="clockDelimiterBlink" title="Flashes the delimiter display every second."><i class="fas fa-eye"></i> <help>Blink</help></label>
+                      <input type="checkbox" id="clockDelimiterDim">
+                      <label for="clockDelimiterDim" title="Makes the delimiter 50% transparent."><i class="fas fa-adjust"></i> <help>Dim</help></label>
+                    </div>
+                  </div>
+                  <div class="clockOption">
+                    <div class="toggle">
+                      <input type="checkbox" id="clockBrackets">
+                      <label for="clockBrackets" title="Shows brackets around clock. Type a symbol in the text boxes to choose what type of bracket."><help>Brackets</help></label>
+                    </div>
+                    <div class="clockHoverOptions btnGroup clockBracketType">
+                      <input type="text" id="clockBracketsLeft" class="fieldGroup__field" value="{" maxlength="1">
+                      <input type="text" id="clockBracketsRight" class="fieldGroup__field" value="}" maxlength="1">
+                      <input type="checkbox" id="clockBracketDim">
+                      <label for="clockBracketDim" title="Makes the bracket 50% transparent."><i class="fas fa-adjust"></i> <help>Dim</help></label>
+                    </div>
+                  </div>
+                  <div class="clockOption">
+                    <div class="toggle">
+                      <input type="checkbox" id="clockAnalog">
+                      <label for="clockAnalog" title="Displays the clock in an analog style instead of digital."><help>Analog clock</help></label>
+                    </div>
+                    <div class="clockHoverOptions">
+                      <select name="clockAnalogStyle" id="clockAnalogStyle" class="fieldGroup__field w10Rem" title="Choose the style of analog clock.">
+                        <option value="">Style 1</option>
+                        <option value="">Style 2</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </article>
+        <button class="btn block w100" title="Add secondary clock"><i class="fas fa-plus"></i> Add Clock</button> 
+        <hr>
+        <p>
+          <b>Please note</b> that clocks are based on the time and timezone your computer is set to. The detection of your current timezone is pretty much an educated guess and may not reflect your actual timezone, thus potentially causing the time to be off. Currently CaretTab is detecting your current timezone to be: "America/Los_Angeles".
+        </p>
+      </div>
+    <!-- PAGE: DATE ################################################################### -->
+      <div id="page-date" class="page">
+        <h1>
+          Date
+          <small>Add the date in various formats to the New Tab page.</small>
+        </h1>
+        <fieldset>
+          <div class="row row--gap">
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label for="type" class="fieldGroup__label">Date</label>
+                <div class="btnGroup btnGroup--justified">
+                  <input type="radio" name="date" id="dateOn" />
+                  <label for="dateOn">On</label>
+                  <input type="radio" name="date" id="dateOff" />
+                  <label for="dateOff">Off</label>
+                </div>
+              </div>
+            </div>
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label for="dateSize" class="fieldGroup__label"><help title="Change the size of the date.">Size</help></label>
+                <div class="flex">
+                  <input type="range" id="dateSize" class="fieldGroup__field flex__auto" value="50" min="0" max="100">
+                  <input class="fieldGroup__field rangeLabel flex__set" value="50">
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <hr class="mt0">
+        <fieldset>
+          <div class="row row--gap">
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label for="dateDay" class="fieldGroup__label"><help title="Shows day of the week (only applies if 'short form' is off).">Day</help></label>
+                <div class="btnGroup btnGroup--justified">
+                  <input type="radio" name="dateDay" id="dateDayOn" />
+                  <label for="dateDayOn">On</label>
+                  <input type="radio" name="dateDay" id="dateDayOff" />
+                  <label for="dateDayOff">Off</label>
+                </div>
+              </div>
+            </div>
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label for="dateYear" class="fieldGroup__label"><help title="Shows the year with the date.">Year</help></label>
+                <div class="btnGroup btnGroup--justified">
+                  <input type="radio" name="dateYear" id="dateYearOn" />
+                  <label for="dateYearOn">On</label>
+                  <input type="radio" name="dateYear" id="dateYearOff" />
+                  <label for="dateYearOff">Off</label>
+                </div>
+              </div>
+            </div>
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label for="dateShortForm" class="fieldGroup__label"><help title="Allows various date formats to choose from.">Date Format</help></label>
+                <select name="dateFormat" id="dateFormat" class="fieldGroup__field">
+                  <option value="">Middle-Endian (January 31, 2000)</option>
+                  <option value="">Little-Endian (31 January 2000)</option>
+                  <option value="">Big-Endian (2000 January 31)</option>
+                </select>
+              </div>
+            </div>
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label for="dateShortForm" class="fieldGroup__label"><help title="Shows the date in a short format.">Short Date</help></label>
+                <div class="btnGroup btnGroup--justified">
+                  <input type="radio" name="dateShortForm" id="dateShortFormOn" />
+                  <label for="dateShortFormOn">On</label>
+                  <input type="radio" name="dateShortForm" id="dateShortFormOff" />
+                  <label for="dateShortFormOff">Off</label>
+                </div>
+              </div>
+            </div>
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label for="dateShortDelimiter" class="fieldGroup__label">Short Date Delimiter <help title="Shows a seperator between numbers on the short date format."></help></label>
+                <div class="btnGroup btnGroup--justified">
+                  <input type="radio" name="dateShortDelimiter" id="dateShortDelimiterSlash" />
+                  <label for="dateShortDelimiterSlash" class="bold">/</label>
+                  <input type="radio" name="dateShortDelimiter" id="dateShortDelimiterPeriod" />
+                  <label for="dateShortDelimiterPeriod" class="bold">.</label>
+                  <input type="radio" name="dateShortDelimiter" id="dateShortDelimiterDash" />
+                  <label for="dateShortDelimiterDash" class="bold">-</label>
+                  <input type="radio" name="dateShortDelimiter" id="dateShortDelimiterSpace" />
+                  <label for="dateShortDelimiterSpace" class="bold">&nbsp;</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <hr class="mt0">
+        <fieldset>
+          <div class="row row--gap">
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label for="dateWeekNumber" class="fieldGroup__label"><help title="Shows week number below the date.">Week Number</help></label>
+                <div class="btnGroup btnGroup--justified">
+                  <input type="radio" name="dateWeekNumber" id="dateWeekNumberOn" />
+                  <label for="dateWeekNumberOn">On</label>
+                  <input type="radio" name="dateWeekNumber" id="dateWeekNumberOff" />
+                  <label for="dateWeekNumberOff">Off</label>
+                </div>
+              </div>
+            </div>
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label for="dateWeekNumberLabel" class="fieldGroup__label"><help title="Choose a label to show next to the week number.">Week Number Label</help></label>
+                <div class="btnGroup btnGroup--justified">
+                  <input type="radio" name="dateWeekNumberLabel" id="dateWeekNumberLabelWord" />
+                  <label for="dateWeekNumberLabelWord">Week</label>
+                  <input type="radio" name="dateWeekNumberLabel" id="dateWeekNumberLabelAbbr" />
+                  <label for="dateWeekNumberLabelAbbr">Wk.</label>
+                  <input type="radio" name="dateWeekNumberLabel" id="dateWeekNumberLabelHashtag" />
+                  <label for="dateWeekNumberLabelHashtag">#</label>
+                  <input type="radio" name="dateWeekNumberLabel" id="dateWeekNumberLabelSpace" />
+                  <label for="dateWeekNumberLabelSpace">&nbsp;</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    <!-- PAGE: BOOKMARKS ################################################################### -->
+      <div id="page-bookmarks" class="page">
+        <h1>
+          Bookmarks
+          <small>Add your own personalized links to the New Tab page.</small>
+        </h1>
+        <fieldset>
+          <div class="row row--gap">
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label for="type" class="fieldGroup__label">
+                  <help title="Choose between custom quick links, and the bookmarks you have saved in the browser.">Type</help>
+                </label>
+                <div class="btnGroup btnGroup--justified">
+                  <input type="radio" name="type" id="btngroup1" />
+                  <label for="btngroup1">Quick Links</label>
+                  <input type="radio" name="type" id="btngroup2" />
+                  <label for="btngroup2">Bookmarks</label>
+                </div>
+              </div>
+            </div>
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label class="fieldGroup__label">
+                  Text Size
+                </label>
+                <div class="flex">
+                  <input type="range" class="fieldGroup__field flex__auto" value="50" min="0" max="100">
+                  <input class="fieldGroup__field rangeLabel flex__set" value="50">
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <hr class="mt0">
+        <h2>Quick Links</h2>
+        <div class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Link Title</th>
+                <th>Link URL</th>
+                <th class="actions">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="sLinkRows">
+              <tr id="settingNewLinkRow">
+                <td class="actions">
+                  Add Link:
+                </td>
+                <td><input id="linkNewLabel" type="text" class="fieldGroup__field w100" placeholder="Link Title"></td>
+                <td><input id="linkNewUrl" type="text" class="fieldGroup__field w100" placeholder="http://"></td>
+                <td class="actions">
+                  <button id="linkAddBtn" type="button" class="btn block w100"><i class="fas fa-save"></i> Save</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <!-- PAGE: SEARCH ################################################################### -->
+      <div id="page-search" class="page">
+        <h1>
+          Search
+          <small>Add and configure a search box with various search engines.</small>
+        </h1>
+        <fieldset>
+          <div class="row row--gap">
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label for="searchBox" class="fieldGroup__label">Search Box</label>
+                <div class="btnGroup btnGroup--justified">
+                  <input type="radio" name="searchBox" id="searchBoxOn" />
+                  <label for="searchBoxOn">On</label>
+                  <input type="radio" name="searchBox" id="searchBoxOff" />
+                  <label for="searchBoxOff">Off</label>
+                </div>
+              </div>
+            </div>
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label for="searchBoxEngine" class="fieldGroup__label"><help title="Choose a search engine to use with the search box.">Search Engine</help></label>
+                <select name="searchBoxEngine" id="searchBoxEngine" class="fieldGroup__field">
+                  <option value="">Google</option>
+                  <option value="">Bing</option>
+                  <option value="">Baidu</option>
+                  <option value="">Yahoo</option>
+                  <option value="">Ask.com</option>
+                  <option value="">DuckDuckGo</option>
+                  <option value="">Wolframalpha</option>
+                  <option value="">GitHub</option>
+                </select>
+              </div>
+            </div>
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label for="searchSize" class="fieldGroup__label"><help title="Change the size of the search box.">Size</help></label>
+                <div class="flex">
+                  <input type="range" id="searchSize" class="fieldGroup__field flex__auto" value="50" min="0" max="100">
+                  <input class="fieldGroup__field rangeLabel flex__set" value="50">
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    <!-- PAGE: MESSAGE ################################################################### -->
+      <div id="page-message" class="page">
+        <h1>
+          Custom Message
+          <small>Add your own personalized message on the New Tab page.</small>
+        </h1>
+        <fieldset>
+          <div class="row row--gap">
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label for="message" class="fieldGroup__label">Custom Message</label>
+                <div class="btnGroup btnGroup--justified">
+                  <input type="radio" name="message" id="messageOn" />
+                  <label for="messageOn">On</label>
+                  <input type="radio" name="message" id="messageOff" />
+                  <label for="messageOff">Off</label>
+                </div>
+              </div>
+            </div>
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label for="messageText" class="fieldGroup__label"><help title="Enter text for the custom message.">Message Text</help></label>
+                <input type="text" id="messageText" class="fieldGroup__field">
+              </div>
+            </div>
+            <div class="col6 colLg4">
+              <div class="fieldGroup">
+                <label for="messageSize" class="fieldGroup__label"><help title="Change the size of the message.">Size</help></label>
+                <div class="flex">
+                  <input type="range" id="messageSize" class="fieldGroup__field flex__auto" value="50" min="0" max="100">
+                  <input class="fieldGroup__field rangeLabel flex__set" value="50">
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    <!-- PAGE: EXTRA ################################################################### -->
+      <div id="page-extra" class="page">
+        <h1>
+          Extras
+          <small>Additional settings and configuration.</small>
+        </h1>
+        <fieldset>
+          <div class="row row--gap">
+            <div class="colAuto colMd6 colLg4">
+              <div class="fieldGroup">
+                <label for="lang" class="fieldGroup__label">Language</label>
+                <select name="lang" id="lang" class="fieldGroup__field">
+                  <option value="">English</option>
+                  <option value="">French</option>
+                  <option value="">German</option>
+                  <option value="">Russian</option>
+                  <option value="">Spanish</option>
+                  <option value="">Chinese (simplified)</option>
+                  <option value="">Chinese (traditional)</option>
+                </select>
+              </div>
+            </div>
+            <div class="colAuto colMd6 colLg4">
+              <div class="fieldGroup">
+                <label class="fieldGroup__label"><help title="Enables animation when tab is opened.">Animation</help></label>
+                <div class="btnGroup btnGroup--justified">
+                  <input type="radio" name="animation" id="animationOn" value="on">
+                  <label for="animationOn">On</label>
+                  <input type="radio" name="animation" id="animationOff" value="off">
+                  <label for="animationOff">Off</label>
+                </div>
+              </div>
+            </div>
+            <div class="colAuto colMd6 colLg4">
+              <div class="fieldGroup">
+                <label for="interfaceSize" class="fieldGroup__label"><help title="Change the overall size of objects.">Scale Display</help></label>
+                <div class="flex">
+                  <input id="interfaceSize" type="range" class="fieldGroup__field flex__auto" value="50" min="0" max="100">
+                  <input class="fieldGroup__field rangeLabel flex__set" value="50">
+                </div>
+              </div>
+            </div>
+            <div class="colAuto colMd6 colLg4">
+              <div class="fieldGroup">
+                <label class="fieldGroup__label"><help title="The settings button opens the settings page. Enable this to hide the icon. You can still open settings by clicking in the top-right corner of the page.">Settings Icon</help></label>
+                <div class="btnGroup btnGroup--justified">
+                  <input type="radio" name="settingsIcon" id="settingsIconOn" value="on">
+                  <label for="settingsIconOn">Show</label>
+                  <input type="radio" name="settingsIcon" id="settingsIconOff" value="off">
+                  <label for="settingsIconOff">Hide</label>
+                </div>
+              </div>
+            </div>
+            <div class="colAuto colMd6 colLg4">
+              <div class="fieldGroup">
+                <label for="tabTitle" class="fieldGroup__label"><help title="Choose what to display in the New Tab title (shows on the tab itself as well as in the browser's title bar).">Tab Title</help></label>
+                <select name="tabTitle" id="tabTitle" class="fieldGroup__field">
+                  <option value="">Time</option>
+                  <option value="">Date</option>
+                  <option value="">Time, then date</option>
+                  <option value="">Date, then time</option>
+                  <option value="">"New Tab"</option>
+                  <option value="">Custom Text</option>
+                </select>
+              </div>
+            </div>
+            <div class="colAuto colMd6 colLg4">
+              <div class="fieldGroup">
+                <label for="tabTitleCustom" class="fieldGroup__label"><help title='Enter text for the custom tab title. Only applies if "Custom Text" is selected for Tab Title.'>Custom Text for Tab Title</help></label>
+                <input type="text" id="tabTitleCustom" class="fieldGroup__field">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <hr>
+        <div class="fieldGroup">
+          <label for="reset" class="fieldGroup__label"><help data-tip="If you would like to reset all settings back to the default, you can click this button and then refresh the page. This will remove all of your settings.">Reset to Default</help></label>
+          <button type="button" class="btn">Reset</button>
+        </div>
+      </div>
+    <!-- PAGE: ABOUT ################################################################### -->
+      <div id="page-about" class="page">
+        <h1>
+          About
+          <small>Changelog, support, and more information about CaretTab.</small>
+        </h1>
+        <div class="row row--gap">
+          <div class="col12 colMd6">
+            <h2 class="mt0">What's new</h2>
+            <h3>Version 2.3.1 - November 29th, 2017</h3>
+            <ul class="changelog">
+              <li>Infinite Links: Now you can create an unlimited number of links!</li>
+              <li>Fixed bug that prevented links being clicked on Firefox for Linux/Mac</li>
+            </ul>
+          </div>
+          <div class="col12 colMd6">
+            <h2 class="mt0">Support</h2>
+            <p>If you need support or have a suggestion or other comment you can contact the developer, <a href="http://bluecaret.com">BlueCaret</a> on Twitter <a href="http://twitter.com/bluecaret">@BlueCaret</a> or view CaretTab on <a href="https://github.com/bluecaret/carettab">GitHub</a>.</p>
+            <h2>Keep CaretTab free, tip the developer</h2>
+            <div class="flex flex--middle mb">
+              <div class="flex__set">
+                <svg version="1.1" id="tipJar" class="pr" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  viewBox="0 0 382 467" xml:space="preserve">
+                  <path class="jar" d="M189.8,10c0,0,130.9,2.1,131.2,19.4s0,46.2,0,46.2s51,10.4,51,46.2s0,279.4,0,279.4S342.9,457,189.8,457
+                    S10,401.1,10,401.1s0-243.8,0-279.4s51-46.2,51-46.2s0.4-29.7,0-46.2S189.8,10,189.8,10z M192.2,432.7
+                    c116.7-0.3,155.5-38.9,155.5-38.9s-0.1-257.5,0-269.7s-24.3-24.3-24.3-24.3s-49,16.9-133.6,17s-131.2-17-131.2-17
+                    s-24,10.7-24.3,26.7s0,267.2,0,267.2S75.5,433,192.2,432.7z"/>
+                  <path class="heart" d="M191,212.6c-30.3-70.7-116.4-54.2-117,27.9C73.7,287.9,187.7,360.2,191.1,372c3.1-12.2,117.2-84.9,116.9-132
+                    C307.5,157.6,219.9,144.6,191,212.6z"/>
+                </svg>
+              </div>
+              <p class="flex__auto m0">If you find CaretTab useful, consider supporting it by leaving a tip in the tip jar. Tips will help keep this clear of ads and free! The developer highly appreciates it!</p>
+            </div>
+            <div class="row flex--middle">
+              <div class="col10">
+                <div class="row mt0 tipBtns">
+                  <div class="col3 flex mb0"><a href="#" class="btn">Generous<br>tip of<br><b>$1.00</b></a></div>
+                  <div class="col3 flex mb0"><a href="#" class="btn">Large<br>tip of<br><b>$3.00</b></a></div>
+                  <div class="col3 flex mb0"><a href="#" class="btn">Massive<br>tip of<br><b>$5.00</b></a></div>
+                  <div class="col3 flex mb0"><a href="#" class="btn">Anything<br>helps!<br><b>Other</b></a></div>
+                </div>
+              </div>
+              <div class="col2 center">
+                <small>Tips payed<br>via PayPal.<br><b>Thank you!</b></small>
+              </div>
+            </div>
+            <hr>
+            <p><a href="http://bluecaret.com/project/carettab">CaretTab</a> is designed and coded by <a href="http://jwh.design">JWH Design, LLC</a> (<a href="http://bluecaret.com">BlueCaret</a>) and is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+            <p>Disclaimer: CaretTab will not be liable for any issues that may arrise due to the accuracy of this extension. If you're late to work because the time shown was wrong, it's all on you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</aside>
+

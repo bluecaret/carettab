@@ -1,21 +1,23 @@
+$font-src: "assets/fonts";
+
 /* Exo 2 */
 @font-face {
   font-family: 'Exo 2';
   font-style: normal;
   font-weight: 300;
-  src: local('Exo 2 Extra Light'), local('Exo2-ExtraLight'), url(../assets/fonts/Exo2-ExtraLight.ttf) format('woff2');
+  src: local('Exo 2 Extra Light'), local('Exo2-ExtraLight'), url(#{$font-src}/Exo2-ExtraLight.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Exo 2';
   font-style: normal;
   font-weight: 400;
-  src: local('Exo 2'), local('Exo2-Regular'), url(../assets/fonts/Exo2-Regular.ttf) format('truetype');
+  src: local('Exo 2'), local('Exo2-Regular'), url(#{$font-src}/Exo2-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Exo 2';
   font-style: normal;
   font-weight: 700;
-  src: local('Exo 2 Bold'), local('Exo2-Bold'), url(../assets/fonts/Exo2-Bold.ttf) format('truetype');
+  src: local('Exo 2 Bold'), local('Exo2-Bold'), url(#{$font-src}/Exo2-Bold.ttf) format('truetype');
 }
 
 /* Quicksand */
@@ -23,19 +25,19 @@
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 300;
-  src: local('Quicksand Light'), local('Quicksand-Light'), url(../assets/fonts/Quicksand-Light.ttf) format('truetype');
+  src: local('Quicksand Light'), local('Quicksand-Light'), url(#{$font-src}/Quicksand-Light.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 400;
-  src: local('Quicksand'), local('Quicksand-Regular'), url(../assets/fonts/Quicksand-Regular.ttf) format('truetype');
+  src: local('Quicksand'), local('Quicksand-Regular'), url(#{$font-src}/Quicksand-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 700;
-  src: local('Quicksand Bold'), local('Quicksand-Bold'), url(../assets/fonts/Quicksand-Bold.ttf) format('truetype');
+  src: local('Quicksand Bold'), local('Quicksand-Bold'), url(#{$font-src}/Quicksand-Bold.ttf) format('truetype');
 }
 
 /* Amatic SC */
@@ -43,19 +45,19 @@
   font-family: 'Amatic SC';
   font-style: normal;
   font-weight: 300;
-  src: local('Amatic SC Light'), local('AmaticSC-Light'), url(../assets/fonts/AmaticSC-Regular.ttf) format('truetype');
+  src: local('Amatic SC Light'), local('AmaticSC-Light'), url(#{$font-src}/AmaticSC-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Amatic SC';
   font-style: normal;
   font-weight: 400;
-  src: local('Amatic SC'), local('AmaticSC-Regular'), url(../assets/fonts/AmaticSC-Regular.ttf) format('truetype');
+  src: local('Amatic SC'), local('AmaticSC-Regular'), url(#{$font-src}/AmaticSC-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Amatic SC';
   font-style: normal;
   font-weight: 700;
-  src: local('Amatic SC Bold'), local('AmaticSC-Bold'), url(../assets/fonts/AmaticSC-Regular.ttf) format('truetype');
+  src: local('Amatic SC Bold'), local('AmaticSC-Bold'), url(#{$font-src}/AmaticSC-Regular.ttf) format('truetype');
 }
 
 /* Anton */
@@ -63,19 +65,19 @@
   font-family: 'Anton';
   font-style: normal;
   font-weight: 300;
-  src: local('Anton Light'), local('Anton-Light'), url(../assets/fonts/Anton-Regular.ttf) format('truetype');
+  src: local('Anton Light'), local('Anton-Light'), url(#{$font-src}/Anton-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Anton';
   font-style: normal;
   font-weight: 400;
-  src: local('Anton'), local('Anton-Regular'), url(../assets/fonts/Anton-Regular.ttf) format('truetype');
+  src: local('Anton'), local('Anton-Regular'), url(#{$font-src}/Anton-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Anton';
   font-style: normal;
   font-weight: 700;
-  src: local('Anton Bold'), local('Anton-Bold'), url(../assets/fonts/Anton-Regular.ttf) format('truetype');
+  src: local('Anton Bold'), local('Anton-Bold'), url(#{$font-src}/Anton-Regular.ttf) format('truetype');
 }
 
 /* EB Garamond */
@@ -83,19 +85,19 @@
   font-family: 'EB Garamond';
   font-style: normal;
   font-weight: 300;
-  src: local('EB Garamond Light'), local('EBGaramond-Light'), url(../assets/fonts/EBGaramond-Regular.ttf) format('truetype');
+  src: local('EB Garamond Light'), local('EBGaramond-Light'), url(#{$font-src}/EBGaramond-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'EB Garamond';
   font-style: normal;
   font-weight: 400;
-  src: local('EB Garamond'), local('EBGaramond-Regular'), url(../assets/fonts/EBGaramond-Regular.ttf) format('truetype');
+  src: local('EB Garamond'), local('EBGaramond-Regular'), url(#{$font-src}/EBGaramond-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'EB Garamond';
   font-style: normal;
   font-weight: 700;
-  src: local('EB Garamond Bold'), local('EBGaramond-Bold'), url(../assets/fonts/EBGaramond-Regular.ttf) format('truetype');
+  src: local('EB Garamond Bold'), local('EBGaramond-Bold'), url(#{$font-src}/EBGaramond-Regular.ttf) format('truetype');
 }
 
 /* Lobster */
@@ -103,19 +105,19 @@
   font-family: 'Lobster';
   font-style: normal;
   font-weight: 300;
-  src: local('Lobster Light'), local('Lobster-Light'), url(../assets/fonts/Lobster-Regular.ttf) format('truetype');
+  src: local('Lobster Light'), local('Lobster-Light'), url(#{$font-src}/Lobster-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Lobster';
   font-style: normal;
   font-weight: 400;
-  src: local('Lobster'), local('Lobster-Regular'), url(../assets/fonts/Lobster-Regular.ttf) format('truetype');
+  src: local('Lobster'), local('Lobster-Regular'), url(#{$font-src}/Lobster-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Lobster';
   font-style: normal;
   font-weight: 700;
-  src: local('Lobster Bold'), local('Lobster-Bold'), url(../assets/fonts/Lobster-Regular.ttf) format('truetype');
+  src: local('Lobster Bold'), local('Lobster-Bold'), url(#{$font-src}/Lobster-Regular.ttf) format('truetype');
 }
 
 /* Monoton */
@@ -123,19 +125,19 @@
   font-family: 'Monoton';
   font-style: normal;
   font-weight: 300;
-  src: local('Monoton Light'), local('Monoton-Light'), url(../assets/fonts/Monoton-Regular.ttf) format('truetype');
+  src: local('Monoton Light'), local('Monoton-Light'), url(#{$font-src}/Monoton-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Monoton';
   font-style: normal;
   font-weight: 400;
-  src: local('Monoton'), local('Monoton-Regular'), url(../assets/fonts/Monoton-Regular.ttf) format('truetype');
+  src: local('Monoton'), local('Monoton-Regular'), url(#{$font-src}/Monoton-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Monoton';
   font-style: normal;
   font-weight: 700;
-  src: local('Monoton Bold'), local('Monoton-Bold'), url(../assets/fonts/Monoton-Regular.ttf) format('truetype');
+  src: local('Monoton Bold'), local('Monoton-Bold'), url(#{$font-src}/Monoton-Regular.ttf) format('truetype');
 }
 
 /* Press Start 2P */
@@ -143,19 +145,19 @@
   font-family: 'Press Start 2P';
   font-style: normal;
   font-weight: 300;
-  src: local('Press Start 2P Light'), local('PressStart2P-Light'), url(../assets/fonts/PressStart2P-Regular.ttf) format('truetype');
+  src: local('Press Start 2P Light'), local('PressStart2P-Light'), url(#{$font-src}/PressStart2P-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Press Start 2P';
   font-style: normal;
   font-weight: 400;
-  src: local('Press Start 2P'), local('PressStart2P-Regular'), url(../assets/fonts/PressStart2P-Regular.ttf) format('truetype');
+  src: local('Press Start 2P'), local('PressStart2P-Regular'), url(#{$font-src}/PressStart2P-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Press Start 2P';
   font-style: normal;
   font-weight: 700;
-  src: local('Press Start 2P Bold'), local('PressStart2P-Bold'), url(../assets/fonts/PressStart2P-Regular.ttf) format('truetype');
+  src: local('Press Start 2P Bold'), local('PressStart2P-Bold'), url(#{$font-src}/PressStart2P-Regular.ttf) format('truetype');
 }
 
 /* Special Elite */
@@ -163,17 +165,17 @@
   font-family: 'Special Elite';
   font-style: normal;
   font-weight: 300;
-  src: local('Special Elite Light'), local('SpecialElite-Light'), url(../assets/fonts/SpecialElite.ttf) format('truetype');
+  src: local('Special Elite Light'), local('SpecialElite-Light'), url(#{$font-src}/SpecialElite.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Special Elite';
   font-style: normal;
   font-weight: 400;
-  src: local('Special Elite'), local('SpecialElite-Regular'), url(../assets/fonts/SpecialElite.ttf) format('truetype');
+  src: local('Special Elite'), local('SpecialElite-Regular'), url(#{$font-src}/SpecialElite.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Special Elite';
   font-style: normal;
   font-weight: 700;
-  src: local('Special Elite Bold'), local('SpecialElite-Bold'), url(../assets/fonts/SpecialElite.ttf) format('truetype');
+  src: local('Special Elite Bold'), local('SpecialElite-Bold'), url(#{$font-src}/SpecialElite.ttf) format('truetype');
 }

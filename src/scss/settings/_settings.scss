@@ -1,0 +1,33 @@
+/* Settings
+   ========================================================================== */
+
+#settings {
+  position: absolute;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  background: $settingsBg;
+  font-size: 1.4rem;
+}
+
+.settings__wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@import "_table";
+@import "_btn";
+@import "_forms";
+@import "_nav";
+@import "_page";
+@import "_tip";
+@import "_help";
+@import "_notice";
+@import "_dashbox";
+@import "_time";
+@import "_design";
+@import "_colors";
+@import "_about";

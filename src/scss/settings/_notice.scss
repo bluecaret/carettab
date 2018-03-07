@@ -1,0 +1,58 @@
+.notice {
+  position: relative;
+  width: 100%;
+  margin: 0 0 4rem 0;
+  padding: 0;
+  border: 0;
+  background-color: $blue;
+  color: white;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: .5rem;
+  transition: opacity .2s;
+  &.notice--success {
+    background-color: $lightgreen;
+    color: black;
+  }
+  &.notice--danger {
+    background-color: rgb(223, 64, 1);
+    color: white;
+  }
+  &.notice--warning {
+    background-color: rgb(248, 212, 112);
+    color: black;
+  }
+  > div:first-child {
+    flex: 0 0 auto;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    background: rgba(0,0,0,.1);
+  }
+  > div:nth-child(2n) {
+    flex: 1 1 auto;
+    font-size: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1.5rem;
+  }
+  > div:nth-child(3n) {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1.5rem;
+  }
+}
+
+a.notice,
+button.notice {
+  cursor: pointer;
+  &:hover {
+    opacity: .9;
+  }
+}

@@ -1,0 +1,30 @@
+.table {
+  margin: 2rem (-$pagePadding);
+  padding: 0 $pagePadding;
+  table {
+    width: 100%;
+    border-spacing: 0rem;
+    border-collapse: collapse;
+    tr {
+      &:nth-child(odd) td {
+        background: darken($settingsBg, 2%);
+      }
+    }
+    th {
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-align: left;
+      padding: .5rem;
+    }
+    td {
+      font-weight: 400;
+      font-size: 1.4rem;
+      text-align: left;
+      padding: .5rem;
+    }
+    .actions {
+      width: 1%;
+      white-space: nowrap;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+/* Settings - Page
+   ========================================================================== */
+
+#settings section {
+  flex: 1 1 100%;
+  width: 100%;
+  padding: 0 $pagePadding 2rem;
+}
+
+#settings .page {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+.page {
+  h1, h2, h3, h4, h5, h6 {
+    margin: 2rem 0;
+    font-weight: 400;
+  }
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    min-height: $navHeaderHeight;
+    margin: 0 (-$pagePadding) 2rem;
+    padding: 0 $pagePadding;
+    border-bottom: .1rem solid darken($settingsBg, 10%);
+    font-size: 2.4rem;
+    line-height: 3rem;
+    small {
+      display: block;
+      font-size: 70%;
+    }
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.6rem;
+  }
+  small {
+    display: block;
+    font-size: 1.2rem;
+  }
+}

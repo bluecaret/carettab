@@ -1,0 +1,35 @@
+html {
+  font-size: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background: #fff;
+  font-family: $settingsFont;
+  font-size: 1.6rem;
+  color: #000;
+  overflow: hidden;
+}
+
+p {
+  line-height: 1.4;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: $settingsFont;
+}
+
+hr {
+  margin: 2rem (-$pagePadding);
+  padding: 0 $pagePadding;
+  border: 0;
+  border-top: .1rem solid darken($settingsBg, 10%);
+}
+
+img {
+  vertical-align: middle;
+}

@@ -1,0 +1,288 @@
+/* Settings - Forms
+   ========================================================================== */
+
+fieldset {
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+.fieldGroup {
+  display: block;
+  margin-bottom: 2rem;
+  small {
+    display: block;
+    margin: .5rem 0 0;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+}
+
+.fieldGroup__label {
+  display: block;
+  width: 100%;
+  margin-bottom: .5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.5;
+  small {
+    margin: 0 0 .5rem;
+  }
+}
+
+.fieldGroup__field {
+  width: 100%;
+  padding: $fieldPaddingY $fieldPaddingX;
+  line-height: $fieldLineHeight;
+  border: .1rem solid $gray;
+  background: white;
+  border-radius: .2rem;
+  &:focus {
+    border-color: $blue;
+    outline: 0;
+  }
+}
+select.fieldGroup__field {
+  height: $fieldHeight;
+}
+
+.fieldGroup__field:disabled,
+output.fieldGroup__field {
+  color: $gray;
+  border-color: lighten($gray, 25%);
+  background: $settingsBg;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  height: ($fieldHeight + .2rem);
+  padding: 0 $fieldPaddingX;
+  line-height: $fieldLineHeight;
+  background: transparent;
+}
+
+// CHECKBOX
+.toggle input[type="checkbox"] { 
+  display: none; 
+}
+.toggle input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  padding-left: 3rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  user-select: none;
+  line-height: $fieldHeight;
+}
+.toggle input[type="checkbox"] + label:last-child { 
+  margin-bottom: 0; 
+}
+.toggle input[type="checkbox"] + label:before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  border: .1rem solid $gray;
+  border-radius: .2rem;
+  position: absolute;
+  left: 0;
+  top: .4rem;
+  transition: all .12s;
+}
+.toggle input[type="checkbox"]:checked + label:before {
+  border-color: $green;
+}
+.toggle input[type="checkbox"] + label:after {
+  content: '';
+  display: block;
+  width: .1rem;
+  height: .1rem;
+  position: absolute;
+  top: 1.2rem;
+  left: 1rem;
+  opacity: 0;
+  border: 0 solid $green;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transition: all .2s, border-color .08s;
+}
+.toggle input[type="checkbox"]:checked + label:after {
+  width: .3rem;
+  height: .9rem;
+  top: .4rem;
+  left: .7rem;
+  opacity: 1;
+  border-width: .3rem;
+  border-radius: 0;
+  transform: rotate(40deg);
+}
+
+// RADIO
+.toggle input[type="radio"] { 
+  display: none; 
+}
+.toggle input[type="radio"] + label {
+  display: block;
+  position: relative;
+  padding-left: 3rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  user-select: none;
+  line-height: $fieldHeight;
+}
+.toggle input[type="radio"] + label:last-child { 
+  margin-bottom: 0; 
+}
+.toggle input[type="radio"] + label:before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  border: .1rem solid $gray;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: .4rem;
+  transition: all .12s, border-color .08s;
+}
+.toggle input[type="radio"]:checked + label:before {
+  border-color: $green;
+}
+.toggle input[type="radio"] + label:after {
+  content: '';
+  display: block;
+  width: .1rem;
+  height: .1rem;
+  position: absolute;
+  top: 1.2rem;
+  left: 1rem;
+  opacity: 0;
+  background: $green;
+  border-radius: 50%;
+  transition: all .2s, border-color .08s;
+}
+.toggle input[type="radio"]:checked + label:after {
+  width: 1.2rem;
+  height: 1.2rem;
+  top: .9rem;
+  left: .5rem;
+  opacity: 1;
+}
+
+// BTN GROUP
+.btnGroup {
+  display: flex;
+  width: 100%;
+}
+.btnGroup .btn {
+  margin-right: .1rem;
+}
+.btnGroup input[type="radio"],
+.btnGroup input[type="checkbox"] { 
+  display: none; 
+}
+.btnGroup input[type="radio"] + label,
+.btnGroup input[type="checkbox"] + label {
+  @extend .btn;
+  @extend .btn--toggle;
+  text-align: center;
+  margin-right: .1rem;
+}
+.btnGroup.btnGroup--justified .btn,
+.btnGroup.btnGroup--justified input[type="radio"] + label,
+.btnGroup.btnGroup--justified input[type="checkbox"] + label {
+  flex: 1 1 100%;
+}
+.btnGroup input[type="radio"]:checked + label,
+.btnGroup input[type="checkbox"]:checked + label {
+  background: $lightgreen;
+  &:hover {
+    background: darken($lightgreen, 5%);
+  }
+}
+.btnGroup.flex--wrap label {
+  margin-bottom: .1rem;
+}
+
+// RANGE
+input[type="range"].fieldGroup__field {
+  -webkit-appearance: none;
+  width: 100%;
+  height: ($fieldHeight - .3rem);
+  background: transparent;
+  border-color: transparent;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  
+  &::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  
+  &:focus {
+    outline: none;
+  }
+  
+  &::-moz-focus-outer {
+    border: 0;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: .5rem solid $settingsBg;
+    height: $fieldHeight;
+    width: $fieldHeight;
+    border-radius: 50%;
+    background: $blue;
+    cursor: pointer;
+    margin-top: -11px;
+  }
+
+  &::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 1rem;
+    cursor: pointer;
+    background: lighten($gray, 35%);
+    border-radius: .5rem;
+    border: 0;
+  }
+}
+.rangeLabel {
+  width: 4rem;
+  text-align: center;
+  margin-left: 1rem;
+}
+
+// Color picker
+input[type="color"] {
+  -webkit-appearance: none;
+  height: $fieldHeight;
+  border: none;
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: .1rem solid rgba(255, 255, 255, 0.1);
+}
+
+.colorLabel {
+  width: 9rem;
+  text-align: center;
+  margin-left: 1rem;
+}

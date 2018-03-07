@@ -1,0 +1,116 @@
+/* Settings - Nav
+   ========================================================================== */
+
+nav {
+  flex: 0 0 auto;
+  // background: #1f1d1c;
+  width: $navWidth;
+  header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 0 0 auto;
+    height: $navHeaderHeight;
+    padding: 2rem;
+    // background: linear-gradient(to right, darken($blue,5%) 0%, lighten($blue,10%) 100%);
+    font-size: 2.6rem;
+    border-bottom: .1rem solid darken($settingsBg, 10%);
+    color: $blue;
+    svg {
+      width: auto;
+      height: 3.5rem;
+      margin-right: 1.5rem;
+      // filter: drop-shadow( 1px 1px 1px rgba(0,0,0,.4) );
+      .st0 {
+        fill: $blue;
+      }
+      .st1 {
+        fill: $blue;
+      }
+    }
+    span {
+      // text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+    }
+  }
+  ul {
+    flex: 1 1 100%;
+    margin: 1.5rem 0;
+    padding: 0;
+    list-style: none;
+    li {
+      button.pageLink {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 3.5rem;
+        padding: 0 2.2rem;
+        background: transparent;
+        border: 0;
+        font-size: 1.4rem;
+        font-weight: 400;
+        text-decoration: none;
+        color: $gray;
+        cursor: pointer;
+        i {
+          margin-right: 1.5rem;
+          font-size: 1.6rem;
+          font-style: normal;
+        }
+        svg {
+          width: 1.6rem;
+          height: 1.6rem;
+          .st0,
+          .st1 {
+            fill: $gray;
+          }
+        }
+        &:focus {
+          outline: none;
+        }
+        &:focus,
+        &:hover {
+          color: black;
+          svg {
+            .st0,
+            .st1 {
+              fill: black;
+            }
+          }
+        }
+        &.active {
+          position: relative;
+          color: $blue;
+          font-weight: 700;
+          svg {
+            .st0,
+            .st1 {
+              fill: $blue;
+            }
+          }
+          &:focus,
+          &:hover {
+            color: darken($blue, 20%);
+            svg {
+              .st0,
+              .st1 {
+                fill: darken($blue, 20%);
+              }
+            }
+          }
+          &:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: calc(50% - .8rem);
+            width: 0; 
+            height: 0; 
+            border-top: .8rem solid transparent;
+            border-bottom: .8rem solid transparent; 
+            border-right: .5rem solid $settingsBg; 
+          }
+        }
+      }
+    }
+  }
+}
+

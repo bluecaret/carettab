@@ -1,0 +1,38 @@
+.changelog {
+  padding: 0 0 0 3rem;
+  list-style: none;
+  li {
+    position: relative;
+    padding: 0 0px 1rem 0px;
+    line-height: 1.4;
+    &:before {
+      content: '\2714';
+      position: absolute;
+      top: 0;
+      left: -2rem;
+      color: #5CB85C;
+    }
+  }
+}
+
+#tipJar {
+  width: 5rem;
+  height: auto;
+  .jar {
+    fill: $green;
+  }
+  .heart {
+    fill: $green;
+  }
+}
+
+.tipBtns {
+  .btn {
+    display: block;
+    width: 100%;
+    padding: .3rem .2rem;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    text-align: center;
+  }
+}

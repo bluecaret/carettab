@@ -1,43 +1,39 @@
 {
   "name": "carettab",
-  "version": "2.3.1",
-  "description": "CaretTab: New Tab Clock and Date - A simplistic New Tab page extension with options for displaying time, date, search, favorite links, and more!",
-  "main": "src/app.js",
-  "scripts": {
-    "scss": "node-sass --output-style compressed -o dist/css src/scss --source-map true --source-map-embed true",
-    "lint": "eslint src/js",
-    "uglify": "mkdirp dist/js && uglifyjs src/js/app.js src/js/links.js src/js/install_status.js src/js/load.js src/js/set_default.js src/js/actions.js src/js/functions.js src/js/run.js -c -m --output dist/js/app.min.js --source-map url=inline",
-    "copy": "cp src/carettab.htm dist/ && cp -R src/assets/ dist/assets/ && cp -R src/js/vendor dist/js/vendor && cp -R src/_locales dist/_locales && cp src/js/update.js dist/js/update.js",
-    "copy:chrome": "npm run copy && cp src/manifest.json dist/manifest.json",
-    "copy:firefox": "npm run copy && cp src/ffmanifest.json dist/manifest.json",
-    "zip:chrome": "rimraf carettab-chrome.zip && bestzip carettab-chrome.zip dist/*",
-    "zip:firefox": "rimraf carettab-firefox.zip && bestzip carettab-firefox.zip dist/*",
-    "build:chrome": "rimraf dist && npm run scss && npm run uglify && npm run copy:chrome && npm run zip:chrome",
-    "build:firefox": "rimraf dist && npm run scss && npm run uglify && npm run copy:firefox && npm run zip:firefox",
-    "watch:html": "onchange \"src/*.htm\" -v -- cp src/carettab.htm dist/",
-    "watch:css": "onchange \"src/scss/*.scss\" -- npm run scss",
-    "watch:js": "onchange \"src/js/*.js\" -- npm run uglify",
-    "start": "rimraf dist && npm run scss && npm run uglify && npm run copy:chrome && parallelshell \"npm run watch:css\" \"npm run watch:js\" \"npm run watch:html\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bluecaret/carettab.git"
-  },
-  "author": "BlueCaret <john@jwh.design>",
+  "version": "3.0.0",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bluecaret/carettab/issues"
+  "scripts": {
+    "ng": "ng",
+    "start": "ng build --watch",
+    "build": "ng build --prod",
+    "build:prod": "ng build --aot --prod --sourcemap=false --output-hashing=none",
+    "build:ext": "web-ext build --source-dir=dist --artifacts-dir=.",
+    "lint": "ng lint",
+    "lint:webext": "web-ext lint --source-dir ./dist"
   },
-  "homepage": "https://github.com/bluecaret/carettab#readme",
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^5.2.0",
+    "@angular/common": "^5.2.0",
+    "@angular/compiler": "^5.2.0",
+    "@angular/core": "^5.2.0",
+    "@angular/forms": "^5.2.0",
+    "@angular/http": "^5.2.0",
+    "@angular/platform-browser": "^5.2.0",
+    "@angular/platform-browser-dynamic": "^5.2.0",
+    "@angular/router": "^5.2.0",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.5.6",
+    "zone.js": "^0.8.19"
+  },
   "devDependencies": {
-    "bestzip": "^1.1.4",
-    "eslint": "^4.8.0",
-    "mkdirp": "^0.5.1",
-    "node-sass": "^4.5.3",
-    "onchange": "^3.2.1",
-    "parallelshell": "^3.0.1",
-    "rimraf": "^2.6.2",
-    "uglify-js": "^3.1.3"
-  },
-  "dependencies": {}
+    "@angular/cli": "~1.7.2",
+    "@angular/compiler-cli": "^5.2.0",
+    "@angular/language-service": "^5.2.0",
+    "@types/node": "~6.0.60",
+    "codelyzer": "^4.0.1",
+    "ts-node": "~4.1.0",
+    "tslint": "~5.9.1",
+    "typescript": "~2.5.3"
+  }
 }

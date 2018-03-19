@@ -1,24 +1,47 @@
 /* Settings
    ========================================================================== */
 
-#settings {
+app-settings {
   position: absolute;
   z-index: 2;
+  display: flex;
   width: 100vw;
   height: 100vh;
   overflow-y: scroll;
-  background: $settingsBg;
+  background: $bg;
   font-size: 1.4rem;
+  color: #ddd;
+  a {
+    color: $blue;
+    &:hover {
+      color: lighten($blue, 10%);
+    }
+  }
+  .close {
+    position: fixed;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 1rem;
+    right: 3rem;
+    background: $bg-alt;
+    border: 0;
+    color: #ededed;
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.6rem;
+    transition: all .3s;
+    cursor: pointer;
+    &:hover, &:focus {
+      background: $blue;
+    }
+  }
 }
 
-.settings__wrapper {
-  display: flex;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
+@import "_aside";
 @import "_table";
+@import "_bookmarks";
 @import "_btn";
 @import "_forms";
 @import "_nav";

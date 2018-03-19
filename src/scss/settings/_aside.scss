@@ -1,0 +1,27 @@
+app-settings {
+  aside {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 2rem;
+    bottom: 0;
+    margin-left: auto;
+    width: $asideWidth;
+    border-left: .2rem dashed lighten($bg, 5%);
+    padding: 5.5rem 1rem 2rem 1rem;
+    h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin: 3rem 0 .5rem;
+    }
+  }
+
+  .previewLabel {
+    position: absolute;
+    right: 1rem;
+    bottom: $asidePreviewSpacing;
+    width: ($settingsOpenScale * 100) + vw;
+    color: lighten($bg, 20%);
+    margin: 0 0 2rem 0;
+  }
+}

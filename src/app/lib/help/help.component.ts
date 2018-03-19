@@ -1,13 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'help',
+  selector: 'app-help',
   template: `
-    <span [title]="title">
-      <ng-content></ng-content>
-    </span>
+    <ng-content></ng-content>
   `,
 })
 export class HelpComponent {
-  @Input() title;
 }

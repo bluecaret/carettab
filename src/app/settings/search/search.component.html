@@ -1,0 +1,43 @@
+<h1>
+  Search
+  <small>Add and configure a search box with various search engines.</small>
+</h1>
+<fieldset>
+  <div class="row row--gap">
+    <div class="col6 colLg4">
+      <div class="fieldGroup">
+        <label for="searchBox" class="fieldGroup__label">Search Box</label>
+        <div class="btnGroup btnGroup--justified">
+          <input type="radio" name="searchBox" id="searchBoxOn" />
+          <label for="searchBoxOn">On</label>
+          <input type="radio" name="searchBox" id="searchBoxOff" />
+          <label for="searchBoxOff">Off</label>
+        </div>
+      </div>
+    </div>
+    <div class="col6 colLg4">
+      <div class="fieldGroup">
+        <label for="searchBoxEngine" class="fieldGroup__label"><app-help title="Choose a search engine to use with the search box.">Search Engine</app-help></label>
+        <select name="searchBoxEngine" id="searchBoxEngine" class="fieldGroup__field">
+          <option value="">Google</option>
+          <option value="">Bing</option>
+          <option value="">Baidu</option>
+          <option value="">Yahoo</option>
+          <option value="">Ask.com</option>
+          <option value="">DuckDuckGo</option>
+          <option value="">Wolframalpha</option>
+          <option value="">GitHub</option>
+        </select>
+      </div>
+    </div>
+    <div class="col6 colLg4">
+      <div class="fieldGroup">
+        <label for="searchSize" class="fieldGroup__label"><app-help title="Change the size of the search box.">Size</app-help></label>
+        <div class="flex">
+          <input type="range" id="searchSize" class="fieldGroup__field flex__auto" value="50" min="0" max="100">
+          <input class="fieldGroup__field rangeLabel flex__set" value="50">
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>

@@ -1,0 +1,94 @@
+<h1>
+  Bookmarks
+  <small>Add your own personalized links to the New Tab page.</small>
+</h1>
+<fieldset>
+  <div class="row row--gap">
+    <div class="col6 colLg4">
+      <div class="fieldGroup">
+        <label for="type" class="fieldGroup__label">
+          <app-help title="Choose between custom quick links, and the bookmarks you have saved in the browser.">Type</app-help>
+        </label>
+        <div class="btnGroup btnGroup--justified">
+          <input type="radio" name="type" id="btngroup1" />
+          <label for="btngroup1">Quick Links</label>
+          <input type="radio" name="type" id="btngroup2" />
+          <label for="btngroup2">Bookmarks</label>
+        </div>
+      </div>
+    </div>
+    <div class="col6 colLg4">
+      <div class="fieldGroup">
+        <label class="fieldGroup__label">
+          Text Size
+        </label>
+        <div class="flex">
+          <input type="range" class="fieldGroup__field flex__auto" value="50" min="0" max="100">
+          <input class="fieldGroup__field rangeLabel flex__set" value="50">
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>
+<hr class="mt0">
+<form #newLink="ngForm" novalidate>
+  <h2>Add Link</h2>
+  <fieldset>
+    <div class="row">
+      <div class="col4 colLg5">
+        <div class="fieldGroup">
+          <label for="type" class="fieldGroup__label">
+            Link Label
+          </label>
+          <input id="newLabel" name="label" [(ngModel)]="label" type="text" class="fieldGroup__field" placeholder="Link Title">
+        </div>
+      </div>
+      <div class="col5 colLg5">
+        <div class="fieldGroup">
+          <label class="fieldGroup__label">
+            Link URL
+          </label>
+          <input id="newUrl" name="url" [(ngModel)]="url" type="text" class="fieldGroup__field w100" placeholder="http://">
+        </div>
+      </div>
+      <div class="col3 colLg2">
+        <div class="fieldGroup">
+          <button id="linkAddBtn" type="button" class="btn block w100" (click)="addLink(newLink, newLink.valid)"><i class="fas fa-save"></i> Save</button>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>
+<h2>Quick Links</h2>
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Link Label</th>
+        <th>Link URL</th>
+        <th class="actions">Actions</th>
+      </tr>
+    </thead>
+    <tbody id="sLinkRows">
+      <tr *ngFor="let link of links; let i = index" [id]="'link-'+i">
+        <td>
+          <input *ngIf="!ifEdit(i)" disabled="disabled" value="{{link.label}}" type="text" class="fieldGroup__field w100 bookmarks-field">
+          <input *ngIf="ifEdit(i)" [id]="'linkLabel-'+i" name="label" [(ngModel)]="link.label" type="text" class="fieldGroup__field w100 bookmarks-field" placeholder="Link Title">
+        </td>
+        <td>
+          <input *ngIf="!ifEdit(i)" disabled="disabled" value="{{link.url}}" type="text" class="fieldGroup__field w100 bookmarks-field">
+          <input *ngIf="ifEdit(i)" [id]="'linkUrl-'+i" name="url" [(ngModel)]="link.url" type="text" class="fieldGroup__field w100 bookmarks-field" placeholder="http://">
+        </td>
+        <td class="actions">
+          <button type="button" [id]="'linkEdit-'+i" class="sLinkEdit btn btn--border" (click)="toggleEdit(i)" [title]="ifEdit(i) ? 'Save' : 'Edit'"><i class="fas" [ngClass]="ifEdit(i) ? 'fa-save' : 'fa-pencil-alt'"></i></button>
+          <button type="button" [id]="'linkRemove-'+i" class="sLinkRemove btn btn--border" (click)="deleteLink(i)"><i class="fas fa-trash-alt"></i></button>
+        </td>
+      </tr>
+      <tr *ngIf="links.length <= 0">
+        <td colspan="3">
+          No links. Add a new link in the form above.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

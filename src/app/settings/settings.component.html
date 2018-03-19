@@ -1,0 +1,57 @@
+<button type="button" class="close" (click)="toggleSettings()"><i class="fas fa-times"></i></button>
+<nav>
+  <header>
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+      <rect x="24" y="80" class="st0" width="16" height="16"/>
+      <rect x="40" y="64" class="st0" width="16" height="16"/>
+      <rect x="56" y="48" class="st0" width="16" height="16"/>
+      <rect x="72" y="64" class="st0" width="16" height="16"/>
+      <rect x="88" y="80" class="st0" width="16" height="16"/>
+      <path class="st1" d="M123,20V0H88v20h-9V0H44v20h-9V10V0H25H10H0v10v10v10v20v78h128V20H123z M118,118H10V10h15v20h19h35h9h30V118z"/>
+    </svg>
+    <span>CaretTab</span>
+  </header>
+  <ul>
+    <li><button type="button" class="pageLink" [ngClass]="{'active': page == 'dashboard'}" (click)="page = 'dashboard'"><i class="fas fa-fw fa-sliders-h"></i>Dashboard</button></li>
+    <li><button type="button" class="pageLink" [ngClass]="{'active': page == 'design'}" (click)="page = 'design'"><i class="fas fa-fw fa-paint-brush"></i>Design</button></li>
+    <li><button type="button" class="pageLink" [ngClass]="{'active': page == 'time'}" (click)="page = 'time'"><i class="fas fa-fw fa-clock"></i>Time</button></li>
+    <li><button type="button" class="pageLink" [ngClass]="{'active': page == 'date'}" (click)="page = 'date'"><i class="fas fa-fw fa-calendar-alt"></i>Date</button></li>
+    <li><button type="button" class="pageLink" [ngClass]="{'active': page == 'bookmarks'}" (click)="page = 'bookmarks'"><i class="fas fa-fw fa-link"></i>Bookmarks</button></li>
+    <li><button type="button" class="pageLink" [ngClass]="{'active': page == 'search'}" (click)="page = 'search'"><i class="fas fa-fw fa-search"></i>Search Box</button></li>
+    <li><button type="button" class="pageLink" [ngClass]="{'active': page == 'message'}" (click)="page = 'message'"><i class="fas fa-fw fa-quote-left"></i>Custom Message</button></li>
+    <li><button type="button" class="pageLink" [ngClass]="{'active': page == 'extra'}" (click)="page = 'extra'"><i class="fas fa-fw fa-clone"></i>Extras</button></li>
+    <li>
+      <button type="button" class="pageLink" [ngClass]="{'active': page == 'about'}" (click)="page = 'about'">
+        <i class="fa-fw">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+            <rect x="24" y="80" class="st0" width="16" height="16"/>
+            <rect x="40" y="64" class="st0" width="16" height="16"/>
+            <rect x="56" y="48" class="st0" width="16" height="16"/>
+            <rect x="72" y="64" class="st0" width="16" height="16"/>
+            <rect x="88" y="80" class="st0" width="16" height="16"/>
+            <path class="st1" d="M123,20V0H88v20h-9V0H44v20h-9V10V0H25H10H0v10v10v10v20v78h128V20H123z M118,118H10V10h15v20h19h35h9h30V118z"/>
+          </svg>
+        </i>
+        About
+      </button>
+    </li>
+  </ul>
+</nav>
+<section>
+  <app-s-dashboard *ngIf="page=='dashboard'"></app-s-dashboard>
+  <app-s-design *ngIf="page=='design'"></app-s-design>
+  <app-s-time *ngIf="page=='time'"></app-s-time>
+  <app-s-date *ngIf="page=='date'"></app-s-date>
+  <app-s-bookmarks *ngIf="page=='bookmarks'"></app-s-bookmarks>
+  <app-s-search *ngIf="page=='search'"></app-s-search>
+  <app-s-message *ngIf="page=='message'"></app-s-message>
+  <app-s-extra *ngIf="page=='extra'"></app-s-extra>
+  <app-s-about *ngIf="page=='about'"></app-s-about>
+</section>
+<aside>
+  <h3>Did you know?</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, deleniti.</p>
+  <h3>Enjoying CaretTab?</h3>
+  <p>Leave a review or tip the developer.</p>
+  <h3 class="previewLabel">Preview</h3>
+</aside>

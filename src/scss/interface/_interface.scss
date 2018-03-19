@@ -1,11 +1,11 @@
 /* Interface
    ========================================================================== */
 
-#interface {
-  position: absolute;
+app-interface {
+  position: fixed;
+  z-index: 100;
   top: 0;
   left: 0;
-  z-index: 100;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -15,17 +15,18 @@
   justify-content: center;
   font-size: 1vw;
   background: #fff;
-  transform-origin: 100% 0%;
+  transform-origin: 100% 100%;
   transition: all 0.3s;
-  box-shadow: 0 0 10rem 0 rgba(0,0,0,.3);
+  box-shadow: 0 0 10rem 0 rgba(0,0,0,.7);
   transform: translate(0, 0) scale(1);
   &.interface--settingsOpen {
-    transform: translate(-2.5rem, 1rem) scale($settingsOpenScale);
+    transform: translate($settingsOpenPosition) scale($settingsOpenScale);
   }
 }
 
 #toggleSettings {
   position: absolute;
+  z-index: 500;
   top: 1vw;
   right: 1vw;
   padding: 1rem;
@@ -46,7 +47,6 @@
     right: 0;
     width: 100%;
     height: 100%;
-    z-index: 101;
     background-color: transparent;
     span {
       display: none;

@@ -1,0 +1,34 @@
+<h1>
+  Custom Message
+  <small>Add your own personalized message on the New Tab page.</small>
+</h1>
+<fieldset>
+  <div class="row row--gap">
+    <div class="col6 colLg4">
+      <div class="fieldGroup">
+        <label for="message" class="fieldGroup__label">Custom Message</label>
+        <div class="btnGroup btnGroup--justified">
+          <input type="radio" name="message" id="messageOn" />
+          <label for="messageOn">On</label>
+          <input type="radio" name="message" id="messageOff" />
+          <label for="messageOff">Off</label>
+        </div>
+      </div>
+    </div>
+    <div class="col6 colLg4">
+      <div class="fieldGroup">
+        <label for="messageText" class="fieldGroup__label"><app-help title="Enter text for the custom message.">Message Text</app-help></label>
+        <input type="text" id="messageText" class="fieldGroup__field">
+      </div>
+    </div>
+    <div class="col6 colLg4">
+      <div class="fieldGroup">
+        <label for="messageSize" class="fieldGroup__label"><app-help title="Change the size of the message.">Size</app-help></label>
+        <div class="flex">
+          <input type="range" id="messageSize" class="fieldGroup__field flex__auto" value="50" min="0" max="100">
+          <input class="fieldGroup__field rangeLabel flex__set" value="50">
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>

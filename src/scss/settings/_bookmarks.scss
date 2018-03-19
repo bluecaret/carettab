@@ -1,0 +1,8 @@
+.bookmarks-field.fieldGroup__field {
+  &:disabled {
+    border: transparent;
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

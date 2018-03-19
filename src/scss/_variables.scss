@@ -1,22 +1,28 @@
+$bg: #34405f;
+$bg-alt: #1b2b3f;
 $blue: #3FA9F5;
 $green: #5CB85C;
 $lightgreen: rgb(147, 209, 147);
 $gray: #778888;
 $settingsBg: #fafafa;
 
-$settingsOpenScale: .12;
+$settingsOpenScale: .16;
+$asidePreviewSpacing: (100 * $settingsOpenScale) + vh;
+$settingsOpenPosition: -3rem, -1.5rem;
 $preview: ($settingsOpenScale * 100);
-$settingsFont: 'Quicksand', 'Times New Roman', sans-serif;
-$navHeaderHeight: calc(#{$preview + 0vh} + 4rem);
-$navWidth: 23rem;
+$settingsFont: 'Open Sans', sans-serif;
+$navWidth: 25rem;
+$navWidthSm: 18rem;
+$calcAsideWidth: ($settingsOpenScale * 100) + vw;
+$asideWidth: calc(#{$calcAsideWidth} + 2.5rem);
 $pagePadding: 2rem;
 
 // Breakpoints
-// $xs: 320px;
-// $sm: 425px;
-// $md: 768px;
-// $lg: 1024px;
-// $xl: 1200px;
+$xs: 320px;
+$sm: 425px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1200px;
 
 $sm: 768px;
 $md: 1024px;

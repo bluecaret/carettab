@@ -8,11 +8,27 @@ html {
 
 body {
   position: relative;
-  background: #fff;
+  background: $bg;
   font-family: $settingsFont;
   font-size: 1.6rem;
   color: #000;
   overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 1.5rem;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: lighten($bg, 15%); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: lighten($bg, 20%); 
+}
+
+::-webkit-scrollbar-track {
+  background: $bg;
 }
 
 p {
@@ -24,10 +40,10 @@ button, input, optgroup, select, textarea {
 }
 
 hr {
-  margin: 2rem (-$pagePadding);
+  margin: 2rem 0;
   padding: 0 $pagePadding;
   border: 0;
-  border-top: .1rem solid darken($settingsBg, 10%);
+  border-top: .1rem solid $bg-alt;
 }
 
 img {

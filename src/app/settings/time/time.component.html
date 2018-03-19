@@ -1,0 +1,214 @@
+<h1>
+  Time
+  <small>Add multiple clocks with multiple timezones.</small>
+</h1>
+<article class="bgGrayL p mb">
+  <fieldset class="p">
+    <div class="floatRight">
+      <div class="btnGroup flex--end">
+        <input type="checkbox" id="clockPrimaryEnable" checked="checked">
+        <label for="clockPrimaryEnable" title="Enable Primary Clock"><i class="fas fa-check"></i></label>
+      </div>
+    </div>
+    <h2 class="mt0">
+      Primary Clock 
+    </h2>
+    <div class="row row--gap">
+      <div class="col12 colMd4">
+        <div class="fieldGroup">
+          <label class="fieldGroup__label"><app-help title="Choose a timezone for the clock (the default is your local timezone).">Timezone</app-help></label>
+          <select name="clock1Timezone" id="clock1Timezone" class="fieldGroup__field">
+            <option value=""></option>
+          </select>
+        </div>
+        <div class="fieldGroup">
+          <label for="clock1Label" class="fieldGroup__label">Clock Label</label>
+          <input type="text" class="fieldGroup__field" id="clock1Label" placeholder="Enter a label for this clock.">
+        </div>
+        <div class="fieldGroup">
+          <label for="clockSize" class="fieldGroup__label"><app-help title="Change the size of the clock.">Size</app-help></label>
+          <div class="flex">
+            <input id="clockSize" type="range" class="fieldGroup__field flex__auto" value="50" min="0" max="100">
+            <input class="fieldGroup__field rangeLabel flex__set" value="50">
+          </div>
+        </div>
+      </div>
+      <div class="col12 colMd8">
+        <div class="fieldGroup mb0">
+          <label class="fieldGroup__label">Clock Options</label>
+          <div class="clockOption">
+            <div class="toggle">
+              <input type="checkbox" id="clockFormat">
+              <label for="clockFormat" title="Display clock in 24-Hour format instead of 12-Hour (will disable meridiem)."><app-help>24-Hour Format</app-help></label>
+            </div>
+          </div>
+          <div class="clockOption">
+            <div class="toggle">
+              <input type="checkbox" id="clockSeconds">
+              <label for="clockSeconds" title="Display the seconds on the clock."><app-help>Seconds</app-help></label>
+            </div>
+            <div class="clockHoverOptions btnGroup">
+              <input type="checkbox" id="clockSecondsBlink">
+              <label for="clockSecondsBlink" title="Flashes the seconds display every second."><i class="fas fa-eye"></i> <app-help>Blink</app-help></label>
+              <input type="checkbox" id="clockSecondsDim">
+              <label for="clockSecondsDim" title="Makes the seconds 50% transparent."><i class="fas fa-adjust"></i> <app-help>Dim</app-help></label>
+            </div>
+          </div>
+          <div class="clockOption">
+            <div class="toggle">
+              <input type="checkbox" id="clockMeridiem">
+              <label for="clockMeridiem" title="Displays AM/PM on the clock (only for 12-Hour format)"><app-help>Meridiem</app-help></label>
+            </div>
+            <div class="clockHoverOptions btnGroup">
+              <input type="checkbox" id="clockMeridiemDim">
+              <label for="clockMeridiemDim" title="Makes the meridiem 50% transparent."><i class="fas fa-adjust"></i> <app-help>Dim</app-help></label>
+            </div>
+          </div>
+          <div class="clockOption">
+            <div class="toggle">
+              <input type="checkbox" id="clockDelimiter">
+              <label for="clockDelimiter" title="Shows a seperator between hours/minutes/seconds."><app-help>Delimiter</app-help></label>
+            </div>
+            <div class="clockHoverOptions btnGroup">
+              <input type="checkbox" id="clockDelimiterBlink">
+              <label for="clockDelimiterBlink" title="Flashes the delimiter display every second."><i class="fas fa-eye"></i> <app-help>Blink</app-help></label>
+              <input type="checkbox" id="clockDelimiterDim">
+              <label for="clockDelimiterDim" title="Makes the delimiter 50% transparent."><i class="fas fa-adjust"></i> <app-help>Dim</app-help></label>
+            </div>
+          </div>
+          <div class="clockOption">
+            <div class="toggle">
+              <input type="checkbox" id="clockBrackets">
+              <label for="clockBrackets" title="Shows brackets around clock. Type a symbol in the text boxes to choose what type of bracket."><app-help>Brackets</app-help></label>
+            </div>
+            <div class="clockHoverOptions btnGroup clockBracketType">
+              <input type="text" id="clockBracketsLeft" class="fieldGroup__field" value="{" maxlength="1">
+              <input type="text" id="clockBracketsRight" class="fieldGroup__field" value="}" maxlength="1">
+              <input type="checkbox" id="clockBracketDim">
+              <label for="clockBracketDim" title="Makes the bracket 50% transparent."><i class="fas fa-adjust"></i> <app-help>Dim</app-help></label>
+            </div>
+          </div>
+          <div class="clockOption">
+            <div class="toggle">
+              <input type="checkbox" id="clockAnalog">
+              <label for="clockAnalog" title="Displays the clock in an analog style instead of digital."><app-help>Analog clock</app-help></label>
+            </div>
+            <div class="clockHoverOptions">
+              <select name="clockAnalogStyle" id="clockAnalogStyle" class="fieldGroup__field w10Rem" title="Choose the style of analog clock.">
+                <option value="">Style 1</option>
+                <option value="">Style 2</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</article>
+<article class="bgGrayL p mb">
+  <fieldset class="p">
+    <div class="floatRight">
+      <button class="btn btn--border" disabled="disabled" title="Move clock up in list."><i class="fas fa-long-arrow-alt-up"></i></button> 
+      <button class="btn btn--border" disabled="disabled" title="Move clock down in list."><i class="fas fa-long-arrow-alt-down"></i></button> 
+      <button class="btn btn--border" title="Delete clock."><i class="fas fa-trash-alt"></i></button> 
+    </div>
+    <h2 class="mt0">
+      Secondary Clock 1
+    </h2>
+    <div class="row row--gap">
+      <div class="col12 colMd4">
+        <div class="fieldGroup">
+          <label class="fieldGroup__label"><app-help title="Choose a timezone for the clock (the default is your local timezone).">Timezone</app-help></label>
+          <select name="clock1Timezone" id="clock1Timezone" class="fieldGroup__field">
+            <option value=""></option>
+          </select>
+        </div>
+        <div class="fieldGroup">
+          <label for="clock1Label" class="fieldGroup__label"><app-help title="Leave blank for no label.">Clock Label</app-help></label>
+          <input type="text" class="fieldGroup__field" id="clock1Label" placeholder="Enter a label for this clock.">
+        </div>
+        <div class="fieldGroup">
+          <label for="clockSize" class="fieldGroup__label"><app-help title="Change the size of the clock.">Size</app-help></label>
+          <div class="flex">
+            <input id="clockSize" type="range" class="fieldGroup__field flex__auto" value="50" min="0" max="100">
+            <input class="fieldGroup__field rangeLabel flex__set" value="50">
+          </div>
+        </div>
+      </div>
+      <div class="col12 colMd8">
+        <div class="fieldGroup mb0">
+          <label class="fieldGroup__label">Clock Options</label>
+          <div class="clockOption">
+            <div class="toggle">
+              <input type="checkbox" id="clockFormat">
+              <label for="clockFormat" title="Display clock in 24-Hour format instead of 12-Hour (will disable meridiem)."><app-help>24-Hour Format</app-help></label>
+            </div>
+          </div>
+          <div class="clockOption">
+            <div class="toggle">
+              <input type="checkbox" id="clockSeconds">
+              <label for="clockSeconds" title="Display the seconds on the clock."><app-help>Seconds</app-help></label>
+            </div>
+            <div class="clockHoverOptions btnGroup">
+              <input type="checkbox" id="clockSecondsBlink">
+              <label for="clockSecondsBlink" title="Flashes the seconds display every second."><i class="fas fa-eye"></i> <app-help>Blink</app-help></label>
+              <input type="checkbox" id="clockSecondsDim">
+              <label for="clockSecondsDim" title="Makes the seconds 50% transparent."><i class="fas fa-adjust"></i> <app-help>Dim</app-help></label>
+            </div>
+          </div>
+          <div class="clockOption">
+            <div class="toggle">
+              <input type="checkbox" id="clockMeridiem">
+              <label for="clockMeridiem" title="Displays AM/PM on the clock (only for 12-Hour format)"><app-help>Meridiem</app-help></label>
+            </div>
+            <div class="clockHoverOptions btnGroup">
+              <input type="checkbox" id="clockMeridiemDim">
+              <label for="clockMeridiemDim" title="Makes the meridiem 50% transparent."><i class="fas fa-adjust"></i> <app-help>Dim</app-help></label>
+            </div>
+          </div>
+          <div class="clockOption">
+            <div class="toggle">
+              <input type="checkbox" id="clockDelimiter">
+              <label for="clockDelimiter" title="Shows a seperator between hours/minutes/seconds."><app-help>Delimiter</app-help></label>
+            </div>
+            <div class="clockHoverOptions btnGroup">
+              <input type="checkbox" id="clockDelimiterBlink">
+              <label for="clockDelimiterBlink" title="Flashes the delimiter display every second."><i class="fas fa-eye"></i> <app-help>Blink</app-help></label>
+              <input type="checkbox" id="clockDelimiterDim">
+              <label for="clockDelimiterDim" title="Makes the delimiter 50% transparent."><i class="fas fa-adjust"></i> <app-help>Dim</app-help></label>
+            </div>
+          </div>
+          <div class="clockOption">
+            <div class="toggle">
+              <input type="checkbox" id="clockBrackets">
+              <label for="clockBrackets" title="Shows brackets around clock. Type a symbol in the text boxes to choose what type of bracket."><app-help>Brackets</app-help></label>
+            </div>
+            <div class="clockHoverOptions btnGroup clockBracketType">
+              <input type="text" id="clockBracketsLeft" class="fieldGroup__field" value="{" maxlength="1">
+              <input type="text" id="clockBracketsRight" class="fieldGroup__field" value="}" maxlength="1">
+              <input type="checkbox" id="clockBracketDim">
+              <label for="clockBracketDim" title="Makes the bracket 50% transparent."><i class="fas fa-adjust"></i> <app-help>Dim</app-help></label>
+            </div>
+          </div>
+          <div class="clockOption">
+            <div class="toggle">
+              <input type="checkbox" id="clockAnalog">
+              <label for="clockAnalog" title="Displays the clock in an analog style instead of digital."><app-help>Analog clock</app-help></label>
+            </div>
+            <div class="clockHoverOptions">
+              <select name="clockAnalogStyle" id="clockAnalogStyle" class="fieldGroup__field w10Rem" title="Choose the style of analog clock.">
+                <option value="">Style 1</option>
+                <option value="">Style 2</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</article>
+<button class="btn block w100" title="Add secondary clock"><i class="fas fa-plus"></i> Add Clock</button> 
+<hr>
+<p>
+  <b>Please note</b> that clocks are based on the time and timezone your computer is set to. The detection of your current timezone is pretty much an educated guess and may not reflect your actual timezone, thus potentially causing the time to be off. Currently CaretTab is detecting your current timezone to be: "America/Los_Angeles".
+</p>

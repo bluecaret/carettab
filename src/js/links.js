@@ -140,7 +140,7 @@ function showLinksSettings() {
       for(var i = 0; i < allLinks.length; i++) {
         html += '<div id="s-link-' + i  + '" class="row">';
         html += '  <div class="label">';
-        html += '    <span data-i18n="'+ chrome.i18n.getMessage("link") +' ">Link </span>' + (i + 1);
+        html += '    <span data-i18n="'+ chrome.i18n.getMessage("singleLink") +' ">Link </span>' + (i + 1);
         html += '  </div>';
         html += '  <div class="input input-text" style="width:30%">';
         html += '    <input id="s-link-label-' + i  + '" type="text" value="' + allLinks[i].label + '">';

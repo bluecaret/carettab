@@ -1,36 +1,38 @@
-$bg: #34405f;
-$bg-alt: #1b2b3f;
+$pageBg: #111e31;
+$navBg: #1b2b3f;
+$theme1: #34405f;
+$theme2: #1b2b3f;
 $blue: #3FA9F5;
-$green: #5CB85C;
-$lightgreen: rgb(147, 209, 147);
+$green: rgb(35, 148, 82);
+$lightGreen: rgb(147, 209, 147);
 $gray: #778888;
-$settingsBg: #fafafa;
+$lightGray: #fafafa;
+$text: #ededed;
+$btn: $blue;
+$btnActive: rgba($blue,.3);
+$btnActiveHover: rgba($blue,.3);
+$radius: 12px;
+$shadow: 0 0 1px 1px rgba($btn,.2), inset 0 0 1px 1px rgba($btn,.2);
+$shadowHover: 0 0 2px 1px rgba($btn,.8), inset 0 0 2px 1px rgba($btn,.8);
+$transition: all .3s;
+$field: rgba($blue,.1);
+$disabledColor: $gray;
 
 $settingsOpenScale: .16;
 $asidePreviewSpacing: (100 * $settingsOpenScale) + vh;
-$settingsOpenPosition: -3rem, -1.5rem;
-$preview: ($settingsOpenScale * 100);
+$settingsOpenPosition: -30px, -15px;
 $settingsFont: 'Open Sans', sans-serif;
-$navWidth: 25rem;
-$navWidthSm: 18rem;
+$navWidth: 250px;
+$navWidthSm: 180px;
 $calcAsideWidth: ($settingsOpenScale * 100) + vw;
-$asideWidth: calc(#{$calcAsideWidth} + 2.5rem);
-$pagePadding: 2rem;
+$asideWidth: calc(#{$calcAsideWidth} + 25px);
+$pagePadding: 20px;
+$fieldPaddingY: 3px;
+$fieldPaddingX: 7px;
+$fieldHeight: 30px;
+$fieldLineHeight: 1.6;
 
 // Breakpoints
-$xs: 320px;
-$sm: 425px;
-$md: 768px;
-$lg: 1024px;
-$xl: 1200px;
-
 $sm: 768px;
 $md: 1024px;
 $lg: 1200px;
-
-// Forms
-$fieldPaddingY: .3rem;
-$fieldPaddingX: .7rem;
-$fieldHeight: 3rem;
-$fieldLineHeight: 1.6;
-$disabledColor: lighten($gray, 20%);

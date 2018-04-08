@@ -10,16 +10,16 @@
 .h100 { height: 100% !important; }
 .hAuto { height: auto !important; }
 
-.w1Rem { width: 1rem !important; }
-.w2Rem { width: 2rem !important; }
-.w3Rem { width: 3rem !important; }
-.w4Rem { width: 4rem !important; }
-.w5Rem { width: 5rem !important; }
-.w6Rem { width: 6rem !important; }
-.w7Rem { width: 7rem !important; }
-.w8Rem { width: 8rem !important; }
-.w9Rem { width: 9rem !important; }
-.w10Rem { width: 10rem !important; }
+.w10Px { width: 10px !important; flex: 0 0 auto !important; }
+.w20Px { width: 20px !important; flex: 0 0 auto !important; }
+.w30Px { width: 30px !important; flex: 0 0 auto !important; }
+.w40Px { width: 40px !important; flex: 0 0 auto !important; }
+.w50Px { width: 50px !important; flex: 0 0 auto !important; }
+.w60Px { width: 60px !important; flex: 0 0 auto !important; }
+.w70Px { width: 70px !important; flex: 0 0 auto !important; }
+.w80Px { width: 80px !important; flex: 0 0 auto !important; }
+.w90Px { width: 90px !important; flex: 0 0 auto !important; }
+.w100Px { width: 100px !important; flex: 0 0 auto !important; }
 
 .w10 { width: 10% !important; }
 .w20 { width: 20% !important; }
@@ -75,8 +75,10 @@
   .wAutoLg { width: auto !important; }
 }
 
+.bg { background: $pageBg; }
+.bgAlt { background: $navBg; }
 .bgGray { background: $gray; }
-.bgGrayL { background: darken($settingsBg, 3%); }
+.bgGrayL { background: darken($lightGray, 3%); }
 .bgGrayD { background: darken($gray, 5%); }
 .bgBlue { background: $blue; }
 .bgGreen { background: $green; }
@@ -84,42 +86,59 @@
 .bgBlack { background: black; }
 
 .textGray { color: $gray; }
-.textGrayL { color: darken($settingsBg, 3%); }
+.textGrayL { color: darken($lightGray, 3%); }
 .textGrayD { color: darken($gray, 5%); }
 .textBlue { color: $blue; }
 .textGreen { color: $green; }
 .textWhite { color: white; }
 .textBlack { color: black; }
 
-.borderGray { border: .1rem solid $gray; }
-.borderGrayL { border: .1rem solid darken($settingsBg, 10%); }
-.borderGrayD { border: .1rem solid darken($gray, 5%); }
-.borderBlue { border: .1rem solid $blue; }
-.borderGreen { border: .1rem solid $green; }
-.borderWhite { border: .1rem solid white; }
-.borderBlack { border: .1rem solid black; }
+.bg { border: 1px solid $gray; }
+.bgAlt { border: 1px solid $gray; }
+.borderGray { border: 1px solid $gray; }
+.borderGrayL { border: 1px solid darken($lightGray, 10%); }
+.borderGrayD { border: 1px solid darken($gray, 5%); }
+.borderBlue { border: 1px solid $blue; }
+.borderGreen { border: 1px solid $green; }
+.borderWhite { border: 1px solid white; }
+.borderBlack { border: 1px solid black; }
 
-.p { padding: 1rem !important; }
+.p1 { padding: 10px !important; }
+.p5 { padding: 5px !important; }
 .p0 { padding: 0 !important; }
-.pt { padding-top: 1rem !important; }
+.pt1 { padding-top: 10px !important; }
+.pt5 { padding-top: 105pxpx !important; }
 .pt0 { padding-top: 0 !important; }
-.pr { padding-right: 1rem !important; }
+.pr1 { padding-right: 10px !important; }
+.pr5 { padding-right: 5px !important; }
 .pr0 { padding-right: 0 !important; }
-.pb { padding-bottom: 1rem !important; }
+.pb1 { padding-bottom: 10px !important; }
+.pb5 { padding-bottom: 5px !important; }
 .pb0 { padding-bottom: 0 !important; }
-.pl { padding-left: 1rem !important; }
+.pl1 { padding-left: 10px !important; }
+.pl5 { padding-left: 5px !important; }
 .pl0 { padding-left: 0 !important; }
 
-.m { margin: 1rem !important; }
+.m1 { margin: 10px !important; }
+.m5 { margin: 5px !important; }
 .m0 { margin: 0 !important; }
-.mt { margin-top: 1rem !important; }
+.mt1 { margin-top: 10px !important; }
+.mt5 { margin-top: 5px !important; }
 .mt0 { margin-top: 0 !important; }
-.mr { margin-right: 1rem !important; }
+.mr1 { margin-right: 10px !important; }
+.mr5 { margin-right: 5px !important; }
 .mr0 { margin-right: 0 !important; }
-.mb { margin-bottom: 1rem !important; }
+.mb1 { margin-bottom: 10px !important; }
+.mb5 { margin-bottom: 5px !important; }
 .mb0 { margin-bottom: 0 !important; }
-.ml { margin-left: 1rem !important; }
+.ml1 { margin-left: 10px !important; }
+.ml5 { margin-left: 5px !important; }
 .ml0 { margin-left: 0 !important; }
+.mAuto { margin: auto; }
+.mtAuto { margin-top: auto; }
+.mrAuto { margin-right: auto; }
+.mbAuto { margin-bottom: auto; }
+.mlAuto { margin-left: auto; }
 
 .center { text-align: center; }
 .left { text-align: left; }
@@ -142,6 +161,9 @@
 }
 .flex--middle {
   align-items: center;
+}
+.flex--bottom {
+  align-items: flex-end;
 }
 
 .flex--noWrap { flex-wrap: nowrap !important; }
@@ -170,4 +192,8 @@
 
 .floatRight {
   float: right;
+}
+
+.alignBtn {
+  margin-top: 26px;
 }

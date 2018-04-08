@@ -16,8 +16,8 @@ app-interface {
   font-size: 1vw;
   background: #fff;
   transform-origin: 100% 100%;
-  transition: all 0.3s;
-  box-shadow: 0 0 10rem 0 rgba(0,0,0,.7);
+  transition: $transition;
+  box-shadow: 0 0 100px 0 rgba(0,0,0,.7);
   transform: translate(0, 0) scale(1);
   &.interface--settingsOpen {
     transform: translate($settingsOpenPosition) scale($settingsOpenScale);
@@ -29,10 +29,10 @@ app-interface {
   z-index: 500;
   top: 1vw;
   right: 1vw;
-  padding: 1rem;
+  padding: 10px;
   background-color: transparent;
   border: 0;
-  font-size: 2rem;
+  font-size: 20px;
   cursor: pointer;
   &:focus {
     outline: none;

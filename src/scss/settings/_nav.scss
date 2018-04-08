@@ -9,7 +9,7 @@ app-settings {
     left: 0;
     bottom: 0;
     width: 30rem;
-    background: $bg-alt;
+    background: $navBg;
     width: $navWidthSm;
     @media screen and (min-width: $md) {
       width: $navWidth;
@@ -26,16 +26,12 @@ app-settings {
         width: auto;
         height: 3.5rem;
         margin-right: 1.5rem;
-        // filter: drop-shadow( 1px 1px 1px rgba(0,0,0,.4) );
         .st0 {
           fill: $blue;
         }
         .st1 {
           fill: $blue;
         }
-      }
-      span {
-        // text-shadow: 1px 1px 1px rgba(0,0,0,.4);
       }
     }
     ul {
@@ -56,7 +52,7 @@ app-settings {
           font-weight: 400;
           text-align: left;
           text-decoration: none;
-          color: lighten($bg, 35%);
+          color: lighten($theme1, 35%);
           cursor: pointer;
           i {
             margin-right: 1.5rem;
@@ -70,7 +66,7 @@ app-settings {
             vertical-align: middle;
             .st0,
             .st1 {
-              fill: lighten($bg, 35%);
+              fill: lighten($theme1, 35%);
             }
           }
           &:focus {
@@ -107,12 +103,12 @@ app-settings {
               content: '';
               position: absolute;
               right: 0;
-              top: calc(50% - 1rem);
+              top: calc(50% - 10px);
               width: 0; 
               height: 0; 
-              border-top: 1rem solid transparent;
-              border-bottom: 1rem solid transparent; 
-              border-right: .7rem solid $bg; 
+              border-top: 10px solid transparent;
+              border-bottom: 10px solid transparent; 
+              border-right: 7px solid $pageBg; 
             }
           }
         }

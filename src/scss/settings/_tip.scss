@@ -24,12 +24,12 @@
 .tip:after,
 [data-tip]:after {
   z-index: 1000;
-  padding: .5rem;
-  width: 16rem;
+  padding: 5px;
+  width: 160px;
   background-color: #000;
   color: #fff;
   content: attr(data-tip);
-  font-size: 1.2rem;
+  font-size: 12px;
   font-family: $settingsFont;
   font-weight: 400;
   line-height: 1.5;
@@ -45,7 +45,7 @@
 [data-tip]:after,
 .tip:after,
 .tip-top:after {
-  margin-left: -8rem;
+  margin-left: -80px;
 }
 
 [data-tip]:hover:after,
@@ -54,7 +54,7 @@
 .tip:focus:after,
 .tip-top:hover:after,
 .tip-top:focus:after {
-  transform: translateY(-.7rem);
+  transform: translateY(-7px);
 }
 
 .tip-left:after {
@@ -65,7 +65,7 @@
 
 .tip-left:hover:after,
 .tip-left:focus:after {
-  transform: translateX(-.7rem);
+  transform: translateX(-7px);
 }
 
 .tip-bottom:after {
@@ -76,7 +76,7 @@
 
 .tip-bottom:hover:after,
 .tip-bottom:focus:after {
-  transform: translateY(.7rem);
+  transform: translateY(7px);
 }
 
 .tip-right:after {
@@ -86,11 +86,11 @@
 
 .tip-right:hover:after,
 .tip-right:focus:after {
-  transform: translateX(.7rem);
+  transform: translateX(7px);
 }
 
 .tip-left:after,
 .tip-right:after {
   margin-left: 0;
-  margin-bottom: -1.6rem;
+  margin-bottom: -16px;
 }

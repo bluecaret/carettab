@@ -1,23 +1,24 @@
 .row {
-  margin-top: .5rem;
+  margin-top: 5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 0 -.5rem;
+  margin: 0 -5px;
+  align-items: flex-start;
 }
 
 [class*="col"] {
   flex: 0 1 8%;
-  margin: 0 0 .5rem;
-  padding: 0 .5rem;
+  margin: 0 0 5px;
+  padding: 0 5px;
   box-sizing: border-box;
 }
 
 .row--gap {
-  margin: 0 -2rem;
+  margin: 0 -20px;
   > [class*="col"] {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
@@ -25,7 +26,6 @@
 .row .row, 
 .row.row--nested {
   flex: 1 1 auto;
-  // margin-top: -.5em;
 }
 
 /* center grids */

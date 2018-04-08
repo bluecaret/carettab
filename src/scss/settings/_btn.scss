@@ -1,60 +1,120 @@
 .btn {
   display: inline-block;
-  min-width: 3.4rem;
-  padding: 0 1rem;
-  font-size: 1.4rem;
+  min-width: 34px;
+  padding: 0 10px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 3rem;
-  background: $blue;
-  border: 0;
-  color: white;
+  line-height: 28px;
+  background: transparent;
+  border: 1px solid $btn;
+  box-shadow: $shadow;
+  border-radius: $radius;
+  color: $text;
   cursor: pointer;
-  transition: all .2s;
+  transition: $transition;
   text-decoration: none;
+  &:focus {
+    outline: none;
+  }
   &:hover {
-    background: darken($blue, 5%);
+    box-shadow: $shadowHover;
+    color: $text;
   }
   &:disabled {
     color: $disabledColor;
-    box-shadow: inset 0 0 0 .1rem $disabledColor;
-    background: transparent;
+    border-color: $disabledColor;
+    box-shadow: none;
     cursor: not-allowed;
   }
 }
 
 .btn--transparent {
   background: transparent;
-  color: #222;
+  border: 0;
+  box-shadow: none;
+  color: $blue;
   &:hover {
-    background: darken($settingsBg, 5%);
+    background: transparent;
+    color: $text;
+    box-shadow: none;
   }
   &:disabled {
     background: transparent;
   }
 }
 
-.btn--border {
-  background: transparent;
+.btn--toggle {
+  border-radius: $radius;
+  border-right-width: 0;
+  box-shadow: $shadow;
   color: $blue;
-  box-shadow: inset 0 0 0 .1rem $blue;
   &:hover {
-    color: white;
-  }
-  &:disabled {
-    color: $disabledColor;
+    box-shadow: $shadowHover;
+    color: $text;
   }
 }
 
-.btn--toggle {
-  background: lighten($gray, 35%);
-  color: #222;
+// BTN GROUP
+.btnGroup {
+  display: flex;
+  width: 100%;
+}
+.btnGroup .btn {
+  // margin-right: 1px;
+}
+.btnGroup .btn,
+.btnGroup input + label,
+.btnGroup button {
+  @extend .btn;
+  @extend .btn--toggle;
+}
+.btnGroup .btn,
+.btnGroup input + label,
+.btnGroup input,
+.btnGroup select,
+.btnGroup button {
+  border-radius: 0;
+  border-right-width: 0;
+  text-align: center;
+}
+.btnGroup.btnGroup--justified {
+  width: 100%;
+}
+.btnGroup.btnGroup--justified .btn,
+.btnGroup.btnGroup--justified input + label,
+.btnGroup.btnGroup--justified input,
+.btnGroup.btnGroup--justified select,
+.btnGroup.btnGroup--justified button {
+  width: auto;
+  flex: 1 1 auto;
+  white-space: nowrap;
+}
+.btnGroup .btn:first-child,
+.btnGroup input:first-child + label,
+.btnGroup input:first-child,
+.btnGroup select:first-child,
+.btnGroup button:first-child {
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+.btnGroup > *:last-child {
+  border-right-width: 1px;
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+
+.btnGroup button.active,
+.btnGroup input:checked + label,
+.btn.active {
+  background: $btnActive;
+  color: $text;
   &:hover {
-    background: lighten($gray, 30%);
-  }
-  &.active {
-    background: $lightgreen;
-    &:hover {
-      background: darken($lightgreen, 5%);
-    }
+    background: $btnActiveHover;
   }
 }
+
+.btnGroup input[type="radio"],
+.btnGroup input[type="checkbox"] { 
+  display: none; 
+}
+

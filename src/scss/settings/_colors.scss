@@ -1,9 +1,9 @@
 .presetColors label {
-  transition: all 0.2s;
-  margin-bottom: .1rem;
+  transition: $transition;
+  margin-bottom: 1px;
   &:hover {
     transform: scale(1.5, 1.5);
-    box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   }
   &:focus {
     outline: 0;

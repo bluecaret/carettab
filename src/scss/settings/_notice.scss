@@ -1,7 +1,7 @@
 .notice {
   position: relative;
   width: 100%;
-  margin: 0 0 4rem 0;
+  margin: 0 0 40px 0;
   padding: 0;
   border: 0;
   background-color: $blue;
@@ -9,10 +9,10 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  border-radius: .5rem;
+  border-radius: 5px;
   transition: opacity .2s;
   &.notice--success {
-    background-color: $lightgreen;
+    background-color: $lightGreen;
     color: black;
   }
   &.notice--danger {
@@ -25,27 +25,27 @@
   }
   > div:first-child {
     flex: 0 0 auto;
-    font-size: 3rem;
+    font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.5rem;
+    padding: 15px;
     background: rgba(0,0,0,.1);
   }
   > div:nth-child(2n) {
     flex: 1 1 auto;
-    font-size: 2rem;
+    font-size: 20px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 1.5rem;
+    padding: 15px;
   }
   > div:nth-child(3n) {
     flex: 0 0 auto;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 1.5rem;
+    padding: 15px;
   }
 }
 

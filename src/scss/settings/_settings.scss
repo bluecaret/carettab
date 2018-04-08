@@ -8,8 +8,8 @@ app-settings {
   width: 100vw;
   height: 100vh;
   overflow-y: scroll;
-  background: $bg;
-  font-size: 1.4rem;
+  background: $pageBg;
+  font-size: 14px;
   color: #ddd;
   a {
     color: $blue;
@@ -23,19 +23,11 @@ app-settings {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 1rem;
-    right: 3rem;
-    background: $bg-alt;
-    border: 0;
-    color: #ededed;
-    width: 4rem;
-    height: 4rem;
-    font-size: 1.6rem;
-    transition: all .3s;
-    cursor: pointer;
-    &:hover, &:focus {
-      background: $blue;
-    }
+    top: 10px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
   }
 }
 

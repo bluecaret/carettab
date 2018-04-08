@@ -20,8 +20,9 @@ import { SearchComponent } from './settings/search/search.component';
 import { TimeComponent } from './settings/time/time.component';
 
 import { InterfaceComponent } from './interface/interface.component';
-import { TodoComponent } from './interface/todo/todo.component';
-import { TodoDataService } from './interface/todo/todo.service';
+
+import { Ng2ChromeStorageModule } from './lib/storage/storage.module';
+import { Settings } from './lib/storage/settings';
 
 @NgModule({
   declarations: [
@@ -37,17 +38,16 @@ import { TodoDataService } from './interface/todo/todo.service';
     MessageComponent,
     SearchComponent,
     TimeComponent,
-    TodoComponent,
     HelpComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    Ng2ChromeStorageModule.forRoot(new Settings())
   ],
   providers: [
-    TodoDataService,
     SharedService
   ],
   bootstrap: [AppComponent]

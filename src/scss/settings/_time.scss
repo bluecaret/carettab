@@ -2,8 +2,8 @@
   display: flex;
   input.fieldGroup__field {
     display: inline-block;
-    margin-right: .1rem;
-    width: 3.5rem;
+    margin-right: 1px;
+    width: 35px;
     padding-left: 0;
     padding-right: 0;
     text-align: center;
@@ -14,12 +14,14 @@
   position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: ($fieldHeight + 10px);
   width: 100%;
-  padding: .5rem 0;
-  &:not(:last-child) {
-    border-bottom: .1rem solid lighten($gray, 35%);
+  &:nth-child(even) {
+    background: darken($pageBg, 2%);
   }
 }
 .clockHoverOptions {
+  margin-left: auto;
   width: auto;
 }

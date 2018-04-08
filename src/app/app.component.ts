@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { transition, trigger, style, state, animate, query, group } from '@angular/animations';
 import { SharedService } from './lib/shared.service';
 
@@ -18,7 +18,11 @@ import { SharedService } from './lib/shared.service';
     ])
   ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(public shared: SharedService) {
+  }
+
+  ngOnInit() {
+    // this.shared.getStorage();
   }
 }

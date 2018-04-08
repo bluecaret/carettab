@@ -1,18 +1,18 @@
 .dashBox {
   display: grid;
-  grid-template-columns: 7rem auto;
+  grid-template-columns: 70px auto;
   grid-template-rows: 30% 70%;
   width: 100%;
-  height: calc(100% - .5rem);
-  padding: 2rem 1.5rem;
-  margin-bottom: .5rem;
+  height: calc(100% - 5px);
+  padding: 20px 15px;
+  margin-bottom: 5px;
   border: 0;
   text-decoration: none;
   background-color: $blue;
   color: black;
   overflow: hidden;
-  border-radius: .5rem;
-  transition: all .2s;
+  border-radius: 5px;
+  transition: $transition;
 }
 .dashWrapper div:nth-child(1n) .dashBox {
   background-color: #bebfc0;
@@ -40,7 +40,6 @@
 }
 
 .dashBox:hover {
-  // box-shadow: inset 100rem 100rem rgba(0, 0, 0, 0.2);
   opacity: .8;
 }
 
@@ -48,13 +47,13 @@
   grid-row: 1 / span 2;
   display: flex;
   align-items: center;
-  font-size: 5rem;
-  margin-left: -.5rem;
+  font-size: 50px;
+  margin-left: -5pxem;
   opacity: .4;
 }
 .dashBox__title {
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 15px;
   display: flex;
   align-items: flex-end;
 }
@@ -65,12 +64,12 @@
   align-items: flex-start;
 }
 .dashBox__number {
-  font-size: 3.6rem;
+  font-size: 36px;
 }
 .dashBox__label {
-  font-size: 1.8rem;
+  font-size: 18px;
   line-height: 1.9;
   &:nth-child(2) {
-    margin-left: .5rem;
+    margin-left: 5px;
   }
 }

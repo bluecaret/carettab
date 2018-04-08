@@ -7,21 +7,21 @@ app-settings {
     bottom: 0;
     margin-left: auto;
     width: $asideWidth;
-    border-left: .2rem dashed lighten($bg, 5%);
-    padding: 5.5rem 1rem 2rem 1rem;
+    border-left: 2px dashed lighten($pageBg, 5%);
+    padding: 55px 10px 20px 10px;
     h3 {
-      font-size: 1.6rem;
+      font-size: 16px;
       font-weight: 700;
-      margin: 3rem 0 .5rem;
+      margin: 30px 0 5px;
     }
   }
 
   .previewLabel {
     position: absolute;
-    right: 1rem;
+    right: 10px;
     bottom: $asidePreviewSpacing;
     width: ($settingsOpenScale * 100) + vw;
-    color: lighten($bg, 20%);
-    margin: 0 0 2rem 0;
+    color: lighten($pageBg, 20%);
+    margin: 0 0 20px 0;
   }
 }

@@ -1,28 +1,21 @@
 /* Settings - Page
    ========================================================================== */
 
-// app-settings section {
-//   flex: 1 1 100%;
-//   width: 100%;
-//   padding: 0 $pagePadding 2rem;
-// }
-
-// .page {
-//   display: none;
-//   &.active {
-//     display: block;
-//   }
-// }
+.pageWrapper {
+  display: block;
+  width: 100%;
+  max-width: 1500px;
+}
 
 .page {
   display: block;
   margin: 0 $asideWidth 0 $navWidthSm;
-  padding: 2rem 2rem 2rem;
+  padding: 20px 20px 20px;
   @media screen and (min-width: $md) {
     margin: 0 $asideWidth 0 $navWidth;
   }
   h1, h2, h3, h4, h5, h6 {
-    margin: 2rem 0;
+    margin: 20px 0;
     font-weight: 400;
   }
   h1 {
@@ -31,23 +24,29 @@
     align-items: flex-start;
     flex-direction: column;
     margin: 0;
-    padding: 0 0 3rem;
-    font-size: 2.6rem;
+    padding: 0 0 30px;
+    font-size: 26px;
     font-weight: 400;
-    line-height: 3rem;
+    line-height: 30px;
     small {
       display: block;
-      font-size: 1.4rem;
+      font-size: 14px;
     }
   }
   h2 {
-    font-size: 2rem;
+    font-size: 20px;
   }
   h3 {
-    font-size: 1.6rem;
+    font-size: 16px;
   }
   small {
     display: block;
-    font-size: 1.2rem;
+    font-size: 12px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    &.fieldHeight {
+      display: inline-block;
+      height: $fieldHeight;
+    }
   }
 }

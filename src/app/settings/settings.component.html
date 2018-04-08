@@ -1,4 +1,4 @@
-<button type="button" class="close" (click)="toggleSettings()"><i class="fas fa-times"></i></button>
+<button type="button" class="close btn" (click)="toggleSettings()"><i class="fas fa-times"></i></button>
 <nav>
   <header>
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
@@ -37,7 +37,7 @@
     </li>
   </ul>
 </nav>
-<section>
+<section class="pageWrapper">
   <app-s-dashboard *ngIf="page=='dashboard'"></app-s-dashboard>
   <app-s-design *ngIf="page=='design'"></app-s-design>
   <app-s-time *ngIf="page=='time'"></app-s-time>

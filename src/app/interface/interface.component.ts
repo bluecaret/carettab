@@ -4,7 +4,6 @@ import { SharedService} from '../lib/shared.service';
 @Component({
   selector: 'app-interface',
   template: `
-    <app-i-todo></app-i-todo>
     <div style="font-size: 10vw;">12:00:00</div>
     <button
       (click)="toggleSettings()"

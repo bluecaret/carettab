@@ -1,79 +1,72 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Links, Link } from './link';
+import { Observable } from 'rxjs/observable';
+import { ChromeStorage } from '../../lib/storage/storage.service';
+import { Link } from '../../lib/models/bookmarks';
 
 @Component({
   selector: 'app-s-bookmarks',
   templateUrl: 'bookmarks.component.html'
 })
-export class BookmarksComponent implements OnInit {
+export class BookmarksComponent {
   @HostBinding('class.page') pageClass = true;
 
-  editMode: boolean[];
-  links: Links[];
-  numLinks: number;
-  currentLink: number;
-  dataContent: boolean;
+  links: any[];
+  quickLinks: boolean;
+  editMode: boolean[] = [];
+  isInvalid = false;
 
-  constructor() {
-    this.links = [];
-    this.numLinks = 0;
+  constructor(public settings: ChromeStorage) {
   }
 
-  ngOnInit() {
-    this.getStorage();
-    setTimeout(() => {
-      console.log(this.links);
-    }, 500);
-  }
-
-  resetEdit(lng: number) {
+  resetEdit() {
+    let lng = this.settings.config.bookmarks.length;
     this.editMode = new Array(lng);
     this.editMode.fill(false);
   }
 
-  getStorage() {
-    chrome.storage.sync.get('links', (data) => {
-      this.links = data.links ? data.links : [];
-      this.numLinks = data.links ? data.links.length : 0;
-      this.resetEdit(this.links.length);
-    });
-  }
-
   addLink(model: any, isValid: boolean) {
-    model.value.url = this.checkLink(model.value.url);
-    this.links.push(model.value);
-    chrome.storage.sync.set({'links': this.links});
-    this.resetEdit(this.links.length);
-    model.reset();
+    if (isValid) {
+      this.isInvalid = false;
+      let label = model.value.label;
+      let url = this.checkLink(model.value.url);
+      this.settings.config.bookmarks.links.push({
+        label: label,
+        url: url,
+      });
+      this.saveAll();
+      this.resetEdit();
+      model.resetForm();
+    } else {
+      this.isInvalid = true;
+    }
   }
 
-  saveLink(index: number) {
-    
+  updateLink(label: string, url: string, index: number, isValid: boolean) {
+    console.log('start updateLink');
+    console.log(label, url, index, isValid);
+    if (isValid) {
+      console.log('updateLink isValid?');
+      this.settings.config.bookmarks.links[index].label = label;
+      this.settings.config.bookmarks.links[index].url = this.checkLink(url);
+      this.saveAll();
+      this.resetEdit();
+    }
   }
 
-  toggleEdit(index: number) {
-    this.editMode[index] = !this.editMode[index];
+  enterEditMode(index: number) {
+    this.resetEdit();
+    this.editMode[index] = true;
   }
 
   ifEdit(index: number) {
     return this.editMode[index];
   }
 
-  deleteLink(index: number) {
-    this.links.splice(index, 1);
-    chrome.storage.sync.set({'links': this.links});
-    this.resetEdit(this.links.length);
-  }
-
-  onSubmit(form: NgForm) {
-    this.links.push(form.value);
-    this.updateData();
-  }
-
-  updateData() {
-    this.dataContent = false;
-    this.dataContent = (this.links.length > 0) ? true : false;
+  deleteLink(link: Link, index: number) {
+    this.settings.config.bookmarks.links.splice(index, 1);
+    this.saveAll();
+    this.resetEdit();
   }
 
   checkLink(value) {
@@ -81,5 +74,9 @@ export class BookmarksComponent implements OnInit {
       value = (value.indexOf('//') === -1) ? 'http://' + value : value;
     }
     return value;
+  }
+
+  saveAll() {
+    this.settings.setAll(this.settings.config);
   }
 }

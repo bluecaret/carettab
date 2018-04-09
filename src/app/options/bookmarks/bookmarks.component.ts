@@ -1,6 +1,5 @@
 import { Component, HostBinding } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
-import { Link } from '../../_shared/models/bookmarks';
 
 @Component({
   selector: 'options-bookmarks',
@@ -9,8 +8,6 @@ import { Link } from '../../_shared/models/bookmarks';
 export class OptionsBookmarksComponent {
   @HostBinding('class.page') pageClass = true;
 
-  links: any[];
-  quickLinks: boolean;
   editMode: boolean[] = [];
   isInvalid = false;
 
@@ -58,7 +55,7 @@ export class OptionsBookmarksComponent {
     return this.editMode[index];
   }
 
-  deleteLink(link: Link, index: number) {
+  deleteLink(link: any[], index: number) {
     this.settings.config.bookmarks.links.splice(index, 1);
     this.saveAll();
     this.resetEdit();

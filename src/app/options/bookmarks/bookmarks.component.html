@@ -2,7 +2,7 @@
   Bookmarks
   <small>Add your own personalized links to the New Tab page.</small>
 </h1>
-<form #bookmarkSettings="ngForm" novalidate>
+<form #bookmarkOptions="ngForm" novalidate>
   <fieldset>
     <div class="row row--gap">
       <div class="col12 colMd6">
@@ -10,7 +10,7 @@
           <label for="type" class="fieldGroup__label">
             <app-help title="Choose between custom quick links, and the bookmarks you have saved in the browser.">Type</app-help>
           </label>
-          <div class="btnGroup btnGroup--justified">
+          <div id="type" class="btnGroup btnGroup--justified">
             <input type="radio" id="typeQuickLinks" name="quickLinks" [value]="true" [(ngModel)]="settings.config.bookmarks.quickLinks" (change)="saveAll()" />
             <label for="typeQuickLinks">Quick Links</label>
             <input type="radio" id="typeBookmarks" name="quickLinks" [value]="false" [(ngModel)]="settings.config.bookmarks.quickLinks" (change)="saveAll()" />
@@ -20,12 +20,12 @@
       </div>
       <div class="col12 colMd6">
         <div class="fieldGroup">
-          <label class="fieldGroup__label">
-            Text Size
+          <label for="scaling" class="fieldGroup__label">
+            Scaling
           </label>
           <div class="flex">
-            <input type="range" name="size" class="fieldGroup__field flex__auto" min="0" max="100" [(ngModel)]="settings.config.bookmarks.size" (change)="saveAll()">
-            <input type="number" name="sizeManualEntry" class="fieldGroup__field rangeLabel flex__set" min="0" max="100" [(ngModel)]="settings.config.bookmarks.size" (change)="saveAll()">
+            <input type="range" id="scaling" name="scaling" class="fieldGroup__field flex__auto" min="0" max="100" [(ngModel)]="settings.config.bookmarks.scaling" (change)="saveAll()">
+            <input type="number" name="scalingManualEntry" class="fieldGroup__field rangeLabel flex__set" min="0" max="100" [(ngModel)]="settings.config.bookmarks.scaling" (change)="saveAll()">
           </div>
         </div>
       </div>
@@ -33,42 +33,7 @@
   </fieldset>
 </form>
 <ng-container *ngIf="settings.config.bookmarks.quickLinks === true">
-  <!-- <h2>Add Quick Link</h2>
-  <form #newLink="ngForm" novalidate (ngSubmit)="addLink(newLink, newLink.valid)">
-    <fieldset>
-      <div class="row flex--bottom">
-        <div class="col12 colMd4 colLg5">
-          <div class="fieldGroup">
-            <label for="type" class="fieldGroup__label">
-              Link Label
-            </label>
-            <input #newLabel="ngModel" required name="label" [(ngModel)]="label" type="text" class="fieldGroup__field">
-            <div class="valMsg" *ngIf="newLabel.invalid && newLink.submitted">
-              Enter a label.
-            </div>
-          </div>
-        </div>
-        <div class="col12 colMd5">
-          <div class="fieldGroup">
-            <label class="fieldGroup__label">
-              Link URL (http://)
-            </label>
-            <input #newUrl="ngModel" required name="url" [(ngModel)]="url" type="text" class="fieldGroup__field w100">
-            <div class="valMsg" *ngIf="newUrl.invalid && newLink.submitted">
-              Enter a URL (website address).
-            </div>
-          </div>
-        </div>
-        <div class="col12 colMd3 colLg2">
-          <div class="fieldGroup">
-            <button id="linkAddBtn" type="submit" class="btn block w100 alignBtn"><i class="fas fa-save"></i> Save Link</button>
-          </div>
-        </div>
-      </div>
-    </fieldset>
-  </form> -->
   <h2>Quick Links</h2>
-  
   <div class="divTable">
     <div class="divTableHeading">
       <div class="divTableRow">

@@ -8,9 +8,12 @@
 export class Settings {
   storeKey = 'carettab';  // identifier to be used as a key for storage
   data = {
+    design: {
+      scalingMethod: true
+    },
     bookmarks: {
       quickLinks: true,
-      size: 50,
+      scaling: 50,
       links: [
         {
           label: 'Google',

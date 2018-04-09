@@ -1,1 +1,7 @@
-<p>Hello world</p>
+<ng-container *ngIf="settings.config.bookmarks.quickLinks">
+  <ul [ngStyle]="{'font-size': scale }">
+    <li *ngFor="let link of settings.config.bookmarks.links">
+      <a href="{{link.url}}">{{link.label}}</a>
+    </li>
+  </ul>
+</ng-container>

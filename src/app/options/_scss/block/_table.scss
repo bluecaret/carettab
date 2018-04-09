@@ -2,7 +2,7 @@
   margin: 20px -5px;
   padding: 0;
   table {
-    width: 100%;
+    width: calc(100% + 10px);
     border-spacing: 0;
     border-collapse: collapse;
     tr {
@@ -35,7 +35,7 @@
 	display: table;
   margin: 20px -5px;
   padding: 0;
-  width: 100%;
+  width: calc(100% + 10px);
   border-spacing: 0;
   border-collapse: collapse;
   .divTableRow {

@@ -1,0 +1,52 @@
+/* Settings
+   ========================================================================== */
+
+@import "~scss/_variables";
+@import "~scss/_utilities";
+
+app-options {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  background: $pageBg;
+  font-size: 14px;
+  color: #ddd;
+  a {
+    color: $blue;
+    &:hover {
+      color: lighten($blue, 10%);
+    }
+  }
+  .close {
+    position: fixed;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 10px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+@import "block/_aside";
+@import "block/_btn";
+@import "block/_forms";
+@import "block/_help";
+@import "block/_nav";
+@import "block/_notice";
+@import "block/_page";
+@import "block/_table";
+@import "block/_tip";
+
+@import "page/_about";
+@import "page/_bookmarks";
+@import "page/_colors";
+@import "page/_dashboard";
+@import "page/_design";
+@import "page/_time";

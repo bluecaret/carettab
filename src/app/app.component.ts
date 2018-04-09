@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { transition, trigger, style, state, animate, query, group } from '@angular/animations';
-import { SharedService } from './lib/shared.service';
+import { SharedService } from './_shared/shared.service';
 
 @Component({
   selector: 'app-root',

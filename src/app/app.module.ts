@@ -11,7 +11,7 @@ import { Settings } from './_storage/settings';
 import { HelpComponent } from './_shared/help/help.component';
 import { SharedService } from './_shared/shared.service';
 
-// Admin Imports
+// Options Imports
 import { OptionsComponent } from './options/options.component';
 import { OptionsAboutComponent } from './options/about/about.component';
 import { OptionsBookmarksComponent } from './options/bookmarks/bookmarks.component';
@@ -23,7 +23,7 @@ import { OptionsMessageComponent } from './options/message/message.component';
 import { OptionsSearchComponent } from './options/search/search.component';
 import { OptionsTimeComponent } from './options/time/time.component';
 
-// Interface Imports
+// Tab Imports
 import { TabComponent } from './tab/tab.component';
 import { TabBookmarksComponent } from './tab/bookmarks/bookmarks.component';
 

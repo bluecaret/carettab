@@ -1,24 +1,77 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding, ChangeDetectorRef, Input, ViewChild, ElementRef } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 
 @Component({
   selector: 'tab-bookmarks',
   templateUrl: 'bookmarks.component.html'
 })
-export class TabBookmarksComponent {
+export class TabBookmarksComponent implements OnInit {
   @HostBinding('class.tabBookmarks') pageClass = true;
-  scale = '1.25em';
+  baseScale = 13;
+  scale = this.baseScale + 'px';
+  allBookmarks: any;
+  isLoading: boolean;
 
-  constructor(public settings: Storage) {
+  @ViewChild('bookmarkUl') ul: ElementRef;
+
+  constructor(
+    public settings: Storage, 
+    private cdRef: ChangeDetectorRef
+  ) {
     this.calcSize(this.settings.config.bookmarks.scaling);
     this.settings.onChange().subscribe((data) => {
       this.calcSize(data.bookmarks.scaling);
     });
   }
 
+  ngOnInit() {
+    this.isLoading = true;
+    if (!this.settings.config.bookmarks.quickLinks) {
+      chrome.bookmarks.getTree(bookmarks => {
+        this.isLoading = false;
+        this.allBookmarks = bookmarks[0].children[0].children;
+        this.cdRef.detectChanges();
+      });
+    }
+  }
+
   calcSize(size: number) {
-    let base = .025;
-    this.scale = (base * size) + 'em';
+    this.scale = ((this.baseScale / 50) * size) + 'px';
+  }
+
+  moveLeft() {
+    this.sideScroll(this.ul.nativeElement, 'left', 10, 400, 50);
+  }
+
+  moveRight() {
+    this.sideScroll(this.ul.nativeElement, 'right', 10, 400, 50);
+  }
+
+  sideScroll(element, direction, speed, distance, step) {
+    let scrollAmount = 0;
+    let slideTimer = setInterval(function() {
+      if (direction === 'left') {
+        element.scrollLeft -= step;
+      } else {
+        element.scrollLeft += step;
+      }
+      scrollAmount += step;
+      if (scrollAmount >= distance) {
+        window.clearInterval(slideTimer);
+      }
+    }, speed);
+  }
+
+  isScrollAtStart(): boolean {
+    if (this.ul.nativeElement.scrollLeft === 0) {
+      return true;
+    }
+  }
+
+  isScrollAtEnd(): boolean {
+    if (this.ul.nativeElement.scrollLeft === (this.ul.nativeElement.scrollWidth - this.ul.nativeElement.offsetWidth)) {
+      return true;
+    }
   }
 
 }

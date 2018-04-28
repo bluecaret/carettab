@@ -24,7 +24,9 @@
   "offline_enabled": true,
 
   "permissions": [
-    "storage"
+    "storage",
+    "bookmarks",
+    "chrome://favicon/"
   ],
 
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"

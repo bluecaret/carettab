@@ -1,14 +1,37 @@
 <div class="bookmarksBar" [ngStyle]="{'font-size': scale }">
   <button class="bookmarkScroll bookmarkScroll--left fas fa-caret-left" (click)="moveLeft()" [disabled]="isScrollAtStart()"></button>
+  <!-- <mat-menu class="bookmarksList" #bookmarksMenu="matMenu" [overlapTrigger]="false" *ngIf="settings.config.bookmarks.quickLinks">
+    <span class="bookmarkItemWrapper" *ngFor="let link of settings.config.bookmarks.links">
+      <a href="{{link.url}}" class="bookmarkItem" mat-menu-item>{{link.label}}</a>
+    </span>
+  </mat-menu>
+  <mat-menu class="bookmarksList" #bookmarksMenu="matMenu" [overlapTrigger]="false" *ngIf="!settings.config.bookmarks.quickLinks">
+    <span *ngFor="let item of allBookmarks">
+      <span class="bookmarkItemWrapper" *ngIf="item.children && item.children.length > 0">
+        <button mat-menu-item color="primary" [matMenuTriggerFor]="menu.childMenu">
+          <img src="/assets/img/folder.png" class="bookmarkIcon">
+          <div class="bookmarkLabel">{{item.title}}</div>
+        </button>
+        <app-menu-item #menu [items]="item.children"></app-menu-item>
+      </span>
+      <span class="bookmarkItemWrapper" *ngIf="!child.children || child.children.length === 0">
+        <a href="{{item.url}}" title="{{item.title}} 
+{{item.url}}" class="bookmarkItem" mat-menu-item>
+          <img [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/' + item.url)" class="bookmarkIcon">
+          <div class="bookmarkLabel">{{item.title}}</div>
+        </a>
+      </span>
+    </span>
+  </mat-menu> -->
   <ul class="bookmarksList" #bookmarkUl>
     <ng-container *ngIf="settings.config.bookmarks.quickLinks">
-      <li *ngFor="let link of settings.config.bookmarks.links">
+      <li class="bookmarkItemWrapper" *ngFor="let link of settings.config.bookmarks.links">
         <a href="{{link.url}}">{{link.label}}</a>
       </li>
     </ng-container>
     <ng-container *ngIf="!settings.config.bookmarks.quickLinks">
       <ng-template #recursiveList let-allBookmarks>
-        <li *ngFor="let item of allBookmarks">
+        <li class="bookmarkItemWrapper" *ngFor="let item of allBookmarks">
           <ng-container *ngIf="item.url; else bookmarkFolder">
             <a href="{{item.url}}" title="{{item.title}}
   {{item.url}}" class="bookmarkItem bookmarkLink">

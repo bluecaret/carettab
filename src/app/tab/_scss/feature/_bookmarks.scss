@@ -32,7 +32,7 @@ $bookmarksBaseScale: 13px;
     }
   }
   
-  ul.bookmarksList {
+  .bookmarksList {
     flex: 1 1 100%;
     overflow: hidden;
     display: flex;
@@ -42,7 +42,7 @@ $bookmarksBaseScale: 13px;
     list-style: none;
     margin: 0;
     padding: 0;
-    & > li {
+    & > .bookmarkItemWrapper {
       padding: 0;
       margin: 0;
       position: relative;
@@ -78,7 +78,7 @@ $bookmarksBaseScale: 13px;
       .bookmarkIcon + .bookmarkLabel {
         margin-left: .4em;
       }
-      ul {
+      .bookmarksList {
         display: none;
         position: absolute;
         top: 100%;

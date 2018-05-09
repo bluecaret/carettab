@@ -6,8 +6,8 @@
  * Modified by BlueCaret (John Hancock) <john@jwh.design>
  */
 import { Injectable, NgZone, Optional } from '@angular/core';
-import { Observable } from 'rxjs/observable';
 import { Settings } from './settings';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable()
 export class Storage {

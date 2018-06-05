@@ -34,6 +34,22 @@ app-options {
   }
 }
 
+::-webkit-scrollbar {
+  width: 15px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: lighten($pageBg, 15%); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: lighten($pageBg, 20%); 
+}
+
+::-webkit-scrollbar-track {
+  background: $pageBg;
+}
+
 @import "block/_aside";
 @import "block/_btn";
 @import "block/_forms";

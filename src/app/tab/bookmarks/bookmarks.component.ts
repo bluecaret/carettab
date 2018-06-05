@@ -1,4 +1,5 @@
-import { Component, OnInit, HostBinding, ChangeDetectorRef, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, HostBinding, ChangeDetectorRef, Input, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Storage } from '../../_storage/storage.service';
 
 @Component({
@@ -16,7 +17,9 @@ export class TabBookmarksComponent implements OnInit {
 
   constructor(
     public settings: Storage, 
-    private cdRef: ChangeDetectorRef
+    private cdRef: ChangeDetectorRef,
+    private sanitizer: DomSanitizer,
+    private zone: NgZone
   ) {
     this.calcSize(this.settings.config.bookmarks.scaling);
     this.settings.onChange().subscribe((data) => {
@@ -28,9 +31,11 @@ export class TabBookmarksComponent implements OnInit {
     this.isLoading = true;
     if (!this.settings.config.bookmarks.quickLinks) {
       chrome.bookmarks.getTree(bookmarks => {
-        this.isLoading = false;
-        this.allBookmarks = bookmarks[0].children[0].children;
-        this.cdRef.detectChanges();
+        this.zone.run(() => {
+          this.isLoading = false;
+          this.allBookmarks = bookmarks[0].children[0].children;
+          this.cdRef.detectChanges();
+        });
       });
     }
   }

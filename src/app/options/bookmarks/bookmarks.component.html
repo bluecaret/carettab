@@ -85,7 +85,7 @@
         </div>
         <div class="divTableCell pt1">
           <div class="fieldGroup">
-            <input type="text" placeholder="http://" #newUrl="ngModel" required name="url" [(ngModel)]="url" class="fieldGroup__field w100 bookmarks-field">
+            <input type="text" placeholder="https://" #newUrl="ngModel" required name="url" [(ngModel)]="url" class="fieldGroup__field w100 bookmarks-field">
             <div class="valMsg" *ngIf="newUrl.invalid && newLink.submitted">Link must have a URL (website address).</div>
           </div>
         </div>

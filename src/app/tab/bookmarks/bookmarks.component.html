@@ -1,28 +1,5 @@
 <div class="bookmarksBar" [ngStyle]="{'font-size': scale }">
   <button class="bookmarkScroll bookmarkScroll--left fas fa-caret-left" (click)="moveLeft()" [disabled]="isScrollAtStart()"></button>
-  <!-- <mat-menu class="bookmarksList" #bookmarksMenu="matMenu" [overlapTrigger]="false" *ngIf="settings.config.bookmarks.quickLinks">
-    <span class="bookmarkItemWrapper" *ngFor="let link of settings.config.bookmarks.links">
-      <a href="{{link.url}}" class="bookmarkItem" mat-menu-item>{{link.label}}</a>
-    </span>
-  </mat-menu>
-  <mat-menu class="bookmarksList" #bookmarksMenu="matMenu" [overlapTrigger]="false" *ngIf="!settings.config.bookmarks.quickLinks">
-    <span *ngFor="let item of allBookmarks">
-      <span class="bookmarkItemWrapper" *ngIf="item.children && item.children.length > 0">
-        <button mat-menu-item color="primary" [matMenuTriggerFor]="menu.childMenu">
-          <img src="/assets/img/folder.png" class="bookmarkIcon">
-          <div class="bookmarkLabel">{{item.title}}</div>
-        </button>
-        <app-menu-item #menu [items]="item.children"></app-menu-item>
-      </span>
-      <span class="bookmarkItemWrapper" *ngIf="!child.children || child.children.length === 0">
-        <a href="{{item.url}}" title="{{item.title}} 
-{{item.url}}" class="bookmarkItem" mat-menu-item>
-          <img [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/' + item.url)" class="bookmarkIcon">
-          <div class="bookmarkLabel">{{item.title}}</div>
-        </a>
-      </span>
-    </span>
-  </mat-menu> -->
   <ul class="bookmarksList" #bookmarkUl>
     <ng-container *ngIf="settings.config.bookmarks.quickLinks">
       <li class="bookmarkItemWrapper" *ngFor="let link of settings.config.bookmarks.links">
@@ -40,12 +17,12 @@
             </a>
           </ng-container>
           <ng-template #bookmarkFolder>
-            <button type="button" title="{{item.title}}" class="bookmarkItem bookmarkFolder">
+            <button type="button" title="{{item.title}}" class="bookmarkItem bookmarkFolder" (click)="toggle = !toggle">
               <img src="/assets/img/folder.png" class="bookmarkIcon">
               <div class="bookmarkLabel">{{item.title}}</div>
             </button>
           </ng-template>
-          <ul *ngIf="item.children && item.children.length > 0">
+          <ul class="bookmarksList" *ngIf="item.children && item.children.length > 0 && toggle">
             <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item.children }"></ng-container>
           </ul>
         </li>

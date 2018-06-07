@@ -1,0 +1,448 @@
+{
+  "appName": {
+    "message": "CaretTab - New Tab Clock and Date"
+  },
+  "appDesc": {
+    "message": "Максимально спрощена «Нова вкладка», яка включає в в себе декілька годинників, дату, пошук, закладки та багато іншого! Повна кастомізація!"
+  },
+
+  "sunday": {
+    "message": "Неділя"
+  },
+  "monday": {
+    "message": "Понеділок"
+  },
+  "tuesday": {
+    "message": "Вівторок"
+  },
+  "wednesday": {
+    "message": "Середа"
+  },
+  "thursday": {
+    "message": "Четвер"
+  },
+  "friday": {
+    "message": "П'ятниця"
+  },
+  "saturday": {
+    "message": "Суббота"
+  },
+
+  "january": {
+    "message": "Січень"
+  },
+  "february": {
+    "message": "Лютий"
+  },
+  "march": {
+    "message": "Березень"
+  },
+  "april": {
+    "message": "Квітень"
+  },
+  "may": {
+    "message": "Травень"
+  },
+  "june": {
+    "message": "Червень"
+  },
+  "july": {
+    "message": "Липень"
+  },
+  "august": {
+    "message": "Серпень"
+  },
+  "september": {
+    "message": "Вересень"
+  },
+  "october": {
+    "message": "Жовтень"
+  },
+  "november": {
+    "message": "Листопад"
+  },
+  "december": {
+    "message": "Грудень"
+  },
+
+  "welcome": {
+    "message": "Ласкаво просимо в CaretTab!"
+  },
+  "welcomeUpdated": {
+    "message": "CaretTab було оновлено до"
+  },
+  "configureEverything": {
+    "message": "Натисни на стрілку для налаштування... всього!"
+  },
+  "settingsPanel": {
+    "message": "Обов'язково перевір всі вкладки для повного налаштування."
+  },
+
+  "tabAbout": {
+    "message": "Про нас"
+  },
+  "tabColor": {
+    "message": "Колір"
+  },
+  "tabTime": {
+    "message": "Час"
+  },
+  "tabDate": {
+    "message": "Дата"
+  },
+  "tabLinks": {
+    "message": "Посилання"
+  },
+  "tabExtras": {
+    "message": "Різне"
+  },
+  "tabStyle": {
+    "message": "Стиль"
+  },
+  
+  "latestUpdate": {
+    "message": "Останні оновлення"
+  },
+  "keepFree": {
+    "message": "Збережи CaretTab безкоштовним, підтримай розробника"
+  },
+  "keepFreeDesc": {
+    "message": "Якщо тобі подобається CaretTab, подумай про підтримку додатку, залишивши копійчину. Це допоможе зберегти додаток безкоштовним і вільним від реклами! Розробник оцінить це!"
+  },
+  "generousTip": {
+    "message": "Щедрий<br>донат"
+  },
+  "largeTip": {
+    "message": "Великий<br>донат"
+  },
+  "massiveTip": {
+    "message": "Солідний<br>донат"
+  },
+  "anythingHelps": {
+    "message": "Будь-яка<br>допомога!"
+  },
+  "otherTip": {
+    "message": "Інша"
+  },
+  "viaPaypal": {
+    "message": "Оплата через<br>PayPal<br><b>Дякую!</b>"
+  },
+  "supportTitle": {
+    "message": "Підтримка"
+  },
+  "supportDesc": {
+    "message": "Якщо тобі потрібна допомога або хочеш залишити пропозицію/коментар, можеш зв'язатись з розробником <a href=\"http://bluecaret.com\">BlueCaret</a> в Twitter <a href=\"https://twitter.com/BlueCaret\">@BlueCaret</a> або подивитись CaretTab на <a href=\"https://github.com/bluecaret/carettab\">GitHub</a>."
+  },
+  "resetDesc": {
+    "message": "Якщо хочеш скинути всі налаштування до стандартних, можеш жмякнути кнопку нижче і перезапустити сторінку."
+  },
+  "resetButton": {
+    "message": "Скинути налаштування"
+  },
+  "credit": {
+    "message": "<a href=\"http://bluecaret.com/project/carettab\">CaretTab</a> придуманий і написаний <a href=\"http://jwh.design\">JWH Design, LLC</a> (<a href=\"http://bluecaret.com\">BlueCaret</a>) и ліцензований під <a href=\"https://opensource.org/licenses/MIT\">MIT License</a>."
+  },
+  "disclaimer": {
+    "message": "CaretTab не несе відповідальності за будь-які проблеми, які можуть виникнути через точність роботи цого розширення. Якщо ти запізнишся на роботу через те що вказаний час був неправильним, це твоя провина."
+  },
+
+  "customColor": {
+    "message": "Кольори"
+  },
+  "bg": {
+    "message": "Кольори фону"
+  },
+  "bgDesc": {
+    "message": "Колір фону сторінки."
+  },
+  "fg": {
+    "message": "Основний колір"
+  },
+  "fgDesc": {
+    "message": "Колір шрифтів і іконок."
+  },
+  "themes": {
+    "message": "теми"
+  },
+
+  "primaryClock": {
+    "message": "Основний годинник"
+  },
+  "primaryClockDesc": {
+    "message": "Показує основний годинник посередині сторінки"
+  },
+  "clockStyle": {
+    "message": "Стиль годинника"
+  },
+  "clockStyleDesc": {
+    "message": "Переключає між цифровим і аналоговим годинником (дужки будуть приховані, якщо увімкнуто)."
+  },
+  "seconds": {
+    "message": "Секунди"
+  },
+  "secondsDesc": {
+    "message": "Показує секунди в основному годиннику."
+  },
+  "meridiem": {
+    "message": "Інтервали"
+  },
+  "meridiemDesc": {
+    "message": "Показує AM/PM в основному годиннику."
+  },
+  "military": {
+    "message": "24 години"
+  },
+  "militaryDesc": {
+    "message": "Використовує 24-годинний формат годинника замість 12-годинного (виключає інтервали)."
+  },
+  "delimiter": {
+    "message": "Розділювач"
+  },
+  "delimiterDesc": {
+    "message": "Показує розділювач між цифрами в всіх годинниках."
+  },
+  "timezone": {
+    "message": "Часовий пояс"
+  },
+  "timezoneDesc": {
+    "message": "Вибери часовий пояс для основного годинника(за завмовчуванням - твій місцевий часовий пояс)."
+  },
+  "additionalClocks": {
+    "message": "Додаткові годинники"
+  },
+  "secondClock": {
+    "message": "Другий годинник"
+  },
+  "secondClockDesc": {
+    "message": "Показує додатковий годинник під основним."
+  },
+  "secondClockTimezone": {
+    "message": "Часовий пояс для другого годинника"
+  },
+  "secondClockTimezoneDesc": {
+    "message": "Вибери часовий пояс для цього годинника."
+  },
+  "secondClockLabel": {
+    "message": "Опис для другого годинника"
+  },
+  "secondClockLabelDesc": {
+    "message": "Введи опис для цього годинника (залиш пустим щоб приховати)."
+  },
+  "thirdClock": {
+    "message": "Третій годинник"
+  },
+  "thirdClockDesc": {
+    "message": "Показує додатковий годинник під основним."
+  },
+  "thirdClockTimezone": {
+    "message": "Часовий пояс для третього годинника"
+  },
+  "thirdClockTimezoneDesc": {
+    "message": "Вибери часовий пояс для цього годинника."
+  },
+  "thirdClockLabel": {
+    "message": "Опис для третього годинника"
+  },
+  "thirdClockLabelDesc": {
+    "message": "Введи опис для цього годинника (залиш пустим щоб приховати)."
+  },
+  "fourthClock": {
+    "message": "Четвертий годинник"
+  },
+  "fourthClockDesc": {
+    "message": "Показує додатковий годинник під основним."
+  },
+  "fourthClockTimezone": {
+    "message": "Часовий пояс для четвертого годинника"
+  },
+  "fourthClockTimezoneDesc": {
+    "message": "Вибери часовий пояс для цього годинника."
+  },
+  "fourthClockLabel": {
+    "message": "Опис для четвертого"
+  },
+  "fourthClockLabelDesc": {
+    "message": "Введи опис для цього годинника (залиш пустим щоб приховати)."
+  },
+  "timeDisclaimer": {
+    "message": "<b>Пам'ятайте</b>, що відображення часу основних і додаткових годинників залежить від часу і часового поясу вашого комп'ютера. Визначення вашого поточного часового поясу в значній мірі носить гіпотетичний характер і може не відображати вашого реального часового поясу, що може привести до відключення додаткових годинників. Зараз CaretTab визначив ваш часовий пояс як:"
+  },
+
+  "date": {
+    "message": "Дата"
+  },
+  "dateDesc": {
+    "message": "Показує дату посередині сторінки."
+  },
+  "day": {
+    "message": "День"
+  },
+  "dayDesc": {
+    "message": "Показує день тижня (тільки якщо  'коротка форма' вимкнена)."
+  },
+  "year": {
+    "message": "Рік"
+  },
+  "yearDesc": {
+    "message": "Показує рік в даті."
+  },
+  "shortForm": {
+    "message": "Коротка форма"
+  },
+  "shortFormDesc": {
+    "message": "Показує дату в числовому форматі."
+  },
+  "showDelimiter": {
+    "message": "Розділювач в короткій формі"
+  },
+  "showDelimiterDesc": {
+    "message": "Показує розділювач в короткій формі дати."
+  },
+  "dateFormat": {
+    "message": "Формат дати"
+  },
+  "dateFormatDesc": {
+    "message": "Визначає, как буде показана дата."
+  },
+  "weekNumber": {
+    "message": "Номер тижня"
+  },
+  "weekNumberDesc": {
+    "message": "Показує номер тижня під датою."
+  },
+  "weekLabel": {
+    "message": "Опис номера тижня"
+  },
+  "weekLabelDesc": {
+    "message":  "Вибери варіант опису перед номером тижня."
+  },
+
+  "quickLinks": {
+    "message": "Швидкі посилання"
+  },
+  "quickLinksDesc": {
+    "message": "Показує налаштовувані швидкі посилання зверху сторінки."
+  },
+  "addLink": {
+    "message": "Додати посилання"
+  },
+  "singleLink": {
+    "message": "Посилання"
+  },
+
+  "search": {
+    "message": "Пошук"
+  },
+  "searchBox": {
+    "message": "Поле пошуку"
+  },
+  "searchBoxDesc": {
+    "message": "Показує поле пошуку над годинником."
+  },
+  "searchEngine": {
+    "message": "Пошукова система"
+  },
+  "searchEngineDesc": {
+    "message": "Вибери пошукову систему, яка буде використовуватись за завмовчуванням."
+  },
+  "messageTitle": {
+    "message": "Повідомлення"
+  },
+  "customMessage": {
+    "message": "Налаштовуване сообщение"
+  },
+  "customMessageDesc": {
+    "message": "Показує налаштовуване повідомлення(з поля нижче)."
+  },
+  "customMessageText": {
+    "message": "Текст повідомлення"
+  },
+  "customMessageTextDesc": {
+    "message": "Введи текст повідомлення."
+  },
+  "brackets": {
+    "message": "Дужки"
+  },
+  "bracketsDesc": {
+    "message": "Показує дужки навколо основного годинника і дати (приховані, якщо включений аналоговий годинник)."
+  },
+  "bracketsType": {
+    "message": "Тип дужок"
+  },
+  "miscellaneous": {
+    "message": "Різне"
+  },
+  "tabTitle": {
+    "message": "Назва вкладки"
+  },
+  "tabTitleDesc": {
+    "message": "Вибери що показувати в назві вкладки (показується як на вкладці, так і в рядку заголовка браузера)."
+  },
+  "customTabText": {
+    "message": "Власна назва вкладки"
+  },
+  "customTabTextDesc": {
+    "message": "Введи текст для назви вкладки."
+  },
+  "language": {
+    "message": "Мова"
+  },
+  "languageDesc": {
+    "message": "CaretTab підтримує декілька мов, на які автоматично переключається в залежності від мови в браузері (можливіть ручного вибору мови в додатку буде пізніше). підтримувані мови: Ukrainian, English, French, Chinese (Simplified &amp; Traditional), Japanese, German."
+  },
+
+  "globalStyle": {
+    "message": "Загальні стилі"
+  },
+  "font": {
+    "message": "Шрифт"
+  },
+  "fontDesc": {
+    "message": "Зміна шрифтадля<br>всіх элементів."
+  },
+  "scaleDisplay": {
+    "message": "Масштаб елементів"
+  },
+  "scaleDisplayDesc": {
+    "message": "Змінює розмір елементів. Якщо елементи починають перекриватись, зменшіть розмір."
+  },
+  "animation": {
+    "message": "Анімація"
+  },
+  "animationDesc": {
+    "message": "Анумує всі элементи при завантаження сторінки."
+  },
+  "dimming": {
+    "message": "Затемнення"
+  },
+  "dimSeconds": {
+    "message": "Затемнення секунд секунд"
+  },
+  "dimSecondsDesc": {
+    "message": "Робить секунди на 50% прозорішими."
+  },
+  "dimDelimiter": {
+    "message": "Затемнення розділювача"
+  },
+  "dimDelimiterDesc": {
+    "message": "Робить розділювач на 50% прозорішим (тільки якщо виключено мигання розділювача)."
+  },
+  "dimBrackets": {
+    "message": "Затемнення дужок"
+  },
+  "dimBracketsDesc": {
+    "message": "Робить дужки на 50% прозорішими."
+  },
+  "blinkDelimiter": {
+    "message": "Мигання розділювача"
+  },
+  "blinkDelimiterDesc": {
+    "message": "Включає мигання розділювача в основному годиннику."
+  },
+  "hideSettingsButton": {
+    "message": "Приховати кнопку налаштувань"
+  },
+  "hideSettingsButtonDesc": {
+    "message": "Кнопка налаштувань відкриває налаштування. Включи це для приховання іконки. Ти все ще можеш відкрити налаштування натиснувши на верхній правий кут сторінки."
+  }
+}

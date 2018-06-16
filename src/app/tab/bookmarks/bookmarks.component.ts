@@ -1,19 +1,40 @@
 import { Component, OnInit, HostBinding, ChangeDetectorRef, Input, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Storage } from '../../_storage/storage.service';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'tab-bookmarks',
-  templateUrl: 'bookmarks.component.html'
+  templateUrl: 'bookmarks.component.html',
+  animations: [
+    trigger('slideInOut', [
+      transition(':enter', [
+        style({transform: 'translateX(100%)'}),
+        animate('200ms ease-in', style({transform: 'translateX(0%)'}))
+      ]),
+      transition(':leave', [
+        animate('200ms ease-in', style({transform: 'translateX(100%)'}))
+      ])
+    ]),
+    trigger('slideDown', [
+      transition(':enter', [
+        style({transform: 'translateY(-100%)'}),
+        animate('200ms ease-in', style({transform: 'translateY(0%)'}))
+      ]),
+      transition(':leave', [
+        animate('200ms ease-in', style({transform: 'translateY(-100%)'}))
+      ])
+    ])
+  ]
 })
 export class TabBookmarksComponent implements OnInit {
-  @HostBinding('class.tabBookmarks') pageClass = true;
   baseScale = 13;
   scale = this.baseScale + 'px';
   allBookmarks: any;
   isLoading: boolean;
+  toggle: any = {};
 
-  @ViewChild('bookmarkUl') ul: ElementRef;
+  @ViewChild('barList') barList: ElementRef;
 
   constructor(
     public settings: Storage, 
@@ -35,6 +56,7 @@ export class TabBookmarksComponent implements OnInit {
           this.isLoading = false;
           this.allBookmarks = bookmarks[0].children[0].children;
           this.cdRef.detectChanges();
+          this.toggle = this.allBookmarks.map(i => false);
         });
       });
     }
@@ -44,12 +66,12 @@ export class TabBookmarksComponent implements OnInit {
     this.scale = ((this.baseScale / 50) * size) + 'px';
   }
 
-  moveLeft() {
-    this.sideScroll(this.ul.nativeElement, 'left', 10, 400, 50);
+  moveLeft(el: any) {
+    this.sideScroll(el, 'left', 30, 200, 30);
   }
 
-  moveRight() {
-    this.sideScroll(this.ul.nativeElement, 'right', 10, 400, 50);
+  moveRight(el: any) {
+    this.sideScroll(el, 'right', 30, 200, 30);
   }
 
   sideScroll(element, direction, speed, distance, step) {
@@ -67,14 +89,14 @@ export class TabBookmarksComponent implements OnInit {
     }, speed);
   }
 
-  isScrollAtStart(): boolean {
-    if (this.ul.nativeElement.scrollLeft === 0) {
+  isScrollAtStart(el: any): boolean {
+    if (el.scrollLeft === 0) {
       return true;
     }
   }
 
-  isScrollAtEnd(): boolean {
-    if (this.ul.nativeElement.scrollLeft === (this.ul.nativeElement.scrollWidth - this.ul.nativeElement.offsetWidth)) {
+  isScrollAtEnd(el: any): boolean {
+    if (el.scrollLeft === (el.scrollWidth - el.offsetWidth)) {
       return true;
     }
   }

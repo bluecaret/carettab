@@ -12,6 +12,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   .then(() => {
     let splashScreen = document.getElementById('splashScreen');
     splashScreen.setAttribute('class', 'loaded');
-    setTimeout(function(){ splashScreen.remove(); }, 320);
+    setTimeout(function() { splashScreen.remove(); }, 320);
   })
   .catch(err => console.log(err));

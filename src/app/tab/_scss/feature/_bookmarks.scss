@@ -1,90 +1,166 @@
 $bookmarksBaseScale: 13px;
+$barBg: #e5e5e5;
 
-.tabBookmarks {
+.bookmarksBar {
+  font-size: $bookmarksBaseScale;
+}
+
+.bar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  background: rgba(0,0,0,.1);
-
-}
-
-.bookmarksBar {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  font-size: $bookmarksBaseScale;
-  margin: 0;
+  background: $barBg;
+  border-bottom: 1px solid darken($barBg, 10%);
 }
 
-.bookmarkScroll {
+.bar__title,
+.bar__scroll,
+.bar__link,
+.bar__folder {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
   flex: 0 0 auto;
-  margin: 0;
-  padding: 0 1em;
+  height: 2.2em;
   line-height: 2.2em;
+  padding: 0 .8em;
   border: 0;
-  background: transparent;
-  transition: background .2s;
+  background-color: transparent;
+  color: inherit;
+  text-decoration: none;
+  cursor: default;
+  transition: background-color .2s;
   &:hover:not(:disabled) {
-    background: rgba(0,0,0,.1);
+    background-color: darken($barBg, 5%);
   }
   &:disabled {
     opacity: .5;
   }
 }
 
-.bookmarksList {
-  flex: 1 1 100%;
-  overflow: hidden;
+.bar__list {
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;
   list-style: none;
-  margin: 0;
-  padding: 0;
-  & > .bookmarkItemWrapper {
-    padding: 0;
-    margin: 0;
-    position: relative;
-    .bookmarkItem,
-    a.bookmarkItem {
-      display: flex;
-      align-items: center;
-      line-height: 2.2em;
-      padding: 0 .5em;
-      border: 0;
-      text-decoration: none;
-      background-color: transparent;
-      color: inherit;
-      transition: background .2s;
-      &:hover {
-        background: rgba(0,0,0,.1);
-      }
-    }
-    .bookmarkIcon {
-      flex: 0 0 auto;
-      width: 1.5em;
-      height: 1.5em;
-      max-width: 16px;
-      max-height: 16px;
-    }
-    .bookmarkLabel {
-      flex: 1 1 auto;
-      white-space: nowrap;
-      max-width: 15vw;
-      text-overflow: clip;
-      overflow: hidden;
-    }
-    .bookmarkIcon + .bookmarkLabel {
-      margin-left: .4em;
-    }
-    .bookmarksList {
-      position: absolute;
-      top: 100%;
-      left: 0;
-    }
+  overflow: hidden;
+  border: 1px solid darken($barBg, 10%);
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.bar__title {
+  background-color: darken($barBg, 10%);
+  &:hover:not(:disabled) {
+    background-color: darken($barBg, 15%);
   }
 }
+
+.bar__icon {
+  flex: 0 0 auto;
+  width: 1.5em;
+  height: 1.5em;
+  max-width: 16px;
+  max-height: 16px;
+  font-size: 16px;
+}
+
+.bar__label {
+  flex: 1 1 auto;
+  white-space: nowrap;
+  max-width: 15vw;
+  text-overflow: clip;
+  overflow: hidden;
+}
+
+.bar__icon + .bar__label {
+  margin-left: .4em;
+}
+
+// .bookmarksBar {
+//   display: flex;
+//   flex-wrap: nowrap;
+//   align-items: center;
+//   font-size: $bookmarksBaseScale;
+//   margin: 0;
+// }
+
+// .bookmarkScroll {
+//   flex: 0 0 auto;
+//   margin: 0;
+//   padding: 0 1em;
+//   line-height: 2.2em;
+//   border: 0;
+//   background: transparent;
+//   transition: background .2s;
+//   &:hover:not(:disabled) {
+//     background: rgba(0,0,0,.1);
+//   }
+//   &:disabled {
+//     opacity: .5;
+//   }
+// }
+
+// .bookmarksList {
+//   flex: 1 1 100%;
+//   overflow: hidden;
+//   display: flex;
+//   flex-wrap: nowrap;
+//   justify-content: flex-start;
+//   align-items: center;
+//   list-style: none;
+//   margin: 0;
+//   padding: 0;
+//   & > .bookmarkItemWrapper {
+//     padding: 0;
+//     margin: 0;
+//     position: relative;
+//     .bookmarkItem,
+//     a.bookmarkItem {
+//       display: flex;
+//       align-items: center;
+//       line-height: 2.2em;
+//       padding: 0 .5em;
+//       border: 0;
+//       text-decoration: none;
+//       background-color: transparent;
+//       color: inherit;
+//       transition: background .2s;
+//       &:hover {
+//         background: rgba(0,0,0,.1);
+//       }
+//     }
+//     .bookmarkIcon {
+//       flex: 0 0 auto;
+//       width: 1.5em;
+//       height: 1.5em;
+//       max-width: 16px;
+//       max-height: 16px;
+//     }
+//     .bookmarkLabel {
+//       flex: 1 1 auto;
+//       white-space: nowrap;
+//       max-width: 15vw;
+//       text-overflow: clip;
+//       overflow: hidden;
+//     }
+//     .bookmarkIcon + .bookmarkLabel {
+//       margin-left: .4em;
+//     }
+//     .bookmarksList {
+//       position: absolute;
+//       top: 100%;
+//       left: 0;
+//     }
+//   }
+// }
 

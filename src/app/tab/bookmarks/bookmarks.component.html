@@ -1,34 +1,107 @@
-<div class="bookmarksBar" [ngStyle]="{'font-size': scale }">
-  <button class="bookmarkScroll bookmarkScroll--left fas fa-caret-left" (click)="moveLeft()" [disabled]="isScrollAtStart()"></button>
-  <ul class="bookmarksList" #bookmarkUl>
-    <ng-container *ngIf="settings.config.bookmarks.quickLinks">
-      <li class="bookmarkItemWrapper" *ngFor="let link of settings.config.bookmarks.links">
-        <a href="{{link.url}}">{{link.label}}</a>
-      </li>
-    </ng-container>
-    <ng-container *ngIf="!settings.config.bookmarks.quickLinks">
-      <ng-template #recursiveList let-allBookmarks>
-        <li class="bookmarkItemWrapper" *ngFor="let item of allBookmarks">
-          <ng-container *ngIf="item.url; else bookmarkFolder">
-            <a href="{{item.url}}" title="{{item.title}}
-  {{item.url}}" class="bookmarkItem bookmarkLink">
-              <img [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/' + item.url)" class="bookmarkIcon">
-              <div class="bookmarkLabel">{{item.title}}</div>
-            </a>
+<div 
+  class="bookmarksBar" 
+  [ngStyle]="{'font-size': scale }" 
+  *ngIf="!settings.config.bookmarks.quickLinks">
+
+  <div class="bar">
+    <!-- Scroll left button -->
+    <button 
+      class="bar__scroll" 
+      (click)="moveLeft(barList)" 
+      [disabled]="isScrollAtStart(barList)">
+      <i class="bar__icon fas fa-angle-double-left"></i>
+    </button>
+    <!-- Bar list -->
+    <ul class="bar__list" #barList>
+      <li class="bar__node" *ngFor="let item of allBookmarks; let i = index">
+        <ng-container *ngIf="item.url; else bookmarkFolder">
+          <a 
+            href="{{item.url}}" 
+            title="{{item.title}}
+              {{item.url}}" 
+            class="bar__link">
+            <img [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/' + item.url)" class="bar__icon">
+            <div class="bar__label">{{item.title}}</div>
+          </a>
+        </ng-container>
+        <ng-template #bookmarkFolder>
+          <button 
+            class="bar__folder" 
+            title="{{item.title}}" 
+            (click)="toggle[i] = !toggle[i]">
+            <img src="/assets/img/folder.png" class="bar__icon">
+            <div class="bar__label">{{item.title}}</div>
+          </button>
+        </ng-template>
+        <div class="bar" *ngIf="item.children && toggle[i]" @slideDown>
+          <ng-container 
+            *ngTemplateOutlet="tree; context: { $implicit: item.children, parent: item, idx: i }">
           </ng-container>
-          <ng-template #bookmarkFolder>
-            <button type="button" title="{{item.title}}" class="bookmarkItem bookmarkFolder" (click)="toggle = !toggle">
-              <img src="/assets/img/folder.png" class="bookmarkIcon">
-              <div class="bookmarkLabel">{{item.title}}</div>
-            </button>
-          </ng-template>
-          <ul class="bookmarksList" *ngIf="item.children && item.children.length > 0 && toggle">
-            <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item.children }"></ng-container>
-          </ul>
-        </li>
-      </ng-template>
-      <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: allBookmarks }"></ng-container>
-    </ng-container>
-  </ul>
-  <button class="bookmarkScroll bookmarkScroll--right fas fa-caret-right" (click)="moveRight()" [disabled]="isScrollAtEnd()"></button>
+        </div>
+      </li>
+    </ul>
+    <!-- Scroll right button -->
+    <button 
+      class="bar__scroll" 
+      (click)="moveRight(barList)"
+      [disabled]="isScrollAtEnd(barList)">
+      <i class="bar__icon fas fa-angle-double-right"></i>
+    </button>
+  </div>
+
 </div>
+
+<ng-template #tree let-list let-parent="parent" let-idx="idx">
+  <!-- Back button -->
+  <button 
+    class="bar__title" 
+    *ngIf="parent" 
+    title="{{parent.title}}" 
+    (click)="toggle[idx] = !toggle[idx]">
+    <i class="bar__icon fas fa-caret-up"></i>
+    <div class="bar__label">{{parent.title}}</div>
+  </button>
+  <!-- Scroll left button -->
+  <button 
+    class="bar__scroll" 
+    (click)="moveLeft(barList)" 
+    [disabled]="isScrollAtStart(barList)">
+    <i class="bar__icon fas fa-angle-double-left"></i>
+  </button>
+  <!-- Bar list -->
+  <ul class="bar__list" #barList>
+    <li class="bar__node" *ngFor="let item of list; let n = index">
+      <ng-container *ngIf="item.url; else bookmarkFolder">
+        <a 
+          href="{{item.url}}" 
+          title="{{item.title}}
+            {{item.url}}" 
+          class="bar__link">
+          <img [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/' + item.url)" class="bar__icon">
+          <div class="bar__label">{{item.title}}</div>
+        </a>
+      </ng-container>
+      <ng-template #bookmarkFolder>
+        <button 
+          class="bar__folder" 
+          title="{{item.title}}" 
+          (click)="toggle[idx + '.' + n] = !toggle[idx + '.' + n]">
+          <img src="/assets/img/folder.png" class="bar__icon">
+          <div class="bar__label">{{item.title}}</div>
+        </button>
+      </ng-template>
+      <div class="bar" *ngIf="item.children && toggle[idx + '.' + n]" @slideDown>
+        <ng-container 
+          *ngTemplateOutlet="tree; context: { $implicit: item.children, parent: item, idx: idx + '.' + n }">
+        </ng-container>
+      </div>
+    </li>
+  </ul>
+  <!-- Scroll right button -->
+  <button 
+    class="bar__scroll" 
+    (click)="moveRight(barList)"
+    [disabled]="isScrollAtEnd(barList)">
+    <i class="bar__icon fas fa-angle-double-right"></i>
+  </button>
+</ng-template>

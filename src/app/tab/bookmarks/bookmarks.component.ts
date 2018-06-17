@@ -28,7 +28,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ]
 })
 export class TabBookmarksComponent implements OnInit {
-  baseScale = 13;
+  baseScale = 12;
   scale = this.baseScale + 'px';
   allBookmarks: any;
   isLoading: boolean;

@@ -1,12 +1,13 @@
 /* Tab
    ========================================================================== */
 
+@import "~scss/_mixins";
 @import "~scss/_variables";
 @import "~scss/_utilities";
 
 app-tab {
   position: fixed;
-  z-index: 100;
+  z-index: z('tabUI');
   top: 0;
   left: 0;
   width: 100vw;
@@ -29,7 +30,7 @@ app-tab {
 
 #toggleOptions {
   position: absolute;
-  z-index: 500;
+  z-index: z('tabToggle');
   bottom: 1vw;
   right: 1vw;
   padding: .5em;

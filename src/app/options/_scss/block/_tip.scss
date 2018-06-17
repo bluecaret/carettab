@@ -23,7 +23,7 @@
 
 .tip:after,
 [data-tip]:after {
-  z-index: 1000;
+  z-index: z('tooltip');
   padding: 5px;
   width: 160px;
   background-color: #000;

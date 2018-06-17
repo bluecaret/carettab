@@ -4,7 +4,7 @@
 app-options {
   nav {
     position: fixed;
-    z-index: 3;
+    z-index: z('optionsNav');
     top: 0;
     left: 0;
     bottom: 0;

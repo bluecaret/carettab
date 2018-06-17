@@ -1,12 +1,13 @@
 /* Settings
    ========================================================================== */
 
+@import "~scss/_mixins";
 @import "~scss/_variables";
 @import "~scss/_utilities";
 
 app-options {
   position: absolute;
-  z-index: 2;
+  z-index: z('optionsUI');
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -22,7 +23,7 @@ app-options {
   }
   .close {
     position: fixed;
-    z-index: 4;
+    z-index: z('optionsClose');
     display: flex;
     justify-content: center;
     align-items: center;

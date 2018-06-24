@@ -28,6 +28,42 @@ export class Settings {
           url: 'https://www.youtube.com/'
         }
       ]
+    },
+    time: {
+      clocks: [
+        {
+          enabled: true,
+          label: '',
+          timezone: '',
+          scaling: 50,
+          font: 'Roboto',
+          seconds: {
+            enabled: true,
+            dim: false,
+            seconds: false
+          },
+          twentyFour: false,
+          meridiem: {
+            enabled: true,
+            dim: true
+          },
+          delimiter: {
+            enabled: true,
+            dim: true,
+            blink: true
+          },
+          brackets: {
+            enabled: true,
+            dim: true,
+            left: '{',
+            right: '}'
+          },
+          analog: {
+            enabled: false,
+            style: 10
+          }
+        }
+      ]
     }
   };
 }

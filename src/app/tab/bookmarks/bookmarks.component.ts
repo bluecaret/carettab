@@ -67,11 +67,11 @@ export class TabBookmarksComponent implements OnInit {
   }
 
   moveLeft(el: any) {
-    this.sideScroll(el, 'left', 30, 200, 30);
+    this.sideScroll(el, 'left', 30, 400, 30);
   }
 
   moveRight(el: any) {
-    this.sideScroll(el, 'right', 30, 200, 30);
+    this.sideScroll(el, 'right', 30, 400, 30);
   }
 
   sideScroll(element, direction, speed, distance, step) {

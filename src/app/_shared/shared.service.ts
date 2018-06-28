@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class SharedService {
-  optionsToggleS = false;
+  optionsToggleS = true;
 
   get optionsToggle(): boolean {
     return this.optionsToggleS;

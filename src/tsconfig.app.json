@@ -5,7 +5,9 @@
     "baseUrl": "./",
     "module": "es2015",
     "types": [
-      "chrome"
+      "chrome",
+      "moment",
+      "moment-timezone"
     ]
   },
   "exclude": [

@@ -16,6 +16,18 @@ import { Storage } from './_storage/storage.service';
       })),
       transition('* => void', animate('250ms ease-out')),
       transition('void => *', animate('250ms ease-in'))
+    ]),
+    trigger('slideIn', [
+      state('*', style({
+        opacity: 1,
+        transform: 'translateX(0)'
+      })),
+      state('void',   style({
+        opacity: 0,
+        transform: 'translateX(20%)'
+      })),
+      transition('* => void', animate('250ms ease-out')),
+      transition('void => *', animate('250ms ease-in'))
     ])
   ]
 })

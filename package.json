@@ -23,7 +23,11 @@
     "@angular/platform-browser-dynamic": "6.0.2",
     "@angular/router": "6.0.2",
     "@types/chrome": "0.0.65",
+    "@types/moment": "^2.13.0",
+    "@types/moment-timezone": "^0.5.6",
     "core-js": "^2.4.1",
+    "moment": "^2.22.2",
+    "ngx-moment": "^3.0.1",
     "rxjs": "^6.1.0",
     "rxjs-compat": "^6.1.0",
     "zone.js": "^0.8.26"

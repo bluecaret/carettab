@@ -10,6 +10,9 @@ import { Ng2ChromeStorageModule } from './_storage/storage.module';
 import { Settings } from './_storage/settings';
 import { HelpComponent } from './_shared/help/help.component';
 import { SharedService } from './_shared/shared.service';
+import { MomentModule } from 'ngx-moment';
+// import { MomentTimezoneModule } from 'angular-moment-timezone';
+import * as moment from 'moment';
 
 // Options Imports
 import { OptionsComponent } from './options/options.component';
@@ -26,6 +29,7 @@ import { OptionsTimeComponent } from './options/time/time.component';
 // Tab Imports
 import { TabComponent } from './tab/tab.component';
 import { TabBookmarksComponent } from './tab/bookmarks/bookmarks.component';
+import { TabTimeComponent } from './tab/time/time.component';
 
 @NgModule({
   declarations: [
@@ -44,14 +48,17 @@ import { TabBookmarksComponent } from './tab/bookmarks/bookmarks.component';
     OptionsTimeComponent,
 
     TabComponent,
-    TabBookmarksComponent
+    TabBookmarksComponent,
+    TabTimeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    Ng2ChromeStorageModule
+    Ng2ChromeStorageModule,
+    MomentModule
+    // MomentTimezoneModule
   ],
   providers: [
     SharedService

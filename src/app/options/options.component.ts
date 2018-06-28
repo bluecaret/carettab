@@ -11,7 +11,7 @@ export class OptionsComponent {
   page: string;
 
   constructor(public shared: SharedService) {
-    this.page = 'bookmarks';
+    this.page = 'time';
   }
 
   toggleOptions() {

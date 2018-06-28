@@ -1,60 +1,66 @@
 <h1>
   Time
-  <small>Add multiple clocks with multiple timezones.</small>
 </h1>
 <button class="btn" title="Add secondary clock"><i class="fas fa-plus"></i> Add New Clock</button> 
-<div *ngFor="let item of [0,1]; let i of index;">
+<ng-container *ngFor="let clock of clocks; let i = index">
   <hr>
   <fieldset>
     <h2 class="flex flex--middle m0 mb1 pb1">
-      <button class="btn active mr5" title="Enable clock."><i class="fas fa-check"></i> On</button> 
+      <button class="btn mr5" title="Enable clock." [ngClass]="{'active': clock.enabled}"><i class="fas fa-check"></i> On</button> 
       <button class="btn mr5" disabled="disabled" title="Move clock up in list."><i class="fas fa-long-arrow-alt-up"></i></button> 
       <button class="btn mr1" disabled="disabled" title="Move clock down in list."><i class="fas fa-long-arrow-alt-down"></i></button> 
       Clock {{i + 1}}
       <button class="btn mlAuto" title="Delete clock."><i class="fas fa-trash-alt"></i> Delete</button> 
     </h2>
     <div class="row row--gap">
+      <!-- Timezone -->
       <div class="fieldGroup colMd4">
-        <label class="fieldGroup__label"><app-help title="Choose a timezone for the clock (the default is your local timezone).">Timezone</app-help></label>
-        <select name="clock1Timezone" id="clock1Timezone" class="fieldGroup__field">
+        <label [for]="'clockTimezone'+i" class="fieldGroup__label"><app-help title="Choose a timezone for the clock (the default is your local timezone).">Timezone</app-help></label>
+        <select [id]="'clockTimezone'+i" name="clockTimezone" class="fieldGroup__field">
           <option value=""></option>
         </select>
       </div>
+      <!-- Label -->
       <div class="fieldGroup colMd4">
-        <label for="clock1Label" class="fieldGroup__label">Clock Label</label>
-        <input type="text" class="fieldGroup__field" id="clock1Label">
+        <label [for]="'clockLabel'+i" class="fieldGroup__label">Clock Label</label>
+        <input [id]="'clockLabel'+i" name="clockLabel" [(ngModel)]="clock.label" type="text" class="fieldGroup__field">
       </div>
+      <!-- Scaling -->
       <div class="fieldGroup colMd4">
-        <label for="clockSize" class="fieldGroup__label"><app-help title="Change the size of the clock.">Size</app-help></label>
+        <label [for]="'clockSize'+i" class="fieldGroup__label"><app-help title="Change the size of the clock.">Size</app-help></label>
         <div class="flex">
-          <input id="clockSize" type="range" class="fieldGroup__field flex__auto" value="50" min="0" max="100">
-          <input class="fieldGroup__field rangeLabel flex__set" value="50">
+          <input [id]="'clockSize'+i" name="clockSize" [(ngModel)]="clock.scaling" type="range" class="fieldGroup__field flex__auto" min="0" max="100">
+          <input [id]="'clockSizeInput'+i" name="clockSizeInput" [(ngModel)]="clock.scaling" class="fieldGroup__field rangeLabel flex__set">
         </div>
       </div>
+      <!-- Font -->
       <div class="fieldGroup colMd4">
         <label class="fieldGroup__label"><app-help title="Choose a font to use for this clock.">Font</app-help></label>
         <select name="clock1Timezone" id="clock1Timezone" class="fieldGroup__field">
           <option value="">Use global font</option>
         </select>
       </div>
+      <!-- Seconds -->
       <div class="fieldGroup colMd4">
-        <label for="clock1Seconds" class="fieldGroup__label"><app-help title="Display the seconds on the clock.">Seconds</app-help></label>
-        <div class="btnGroup btnGroup--justified">
-          <input type="checkbox" id="enable">
-          <label for="enable"><i class="fas fa-check"></i> On</label>
-          <input type="checkbox" id="blink">
-          <label for="blink" title="Flashes the seconds display every second."><i class="fas fa-eye"></i> <app-help>Blink</app-help></label>
-          <input type="checkbox" id="dim">
-          <label for="dim" title="Makes the seconds 50% transparent."><i class="fas fa-adjust"></i> <app-help>Dim</app-help></label>
+        <label [for]="'clockSeconds'+i" class="fieldGroup__label"><app-help title="Display the seconds on the clock.">Seconds</app-help></label>
+        <div [id]="'clockSeconds'+i" class="btnGroup btnGroup--justified">
+          <input type="checkbox" [id]="'clockSecondsEnable'+i" name="clockSecondsEnable" [(ngModel)]="clock.seconds.enabled">
+          <label [for]="'clockSecondsEnable'+i"><i class="fas fa-check"></i> Enable</label>
+          <input type="checkbox" [id]="'clockSecondsBlink'+i" name="clockSecondsBlink" [(ngModel)]="clock.seconds.blink">
+          <label [for]="'clockSecondsBlink'+i" title="Flashes the seconds display every second."><i class="fas fa-eye"></i> <app-help>Blink</app-help></label>
+          <input type="checkbox" [id]="'clockSecondsDim'+i" name="clockSecondsDim" [(ngModel)]="clock.seconds.dim">
+          <label [for]="'clockSecondsDim'+i" title="Makes the seconds 50% transparent."><i class="fas fa-adjust"></i> <app-help>Dim</app-help></label>
         </div>
       </div>
+      <!-- Twenty Four Hour -->
       <div class="fieldGroup colMd4">
         <label for="clock1Seconds" class="fieldGroup__label"><app-help title="Display clock in 24-Hour format instead of 12-Hour (will disable meridiem).">24-Hour Format</app-help></label>
         <div class="btnGroup btnGroup--justified">
-          <input type="checkbox" id="enable">
-          <label for="enable"><i class="fas fa-times"></i> Off</label>
+          <input type="checkbox" [id]="'clockTwentyFour'+i" name="clockTwentyFour" [(ngModel)]="clock.twentyFour">
+          <label [for]="'clockTwentyFour'+i"><i class="fas fa-check"></i> Enable</label>
         </div>
       </div>
+      <!-- Meridiem -->
       <div class="fieldGroup colMd4">
         <label for="clock1Seconds" class="fieldGroup__label"><app-help title="Displays AM/PM on the clock (only for 12-Hour format)">Meridiem</app-help></label>
         <div class="btnGroup btnGroup--justified">
@@ -64,6 +70,7 @@
           <label for="dim" title="Makes the seconds 50% transparent."><i class="fas fa-adjust"></i> <app-help>Dim</app-help></label>
         </div>
       </div>
+      <!-- Delimiter -->
       <div class="fieldGroup colMd4">
         <label for="clock1Seconds" class="fieldGroup__label"><app-help title="Shows a seperator between hours/minutes/seconds.">Delimiter</app-help></label>
         <div class="btnGroup btnGroup--justified">
@@ -75,6 +82,7 @@
           <label for="dim" title="Makes the seconds 50% transparent."><i class="fas fa-adjust"></i> <app-help>Dim</app-help></label>
         </div>
       </div>
+      <!-- Brackets -->
       <div class="fieldGroup colMd4">
         <label for="clock1Seconds" class="fieldGroup__label"><app-help title="Shows brackets around clock. Type a symbol in the text boxes to choose what type of bracket.">Brackets</app-help></label>
         <div class="btnGroup btnGroup--justified">
@@ -86,6 +94,7 @@
           <input type="text" id="clockBracketsRight" class="fieldGroup__field w40Px" value="}" maxlength="1">
         </div>
       </div>
+      <!-- Analog Clock -->
       <div class="fieldGroup colMd4">
         <label for="clock1Seconds" class="fieldGroup__label"><app-help title="Displays the clock in an analog style instead of digital.">Analog clock</app-help></label>
         <div class="btnGroup btnGroup--justified">
@@ -99,7 +108,7 @@
       </div>
     </div>
   </fieldset>
-</div>
+</ng-container>
 <hr>
 <p>
   <b>Please note</b> that clocks are based on the time and timezone your computer is set to. The detection of your current timezone is pretty much an educated guess and may not reflect your actual timezone, thus potentially causing the time to be off. Currently CaretTab is detecting your current timezone to be: "America/Los_Angeles".

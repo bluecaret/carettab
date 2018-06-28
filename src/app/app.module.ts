@@ -11,7 +11,6 @@ import { Settings } from './_storage/settings';
 import { HelpComponent } from './_shared/help/help.component';
 import { SharedService } from './_shared/shared.service';
 import { MomentModule } from 'ngx-moment';
-// import { MomentTimezoneModule } from 'angular-moment-timezone';
 import * as moment from 'moment';
 
 // Options Imports
@@ -58,7 +57,6 @@ import { TabTimeComponent } from './tab/time/time.component';
     HttpClientModule,
     Ng2ChromeStorageModule,
     MomentModule
-    // MomentTimezoneModule
   ],
   providers: [
     SharedService

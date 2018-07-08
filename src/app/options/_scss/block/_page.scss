@@ -1,33 +1,28 @@
 /* Settings - Page
    ========================================================================== */
 
-.pageWrapper {
-  display: block;
-  width: 100%;
-  max-width: 1500px;
-}
-
 .page {
+  flex: 1 1 auto;
   display: block;
-  margin: 0 $asideWidth 0 $navWidthSm;
-  padding: 20px 20px 20px;
-  @media screen and (min-width: $md) {
-    margin: 0 $asideWidth 0 $navWidth;
-  }
+  padding: 20px;
+  overflow-y: scroll;
+  background: rgba($pageBg, .85);
+  width: 100%;
   h1, h2, h3, h4, h5, h6 {
     margin: 20px 0;
     font-weight: 400;
   }
   h1 {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    margin: 0;
-    padding: 0 0 30px;
-    font-size: 26px;
-    font-weight: 400;
+    // display: flex;
+    // justify-content: center;
+    // align-items: flex-start;
+    // flex-direction: column;
+    margin: 0 0 30px;
+    padding: 0;
+    font-size: 32px;
+    font-weight: 100;
     line-height: 30px;
+    text-transform: lowercase;
     small {
       display: block;
       font-size: 14px;

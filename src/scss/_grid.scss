@@ -3,22 +3,22 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 0 -5px;
+  margin: 0 -10px;
   align-items: flex-start;
 }
 
 [class*="col"] {
   flex: 0 1 8%;
-  margin: 0 0 5px;
-  padding: 0 5px;
+  margin: 0 0 10px;
+  padding: 0 10px;
   box-sizing: border-box;
 }
 
 .row--gap {
-  margin: 0 -20px;
+  margin: 0 -15px;
   > [class*="col"] {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 

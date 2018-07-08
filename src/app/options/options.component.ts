@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, HostBinding } from '@angular/core';
 import { SharedService } from '../_shared/shared.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { SharedService } from '../_shared/shared.service';
   styleUrls: ['./_scss/options.scss']
 })
 export class OptionsComponent {
+  @HostBinding('class.options') pageClass = true;
+
   page: string;
 
   constructor(public shared: SharedService) {

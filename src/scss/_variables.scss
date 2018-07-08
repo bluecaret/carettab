@@ -1,5 +1,5 @@
 $pageBg: #111e31;
-$navBg: #1b2b3f;
+$asideBg: #1b2b3f;
 $theme1: #34405f;
 $theme2: #1b2b3f;
 $blue: #3FA9F5;
@@ -9,28 +9,23 @@ $gray: #778888;
 $lightGray: #fafafa;
 $text: #ededed;
 $btn: $blue;
-$btnActive: rgba($blue,.3);
-$btnActiveHover: rgba($blue,.3);
-$radius: 12px;
+$btnActive: rgba($blue,.5);
+$btnActiveHover: rgba($blue,.5);
+$radius: 5px;
 $shadow: 0 0 1px 1px rgba($btn,.2), inset 0 0 1px 1px rgba($btn,.2);
 $shadowHover: 0 0 2px 1px rgba($btn,.8), inset 0 0 2px 1px rgba($btn,.8);
 $transition: all .3s;
-$field: rgba($blue,.1);
+$field: rgba($blue,.2);
 $disabledColor: $gray;
 
-$settingsOpenScale: .16;
-$asidePreviewSpacing: (100 * $settingsOpenScale) + vh;
-$settingsOpenPosition: -30px, -15px;
 $settingsFont: 'Open Sans', sans-serif;
-$navWidth: 250px;
-$navWidthSm: 180px;
-$calcAsideWidth: ($settingsOpenScale * 100) + vw;
-$asideWidth: calc(#{$calcAsideWidth} + 25px);
+$asideWidth: 250px;
+$asideWidthSm: 180px;
 $pagePadding: 20px;
-$fieldPaddingY: 3px;
+$fieldPaddingY: 0;
 $fieldPaddingX: 7px;
-$fieldHeight: 30px;
-$fieldLineHeight: 1.6;
+$fieldHeight: 26px;
+$fieldLineHeight: 1.9;
 
 // Breakpoints
 $sm: 768px;
@@ -39,14 +34,14 @@ $lg: 1200px;
 
 // Z-index
 $z-indexes: (
-  'optionsUI',
-  'optionsAside',
-  'optionsNav',
-  'optionsClose',
   'tabUI',
   'tabBookmarks',
   'tabClock',
   'tabDate',
   'tabToggle',
+  'optionsUI',
+  'optionsAside',
+  'optionsNav',
+  'optionsClose',
   'tooltip'
 );

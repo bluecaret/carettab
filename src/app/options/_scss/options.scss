@@ -5,16 +5,23 @@
 @import "~scss/_variables";
 @import "~scss/_utilities";
 
-app-options {
-  position: absolute;
+.options {
+  position: fixed;
   z-index: z('optionsUI');
   display: flex;
-  width: 100vw;
+  flex-direction: column;
+  flex: 1 1 auto;
+  top: 0;
+  right: 0;
+  -webkit-font-smoothing: subpixel-antialiased;
+  width: 600px;
   height: 100vh;
-  overflow-y: scroll;
-  background: $pageBg;
+  max-width: 100%;
+  background: transparent;
   font-size: 14px;
   color: #ddd;
+  overflow: hidden;
+  box-shadow: 0 0 40px 5px rgba(0, 0, 0, .7);
   a {
     color: $blue;
     &:hover {
@@ -27,11 +34,15 @@ app-options {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 10px;
-    right: 30px;
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
+    top: 6px;
+    right: 6px;
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: 900;
+    min-width: 0;
+    border: 0;
+    box-shadow: none;
   }
 }
 

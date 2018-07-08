@@ -9,59 +9,56 @@ fieldset {
   border: 0;
 }
 
-.fieldGroup {
+.control {
   display: block;
-  max-width: 500px;
-  margin-bottom: 20px;
+  margin: 0 0 10px 0;
   small {
     display: block;
-    margin: 5px 0 0;
+    margin: 3px 0 0;
     font-weight: 400;
     font-size: 12px;
     line-height: 1.5;
   }
-}
-
-.fieldGroup__label {
-  display: block;
-  width: 100%;
-  margin-bottom: 5px;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.5;
-  small {
-    margin: 0 0 5px;
+  > label {
+    display: block;
+    min-height: 15px;
+    font-size: 13px;
+    font-weight: 300;
+    margin: 0 0 5px 0;
   }
-}
-
-.fieldGroup__field {
-  width: 100%;
-  padding: $fieldPaddingY $fieldPaddingX;
-  line-height: $fieldLineHeight;
-  background: $field;
-  color: $text;
-  border-radius: 3px;
-  transition: $transition;
-  border: 1px solid $btn;
-  box-shadow: $shadow;
-  &:focus {
-    box-shadow: $shadowHover;
-    outline: 0;
+  input,
+  textarea,
+  select {
+    display: block;
+    width: 100%;
+    font-size: 13px;
+    font-weight: 400;
+    border: 1px solid $btn;
+    border-radius: $radius;
+    background: $field;
+    line-height: $fieldLineHeight;
+    padding: $fieldPaddingY $fieldPaddingX;
+    color: $text;
+    box-shadow: $shadow;
+    transition: $transition;
+    &:focus {
+      box-shadow: $shadowHover;
+      outline: 0;
+    }
+    option {
+      color: #333;
+    }
   }
-  option {
-    color: #333;
+  select {
+    height: $fieldHeight;
   }
-}
-select.fieldGroup__field {
-  height: $fieldHeight;
-}
 
-.fieldGroup__field:disabled,
-output.fieldGroup__field {
-  color: $gray;
-  box-shadow: none;
-  border-color: lighten($gray, 25%);
-  background: $theme2;
+  :disabled {
+    color: $gray;
+    box-shadow: none;
+    border-color: lighten($gray, 25%);
+    background: $theme2;
+  }
 }
 
 .toggle {
@@ -186,7 +183,7 @@ output.fieldGroup__field {
 }
 
 // RANGE
-input[type="range"].fieldGroup__field {
+.control input[type="range"] {
   -webkit-appearance: none;
   width: 100%;
   height: $fieldHeight;
@@ -214,12 +211,12 @@ input[type="range"].fieldGroup__field {
   }
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: ($fieldHeight - 5px);
-    width: ($fieldHeight - 5px);
-    border-radius: 50%;
-    background: $pageBg;
+    height: ($fieldHeight - 0);
+    width: ($fieldHeight - 0);
+    border-radius: 5px;
+    background: $btnActive;
     cursor: pointer;
-    margin-top: -9px;
+    margin-top: -1px;
     border: 1px solid $btn;
     transition: $transition;
     box-shadow: $shadow;
@@ -229,7 +226,7 @@ input[type="range"].fieldGroup__field {
   }
   &::-webkit-slider-runnable-track {
     width: 100%;
-    height: 10px;
+    height: $fieldHeight;
     cursor: pointer;
     border-radius: 5px;
     background: transparent;
@@ -238,16 +235,23 @@ input[type="range"].fieldGroup__field {
     box-shadow: $shadow;
   }
   &:hover {
-    &::-webkit-slider-runnable-track {
+    &::-webkit-slider-thumb {
       box-shadow: $shadowHover;
     }
   }
 }
-.rangeLabel {
-  width: 60px;
-  text-align: center;
-  margin-left: 10px;
-}
+.control .group {
+  input[type="range"]::-webkit-slider-runnable-track {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right-width: 0;
+  }
+  .rangeLabel {
+    width: 40px;
+    text-align: center;
+    padding: 0;
+  }
+} 
 
 // Color picker
 input[type="color"] {

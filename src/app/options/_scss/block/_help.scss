@@ -1,3 +1,5 @@
 app-help {
-  border-bottom: 1px dashed $gray;
+  border-bottom: 1px dashed rgba($text, .2);
+  display: inline-block;
+  line-height: 1;
 }

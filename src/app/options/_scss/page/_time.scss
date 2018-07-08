@@ -10,18 +10,9 @@
   }
 }
 
-.clockOption {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: ($fieldHeight + 10px);
-  width: 100%;
-  &:nth-child(even) {
-    background: darken($pageBg, 2%);
-  }
-}
-.clockHoverOptions {
-  margin-left: auto;
-  width: auto;
+.clock {
+  display: block;
+  border: 1px dashed $blue;
+  padding: 10px;
+  margin: 0 0 20px 0;
 }

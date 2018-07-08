@@ -2,4 +2,4 @@
   [ngClass]="{'tab--optionsOpen' : shared.optionsToggle}" 
   [ngStyle]="{'font-size': settings.config.design.scalingMethod === true ? '1.35vw' : '1.6rem' }">
 </app-tab>
-<app-options *ngIf="shared.optionsToggle" @fade></app-options>
+<app-options *ngIf="shared.optionsToggle" @slideIn></app-options>

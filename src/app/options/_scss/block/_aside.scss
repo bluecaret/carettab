@@ -1,27 +1,43 @@
 app-options {
   aside {
-    position: fixed;
-    z-index: z('optionsAside');
-    top: 0;
-    right: 2rem;
-    bottom: 0;
-    margin-left: auto;
-    width: $asideWidth;
-    border-left: 2px dashed lighten($pageBg, 5%);
-    padding: 55px 10px 20px 10px;
-    h3 {
-      font-size: 16px;
-      font-weight: 700;
-      margin: 30px 0 5px;
+    flex: 0 0 auto;
+    background: rgba($asideBg, .9);
+    width: $asideWidthSm;
+    overflow: hidden;
+    @media screen and (min-width: $md) {
+      width: $asideWidth;
     }
-  }
-
-  .previewLabel {
-    position: absolute;
-    right: 10px;
-    bottom: $asidePreviewSpacing;
-    width: ($settingsOpenScale * 100) + vw;
-    color: lighten($pageBg, 20%);
-    margin: 0 0 20px 0;
+    header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex: 0 0 auto;
+      padding: 50px 20px 10px;
+      font-size: 26px;
+      color: $blue;
+      svg {
+        width: auto;
+        height: 3.5rem;
+        margin-right: 1.5rem;
+        .st0 {
+          fill: $blue;
+        }
+        .st1 {
+          fill: $blue;
+        }
+      }
+    }
+    .asideContent {
+      padding: 50px 20px 20px;
+      font-size: 12px;
+      color: lighten($asideBg, 55%);
+    }
+    h3 {
+      font-size: 20px;
+      font-weight: 300;
+      letter-spacing: .03em;
+      margin: 30px 0 5px;
+      color: lighten($asideBg, 40%);
+    }
   }
 }

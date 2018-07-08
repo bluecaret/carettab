@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'app-help',
   template: `
     <ng-content></ng-content>
-  `,
+  `
 })
 export class HelpComponent {
 }

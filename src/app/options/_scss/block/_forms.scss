@@ -1,6 +1,41 @@
 /* Settings - Forms
    ========================================================================== */
 
+.formBox {
+  display: block;
+  border: 1px dashed $blue;
+  padding: 10px;
+  margin: 0 0 20px 0;
+}
+
+%fieldStyle {
+  display: block;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 400;
+  border: 1px solid $btn;
+  border-radius: $radius;
+  background: $field;
+  line-height: $fieldLineHeight;
+  padding: $fieldPaddingY $fieldPaddingX;
+  color: $text;
+  box-shadow: $shadow;
+  transition: $transition;
+  &:focus {
+    box-shadow: $shadowHover;
+    outline: 0;
+  }
+  &:disabled {
+    color: $gray;
+    box-shadow: none;
+    border-color: lighten($gray, 25%);
+    background: $theme2;
+  }
+  option {
+    color: #333;
+  }
+}
+
 fieldset {
   display: block;
   margin: 0;
@@ -26,38 +61,24 @@ fieldset {
     font-weight: 300;
     margin: 0 0 5px 0;
   }
-  input,
-  textarea,
-  select {
-    display: block;
-    width: 100%;
-    font-size: 13px;
-    font-weight: 400;
-    border: 1px solid $btn;
-    border-radius: $radius;
-    background: $field;
-    line-height: $fieldLineHeight;
-    padding: $fieldPaddingY $fieldPaddingX;
-    color: $text;
-    box-shadow: $shadow;
-    transition: $transition;
-    &:focus {
-      box-shadow: $shadowHover;
-      outline: 0;
-    }
-    option {
-      color: #333;
-    }
-  }
-  select {
-    height: $fieldHeight;
-  }
+}
 
-  :disabled {
-    color: $gray;
-    box-shadow: none;
-    border-color: lighten($gray, 25%);
-    background: $theme2;
+input,
+textarea,
+select {
+  @extend %fieldStyle;
+}
+select {
+  height: $fieldHeight;
+}
+
+.invisibleField {
+  &:disabled {
+    border: transparent;
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+    color: $text;
   }
 }
 

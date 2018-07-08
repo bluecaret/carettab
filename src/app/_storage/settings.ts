@@ -32,7 +32,6 @@ export class Settings {
     time: {
       clocks: [
         {
-          enabled: true,
           label: '',
           timezone: '',
           scaling: 50,
@@ -40,7 +39,7 @@ export class Settings {
           seconds: {
             enabled: true,
             dim: false,
-            seconds: false
+            blink: false
           },
           twentyFour: false,
           meridiem: {

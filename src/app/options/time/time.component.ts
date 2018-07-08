@@ -1,7 +1,7 @@
 import { Component, HostBinding } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
-
-const INITIAL_STATE: Clock[] = [];
+import { TimezoneService, Timezone } from './timezone.service';
+import * as moment from 'moment-timezone';
 
 @Component({
   selector: 'options-time',
@@ -14,8 +14,15 @@ export class OptionsTimeComponent {
   showNew: Boolean = false;
   submitMode: 'Save'|'Update' = 'Save';
   selected: number;
+  allTimezones: Timezone[];
+  tzGuess: string;
 
-  constructor(public settings: Storage) {
+  constructor(
+    public settings: Storage,
+    public tz: TimezoneService
+  ) {
+    this.allTimezones = tz.getZones();
+    this.tzGuess = moment.tz.guess();
   }
 
   /** Enters Add New Item mode */
@@ -82,13 +89,53 @@ export class OptionsTimeComponent {
   saveAll() {
     this.settings.setAll(this.settings.config);
   }
+
+  /** Format timezone to remove underscores and replace with spaces */
+  timezoneFormat(zone: string): string {
+    const z = zone.split('/');
+    const country = z[0].replace('_', ' ');
+    let area;
+    if (z.length > 1) {
+      area = ' / ' + z[z.length - 1].replace('_', ' ');
+    } else {
+      area = '';
+    }
+    return country + area;
+  }
+
+  /** Get offset of timezone */
+  timezoneOffset(zone: string): string {
+    let offset = moment.tz(zone).utcOffset();
+    const neg = offset < 0;
+    if (neg) {
+      offset = -1 * offset;
+    }
+    const hours = Math.floor(offset / 60);
+    const minutes = (offset / 60 - hours) * 60;
+    let sym = neg ? '-' : '+';
+    let paddedHours = this.pad(hours.toString());
+    let paddedMinutes = this.pad(minutes.toString());
+    return '(GMT' + sym + paddedHours + ':' + paddedMinutes + ')';
+  }
+
+  /** Pad offset amount to display in two digits */
+  private pad(string: string): string {
+    let width = 2;
+    let padding = '0';
+    padding = padding.substr(0, 1);
+    if (string.length < width) {
+      return padding.repeat(width - string.length) + string;
+    } else {
+      return string;
+    }
+  }
   
 }
 
 export class Clock {
   constructor(
     public label: string = '',
-    public timezone: string = '',
+    public timezone: string = 'Automatic',
     public scaling: number = 50,
     public font: string = 'Roboto',
     public seconds: Seconds = new Seconds(true, false, false),

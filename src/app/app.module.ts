@@ -11,7 +11,7 @@ import { Settings } from './_storage/settings';
 import { HelpComponent } from './_shared/help/help.component';
 import { SharedService } from './_shared/shared.service';
 import { MomentModule } from 'ngx-moment';
-import * as moment from 'moment';
+import * as moment from 'moment-timezone';
 
 // Options Imports
 import { OptionsComponent } from './options/options.component';
@@ -24,6 +24,8 @@ import { OptionsExtraComponent } from './options/extra/extra.component';
 import { OptionsMessageComponent } from './options/message/message.component';
 import { OptionsSearchComponent } from './options/search/search.component';
 import { OptionsTimeComponent } from './options/time/time.component';
+import { TimezonePipe } from './options/time/timezone.pipe';
+import { TimezoneService } from './options/time/timezone.service';
 
 // Tab Imports
 import { TabComponent } from './tab/tab.component';
@@ -45,6 +47,7 @@ import { TabTimeComponent } from './tab/time/time.component';
     OptionsMessageComponent,
     OptionsSearchComponent,
     OptionsTimeComponent,
+    TimezonePipe,
 
     TabComponent,
     TabBookmarksComponent,
@@ -59,7 +62,8 @@ import { TabTimeComponent } from './tab/time/time.component';
     MomentModule
   ],
   providers: [
-    SharedService
+    SharedService,
+    TimezoneService
   ],
   bootstrap: [AppComponent]
 })

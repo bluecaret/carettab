@@ -33,7 +33,7 @@ export class Settings {
       clocks: [
         {
           label: '',
-          timezone: '',
+          timezone: 'Automatic',
           scaling: 50,
           font: 'Roboto',
           seconds: {

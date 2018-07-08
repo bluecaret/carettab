@@ -30,7 +30,7 @@
         <input 
           type="text" 
           [name]="'timezone'+i" 
-          [value]="clock.timezone"
+          [value]="timezoneFormat(clock.timezone)"
           disabled="disabled" 
           class="invisibleField">
       </div>
@@ -49,7 +49,7 @@
 <form #clockForm="ngForm" novalidate *ngIf="showNew" (ngSubmit)="save()">
   <fieldset class="formBox">
     <div class="flex">
-      <h2 class="mt0">Edit clock #{{selected + 1}}</h2>
+      <h2 class="mt0">{{submitMode === 'Update'? 'Edit clock #' + (selected + 1): 'New Clock'}}</h2>
       <div class="mlAuto">
         <button type="submit" class="btn mr5"><i class="fas fa-check"></i>{{submitMode}}</button>
         <button type="button" class="btn" (click)="cancel()"><i class="fas fa-times"></i>Cancel</button>
@@ -64,9 +64,18 @@
       <!-- Timezone -->
       <div class="control col7">
         <label for="timezone"><app-help title="Choose a timezone for the clock (the default is your local timezone).">Timezone</app-help></label>
-        <select id="timezone" name="timezone" [(ngModel)]="clock.timezone">
-          <option value=""></option>
-          <option value="Pacific">Pacific</option>
+        <select id="select" name="timezone" [(ngModel)]="clock.timezone">
+          <option value="Automatic">Automatic ({{timezoneFormat(tzGuess)}})</option>
+          <ng-template let-c ngFor [ngForOf]="allTimezones">
+            <optgroup *ngIf="c.zones.length > 1" [label]="c.iso | iso2CountryPipe">
+              <option *ngFor="let t of c.zones" [value]="t">{{timezoneFormat(t)}}
+                <span>{{timezoneOffset(t)}}</span>
+              </option>
+            </optgroup>
+            <option *ngIf="c.zones.length === 1" [value]="c.zones[0]">{{c.iso | iso2CountryPipe}}
+              <span>{{timezoneOffset(c.zones[0])}}</span>
+            </option>
+          </ng-template>
         </select>
       </div>
       <!-- Analog Clock -->
@@ -155,5 +164,5 @@
 </form>
 <button class="btn" title="Add clock" *ngIf="!showNew" (click)="add()"><i class="fas fa-plus"></i>Add New Clock</button> 
 <p>
-  <b>Please note</b> that clocks are based on the time and timezone your computer is set to. The detection of your current timezone is pretty much an educated guess and may not reflect your actual timezone, thus potentially causing the time to be off. Currently CaretTab is detecting your current timezone to be: "America/Los_Angeles".
+  <b>Note:</b> the time is an educated guess based on the time and timezone your computer is set to and may not reflect your actual time. CaretTab is guessing your current timezone to be: "{{timezoneFormat(this.tzGuess)}}".
 </p>

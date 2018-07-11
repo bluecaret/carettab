@@ -1,0 +1,52 @@
+.clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: .3em;
+}
+
+.clock__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.3;
+  }
+}
+
+.bracket--left {
+}
+.bracket--right {
+}
+.time {
+  .timeDigit {
+    display: flex;
+    span {
+      display: block;
+      width: .6em;
+      text-align: center;
+    }
+  }
+  .delimiter {
+    width: .3em;
+    text-align: center;
+  }
+}
+.label {
+}
+.clockDate {
+}
+
+.bracket {
+  font-size: 2em;
+  line-height: 1;
+}
+
+.label,
+.clockDate {
+  font-size: .3em;
+}

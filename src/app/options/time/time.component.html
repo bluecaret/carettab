@@ -104,59 +104,59 @@
       </div>
       <!-- Seconds -->
       <div class="control col3">
-        <label [for]="'clockSeconds'+i"><app-help title="Display the seconds on the clock.">Seconds</app-help></label>
-        <div [id]="'clockSeconds'+i" class="group group--justified">
-          <input type="checkbox" [id]="'clockSecondsEnable'+i" name="clockSecondsEnable" [(ngModel)]="clock.seconds.enabled">
-          <label [for]="'clockSecondsEnable'+i" class="fas fa-check"></label>
-          <input type="checkbox" [id]="'clockSecondsBlink'+i" name="clockSecondsBlink" [(ngModel)]="clock.seconds.blink">
-          <label [for]="'clockSecondsBlink'+i" title="Blink" class="fas fa-eye"></label>
-          <input type="checkbox" [id]="'clockSecondsDim'+i" name="clockSecondsDim" [(ngModel)]="clock.seconds.dim">
-          <label [for]="'clockSecondsDim'+i" title="Dim" class="fas fa-adjust"></label>
+        <label for="seconds"><app-help title="Display the seconds on the clock.">Seconds</app-help></label>
+        <div id="seconds" class="group group--justified">
+          <input type="checkbox" id="secondsEnable" name="secondsEnable" [(ngModel)]="clock.seconds.enabled">
+          <label for="secondsEnable" class="fas fa-check"></label>
+          <input type="checkbox" id="secondsBlink" name="secondsBlink" [(ngModel)]="clock.seconds.blink">
+          <label for="secondsBlink" title="Blink" class="fas fa-eye"></label>
+          <input type="checkbox" id="secondsDim" name="secondsDim" [(ngModel)]="clock.seconds.dim">
+          <label for="secondsDim" title="Dim" class="fas fa-adjust"></label>
         </div>
       </div>
       <!-- 24-Hour -->
       <div class="control col3">
-        <label for="clock1Seconds"><app-help title="Display clock in 24-hour format instead of 12-hour (will disable meridiem).">24-Hour</app-help></label>
-        <div class="group group--justified">
-          <input type="checkbox" [id]="'clockTwentyFour'+i" name="clockTwentyFour" [(ngModel)]="clock.twentyFour">
-          <label [for]="'clockTwentyFour'+i" class="fas fa-check"></label>
+        <label for="twentyFour"><app-help title="Display clock in 24-hour format instead of 12-hour (will disable meridiem).">24-Hour</app-help></label>
+        <div id="twentyFour" class="group group--justified">
+          <input type="checkbox" id="twentyFourEnable" name="twentyFourEnable" [(ngModel)]="clock.twentyFour">
+          <label for="twentyFourEnable" class="fas fa-check"></label>
         </div>
       </div>
       <!-- Meridiem -->
       <div class="control col3">
-        <label for="clock1Seconds"><app-help title="Displays AM/PM on the clock (only for 12-Hour format)">Meridiem</app-help></label>
-        <div class="group group--justified">
-          <input type="checkbox" id="enable">
-          <label for="enable" title="Enable" class="fas fa-check"></label>
-          <input type="checkbox" id="dim">
-          <label for="dim" title="Dim" class="fas fa-adjust"></label>
+        <label for="meridiem"><app-help title="Displays AM/PM on the clock (only for 12-Hour format)">Meridiem</app-help></label>
+        <div id="meridiem" class="group group--justified">
+          <input type="checkbox" id="meridiemEnable" name="meridiemEnable" [(ngModel)]="clock.meridiem.enabled">
+          <label for="meridiemEnable" title="Enable" class="fas fa-check"></label>
+          <input type="checkbox" id="meridiemDim" name="meridiemDim" [(ngModel)]="clock.meridiem.dim">
+          <label for="meridiemDim" title="Dim" class="fas fa-adjust"></label>
         </div>
       </div>
       <!-- Scaling -->
       <div class="control col4">
-        <label [for]="'clockSize'+i"><app-help title="Change the size of the clock.">Size</app-help></label>
+        <label for="scaling"><app-help title="Change the size of the clock.">Size</app-help></label>
         <div class="group flex">
-          <input [id]="'clockSize'+i" name="clockSize" [(ngModel)]="clock.scaling" type="range" class="flex__auto" min="0" max="100">
-          <input [id]="'clockSizeInput'+i" name="clockSizeInput" [(ngModel)]="clock.scaling" class="rangeLabel flex__set">
+          <input id="scaling" name="clockSize" [(ngModel)]="clock.scaling" type="range" class="flex__auto" min="0" max="100">
+          <input id="scalingInput" name="scalingInput" [(ngModel)]="clock.scaling" class="rangeLabel flex__set">
         </div>
       </div>
       <!-- Font -->
       <div class="control col4">
-        <label><app-help title="Choose a font to use for this clock.">Font</app-help></label>
-        <select name="clock1Timezone" id="clock1Timezone">
-          <option value="">Use global font</option>
+        <label for="font"><app-help title="Choose a font to use for this clock.">Font</app-help></label>
+        <select name="font" id="font" [(ngModel)]="clock.font">
+          <option *ngFor="let font of fonts" [value]="font">{{font}}</option>
         </select>
       </div>
       <!-- Brackets -->
       <div class="control col4">
-        <label for="clock1Seconds"><app-help title="Shows brackets around clock. Type a symbol in the text boxes to choose what type of bracket.">Brackets</app-help></label>
-        <div class="group group--justified">
-          <input type="checkbox" id="enable">
-          <label for="enable" title="Enable" class="fas fa-check"></label>
-          <input type="checkbox" id="dim">
-          <label for="dim" title="Dim" class="fas fa-adjust"></label>
-          <input type="text" id="clockBracketsLeft" class="w40Px" value="{" maxlength="1">
-          <input type="text" id="clockBracketsRight" class="w40Px" value="}" maxlength="1">
+        <label for="brackets"><app-help title="Shows brackets around clock. Type a symbol in the text boxes to choose what type of bracket.">Brackets</app-help></label>
+        <div id="brackets" class="group group--justified">
+          <input type="checkbox" id="bracketsEnable" name="bracketsEnable" [(ngModel)]="clock.brackets.enabled">
+          <label for="bracketsEnable" title="Enable" class="fas fa-check"></label>
+          <input type="checkbox" id="bracketsDim" name="bracketsDim" [(ngModel)]="clock.brackets.dim">
+          <label for="bracketsDim" title="Dim" class="fas fa-adjust"></label>
+          <input type="text" id="bracketsLeft" name="bracketsLeft" class="w40Px" [(ngModel)]="clock.brackets.left" maxlength="1">
+          <input type="text" id="bracketsRight" name="bracketsRight" class="w40Px" [(ngModel)]="clock.brackets.right" maxlength="1">
         </div>
       </div>
     </div>

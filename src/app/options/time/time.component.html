@@ -47,7 +47,7 @@
   </form>
 </div>
 <form #clockForm="ngForm" novalidate *ngIf="showNew" (ngSubmit)="save()">
-  <fieldset class="">
+  <fieldset>
     <div class="flex">
       <h2 class="mt0">{{submitMode === 'Update'? 'Edit clock #' + (selected + 1): 'New Clock'}}</h2>
       <div class="mlAuto">

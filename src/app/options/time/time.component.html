@@ -11,34 +11,34 @@
   <form class="divTableBody zebra" #clockList="ngForm" novalidate>
     <div class="divTableRow" *ngFor="let clock of settings.config.time.clocks; let i = index">
       <div class="divTableCell">
-        <input 
-          type="text" 
-          [name]="'index'+i" 
+        <input
+          type="text"
+          [name]="'index'+i"
           [value]="i+1"
-          disabled="disabled" 
+          disabled="disabled"
           class="invisibleField">
       </div>
       <div class="divTableCell">
-        <input 
-          type="text" 
-          [name]="'label'+i" 
+        <input
+          type="text"
+          [name]="'label'+i"
           [value]="clock.label"
-          disabled="disabled" 
+          disabled="disabled"
           class="invisibleField">
       </div>
       <div class="divTableCell">
-        <input 
-          type="text" 
-          [name]="'timezone'+i" 
+        <input
+          type="text"
+          [name]="'timezone'+i"
           [value]="timezoneFormat(clock.timezone)"
-          disabled="disabled" 
+          disabled="disabled"
           class="invisibleField">
       </div>
       <div class="divTableCell actions">
-        <button 
-          type="button" 
-          class="btn mr5 fas fa-pencil-alt" 
-          title="Edit clock" 
+        <button
+          type="button"
+          class="btn mr5 fas fa-pencil-alt"
+          title="Edit clock"
           (click)="edit(i)">
         </button>
         <button type="button" class="btn fas fa-trash-alt" (click)="delete(i)"></button>
@@ -47,7 +47,7 @@
   </form>
 </div>
 <form #clockForm="ngForm" novalidate *ngIf="showNew" (ngSubmit)="save()">
-  <fieldset class="formBox">
+  <fieldset class="">
     <div class="flex">
       <h2 class="mt0">{{submitMode === 'Update'? 'Edit clock #' + (selected + 1): 'New Clock'}}</h2>
       <div class="mlAuto">
@@ -64,7 +64,7 @@
       <!-- Timezone -->
       <div class="control col7">
         <label for="timezone"><app-help title="Choose a timezone for the clock (the default is your local timezone).">Timezone</app-help></label>
-        <select id="select" name="timezone" [(ngModel)]="clock.timezone">
+        <select id="timezone" name="timezone" [(ngModel)]="clock.timezone">
           <option value="Automatic">Automatic ({{timezoneFormat(tzGuess)}})</option>
           <ng-template let-c ngFor [ngForOf]="allTimezones">
             <optgroup *ngIf="c.zones.length > 1" [label]="c.iso | iso2CountryPipe">
@@ -78,48 +78,109 @@
           </ng-template>
         </select>
       </div>
-      <!-- Analog Clock -->
-      <div class="control col4">
-        <label for="analog"><app-help title="Displays the clock in an analog style instead of digital.">Analog clock</app-help></label>
-        <div id="analog" class="group group--justified">
-          <input type="checkbox" id="analogEnable" name="analogEnable" [(ngModel)]="clock.analog.enabled">
-          <label for="analogEnable" class="fas fa-check" title="Enable"></label>
-          <select id="analogStyle" name="analogStyle" [(ngModel)]="clock.analog.style" class="w100Px" title="Choose the style of analog clock">
-            <option value="">Style 1</option>
-            <option value="">Style 2</option>
-          </select>
-        </div>
-      </div>
-      <!-- Delimiter -->
-      <div class="control col3">
-        <label for="delimiter"><app-help title="Shows a seperator between hours/minutes/seconds.">Delimiter</app-help></label>
-        <div id="delimiter" class="group group--justified">
-          <input type="checkbox" id="delimiterEnable" name="delimiterEnable" [(ngModel)]="clock.delimiter.enabled">
-          <label for="delimiterEnable" class="fas fa-check" title="Enable"></label>
-          <input type="checkbox" id="delimiterBlink" name="delimiterBlink" [(ngModel)]="clock.delimiter.blink">
-          <label for="delimiterBlink" class="fas fa-eye" title="Blink"></label>
-          <input type="checkbox" id="delimiterDim" name="delimiterDim" [(ngModel)]="clock.delimiter.dim">
-          <label for="delimiterDim" class="fas fa-adjust" title="Dim"></label>
-        </div>
-      </div>
-      <!-- Seconds -->
-      <div class="control col3">
-        <label [for]="'clockSeconds'+i"><app-help title="Display the seconds on the clock.">Seconds</app-help></label>
-        <div [id]="'clockSeconds'+i" class="group group--justified">
-          <input type="checkbox" [id]="'clockSecondsEnable'+i" name="clockSecondsEnable" [(ngModel)]="clock.seconds.enabled">
-          <label [for]="'clockSecondsEnable'+i" class="fas fa-check"></label>
-          <input type="checkbox" [id]="'clockSecondsBlink'+i" name="clockSecondsBlink" [(ngModel)]="clock.seconds.blink">
-          <label [for]="'clockSecondsBlink'+i" title="Blink" class="fas fa-eye"></label>
-          <input type="checkbox" [id]="'clockSecondsDim'+i" name="clockSecondsDim" [(ngModel)]="clock.seconds.dim">
-          <label [for]="'clockSecondsDim'+i" title="Dim" class="fas fa-adjust"></label>
-        </div>
-      </div>
       <!-- 24-Hour -->
       <div class="control col3">
         <label for="clock1Seconds"><app-help title="Display clock in 24-hour format instead of 12-hour (will disable meridiem).">24-Hour</app-help></label>
-        <div class="group group--justified">
-          <input type="checkbox" [id]="'clockTwentyFour'+i" name="clockTwentyFour" [(ngModel)]="clock.twentyFour">
-          <label [for]="'clockTwentyFour'+i" class="fas fa-check"></label>
+        <div class="toggle">
+          <input type="checkbox" id="clockTwentyFour" name="clockTwentyFour" [(ngModel)]="clock.twentyFour">
+          <label for="clockTwentyFour" class="fas fa-check"></label>
+        </div>
+      </div>
+      <!-- Scaling -->
+      <div class="control col4">
+        <label for="clockSize"><app-help title="Change the size of the clock.">Size</app-help></label>
+        <div class="control__group">
+          <input id="clockSize" name="clockSize" [(ngModel)]="clock.scaling" type="range" class="flex__auto" min="1" max="100">
+          <output [value]="clock.scaling"></output>
+        </div>
+      </div>
+      <!-- Font -->
+      <div class="control col4">
+        <label><app-help title="Choose a font to use for this clock.">Font</app-help></label>
+        <select name="clock1Timezone" id="clock1Timezone">
+          <option value="">Use global font</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt1 mb1">
+      <!-- Analog Clock -->
+      <div class="col4">
+        <div class="formBox">
+          <h3 title="Displays the clock in an analog style instead of digital.">Analog</h3>
+          <div class="control">
+            <label class="fas fa-power-off" title="Enable"></label>
+            <div class="toggle">
+              <input type="checkbox" id="analogEnable" name="analogEnable" [(ngModel)]="clock.analog.enabled">
+              <label for="analogEnable" class="fas fa-check"></label>
+            </div>
+          </div>
+          <div class="control">
+            <label for="analogStyle" class="fas fa-clock" title="Choose the style of analog clock"></label>
+            <select id="analogStyle" name="analogStyle" [(ngModel)]="clock.analog.style">
+              <option value="">Style 1</option>
+              <option value="">Style 2</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- Delimiter -->
+      <div class="col4">
+        <div class="formBox">
+          <h3 title="Shows a seperator between hours/minutes/seconds.">Delimiter</h3>
+          <div class="control">
+            <div class="control__group toggle">
+              <input type="checkbox" id="delimiterEnable" name="delimiterEnable" [(ngModel)]="clock.delimiter.enabled">
+              <label for="delimiterEnable" class="fas fa-check" title="Enable"></label>
+              <input type="checkbox" id="delimiterBlink" name="delimiterBlink" [(ngModel)]="clock.delimiter.blink">
+              <label for="delimiterBlink" class="fas fa-eye" title="Blink"></label>
+              <input type="checkbox" id="delimiterDim" name="delimiterDim" [(ngModel)]="clock.delimiter.dim">
+              <label for="delimiterDim" class="fas fa-adjust" title="Dim"></label>
+            </div>
+          </div>
+          <div class="control">
+            <label for="delimiterScaling" class="fas fa-text-height" title="Adjusts the size of the delimiter relative to the clock"></label>
+            <div class="control__group">
+              <input id="delimiterScaling" name="delimiterScaling" [(ngModel)]="clock.scaling" type="range" class="flex__auto" min="1" max="100">
+              <output [value]="clock.scaling"></output>
+            </div>
+          </div>
+          <div class="control">
+            <label for="delimiterOffset" class="fas fa-superscript" title="Adjust the position of the delimiter up or down"></label>
+            <div class="control__group">
+              <input id="delimiterOffset" name="delimiterOffset" [(ngModel)]="clock.scaling" type="range" class="flex__auto" min="1" max="100">
+              <output [value]="clock.scaling"></output>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Seconds -->
+      <div class="col4">
+        <div class="formBox">
+          <h3 title="Display the seconds on the clock.">Seconds</h3>
+          <div class="control">
+            <div class="control__group toggle">
+              <input type="checkbox" id="clockSecondsEnable" name="clockSecondsEnable" [(ngModel)]="clock.seconds.enabled">
+              <label for="clockSecondsEnable" class="fas fa-check"></label>
+              <input type="checkbox" id="clockSecondsBlink" name="clockSecondsBlink" [(ngModel)]="clock.seconds.blink">
+              <label for="clockSecondsBlink" title="Blink" class="fas fa-eye"></label>
+              <input type="checkbox" id="clockSecondsDim" name="clockSecondsDim" [(ngModel)]="clock.seconds.dim">
+              <label for="clockSecondsDim" title="Dim" class="fas fa-adjust"></label>
+            </div>
+          </div>
+          <div class="control">
+            <label for="secondsScaling" class="fas fa-text-height" title="Adjusts the size of the seconds relative to the clock"></label>
+            <div class="control__group">
+              <input id="secondsScaling" name="secondsScaling" [(ngModel)]="clock.scaling" type="range" class="flex__auto" min="1" max="100">
+              <output [value]="clock.scaling"></output>
+            </div>
+          </div>
+          <div class="control">
+            <label for="secondsOffset" class="fas fa-superscript" title="Adjust the position of the delimiter up or down"></label>
+            <div class="control__group">
+              <input id="secondsOffset" name="secondsOffset" [(ngModel)]="clock.scaling" type="range" class="flex__auto" min="1" max="100">
+              <output [value]="clock.scaling"></output>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Meridiem -->
@@ -131,21 +192,6 @@
           <input type="checkbox" id="dim">
           <label for="dim" title="Dim" class="fas fa-adjust"></label>
         </div>
-      </div>
-      <!-- Scaling -->
-      <div class="control col4">
-        <label [for]="'clockSize'+i"><app-help title="Change the size of the clock.">Size</app-help></label>
-        <div class="group flex">
-          <input [id]="'clockSize'+i" name="clockSize" [(ngModel)]="clock.scaling" type="range" class="flex__auto" min="0" max="100">
-          <input [id]="'clockSizeInput'+i" name="clockSizeInput" [(ngModel)]="clock.scaling" class="rangeLabel flex__set">
-        </div>
-      </div>
-      <!-- Font -->
-      <div class="control col4">
-        <label><app-help title="Choose a font to use for this clock.">Font</app-help></label>
-        <select name="clock1Timezone" id="clock1Timezone">
-          <option value="">Use global font</option>
-        </select>
       </div>
       <!-- Brackets -->
       <div class="control col4">
@@ -162,7 +208,7 @@
     </div>
   </fieldset>
 </form>
-<button class="btn" title="Add clock" *ngIf="!showNew" (click)="add()"><i class="fas fa-plus"></i>Add New Clock</button> 
+<button class="btn" title="Add clock" *ngIf="!showNew" (click)="add()"><i class="fas fa-plus"></i>Add New Clock</button>
 <p>
   <b>Note:</b> the time is an educated guess based on the time and timezone your computer is set to and may not reflect your actual time. CaretTab is guessing your current timezone to be: "{{timezoneFormat(this.tzGuess)}}".
 </p>

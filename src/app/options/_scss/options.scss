@@ -49,13 +49,13 @@
 ::-webkit-scrollbar {
   width: 15px;
 }
- 
+
 ::-webkit-scrollbar-thumb {
-  background: lighten($pageBg, 15%); 
+  background: lighten($pageBg, 15%);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: lighten($pageBg, 20%); 
+  background: lighten($pageBg, 20%);
 }
 
 ::-webkit-scrollbar-track {
@@ -65,12 +65,16 @@
 @import "block/_aside";
 @import "block/_btn";
 @import "block/_forms";
+@import "block/_toggle";
+@import "block/_range";
+@import "block/_validation";
 @import "block/_help";
 @import "block/_nav";
 @import "block/_notice";
 @import "block/_page";
 @import "block/_table";
 @import "block/_tip";
+@import "block/_type";
 
 @import "page/_about";
 @import "page/_bookmarks";

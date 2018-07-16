@@ -1,1 +1,14 @@
-<div #time></div>
+<div class="clock"
+  *ngFor="let clock of settings.config.time.clocks" 
+  [ngStyle]="{
+    'font-size': calcSize(clock.scaling),
+    'font-family': getFont(clock.font)
+  }">
+  <div class="bracket bracket--left" *ngIf="clock.brackets.enabled && clock.brackets.left !== ''">{{clock.brackets.left}}</div>
+  <div class="clock__content">
+    <div class="time" [innerHTML]="getTime(clock)"></div>
+    <div class="label" *ngIf="clock.label !== ''">{{clock.label}}</div>
+    <div class="clockDate">1 day ago</div>
+  </div>
+  <div class="bracket bracket--right" *ngIf="clock.brackets.enabled && clock.brackets.right !== ''">{{clock.brackets.right}}</div>
+</div>

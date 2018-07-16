@@ -2,12 +2,20 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class SharedService {
-  optionsToggleS = true;
+  private _optionsToggle = true;
+  private _zoneGuess: string;
 
   get optionsToggle(): boolean {
-    return this.optionsToggleS;
+    return this._optionsToggle;
   }
   set optionsToggle(value: boolean) {
-    this.optionsToggleS = value;
+    this._optionsToggle = value;
+  }
+
+  get zoneGuess(): string {
+    return this._zoneGuess;
+  }
+  set zoneGuess(value: string) {
+    this._zoneGuess = value;
   }
 }

@@ -185,24 +185,24 @@
       </div>
       <!-- Meridiem -->
       <div class="control col3">
-        <label for="clock1Seconds"><app-help title="Displays AM/PM on the clock (only for 12-Hour format)">Meridiem</app-help></label>
-        <div class="group group--justified">
-          <input type="checkbox" id="enable">
-          <label for="enable" title="Enable" class="fas fa-check"></label>
-          <input type="checkbox" id="dim">
-          <label for="dim" title="Dim" class="fas fa-adjust"></label>
+        <label for="meridiem"><app-help title="Displays AM/PM on the clock (only for 12-Hour format)">Meridiem</app-help></label>
+        <div id="meridiem" class="group group--justified">
+          <input type="checkbox" id="meridiemEnable" name="meridiemEnable" [(ngModel)]="clock.meridiem.enabled">
+          <label for="meridiemEnable" title="Enable" class="fas fa-check"></label>
+          <input type="checkbox" id="meridiemDim" name="meridiemDim" [(ngModel)]="clock.meridiem.dim">
+          <label for="meridiemDim" title="Dim" class="fas fa-adjust"></label>
         </div>
       </div>
       <!-- Brackets -->
       <div class="control col4">
-        <label for="clock1Seconds"><app-help title="Shows brackets around clock. Type a symbol in the text boxes to choose what type of bracket.">Brackets</app-help></label>
-        <div class="group group--justified">
-          <input type="checkbox" id="enable">
-          <label for="enable" title="Enable" class="fas fa-check"></label>
-          <input type="checkbox" id="dim">
-          <label for="dim" title="Dim" class="fas fa-adjust"></label>
-          <input type="text" id="clockBracketsLeft" class="w40Px" value="{" maxlength="1">
-          <input type="text" id="clockBracketsRight" class="w40Px" value="}" maxlength="1">
+        <label for="brackets"><app-help title="Shows brackets around clock. Type a symbol in the text boxes to choose what type of bracket.">Brackets</app-help></label>
+        <div id="brackets" class="group group--justified">
+          <input type="checkbox" id="bracketsEnable" name="bracketsEnable" [(ngModel)]="clock.brackets.enabled">
+          <label for="bracketsEnable" title="Enable" class="fas fa-check"></label>
+          <input type="checkbox" id="bracketsDim" name="bracketsDim" [(ngModel)]="clock.brackets.dim">
+          <label for="bracketsDim" title="Dim" class="fas fa-adjust"></label>
+          <input type="text" id="bracketsLeft" name="bracketsLeft" class="w40Px" [(ngModel)]="clock.brackets.left" maxlength="1">
+          <input type="text" id="bracketsRight" name="bracketsRight" class="w40Px" [(ngModel)]="clock.brackets.right" maxlength="1">
         </div>
       </div>
     </div>

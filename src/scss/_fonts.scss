@@ -185,7 +185,7 @@ $font-src: "../assets/fonts";
   font-family: 'Press Start 2P';
   font-style: normal;
   font-weight: 300;
-  src: local('Press Start 2P Light'), local('PressStart2P-Light'), url(#{$font-src}/PressStart2P-Regular.ttf) format('truetype');
+  src: local('Press Start 2P'), local('PressStart2P-Regular'), url(#{$font-src}/PressStart2P-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Press Start 2P';
@@ -197,7 +197,7 @@ $font-src: "../assets/fonts";
   font-family: 'Press Start 2P';
   font-style: normal;
   font-weight: 700;
-  src: local('Press Start 2P Bold'), local('PressStart2P-Bold'), url(#{$font-src}/PressStart2P-Regular.ttf) format('truetype');
+  src: local('Press Start 2P'), local('PressStart2P-Regular'), url(#{$font-src}/PressStart2P-Regular.ttf) format('truetype');
 }
 
 /* Special Elite */

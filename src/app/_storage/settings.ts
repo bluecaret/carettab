@@ -2,7 +2,7 @@
  * ng2-chrome-storage
  * @author Hasan Hameed <hasan.hameed07@gmail.com>
  * Url: https://github.com/hasanhameed07/ng2-chrome-storage.git
- * 
+ *
  * Modified by BlueCaret (John Hancock) <john@jwh.design>
  */
 export class Settings {
@@ -44,18 +44,24 @@ export class Settings {
           twentyFour: false,
           meridiem: {
             enabled: true,
-            dim: true
+            dim: true,
+            scaling: 50,
+            offset: 50
           },
           delimiter: {
             enabled: true,
             dim: true,
-            blink: true
+            blink: true,
+            scaling: 50,
+            offset: 50
           },
           brackets: {
             enabled: true,
             dim: true,
             left: '{',
-            right: '}'
+            right: '}',
+            scaling: 50,
+            offset: 50
           },
           analog: {
             enabled: false,

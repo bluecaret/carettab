@@ -1,6 +1,9 @@
 import { Component, HostBinding } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
+import { Clock } from '../../_shared/models/clock';
 import { TimezoneService, Timezone } from './timezone.service';
+import { offlineFontList } from '../../_shared/lists/fonts';
+import { SharedService } from '../../_shared/shared.service';
 import * as moment from 'moment-timezone';
 
 @Component({
@@ -16,13 +19,16 @@ export class OptionsTimeComponent {
   selected: number;
   allTimezones: Timezone[];
   tzGuess: string;
+  fonts: Object[];
 
   constructor(
+    public shared: SharedService,
     public settings: Storage,
     public tz: TimezoneService
   ) {
     this.allTimezones = tz.getZones();
-    this.tzGuess = moment.tz.guess();
+    this.tzGuess = this.shared.zoneGuess;
+    this.fonts = offlineFontList;
   }
 
   /** Enters Add New Item mode */
@@ -130,58 +136,4 @@ export class OptionsTimeComponent {
     }
   }
   
-}
-
-export class Clock {
-  constructor(
-    public label: string = '',
-    public timezone: string = 'Automatic',
-    public scaling: number = 50,
-    public font: string = 'Roboto',
-    public seconds: Seconds = new Seconds(true, false, false),
-    public twentyFour: boolean = false,
-    public meridiem: Meridiem = new Meridiem(true, true),
-    public delimiter: Delimiter = new Delimiter(true, true, true),
-    public brackets: Brackets = new Brackets(true, true, '', ''),
-    public analog: Analog = new Analog(false, 10),
-  ) {}
-}
-
-export class Seconds {
-  constructor(
-    public enabled: boolean = true,
-    public dim: boolean = false,
-    public blink: boolean = false
-  ) {}
-}
-
-export class Meridiem {
-  constructor(
-    public enabled: boolean = true,
-    public dim: boolean = true
-  ) {}
-}
-
-export class Delimiter {
-  constructor(
-    public enabled: boolean = true,
-    public dim: boolean = true,
-    public blink: boolean = true
-  ) {}
-}
-
-export class Brackets {
-  constructor(
-    public enabled: boolean = true,
-    public dim: boolean = true,
-    public left: string = '',
-    public right: string = '',
-  ) {}
-}
-
-export class Analog {
-  constructor(
-    public enabled: boolean = false,
-    public style: number = 10
-  ) {}
 }

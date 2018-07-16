@@ -4,7 +4,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin: 0 -10px;
-  align-items: flex-start;
 }
 
 [class*="col"] {
@@ -23,7 +22,7 @@
 }
 
 /* nested grids */
-.row .row, 
+.row .row,
 .row.row--nested {
   flex: 1 1 auto;
 }

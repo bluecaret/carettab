@@ -17,15 +17,16 @@ fieldset {
 
 .formBox {
 	padding: 10px;
-	background: rgba($blue, .2);
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
   border-radius: $radius;
+  border: 1px dashed rgba($blue, .3);
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     margin-bottom: 10px;
+    font-weight: 100;
+    font-size: 14px;
   }
 }
 

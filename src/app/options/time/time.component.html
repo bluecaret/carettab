@@ -78,44 +78,48 @@
           </ng-template>
         </select>
       </div>
-      <!-- 24-Hour -->
-      <div class="control col3">
-        <label for="clock1Seconds"><app-help title="Display clock in 24-hour format instead of 12-hour (will disable meridiem).">24-Hour</app-help></label>
-        <div class="toggle">
-          <input type="checkbox" id="clockTwentyFour" name="clockTwentyFour" [(ngModel)]="clock.twentyFour">
-          <label for="clockTwentyFour" class="fas fa-check"></label>
-        </div>
-      </div>
-      <!-- Scaling -->
-      <div class="control col4">
-        <label for="clockSize"><app-help title="Change the size of the clock.">Size</app-help></label>
-        <div class="control__group">
-          <input id="clockSize" name="clockSize" [(ngModel)]="clock.scaling" type="range" class="flex__auto" min="1" max="100">
-          <output [value]="clock.scaling"></output>
-        </div>
-      </div>
-      <!-- Font -->
-      <div class="control col4">
-        <label><app-help title="Choose a font to use for this clock.">Font</app-help></label>
-        <select name="clock1Timezone" id="clock1Timezone">
-          <option value="">Use global font</option>
-        </select>
-      </div>
     </div>
     <div class="row mt1 mb1">
+      <!-- General -->
+      <div class="col4">
+        <div class="formBox h100">
+          <h3 title="General settings for the time">Time</h3>
+          <div class="control">
+            <label for="clock1Seconds" class="fa-fw" title="Display clock in 24-hour format instead of 12-hour (will disable meridiem)."><strong>24</strong></label>
+            <div class="toggle">
+              <input type="checkbox" id="clockTwentyFour" name="clockTwentyFour" [(ngModel)]="clock.twentyFour">
+              <label for="clockTwentyFour" class="fas fa-check"></label>
+            </div>
+          </div>
+          <div class="control">
+            <label for="clockSize" class="fas fa-fw fa-text-height" title="Change the size of the clock."></label>
+            <div class="control__group">
+              <input id="clockSize" name="clockSize" [(ngModel)]="clock.scaling" type="range" class="flex__auto" min="1" max="100">
+              <output [value]="clock.scaling"></output>
+            </div>
+          </div>
+          <div class="control">
+            <label for="clockFont" class="fas fa-fw fa-font" title="Choose a font to use for this clock."></label>
+            <select name="clockFont" id="clockFont" [(ngModel)]="clock.font">
+              <option>Use global font</option>
+              <option *ngFor="let font of fonts" [value]="font">{{font}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
       <!-- Analog Clock -->
       <div class="col4">
-        <div class="formBox">
+        <div class="formBox h100">
           <h3 title="Displays the clock in an analog style instead of digital.">Analog</h3>
           <div class="control">
-            <label class="fas fa-power-off" title="Enable"></label>
+            <label class="fas fa-fw fa-power-off" title="Enable"></label>
             <div class="toggle">
               <input type="checkbox" id="analogEnable" name="analogEnable" [(ngModel)]="clock.analog.enabled">
               <label for="analogEnable" class="fas fa-check"></label>
             </div>
           </div>
           <div class="control">
-            <label for="analogStyle" class="fas fa-clock" title="Choose the style of analog clock"></label>
+            <label for="analogStyle" class="fas fa-fw fa-clock" title="Choose the style of analog clock"></label>
             <select id="analogStyle" name="analogStyle" [(ngModel)]="clock.analog.style">
               <option value="">Style 1</option>
               <option value="">Style 2</option>
@@ -125,8 +129,8 @@
       </div>
       <!-- Delimiter -->
       <div class="col4">
-        <div class="formBox">
-          <h3 title="Shows a seperator between hours/minutes/seconds.">Delimiter</h3>
+        <div class="formBox h100">
+          <h3 title="Shows a separator between hours/minutes/seconds.">Delimiter</h3>
           <div class="control">
             <div class="control__group toggle">
               <input type="checkbox" id="delimiterEnable" name="delimiterEnable" [(ngModel)]="clock.delimiter.enabled">
@@ -138,24 +142,24 @@
             </div>
           </div>
           <div class="control">
-            <label for="delimiterScaling" class="fas fa-text-height" title="Adjusts the size of the delimiter relative to the clock"></label>
+            <label for="delimiterScaling" class="fas fa-fw fa-text-height" title="Adjusts the size of the delimiter relative to the clock"></label>
             <div class="control__group">
-              <input id="delimiterScaling" name="delimiterScaling" [(ngModel)]="clock.scaling" type="range" class="flex__auto" min="1" max="100">
-              <output [value]="clock.scaling"></output>
+              <input id="delimiterScaling" name="delimiterScaling" [(ngModel)]="clock.delimiter.scaling" type="range" class="flex__auto" min="1" max="100">
+              <output [value]="clock.delimiter.scaling"></output>
             </div>
           </div>
           <div class="control">
-            <label for="delimiterOffset" class="fas fa-superscript" title="Adjust the position of the delimiter up or down"></label>
+            <label for="delimiterOffset" class="fas fa-fw fa-superscript" title="Adjust the position of the delimiter up or down"></label>
             <div class="control__group">
-              <input id="delimiterOffset" name="delimiterOffset" [(ngModel)]="clock.scaling" type="range" class="flex__auto" min="1" max="100">
-              <output [value]="clock.scaling"></output>
+              <input id="delimiterOffset" name="delimiterOffset" [(ngModel)]="clock.delimiter.offset" type="range" class="flex__auto" min="1" max="100">
+              <output [value]="clock.delimiter.offset"></output>
             </div>
           </div>
         </div>
       </div>
       <!-- Seconds -->
       <div class="col4">
-        <div class="formBox">
+        <div class="formBox h100">
           <h3 title="Display the seconds on the clock.">Seconds</h3>
           <div class="control">
             <div class="control__group toggle">
@@ -168,41 +172,77 @@
             </div>
           </div>
           <div class="control">
-            <label for="secondsScaling" class="fas fa-text-height" title="Adjusts the size of the seconds relative to the clock"></label>
+            <label for="secondsScaling" class="fas fa-fw fa-text-height" title="Adjusts the size of the seconds relative to the clock"></label>
             <div class="control__group">
-              <input id="secondsScaling" name="secondsScaling" [(ngModel)]="clock.scaling" type="range" class="flex__auto" min="1" max="100">
-              <output [value]="clock.scaling"></output>
+              <input id="secondsScaling" name="secondsScaling" [(ngModel)]="clock.seconds.scaling" type="range" class="flex__auto" min="1" max="100">
+              <output [value]="clock.seconds.scaling"></output>
             </div>
           </div>
           <div class="control">
-            <label for="secondsOffset" class="fas fa-superscript" title="Adjust the position of the delimiter up or down"></label>
+            <label for="secondsOffset" class="fas fa-fw fa-superscript" title="Adjust the position of the delimiter up or down"></label>
             <div class="control__group">
-              <input id="secondsOffset" name="secondsOffset" [(ngModel)]="clock.scaling" type="range" class="flex__auto" min="1" max="100">
-              <output [value]="clock.scaling"></output>
+              <input id="secondsOffset" name="secondsOffset" [(ngModel)]="clock.seconds.offset" type="range" class="flex__auto" min="1" max="100">
+              <output [value]="clock.seconds.offset"></output>
             </div>
           </div>
         </div>
       </div>
       <!-- Meridiem -->
-      <div class="control col3">
-        <label for="meridiem"><app-help title="Displays AM/PM on the clock (only for 12-Hour format)">Meridiem</app-help></label>
-        <div id="meridiem" class="group group--justified">
-          <input type="checkbox" id="meridiemEnable" name="meridiemEnable" [(ngModel)]="clock.meridiem.enabled">
-          <label for="meridiemEnable" title="Enable" class="fas fa-check"></label>
-          <input type="checkbox" id="meridiemDim" name="meridiemDim" [(ngModel)]="clock.meridiem.dim">
-          <label for="meridiemDim" title="Dim" class="fas fa-adjust"></label>
+      <div class="col4">
+        <div class="formBox h100">
+          <h3 title="Displays AM/PM on the clock (only for 12-Hour format)">Meridiem</h3>
+          <div class="control">
+            <div class="control__group toggle">
+              <input type="checkbox" id="meridiemEnable" name="meridiemEnable" [(ngModel)]="clock.meridiem.enabled">
+              <label for="meridiemEnable" title="Enable" class="fas fa-check"></label>
+              <input type="checkbox" id="meridiemDim" name="meridiemDim" [(ngModel)]="clock.meridiem.dim">
+              <label for="meridiemDim" title="Dim" class="fas fa-adjust"></label>
+            </div>
+          </div>
+          <div class="control">
+            <label for="meridiemScaling" class="fas fa-fw fa-text-height" title="Adjusts the size of the meridiem relative to the clock"></label>
+            <div class="control__group">
+              <input id="meridiemScaling" name="meridiemScaling" [(ngModel)]="clock.meridiem.scaling" type="range" class="flex__auto" min="1" max="100">
+              <output [value]="clock.meridiem.scaling"></output>
+            </div>
+          </div>
+          <div class="control">
+            <label for="meridiemOffset" class="fas fa-fw fa-superscript" title="Adjust the position of the delimiter up or down"></label>
+            <div class="control__group">
+              <input id="meridiemOffset" name="meridiemOffset" [(ngModel)]="clock.meridiem.offset" type="range" class="flex__auto" min="1" max="100">
+              <output [value]="clock.meridiem.offset"></output>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Brackets -->
-      <div class="control col4">
-        <label for="brackets"><app-help title="Shows brackets around clock. Type a symbol in the text boxes to choose what type of bracket.">Brackets</app-help></label>
-        <div id="brackets" class="group group--justified">
-          <input type="checkbox" id="bracketsEnable" name="bracketsEnable" [(ngModel)]="clock.brackets.enabled">
-          <label for="bracketsEnable" title="Enable" class="fas fa-check"></label>
-          <input type="checkbox" id="bracketsDim" name="bracketsDim" [(ngModel)]="clock.brackets.dim">
-          <label for="bracketsDim" title="Dim" class="fas fa-adjust"></label>
-          <input type="text" id="bracketsLeft" name="bracketsLeft" class="w40Px" [(ngModel)]="clock.brackets.left" maxlength="1">
-          <input type="text" id="bracketsRight" name="bracketsRight" class="w40Px" [(ngModel)]="clock.brackets.right" maxlength="1">
+      <div class="col4">
+        <div class="formBox h100">
+          <h3 title="Displays AM/PM on the clock (only for 12-Hour format)">Brackets</h3>
+          <div class="control">
+            <div class="control__group toggle">
+              <input type="checkbox" id="bracketsEnable" name="bracketsEnable" [(ngModel)]="clock.brackets.enabled">
+              <label for="bracketsEnable" title="Enable" class="fas fa-check"></label>
+              <input type="checkbox" id="bracketsDim" name="bracketsDim" [(ngModel)]="clock.brackets.dim">
+              <label for="bracketsDim" title="Dim" class="fas fa-adjust"></label>
+              <input type="text" id="bracketsLeft" name="bracketsLeft" class="w40Px" [(ngModel)]="clock.brackets.left" maxlength="1">
+              <input type="text" id="bracketsRight" name="bracketsRight" class="w40Px" [(ngModel)]="clock.brackets.right" maxlength="1">
+            </div>
+          </div>
+          <div class="control">
+            <label for="bracketsScaling" class="fas fa-fw fa-text-height" title="Adjusts the size of the brackets relative to the clock"></label>
+            <div class="control__group">
+              <input id="bracketsScaling" name="bracketsScaling" [(ngModel)]="clock.brackets.scaling" type="range" class="flex__auto" min="1" max="100">
+              <output [value]="clock.brackets.scaling"></output>
+            </div>
+          </div>
+          <div class="control">
+            <label for="bracketsOffset" class="fas fa-fw fa-superscript" title="Adjust the position of the delimiter up or down"></label>
+            <div class="control__group">
+              <input id="bracketsOffset" name="bracketsOffset" [(ngModel)]="clock.brackets.offset" type="range" class="flex__auto" min="1" max="100">
+              <output [value]="clock.brackets.offset"></output>
+            </div>
+          </div>
         </div>
       </div>
     </div>

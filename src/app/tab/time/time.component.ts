@@ -10,15 +10,16 @@ import * as moment from 'moment';
 })
 export class TabTimeComponent implements OnInit {
   currentTime: Date;
-  baseScale = 50;
+  baseScale = 200;
+  baseOffset = 0;
 
   @ViewChild('time')
   public displayTime: ElementRef;
 
   constructor(
-    public shared: SharedService, 
-    public settings: Storage, 
-    private zone: NgZone, 
+    public shared: SharedService,
+    public settings: Storage,
+    private zone: NgZone,
     private renderer: Renderer2
   ) {
     if (this.settings.config.time.clocks.length > 0) {
@@ -31,6 +32,9 @@ export class TabTimeComponent implements OnInit {
 
   calcSize(size: number) {
     return ((this.baseScale / 50) * size) + 'px';
+  }
+  calcOffset(size: number) {
+    return ((this.baseOffset / 50) * size) + 'px';
   }
 
   getTime(c: Clock): string {

@@ -24,7 +24,9 @@ export class Seconds {
 export class Meridiem {
   constructor(
     public enabled: boolean = true,
-    public dim: boolean = true
+    public dim: boolean = true,
+    public scaling: number = 50,
+    public offset: number = 50
   ) {}
 }
 
@@ -32,7 +34,9 @@ export class Delimiter {
   constructor(
     public enabled: boolean = true,
     public dim: boolean = true,
-    public blink: boolean = true
+    public blink: boolean = true,
+    public scaling: number = 50,
+    public offset: number = 50
   ) {}
 }
 
@@ -42,6 +46,8 @@ export class Brackets {
     public dim: boolean = true,
     public left: string = '',
     public right: string = '',
+    public scaling: number = 50,
+    public offset: number = 50
   ) {}
 }
 

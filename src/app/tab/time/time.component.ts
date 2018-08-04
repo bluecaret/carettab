@@ -37,39 +37,6 @@ export class TabTimeComponent implements OnInit {
     return ((this.baseOffset / 50) * size) + 'px';
   }
 
-  getTime(c: Clock): string {
-    let hour = `
-      <div class="timeDigit hour">
-        <span>${this.getHour(c.timezone, c.twentyFour, 1)}</span>
-        <span>${this.getHour(c.timezone, c.twentyFour, 2)}</span>
-      </div>
-    `;
-    let minute = `
-      <div class="timeDigit minute">
-        <span>${this.getMinute(c.timezone, 1)}</span>
-        <span>${this.getMinute(c.timezone, 2)}</span>
-      </div>
-    `;
-    let second = c.seconds.enabled ? `
-      <div class="timeDigit second">
-        <span>${this.getSecond(c.timezone, 1)}</span>
-        <span>${this.getSecond(c.timezone, 2)}</span>
-      </div>
-    ` : '';
-    let delimiter1 = `
-      <div class="delimiter">
-        ${this.getDelimiter(c.delimiter)}
-      </div>
-    `;
-    let delimiter2 = c.seconds.enabled ? `
-      <div class="delimiter">
-        ${this.getDelimiter(c.delimiter)}
-      </div>
-    ` : '';
-
-    return hour + delimiter1 + minute + delimiter2 + second;
-  }
-
   getHour(zone: string, twentyFour: boolean, digit: 1|2): string {
     zone = this.getZone(zone);
     let format: string;

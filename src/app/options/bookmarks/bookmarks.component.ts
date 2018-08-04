@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 
 @Component({
@@ -6,8 +6,6 @@ import { Storage } from '../../_storage/storage.service';
   templateUrl: 'bookmarks.component.html'
 })
 export class OptionsBookmarksComponent {
-  @HostBinding('class.page') pageClass = true;
-
   editMode: boolean[] = [];
   isInvalid = false;
 

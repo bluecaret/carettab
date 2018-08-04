@@ -85,6 +85,12 @@ select {
 		&.fab {
 			font-size: 16px;
 		}
+    &.labelIcon {
+			font-size: 16px;
+      text-align: center;
+      justify-content: center;
+      width: 1.25em;
+    }
 	}
   .btn,
   input + label,

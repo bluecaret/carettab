@@ -6,7 +6,6 @@
   line-height: $fieldLineHeight;
   background: transparent;
   border: 1px solid $btn;
-  box-shadow: $shadow;
   border-radius: $radius;
   color: $text;
   cursor: pointer;
@@ -14,10 +13,8 @@
   text-decoration: none;
   &:focus {
     outline: none;
-  }
-  &:hover:not(:disabled):not(.disabled) {
-    box-shadow: $shadowHover;
-    color: $text;
+    border-color: $lightBlue;
+    box-shadow: $shadow;
   }
   &:disabled {
     color: $disabledColor;
@@ -44,81 +41,3 @@
     background: transparent;
   }
 }
-
-.btn--toggle {
-  border-radius: $radius;
-  border-right-width: 0;
-  box-shadow: $shadow;
-  color: $blue;
-  &:hover:not(:disabled):not(.disabled) {
-    box-shadow: $shadowHover;
-    color: $text;
-  }
-}
-
-// BTN GROUP
-// .control {
-//   .group {
-//     display: flex;
-//     width: 100%;
-//   }
-//   .group .btn,
-//   .group input + label,
-//   .group button {
-//     @extend .btn;
-//     @extend .btn--toggle;
-//     i {
-//       margin-right: 5px;
-//     }
-//   }
-//   .group .btn,
-//   .group input + label,
-//   .group input,
-//   .group select,
-//   .group button {
-//     border-radius: 0;
-//     border-right-width: 0;
-//     text-align: center;
-//   }
-//   .group.group--justified {
-//     width: 100%;
-//   }
-//   .group.group--justified .btn,
-//   .group.group--justified input + label,
-//   .group.group--justified input,
-//   .group.group--justified select,
-//   .group.group--justified button {
-//     width: auto;
-//     flex: 1 1 auto;
-//     white-space: nowrap;
-//   }
-//   .group .btn:first-child,
-//   .group input:first-child + label,
-//   .group input:first-child,
-//   .group select:first-child,
-//   .group button:first-child {
-//     border-top-left-radius: $radius;
-//     border-bottom-left-radius: $radius;
-//   }
-//   .group > *:last-child {
-//     border-right-width: 1px;
-//     border-top-right-radius: $radius;
-//     border-bottom-right-radius: $radius;
-//   }
-
-//   .group button.active,
-//   .group input:checked + label,
-//   .btn.active {
-//     background: $btnActive;
-//     color: $text;
-//     &:hover:not(:disabled):not(.disabled) {
-//       background: $btnActiveHover;
-//     }
-//   }
-
-//   .group input[type="radio"],
-//   .group input[type="checkbox"] {
-//     display: none;
-//   }
-// }
-

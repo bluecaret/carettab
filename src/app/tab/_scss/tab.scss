@@ -24,8 +24,8 @@ app-tab {
   transform: translate(0, 0) scale(1);
   &.tab--optionsOpen {
     // transform: translate($settingsOpenPosition) scale($settingsOpenScale);
-    box-shadow: 0 0 100px 0 rgba(0,0,0,.7);
-    filter: blur(6px);
+    // box-shadow: 0 0 100px 0 rgba(0,0,0,.7);
+    // filter: blur(6px);
   }
 }
 

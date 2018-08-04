@@ -1,4 +1,5 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Storage } from '../../_storage/storage.service';
 import { Clock } from '../../_shared/models/clock';
 import { TimezoneService, Timezone } from './timezone.service';
@@ -10,9 +11,7 @@ import * as moment from 'moment-timezone';
   selector: 'options-time',
   templateUrl: 'time.component.html'
 })
-export class OptionsTimeComponent {
-  @HostBinding('class.page') pageClass = true;
-
+export class OptionsTimeComponent implements OnInit {
   clock: Clock;
   showNew: Boolean = false;
   submitMode: 'Save'|'Update' = 'Save';
@@ -20,6 +19,9 @@ export class OptionsTimeComponent {
   allTimezones: Timezone[];
   tzGuess: string;
   fonts: Object[];
+  formChange: any;
+
+  @ViewChild('clockForm') clockForm: NgForm;
 
   constructor(
     public shared: SharedService,
@@ -29,6 +31,9 @@ export class OptionsTimeComponent {
     this.allTimezones = tz.getZones();
     this.tzGuess = this.shared.zoneGuess;
     this.fonts = offlineFontList;
+  }
+
+  ngOnInit() {
   }
 
   /** Enters Add New Item mode */
@@ -135,5 +140,5 @@ export class OptionsTimeComponent {
       return string;
     }
   }
-  
+
 }

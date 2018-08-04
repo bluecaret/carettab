@@ -12,12 +12,12 @@
     <li><button type="button" class="pageLink fas fa-question" [ngClass]="{'active': page === 'extra'}" (click)="page = 'extra'"></button></li>
   </ul>
 </nav>
-<options-dashboard *ngIf="page === 'dashboard'"></options-dashboard>
-<options-design *ngIf="page === 'design'"></options-design>
-<options-time *ngIf="page === 'time'"></options-time>
-<options-date *ngIf="page === 'date'"></options-date>
-<options-bookmarks *ngIf="page === 'bookmarks'"></options-bookmarks>
-<options-search *ngIf="page === 'search'"></options-search>
-<options-message *ngIf="page === 'message'"></options-message>
-<options-extra *ngIf="page === 'extra'"></options-extra>
-<options-about *ngIf="page === 'about'"></options-about>
+<options-dashboard *ngIf="page === 'dashboard'" class="page"></options-dashboard>
+<options-design *ngIf="page === 'design'" class="page"></options-design>
+<options-time *ngIf="page === 'time'" class="page"></options-time>
+<options-date *ngIf="page === 'date'" class="page"></options-date>
+<options-bookmarks *ngIf="page === 'bookmarks'" class="page"></options-bookmarks>
+<options-search *ngIf="page === 'search'" class="page"></options-search>
+<options-message *ngIf="page === 'message'" class="page"></options-message>
+<options-extra *ngIf="page === 'extra'" class="page"></options-extra>
+<options-about *ngIf="page === 'about'" class="page"></options-about>

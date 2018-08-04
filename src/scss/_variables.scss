@@ -12,8 +12,7 @@ $text: #ededed;
 $btn: $blue;
 $btnActive: rgba($blue,.5);
 $btnActiveHover: rgba($blue,.5);
-$shadow: 0 0 1px 1px rgba($btn,.2), inset 0 0 1px 1px rgba($btn,.2);
-$shadowHover: 0 0 2px 1px rgba($btn,.8), inset 0 0 2px 1px rgba($btn,.8);
+$shadow: 0 0px 0px 1px $lightBlue;
 $transition: all .3s;
 $field: rgba($blue,.2);
 $disabledColor: $gray;
@@ -41,6 +40,7 @@ $z-indexes: (
   'tabClock',
   'tabDate',
   'tabToggle',
+  'optionsOverlay',
   'optionsUI',
   'optionsAside',
   'optionsNav',

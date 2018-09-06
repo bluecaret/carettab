@@ -2,8 +2,8 @@
 <div style="font-size: 10vw;"><tab-time></tab-time></div>
 <button
   (click)="toggleOptions()"
-  id="toggleOptions"
-  [ngClass]="{'toggleOptions--open': shared.optionsToggle}"
+  class="openOptions"
+  [ngClass]="{'open': shared.optionsToggle}"
   title="Open Settings">
-  <span><i class="fas fa-ellipsis-v"></i></span>
+  <span></span><span></span><span></span><span></span>
 </button>

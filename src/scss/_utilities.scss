@@ -75,8 +75,6 @@
   .wAutoLg { width: auto !important; }
 }
 
-.bg { background: $pageBg; }
-.bgAlt { background: $asideBg; }
 .bgGray { background: $gray; }
 .bgGrayL { background: darken($lightGray, 3%); }
 .bgGrayD { background: darken($gray, 5%); }
@@ -93,8 +91,6 @@
 .textWhite { color: white; }
 .textBlack { color: black; }
 
-.bg { border: 1px solid $gray; }
-.bgAlt { border: 1px solid $gray; }
 .borderGray { border: 1px solid $gray; }
 .borderGrayL { border: 1px solid darken($lightGray, 10%); }
 .borderGrayD { border: 1px solid darken($gray, 5%); }

@@ -1,94 +1,86 @@
-<h1>
-  Settings Dashboard
-</h1>
-<button type="button" data-page="about" class="link notice notice--success">
-  <div class="flex-set w100Px">
-    <i class="fas fa-thumbs-up"></i>
-  </div>
-  <div>
-    CaretTab has been updated... Click to see what's new!
-  </div>
-  <div>
-    <div class="btn btn--transparent"><i class="fas fa-times"></i></div>
-  </div>
-</button>
-<fieldset>
-  <div class="row dashWrapper">
-    <div class="col12 colSm6 colMd4 colLg3">
-      <a href="#" class="dashBox" data-page="design">
-        <div class="dashBox__icon"><i class="fas fa-paint-brush fa-fw"></i></div>
-        <div class="dashBox__title">Design</div>
-        <div class="dashBox__hero">
-          <span class="dashBox__label">
-            <span class="inlineBlock mt1 pl1 pr1 bgWhite textBlack">&nbsp;&nbsp;abc 123&nbsp;&nbsp;</span>
-          </span>
-        </div>
-      </a>
+<!-- <div>
+  <fieldset>
+    <div class="mb1">
+      <button type="button" class="btn"><div class="icon space">info</div>Button</button>
     </div>
-    <div class="col12 colSm6 colMd4 colLg3">
-      <a href="#" class="dashBox" data-page="time">
-        <div class="dashBox__icon"><i class="fas fa-clock fa-fw"></i></div>
-        <div class="dashBox__title">Time</div>
-        <div class="dashBox__hero">
-          <span class="dashBox__number">2</span>
-          <span class="dashBox__label">clocks</span>
-        </div>
-      </a>
+    <div class="field compact">
+      <input type="text">
+      <label><div class="icon">home</div></label>
     </div>
-    <div class="col12 colSm6 colMd4 colLg3">
-      <a href="#" class="dashBox" data-page="date">
-        <div class="dashBox__icon"><i class="fas fa-calendar-alt fa-fw"></i></div>
-        <div class="dashBox__title">Date</div>
-        <div class="dashBox__hero">
-          <span class="dashBox__number">On</span>
-        </div>
-      </a>
+    <div class="field compact">
+      <input type="text">
+      <label><div class="icon">access_time</div></label>
     </div>
-    <div class="col12 colSm6 colMd4 colLg3">
-      <a href="#" class="dashBox" data-page="bookmarks">
-        <div class="dashBox__icon"><i class="fas fa-link fa-fw"></i></div>
-        <div class="dashBox__title">Bookmarks</div>
-        <div class="dashBox__hero">
-          <span class="dashBox__number">12</span>
-          <span class="dashBox__label">links</span>
-        </div>
-      </a>
+    <div class="field">
+      <input type="text">
+      <label>Hello</label>
     </div>
-    <div class="col12 colSm6 colMd4 colLg3">
-      <a href="#" class="dashBox" data-page="search">
-        <div class="dashBox__icon"><i class="fas fa-search fa-fw"></i></div>
-        <div class="dashBox__title">Search</div>
-        <div class="dashBox__hero">
-          <span class="dashBox__number">On</span>
-        </div>
-      </a>
+    <div class="field">
+      <select name="" id="">
+        <option></option>
+        <option>Hello</option>
+      </select>
+      <label>Hello</label>
     </div>
-    <div class="col12 colSm6 colMd4 colLg3">
-      <a href="#" class="dashBox" data-page="message">
-        <div class="dashBox__icon"><i class="fas fa-quote-left fa-fw"></i></div>
-        <div class="dashBox__title">Message</div>
-        <div class="dashBox__hero">
-          <span class="dashBox__number">On</span>
-        </div>
-      </a>
+    <div class="field">
+      <div class="check">
+        <input id="checkbox" type="checkbox">
+        <label for="checkbox">Hello</label>
+        <input id="checkbox2" type="checkbox">
+        <label for="checkbox2">Hello</label>
+      </div>
+      <label>Checkbox</label>
     </div>
-    <div class="col12 colSm6 colMd4 colLg3">
-      <a href="#" class="dashBox" data-page="extra">
-        <div class="dashBox__icon"><i class="fas fa-text-height fa-fw"></i></div>
-        <div class="dashBox__title">Scale</div>
-        <div class="dashBox__hero">
-          <span class="dashBox__number">50%</span>
-        </div>
-      </a>
+    <div class="field">
+      <div class="radio">
+        <input id="radio" name="radio" type="radio">
+        <label for="radio">Hello</label>
+        <input id="radio2" name="radio" type="radio">
+        <label for="radio2">Hello</label>
+      </div>
+      <label>Radio</label>
     </div>
-    <div class="col12 colSm6 colMd4 colLg3">
-      <a href="#" class="dashBox" data-page="extra">
-        <div class="dashBox__icon"><i class="fas fa-font fa-fw"></i></div>
-        <div class="dashBox__title">Language</div>
-        <div class="dashBox__hero">
-          <span class="dashBox__label">English</span>
-        </div>
-      </a>
+    <div class="field">
+      <div class="range">
+        <input type="range" name="range" min="1" max="100" [(ngModel)]="range">
+        <output [value]="range"></output>
+      </div>
+      <label>Radio</label>
     </div>
-  </div>
-</fieldset>
+  </fieldset>
+</div> -->
+<div class="dashGrid">
+  <button type="button" class="dashBtn" (click)="goToPage('Design')">
+    <div class="dashBtnHead"><div class="icon">format_paint</div></div>
+    <h2>Design</h2>
+  </button>
+  <button type="button" class="dashBtn" (click)="goToPage('Time')">
+    <div class="dashBtnHead"><div class="icon">access_time</div></div>
+    <h2>Time</h2>
+  </button>
+  <button type="button" class="dashBtn" (click)="goToPage('Date')">
+    <div class="dashBtnHead"><div class="icon">insert_invitation</div></div>
+    <h2>Date</h2>
+  </button>
+  <button type="button" class="dashBtn" (click)="goToPage('Bookmarks')">
+    <div class="dashBtnHead"><div class="icon">star</div></div>
+    <h2>Bookmarks</h2>
+  </button>
+  <button type="button" class="dashBtn" (click)="goToPage('Search')">
+    <div class="dashBtnHead"><div class="icon">search</div></div>
+    <h2>Search</h2>
+  </button>
+  <button type="button" class="dashBtn" (click)="goToPage('Message')">
+    <div class="dashBtnHead"><div class="icon">textsms</div></div>
+    <h2>Message</h2>
+  </button>
+  <button type="button" class="dashBtn" (click)="goToPage('Extra')">
+    <div class="dashBtnHead"><div class="icon">settings</div></div>
+    <h2>Extra</h2>
+  </button>
+  <button type="button" class="dashBtn" (click)="goToPage('About')">
+    <div class="dashBtnHead"><div class="icon">info</div></div>
+    <h2>About</h2>
+  </button>
+</div>
+

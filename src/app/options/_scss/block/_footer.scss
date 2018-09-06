@@ -1,0 +1,10 @@
+.options footer {
+  background: #fff;
+  border-top: 3px double #eee;
+  border-radius: 0 0 0 $optionsRadius;
+  font-size: 11px;
+  display: grid;
+  place-items: center center;
+  padding: 0 20px;
+  color: #777;
+}

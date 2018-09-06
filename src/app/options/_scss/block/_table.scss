@@ -7,7 +7,7 @@
     border-collapse: collapse;
     tr {
       &:nth-child(odd) td {
-        background: darken($pageBg, 2%);
+        background: darken(gray, 2%);
       }
     }
     th {
@@ -65,7 +65,7 @@
   .zebra {
     .divTableRow:nth-child(odd) {
       .divTableCell {
-        background: darken($pageBg, 2%);
+        background: darken(gray, 2%);
       }
     }
   }

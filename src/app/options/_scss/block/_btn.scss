@@ -1,43 +1,32 @@
 .btn {
-  display: inline-block;
-  min-width: 30px;
+  display: inline-flex;
+  min-width: 44px;
   padding: 0 10px;
   font-size: 13px;
-  line-height: $fieldLineHeight;
-  background: transparent;
-  border: 1px solid $btn;
-  border-radius: $radius;
-  color: $text;
+  align-items: center;
+  justify-content: center;
+  line-height: $fieldHeight;
+  vertical-align: middle;
+  background: $lightBlue;
+  border: 0;
+  border-radius: ($fieldHeight / 2);
+  color: black;
   cursor: pointer;
   transition: $transition;
   text-decoration: none;
   &:focus {
     outline: none;
-    border-color: $lightBlue;
-    box-shadow: $shadow;
+    box-shadow: $focus;
+  }
+  &:hover {
+    background: $blue;
   }
   &:disabled {
-    color: $disabledColor;
-    border-color: $disabledColor;
-    box-shadow: none;
+    background: #dcdcdc;
+    color: #333;
     cursor: not-allowed;
   }
-  i {
+  .icon.space {
     margin-right: 5px;
-  }
-}
-
-.btn--transparent {
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  color: $blue;
-  &:hover:not(:disabled):not(.disabled) {
-    background: transparent;
-    color: $text;
-    box-shadow: none;
-  }
-  &:disabled {
-    background: transparent;
   }
 }

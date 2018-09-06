@@ -1,75 +1,56 @@
-.dashBox {
+.dashGrid {
   display: grid;
-  grid-template-columns: 70px auto;
-  grid-template-rows: 30% 70%;
-  width: 100%;
-  height: calc(100% - 5px);
-  padding: 20px 15px;
-  margin-bottom: 5px;
-  border: 0;
-  text-decoration: none;
-  background-color: $blue;
-  color: black;
-  overflow: hidden;
-  border-radius: 5px;
-  transition: $transition;
-}
-.dashWrapper div:nth-child(1n) .dashBox {
-  background-color: #bebfc0;
-}
-.dashWrapper div:nth-child(2n) .dashBox {
-  background-color: lighten(#76ca4e, 20%);
-}
-.dashWrapper div:nth-child(3n) .dashBox {
-  background-color: lighten(#13aa8e, 20%);
-}
-.dashWrapper div:nth-child(4n) .dashBox {
-  background-color: lighten(#30ace9, 20%);
-}
-.dashWrapper div:nth-child(5n) .dashBox {
-  background-color: lighten(#4651d2, 25%);
-}
-.dashWrapper div:nth-child(6n) .dashBox {
-  background-color: lighten(#a52b7c, 35%);
-}
-.dashWrapper div:nth-child(7n) .dashBox {
-  background-color: lighten(#ff0035, 25%);
-}
-.dashWrapper div:nth-child(8n) .dashBox {
-  background-color: lighten(#ff8f3d, 15%);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-auto-rows: minmax(150px, auto);
+  grid-gap: 20px;
 }
 
-.dashBox:hover {
-  opacity: .8;
-}
-
-.dashBox__icon {
-  grid-row: 1 / span 2;
+.dashBtn {
+  cursor: pointer;
   display: flex;
-  align-items: center;
-  font-size: 50px;
-  margin-left: -5pxem;
-  opacity: .4;
-}
-.dashBox__title {
-  font-weight: 400;
-  font-size: 15px;
-  display: flex;
-  align-items: flex-end;
-}
-.dashBox__hero {
-  font-weight: 700;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-.dashBox__number {
-  font-size: 36px;
-}
-.dashBox__label {
-  font-size: 18px;
-  line-height: 1.9;
-  &:nth-child(2) {
-    margin-left: 5px;
+  flex-direction: column;
+  place-items: center center;
+  background: transparent;
+  border: 2px solid currentColor;
+  transition: all .3s;
+  border-radius: 10px;
+  .dashBtnHead {
+    flex: 1 1 auto;
+    display: flex;
+    place-items: center center;
+    .icon {
+      font-size: 60px;
+    }
+  }
+  h2 {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0 0 20px 0;
+    font-size: 16px;
+    text-transform: lowercase;
+    font-weight: 600;
+  }
+  &:nth-child(5n+1) {
+    color: #FB910B;
+  }
+  &:nth-child(5n+2) {
+    color: #49A54E;
+  }
+  &:nth-child(5n+3) {
+    color: #16B8CD;
+  }
+  &:nth-child(5n+4) {
+    color: #E84A47;
+  }
+  &:nth-child(5n+5) {
+    color: #8a16cd;
+  }
+  &:hover {
+    background: #eff0f3;
+  }
+  &:focus,
+  &:hover {
+    outline: 0;
+    box-shadow: inset 0px 0px 0px 1px white, inset 0px 0px 0px 2px currentColor;
   }
 }

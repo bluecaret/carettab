@@ -5,8 +5,8 @@ $barBorder: #b6b4b6;
 $barTitleBg: #d1d2d2;
 $barTitleBgHover: darken($barTitleBg, 5%);
 $barBtnBorder: lighten($barBorder, 15%);
-$barHeight: 2em;
-$barMaxWidth: 10em;
+$barHeight: 2.2em;
+$barMaxWidth: 9.7em;
 
 .bookmarksBar {
   font-size: $bookmarksBaseScale;
@@ -22,10 +22,10 @@ $barMaxWidth: 10em;
   flex-wrap: nowrap;
   align-items: center;
   background: $barBg;
-  padding: .2em .1em;
+  color: black;
+  padding: .4em .1em;
   border-bottom: 1px solid $barBorder;
   z-index: z('tabBookmarks');
-  font-family: 'Segoe UI', 'Roboto', sans-serif;
 }
 
 .bar__title,
@@ -38,14 +38,13 @@ $barMaxWidth: 10em;
   flex: 0 0 auto;
   height: $barHeight;
   margin: 0 .1em;
-  padding: 0 .8em;
+  padding: 0 .5em;
   border: 0;
   background-color: transparent;
   color: inherit;
   text-decoration: none;
   cursor: default;
-  border-radius: .2em;
-  // transition: background-color .2s;
+  border-radius: ($barHeight / 2);
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
     outline: none;
@@ -66,14 +65,12 @@ $barMaxWidth: 10em;
   align-items: center;
   list-style: none;
   overflow: hidden;
-  // border: 1px solid $barBtnBorder;
   border-top: 0;
   border-bottom: 0;
 }
 
 .bar__title {
   background-color: $barTitleBg;
-  // border-right: 1px solid $barBtnBorder;
   font-weight: 700;
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
@@ -83,10 +80,8 @@ $barMaxWidth: 10em;
 
 .bar__icon {
   flex: 0 0 auto;
-  width: 1.5em;
-  height: 1.5em;
-  max-width: 16px;
-  max-height: 16px;
+  width: 16px;
+  height: 16px;
   font-size: 16px;
 }
 
@@ -98,17 +93,20 @@ $barMaxWidth: 10em;
   flex: 1 1 auto;
   position: relative;
   white-space: nowrap;
-  max-width: $barMaxWidth;
+  max-width: ($barMaxWidth - .1);
   text-overflow: clip;
   overflow: hidden;
   line-height: $barHeight;
+  font-weight: 300;
+  font-family: $settingsFont;
   &::after {
-    content: ''; 
+    content: '';
     width: $barMaxWidth;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
+    border-radius: ($barHeight / 2);
   }
 }
 

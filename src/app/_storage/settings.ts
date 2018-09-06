@@ -12,8 +12,10 @@ export class Settings {
       scalingMethod: true
     },
     bookmarks: {
+      bookmarksBar: true,
       quickLinks: true,
-      scaling: 50,
+      bookmarkScaling: 50,
+      quickLinkScaling: 50,
       links: [
         {
           label: 'Google',

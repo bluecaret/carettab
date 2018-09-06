@@ -29,7 +29,8 @@ import { trigger, transition, style, animate } from '@angular/animations';
 })
 export class TabBookmarksComponent implements OnInit {
   baseScale = 12;
-  scale = this.baseScale + 'px';
+  bookmarkScale = this.baseScale + 'px';
+  quickLinkScale = this.baseScale + 'px';
   allBookmarks: any;
   isLoading: boolean;
   toggle: any = {};
@@ -37,20 +38,22 @@ export class TabBookmarksComponent implements OnInit {
   @ViewChild('barList') barList: ElementRef;
 
   constructor(
-    public settings: Storage, 
+    public settings: Storage,
     private cdRef: ChangeDetectorRef,
     private sanitizer: DomSanitizer,
     private zone: NgZone
   ) {
-    this.calcSize(this.settings.config.bookmarks.scaling);
+    this.calcSize(this.settings.config.bookmarks.bookmarkScaling, this.bookmarkScale);
+    this.calcSize(this.settings.config.bookmarks.quickLinkScaling, this.quickLinkScale);
     this.settings.onChange().subscribe((data) => {
-      this.calcSize(data.bookmarks.scaling);
+      this.calcSize(data.bookmarks.bookmarkScaling, this.bookmarkScale);
+      this.calcSize(data.bookmarks.quickLinkScaling, this.quickLinkScale);
     });
   }
 
   ngOnInit() {
     this.isLoading = true;
-    if (!this.settings.config.bookmarks.quickLinks) {
+    if (this.settings.config.bookmarks.bookmarksBar) {
       chrome.bookmarks.getTree(bookmarks => {
         this.zone.run(() => {
           this.isLoading = false;
@@ -62,8 +65,8 @@ export class TabBookmarksComponent implements OnInit {
     }
   }
 
-  calcSize(size: number) {
-    this.scale = ((this.baseScale / 50) * size) + 'px';
+  calcSize(size: number, scale: string) {
+    scale = ((this.baseScale / 50) * size) + 'px';
   }
 
   moveLeft(el: any) {

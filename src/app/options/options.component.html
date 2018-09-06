@@ -1,23 +1,72 @@
-<button type="button" class="close btn fas fa-times" (click)="toggleOptions()"></button>
+<!-- <header>
+  <button class="back" title="Go to options dashboard" (click)="goToPage('Dashboard')">
+    <div>
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+  </button>
+  <i class="caret icon">keyboard_arrow_right</i>
+  <h1>{{shared.optionsPage}}</h1>
+</header> -->
 <nav>
   <ul>
-    <li><button type="button" class="pageLink fas fa-sliders-h" [ngClass]="{'active': page === 'dashboard'}" (click)="page = 'dashboard'"></button></li>
-    <li><button type="button" class="pageLink fas fa-paint-brush" [ngClass]="{'active': page === 'design'}" (click)="page = 'design'"></button></li>
-    <li><button type="button" class="pageLink fas fa-clock" [ngClass]="{'active': page === 'time'}" (click)="page = 'time'"></button></li>
-    <li><button type="button" class="pageLink fas fa-calendar-alt" [ngClass]="{'active': page === 'date'}" (click)="page = 'date'"></button></li>
-    <li><button type="button" class="pageLink fas fa-link" [ngClass]="{'active': page === 'bookmarks'}" (click)="page = 'bookmarks'"></button></li>
-    <li><button type="button" class="pageLink fas fa-search" [ngClass]="{'active': page === 'search'}" (click)="page = 'search'"></button></li>
-    <li><button type="button" class="pageLink fas fa-quote-left" [ngClass]="{'active': page === 'message'}" (click)="page = 'message'"></button></li>
-    <li><button type="button" class="pageLink fas fa-clone" [ngClass]="{'active': page === 'extra'}" (click)="page = 'extra'"></button></li>
-    <li><button type="button" class="pageLink fas fa-question" [ngClass]="{'active': page === 'extra'}" (click)="page = 'extra'"></button></li>
+    <li>
+      <button type="button" (click)="goToPage('Dashboard')" [ngClass]="{'active': shared.optionsPage === 'Dashboard'}">
+        <div class="icon">apps</div>
+      </button>
+    </li>
+    <li>
+      <button type="button" (click)="goToPage('Design')" [ngClass]="{'active': shared.optionsPage === 'Design'}">
+        <div class="icon">format_paint</div>
+      </button>
+    </li>
+    <li>
+      <button type="button" (click)="goToPage('Time')" [ngClass]="{'active': shared.optionsPage === 'Time'}">
+        <div class="icon">access_time</div>
+      </button>
+    </li>
+    <li>
+      <button type="button" (click)="goToPage('Date')" [ngClass]="{'active': shared.optionsPage === 'Date'}">
+        <div class="icon">insert_invitation</div>
+      </button>
+    </li>
+    <li>
+      <button type="button" (click)="goToPage('Bookmarks')" [ngClass]="{'active': shared.optionsPage === 'Bookmarks'}">
+        <div class="icon">star</div>
+      </button>
+    </li>
+    <li>
+      <button type="button" (click)="goToPage('Search')" [ngClass]="{'active': shared.optionsPage === 'Search'}">
+        <div class="icon">search</div>
+      </button>
+    </li>
+    <li>
+      <button type="button" (click)="goToPage('Message')" [ngClass]="{'active': shared.optionsPage === 'Message'}">
+        <div class="icon">textsms</div>
+      </button>
+    </li>
+    <li>
+      <button type="button" (click)="goToPage('Extra')" [ngClass]="{'active': shared.optionsPage === 'Extra'}">
+        <div class="icon">settings</div>
+      </button>
+    </li>
+    <li>
+      <button type="button" (click)="goToPage('About')" [ngClass]="{'active': shared.optionsPage === 'About'}">
+        <div class="icon">info</div>
+      </button>
+    </li>
   </ul>
 </nav>
-<options-dashboard *ngIf="page === 'dashboard'" class="page"></options-dashboard>
-<options-design *ngIf="page === 'design'" class="page"></options-design>
-<options-time *ngIf="page === 'time'" class="page"></options-time>
-<options-date *ngIf="page === 'date'" class="page"></options-date>
-<options-bookmarks *ngIf="page === 'bookmarks'" class="page"></options-bookmarks>
-<options-search *ngIf="page === 'search'" class="page"></options-search>
-<options-message *ngIf="page === 'message'" class="page"></options-message>
-<options-extra *ngIf="page === 'extra'" class="page"></options-extra>
-<options-about *ngIf="page === 'about'" class="page"></options-about>
+<options-dashboard *ngIf="shared.optionsPage === 'Dashboard'" class="page"></options-dashboard>
+<options-design *ngIf="shared.optionsPage === 'Design'" class="page"></options-design>
+<options-time *ngIf="shared.optionsPage === 'Time'" class="page"></options-time>
+<options-date *ngIf="shared.optionsPage === 'Date'" class="page"></options-date>
+<options-bookmarks *ngIf="shared.optionsPage === 'Bookmarks'" class="page"></options-bookmarks>
+<options-search *ngIf="shared.optionsPage === 'Search'" class="page"></options-search>
+<options-message *ngIf="shared.optionsPage === 'Message'" class="page"></options-message>
+<options-extra *ngIf="shared.optionsPage === 'Extra'" class="page"></options-extra>
+<options-about *ngIf="shared.optionsPage === 'About'" class="page"></options-about>
+<footer>
+  CaretTab &nbsp;&nbsp;&bull;&nbsp;&nbsp; www.bluecaret.com &nbsp;&nbsp;&bull;&nbsp;&nbsp; @bluecaret
+</footer>

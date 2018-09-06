@@ -8,77 +8,40 @@
 .options {
   position: fixed;
   z-index: z('optionsUI');
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  top: 0;
-  right: 0;
-  -webkit-font-smoothing: subpixel-antialiased;
-  width: 600px;
-  height: 100vh;
-  max-width: 100%;
-  background: transparent;
-  font-size: 14px;
-  color: #ddd;
-  overflow: hidden;
-  box-shadow: 0 0 40px 5px rgba(0, 0, 0, .7);
-  a {
-    color: $blue;
-    &:hover {
-      color: lighten($blue, 10%);
-    }
-  }
-  .close {
-    position: fixed;
-    z-index: z('optionsClose');
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 6px;
-    right: 6px;
-    width: 30px;
-    height: 30px;
-    font-size: 12px;
-    font-weight: 900;
-    min-width: 0;
-    border: 0;
-    box-shadow: none;
+  bottom: -100vh;
+  right: -$optionsWidth;
+  width: $optionsWidth;
+  display: grid;
+  grid-template-rows: ($headerHeight + 3px) 1fr 25px;
+  height: calc(100vh - 90px);
+  background-color: $optionsBg;
+  box-shadow: none;
+  border-radius: $optionsRadius;
+  border-bottom-right-radius: 0;
+  transform-origin: bottom right;
+  &.open {
+    right: 40px;
+    bottom: 40px;
+    box-shadow: 0 0 0 8px rgba(0,0,0,.3), 0 0 0 4px rgba(0,0,0,.3);
   }
 }
 
-::-webkit-scrollbar {
-  width: 15px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: lighten($pageBg, 15%);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: lighten($pageBg, 20%);
-}
-
-::-webkit-scrollbar-track {
-  background: $pageBg;
-}
-
-@import "block/_aside";
-@import "block/_btn";
-@import "block/_forms";
-@import "block/_toggle";
-@import "block/_range";
-@import "block/_validation";
-@import "block/_help";
-@import "block/_nav";
-@import "block/_notice";
-@import "block/_page";
+@import "block/btn";
+@import "block/footer";
+@import "block/forms";
+@import "block/header";
+@import "block/range";
+@import "block/validation";
+@import "block/help";
+@import "block/nav";
+@import "block/page";
 @import "block/_table";
-@import "block/_tip";
-@import "block/_type";
+@import "block/tip";
+@import "block/type";
 
-@import "page/_about";
-@import "page/_bookmarks";
-@import "page/_colors";
-@import "page/_dashboard";
-@import "page/_design";
-@import "page/_time";
+@import "page/about";
+@import "page/bookmarks";
+@import "page/colors";
+@import "page/dashboard";
+@import "page/design";
+@import "page/time";

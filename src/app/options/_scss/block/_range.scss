@@ -1,32 +1,30 @@
-// RANGE
 @mixin range-thumb {
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	height: ($fieldHeight - 4px);
-	width: ($fieldHeight - 4px);
+	height: 22px;
+	width: 22px;
 	border-radius: 50%;
-	background: $lightBlue;
+	background: $blue;
 	cursor: pointer;
-	margin-top: -(($fieldHeight / 2) - 4px);
+	margin-top: -7px;
 	border: 0;
 	transition: all .2s;
 }
 @mixin range-track {
 	width: 100%;
-	height: 4px;
+	height: 10px;
 	cursor: pointer;
 	border-radius: 5px;
-	background: $blue;
+	background: white;
+  border: 1px solid rgba(0, 0, 0, 0.12);
 	margin-top: 0px;
-	border: 0;
 	transition: all .2s;
 }
 @mixin range-track-focus {
-	background: $lightBlue;
+  box-shadow: $focus;
 }
 input[type="range"] {
   -webkit-appearance: none;
-  height: $fieldHeight;
   background: transparent;
   border-color: transparent;
   padding: 0;
@@ -47,6 +45,8 @@ input[type="range"] {
     @include range-track;
   }
 	&:focus {
+    outline: 0;
+    box-shadow: none;
     &::-webkit-slider-runnable-track {
 			@include range-track-focus;
     }
@@ -64,24 +64,32 @@ input[type="range"] {
   }
 }
 
-$outputHeight: 16px;
-$outputArrowWidth: ($outputHeight / 2);
-$outputBg: rgba($blue, .5);
+.range {
+  display: grid;
+  grid-template-columns: 1fr 45px;
+  width: 100%;
+}
+
+$outputHeight: 22px;
+$outputArrowWidth: 10px;
+$outputBg: #E0E0E0;
 output {
   background: $outputBg;
-  color: rgba(255,255,255,.6);
+  color: rgba(0,0,0,1);
   line-height: $outputHeight;
   height: $outputHeight;
-  width: 30px;
   text-align: center;
   font-size: 11px;
-  margin-left: $outputArrowWidth;
+  margin-left: 12px;
   position: relative;
   cursor: default;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-radius: 5px;
   &::before {
     position: absolute;
     top: 50%;
-    left: -$outputArrowWidth;
+    left: -($outputArrowWidth - 2px);
     transform: translateY(-50%);
     content: '';
     width: 0;
@@ -89,5 +97,6 @@ output {
     border-top: $outputArrowWidth solid transparent;
     border-bottom: $outputArrowWidth solid transparent;
     border-right: $outputArrowWidth solid $outputBg;
+    border-radius: 0px 5px 5px 0px;
   }
 }

@@ -1,11 +1,7 @@
-/* Settings - Page
-   ========================================================================== */
-
 .page {
-  flex: 1 1 auto;
   display: block;
   padding: 20px;
-  overflow-y: scroll;
-  background: rgba($pageBg, .9);
   width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }

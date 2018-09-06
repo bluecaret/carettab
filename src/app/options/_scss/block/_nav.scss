@@ -1,41 +1,46 @@
-/* Settings - Nav
-   ========================================================================== */
-
-nav {
-  flex: 0 0 auto;
-  background: rgba($asideBg, .85);
+.options nav {
+  display: grid;
+  place-items: center left;
+  height: $headerHeight;
+  background: #fff;
+  border-bottom: 3px double #eee;
+  border-radius: $optionsRadius $optionsRadius 0 0;
+  overflow: hidden;
   ul {
     list-style: none;
     padding: 0 0px;
     margin: 0;
+    width: 100%;
     display: flex;
     li {
       display: block;
+      margin-left: 10px;
       button {
         display: flex;
         align-items: center;
-        justify-content: flex-start;
-        width: 50px;
-        height: 40px;
-        font-size: 16px;
+        justify-content: center;
+        min-width: 50px;
+        height: 32px;
+        font-size: 14px;
         font-weight: 300;
         text-align: center;
         background: transparent;
-        color: white;
+        color: inherit;
         border: 0;
+        padding: 0 10px;
         transition: background-color .3s;
+        cursor: pointer;
+        border-radius: 15px;
         &:focus {
-          outline: 0;
+          outline: none;
+          box-shadow: $focus;
         }
         &:hover {
-          background: rgba($asideBg, .5);
-          cursor: pointer;
+          background: rgba($lightBlue, .5);
         }
         &.active {
-          background: $asideBg;
-          &:hover {
-            cursor: default;
-          }
+          background: $blue;
+          cursor: default;
         }
       }
     }

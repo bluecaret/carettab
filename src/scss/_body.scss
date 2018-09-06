@@ -25,9 +25,11 @@ button, input, optgroup, select, textarea {
 
 hr {
   margin: 20px 0;
-  padding: 0 $pagePadding;
+  padding: 0;
   border: 0;
-  border-top: 1px solid lighten($pageBg, 20%);
+  height: 3px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 img {

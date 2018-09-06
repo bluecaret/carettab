@@ -1,0 +1,69 @@
+$optionsToggleLine: 2px;
+$optionsToggleSize: 16px;
+$optionsToggleSpacing: 3px;
+$optionsTogglePadding: 15px;
+$optionsToggleHeight: ($optionsToggleSize + ($optionsTogglePadding * 2));
+
+.openOptions {
+  position: absolute;
+  z-index: z('tabToggle');
+  bottom: 0;
+  right: 0;
+  background: transparent;
+  color: inherit;
+  padding: $optionsTogglePadding;
+  border: 0;
+  width: $optionsToggleHeight;
+  height: $optionsToggleHeight;
+  transform: rotate(0deg);
+  transition: $optionsTransition;
+  cursor: pointer;
+  overflow: hidden;
+  opacity: .5;
+  &:hover,
+  &:focus {
+    outline: 0;
+    opacity: 1;
+  }
+  span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: $optionsToggleSize;
+    background: currentColor;
+    border-radius: 2px;
+    opacity: 1;
+    left: $optionsTogglePadding;
+    transform: rotate(0deg);
+    transition: $optionsTransition;
+    &:nth-of-type(1) {
+      top: ($optionsToggleSpacing + $optionsTogglePadding);
+    }
+    &:nth-of-type(2), &:nth-of-type(3) {
+      top: ((($optionsToggleSize - $optionsToggleLine) / 2) + $optionsTogglePadding);
+    }
+    &:nth-of-type(4) {
+      top: ($optionsToggleSize - $optionsToggleLine - $optionsToggleSpacing + $optionsTogglePadding);
+    }
+  }
+  &.open {
+    span {
+      &:nth-of-type(1) {
+        top: ((($optionsToggleSize - $optionsToggleLine) / 2) + $optionsTogglePadding);
+        transform: rotate(45deg);
+      }
+      &:nth-of-type(2) {
+        top: ((($optionsToggleSize - $optionsToggleLine) / 2) + $optionsTogglePadding);
+        transform: rotate(45deg);
+      }
+      &:nth-of-type(3) {
+        top: ((($optionsToggleSize - $optionsToggleLine) / 2) + $optionsTogglePadding);
+        transform: rotate(-45deg);
+      }
+      &:nth-of-type(4) {
+        top: ((($optionsToggleSize - $optionsToggleLine) / 2) + $optionsTogglePadding);
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

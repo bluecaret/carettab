@@ -18,7 +18,8 @@ app-tab {
   flex-direction: column;
   justify-content: center;
   font-size: .5vw;
-  background: #eefaff;
+  background: #272e33;
+  color: white;
   transform-origin: 100% 100%;
   transition: $transition;
   transform: translate(0, 0) scale(1);
@@ -29,36 +30,6 @@ app-tab {
   }
 }
 
-#toggleOptions {
-  position: absolute;
-  z-index: z('tabToggle');
-  bottom: 1vw;
-  right: 1vw;
-  padding: .5em;
-  width: 2em;
-  background-color: transparent;
-  border: 0;
-  font-size: .8em;
-  cursor: pointer;
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    background-color: gray;
-  }
-  &.toggleOptions--open {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    span {
-      display: none;
-    }
-  }
-}
-
-@import "/feature/_bookmarks";
-@import "/feature/_time";
+@import "/toggle";
+@import "/feature/bookmarks";
+@import "/feature/time";

@@ -20,11 +20,11 @@ import { Storage } from './_storage/storage.service';
     trigger('slideIn', [
       state('*', style({
         opacity: 1,
-        transform: 'translateX(0)'
+        transform: 'scale(1)'
       })),
       state('void',   style({
         opacity: 0,
-        transform: 'translateX(20%)'
+        transform: 'scale(0)'
       })),
       transition('* => void', animate('250ms ease-out')),
       transition('void => *', animate('250ms ease-in'))

@@ -9,15 +9,18 @@ import { SharedService } from '../_shared/shared.service';
 })
 export class OptionsComponent {
   @HostBinding('class.options') pageClass = true;
-
-  page: string;
+  @HostBinding('class.open') open = true;
 
   constructor(public shared: SharedService) {
-    this.page = 'time';
   }
 
   toggleOptions() {
     this.shared.optionsToggle = !this.shared.optionsToggle;
+    this.open = this.shared.optionsToggle;
+  }
+
+  goToPage(page: string) {
+    this.shared.optionsPage = page;
   }
 
 }

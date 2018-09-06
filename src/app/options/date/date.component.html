@@ -1,24 +1,18 @@
 <fieldset>
-  <div class="row row--gap">
-    <div class="col6 colLg4">
-      <div class="fieldGroup">
-        <label for="type" class="fieldGroup__label">Date</label>
-        <div class="btnGroup btnGroup--justified">
-          <input type="radio" name="date" id="dateOn" />
-          <label for="dateOn">On</label>
-          <input type="radio" name="date" id="dateOff" />
-          <label for="dateOff">Off</label>
-        </div>
+  <div class="grid cols-5">
+    <div class="field">
+      <div class="check">
+        <input type="checkbox" name="date" id="date" />
+        <label for="date">Enable</label>
       </div>
+      <label for="type">Date</label>
     </div>
-    <div class="col6 colLg4">
-      <div class="fieldGroup">
-        <label for="dateSize" class="fieldGroup__label"><app-help title="Change the size of the date.">Size</app-help></label>
-        <div class="flex">
-          <input type="range" id="dateSize" class="fieldGroup__field flex__auto" value="50" min="0" max="100">
-          <input class="fieldGroup__field rangeLabel flex__set" value="50">
-        </div>
+    <div class="field span-4">
+      <div class="range">
+        <input id="dateSize" type="range" name="range" min="1" max="100" [(ngModel)]="range">
+        <output [value]="range"></output>
       </div>
+      <label for="dateSize">Size</label>
     </div>
   </div>
 </fieldset>

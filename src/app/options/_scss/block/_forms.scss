@@ -8,7 +8,7 @@ fieldset {
 .field {
   display: grid;
   grid-template: 20px #{$fieldHeight} / 1fr;
-  margin: 0 0 10px 0;
+  margin: 0;
   place-items: center left;
   > label {
     font-size: 11px;
@@ -45,7 +45,7 @@ fieldset {
   }
   &.compact {
     grid-template: #{$fieldHeight} / 24px 1fr;
-    grid-gap: 7px;
+    grid-gap: 10px;
     > * {
       grid-row: 1 / 2;
       grid-column: 2 / 3;
@@ -68,12 +68,12 @@ fieldset {
   input + label {
     position: relative;
     cursor: pointer;
-    padding: 0 20px 0 0;
+    padding: 0 10px 0 0;
     font-size: 12px;
   }
   input + label:before {
     content: '';
-    margin-right: 8px;
+    margin-right: 6px;
     display: inline-block;
     width: 20px;
     height: 20px;

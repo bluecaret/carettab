@@ -1,7 +1,7 @@
 .grid {
   display: grid;
   grid-gap: 15px;
-  grid-auto-flow: column;
+  grid-auto-flow: row;
   @for $i from 1 through 24 {
     &.cols-#{$i} {
       grid-template-columns: repeat(#{$i}, 1fr);

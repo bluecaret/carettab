@@ -1,6 +1,8 @@
+$val: rgb(255, 90, 68);
+
 .valMsg {
-  font-size: 11px;
-  color: rgb(255, 90, 68);
-  font-weight: 700;
-  margin: 5px 0 0 0;
+  font-size: 10px;
+  color: $val;
+  font-weight: 400;
+  margin: 3px 0 0 0;
 }

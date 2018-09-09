@@ -1,111 +1,73 @@
 <fieldset>
-  <div class="grid cols-5">
-    <div class="field">
-      <div class="check">
+  <legend>Date</legend>
+  <div class="grid cols-4">
+    <div class="field span-1">
+      <div class="toggle">
         <input type="checkbox" name="date" id="date" />
-        <label for="date">Enable</label>
+        <label for="date"></label>
       </div>
-      <label for="type">Date</label>
+      <label>Date</label>
     </div>
-    <div class="field span-4">
+    <div class="field span-2">
       <div class="range">
-        <input id="dateSize" type="range" name="range" min="1" max="100" [(ngModel)]="range">
+        <input type="range" id="dateSize" name="dateSize" min="1" max="100" [(ngModel)]="range">
         <output [value]="range"></output>
       </div>
       <label for="dateSize">Size</label>
     </div>
   </div>
 </fieldset>
-<hr class="mt0">
 <fieldset>
-  <div class="row row--gap">
-    <div class="col6 colLg4">
-      <div class="fieldGroup">
-        <label for="dateDay" class="fieldGroup__label"><app-help title="Shows day of the week (only applies if 'short form' is off).">Day</app-help></label>
-        <div class="btnGroup btnGroup--justified">
-          <input type="radio" name="dateDay" id="dateDayOn" />
-          <label for="dateDayOn">On</label>
-          <input type="radio" name="dateDay" id="dateDayOff" />
-          <label for="dateDayOff">Off</label>
+  <legend>Format</legend>
+  <div class="grid cols-10">
+    <div class="grid cols-2 span-4">
+      <div class="field">
+        <div class="toggle">
+          <input type="checkbox" name="dateDay" id="dateDay" />
+          <label for="dateDay"></label>
         </div>
+        <label title="Shows day of the week (only applies if 'short form' is off).">Day</label>
       </div>
-    </div>
-    <div class="col6 colLg4">
-      <div class="fieldGroup">
-        <label for="dateYear" class="fieldGroup__label"><app-help title="Shows the year with the date.">Year</app-help></label>
-        <div class="btnGroup btnGroup--justified">
-          <input type="radio" name="dateYear" id="dateYearOn" />
-          <label for="dateYearOn">On</label>
-          <input type="radio" name="dateYear" id="dateYearOff" />
-          <label for="dateYearOff">Off</label>
+      <div class="field">
+        <div class="toggle">
+          <input type="checkbox" name="dateYear" id="dateYear" />
+          <label for="dateYear"></label>
         </div>
+        <label title="Shows the year with the date.">Year</label>
       </div>
-    </div>
-    <div class="col6 colLg4">
-      <div class="fieldGroup">
-        <label for="dateShortForm" class="fieldGroup__label"><app-help title="Allows various date formats to choose from.">Date Format</app-help></label>
-        <select name="dateFormat" id="dateFormat" class="fieldGroup__field">
+      <div class="field span-2">
+        <select name="dateFormat" id="dateFormat">
           <option value="">Middle-Endian (January 31, 2000)</option>
           <option value="">Little-Endian (31 January 2000)</option>
           <option value="">Big-Endian (2000 January 31)</option>
         </select>
+        <label for="dateFormat" title="Allows various date formats to choose from.">Date Format</label>
       </div>
     </div>
-    <div class="col6 colLg4">
-      <div class="fieldGroup">
-        <label for="dateShortForm" class="fieldGroup__label"><app-help title="Shows the date in a short format.">Short Date</app-help></label>
-        <div class="btnGroup btnGroup--justified">
-          <input type="radio" name="dateShortForm" id="dateShortFormOn" />
-          <label for="dateShortFormOn">On</label>
-          <input type="radio" name="dateShortForm" id="dateShortFormOff" />
-          <label for="dateShortFormOff">Off</label>
+    <div class="grid cols-1 span-3">
+      <div class="field">
+        <div class="toggle">
+          <input type="checkbox" name="dateShortForm" id="dateShortForm" />
+          <label for="dateShortForm"></label>
         </div>
+        <label title="Shows the date in a short format.">Short Date</label>
+      </div>
+      <div class="field">
+        <input type="text" name="dateShortDelimiter" id="dateShortDelimiter" value="/" />
+        <label for="dateShortDelimiter" title="Shows a seperator between numbers on the short date format.">Short Date Delimiter</label>
       </div>
     </div>
-    <div class="col6 colLg4">
-      <div class="fieldGroup">
-        <label for="dateShortDelimiter" class="fieldGroup__label">Short Date Delimiter <app-help title="Shows a seperator between numbers on the short date format."></app-help></label>
-        <div class="btnGroup btnGroup--justified">
-          <input type="radio" name="dateShortDelimiter" id="dateShortDelimiterSlash" />
-          <label for="dateShortDelimiterSlash" class="bold">/</label>
-          <input type="radio" name="dateShortDelimiter" id="dateShortDelimiterPeriod" />
-          <label for="dateShortDelimiterPeriod" class="bold">.</label>
-          <input type="radio" name="dateShortDelimiter" id="dateShortDelimiterDash" />
-          <label for="dateShortDelimiterDash" class="bold">-</label>
-          <input type="radio" name="dateShortDelimiter" id="dateShortDelimiterSpace" />
-          <label for="dateShortDelimiterSpace" class="bold">&nbsp;</label>
+    <div class="grid cols-1 span-3">
+      <div class="field">
+        <div class="toggle">
+          <input type="checkbox" name="dateWeekNumber" id="dateWeekNumber" />
+          <label for="dateWeekNumber"></label>
         </div>
+        <label title="Shows week number below the date.">Week Number</label>
       </div>
-    </div>
-  </div>
-</fieldset>
-<hr class="mt0">
-<fieldset>
-  <div class="row row--gap">
-    <div class="col6 colLg4">
-      <div class="fieldGroup">
-        <label for="dateWeekNumber" class="fieldGroup__label"><app-help title="Shows week number below the date.">Week Number</app-help></label>
-        <div class="btnGroup btnGroup--justified">
-          <input type="radio" name="dateWeekNumber" id="dateWeekNumberOn" />
-          <label for="dateWeekNumberOn">On</label>
-          <input type="radio" name="dateWeekNumber" id="dateWeekNumberOff" />
-          <label for="dateWeekNumberOff">Off</label>
-        </div>
-      </div>
-    </div>
-    <div class="col6 colLg4">
-      <div class="fieldGroup">
-        <label for="dateWeekNumberLabel" class="fieldGroup__label"><app-help title="Choose a label to show next to the week number.">Week Number Label</app-help></label>
-        <div class="btnGroup btnGroup--justified">
-          <input type="radio" name="dateWeekNumberLabel" id="dateWeekNumberLabelWord" />
-          <label for="dateWeekNumberLabelWord">Week</label>
-          <input type="radio" name="dateWeekNumberLabel" id="dateWeekNumberLabelAbbr" />
-          <label for="dateWeekNumberLabelAbbr">Wk.</label>
-          <input type="radio" name="dateWeekNumberLabel" id="dateWeekNumberLabelHashtag" />
-          <label for="dateWeekNumberLabelHashtag">#</label>
-          <input type="radio" name="dateWeekNumberLabel" id="dateWeekNumberLabelSpace" />
-          <label for="dateWeekNumberLabelSpace">&nbsp;</label>
-        </div>
+      <div class="field">
+        <input type="text" name="dateShortDelimiter" id="dateShortDelimiter" value="Week" />
+        <label for="dateShortDelimiter" title="Choose a label to show next to the week number.">Week Number Label</label>
       </div>
     </div>
   </div>

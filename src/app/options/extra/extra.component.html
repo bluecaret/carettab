@@ -1,73 +1,72 @@
 <fieldset>
-  <div class="row row--gap">
-    <div class="colAuto colMd6 colLg4">
-      <div class="fieldGroup">
-        <label for="lang" class="fieldGroup__label">Language</label>
-        <select name="lang" id="lang" class="fieldGroup__field">
-          <option value="">English</option>
-          <option value="">French</option>
-          <option value="">German</option>
-          <option value="">Russian</option>
-          <option value="">Spanish</option>
-          <option value="">Chinese (simplified)</option>
-          <option value="">Chinese (traditional)</option>
-        </select>
-      </div>
-    </div>
-    <div class="colAuto colMd6 colLg4">
-      <div class="fieldGroup">
-        <label class="fieldGroup__label"><app-help title="Enables animation when tab is opened.">Animation</app-help></label>
-        <div class="btnGroup btnGroup--justified">
-          <input type="radio" name="animation" id="animationOn" value="on">
-          <label for="animationOn">On</label>
-          <input type="radio" name="animation" id="animationOff" value="off">
-          <label for="animationOff">Off</label>
-        </div>
-      </div>
-    </div>
-    <div class="colAuto colMd6 colLg4">
-      <div class="fieldGroup">
-        <label for="interfaceSize" class="fieldGroup__label"><app-help title="Change the overall size of objects.">Scale Display</app-help></label>
-        <div class="flex">
-          <input id="interfaceSize" type="range" class="fieldGroup__field flex__auto" value="50" min="0" max="100">
-          <input class="fieldGroup__field rangeLabel flex__set" value="50">
-        </div>
-      </div>
-    </div>
-    <div class="colAuto colMd6 colLg4">
-      <div class="fieldGroup">
-        <label class="fieldGroup__label"><app-help title="The settings button opens the settings page. Enable this to hide the icon. You can still open settings by clicking in the top-right corner of the page.">Settings Icon</app-help></label>
-        <div class="btnGroup btnGroup--justified">
-          <input type="radio" name="settingsIcon" id="settingsIconOn" value="on">
-          <label for="settingsIconOn">Show</label>
-          <input type="radio" name="settingsIcon" id="settingsIconOff" value="off">
-          <label for="settingsIconOff">Hide</label>
-        </div>
-      </div>
-    </div>
-    <div class="colAuto colMd6 colLg4">
-      <div class="fieldGroup">
-        <label for="tabTitle" class="fieldGroup__label"><app-help title="Choose what to display in the New Tab title (shows on the tab itself as well as in the browser's title bar).">Tab Title</app-help></label>
-        <select name="tabTitle" id="tabTitle" class="fieldGroup__field">
-          <option value="">Time</option>
-          <option value="">Date</option>
-          <option value="">Time, then date</option>
-          <option value="">Date, then time</option>
-          <option value="">"New Tab"</option>
-          <option value="">Custom Text</option>
-        </select>
-      </div>
-    </div>
-    <div class="colAuto colMd6 colLg4">
-      <div class="fieldGroup">
-        <label for="tabTitleCustom" class="fieldGroup__label"><app-help title='Enter text for the custom tab title. Only applies if "Custom Text" is selected for Tab Title.'>Custom Text for Tab Title</app-help></label>
-        <input type="text" id="tabTitleCustom" class="fieldGroup__field">
-      </div>
+  <legend>Language</legend>
+  <div class="grid cols-2">
+    <div class="field span-1">
+      <select name="lang" id="lang">
+        <option value="">English</option>
+        <option value="">French</option>
+        <option value="">German</option>
+        <option value="">Russian</option>
+        <option value="">Spanish</option>
+        <option value="">Chinese (simplified)</option>
+        <option value="">Chinese (traditional)</option>
+      </select>
+      <label for="lang">Language</label>
     </div>
   </div>
 </fieldset>
-<hr>
-<div class="fieldGroup">
-  <label for="reset" class="fieldGroup__label"><app-help data-tip="If you would like to reset all settings back to the default, you can click this button and then refresh the page. This will remove all of your settings.">Reset to Default</app-help></label>
-  <button type="button" class="btn">Reset</button>
-</div>
+<fieldset>
+  <legend>Display</legend>
+  <div class="grid cols-4">
+    <div class="field">
+      <div class="toggle">
+        <input type="checkbox" name="animation" id="animation" />
+        <label for="animation"></label>
+      </div>
+      <label title="Enables animation when tab is opened.">Animation</label>
+    </div>
+    <div class="field">
+      <div class="toggle">
+        <input type="checkbox" name="settingsIcon" id="settingsIcon" />
+        <label for="settingsIcon"></label>
+      </div>
+      <label title="The settings button opens the settings panel. Enable this to hide the icon. You can still open settings by clicking in the bottom-right corner of the page.">Settings Icon</label>
+    </div>
+    <div class="field span-2">
+      <div class="range">
+        <input type="range" id="interfaceSize" name="interfaceSize" min="1" max="100" [(ngModel)]="range">
+        <output [value]="range"></output>
+      </div>
+      <label for="interfaceSize" title="Change the overall size of objects.">Scale Display</label>
+    </div>
+  </div>
+</fieldset>
+<fieldset>
+  <legend>Tab title</legend>
+  <div class="grid cols-3">
+    <div class="field span-1">
+      <select name="tabTitle" id="tabTitle">
+        <option value="">Time</option>
+        <option value="">Date</option>
+        <option value="">Time, then date</option>
+        <option value="">Date, then time</option>
+        <option value="">"New Tab"</option>
+        <option value="">Custom Text</option>
+      </select>
+      <label for="tabTitle" title="Choose what to display in the New Tab title (shows on the tab itself as well as in the browser's title bar).">Tab Title</label>
+    </div>
+    <div class="field span-2">
+      <input type="text" name="tabTitleCustom" id="tabTitleCustom" value="Hello World">
+      <label for="tabTitleCustom" title='Enter text for the custom tab title. Only applies if "Custom Text" is selected for Tab Title.'>Custom Text for Tab Title</label>
+    </div>
+  </div>
+</fieldset>
+<fieldset>
+  <legend>Advanced</legend>
+  <div class="grid cols-4">
+    <div class="field span-1">
+      <button id="reset" type="button" class="btn">Reset</button>
+      <label for="reset" title="If you would like to reset all settings back to the default, you can click this button and then refresh the page. This will remove all of your settings.">Reset to Default</label>
+    </div>
+  </div>
+</fieldset>

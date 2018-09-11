@@ -776,6 +776,10 @@ function tEngine(value, loaded) {
     $('#search').attr('action', 'https://www.github.com/search');
     $('#search-box').attr('placeholder', 'GitHub');
     $('#search-box').attr('name', 'q');
+  } else if (sEngine == "yandex") {
+    $('#search').attr('action', 'https://yandex.com/search/');
+    $('#search-box').attr('placeholder', 'Yandex');
+    $('#search-box').attr('name', 'text');
   } else {
     $('#search').attr('action', 'https://www.google.com/search');
     $('#search-box').attr('placeholder', 'Google');

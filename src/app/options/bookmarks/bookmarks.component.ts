@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
+import { fade } from '../../_shared/animations';
 
 @Component({
   selector: 'options-bookmarks',
-  templateUrl: 'bookmarks.component.html'
+  templateUrl: 'bookmarks.component.html',
+  animations: [fade]
 })
 export class OptionsBookmarksComponent {
   editMode: boolean[] = [];

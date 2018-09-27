@@ -38,7 +38,7 @@
     </div>
   </fieldset>
 </form>
-<ng-container *ngIf="settings.config.bookmarks.quickLinks === true">
+<div *ngIf="settings.config.bookmarks.quickLinks === true" @fade>
   <form #quickLinksList="ngForm" novalidate>
     <fieldset class="mb0">
       <div class="grid cols-9">
@@ -111,7 +111,7 @@
       </div>
     </fieldset>
   </form>
-</ng-container>
+</div>
 
 
 <!-- <div class="divTableCell pt1">

@@ -5,27 +5,6 @@
 @import "~scss/_variables";
 @import "~scss/_utilities";
 
-.options {
-  position: fixed;
-  z-index: z('optionsUI');
-  bottom: -100vh;
-  right: -$optionsWidth;
-  width: $optionsWidth;
-  display: grid;
-  grid-template-rows: ($headerHeight + 3px) 1fr 25px;
-  height: calc(100vh - 90px);
-  background-color: $optionsBg;
-  box-shadow: none;
-  border-radius: $optionsRadius;
-  border-bottom-right-radius: 0;
-  transform-origin: bottom right;
-  &.open {
-    right: 40px;
-    bottom: 40px;
-    box-shadow: 0 0 0 8px rgba(0,0,0,.3), 0 0 0 4px rgba(0,0,0,.3);
-  }
-}
-
 @import "block/btn";
 @import "block/footer";
 @import "block/forms";

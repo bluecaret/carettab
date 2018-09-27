@@ -41,7 +41,7 @@
 <ng-container *ngIf="settings.config.bookmarks.quickLinks === true">
   <form #quickLinksList="ngForm" novalidate>
     <fieldset class="mb0">
-      <div class="grid cols-10">
+      <div class="grid cols-9">
         <div class="field no-label span-4">
           <label>Link label</label>
         </div>
@@ -49,32 +49,37 @@
           <label>Link URL</label>
         </div>
       </div>
-      <div class="grid cols-10 mb1" *ngFor="let link of settings.config.bookmarks.links; let i = index">
-        <div class="field no-label span-4">
-          <input
-            type="text"
-            [name]="'label'+i"
-            #editLabel="ngModel"
-            [(ngModel)]="link.label">
-        </div>
-        <div class="field no-label span-4">
-          <input
-            type="text"
-            [name]="'url'+i"
-            #editUrl="ngModel"
-            [(ngModel)]="link.url"
-            required>
-          <div class="valMsg" *ngIf="quickLinksList.invalid && quickLinksList.submitted">Link must have a URL (website address).</div>
-        </div>
-        <div class="field btns span-2">
-          <button
-            [type]="ifEdit(i) ? 'submit' : 'button'"
-            class="btn"
-            [title]="ifEdit(i) ? 'Save Link' : 'Edit Link'"
-            (click)="ifEdit(i) ? updateLink(link.label, link.url, i, quickLinksList.valid) : enterEditMode(i)">
-            <div class="icon">{{ifEdit(i) ? 'save' : 'edit'}}</div>
-          </button>
-          <button type="button" class="btn" (click)="deleteLink(link, i)"><div class="icon">delete</div></button>
+      <div class="grid cols-9 mb1">
+        <ng-container *ngFor="let link of settings.config.bookmarks.links; let i = index">
+          <div class="field no-label span-4">
+            <input
+              type="text"
+              [name]="'label'+i"
+              #editLabel="ngModel"
+              [(ngModel)]="link.label">
+          </div>
+          <div class="field no-label span-4">
+            <input
+              type="text"
+              [name]="'url'+i"
+              #editUrl="ngModel"
+              [(ngModel)]="link.url"
+              required>
+            <div class="valMsg" *ngIf="quickLinksList.invalid && quickLinksList.submitted">Link must have a URL (website address).</div>
+          </div>
+          <div class="field btns span-1">
+            <!-- <button
+              [type]="ifEdit(i) ? 'submit' : 'button'"
+              class="btn"
+              [title]="ifEdit(i) ? 'Save Link' : 'Edit Link'"
+              (click)="ifEdit(i) ? updateLink(link.label, link.url, i, quickLinksList.valid) : enterEditMode(i)">
+              <div class="icon">{{ifEdit(i) ? 'save' : 'edit'}}</div>
+            </button> -->
+            <button type="button" class="btn" (click)="deleteLink(link, i)"><div class="icon">delete</div></button>
+          </div>
+        </ng-container>
+        <div class="span-9">
+          <button type="button" class="btn" (click)="addLink()"><div class="icon">add</div>Add new link</button>
         </div>
       </div>
     </fieldset>

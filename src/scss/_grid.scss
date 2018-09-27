@@ -9,5 +9,8 @@
     .span-#{$i} {
       grid-column: span $i;
     }
+    .offset-#{$i} {
+      grid-column-start: +($i + 1);
+    }
   }
 }

@@ -1,21 +1,16 @@
-$navHeight: ($optionsToggleHeight - 20);
-$navRadius: ($navHeight / 2);
-$navButtonHeight: ($navHeight / 1.25);
-
-.options-wrapper nav {
+nav {
   position: fixed;
   z-index: z('optionsNav');
-  bottom: 10px;
-  right: 10px;
-  padding: 0 50px 0 10px;
-
+  bottom: $navMargin;
+  right: $navMargin;
+  padding: 0 60px 0 5px;
   display: grid;
   place-items: center center;
-
   height: $navHeight;
-  background: rgba(255,255,255,0.8);
+  background: $optionsBg;
+  border: $optionsBorder;
   border-radius: $navRadius;
-  overflow: hidden;
+  transform-origin: center right;
   ul {
     list-style: none;
     padding: 0 0px;
@@ -25,28 +20,30 @@ $navButtonHeight: ($navHeight / 1.25);
     li {
       display: block;
       button {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-        min-width: 50px;
+        width: $navButtonHeight;
         height: $navButtonHeight;
         color: black;
         border: 0;
-        padding: 0 10px;
+        padding: 0;
+        margin: 0 3px;
         background-color: transparent;
-        transition: background-color .3s;
         cursor: pointer;
-        border-radius: ($navButtonHeight / 2);
+        border-radius: 50%;
+        transition: all .3s;
         &:focus {
           outline: none;
           box-shadow: $focus;
         }
         &:hover {
-          background: rgba($lightBlue, .5);
+          color: darken($blue, 10%);
         }
         &.active {
           background: $blue;
-          cursor: default;
+          color: black;
         }
       }
     }

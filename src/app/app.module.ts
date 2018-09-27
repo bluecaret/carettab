@@ -31,6 +31,7 @@ import { TimezoneService } from './options/time/timezone.service';
 import { TabComponent } from './tab/tab.component';
 import { TabBookmarksComponent } from './tab/bookmarks/bookmarks.component';
 import { TabTimeComponent } from './tab/time/time.component';
+import { NavComponent } from './tab/nav.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { TabTimeComponent } from './tab/time/time.component';
     TimezonePipe,
 
     TabComponent,
+    NavComponent,
     TabBookmarksComponent,
     TabTimeComponent
   ],
@@ -60,6 +62,9 @@ import { TabTimeComponent } from './tab/time/time.component';
     HttpClientModule,
     Ng2ChromeStorageModule,
     MomentModule
+  ],
+  exports: [
+    NavComponent
   ],
   providers: [
     SharedService,

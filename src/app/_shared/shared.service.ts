@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class SharedService {
-  private _optionsToggle = true;
-  private _optionsPage = 'Date';
+  private _optionsToggle: boolean;
+  private _optionsPage: string;
   private _zoneGuess: string;
 
   get optionsToggle(): boolean {

@@ -1,18 +1,12 @@
-$optionsToggleLine: 2px;
-$optionsToggleSize: 16px;
-$optionsToggleSpacing: 3px;
-$optionsTogglePadding: 15px;
-$optionsToggleHeight: ($optionsToggleSize + ($optionsTogglePadding * 2));
-
 .openOptions {
-  position: absolute;
+  position: fixed;
   z-index: z('tabToggle');
   bottom: 0;
   right: 0;
   background: transparent;
   color: inherit;
-  padding: $optionsTogglePadding;
   border: 0;
+  padding: 0;
   width: $optionsToggleHeight;
   height: $optionsToggleHeight;
   transform: rotate(0deg);
@@ -48,6 +42,7 @@ $optionsToggleHeight: ($optionsToggleSize + ($optionsTogglePadding * 2));
   }
   &.open {
     span {
+      background: black;
       &:nth-of-type(1) {
         top: ((($optionsToggleSize - $optionsToggleLine) / 2) + $optionsTogglePadding);
         transform: rotate(45deg);

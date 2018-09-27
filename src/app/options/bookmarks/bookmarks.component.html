@@ -4,14 +4,14 @@
     <div class="grid cols-4">
       <div class="field span-1">
         <div class="toggle">
-          <input type="checkbox" name="toggleBookmarks" id="toggleBookmarks" [(ngModel)]="settings.config.bookmarks.bookmarksBar" (change)="saveAll()" />
+          <input type="checkbox" name="toggleBookmarks" id="toggleBookmarks" [(ngModel)]="settings.config.bookmarks.bookmarksBar" (ngModelChange)="saveAll()">
           <label for="toggleBookmarks"></label>
         </div>
         <label>Bookmarks Bar</label>
       </div>
       <div class="field span-2">
         <div class="range">
-          <input type="range" id="bookmarksSize" name="bookmarksSize" min="1" max="100" [(ngModel)]="settings.config.bookmarks.bookmarkScaling">
+          <input type="range" id="bookmarksSize" name="bookmarksSize" min="1" max="100" [(ngModel)]="settings.config.bookmarks.bookmarkScaling" (ngModelChange)="saveAll()">
           <output [value]="settings.config.bookmarks.bookmarkScaling"></output>
         </div>
         <label for="bookmarksSize">Size</label>
@@ -23,15 +23,15 @@
     <div class="grid cols-4">
       <div class="field span-1">
         <div class="toggle">
-          <input type="checkbox" name="toggleQuickLinks" id="toggleQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks" (change)="saveAll()" />
+          <input type="checkbox" name="toggleQuickLinks" id="toggleQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks" (ngModelChange)="saveAll()">
           <label for="toggleQuickLinks"></label>
         </div>
         <label>Quick Links</label>
       </div>
       <div class="field span-2">
         <div class="range">
-          <input type="range" id="quickLinksSize" name="quickLinksSize" min="1" max="100" [(ngModel)]="settings.config.bookmarks.quickLinksScaling">
-          <output [value]="settings.config.bookmarks.quickLinksScaling"></output>
+          <input type="range" id="quickLinksSize" name="quickLinksSize" min="1" max="100" [(ngModel)]="settings.config.bookmarks.quickLinkScaling" (ngModelChange)="saveAll()">
+          <output [value]="settings.config.bookmarks.quickLinkScaling"></output>
         </div>
         <label for="quickLinksSize">Size</label>
       </div>
@@ -41,61 +41,61 @@
 <div *ngIf="settings.config.bookmarks.quickLinks === true" @fade>
   <form #quickLinksList="ngForm" novalidate>
     <fieldset class="mb0">
-      <div class="grid cols-9">
-        <div class="field no-label span-4">
+      <div class="grid cols-24">
+        <div class="field no-label span-8">
           <label>Link label</label>
         </div>
-        <div class="field no-label span-4">
+        <div class="field no-label span-7">
           <label>Link URL</label>
         </div>
       </div>
-      <div class="grid cols-9 mb1">
-        <ng-container *ngFor="let link of settings.config.bookmarks.links; let i = index">
-          <div class="field no-label span-4">
+      <div class="grid cols-24 mb15">
+        <ng-container *ngFor="let link of settings.config.bookmarks.links; let i = index; trackBy:trackByFn; let isFirst = first; let isLast = last">
+          <div class="field no-label span-8">
             <input
               type="text"
               [name]="'label'+i"
               #editLabel="ngModel"
-              [(ngModel)]="link.label">
+              [(ngModel)]="link.label"
+              (ngModelChange)="saveAll()">
           </div>
-          <div class="field no-label span-4">
+          <div class="field no-label span-9">
             <input
               type="text"
               [name]="'url'+i"
               #editUrl="ngModel"
               [(ngModel)]="link.url"
+              (ngModelChange)="saveAll()"
               required>
             <div class="valMsg" *ngIf="quickLinksList.invalid && quickLinksList.submitted">Link must have a URL (website address).</div>
           </div>
-          <div class="field btns span-1">
-            <!-- <button
-              [type]="ifEdit(i) ? 'submit' : 'button'"
-              class="btn"
-              [title]="ifEdit(i) ? 'Save Link' : 'Edit Link'"
-              (click)="ifEdit(i) ? updateLink(link.label, link.url, i, quickLinksList.valid) : enterEditMode(i)">
-              <div class="icon">{{ifEdit(i) ? 'save' : 'edit'}}</div>
-            </button> -->
+          <div class="field btns span-7">
+            <button type="button" class="btn" [disabled]="isFirst" (click)="swap(settings.config.bookmarks.links, i, (i - 1))">
+              <div class="icon">arrow_upward</div>
+            </button>
+            <button type="button" class="btn" [disabled]="isLast" (click)="swap(settings.config.bookmarks.links, i, (i + 1))">
+              <div class="icon">arrow_downward</div>
+            </button>
             <button type="button" class="btn" (click)="deleteLink(link, i)"><div class="icon">delete</div></button>
           </div>
         </ng-container>
-        <div class="span-9">
-          <button type="button" class="btn" (click)="addLink()"><div class="icon">add</div>Add new link</button>
-        </div>
       </div>
     </fieldset>
   </form>
   <form #newLink="ngForm" novalidate (ngSubmit)="addLink(newLink, newLink.valid)">
     <fieldset>
-      <div class="grid cols-10">
-        <div class="field no-label span-4">
+      <div class="grid cols-24">
+        <div class="field no-label span-8">
           <input
             type="text"
             name="label"
             placeholder="Add new link"
             #newLabel="ngModel"
-            [(ngModel)]="label">
+            [(ngModel)]="label"
+            required>
+          <div class="valMsg" *ngIf="newLabel.invalid && newLink.submitted">Link must have a label.</div>
         </div>
-        <div class="field no-label span-4">
+        <div class="field no-label span-9">
           <input
             type="text"
             name="url"
@@ -105,7 +105,7 @@
             required>
           <div class="valMsg" *ngIf="newUrl.invalid && newLink.submitted">Link must have a URL (website address).</div>
         </div>
-        <div class="field btns span-2">
+        <div class="field btns span-7">
           <button type="submit" class="btn" title="Save new link"><div class="icon">save</div></button>
         </div>
       </div>

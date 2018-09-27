@@ -110,7 +110,6 @@
   class="quickLinksBar"
   [ngStyle]="{'font-size': quickLinkScale }"
   *ngIf="settings.config.bookmarks.quickLinks">
-
   <ul>
     <li *ngFor="let item of settings.config.bookmarks.links; let i = index">
       {{item.label}}

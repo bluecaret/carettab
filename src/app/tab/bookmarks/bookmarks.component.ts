@@ -43,11 +43,11 @@ export class TabBookmarksComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private zone: NgZone
   ) {
-    this.calcSize(this.settings.config.bookmarks.bookmarkScaling, this.bookmarkScale);
-    this.calcSize(this.settings.config.bookmarks.quickLinkScaling, this.quickLinkScale);
+    this.calcSize(this.settings.config.bookmarks.bookmarkScaling, false);
+    this.calcSize(this.settings.config.bookmarks.quickLinkScaling, true);
     this.settings.onChange().subscribe((data) => {
-      this.calcSize(data.bookmarks.bookmarkScaling, this.bookmarkScale);
-      this.calcSize(data.bookmarks.quickLinkScaling, this.quickLinkScale);
+      this.calcSize(data.bookmarks.bookmarkScaling, false);
+      this.calcSize(data.bookmarks.quickLinkScaling, true);
     });
   }
 
@@ -65,8 +65,9 @@ export class TabBookmarksComponent implements OnInit {
     }
   }
 
-  calcSize(size: number, scale: string) {
-    scale = ((this.baseScale / 50) * size) + 'px';
+  calcSize(size: number, quickLink: boolean) {
+    const c = ((this.baseScale / 50) * size) + 'px';
+    quickLink === false ? this.bookmarkScale = c : this.quickLinkScale = c;
   }
 
   moveLeft(el: any) {

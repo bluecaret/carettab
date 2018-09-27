@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { fade } from '../../_shared/animations';
+import { Link } from '../../_shared/models/quick-links';
 
 @Component({
   selector: 'options-bookmarks',
@@ -46,6 +47,11 @@ export class OptionsBookmarksComponent {
     }
   }
 
+  swap(arr: any[], from: number, to: number) {
+    arr.splice(from, 1, arr.splice(to, 1, arr[from])[0]);
+    this.saveAll();
+  }
+
   enterEditMode(index: number) {
     this.resetEdit();
     this.editMode[index] = true;
@@ -66,6 +72,10 @@ export class OptionsBookmarksComponent {
       value = (value.indexOf('//') === -1) ? 'http://' + value : value;
     }
     return value;
+  }
+
+  trackByFn(index: any, item: any) {
+    return index;
   }
 
   saveAll() {

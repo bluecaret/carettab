@@ -23,7 +23,7 @@
   }
   &:disabled {
     background: #dcdcdc;
-    color: #333;
+    color: #666;
     cursor: not-allowed;
   }
   .icon.space {
@@ -33,4 +33,9 @@
     // font-size: 16px;
     line-height: $fieldHeight;
   }
+}
+
+.btnCircle {
+  padding: 0;
+  min-width: 30px;
 }

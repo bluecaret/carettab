@@ -48,21 +48,28 @@ export class TabBookmarksComponent implements OnInit {
     this.settings.onChange().subscribe((data) => {
       this.calcSize(data.bookmarks.bookmarkScaling, false);
       this.calcSize(data.bookmarks.quickLinkScaling, true);
+      if (data.bookmarks.bookmarksBar === true) {
+        this.getBookmarks();
+      }
     });
   }
 
   ngOnInit() {
     this.isLoading = true;
     if (this.settings.config.bookmarks.bookmarksBar) {
-      chrome.bookmarks.getTree(bookmarks => {
-        this.zone.run(() => {
-          this.isLoading = false;
-          this.allBookmarks = bookmarks[0].children[0].children;
-          this.cdRef.detectChanges();
-          this.toggle = this.allBookmarks.map(i => false);
-        });
-      });
+      this.getBookmarks();
     }
+  }
+
+  getBookmarks() {
+    chrome.bookmarks.getTree(bookmarks => {
+      this.zone.run(() => {
+        this.isLoading = false;
+        this.allBookmarks = bookmarks[0].children[0].children;
+        this.cdRef.detectChanges();
+        this.toggle = this.allBookmarks.map(i => false);
+      });
+    });
   }
 
   calcSize(size: number, quickLink: boolean) {

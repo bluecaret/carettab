@@ -42,16 +42,16 @@
   <form #quickLinksList="ngForm" novalidate>
     <fieldset class="mb0">
       <div class="grid cols-24">
-        <div class="field no-label span-8">
+        <div class="field no-label span-9">
           <label>Link label</label>
         </div>
-        <div class="field no-label span-7">
+        <div class="field no-label span-9">
           <label>Link URL</label>
         </div>
       </div>
       <div class="grid cols-24 mb15">
         <ng-container *ngFor="let link of settings.config.bookmarks.links; let i = index; trackBy:trackByFn; let isFirst = first; let isLast = last">
-          <div class="field no-label span-8">
+          <div class="field no-label span-9">
             <input
               type="text"
               [name]="'label'+i"
@@ -69,14 +69,27 @@
               required>
             <div class="valMsg" *ngIf="quickLinksList.invalid && quickLinksList.submitted">Link must have a URL (website address).</div>
           </div>
-          <div class="field btns span-7">
-            <button type="button" class="btn" [disabled]="isFirst" (click)="swap(settings.config.bookmarks.links, i, (i - 1))">
-              <div class="icon">arrow_upward</div>
+          <div class="field btns span-6">
+            <button
+              type="button"
+              class="btn btnCircle"
+              [disabled]="isFirst"
+              (click)="swap(settings.config.bookmarks.links, i, (i - 1))">
+              <div class="icon">arrow_drop_up</div>
             </button>
-            <button type="button" class="btn" [disabled]="isLast" (click)="swap(settings.config.bookmarks.links, i, (i + 1))">
-              <div class="icon">arrow_downward</div>
+            <button
+              type="button"
+              class="btn btnCircle"
+              [disabled]="isLast"
+              (click)="swap(settings.config.bookmarks.links, i, (i + 1))">
+              <div class="icon">arrow_drop_down</div>
             </button>
-            <button type="button" class="btn" (click)="deleteLink(link, i)"><div class="icon">delete</div></button>
+            <button
+              type="button"
+              class="btn"
+              (click)="deleteLink(link, i)">
+              <div class="icon">delete</div>
+            </button>
           </div>
         </ng-container>
       </div>
@@ -85,7 +98,7 @@
   <form #newLink="ngForm" novalidate (ngSubmit)="addLink(newLink, newLink.valid)">
     <fieldset>
       <div class="grid cols-24">
-        <div class="field no-label span-8">
+        <div class="field no-label span-9">
           <input
             type="text"
             name="label"
@@ -105,7 +118,7 @@
             required>
           <div class="valMsg" *ngIf="newUrl.invalid && newLink.submitted">Link must have a URL (website address).</div>
         </div>
-        <div class="field btns span-7">
+        <div class="field btns span-6">
           <button type="submit" class="btn" title="Save new link"><div class="icon">save</div></button>
         </div>
       </div>

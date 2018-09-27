@@ -10,6 +10,11 @@ fieldset {
   }
 }
 
+::placeholder {
+  color: rgb(200,200,200);
+  opacity: 1;
+}
+
 .field {
   display: grid;
   grid-template: 20px #{$fieldHeight} / 1fr;

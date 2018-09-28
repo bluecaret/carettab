@@ -91,13 +91,13 @@
 .textWhite { color: white; }
 .textBlack { color: black; }
 
-.borderGray { border: 1px solid $gray; }
-.borderGrayL { border: 1px solid darken($lightGray, 10%); }
-.borderGrayD { border: 1px solid darken($gray, 5%); }
-.borderBlue { border: 1px solid $blue; }
-.borderGreen { border: 1px solid $green; }
-.borderWhite { border: 1px solid white; }
-.borderBlack { border: 1px solid black; }
+.borderGray { border: 1px solid $gray; border-radius: 10px; }
+.borderGrayL { border: 1px solid darken($lightGray, 10%); border-radius: 10px; }
+.borderGrayD { border: 1px solid darken($gray, 5%); border-radius: 10px; }
+.borderBlue { border: 1px solid $blue; border-radius: 10px; }
+.borderGreen { border: 1px solid $green; border-radius: 10px; }
+.borderWhite { border: 1px solid white; border-radius: 10px; }
+.borderBlack { border: 1px solid black; border-radius: 10px; }
 
 .p1 { padding: 10px !important; }
 .p15 { padding: 15px !important; }

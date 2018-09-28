@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { fade } from '../../_shared/animations';
-import { Link } from '../../_shared/models/quick-links';
 
 @Component({
   selector: 'options-bookmarks',

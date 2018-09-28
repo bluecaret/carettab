@@ -41,17 +41,17 @@
 <div *ngIf="settings.config.bookmarks.quickLinks === true" @fade>
   <form #quickLinksList="ngForm" novalidate>
     <fieldset class="mb0">
-      <div class="grid cols-24">
-        <div class="field no-label span-9">
-          <label>Link label</label>
+      <div class="grid cols-19">
+        <div class="field no-label span-7">
+          <label>Label</label>
         </div>
-        <div class="field no-label span-9">
-          <label>Link URL</label>
+        <div class="field no-label span-8">
+          <label>URL</label>
         </div>
       </div>
-      <div class="grid cols-24 mb15">
+      <div class="grid cols-19 mb15">
         <ng-container *ngFor="let link of settings.config.bookmarks.links; let i = index; trackBy:trackByFn; let isFirst = first; let isLast = last">
-          <div class="field no-label span-9">
+          <div class="field no-label span-7">
             <input
               type="text"
               [name]="'label'+i"
@@ -59,7 +59,7 @@
               [(ngModel)]="link.label"
               (ngModelChange)="saveAll()">
           </div>
-          <div class="field no-label span-9">
+          <div class="field no-label span-8">
             <input
               type="text"
               [name]="'url'+i"
@@ -69,24 +69,24 @@
               required>
             <div class="valMsg" *ngIf="quickLinksList.invalid && quickLinksList.submitted">Link must have a URL (website address).</div>
           </div>
-          <div class="field btns span-6">
+          <div class="field btns span-4">
             <button
               type="button"
-              class="btn btnCircle"
+              class="btn btnCircle mr5"
               [disabled]="isFirst"
               (click)="swap(settings.config.bookmarks.links, i, (i - 1))">
               <div class="icon">arrow_drop_up</div>
             </button>
             <button
               type="button"
-              class="btn btnCircle"
+              class="btn btnCircle mr5"
               [disabled]="isLast"
               (click)="swap(settings.config.bookmarks.links, i, (i + 1))">
               <div class="icon">arrow_drop_down</div>
             </button>
             <button
               type="button"
-              class="btn"
+              class="btn btnCircle"
               (click)="deleteLink(link, i)">
               <div class="icon">delete</div>
             </button>
@@ -97,8 +97,8 @@
   </form>
   <form #newLink="ngForm" novalidate (ngSubmit)="addLink(newLink, newLink.valid)">
     <fieldset>
-      <div class="grid cols-24">
-        <div class="field no-label span-9">
+      <div class="grid cols-19">
+        <div class="field no-label span-7">
           <input
             type="text"
             name="label"
@@ -108,7 +108,7 @@
             required>
           <div class="valMsg" *ngIf="newLabel.invalid && newLink.submitted">Link must have a label.</div>
         </div>
-        <div class="field no-label span-9">
+        <div class="field no-label span-8">
           <input
             type="text"
             name="url"
@@ -118,28 +118,10 @@
             required>
           <div class="valMsg" *ngIf="newUrl.invalid && newLink.submitted">Link must have a URL (website address).</div>
         </div>
-        <div class="field btns span-6">
+        <div class="field btns span-4">
           <button type="submit" class="btn" title="Save new link"><div class="icon">save</div></button>
         </div>
       </div>
     </fieldset>
   </form>
 </div>
-
-
-<!-- <div class="divTableCell pt1">
-  <div class="fieldGroup">
-    <input type="text" placeholder="Add new link" #newLabel="ngModel" name="label" [(ngModel)]="label" class="fieldGroup__field w100 bookmarks-field">
-  </div>
-</div>
-<div class="divTableCell pt1">
-  <div class="fieldGroup">
-    <input type="text" placeholder="https://" #newUrl="ngModel" required name="url" [(ngModel)]="url" class="fieldGroup__field w100 bookmarks-field">
-    <div class="valMsg" *ngIf="newUrl.invalid && newLink.submitted">Link must have a URL (website address).</div>
-  </div>
-</div>
-<div class="divTableCell pt1 actions">
-  <div class="fieldGroup">
-    <button type="submit" class="btn" title="Save"><i class="fas fa-fw fa-save"></i></button>
-  </div>
-</div> -->

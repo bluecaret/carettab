@@ -74,15 +74,7 @@ fieldset {
     }
   }
   &.btns {
-    grid-template: #{$fieldHeight} / auto;
-    grid-auto-flow: column;
-    > * {
-      grid-row: auto;
-      grid-column: auto;
-    }
-    > .valMsg {
-      grid-row: auto;
-    }
+    display: flex;
   }
   &.compact {
     grid-template: #{$fieldHeight} / auto 1fr;

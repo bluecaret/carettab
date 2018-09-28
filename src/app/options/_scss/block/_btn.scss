@@ -21,6 +21,12 @@
   &:hover {
     background: $blue;
   }
+  &.active {
+    box-shadow: inset 0 0 0 3px $blue;
+  }
+  &.active:focus {
+    box-shadow: $focus, inset 0 0 0 3px $blue;
+  }
   &:disabled {
     background: #dcdcdc;
     color: #666;

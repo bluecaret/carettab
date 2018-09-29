@@ -3,9 +3,7 @@ import { Storage } from '../../_storage/storage.service';
 import { Clock } from '../../_shared/models/clock';
 import { TimezoneService, Timezone } from './timezone.service';
 import { SharedService } from '../../_shared/shared.service';
-import { analogStyles } from '../../_shared/lists/analog';
-import { offlineFontList } from '../../_shared/lists/fonts';
-import { span } from '../../_shared/lists/span';
+import { analogStyles, offlineFontList, span } from '../../_shared/lists/lists';
 import * as moment from 'moment-timezone';
 
 @Component({
@@ -18,7 +16,7 @@ export class OptionsTimeComponent {
   selected: number;
   allTimezones: Timezone[];
   tzGuess: string;
-  fonts: Object[];
+  fonts = offlineFontList;
   analog = analogStyles;
   span = span;
 
@@ -29,7 +27,6 @@ export class OptionsTimeComponent {
   ) {
     this.allTimezones = tz.getZones();
     this.tzGuess = this.shared.zoneGuess;
-    this.fonts = offlineFontList;
   }
 
   /** Track array by index */
@@ -73,7 +70,6 @@ export class OptionsTimeComponent {
 
   /** Updates storage */
   saveAll() {
-    console.log('save: ', this.settings.config);
     this.settings.setAll(this.settings.config);
   }
 

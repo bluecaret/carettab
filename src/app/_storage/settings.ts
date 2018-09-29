@@ -8,8 +8,15 @@
 export class Settings {
   storeKey = 'carettab';  // identifier to be used as a key for storage
   data = {
+    lang: 10,
     design: {
-      scalingMethod: true
+      scalingMethod: true,
+      scaling: 50,
+      font: 100,
+      background: '#ffffff',
+      foreground: '#000000',
+      optionsToggle: true,
+      startupAnimation: true
     },
     bookmarks: {
       bookmarksBar: true,
@@ -75,6 +82,22 @@ export class Settings {
           }
         }
       ]
+    },
+    search: {
+      enabled: true,
+      scaling: 50,
+      engine: 10,
+      autoComplete: true
+    },
+    message: {
+      enabled: false,
+      scaling: 50,
+      text: 'Hello world!'
+    },
+    title: {
+      type: 10,
+      text: 'New Tab',
+      clockUsed: 0
     }
   };
 }

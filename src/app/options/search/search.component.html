@@ -1,32 +1,21 @@
-<fieldset>
-  <legend>Search</legend>
-  <div class="grid cols-4">
-    <div class="field span-1">
-      <div class="toggle">
-        <input type="checkbox" name="searchBox" id="searchBox" />
-        <label for="searchBox"></label>
+<form #searchOptions="ngForm" novalidate>
+  <fieldset>
+    <legend>Search</legend>
+    <div class="grid cols-5">
+      <div class="field span-1">
+        <options-toggle name="searchBox" id="searchBox" [(ngModel)]="settings.config.search.enabled" (ngModelChange)="saveAll()"></options-toggle>
+        <label>Search box</label>
       </div>
-      <label>Search Box</label>
-    </div>
-    <div class="field span-2">
-      <div class="range">
-        <input type="range" id="searchSize" name="searchSize" min="1" max="100">
-        <output></output>
+      <div class="field span-2">
+        <select name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine" (ngModelChange)="saveAll()">
+          <option *ngFor="let e of engines" [value]="e.id">{{e.label}}</option>
+        </select>
+        <label title="Choose a search engine to use with the search box.">Search Engine</label>
       </div>
-      <label for="searchSize">Size</label>
+      <div class="field span-2">
+        <options-range name="searchSize" id="searchSize" min="1" max="100" [(ngModel)]="settings.config.search.scaling" (ngModelChange)="saveAll()"></options-range>
+        <label>Size</label>
+      </div>
     </div>
-    <div class="field span-3">
-      <select name="searchBoxEngine" id="searchBoxEngine">
-        <option value="">Google</option>
-        <option value="">Bing</option>
-        <option value="">Baidu</option>
-        <option value="">Yahoo</option>
-        <option value="">Ask.com</option>
-        <option value="">DuckDuckGo</option>
-        <option value="">Wolframalpha</option>
-        <option value="">GitHub</option>
-      </select>
-      <label for="searchBoxEngine" title="Choose a search engine to use with the search box.">Search Engine</label>
-    </div>
-  </div>
-</fieldset>
+  </fieldset>
+</form>

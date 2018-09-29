@@ -1,23 +1,19 @@
-<fieldset>
-  <legend>Message</legend>
-  <div class="grid cols-4">
-    <div class="field span-1">
-      <div class="toggle">
-        <input type="checkbox" name="message" id="message" />
-        <label for="message"></label>
+<form #messageOptions="ngForm" novalidate>
+  <fieldset>
+    <legend>Custom message</legend>
+    <div class="grid cols-5">
+      <div class="field span-1">
+        <options-toggle name="message" id="message" [(ngModel)]="settings.config.message.enabled" (ngModelChange)="saveAll()"></options-toggle>
+        <label>Message</label>
       </div>
-      <label>Custom Message</label>
-    </div>
-    <div class="field span-2">
-      <div class="range">
-        <input type="range" id="messageSize" name="messageSize" min="1" max="100">
-        <output></output>
+      <div class="field span-2">
+        <input type="text" name="messageText" id="messageText" [(ngModel)]="settings.config.message.text" (ngModelChange)="saveAll()">
+        <label title="Enter text for the custom message.">Message text</label>
       </div>
-      <label for="messageSize">Size</label>
+      <div class="field span-2">
+        <options-range name="messageSize" id="messageSize" min="1" max="100" [(ngModel)]="settings.config.message.scaling" (ngModelChange)="saveAll()"></options-range>
+        <label>Size</label>
+      </div>
     </div>
-    <div class="field span-4">
-      <input type="text" name="messageText" id="messageText" value="Hello World">
-      <label for="messageText" title="Enter text for the custom message.">Message Text</label>
-    </div>
-  </div>
-</fieldset>
+  </fieldset>
+</form>

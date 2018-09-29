@@ -79,14 +79,7 @@
                   <options-range [name]="'clockSize'+i" [id]="'clockSize'+i" min="1" max="100" [(ngModel)]="clock.scaling" (ngModelChange)="saveAll()"></options-range>
                   <label [for]="'clockSize'+i" title="Change the size of the clock.">Size</label>
                 </div>
-                <div class="field span-8">
-                  <select [name]="'clockFont'+i" [id]="'clockFont'+i" [(ngModel)]="clock.font" (ngModelChange)="saveAll()">
-                    <option>Use global font</option>
-                    <option *ngFor="let font of fonts" [value]="font">{{font}}</option>
-                  </select>
-                  <label [for]="'clockFont'+i" title="Choose a font to use for this clock.">Font</label>
-                </div>
-                <div class="field span-4">
+                <div class="field span-5">
                   <select [name]="'clockSpan'+i" [id]="'clockSpan'+i" [(ngModel)]="clock.span" (ngModelChange)="saveAll()">
                     <option *ngFor="let s of span" [value]="s.id">{{s.label}}</option>
                   </select>
@@ -100,7 +93,7 @@
                   <options-toggle [name]="'analogEnable'+i" [id]="'analogEnable'+i" [(ngModel)]="clock.analog.enabled" (ngModelChange)="saveAll()"></options-toggle>
                   <label title="Displays the clock in an analog style instead of digital.">Analog</label>
                 </div>
-                <div class="field span-7">
+                <div class="field span-5">
                   <select [name]="'analogStyle'+i" [id]="'analogStyle'+i" [(ngModel)]="clock.analog.style" [disabled]="clock.analog.enabled === false" (ngModelChange)="saveAll()">
                     <option *ngFor="let s of analog" [value]="s.id">{{s.label}}</option>
                   </select>

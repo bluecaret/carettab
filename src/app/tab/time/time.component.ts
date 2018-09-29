@@ -40,7 +40,7 @@ export class TabTimeComponent implements OnInit {
   getHour(zone: string, twentyFour: boolean, digit: 1|2): string {
     zone = this.getZone(zone);
     let format: string;
-    twentyFour ? format = 'HH' : format = 'hh';
+    twentyFour ? format = 'HH' : format = 'h';
     let time = moment(this.currentTime).tz(zone).format(format);
     return this.splitDigits(time, digit);
   }

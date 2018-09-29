@@ -6,7 +6,6 @@
     "ng": "ng",
     "start": "ng build --watch",
     "build": "ng build --prod",
-    "build:prod": "ng build --aot --prod --sourcemap=false --output-hashing=none",
     "build:ext": "web-ext build --source-dir=dist --artifacts-dir=.",
     "lint": "ng lint",
     "lint:webext": "web-ext lint --source-dir ./dist"

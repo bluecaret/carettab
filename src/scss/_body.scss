@@ -24,12 +24,12 @@ button, input, optgroup, select, textarea {
 }
 
 hr {
-  margin: 20px 0;
+  margin: 10px 0;
   padding: 0;
   border: 0;
-  height: 3px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  height: 4px;
+  border-radius: 2px;
+  background: darken($lightGray, 10%);
 }
 
 img {

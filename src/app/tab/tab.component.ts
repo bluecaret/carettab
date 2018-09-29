@@ -27,7 +27,7 @@ export class TabComponent {
 
   constructor(public shared: SharedService, public settings: Storage) {
     this.shared.optionsToggle = true;
-    this.shared.optionsPage = 'Bookmarks';
+    this.shared.optionsPage = 'Time';
   }
 
   toggleOptions() {

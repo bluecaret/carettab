@@ -11,6 +11,8 @@ import { Settings } from './_storage/settings';
 import { HelpComponent } from './_shared/help/help.component';
 import { SharedService } from './_shared/shared.service';
 import { MomentModule } from 'ngx-moment';
+import { ToggleComponent } from './_shared/controls/toggle.component';
+import { RangeComponent } from './_shared/controls/range.component';
 import * as moment from 'moment-timezone';
 
 // Options Imports
@@ -37,6 +39,8 @@ import { NavComponent } from './tab/nav.component';
   declarations: [
     AppComponent,
     HelpComponent,
+    ToggleComponent,
+    RangeComponent,
 
     OptionsComponent,
     OptionsAboutComponent,

@@ -1,27 +1,26 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { Clock } from '../../_shared/models/clock';
 import { TimezoneService, Timezone } from './timezone.service';
-import { offlineFontList } from '../../_shared/lists/fonts';
 import { SharedService } from '../../_shared/shared.service';
+import { analogStyles } from '../../_shared/lists/analog';
+import { offlineFontList } from '../../_shared/lists/fonts';
+import { span } from '../../_shared/lists/span';
 import * as moment from 'moment-timezone';
 
 @Component({
   selector: 'options-time',
   templateUrl: 'time.component.html'
 })
-export class OptionsTimeComponent implements OnInit {
+export class OptionsTimeComponent {
   clock: Clock;
   showNew: Boolean = false;
-  submitMode: 'Save'|'Update' = 'Save';
   selected: number;
   allTimezones: Timezone[];
   tzGuess: string;
   fonts: Object[];
-  formChange: any;
-
-  @ViewChild('clockForm') clockForm: NgForm;
+  analog = analogStyles;
+  span = span;
 
   constructor(
     public shared: SharedService,
@@ -33,26 +32,29 @@ export class OptionsTimeComponent implements OnInit {
     this.fonts = offlineFontList;
   }
 
-  ngOnInit() {
+  /** Track array by index */
+  trackByFn(index: any, item: any) {
+    return index;
   }
 
-  /** Enters Add New Item mode */
+  /** Sets item as selected */
+  setSelected(i) {
+    if (this.selected !== i) {
+      this.selected = i;
+    } else {
+      this.selected = null;
+    }
+  }
+
+  /** Adds new clock */
   add() {
-    this.clock = new Clock();
-    this.submitMode = 'Save';
-    this.showNew = true;
+    this.settings.config.time.clocks.push(new Clock());
+    let i = (this.settings.config.time.clocks.length - 1);
+    this.selected = i;
+    this.saveAll();
   }
 
-  /** Enters Edit mode */
-  edit(index: number) {
-    this.selected = index;
-    this.clock = new Clock();
-    this.clock = Object.assign({}, this.settings.config.time.clocks[this.selected]);
-    this.submitMode = 'Update';
-    this.showNew = true;
-  }
-
-  /** Deletes item */
+  /** Deletes clock */
   delete(index: number) {
     if (confirm('Are you sure you want to delete this clock?')) {
       this.settings.config.time.clocks.splice(index, 1);
@@ -62,42 +64,16 @@ export class OptionsTimeComponent implements OnInit {
     }
   }
 
-  /** Cancels and exits edit mode */
-  cancel() {
-    this.showNew = false;
-  }
-
-  /** Saves new/updated item */
-  save() {
-    if (this.submitMode === 'Save') {
-      this.settings.config.time.clocks.push(this.clock);
-    } else {
-      this.settings.config.time.clocks[this.selected].label = this.clock.label;
-      this.settings.config.time.clocks[this.selected].timezone = this.clock.timezone;
-      this.settings.config.time.clocks[this.selected].scaling = this.clock.scaling;
-      this.settings.config.time.clocks[this.selected].font = this.clock.font;
-      this.settings.config.time.clocks[this.selected].seconds.enabled = this.clock.seconds.enabled;
-      this.settings.config.time.clocks[this.selected].seconds.dim = this.clock.seconds.dim;
-      this.settings.config.time.clocks[this.selected].seconds.blink = this.clock.seconds.blink;
-      this.settings.config.time.clocks[this.selected].twentyFour = this.clock.twentyFour;
-      this.settings.config.time.clocks[this.selected].meridiem.blink = this.clock.meridiem.enabled;
-      this.settings.config.time.clocks[this.selected].meridiem.dim = this.clock.meridiem.dim;
-      this.settings.config.time.clocks[this.selected].delimiter.enabled = this.clock.delimiter.enabled;
-      this.settings.config.time.clocks[this.selected].delimiter.dim = this.clock.delimiter.dim;
-      this.settings.config.time.clocks[this.selected].delimiter.blink = this.clock.delimiter.blink;
-      this.settings.config.time.clocks[this.selected].brackets.enabled = this.clock.brackets.enabled;
-      this.settings.config.time.clocks[this.selected].brackets.dim = this.clock.brackets.dim;
-      this.settings.config.time.clocks[this.selected].brackets.left = this.clock.brackets.left;
-      this.settings.config.time.clocks[this.selected].brackets.right = this.clock.brackets.right;
-      this.settings.config.time.clocks[this.selected].analog.enabled = this.clock.analog.enabled;
-      this.settings.config.time.clocks[this.selected].analog.style = this.clock.analog.style;
-    }
-    this.showNew = false;
+  /** Move item's placement in array up or down */
+  swap(arr: any[], from: number, to: number) {
+    this.selected = null;
+    arr.splice(from, 1, arr.splice(to, 1, arr[from])[0]);
     this.saveAll();
   }
 
   /** Updates storage */
   saveAll() {
+    console.log('save: ', this.settings.config);
     this.settings.setAll(this.settings.config);
   }
 
@@ -129,7 +105,7 @@ export class OptionsTimeComponent implements OnInit {
     return '(GMT' + sym + paddedHours + ':' + paddedMinutes + ')';
   }
 
-  /** Pad offset amount to display in two digits */
+  /** Pad timezone offset amount to display in two digits */
   private pad(string: string): string {
     let width = 2;
     let padding = '0';

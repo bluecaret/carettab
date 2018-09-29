@@ -9,7 +9,7 @@
     <div class="time">
       <div class="timeDigit hour">
         <span>{{getHour(clock.timezone, clock.twentyFour, 1)}}</span>
-        <span>{{getHour(clock.timezone, clock.twentyFour, 2)}}</span>
+        <span *ngIf="getHour(clock.timezone, clock.twentyFour, 2)">{{getHour(clock.timezone, clock.twentyFour, 2)}}</span>
       </div>
       <div class="delimiter">
         {{getDelimiter(clock.delimiter)}}

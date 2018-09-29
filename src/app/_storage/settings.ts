@@ -38,10 +38,13 @@ export class Settings {
           timezone: 'Automatic',
           scaling: 50,
           font: 'Roboto',
+          span: 40,
           seconds: {
             enabled: true,
             dim: false,
-            blink: false
+            blink: false,
+            scaling: 50,
+            offset: 50
           },
           twentyFour: false,
           meridiem: {
@@ -54,6 +57,7 @@ export class Settings {
             enabled: true,
             dim: true,
             blink: true,
+            symbol: ':',
             scaling: 50,
             offset: 50
           },

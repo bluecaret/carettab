@@ -4,11 +4,14 @@
 	height: 22px;
 	width: 22px;
 	border-radius: 50%;
-	background: $blue;
+	background: $lightBlue;
 	cursor: pointer;
 	margin-top: -7px;
 	border: 0;
 	transition: all .2s;
+}
+@mixin range-thumb-hover {
+	background: $blue;
 }
 @mixin range-track {
 	width: 100%;
@@ -29,6 +32,7 @@ input[type="range"] {
   border-color: transparent;
   padding: 0;
 	border: 0;
+  min-width: 0;
   box-sizing: border-box;
   box-shadow: none;
   cursor: pointer;
@@ -44,20 +48,26 @@ input[type="range"] {
   &::-webkit-slider-runnable-track {
     @include range-track;
   }
-	&:focus {
-    outline: 0;
-    box-shadow: none;
-    &::-webkit-slider-runnable-track {
-			@include range-track-focus;
-    }
-  }
 	&::-moz-range-thumb {
     @include range-thumb;
   }
   &::-moz-range-track {
     @include range-track;
   }
+	&:hover {
+    &::-webkit-slider-thumb {
+			@include range-thumb-hover;
+    }
+    &::-moz-range-thumb {
+			@include range-thumb-hover;
+    }
+  }
 	&:focus {
+    outline: 0;
+    box-shadow: none;
+    &::-webkit-slider-runnable-track {
+			@include range-track-focus;
+    }
     &::-moz-range-track {
 			@include range-track-focus;
     }

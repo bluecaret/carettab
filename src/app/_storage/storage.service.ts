@@ -2,8 +2,8 @@
  * ng2-chrome-storage
  * @author Hasan Hameed <hasan.hameed07@gmail.com>
  * Url: https://github.com/hasanhameed07/ng2-chrome-storage.git
- * 
- * Modified by BlueCaret (John Hancock) <john@jwh.design>
+ *
+ * Modified by BlueCaret (John Hancock) <john0404@gmail.com>
  */
 import { Injectable, NgZone, Optional } from '@angular/core';
 import { Settings } from './settings';

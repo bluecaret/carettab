@@ -1,10 +1,3 @@
-/*
- * ng2-chrome-storage
- * @author Hasan Hameed <hasan.hameed07@gmail.com>
- * Url: https://github.com/hasanhameed07/ng2-chrome-storage.git
- *
- * Modified by BlueCaret (John Hancock) <john@jwh.design>
- */
 export class Settings {
   storeKey = 'carettab';  // identifier to be used as a key for storage
   data = {

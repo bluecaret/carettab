@@ -93,122 +93,126 @@
                   <options-toggle [name]="'analogEnable'+i" [id]="'analogEnable'+i" [(ngModel)]="clock.analog.enabled" (ngModelChange)="saveAll()"></options-toggle>
                   <label title="Displays the clock in an analog style instead of digital.">Analog</label>
                 </div>
-                <div class="field span-5">
-                  <select [name]="'analogStyle'+i" [id]="'analogStyle'+i" [(ngModel)]="clock.analog.style" [disabled]="clock.analog.enabled === false" (ngModelChange)="saveAll()">
+                <div class="field span-5" *ngIf="clock.analog.enabled === true">
+                  <select [name]="'analogStyle'+i" [id]="'analogStyle'+i" [(ngModel)]="clock.analog.style" (ngModelChange)="saveAll()">
                     <option *ngFor="let s of analog" [value]="s.id">{{s.label}}</option>
                   </select>
                   <label [for]="'analogStyle'+i" title="Choose the style of analog clock">Analog style</label>
                 </div>
               </div>
             </div>
-            <div class="borderGrayL p1 span-1">
-              <h4 class="m0 mb1">Seconds</h4>
-              <div class="grid mb1 cols-3">
-                <div class="field compact-icon span-1">
-                  <options-toggle type="check" [name]="'secondsEnable'+i" [id]="'secondsEnable'+i" [(ngModel)]="clock.seconds.enabled" (ngModelChange)="saveAll()"></options-toggle>
-                  <label title="Enable seconds"><i class="icon">power_settings_new</i></label>
-                </div>
-                <div class="field compact-icon span-1">
-                  <options-toggle type="check" [name]="'secondsDim'+i" [id]="'secondsDim'+i" [(ngModel)]="clock.seconds.dim" (ngModelChange)="saveAll()"></options-toggle>
-                  <label title="Dim seconds"><i class="icon">brightness_medium</i></label>
-                </div>
-                <div class="field compact-icon span-1">
-                  <options-toggle type="check" [name]="'secondsBlink'+i" [id]="'secondsBlink'+i" [(ngModel)]="clock.seconds.blink" (ngModelChange)="saveAll()"></options-toggle>
-                  <label title="Blink seconds"><i class="icon">remove_red_eye</i></label>
-                </div>
-                <div class="grid cols-2 span-3">
-                  <div class="field span-1">
-                    <options-range [name]="'secondsScaling'+i" [id]="'secondsScaling'+i" min="1" max="100" [(ngModel)]="clock.seconds.scaling" (ngModelChange)="saveAll()"></options-range>
-                    <label title="Adjusts the size of the seconds relative to the clock">Size</label>
+            <div class="span-1">
+              <div class="borderGrayL p1 mb15">
+                <h4 class="m0 mb1">Delimiter</h4>
+                <div class="grid mb1 cols-3">
+                  <div class="field compact-icon span-1">
+                    <options-toggle type="check" [name]="'delimiterEnable'+i" [id]="'delimiterEnable'+i" [(ngModel)]="clock.delimiter.enabled" (ngModelChange)="saveAll()"></options-toggle>
+                    <label title="Enable delimiter"><i class="icon">power_settings_new</i></label>
                   </div>
-                  <div class="field span-1">
-                    <options-range [name]="'secondsOffset'+i" [id]="'secondsOffset'+i" min="1" max="100" [(ngModel)]="clock.seconds.offset" (ngModelChange)="saveAll()"></options-range>
-                    <label title="Adjust the position of the seconds up or down">Offset</label>
+                  <div class="field compact-icon span-1" *ngIf="clock.delimiter.enabled">
+                    <options-toggle type="check" [name]="'delimiterDim'+i" [id]="'delimiterDim'+i" [(ngModel)]="clock.delimiter.dim" (ngModelChange)="saveAll()"></options-toggle>
+                    <label title="Dim delimiter"><i class="icon">brightness_medium</i></label>
+                  </div>
+                  <div class="field compact-icon span-1" *ngIf="clock.delimiter.enabled">
+                    <options-toggle type="check" [name]="'delimiterBlink'+i" [id]="'delimiterBlink'+i" [(ngModel)]="clock.delimiter.blink" (ngModelChange)="saveAll()"></options-toggle>
+                    <label title="Blink delimiter"><i class="icon">remove_red_eye</i></label>
+                  </div>
+                  <div class="grid cols-2 span-3" *ngIf="clock.delimiter.enabled">
+                    <div class="field span-1">
+                      <options-range [name]="'delimiterScaling'+i" [id]="'delimiterScaling'+i" min="1" max="100" [(ngModel)]="clock.delimiter.scaling" (ngModelChange)="saveAll()"></options-range>
+                      <label title="Adjusts the size of the delimiter relative to the clock">Size</label>
+                    </div>
+                    <div class="field span-1">
+                      <options-range [name]="'delimiterOffset'+i" [id]="'delimiterOffset'+i" min="1" max="100" [(ngModel)]="clock.delimiter.offset" (ngModelChange)="saveAll()"></options-range>
+                      <label title="Adjust the position of the delimiter up or down">Offset</label>
+                    </div>
+                    <div class="field span-1">
+                      <input type="text" maxlength="1" [id]="'delimiterSymbol'+i" [name]="'delimiterSymbol'+i" [(ngModel)]="clock.delimiter.symbol" (ngModelChange)="saveAll()">
+                      <label [for]="'delimiterSymbol'+i" title="Enter the symbol to represent the delimiter">Symbol</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="borderGrayL p1">
+                <h4 class="m0 mb1">Seconds</h4>
+                <div class="grid mb1 cols-3">
+                  <div class="field compact-icon span-1">
+                    <options-toggle type="check" [name]="'secondsEnable'+i" [id]="'secondsEnable'+i" [(ngModel)]="clock.seconds.enabled" (ngModelChange)="saveAll()"></options-toggle>
+                    <label title="Enable seconds"><i class="icon">power_settings_new</i></label>
+                  </div>
+                  <div class="field compact-icon span-1" *ngIf="clock.seconds.enabled">
+                    <options-toggle type="check" [name]="'secondsDim'+i" [id]="'secondsDim'+i" [(ngModel)]="clock.seconds.dim" (ngModelChange)="saveAll()"></options-toggle>
+                    <label title="Dim seconds"><i class="icon">brightness_medium</i></label>
+                  </div>
+                  <div class="field compact-icon span-1" *ngIf="clock.seconds.enabled">
+                    <options-toggle type="check" [name]="'secondsBlink'+i" [id]="'secondsBlink'+i" [(ngModel)]="clock.seconds.blink" (ngModelChange)="saveAll()"></options-toggle>
+                    <label title="Blink seconds"><i class="icon">remove_red_eye</i></label>
+                  </div>
+                  <div class="grid cols-2 span-3" *ngIf="clock.seconds.enabled">
+                    <div class="field span-1">
+                      <options-range [name]="'secondsScaling'+i" [id]="'secondsScaling'+i" min="1" max="100" [(ngModel)]="clock.seconds.scaling" (ngModelChange)="saveAll()"></options-range>
+                      <label title="Adjusts the size of the seconds relative to the clock">Size</label>
+                    </div>
+                    <div class="field span-1">
+                      <options-range [name]="'secondsOffset'+i" [id]="'secondsOffset'+i" min="1" max="100" [(ngModel)]="clock.seconds.offset" (ngModelChange)="saveAll()"></options-range>
+                      <label title="Adjust the position of the seconds up or down">Offset</label>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="borderGrayL p1 span-1">
-              <h4 class="m0 mb1">Meridiem</h4>
-              <div class="grid mb1 cols-3">
-                <div class="field compact-icon span-1">
-                  <options-toggle type="check" [name]="'meridiemEnable'+i" [id]="'meridiemEnable'+i" [(ngModel)]="clock.meridiem.enabled" (ngModelChange)="saveAll()"></options-toggle>
-                  <label title="Enable meridiem"><i class="icon">power_settings_new</i></label>
-                </div>
-                <div class="field compact-icon span-1">
-                  <options-toggle type="check" [name]="'meridiemDim'+i" [id]="'meridiemDim'+i" [(ngModel)]="clock.meridiem.dim" (ngModelChange)="saveAll()"></options-toggle>
-                  <label title="Dim meridiem"><i class="icon">brightness_medium</i></label>
-                </div>
-                <div class="grid cols-2 span-3">
-                  <div class="field span-1">
-                    <options-range [name]="'meridiemScaling'+i" [id]="'meridiemScaling'+i" min="1" max="100" [(ngModel)]="clock.meridiem.scaling" (ngModelChange)="saveAll()"></options-range>
-                    <label title="Adjusts the size of the meridiem relative to the clock">Size</label>
+            <div class="span-1">
+              <div class="borderGrayL p1 mb15">
+                <h4 class="m0 mb1">Meridiem</h4>
+                <div class="grid mb1 cols-3">
+                  <div class="field compact-icon span-1">
+                    <options-toggle type="check" [name]="'meridiemEnable'+i" [id]="'meridiemEnable'+i" [(ngModel)]="clock.meridiem.enabled" (ngModelChange)="saveAll()"></options-toggle>
+                    <label title="Enable meridiem"><i class="icon">power_settings_new</i></label>
                   </div>
-                  <div class="field span-1">
-                    <options-range [name]="'meridiemOffset'+i" [id]="'meridiemOffset'+i" min="1" max="100" [(ngModel)]="clock.meridiem.offset" (ngModelChange)="saveAll()"></options-range>
-                    <label title="Adjust the position of the meridiem up or down">Offset</label>
+                  <div class="field compact-icon span-1" *ngIf="clock.meridiem.enabled">
+                    <options-toggle type="check" [name]="'meridiemDim'+i" [id]="'meridiemDim'+i" [(ngModel)]="clock.meridiem.dim" (ngModelChange)="saveAll()"></options-toggle>
+                    <label title="Dim meridiem"><i class="icon">brightness_medium</i></label>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="borderGrayL p1 span-1">
-              <h4 class="m0 mb1">Delimiter</h4>
-              <div class="grid mb1 cols-3">
-                <div class="field compact-icon span-1">
-                  <options-toggle type="check" [name]="'delimiterEnable'+i" [id]="'delimiterEnable'+i" [(ngModel)]="clock.delimiter.enabled" (ngModelChange)="saveAll()"></options-toggle>
-                  <label title="Enable delimiter"><i class="icon">power_settings_new</i></label>
-                </div>
-                <div class="field compact-icon span-1">
-                  <options-toggle type="check" [name]="'delimiterDim'+i" [id]="'delimiterDim'+i" [(ngModel)]="clock.delimiter.dim" (ngModelChange)="saveAll()"></options-toggle>
-                  <label title="Dim delimiter"><i class="icon">brightness_medium</i></label>
-                </div>
-                <div class="field compact-icon span-1">
-                  <options-toggle type="check" [name]="'delimiterBlink'+i" [id]="'delimiterBlink'+i" [(ngModel)]="clock.delimiter.blink" (ngModelChange)="saveAll()"></options-toggle>
-                  <label title="Blink delimiter"><i class="icon">remove_red_eye</i></label>
-                </div>
-                <div class="grid cols-2 span-3">
-                  <div class="field span-1">
-                    <options-range [name]="'delimiterScaling'+i" [id]="'delimiterScaling'+i" min="1" max="100" [(ngModel)]="clock.delimiter.scaling" (ngModelChange)="saveAll()"></options-range>
-                    <label title="Adjusts the size of the delimiter relative to the clock">Size</label>
-                  </div>
-                  <div class="field span-1">
-                    <options-range [name]="'delimiterOffset'+i" [id]="'delimiterOffset'+i" min="1" max="100" [(ngModel)]="clock.delimiter.offset" (ngModelChange)="saveAll()"></options-range>
-                    <label title="Adjust the position of the delimiter up or down">Offset</label>
-                  </div>
-                  <div class="field span-1">
-                    <input type="text" maxlength="1" [id]="'delimiterSymbol'+i" [name]="'delimiterSymbol'+i" [(ngModel)]="clock.delimiter.symbol" (ngModelChange)="saveAll()">
-                    <label [for]="'delimiterSymbol'+i" title="Enter the symbol to represent the delimiter">Symbol</label>
+                  <div class="grid cols-2 span-3" *ngIf="clock.meridiem.enabled">
+                    <div class="field span-1">
+                      <options-range [name]="'meridiemScaling'+i" [id]="'meridiemScaling'+i" min="1" max="100" [(ngModel)]="clock.meridiem.scaling" (ngModelChange)="saveAll()"></options-range>
+                      <label title="Adjusts the size of the meridiem relative to the clock">Size</label>
+                    </div>
+                    <div class="field span-1">
+                      <options-range [name]="'meridiemOffset'+i" [id]="'meridiemOffset'+i" min="1" max="100" [(ngModel)]="clock.meridiem.offset" (ngModelChange)="saveAll()"></options-range>
+                      <label title="Adjust the position of the meridiem up or down">Offset</label>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="borderGrayL p1 span-1">
-              <h4 class="m0 mb1">Brackets</h4>
-              <div class="grid mb1 cols-3">
-                <div class="field compact-icon span-1">
-                  <options-toggle type="check" [name]="'bracketsEnable'+i" [id]="'bracketsEnable'+i" [(ngModel)]="clock.brackets.enabled" (ngModelChange)="saveAll()"></options-toggle>
-                  <label title="Enable brackets"><i class="icon">power_settings_new</i></label>
-                </div>
-                <div class="field compact-icon span-1">
-                  <options-toggle type="check" [name]="'bracketsDim'+i" [id]="'bracketsDim'+i" [(ngModel)]="clock.brackets.dim" (ngModelChange)="saveAll()"></options-toggle>
-                  <label title="Dim brackets"><i class="icon">brightness_medium</i></label>
-                </div>
-                <div class="grid cols-2 span-3">
-                  <div class="field span-1">
-                    <options-range [name]="'bracketsScaling'+i" [id]="'bracketsScaling'+i" min="1" max="100" [(ngModel)]="clock.brackets.scaling" (ngModelChange)="saveAll()"></options-range>
-                    <label title="Adjusts the size of the brackets relative to the clock">Size</label>
+              <div class="borderGrayL p1">
+                <h4 class="m0 mb1">Brackets</h4>
+                <div class="grid mb1 cols-3">
+                  <div class="field compact-icon span-1">
+                    <options-toggle type="check" [name]="'bracketsEnable'+i" [id]="'bracketsEnable'+i" [(ngModel)]="clock.brackets.enabled" (ngModelChange)="saveAll()"></options-toggle>
+                    <label title="Enable brackets"><i class="icon">power_settings_new</i></label>
                   </div>
-                  <div class="field span-1">
-                    <options-range [name]="'bracketsOffset'+i" [id]="'bracketsOffset'+i" min="1" max="100" [(ngModel)]="clock.brackets.offset" (ngModelChange)="saveAll()"></options-range>
-                    <label title="Adjust the position of the brackets up or down">Offset</label>
+                  <div class="field compact-icon span-1" *ngIf="clock.brackets.enabled">
+                    <options-toggle type="check" [name]="'bracketsDim'+i" [id]="'bracketsDim'+i" [(ngModel)]="clock.brackets.dim" (ngModelChange)="saveAll()"></options-toggle>
+                    <label title="Dim brackets"><i class="icon">brightness_medium</i></label>
                   </div>
-                  <div class="field span-1">
-                    <input type="text" maxlength="1" [id]="'bracketsLeft'+i" [name]="'bracketsLeft'+i" [(ngModel)]="clock.brackets.left" (ngModelChange)="saveAll()">
-                    <label [for]="'bracketsLeft'+i" title="Enter the symbol to represent the left-side bracket">Left bracket</label>
-                  </div>
-                  <div class="field span-1">
-                    <input type="text" maxlength="1" [id]="'bracketsRight'+i" [name]="'bracketsRight'+i" [(ngModel)]="clock.brackets.right" (ngModelChange)="saveAll()">
-                    <label [for]="'bracketsRight'+i" title="Enter the symbol to represent the right-side bracket">Right bracket</label>
+                  <div class="grid cols-2 span-3" *ngIf="clock.brackets.enabled">
+                    <div class="field span-1">
+                      <options-range [name]="'bracketsScaling'+i" [id]="'bracketsScaling'+i" min="1" max="100" [(ngModel)]="clock.brackets.scaling" (ngModelChange)="saveAll()"></options-range>
+                      <label title="Adjusts the size of the brackets relative to the clock">Size</label>
+                    </div>
+                    <div class="field span-1">
+                      <options-range [name]="'bracketsOffset'+i" [id]="'bracketsOffset'+i" min="1" max="100" [(ngModel)]="clock.brackets.offset" (ngModelChange)="saveAll()"></options-range>
+                      <label title="Adjust the position of the brackets up or down">Offset</label>
+                    </div>
+                    <div class="field span-1">
+                      <input type="text" maxlength="1" [id]="'bracketsLeft'+i" [name]="'bracketsLeft'+i" [(ngModel)]="clock.brackets.left" (ngModelChange)="saveAll()">
+                      <label [for]="'bracketsLeft'+i" title="Enter the symbol to represent the left-side bracket">Left bracket</label>
+                    </div>
+                    <div class="field span-1">
+                      <input type="text" maxlength="1" [id]="'bracketsRight'+i" [name]="'bracketsRight'+i" [(ngModel)]="clock.brackets.right" (ngModelChange)="saveAll()">
+                      <label [for]="'bracketsRight'+i" title="Enter the symbol to represent the right-side bracket">Right bracket</label>
+                    </div>
                   </div>
                 </div>
               </div>

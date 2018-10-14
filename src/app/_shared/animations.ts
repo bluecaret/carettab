@@ -1,4 +1,4 @@
-import { transition, trigger, style, state, animate, group } from '@angular/animations';
+import { transition, trigger, style, state, animate } from '@angular/animations';
 
 export const slideIn = trigger('slideIn', [
   state('*', style({

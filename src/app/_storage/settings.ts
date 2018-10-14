@@ -97,7 +97,7 @@ export class Settings {
     title: {
       type: 10,
       text: 'New Tab',
-      clockUsed: 0
+      clockUsed: 10
     }
   };
 }

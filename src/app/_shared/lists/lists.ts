@@ -54,28 +54,28 @@ export const title = [
     label: '"New Tab"'
   },
   {
-    id: 10,
+    id: 20,
     label: 'Time'
   },
   {
-    id: 10,
+    id: 30,
     label: 'Date'
   },
   {
-    id: 10,
+    id: 40,
     label: 'Time, then date'
   },
   {
-    id: 10,
+    id: 50,
     label: 'Date, then time'
   },
   {
-    id: 10,
+    id: 60,
     label: 'Custom text'
   },
   {
-    id: 10,
-    label: ''
+    id: 70,
+    label: '[no title]'
   },
 ];
 

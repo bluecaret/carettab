@@ -2,7 +2,7 @@ $bookmarksBaseScale: 12px;
 $barBg: #fdfeff;
 $barBgHover: #e9eaec;
 $barBorder: #b6b4b6;
-$barTitleBg: #d1d2d2;
+$barTitleBg: #E2E2E2;
 $barTitleBgHover: darken($barTitleBg, 5%);
 $barBtnBorder: lighten($barBorder, 15%);
 $barHeight: 2.2em;
@@ -23,7 +23,7 @@ $barMaxWidth: 9.7em;
   align-items: center;
   background: $barBg;
   color: black;
-  padding: .4em .1em;
+  padding: .4em .6em;
   border-bottom: 1px solid $barBorder;
   z-index: z('tabBookmarks');
 }

@@ -8,7 +8,7 @@
     <button
       class="bar__scroll"
       (click)="moveLeft(barList)"
-      [disabled]="isScrollAtStart(barList)">
+      *ngIf="!isScrollAtStart(barList)">
       <i class="bar__icon fas fa-angle-double-left"></i>
     </button>
     <!-- Bar list -->
@@ -44,7 +44,7 @@
     <button
       class="bar__scroll"
       (click)="moveRight(barList)"
-      [disabled]="isScrollAtEnd(barList)">
+      *ngIf="!isScrollAtEnd(barList)">
       <i class="bar__icon fas fa-angle-double-right"></i>
     </button>
   </div>
@@ -65,7 +65,7 @@
   <button
     class="bar__scroll"
     (click)="moveLeft(barList)"
-    [disabled]="isScrollAtStart(barList)">
+    *ngIf="!isScrollAtStart(barList)">
     <i class="bar__icon fas fa-angle-double-left"></i>
   </button>
   <!-- Bar list -->
@@ -101,7 +101,7 @@
   <button
     class="bar__scroll"
     (click)="moveRight(barList)"
-    [disabled]="isScrollAtEnd(barList)">
+    *ngIf="!isScrollAtEnd(barList)">
     <i class="bar__icon fas fa-angle-double-right"></i>
   </button>
 </ng-template>

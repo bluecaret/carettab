@@ -1,73 +1,107 @@
-<fieldset>
+<fieldset class="mb0">
   <legend>Date</legend>
-  <div class="grid cols-4">
+  <div class="grid cols-6">
     <div class="field span-1">
-      <div class="toggle">
-        <input type="checkbox" name="date" id="date" />
-        <label for="date"></label>
-      </div>
+      <options-toggle name="date" [(ngModel)]="settings.config.date.enabled" (ngModelChange)="saveAll()"></options-toggle>
       <label>Date</label>
     </div>
+    <div class="field span-3">
+      <select name="dateTimezone" [(ngModel)]="settings.config.date.timezone" (ngModelChange)="saveAll()">
+        <option value="Automatic">Automatic ({{tz.timezoneFormat(tzGuess)}})</option>
+        <ng-template let-c ngFor [ngForOf]="allTimezones">
+          <optgroup *ngIf="c.zones.length > 1" [label]="c.iso | iso2CountryPipe">
+            <option *ngFor="let t of c.zones" [ngValue]="t">{{tz.timezoneFormat(t)}}
+              <span>{{tz.timezoneOffset(t)}}</span>
+            </option>
+          </optgroup>
+          <option *ngIf="c.zones.length === 1" [value]="c.zones[0]">{{c.iso | iso2CountryPipe}}
+            <span>{{tz.timezoneOffset(c.zones[0])}}</span>
+          </option>
+        </ng-template>
+      </select>
+      <label>Timezone</label>
+    </div>
     <div class="field span-2">
-      <div class="range">
-        <input type="range" id="dateSize" name="dateSize" min="1" max="100">
-        <output></output>
-      </div>
-      <label for="dateSize">Size</label>
+      <select name="dateFormat" [(ngModel)]="settings.config.date.format" (ngModelChange)="saveAll()">
+        <option *ngFor="let f of dateFormat" [ngValue]="f.id">{{f.label}}</option>
+      </select>
+      <label>Format</label>
     </div>
-  </div>
-</fieldset>
-<fieldset>
-  <legend>Format</legend>
-  <div class="grid cols-10">
-    <div class="grid cols-2 span-4">
-      <div class="field">
-        <div class="toggle">
-          <input type="checkbox" name="dateDay" id="dateDay" />
-          <label for="dateDay"></label>
-        </div>
-        <label title="Shows day of the week (only applies if 'short form' is off).">Day</label>
-      </div>
-      <div class="field">
-        <div class="toggle">
-          <input type="checkbox" name="dateYear" id="dateYear" />
-          <label for="dateYear"></label>
-        </div>
-        <label title="Shows the year with the date.">Year</label>
-      </div>
-      <div class="field span-2">
-        <select name="dateFormat" id="dateFormat">
-          <option value="">Middle-Endian (January 31, 2000)</option>
-          <option value="">Little-Endian (31 January 2000)</option>
-          <option value="">Big-Endian (2000 January 31)</option>
-        </select>
-        <label for="dateFormat" title="Allows various date formats to choose from.">Date Format</label>
-      </div>
+    <div class="field span-2">
+      <select name="datePlacement" [(ngModel)]="settings.config.date.placement" (ngModelChange)="saveAll()">
+        <option value=0>Before clocks</option>
+        <option *ngFor="let clock of settings.config.time.clocks; let i = index" [ngValue]="i+1">After clock #{{i + 1}}</option>
+      </select>
+      <label>Placement</label>
     </div>
-    <div class="grid cols-1 span-3">
-      <div class="field">
-        <div class="toggle">
-          <input type="checkbox" name="dateShortForm" id="dateShortForm" />
-          <label for="dateShortForm"></label>
-        </div>
-        <label title="Shows the date in a short format.">Short Date</label>
-      </div>
-      <div class="field">
-        <input type="text" name="dateShortDelimiter" id="dateShortDelimiter" value="/" />
-        <label for="dateShortDelimiter" title="Shows a seperator between numbers on the short date format.">Date Delimiter</label>
-      </div>
+    <div class="field span-2">
+      <options-range name="dateSize" min="1" max="100" [(ngModel)]="settings.config.date.scaling" (ngModelChange)="saveAll()"></options-range>
+      <label>Size</label>
     </div>
-    <div class="grid cols-1 span-3">
-      <div class="field">
-        <div class="toggle">
-          <input type="checkbox" name="dateWeekNumber" id="dateWeekNumber" />
-          <label for="dateWeekNumber"></label>
+    <div class="field span-2">
+      <options-range name="dateOffset" min="1" max="100" [(ngModel)]="settings.config.date.offset" (ngModelChange)="saveAll()"></options-range>
+      <label>Offset</label>
+    </div>
+    <div class="grid cols-2 span-6">
+      <div class="borderGrayL p1 span-1 grid cols-2">
+        <div class="field span-1">
+          <options-toggle name="shortDate" [(ngModel)]="settings.config.date.short.enabled" (ngModelChange)="saveAll()"></options-toggle>
+          <label>Short date</label>
         </div>
-        <label title="Shows week number below the date.">Week Number</label>
+        <div class="field span-1">
+          <input type="text" maxlength="1" id="shortDelimiter" name="shortDelimiter" [(ngModel)]="settings.config.date.short.delimiter" (ngModelChange)="saveAll()">
+          <label for="shortDelimiter">Delimiter</label>
+        </div>
       </div>
-      <div class="field">
-        <input type="text" name="dateShortDelimiter" id="dateShortDelimiter" value="Week" />
-        <label for="dateShortDelimiter" title="Choose a label to show next to the week number.">Week Label</label>
+      <div class="borderGrayL p1 span-1 grid cols-2">
+        <div class="field span-1">
+          <options-toggle name="year" [(ngModel)]="settings.config.date.year.enabled" (ngModelChange)="saveAll()"></options-toggle>
+          <label>Year</label>
+        </div>
+        <div class="field span-1">
+          <options-toggle name="yearShort" [(ngModel)]="settings.config.date.year.twoDigit" (ngModelChange)="saveAll()"></options-toggle>
+          <label>Two-digit</label>
+        </div>
+      </div>
+      <div class="borderGrayL p1 span-1 grid cols-2">
+        <div class="field span-1">
+          <options-toggle name="month" [(ngModel)]="settings.config.date.month.enabled" (ngModelChange)="saveAll()"></options-toggle>
+          <label>Month</label>
+        </div>
+        <div class="field span-1">
+          <options-toggle name="monthAbbr" [(ngModel)]="settings.config.date.month.abbr" (ngModelChange)="saveAll()"></options-toggle>
+          <label>Abbreviated</label>
+        </div>
+      </div>
+      <div class="borderGrayL p1 span-1 grid cols-2">
+        <div class="field span-1">
+          <options-toggle name="day" [(ngModel)]="settings.config.date.day.enabled" (ngModelChange)="saveAll()"></options-toggle>
+          <label>Day</label>
+        </div>
+        <div class="field span-1">
+          <options-toggle name="dayTwoDigit" [(ngModel)]="settings.config.date.day.twoDigit" (ngModelChange)="saveAll()"></options-toggle>
+          <label>Two-digit</label>
+        </div>
+      </div>
+      <div class="borderGrayL p1 span-1 grid cols-2">
+        <div class="field span-1">
+          <options-toggle name="dayOfWeek" [(ngModel)]="settings.config.date.dayOfWeek.enabled" (ngModelChange)="saveAll()"></options-toggle>
+          <label>Day of week</label>
+        </div>
+        <div class="field span-1">
+          <options-toggle name="dayOfWeekAbbr" [(ngModel)]="settings.config.date.dayOfWeek.abbr" (ngModelChange)="saveAll()"></options-toggle>
+          <label>Abbreviated</label>
+        </div>
+      </div>
+      <div class="borderGrayL p1 span-1 grid cols-2">
+        <div class="field span-1">
+          <options-toggle name="week" [(ngModel)]="settings.config.date.week.enabled" (ngModelChange)="saveAll()"></options-toggle>
+          <label>Week</label>
+        </div>
+        <div class="field span-1">
+          <input type="text" id="yearShort" name="yearShort" [(ngModel)]="settings.config.date.week.label" (ngModelChange)="saveAll()">
+          <label for="yearShort">Label</label>
+        </div>
       </div>
     </div>
   </div>

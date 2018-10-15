@@ -12,10 +12,24 @@ export class Settings {
       startupAnimation: true
     },
     bookmarks: {
-      bookmarksBar: true,
-      quickLinks: true,
-      bookmarkScaling: 50,
-      quickLinkScaling: 50,
+      bookmarksBar: {
+        enabled: true,
+        scaling: 50,
+        mostVisited: false,
+        bookmarksManager: false,
+        history: false,
+        apps: false,
+        chromeTab: false
+      },
+      quickLinks: {
+        enabled: true,
+        scaling: 50,
+        mostVisited: false,
+        bookmarksManager: false,
+        history: false,
+        apps: false,
+        chromeTab: false
+      },
       links: [
         {
           label: 'Google',
@@ -76,6 +90,38 @@ export class Settings {
         }
       ]
     },
+    date: {
+      enabled: true,
+      scaling: 50,
+      offset: 50,
+      placement: 1,
+      timezone: 'Automatic',
+      format: 20,
+      short: {
+        enabled: false,
+        delimiter: '/'
+      },
+      year: {
+        enabled: true,
+        twoDigit: false
+      },
+      month: {
+        enabled: true,
+        abbr: false,
+      },
+      day: {
+        enabled: true,
+        twoDigit: false
+      },
+      dayOfWeek: {
+        enabled: true,
+        abbr: false
+      },
+      week: {
+        enabled: false,
+        label: 'Week'
+      },
+    },
     search: {
       enabled: true,
       scaling: 50,
@@ -90,7 +136,7 @@ export class Settings {
     title: {
       type: 10,
       text: 'New Tab',
-      clockUsed: 10
+      clockUsed: 1
     }
   };
 }

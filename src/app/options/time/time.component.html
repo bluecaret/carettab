@@ -32,15 +32,15 @@
         </div>
         <div class="field no-label span-7">
           <select [name]="'timezone'+i" [(ngModel)]="clock.timezone" (ngModelChange)="saveAll()">
-            <option value="Automatic">Automatic ({{timezoneFormat(tzGuess)}})</option>
+            <option value="Automatic">Automatic ({{tz.timezoneFormat(tzGuess)}})</option>
             <ng-template let-c ngFor [ngForOf]="allTimezones">
               <optgroup *ngIf="c.zones.length > 1" [label]="c.iso | iso2CountryPipe">
-                <option *ngFor="let t of c.zones" [value]="t">{{timezoneFormat(t)}}
-                  <span>{{timezoneOffset(t)}}</span>
+                <option *ngFor="let t of c.zones" [value]="t">{{tz.timezoneFormat(t)}}
+                  <span>{{tz.timezoneOffset(t)}}</span>
                 </option>
               </optgroup>
               <option *ngIf="c.zones.length === 1" [value]="c.zones[0]">{{c.iso | iso2CountryPipe}}
-                <span>{{timezoneOffset(c.zones[0])}}</span>
+                <span>{{tz.timezoneOffset(c.zones[0])}}</span>
               </option>
             </ng-template>
           </select>
@@ -81,7 +81,7 @@
                 </div>
                 <div class="field span-5">
                   <select [name]="'clockSpan'+i" [id]="'clockSpan'+i" [(ngModel)]="clock.span" (ngModelChange)="saveAll()">
-                    <option *ngFor="let s of span" [value]="s.id">{{s.label}}</option>
+                    <option *ngFor="let s of span" [ngValue]="s.id">{{s.label}}</option>
                   </select>
                   <label [for]="'clockSpan'+i" title="Changes how much space the clock uses.">Span</label>
                 </div>
@@ -95,7 +95,7 @@
                 </div>
                 <div class="field span-5" *ngIf="clock.analog.enabled === true">
                   <select [name]="'analogStyle'+i" [id]="'analogStyle'+i" [(ngModel)]="clock.analog.style" (ngModelChange)="saveAll()">
-                    <option *ngFor="let s of analog" [value]="s.id">{{s.label}}</option>
+                    <option *ngFor="let s of analog" [ngValue]="s.id">{{s.label}}</option>
                   </select>
                   <label [for]="'analogStyle'+i" title="Choose the style of analog clock">Analog style</label>
                 </div>
@@ -229,5 +229,5 @@
 
 
 <p class="mb0">
-  <small><b>Note:</b> the time is an educated guess based on the time and timezone your computer is set to and may not reflect your actual time. CaretTab is guessing your current timezone to be:<br>"{{timezoneFormat(this.tzGuess)}}".</small>
+  <small><b>Note:</b> the time is an educated guess based on the time and timezone your computer is set to and may not reflect your actual time. CaretTab is guessing your current timezone to be:<br>"{{tz.timezoneFormat(this.tzGuess)}}".</small>
 </p>

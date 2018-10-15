@@ -133,6 +133,21 @@ export const analogStyles = [
   }
 ];
 
+export const dateFormat = [
+  {
+    id: 10,
+    label: 'Little-Endian (31 Jan. 2000)'
+  },
+  {
+    id: 20,
+    label: 'Middle-Endian (Jan. 31, 2000)'
+  },
+  {
+    id: 30,
+    label: 'Big-Endian (2000 Jan. 31)'
+  }
+];
+
 export const searchEngines = [
   {
     id: 10,

@@ -54,6 +54,7 @@ export class Settings {
           scaling: 50,
           font: 'Roboto',
           span: 40,
+          relativeTime: false,
           seconds: {
             enabled: true,
             dim: false,

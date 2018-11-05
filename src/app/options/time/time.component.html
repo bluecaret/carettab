@@ -76,15 +76,19 @@
             <div class="borderGrayL p1 span-2">
               <h4 class="m0 mb1">General clock settings</h4>
               <div class="grid cols-19">
-                <div class="field span-7">
+                <div class="field span-6">
                   <options-range [name]="'clockSize'+i" [id]="'clockSize'+i" min="1" max="100" [(ngModel)]="clock.scaling" (ngModelChange)="saveAll()"></options-range>
                   <label [for]="'clockSize'+i" title="Change the size of the clock.">Size</label>
                 </div>
-                <div class="field span-5">
+                <div class="field span-4">
                   <select [name]="'clockSpan'+i" [id]="'clockSpan'+i" [(ngModel)]="clock.span" (ngModelChange)="saveAll()">
                     <option *ngFor="let s of span" [ngValue]="s.id">{{s.label}}</option>
                   </select>
                   <label [for]="'clockSpan'+i" title="Changes how much space the clock uses.">Span</label>
+                </div>
+                <div class="field span-3">
+                  <options-toggle [name]="'relativeTime'+i" [id]="'relativeTime'+i" [(ngModel)]="clock.relativeTime" (ngModelChange)="saveAll()"></options-toggle>
+                  <label title="Displays a label that shows when a clock's time is relative to your local time.">Relative</label>
                 </div>
                 <div class="field span-3">
                   <options-toggle [name]="'clockTwentyFour'+i" [id]="'clockTwentyFour'+i" [(ngModel)]="clock.twentyFour" (ngModelChange)="saveAll()"></options-toggle>

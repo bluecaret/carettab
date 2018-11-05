@@ -9,7 +9,7 @@ import { SharedService } from '../_shared/shared.service';
     <ul>
       <li>
         <button type="button" (click)="goToPage('Dashboard')" [ngClass]="{'active': shared.optionsPage === 'Dashboard'}">
-          <div class="icon">apps</div>
+          <div class="icon">info</div>
         </button>
       </li>
       <li>
@@ -45,11 +45,6 @@ import { SharedService } from '../_shared/shared.service';
       <li>
         <button type="button" (click)="goToPage('Extra')" [ngClass]="{'active': shared.optionsPage === 'Extra'}">
           <div class="icon">settings</div>
-        </button>
-      </li>
-      <li>
-        <button type="button" (click)="goToPage('About')" [ngClass]="{'active': shared.optionsPage === 'About'}">
-          <div class="icon">info</div>
         </button>
       </li>
     </ul>

@@ -17,7 +17,6 @@ import * as moment from 'moment-timezone';
 
 // Options Imports
 import { OptionsComponent } from './options/options.component';
-import { OptionsAboutComponent } from './options/about/about.component';
 import { OptionsBookmarksComponent } from './options/bookmarks/bookmarks.component';
 import { OptionsDashboardComponent } from './options/dashboard/dashboard.component';
 import { OptionsDateComponent } from './options/date/date.component';
@@ -43,7 +42,6 @@ import { NavComponent } from './tab/nav.component';
     RangeComponent,
 
     OptionsComponent,
-    OptionsAboutComponent,
     OptionsBookmarksComponent,
     OptionsDashboardComponent,
     OptionsDateComponent,

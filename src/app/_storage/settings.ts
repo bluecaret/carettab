@@ -5,6 +5,7 @@ export class Settings {
     design: {
       scalingMethod: true,
       scaling: 50,
+      offlineFont: true,
       font: 100,
       background: '#ffffff',
       foreground: '#000000',
@@ -126,7 +127,7 @@ export class Settings {
       enabled: true,
       scaling: 50,
       engine: 10,
-      autoComplete: true
+      autocomplete: true
     },
     message: {
       enabled: false,

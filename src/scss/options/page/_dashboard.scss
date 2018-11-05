@@ -1,16 +1,16 @@
 .changelog {
-  padding: 0 0 0 30px;
+  padding: 0 0 0 20px;
   list-style: none;
   li {
     position: relative;
-    padding: 0 0px 10px 0px;
+    padding: 0 0px 7px 0px;
     line-height: 1.4;
     &:before {
       content: '\2714';
       position: absolute;
       top: 0;
       left: -20px;
-      color: #5CB85C;
+      color: $blue;
     }
   }
 }
@@ -19,20 +19,9 @@
   width: 50px;
   height: auto;
   .jar {
-    fill: $green;
+    fill: $blue;
   }
   .heart {
     fill: $green;
-  }
-}
-
-.tipBtns {
-  .btn {
-    display: block;
-    width: 100%;
-    padding: 3px 2px;
-    font-size: 12px;
-    line-height: 1.4;
-    text-align: center;
   }
 }

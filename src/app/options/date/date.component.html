@@ -49,7 +49,7 @@
           <label>Short date</label>
         </div>
         <div class="field span-1">
-          <input type="text" maxlength="1" id="shortDelimiter" name="shortDelimiter" [(ngModel)]="settings.config.date.short.delimiter" (ngModelChange)="saveAll()">
+          <input type="text" maxlength="1" id="shortDelimiter" name="shortDelimiter" [(ngModel)]="settings.config.date.short.delimiter" (ngModelChange)="saveAll()" autocomplete="off">
           <label for="shortDelimiter">Delimiter</label>
         </div>
       </div>
@@ -99,7 +99,7 @@
           <label>Week</label>
         </div>
         <div class="field span-1">
-          <input type="text" id="yearShort" name="yearShort" [(ngModel)]="settings.config.date.week.label" (ngModelChange)="saveAll()">
+          <input type="text" id="yearShort" name="yearShort" [(ngModel)]="settings.config.date.week.label" (ngModelChange)="saveAll()" autocomplete="off">
           <label for="yearShort">Label</label>
         </div>
       </div>

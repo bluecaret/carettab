@@ -1,196 +1,66 @@
 <form #designOptions="ngForm" novalidate>
   <fieldset>
-    <div class="row row--gap">
-      <div class="col12 colMd6">
-        <div class="fieldGroup">
-          <label for="scalingMethod" class="fieldGroup__label">
-            <app-help
-              title="Dynamic will scale each element based on the width of your window; static will keep items the same size no matter the window size.">
-              Scaling Method
-            </app-help>
-          </label>
-          <div id="scalingMethod" class="btnGroup btnGroup--justified">
-            <input type="radio" id="scalingDynamic" name="scalingMethod" [value]="true" [(ngModel)]="settings.config.design.scalingMethod" (change)="saveAll()" />
-            <label for="scalingDynamic">Dynamic</label>
-            <input type="radio" id="scalingStatic" name="scalingMethod" [value]="false" [(ngModel)]="settings.config.design.scalingMethod" (change)="saveAll()" />
-            <label for="scalingStatic">Static</label>
-          </div>
-        </div>
+    <legend>Design</legend>
+    <div class="grid cols-4">
+      <div class="field span-1">
+        <options-toggle name="scalingMethod" [(ngModel)]="settings.config.design.scalingMethod" (ngModelChange)="saveAll()"></options-toggle>
+        <label title="Dynamic scaling allows you to change the size of elements based on the width of your browser. Disable to keep the size the same no matter the size of your browser.">Dynamic scaling</label>
+      </div>
+      <div class="field span-2">
+        <options-range name="globalSize" id="globalSize" min="1" max="100" [(ngModel)]="settings.config.design.scaling" (ngModelChange)="saveAll()"></options-range>
+        <label title="Adjust the size of all elements.">Global size</label>
       </div>
     </div>
   </fieldset>
-</form>
-<fieldset>
-  <div class="row row--gap">
-    <div class="col8">
-      <div class="fieldGroup">
-        <label for="searchBox" class="fieldGroup__label"><app-help title="Select a font included with CaretTab. Changes font used for all objects.">CaretTab Fonts</app-help></label>
-        <div class="btnGroup flex--wrap fontOptions">
-          <input type="radio" name="font" id="font1" />
-          <label for="font1" title="Exo 2">abc 123</label>
-          <input type="radio" name="font" id="font2" />
-          <label for="font2" title="Quicksand">abc 123</label>
-          <input type="radio" name="font" id="font3" />
-          <label for="font3" title="Amatic SC">abc 123</label>
-          <input type="radio" name="font" id="font4" />
-          <label for="font4" title="Anton">abc 123</label>
-          <input type="radio" name="font" id="font5" />
-          <label for="font5" title="EB Garamond">abc 123</label>
-          <input type="radio" name="font" id="font6" />
-          <label for="font6" title="Lobster">abc 123</label>
-          <input type="radio" name="font" id="font7" />
-          <label for="font7" title="Monoton">abc 123</label>
-          <input type="radio" name="font" id="font8" />
-          <label for="font8" title="Press Start 2P">abc 123</label>
-          <input type="radio" name="font" id="font9" />
-          <label for="font9" title="Special Elite">abc 123</label>
-        </div>
+  <fieldset>
+    <legend>Fonts</legend>
+    <div class="grid cols-4">
+      <div class="field span-1">
+        <options-toggle name="offlineFont" [(ngModel)]="settings.config.design.offlineFont" (ngModelChange)="saveAll()"></options-toggle>
+        <label title="Use fonts available offline. Disable to use online-only fonts from Google.">Offline fonts</label>
       </div>
-    </div>
-    <div class="col4">
-      <div class="fieldGroup">
-        <label for="searchBoxEngine" class="fieldGroup__label"><app-help title="Select a font that is installed on your computer. Changes font used for all objects.">System Fonts</app-help></label>
-        <select name="searchBoxEngine" id="searchBoxEngine" class="fieldGroup__field">
-          <option value=""></option>
+      <div class="field span-2">
+        <select name="font" id="font"
+          [(ngModel)]="settings.config.design.font" (ngModelChange)="saveAll(); getFont();"
+          [style.fontFamily]="currentFont" style="font-size: 1em; font-weight: 400;">
+          <option [ngValue]="font.id" *ngFor="let font of fonts;" [style.fontFamily]="setFont(font.label)">{{font.label}}</option>
         </select>
+        <label for="font">Font</label>
       </div>
     </div>
-    <div class="col12">
-      <div class="fieldGroup">
-        <label for="searchBox" class="fieldGroup__label"><app-help title="Choose a preset color combination or pick custom colors from the following field.">Preset Colors</app-help></label>
-        <div class="btnGroup btnGroup--justified presetColors">
-          <input type="radio" name="presetColors" id="presetColor01" />
-          <label for="presetColor01">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor02" />
-          <label for="presetColor02">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor03" />
-          <label for="presetColor03">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor04" />
-          <label for="presetColor04">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor05" />
-          <label for="presetColor05">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor06" />
-          <label for="presetColor06">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor07" />
-          <label for="presetColor07">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor08" />
-          <label for="presetColor08">abc 123</label>
+  </fieldset>
+  <fieldset class="mb0">
+    <legend>Colors</legend>
+    <div class="grid cols-2 mb1">
+      <div class="field span-1">
+        <div class="grid cols-3">
+          <div class="field no-label span-1">
+            <div class="inputColor" [style.backgroundColor]="settings.config.design.background">
+              <input type="color" id="set-background" name="bg-color" [(ngModel)]="settings.config.design.background" (ngModelChange)="saveAll()">
+            </div>
+          </div>
+          <div class="field no-label span-2">
+            <input type="text" aria-labelledby="set-background" name="bg-code" [(ngModel)]="settings.config.design.background" (ngModelChange)="saveAll()" autocomplete="off">
+          </div>
         </div>
-        <div class="btnGroup btnGroup--justified presetColors">
-          <input type="radio" name="presetColors" id="presetColor09" />
-          <label for="presetColor09">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor10" />
-          <label for="presetColor10">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor11" />
-          <label for="presetColor11">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor12" />
-          <label for="presetColor12">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor13" />
-          <label for="presetColor13">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor14" />
-          <label for="presetColor14">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor15" />
-          <label for="presetColor15">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor16" />
-          <label for="presetColor16">abc 123</label>
+        <label id="set-background" for="set-background">Custom Background</label>
+      </div>
+      <div class="field span-1">
+        <div class="grid cols-3">
+          <div class="field no-label span-1">
+            <div class="inputColor" [style.backgroundColor]="settings.config.design.foreground">
+              <input type="color" id="set-foreground" name="fg-color" [(ngModel)]="settings.config.design.foreground" (ngModelChange)="saveAll()">
+            </div>
+          </div>
+          <div class="field no-label span-2">
+            <input type="text" aria-labelledby="set-foreground" name="fg-code" [(ngModel)]="settings.config.design.foreground" (ngModelChange)="saveAll()" autocomplete="off">
+          </div>
         </div>
-        <div class="btnGroup btnGroup--justified presetColors">
-          <input type="radio" name="presetColors" id="presetColor17" />
-          <label for="presetColor17">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor18" />
-          <label for="presetColor18">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor19" />
-          <label for="presetColor19">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor20" />
-          <label for="presetColor20">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor21" />
-          <label for="presetColor21">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor22" />
-          <label for="presetColor22">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor23" />
-          <label for="presetColor23">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor24" />
-          <label for="presetColor24">abc 123</label>
-        </div>
-        <div class="btnGroup btnGroup--justified presetColors">
-          <input type="radio" name="presetColors" id="presetColor25" />
-          <label for="presetColor25">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor26" />
-          <label for="presetColor26">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor27" />
-          <label for="presetColor27">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor28" />
-          <label for="presetColor28">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor29" />
-          <label for="presetColor29">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor30" />
-          <label for="presetColor30">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor31" />
-          <label for="presetColor31">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor32" />
-          <label for="presetColor32">abc 123</label>
-        </div>
-        <div class="btnGroup btnGroup--justified presetColors">
-          <input type="radio" name="presetColors" id="presetColor33" />
-          <label for="presetColor33">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor34" />
-          <label for="presetColor34">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor35" />
-          <label for="presetColor35">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor36" />
-          <label for="presetColor36">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor37" />
-          <label for="presetColor37">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor38" />
-          <label for="presetColor38">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor39" />
-          <label for="presetColor39">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor40" />
-          <label for="presetColor40">abc 123</label>
-        </div>
-        <div class="btnGroup btnGroup--justified presetColors">
-          <input type="radio" name="presetColors" id="presetColor41" />
-          <label for="presetColor41">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor42" />
-          <label for="presetColor42">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor43" />
-          <label for="presetColor43">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor44" />
-          <label for="presetColor44">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor45" />
-          <label for="presetColor45">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor46" />
-          <label for="presetColor46">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor47" />
-          <label for="presetColor47">abc 123</label>
-          <input type="radio" name="presetColors" id="presetColor48" />
-          <label for="presetColor48">abc 123</label>
-        </div>
+        <label id="set-foreground" for="set-foreground">Custom Foreground</label>
       </div>
     </div>
-    <div class="col6 colLg4">
-      <div class="fieldGroup">
-        <label class="fieldGroup__label">
-          <app-help title="Color of the page background.">Custom Background Color</app-help>
-        </label>
-        <div class="flex">
-          <input type="color" class="fieldGroup__field flex__auto" id="set-background" value="#3FA9F5">
-          <input type="text" class="fieldGroup__field colorLabel flex__set" value="#3FA9F5">
-        </div>
-        <small>Click the color box to choose a color.</small>
-      </div>
+    <div class="grid cols-8 pt1">
+      <button *ngFor="let color of colors;" class="btn btnBlock span-1" [style.backgroundColor]="color.bg" [style.color]="color.fg" (click)="setColors(color.bg, color.fg)">abc</button>
     </div>
-    <div class="col6 colLg4">
-      <div class="fieldGroup">
-        <label class="fieldGroup__label">
-          <app-help title="Color of fonts and icons.">Custom Foreground Color</app-help>
-        </label>
-        <div class="flex">
-          <input type="color" class="fieldGroup__field flex__auto" id="set-background" value="#3FA9F5">
-          <input type="text" class="fieldGroup__field colorLabel flex__set" value="#3FA9F5">
-        </div>
-        <small>Click the color box to choose a color.</small>
-      </div>
-    </div>
-  </div>
-</fieldset>
+  </fieldset>
+</form>

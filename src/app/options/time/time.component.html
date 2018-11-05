@@ -28,6 +28,7 @@
             type="text"
             [name]="'label'+i"
             [(ngModel)]="clock.label"
+            autocomplete="off"
             (ngModelChange)="saveAll()">
         </div>
         <div class="field no-label span-7">
@@ -127,7 +128,7 @@
                       <label title="Adjust the position of the delimiter up or down">Offset</label>
                     </div>
                     <div class="field span-1">
-                      <input type="text" maxlength="1" [id]="'delimiterSymbol'+i" [name]="'delimiterSymbol'+i" [(ngModel)]="clock.delimiter.symbol" (ngModelChange)="saveAll()">
+                      <input type="text" maxlength="1" [id]="'delimiterSymbol'+i" [name]="'delimiterSymbol'+i" [(ngModel)]="clock.delimiter.symbol" (ngModelChange)="saveAll()" autocomplete="off">
                       <label [for]="'delimiterSymbol'+i" title="Enter the symbol to represent the delimiter">Symbol</label>
                     </div>
                   </div>
@@ -206,11 +207,11 @@
                       <label title="Adjust the position of the brackets up or down">Offset</label>
                     </div>
                     <div class="field span-1">
-                      <input type="text" maxlength="1" [id]="'bracketsLeft'+i" [name]="'bracketsLeft'+i" [(ngModel)]="clock.brackets.left" (ngModelChange)="saveAll()">
+                      <input type="text" maxlength="1" [id]="'bracketsLeft'+i" [name]="'bracketsLeft'+i" [(ngModel)]="clock.brackets.left" (ngModelChange)="saveAll()" autocomplete="off">
                       <label [for]="'bracketsLeft'+i" title="Enter the symbol to represent the left-side bracket">Left bracket</label>
                     </div>
                     <div class="field span-1">
-                      <input type="text" maxlength="1" [id]="'bracketsRight'+i" [name]="'bracketsRight'+i" [(ngModel)]="clock.brackets.right" (ngModelChange)="saveAll()">
+                      <input type="text" maxlength="1" [id]="'bracketsRight'+i" [name]="'bracketsRight'+i" [(ngModel)]="clock.brackets.right" (ngModelChange)="saveAll()" autocomplete="off">
                       <label [for]="'bracketsRight'+i" title="Enter the symbol to represent the right-side bracket">Right bracket</label>
                     </div>
                   </div>

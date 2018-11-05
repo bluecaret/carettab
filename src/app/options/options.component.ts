@@ -7,7 +7,6 @@ import { slideIn } from '../_shared/animations';
   selector: 'app-options',
   templateUrl: 'options.component.html',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./_scss/options.scss'],
   animations: [
     slideIn
   ]

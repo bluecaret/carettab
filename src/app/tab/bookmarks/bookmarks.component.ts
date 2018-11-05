@@ -43,12 +43,12 @@ export class TabBookmarksComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private zone: NgZone
   ) {
-    this.calcSize(this.settings.config.bookmarks.bookmarkScaling, false);
-    this.calcSize(this.settings.config.bookmarks.quickLinkScaling, true);
+    this.calcSize(this.settings.config.bookmarks.bookmarksBar.scaling, false);
+    this.calcSize(this.settings.config.bookmarks.quickLinks.scaling, true);
     this.settings.onChange().subscribe((data) => {
-      this.calcSize(data.bookmarks.bookmarkScaling, false);
-      this.calcSize(data.bookmarks.quickLinkScaling, true);
-      if (data.bookmarks.bookmarksBar === true) {
+      this.calcSize(data.bookmarks.bookmarksBar.scaling, false);
+      this.calcSize(data.bookmarks.quickLinks.scaling, true);
+      if (data.bookmarks.bookmarksBar.enabled === true) {
         this.getBookmarks();
       }
     });
@@ -56,7 +56,7 @@ export class TabBookmarksComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
-    if (this.settings.config.bookmarks.bookmarksBar) {
+    if (this.settings.config.bookmarks.bookmarksBar.enabled) {
       this.getBookmarks();
     }
   }
@@ -110,6 +110,26 @@ export class TabBookmarksComponent implements OnInit {
     if (el.scrollLeft === (el.scrollWidth - el.offsetWidth)) {
       return true;
     }
+  }
+
+  mostVisited() {
+    chrome.tabs.update({ url: 'chrome://mostvisited' });
+  }
+
+  bookmarksManager() {
+    chrome.tabs.update({ url: 'chrome://bookmarks' });
+  }
+
+  history() {
+    chrome.tabs.update({ url: 'chrome://history' });
+  }
+
+  apps() {
+    chrome.tabs.update({ url: 'chrome://apps' });
+  }
+
+  chromeTab() {
+    chrome.tabs.update({ url: 'chrome-search://local-ntp/local-ntp.html' });
   }
 
 }

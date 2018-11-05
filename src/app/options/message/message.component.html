@@ -7,7 +7,7 @@
         <label>Message</label>
       </div>
       <div class="field span-2">
-        <input type="text" name="messageText" id="messageText" [(ngModel)]="settings.config.message.text" (ngModelChange)="saveAll()">
+        <input type="text" name="messageText" id="messageText" [(ngModel)]="settings.config.message.text" (ngModelChange)="saveAll()" autocomplete="off">
         <label title="Enter text for the custom message.">Message text</label>
       </div>
       <div class="field span-2">

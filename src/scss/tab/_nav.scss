@@ -29,14 +29,14 @@ nav {
         color: black;
         border: 0;
         padding: 0;
-        margin: 0 3px;
+        margin: 0 5px 0 0;
         background-color: transparent;
         cursor: pointer;
         border-radius: 50%;
         transition: all .3s;
         &:focus {
           outline: none;
-          box-shadow: $focus;
+          color: darken($blue, 10%);
         }
         &:hover {
           color: darken($blue, 10%);

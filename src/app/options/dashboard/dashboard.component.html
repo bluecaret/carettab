@@ -1,86 +1,38 @@
-<!-- <div>
-  <fieldset>
-    <div class="mb1">
-      <button type="button" class="btn"><div class="icon space">info</div>Button</button>
-    </div>
-    <div class="field compact">
-      <input type="text">
-      <label><div class="icon">home</div></label>
-    </div>
-    <div class="field compact">
-      <input type="text">
-      <label><div class="icon">access_time</div></label>
-    </div>
-    <div class="field">
-      <input type="text">
-      <label>Hello</label>
-    </div>
-    <div class="field">
-      <select name="" id="">
-        <option></option>
-        <option>Hello</option>
-      </select>
-      <label>Hello</label>
-    </div>
-    <div class="field">
-      <div class="check">
-        <input id="checkbox" type="checkbox">
-        <label for="checkbox">Hello</label>
-        <input id="checkbox2" type="checkbox">
-        <label for="checkbox2">Hello</label>
+<div class="grid cols-2">
+  <div class="span-1">
+    <fieldset class="mb0">
+      <legend class="mb0">What's new?</legend>
+      <p class="mt5">Updated November 29, 2018</p>
+      <ul class="changelog">
+        <li>Complete rework! CaretTab has been re-coded from scratch to provide a faster, leaner new tab page for you! This update also allows more flexibility for future updates!</li>
+        <li>Clocks now have full customization! You can now set all settings on all clocks, give it a try!</li>
+        <li>Change the order of clocks and quick links.</li>
+        <li>More size options. Now most elements can be resized individually.</li>
+        <li>Lots more! take a look around and try things out.</li>
+      </ul>
+    </fieldset>
+  </div>
+  <div class="span-1">
+    <div class="flex flex--top">
+      <svg version="1.1" id="tipJar" class="flex__set pr1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 382 467" xml:space="preserve">
+        <path class="jar" d="M189.8,10c0,0,130.9,2.1,131.2,19.4s0,46.2,0,46.2s51,10.4,51,46.2s0,279.4,0,279.4S342.9,457,189.8,457
+          S10,401.1,10,401.1s0-243.8,0-279.4s51-46.2,51-46.2s0.4-29.7,0-46.2S189.8,10,189.8,10z M192.2,432.7
+          c116.7-0.3,155.5-38.9,155.5-38.9s-0.1-257.5,0-269.7s-24.3-24.3-24.3-24.3s-49,16.9-133.6,17s-131.2-17-131.2-17
+          s-24,10.7-24.3,26.7s0,267.2,0,267.2S75.5,433,192.2,432.7z"/>
+        <path class="heart" d="M191,212.6c-30.3-70.7-116.4-54.2-117,27.9C73.7,287.9,187.7,360.2,191.1,372c3.1-12.2,117.2-84.9,116.9-132
+          C307.5,157.6,219.9,144.6,191,212.6z"/>
+      </svg>
+      <div class="flex__auto">
+        <p class="mt0 mb5">
+          Support CaretTab by tipping the developer!
+        </p>
+        <a href="#" class="btn flex__set">Donate with PayPal</a>
       </div>
-      <label>Checkbox</label>
     </div>
-    <div class="field">
-      <div class="radio">
-        <input id="radio" name="radio" type="radio">
-        <label for="radio">Hello</label>
-        <input id="radio2" name="radio" type="radio">
-        <label for="radio2">Hello</label>
-      </div>
-      <label>Radio</label>
-    </div>
-    <div class="field">
-      <div class="range">
-        <input type="range" name="range" min="1" max="100" [(ngModel)]="range">
-        <output [value]="range"></output>
-      </div>
-      <label>Radio</label>
-    </div>
-  </fieldset>
-</div> -->
-<div class="dashGrid">
-  <button type="button" class="dashBtn" (click)="goToPage('Design')">
-    <div class="dashBtnHead"><div class="icon">format_paint</div></div>
-    <h2>Design</h2>
-  </button>
-  <button type="button" class="dashBtn" (click)="goToPage('Time')">
-    <div class="dashBtnHead"><div class="icon">access_time</div></div>
-    <h2>Time</h2>
-  </button>
-  <button type="button" class="dashBtn" (click)="goToPage('Date')">
-    <div class="dashBtnHead"><div class="icon">insert_invitation</div></div>
-    <h2>Date</h2>
-  </button>
-  <button type="button" class="dashBtn" (click)="goToPage('Bookmarks')">
-    <div class="dashBtnHead"><div class="icon">star</div></div>
-    <h2>Bookmarks</h2>
-  </button>
-  <button type="button" class="dashBtn" (click)="goToPage('Search')">
-    <div class="dashBtnHead"><div class="icon">search</div></div>
-    <h2>Search</h2>
-  </button>
-  <button type="button" class="dashBtn" (click)="goToPage('Message')">
-    <div class="dashBtnHead"><div class="icon">textsms</div></div>
-    <h2>Message</h2>
-  </button>
-  <button type="button" class="dashBtn" (click)="goToPage('Extra')">
-    <div class="dashBtnHead"><div class="icon">settings</div></div>
-    <h2>Extra</h2>
-  </button>
-  <button type="button" class="dashBtn" (click)="goToPage('About')">
-    <div class="dashBtnHead"><div class="icon">info</div></div>
-    <h2>About</h2>
-  </button>
+    <p>If you need help or have a suggestion you can contact the developer, <a href="http://bluecaret.com">BlueCaret</a> on Twitter <a href="http://twitter.com/bluecaret">@BlueCaret</a> or view CaretTab on <a href="https://github.com/bluecaret/carettab">GitHub</a>.</p>
+    <p class="mb0"><small><a href="http://bluecaret.com/project/carettab">CaretTab</a> is designed and coded by <a href="http://bluecaret.com">BlueCaret</a> and is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</small></p>
+  </div>
 </div>
+
 

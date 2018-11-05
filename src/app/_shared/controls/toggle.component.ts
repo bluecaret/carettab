@@ -15,20 +15,21 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
       <input
         *ngIf="type === 'radio'"
         type="radio"
-        [id]="name+'Id'"
+        [id]="name+'-'+value"
         [name]="name"
+        [value]="value"
         [(ngModel)]="toggle"
         [disabled]="disabled"
         [required]="required">
       <input
         *ngIf="type !== 'radio'"
         type="checkbox"
-        [id]="name+'Id'"
+        [id]="name+'-id'"
         [name]="name"
         [(ngModel)]="toggle"
         [disabled]="disabled"
         [required]="required">
-      <label [for]="name+'Id'"></label>
+      <label [for]="value? name+'-'+value : name+'-id'"></label>
     </div>
   `,
   host: {'class': 'customControl'}
@@ -40,6 +41,7 @@ export class ToggleComponent implements ControlValueAccessor {
   @Input() name: string;
   @Input() disabled: boolean;
   @Input() required: boolean;
+  @Input() value: any;
   @Input() type: 'toggle' | 'check' | 'radio' = 'toggle';
 
   constructor() {

@@ -1,7 +1,7 @@
 <div
   class="bookmarksBar"
   [ngStyle]="{'font-size': bookmarkScale }"
-  *ngIf="settings.config.bookmarks.bookmarksBar">
+  *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
 
   <div class="bar">
     <!-- Scroll left button -->
@@ -13,6 +13,36 @@
     </button>
     <!-- Bar list -->
     <ul class="bar__list" #barList>
+      <li class="bar__node" *ngIf="settings.config.bookmarks.bookmarksBar.mostVisited">
+        <button title="Most visited" class="bar__folder" (click)="mostVisited()">
+          <img src="/assets/img/folder.png" class="bar__icon">
+          <div class="bar__label">Most visited</div>
+        </button>
+      </li>
+      <li class="bar__node" *ngIf="settings.config.bookmarks.bookmarksBar.bookmarksManager">
+        <button title="Bookmarks manager" class="bar__folder" (click)="bookmarksManager()">
+          <img src="/assets/img/folder.png" class="bar__icon">
+          <div class="bar__label">Bookmarks manager</div>
+        </button>
+      </li>
+      <li class="bar__node" *ngIf="settings.config.bookmarks.bookmarksBar.history">
+        <button title="History" class="bar__folder" (click)="history()">
+          <img src="/assets/img/folder.png" class="bar__icon">
+          <div class="bar__label">History</div>
+        </button>
+      </li>
+      <li class="bar__node" *ngIf="settings.config.bookmarks.bookmarksBar.apps">
+        <button title="Apps" class="bar__folder" (click)="apps()">
+          <img src="/assets/img/folder.png" class="bar__icon">
+          <div class="bar__label">Apps</div>
+        </button>
+      </li>
+      <li class="bar__node" *ngIf="settings.config.bookmarks.bookmarksBar.chromeTab">
+        <button title="Chrome tab" class="bar__folder" (click)="chromeTab()">
+          <img src="/assets/img/folder.png" class="bar__icon">
+          <div class="bar__label">Chrome tab</div>
+        </button>
+      </li>
       <li class="bar__node" *ngFor="let item of allBookmarks; let i = index">
         <ng-container *ngIf="item.url; else bookmarkFolder">
           <a
@@ -109,7 +139,7 @@
 <div
   class="quickLinksBar"
   [ngStyle]="{'font-size': quickLinkScale }"
-  *ngIf="settings.config.bookmarks.quickLinks">
+  *ngIf="settings.config.bookmarks.quickLinks.enabled">
   <ul>
     <li *ngFor="let item of settings.config.bookmarks.links; let i = index">
       {{item.label}}

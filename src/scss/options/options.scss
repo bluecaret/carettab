@@ -1,10 +1,6 @@
 /* Settings
    ========================================================================== */
 
-@import "~scss/_mixins";
-@import "~scss/_variables";
-@import "~scss/_utilities";
-
 ::-webkit-scrollbar {
   width: 16px;
   height: 16px;
@@ -29,7 +25,7 @@
 @import "block/help";
 @import "block/nav";
 @import "block/page";
-@import "block/_table";
+@import "block/table";
 @import "block/tip";
 @import "block/type";
 

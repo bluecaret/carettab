@@ -7,7 +7,6 @@ import { Storage } from '../_storage/storage.service';
   selector: 'app-tab',
   templateUrl: 'tab.component.html',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./_scss/tab.scss'],
   animations: [
     trigger('nav', [
       state('*', style({
@@ -27,7 +26,7 @@ export class TabComponent {
 
   constructor(public shared: SharedService, public settings: Storage) {
     this.shared.optionsToggle = true;
-    this.shared.optionsPage = 'Date';
+    this.shared.optionsPage = 'Dashboard';
   }
 
   toggleOptions() {

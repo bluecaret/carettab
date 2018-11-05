@@ -1,10 +1,6 @@
 /* Tab
    ========================================================================== */
 
-@import "~scss/_mixins";
-@import "~scss/_variables";
-@import "~scss/_utilities";
-
 app-tab {
   position: fixed;
   z-index: z('tabUI');
@@ -23,11 +19,6 @@ app-tab {
   transform-origin: 100% 100%;
   transition: $transition;
   transform: translate(0, 0) scale(1);
-  &.tab--optionsOpen {
-    // transform: translate($settingsOpenPosition) scale($settingsOpenScale);
-    // box-shadow: 0 0 100px 0 rgba(0,0,0,.7);
-    // filter: blur(6px);
-  }
 }
 
 @import "/toggle";

@@ -1,17 +1,18 @@
-import { Component, OnInit, NgZone, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import { Component, NgZone, Renderer2, ElementRef, ViewChild } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
-import { Clock, Delimiter } from '../../_shared/models/clock';
+import { Delimiter } from '../../_shared/models/clock';
 import { SharedService } from '../../_shared/shared.service';
+import { span } from '../../_shared/lists/lists';
 import * as moment from 'moment';
 
 @Component({
   selector: 'tab-time',
-  templateUrl: 'time.component.html'
+  templateUrl: 'time.component.html',
+  host: {'class': 'tabClocks'}
 })
-export class TabTimeComponent implements OnInit {
+export class TabTimeComponent {
   currentTime: Date;
-  baseScale = 200;
-  baseOffset = 0;
+  span = span;
 
   @ViewChild('time')
   public displayTime: ElementRef;
@@ -28,13 +29,6 @@ export class TabTimeComponent implements OnInit {
         this.currentTime = new Date();
       }, 500);
     }
-  }
-
-  calcSize(size: number) {
-    return ((this.baseScale / 50) * size) + 'px';
-  }
-  calcOffset(size: number) {
-    return ((this.baseOffset / 50) * size) + 'px';
   }
 
   getHour(zone: string, twentyFour: boolean, digit: 1|2): string {
@@ -54,6 +48,11 @@ export class TabTimeComponent implements OnInit {
     let time = moment(this.currentTime).tz(zone).format('ss');
     return this.splitDigits(time, digit);
   }
+  getMeridiem(zone: string): string {
+    zone = this.getZone(zone);
+    let time = moment(this.currentTime).tz(zone).format('a');
+    return time;
+  }
 
   splitDigits(time: string, digit: 1|2) {
     let timeSplit = time.split('');
@@ -71,19 +70,8 @@ export class TabTimeComponent implements OnInit {
     return zone;
   }
 
-  getDelimiter(delimiter: Delimiter): string {
-    if (delimiter.enabled) {
-      return ':';
-    } else {
-      return ' ';
-    }
-  }
-
-  getFont(font: string) {
-    return '"' + font + '"';
-  }
-
-  ngOnInit() {
+  getSpan(clockSpan) {
+    return this.span.find(s => s.id === clockSpan).css;
   }
 
 }

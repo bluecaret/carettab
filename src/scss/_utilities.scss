@@ -154,8 +154,8 @@
 .italic { font-style: italic !important; }
 
 .flex { display: flex; width: 100%; }
-.flex__auto { flex: 1 1 100%; }
-.flex__set { flex: 0 0 auto; }
+.flexAuto { flex: 1 1 100%; }
+.flexSet { flex: 0 0 auto; }
 .flex--start {
   justify-content: flex-start;
 }
@@ -205,4 +205,8 @@
 
 .alignBtn {
   margin-top: 26px;
+}
+
+.dim {
+  opacity: .5;
 }

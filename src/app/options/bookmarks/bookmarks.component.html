@@ -7,7 +7,7 @@
         <label>Bookmarks Bar</label>
       </div>
       <div class="field span-2" *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
-        <options-range name="bookmarksSize" id="bookmarksSize" min="1" max="100" [(ngModel)]="settings.config.bookmarks.bookmarksBar.scaling" (ngModelChange)="saveAll()"></options-range>
+        <options-range name="bookmarksSize" id="bookmarksSize" min="1" max="20" [(ngModel)]="settings.config.bookmarks.bookmarksBar.scaling" (ngModelChange)="saveAll()"></options-range>
         <label>Size</label>
       </div>
       <div class="grid cols-5 span-4" *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
@@ -45,7 +45,7 @@
         <label>Quick Links</label>
       </div>
       <div class="field span-2" *ngIf="settings.config.bookmarks.quickLinks.enabled">
-        <options-range name="quickLinksSize" id="quickLinksSize" min="1" max="100" [(ngModel)]="settings.config.bookmarks.quickLinks.scaling" (ngModelChange)="saveAll()"></options-range>
+        <options-range name="quickLinksSize" id="quickLinksSize" min="1" max="20" [(ngModel)]="settings.config.bookmarks.quickLinks.scaling" (ngModelChange)="saveAll()"></options-range>
         <label for="quickLinksSize">Size</label>
       </div>
       <div class="grid cols-5 span-4" *ngIf="settings.config.bookmarks.quickLinks.enabled">

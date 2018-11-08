@@ -4,7 +4,7 @@ export class Settings {
     lang: 10,
     design: {
       scalingMethod: true,
-      scaling: 50,
+      scaling: 10,
       offlineFont: true,
       font: 100,
       background: '#ffffff',
@@ -14,8 +14,8 @@ export class Settings {
     },
     bookmarks: {
       bookmarksBar: {
-        enabled: true,
-        scaling: 50,
+        enabled: false,
+        scaling: 10,
         mostVisited: false,
         bookmarksManager: false,
         history: false,
@@ -23,8 +23,8 @@ export class Settings {
         chromeTab: false
       },
       quickLinks: {
-        enabled: true,
-        scaling: 50,
+        enabled: false,
+        scaling: 10,
         mostVisited: false,
         bookmarksManager: false,
         history: false,
@@ -51,39 +51,38 @@ export class Settings {
         {
           label: '',
           timezone: 'Automatic',
-          scaling: 50,
-          font: 'Roboto',
+          scaling: 14,
           span: 40,
           relativeTime: false,
+          twentyFour: false,
           seconds: {
             enabled: true,
             dim: false,
             blink: false,
-            scaling: 50,
-            offset: 50
+            scaling: 10,
+            offset: 0
           },
-          twentyFour: false,
           meridiem: {
             enabled: true,
             dim: true,
-            scaling: 50,
-            offset: 50
+            scaling: 10,
+            offset: 0
           },
           delimiter: {
             enabled: true,
-            dim: true,
+            dim: false,
             blink: true,
             symbol: ':',
-            scaling: 50,
-            offset: 50
+            scaling: 10,
+            offset: 0
           },
           brackets: {
             enabled: true,
             dim: true,
             left: '{',
             right: '}',
-            scaling: 50,
-            offset: 50
+            scaling: 10,
+            offset: 0
           },
           analog: {
             enabled: false,
@@ -94,8 +93,8 @@ export class Settings {
     },
     date: {
       enabled: true,
-      scaling: 50,
-      offset: 50,
+      scaling: 10,
+      offset: 0,
       placement: 1,
       timezone: 'Automatic',
       format: 20,
@@ -126,13 +125,13 @@ export class Settings {
     },
     search: {
       enabled: true,
-      scaling: 50,
+      scaling: 10,
       engine: 10,
       autocomplete: true
     },
     message: {
       enabled: false,
-      scaling: 50,
+      scaling: 10,
       text: 'Hello world!'
     },
     title: {

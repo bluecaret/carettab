@@ -1,33 +1,75 @@
 <div class="clock"
   *ngFor="let clock of settings.config.time.clocks"
-  [ngStyle]="{
-    'font-size': calcSize(clock.scaling),
-    'font-family': getFont(clock.font)
-  }">
-  <div class="bracket bracket--left" *ngIf="clock.brackets.enabled && clock.brackets.left !== ''">{{clock.brackets.left}}</div>
-  <div class="clock__content">
+  [style.fontSize]="shared.getFontSize(clock.scaling, 1.5)"
+  [style.width]="getSpan(clock.span)"
+  >
+  <div
+    class="bracket bracket--left"
+    *ngIf="clock.brackets.enabled && clock.brackets.left !== ''"
+    [ngClass]="{'dim':clock.brackets.dim}"
+    [style.fontSize]="shared.getFontSize(clock.brackets.scaling, 5)"
+    [style.transform]="shared.getOffset(clock.brackets.offset)">
+    {{clock.brackets.left}}
+  </div>
+  <div class="clockContent">
     <div class="time">
       <div class="timeDigit hour">
         <span>{{getHour(clock.timezone, clock.twentyFour, 1)}}</span>
         <span *ngIf="getHour(clock.timezone, clock.twentyFour, 2)">{{getHour(clock.timezone, clock.twentyFour, 2)}}</span>
       </div>
-      <div class="delimiter">
-        {{getDelimiter(clock.delimiter)}}
-      </div>
+      <div
+        *ngIf="clock.delimiter.enabled"
+        class="delimiter"
+        [ngClass]="{'dim':clock.delimiter.dim}"
+        [style.fontSize]="shared.getFontSize(clock.delimiter.scaling, 10)"
+        [style.transform]="shared.getOffset(clock.delimiter.offset)"
+        >{{clock.delimiter.symbol}}</div>
       <div class="timeDigit minute">
         <span>{{getMinute(clock.timezone, 1)}}</span>
         <span>{{getMinute(clock.timezone, 2)}}</span>
       </div>
-      <div *ngIf="clock.seconds.enabled" class="delimiter">
-        {{getDelimiter(clock.delimiter)}}
-      </div>
-      <div *ngIf="clock.seconds.enabled" class="timeDigit second">
+      <div
+        *ngIf="clock.seconds.enabled && clock.delimiter.enabled"
+        class="delimiter"
+        [ngClass]="{'dim':clock.delimiter.dim}"
+        [style.fontSize]="shared.getFontSize(clock.delimiter.scaling, 10)"
+        [style.transform]="shared.getOffset(clock.delimiter.offset)"
+        >{{clock.delimiter.symbol}}</div>
+      <div
+        *ngIf="clock.seconds.enabled"
+        class="timeDigit second"
+        [ngClass]="{'dim':clock.seconds.dim}"
+        [style.fontSize]="shared.getFontSize(clock.seconds.scaling, 10)"
+        [style.transform]="shared.getOffset(clock.seconds.offset)">
         <span>{{getSecond(clock.timezone, 1)}}</span>
         <span>{{getSecond(clock.timezone, 2)}}</span>
       </div>
+      <div
+        *ngIf="clock.meridiem.enabled"
+        class="timeMeridiem"
+        [ngClass]="{'dim':clock.meridiem.dim}"
+        [style.fontSize]="shared.getFontSize(clock.meridiem.scaling, 20)"
+        [style.transform]="shared.getOffset(clock.meridiem.offset)">
+        {{getMeridiem(clock.timezone)}}
+      </div>
     </div>
-    <div class="label" *ngIf="clock.label !== ''">{{clock.label}}</div>
-    <div class="clockDate">1 day ago</div>
+    <div
+      *ngIf="clock.label !== ''"
+      class="label">
+      {{clock.label}}
+    </div>
+    <!-- <div
+      class="clockDate"
+      [style.fontSize]="shared.getFontSize(clock.relative.scaling, 10)">
+      1 day ago
+    </div> -->
   </div>
-  <div class="bracket bracket--right" *ngIf="clock.brackets.enabled && clock.brackets.right !== ''">{{clock.brackets.right}}</div>
+  <div
+    class="bracket bracket--right"
+    *ngIf="clock.brackets.enabled && clock.brackets.right !== ''"
+    [ngClass]="{'dim':clock.brackets.dim}"
+    [style.fontSize]="shared.getFontSize(clock.brackets.scaling, 5)"
+    [style.transform]="shared.getOffset(clock.brackets.offset)">
+    {{clock.brackets.right}}
+  </div>
 </div>

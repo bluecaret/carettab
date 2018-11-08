@@ -1,66 +1,66 @@
 <div
   class="bookmarksBar"
-  [ngStyle]="{'font-size': bookmarkScale }"
+  [style.fontSize]="getBookmarkSize(settings.config.bookmarks.bookmarksBar.scaling)"
   *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
 
   <div class="bar">
     <!-- Scroll left button -->
     <button
-      class="bar__scroll"
+      class="barScroll"
       (click)="moveLeft(barList)"
       *ngIf="!isScrollAtStart(barList)">
-      <i class="bar__icon fas fa-angle-double-left"></i>
+      <i class="barIcon fas fa-angle-double-left"></i>
     </button>
     <!-- Bar list -->
-    <ul class="bar__list" #barList>
-      <li class="bar__node" *ngIf="settings.config.bookmarks.bookmarksBar.mostVisited">
-        <button title="Most visited" class="bar__folder" (click)="mostVisited()">
-          <img src="/assets/img/folder.png" class="bar__icon">
-          <div class="bar__label">Most visited</div>
+    <ul class="barList" #barList>
+      <li class="barNode" *ngIf="settings.config.bookmarks.bookmarksBar.mostVisited">
+        <button title="Most visited" class="barFolder" (click)="mostVisited()">
+          <img src="/assets/img/folder.png" class="barIcon">
+          <div class="barLabel">Most visited</div>
         </button>
       </li>
-      <li class="bar__node" *ngIf="settings.config.bookmarks.bookmarksBar.bookmarksManager">
-        <button title="Bookmarks manager" class="bar__folder" (click)="bookmarksManager()">
-          <img src="/assets/img/folder.png" class="bar__icon">
-          <div class="bar__label">Bookmarks manager</div>
+      <li class="barNode" *ngIf="settings.config.bookmarks.bookmarksBar.bookmarksManager">
+        <button title="Bookmarks manager" class="barFolder" (click)="bookmarksManager()">
+          <img src="/assets/img/folder.png" class="barIcon">
+          <div class="barLabel">Bookmarks manager</div>
         </button>
       </li>
-      <li class="bar__node" *ngIf="settings.config.bookmarks.bookmarksBar.history">
-        <button title="History" class="bar__folder" (click)="history()">
-          <img src="/assets/img/folder.png" class="bar__icon">
-          <div class="bar__label">History</div>
+      <li class="barNode" *ngIf="settings.config.bookmarks.bookmarksBar.history">
+        <button title="History" class="barFolder" (click)="history()">
+          <img src="/assets/img/folder.png" class="barIcon">
+          <div class="barLabel">History</div>
         </button>
       </li>
-      <li class="bar__node" *ngIf="settings.config.bookmarks.bookmarksBar.apps">
-        <button title="Apps" class="bar__folder" (click)="apps()">
-          <img src="/assets/img/folder.png" class="bar__icon">
-          <div class="bar__label">Apps</div>
+      <li class="barNode" *ngIf="settings.config.bookmarks.bookmarksBar.apps">
+        <button title="Apps" class="barFolder" (click)="apps()">
+          <img src="/assets/img/folder.png" class="barIcon">
+          <div class="barLabel">Apps</div>
         </button>
       </li>
-      <li class="bar__node" *ngIf="settings.config.bookmarks.bookmarksBar.chromeTab">
-        <button title="Chrome tab" class="bar__folder" (click)="chromeTab()">
-          <img src="/assets/img/folder.png" class="bar__icon">
-          <div class="bar__label">Chrome tab</div>
+      <li class="barNode" *ngIf="settings.config.bookmarks.bookmarksBar.chromeTab">
+        <button title="Chrome tab" class="barFolder" (click)="chromeTab()">
+          <img src="/assets/img/folder.png" class="barIcon">
+          <div class="barLabel">Chrome tab</div>
         </button>
       </li>
-      <li class="bar__node" *ngFor="let item of allBookmarks; let i = index">
+      <li class="barNode" *ngFor="let item of allBookmarks; let i = index">
         <ng-container *ngIf="item.url; else bookmarkFolder">
           <a
             href="{{item.url}}"
             title="{{item.title}}
               {{item.url}}"
-            class="bar__link">
-            <img [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/' + item.url)" class="bar__icon">
-            <div class="bar__label">{{item.title}}</div>
+            class="barLink">
+            <img [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/' + item.url)" class="barIcon">
+            <div class="barLabel">{{item.title}}</div>
           </a>
         </ng-container>
         <ng-template #bookmarkFolder>
           <button
-            class="bar__folder"
+            class="barFolder"
             title="{{item.title}}"
             (click)="toggle[i] = !toggle[i]">
-            <img src="/assets/img/folder.png" class="bar__icon">
-            <div class="bar__label">{{item.title}}</div>
+            <img src="/assets/img/folder.png" class="barIcon">
+            <div class="barLabel">{{item.title}}</div>
           </button>
         </ng-template>
         <div class="bar" *ngIf="item.children && toggle[i]" @slideDown>
@@ -72,10 +72,10 @@
     </ul>
     <!-- Scroll right button -->
     <button
-      class="bar__scroll"
+      class="barScroll"
       (click)="moveRight(barList)"
       *ngIf="!isScrollAtEnd(barList)">
-      <i class="bar__icon fas fa-angle-double-right"></i>
+      <i class="barIcon fas fa-angle-double-right"></i>
     </button>
   </div>
 
@@ -84,40 +84,40 @@
 <ng-template #tree let-list let-parent="parent" let-idx="idx">
   <!-- Back button -->
   <button
-    class="bar__title"
+    class="barTitle"
     *ngIf="parent"
     title="{{parent.title}}"
     (click)="toggle[idx] = !toggle[idx]">
-    <i class="bar__icon fas fa-caret-up"></i>
-    <div class="bar__label">{{parent.title}}</div>
+    <i class="barIcon fas fa-caret-up"></i>
+    <div class="barLabel">{{parent.title}}</div>
   </button>
   <!-- Scroll left button -->
   <button
-    class="bar__scroll"
+    class="barScroll"
     (click)="moveLeft(barList)"
     *ngIf="!isScrollAtStart(barList)">
-    <i class="bar__icon fas fa-angle-double-left"></i>
+    <i class="barIcon fas fa-angle-double-left"></i>
   </button>
   <!-- Bar list -->
-  <ul class="bar__list" #barList>
-    <li class="bar__node" *ngFor="let item of list; let n = index">
+  <ul class="barList" #barList>
+    <li class="barNode" *ngFor="let item of list; let n = index">
       <ng-container *ngIf="item.url; else bookmarkFolder">
         <a
           href="{{item.url}}"
           title="{{item.title}}
             {{item.url}}"
-          class="bar__link">
-          <img [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/' + item.url)" class="bar__icon">
-          <div class="bar__label">{{item.title}}</div>
+          class="barLink">
+          <img [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/' + item.url)" class="barIcon">
+          <div class="barLabel">{{item.title}}</div>
         </a>
       </ng-container>
       <ng-template #bookmarkFolder>
         <button
-          class="bar__folder"
+          class="barFolder"
           title="{{item.title}}"
           (click)="toggle[idx + '.' + n] = !toggle[idx + '.' + n]">
-          <img src="/assets/img/folder.png" class="bar__icon">
-          <div class="bar__label">{{item.title}}</div>
+          <img src="/assets/img/folder.png" class="barIcon">
+          <div class="barLabel">{{item.title}}</div>
         </button>
       </ng-template>
       <div class="bar" *ngIf="item.children && toggle[idx + '.' + n]" @slideDown>
@@ -129,16 +129,16 @@
   </ul>
   <!-- Scroll right button -->
   <button
-    class="bar__scroll"
+    class="barScroll"
     (click)="moveRight(barList)"
     *ngIf="!isScrollAtEnd(barList)">
-    <i class="bar__icon fas fa-angle-double-right"></i>
+    <i class="barIcon fas fa-angle-double-right"></i>
   </button>
 </ng-template>
 
 <div
   class="quickLinksBar"
-  [ngStyle]="{'font-size': quickLinkScale }"
+  [style.fontSize]="shared.getFontSize(settings.config.bookmarks.quickLinks.scaling)"
   *ngIf="settings.config.bookmarks.quickLinks.enabled">
   <ul>
     <li *ngFor="let item of settings.config.bookmarks.links; let i = index">

@@ -35,11 +35,11 @@
       <label>Placement</label>
     </div>
     <div class="field span-2">
-      <options-range name="dateSize" min="1" max="100" [(ngModel)]="settings.config.date.scaling" (ngModelChange)="saveAll()"></options-range>
+      <options-range name="dateSize" min="1" max="20" [(ngModel)]="settings.config.date.scaling" (ngModelChange)="saveAll()"></options-range>
       <label>Size</label>
     </div>
     <div class="field span-2">
-      <options-range name="dateOffset" min="1" max="100" [(ngModel)]="settings.config.date.offset" (ngModelChange)="saveAll()"></options-range>
+      <options-range name="dateOffset" min="1" max="20" [(ngModel)]="settings.config.date.offset" (ngModelChange)="saveAll()"></options-range>
       <label>Offset</label>
     </div>
     <div class="grid cols-2 span-6">

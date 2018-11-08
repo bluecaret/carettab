@@ -13,7 +13,7 @@
         <label title="Choose a search engine to use with the search box.">Search Engine</label>
       </div>
       <div class="field span-2">
-        <options-range name="searchSize" id="searchSize" min="1" max="100" [(ngModel)]="settings.config.search.scaling" (ngModelChange)="saveAll()"></options-range>
+        <options-range name="searchSize" id="searchSize" min="1" max="20" [(ngModel)]="settings.config.search.scaling" (ngModelChange)="saveAll()"></options-range>
         <label>Size</label>
       </div>
       <div class="field span-1">

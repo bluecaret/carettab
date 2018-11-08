@@ -25,17 +25,21 @@ import { Storage } from '../_storage/storage.service';
 export class TabComponent {
 
   constructor(public shared: SharedService, public settings: Storage) {
-    this.shared.optionsToggle = true;
+    this.shared.optionsToggle = false;
     this.shared.optionsPage = 'Dashboard';
+  }
+
+  /** Updates storage */
+  saveAll() {
+    this.settings.setAll(this.settings.config);
   }
 
   toggleOptions() {
     if (this.shared.optionsToggle === true) {
+      this.saveAll();
       this.shared.optionsToggle = false;
-      this.shared.optionsPage = null;
     } else {
       this.shared.optionsToggle = true;
-      this.shared.optionsPage = 'Dashboard';
     }
   }
 

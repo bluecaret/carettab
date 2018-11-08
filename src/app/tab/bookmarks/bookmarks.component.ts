@@ -2,6 +2,7 @@ import { Component, OnInit, HostBinding, ChangeDetectorRef, Input, ViewChild, El
 import { DomSanitizer } from '@angular/platform-browser';
 import { Storage } from '../../_storage/storage.service';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { SharedService } from '../../_shared/shared.service';
 
 @Component({
   selector: 'tab-bookmarks',
@@ -28,9 +29,6 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ]
 })
 export class TabBookmarksComponent implements OnInit {
-  baseScale = 12;
-  bookmarkScale = this.baseScale + 'px';
-  quickLinkScale = this.baseScale + 'px';
   allBookmarks: any;
   isLoading: boolean;
   toggle: any = {};
@@ -38,16 +36,13 @@ export class TabBookmarksComponent implements OnInit {
   @ViewChild('barList') barList: ElementRef;
 
   constructor(
+    public shared: SharedService,
     public settings: Storage,
     private cdRef: ChangeDetectorRef,
     private sanitizer: DomSanitizer,
     private zone: NgZone
   ) {
-    this.calcSize(this.settings.config.bookmarks.bookmarksBar.scaling, false);
-    this.calcSize(this.settings.config.bookmarks.quickLinks.scaling, true);
     this.settings.onChange().subscribe((data) => {
-      this.calcSize(data.bookmarks.bookmarksBar.scaling, false);
-      this.calcSize(data.bookmarks.quickLinks.scaling, true);
       if (data.bookmarks.bookmarksBar.enabled === true) {
         this.getBookmarks();
       }
@@ -72,9 +67,8 @@ export class TabBookmarksComponent implements OnInit {
     });
   }
 
-  calcSize(size: number, quickLink: boolean) {
-    const c = ((this.baseScale / 50) * size) + 'px';
-    quickLink === false ? this.bookmarkScale = c : this.quickLinkScale = c;
+  getBookmarkSize(size: number) {
+    return (size / .8333333333333) + 'px';
   }
 
   moveLeft(el: any) {

@@ -77,7 +77,7 @@
               <h4 class="m0 mb1">General clock settings</h4>
               <div class="grid cols-19">
                 <div class="field span-6">
-                  <options-range [name]="'clockSize'+i" [id]="'clockSize'+i" min="1" max="100" [(ngModel)]="clock.scaling" (ngModelChange)="saveAll()"></options-range>
+                  <options-range [name]="'clockSize'+i" [id]="'clockSize'+i" min="1" max="20" [(ngModel)]="clock.scaling" (ngModelChange)="saveAll()"></options-range>
                   <label [for]="'clockSize'+i" title="Change the size of the clock.">Size</label>
                 </div>
                 <div class="field span-4">
@@ -124,11 +124,11 @@
                   </div>
                   <div class="grid cols-2 span-3" *ngIf="clock.delimiter.enabled">
                     <div class="field span-1">
-                      <options-range [name]="'delimiterScaling'+i" [id]="'delimiterScaling'+i" min="1" max="100" [(ngModel)]="clock.delimiter.scaling" (ngModelChange)="saveAll()"></options-range>
+                      <options-range [name]="'delimiterScaling'+i" [id]="'delimiterScaling'+i" min="1" max="20" [(ngModel)]="clock.delimiter.scaling" (ngModelChange)="saveAll()"></options-range>
                       <label title="Adjusts the size of the delimiter relative to the clock">Size</label>
                     </div>
                     <div class="field span-1">
-                      <options-range [name]="'delimiterOffset'+i" [id]="'delimiterOffset'+i" min="1" max="100" [(ngModel)]="clock.delimiter.offset" (ngModelChange)="saveAll()"></options-range>
+                      <options-range [name]="'delimiterOffset'+i" [id]="'delimiterOffset'+i" min="-10" max="10" [(ngModel)]="clock.delimiter.offset" (ngModelChange)="saveAll()"></options-range>
                       <label title="Adjust the position of the delimiter up or down">Offset</label>
                     </div>
                     <div class="field span-1">
@@ -155,11 +155,11 @@
                   </div>
                   <div class="grid cols-2 span-3" *ngIf="clock.seconds.enabled">
                     <div class="field span-1">
-                      <options-range [name]="'secondsScaling'+i" [id]="'secondsScaling'+i" min="1" max="100" [(ngModel)]="clock.seconds.scaling" (ngModelChange)="saveAll()"></options-range>
+                      <options-range [name]="'secondsScaling'+i" [id]="'secondsScaling'+i" min="1" max="20" [(ngModel)]="clock.seconds.scaling" (ngModelChange)="saveAll()"></options-range>
                       <label title="Adjusts the size of the seconds relative to the clock">Size</label>
                     </div>
                     <div class="field span-1">
-                      <options-range [name]="'secondsOffset'+i" [id]="'secondsOffset'+i" min="1" max="100" [(ngModel)]="clock.seconds.offset" (ngModelChange)="saveAll()"></options-range>
+                      <options-range [name]="'secondsOffset'+i" [id]="'secondsOffset'+i" min="-10" max="10" [(ngModel)]="clock.seconds.offset" (ngModelChange)="saveAll()"></options-range>
                       <label title="Adjust the position of the seconds up or down">Offset</label>
                     </div>
                   </div>
@@ -180,11 +180,11 @@
                   </div>
                   <div class="grid cols-2 span-3" *ngIf="clock.meridiem.enabled">
                     <div class="field span-1">
-                      <options-range [name]="'meridiemScaling'+i" [id]="'meridiemScaling'+i" min="1" max="100" [(ngModel)]="clock.meridiem.scaling" (ngModelChange)="saveAll()"></options-range>
+                      <options-range [name]="'meridiemScaling'+i" [id]="'meridiemScaling'+i" min="1" max="20" [(ngModel)]="clock.meridiem.scaling" (ngModelChange)="saveAll()"></options-range>
                       <label title="Adjusts the size of the meridiem relative to the clock">Size</label>
                     </div>
                     <div class="field span-1">
-                      <options-range [name]="'meridiemOffset'+i" [id]="'meridiemOffset'+i" min="1" max="100" [(ngModel)]="clock.meridiem.offset" (ngModelChange)="saveAll()"></options-range>
+                      <options-range [name]="'meridiemOffset'+i" [id]="'meridiemOffset'+i" min="-10" max="10" [(ngModel)]="clock.meridiem.offset" (ngModelChange)="saveAll()"></options-range>
                       <label title="Adjust the position of the meridiem up or down">Offset</label>
                     </div>
                   </div>
@@ -203,11 +203,11 @@
                   </div>
                   <div class="grid cols-2 span-3" *ngIf="clock.brackets.enabled">
                     <div class="field span-1">
-                      <options-range [name]="'bracketsScaling'+i" [id]="'bracketsScaling'+i" min="1" max="100" [(ngModel)]="clock.brackets.scaling" (ngModelChange)="saveAll()"></options-range>
+                      <options-range [name]="'bracketsScaling'+i" [id]="'bracketsScaling'+i" min="1" max="20" [(ngModel)]="clock.brackets.scaling" (ngModelChange)="saveAll()"></options-range>
                       <label title="Adjusts the size of the brackets relative to the clock">Size</label>
                     </div>
                     <div class="field span-1">
-                      <options-range [name]="'bracketsOffset'+i" [id]="'bracketsOffset'+i" min="1" max="100" [(ngModel)]="clock.brackets.offset" (ngModelChange)="saveAll()"></options-range>
+                      <options-range [name]="'bracketsOffset'+i" [id]="'bracketsOffset'+i" min="-10" max="10" [(ngModel)]="clock.brackets.offset" (ngModelChange)="saveAll()"></options-range>
                       <label title="Adjust the position of the brackets up or down">Offset</label>
                     </div>
                     <div class="field span-1">
@@ -230,8 +230,6 @@
 </form>
 
 <button class="btn" (click)="add()"><i class="icon mr5">add</i>Add New Clock</button>
-
-
 
 <p class="mb0">
   <small><b>Note:</b> the time is an educated guess based on the time and timezone your computer is set to and may not reflect your actual time. CaretTab is guessing your current timezone to be:<br>"{{tz.timezoneFormat(this.tzGuess)}}".</small>

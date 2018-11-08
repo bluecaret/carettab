@@ -1,11 +1,19 @@
+.tabClocks {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .clock {
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: .3em;
+  padding: .3em 0;
 }
 
-.clock__content {
+.clockContent {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,7 +50,6 @@
 }
 
 .bracket {
-  font-size: 2em;
   line-height: 1;
 }
 

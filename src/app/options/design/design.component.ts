@@ -10,6 +10,7 @@ export class OptionsDesignComponent implements OnInit {
   fonts = offlineFontList;
   colors = colors;
   currentFont: string;
+  currentWeight: number;
 
   constructor(public settings: Storage) {
   }
@@ -23,8 +24,10 @@ export class OptionsDesignComponent implements OnInit {
   }
 
   getFont() {
-    let f = this.fonts.find(x => x.id === this.settings.config.design.font).label;
+    let f = this.fonts.find(x => x.id === this.settings.config.design.font).family;
+    let w = this.fonts.find(x => x.id === this.settings.config.design.font).weight;
     this.currentFont = '"' + f + '"';
+    this.currentWeight = w;
   }
 
   setFont(font: string) {

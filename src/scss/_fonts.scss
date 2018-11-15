@@ -61,13 +61,13 @@ $font-src: "../assets/fonts";
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Open Sans'), local('OpenSans-Regular'), url(#{$font-src}/OpenSans-Regular.ttf) format('truetype');
+  src: url(#{$font-src}/OpenSans-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 700;
-  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(#{$font-src}/OpenSans-Bold.ttf) format('truetype');
+  src: url(#{$font-src}/OpenSans-Bold.ttf) format('truetype');
 }
 
 /* Roboto */
@@ -75,19 +75,19 @@ $font-src: "../assets/fonts";
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local('Roboto Light'), local('Roboto-Light'), url(#{$font-src}/Roboto-Light.ttf) format('truetype');
+  src: url(#{$font-src}/Roboto-Light.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto'), local('Roboto-Regular'), url(#{$font-src}/Roboto-Regular.ttf) format('truetype');
+  src: url(#{$font-src}/Roboto-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local('Roboto Bold'), local('Roboto-Bold'), url(#{$font-src}/Roboto-Bold.ttf) format('truetype');
+  src: url(#{$font-src}/Roboto-Bold.ttf) format('truetype');
 }
 
 /* Exo 2 */
@@ -147,7 +147,7 @@ $font-src: "../assets/fonts";
   font-family: 'Amatic SC';
   font-style: normal;
   font-weight: 700;
-  src: local('Amatic SC Bold'), local('AmaticSC-Bold'), url(#{$font-src}/AmaticSC-Regular.ttf) format('truetype');
+  src: local('Amatic SC Bold'), local('AmaticSC-Bold'), url(#{$font-src}/AmaticSC-Bold.ttf) format('truetype');
 }
 
 /* Anton */

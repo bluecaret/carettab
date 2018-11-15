@@ -1,11 +1,13 @@
 export class Clock {
   constructor(
-    public label: string = '',
+    public label: Label = new Label(),
     public timezone: string = 'Automatic',
-    public scaling: number = 8,
+    public scaling: number = 5,
     public span: number = 10,
-    public relativeTime: boolean = false,
+    public padding: number = 10,
+    public offset: number = 0,
     public twentyFour: boolean = false,
+    public relativeTime: RelativeTime = new RelativeTime(),
     public seconds: Seconds = new Seconds(),
     public meridiem: Meridiem = new Meridiem(),
     public delimiter: Delimiter = new Delimiter(),
@@ -14,12 +16,30 @@ export class Clock {
   ) {}
 }
 
+export class Label {
+  constructor(
+    public text: string = '',
+    public enabled: boolean = true,
+    public dim: boolean = false,
+    public scaling: number = 10,
+    public offset: number = 0
+  ) {}
+}
+
+export class RelativeTime {
+  constructor(
+    public enabled: boolean = false,
+    public dim: boolean = false,
+    public scaling: number = 10,
+    public offset: number = 0
+  ) {}
+}
+
 export class Seconds {
   constructor(
     public enabled: boolean = false,
     public dim: boolean = false,
-    public blink: boolean = false,
-    public scaling: number = 10,
+    public scaling: number = 20,
     public offset: number = 0
   ) {}
 }
@@ -27,9 +47,11 @@ export class Seconds {
 export class Meridiem {
   constructor(
     public enabled: boolean = true,
-    public dim: boolean = true,
+    public dim: boolean = false,
     public scaling: number = 10,
-    public offset: number = 0
+    public offset: number = 0,
+    public am: string = 'am',
+    public pm: string = 'pm'
   ) {}
 }
 
@@ -48,10 +70,11 @@ export class Brackets {
   constructor(
     public enabled: boolean = false,
     public dim: boolean = false,
-    public left: string = '{',
-    public right: string = '}',
+    public left: string = '[',
+    public right: string = ']',
     public scaling: number = 10,
-    public offset: number = 0
+    public offset: number = 0,
+    public padding: number = 1
   ) {}
 }
 

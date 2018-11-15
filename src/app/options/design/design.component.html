@@ -21,9 +21,18 @@
       </div>
       <div class="field span-2">
         <select name="font" id="font"
-          [(ngModel)]="settings.config.design.font" (ngModelChange)="saveAll(); getFont();"
-          [style.fontFamily]="currentFont" style="font-size: 1em; font-weight: 400;">
-          <option [ngValue]="font.id" *ngFor="let font of fonts;" [style.fontFamily]="setFont(font.label)">{{font.label}}</option>
+          [(ngModel)]="settings.config.design.font"
+          (ngModelChange)="saveAll(); getFont();"
+          [style.fontFamily]="currentFont"
+          [style.fontWeight]="currentFont"
+          style="font-size: 1em; font-weight: 400;">
+          <option
+            [ngValue]="font.id"
+            *ngFor="let font of fonts;"
+            [style.fontFamily]="setFont(font.family)"
+            [style.fontWeight]="font.weight">
+            {{font.label}}
+          </option>
         </select>
         <label for="font">Font</label>
       </div>

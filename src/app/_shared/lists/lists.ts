@@ -21,22 +21,30 @@ export const title = [
   { id: 30, label: 'Date' },
   { id: 40, label: 'Time, then date' },
   { id: 50, label: 'Date, then time' },
-  { id: 60, label: 'Custom text' },
-  { id: 70, label: '[no title]' },
+  { id: 60, label: 'Custom text' }
 ];
 
 export const offlineFontList = [
-  { id: 10, label: 'Amatic SC' },
-  { id: 20, label: 'Anton' },
-  { id: 30, label: 'EB Garamond' },
-  { id: 40, label: 'Exo 2' },
-  { id: 50, label: 'Lobster' },
-  { id: 60, label: 'Monoton' },
-  { id: 70, label: 'Open Sans' },
-  { id: 80, label: 'Press Start 2P' },
-  { id: 90, label: 'Quicksand' },
-  { id: 100, label: 'Roboto' },
-  { id: 110, label: 'Special Elite' }
+  { id: 10, label: 'Amatic SC', family: 'Amatic SC', weight: 400 },
+  { id: 11, label: 'Amatic SC Bold', family: 'Amatic SC', weight: 700 },
+  { id: 20, label: 'Anton', family: 'Anton', weight: 400 },
+  { id: 30, label: 'EB Garamond', family: 'EB Garamond', weight: 400 },
+  { id: 40, label: 'Exo 2', family: 'Exo 2', weight: 400 },
+  { id: 41, label: 'Exo 2 Extra Light', family: 'Exo 2', weight: 300 },
+  { id: 42, label: 'Exo 2 Bold', family: 'Exo 2', weight: 700 },
+  { id: 50, label: 'Lobster', family: 'Lobster', weight: 400 },
+  { id: 60, label: 'Monoton', family: 'Monoton', weight: 400 },
+  { id: 70, label: 'Open Sans', family: 'Open Sans', weight: 400 },
+  { id: 71, label: 'Open Sans Light', family: 'Open Sans', weight: 300 },
+  { id: 72, label: 'Open Sans Bold', family: 'Open Sans', weight: 700 },
+  { id: 80, label: 'Press Start 2P', family: 'Press Start 2P', weight: 400 },
+  { id: 90, label: 'Quicksand', family: 'Quicksand', weight: 400 },
+  { id: 91, label: 'Quicksand Light', family: 'Quicksand', weight: 300 },
+  { id: 92, label: 'Quicksand Bold', family: 'Quicksand', weight: 700 },
+  { id: 100, label: 'Roboto', family: 'Roboto', weight: 400 },
+  { id: 101, label: 'Roboto Light', family: 'Roboto', weight: 300 },
+  { id: 102, label: 'Roboto Bold', family: 'Roboto', weight: 700 },
+  { id: 110, label: 'Special Elite', family: 'Special Elite', weight: 400 }
 ];
 
 export const analogStyles = [

@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .3em 0;
+  padding: .2em 0;
 }
 
 .clockContent {
@@ -26,10 +26,6 @@
   }
 }
 
-.bracket--left {
-}
-.bracket--right {
-}
 .time {
   .timeDigit {
     display: flex;
@@ -40,13 +36,14 @@
     }
   }
   .delimiter {
-    width: .3em;
+    min-width: .3em;
     text-align: center;
   }
 }
-.label {
-}
-.clockDate {
+
+.timeMeridiem {
+  white-space: pre;
+  padding: 0 .15em;
 }
 
 .bracket {
@@ -56,4 +53,15 @@
 .label,
 .clockDate {
   font-size: .3em;
+}
+
+.dim {
+  opacity: .5;
+}
+
+.blink {
+  opacity: .5;
+  &.dim {
+    opacity: .25;
+  }
 }

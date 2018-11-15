@@ -6,7 +6,7 @@ export class Settings {
       scalingMethod: true,
       scaling: 10,
       offlineFont: true,
-      font: 100,
+      font: 41,
       background: '#ffffff',
       foreground: '#000000',
       optionsToggle: true,
@@ -49,40 +49,55 @@ export class Settings {
     time: {
       clocks: [
         {
-          label: '',
           timezone: 'Automatic',
-          scaling: 14,
+          scaling: 10,
           span: 40,
-          relativeTime: false,
+          padding: 10,
+          offset: 1,
           twentyFour: false,
+          label: {
+            text: 'Main clock',
+            enabled: false,
+            dim: false,
+            scaling: 10,
+            offset: 0
+          },
+          relativeTime: {
+            enabled: false,
+            dim: false,
+            scaling: 10,
+            offset: 0
+          },
           seconds: {
             enabled: true,
             dim: false,
-            blink: false,
-            scaling: 10,
+            scaling: 20,
             offset: 0
           },
           meridiem: {
             enabled: true,
-            dim: true,
+            dim: false,
             scaling: 10,
-            offset: 0
+            offset: 0,
+            am: 'am',
+            pm: 'pm'
           },
           delimiter: {
             enabled: true,
-            dim: false,
-            blink: true,
+            dim: true,
+            blink: false,
             symbol: ':',
             scaling: 10,
-            offset: 0
+            offset: 2
           },
           brackets: {
             enabled: true,
-            dim: true,
-            left: '{',
-            right: '}',
-            scaling: 10,
-            offset: 0
+            dim: false,
+            left: '[',
+            right: ']',
+            scaling: 8,
+            offset: 1,
+            padding: 1
           },
           analog: {
             enabled: false,
@@ -136,7 +151,7 @@ export class Settings {
     },
     title: {
       type: 10,
-      text: 'New Tab',
+      text: 'Hello world!',
       clockUsed: 1
     }
   };

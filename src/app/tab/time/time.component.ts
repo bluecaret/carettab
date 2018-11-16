@@ -161,4 +161,28 @@ export class TabTimeComponent {
     return (size * .1) + 'em';
   }
 
+  getAnalogSecond(zone: string): string {
+    zone = this.getZone(zone);
+    let time = moment(this.currentTime).tz(zone);
+    let second = time.seconds() * 6;
+    return 'rotateZ(' + second + 'deg)';
+  }
+
+  getAnalogMinute(zone: string): string {
+    zone = this.getZone(zone);
+    let time = moment(this.currentTime).tz(zone);
+    let second = time.seconds() * 6;
+    let minute = time.minutes() * 6 + second / 60;
+    return 'rotateZ(' + minute + 'deg)';
+  }
+
+  getAnalogHour(zone: string): string {
+    zone = this.getZone(zone);
+    let time = moment(this.currentTime).tz(zone);
+    let second = time.seconds() * 6;
+    let minute = time.minutes() * 6 + second / 60;
+    let hour = ((time.hours() % 12) / 12) * 360 + minute / 12;
+    return 'rotateZ(' + hour + 'deg)';
+  }
+
 }

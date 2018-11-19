@@ -72,4 +72,9 @@ export class SharedService {
     return 'translateY(' + offset + '%)';
   }
 
+  public getOffsetLarge(size: number) {
+    let offset = ((size * 10) * -1);
+    return 'translateY(' + offset + '%)';
+  }
+
 }

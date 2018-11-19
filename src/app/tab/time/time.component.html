@@ -1,7 +1,8 @@
 <div class="clock"
-  *ngFor="let clock of settings.config.time.clocks"
+  *ngFor="let clock of settings.config.time.clocks; let i = index;"
   [style.fontSize]="shared.getFontSize(clock.scaling, 1.7)"
   [style.width]="getSpan(clock.span)"
+  [style.order]="i + 1"
   [style.transform]="shared.getOffset(clock.offset)">
   <div
     class="bracket bracket--left"
@@ -115,3 +116,6 @@
     {{clock.brackets.right}}
   </div>
 </div>
+<tab-date
+  [style.order]="this.settings.config.date.placement"
+  [style.transform]="shared.getOffsetLarge(settings.config.date.offset)"></tab-date>

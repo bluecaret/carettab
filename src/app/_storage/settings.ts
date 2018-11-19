@@ -53,7 +53,7 @@ export class Settings {
           scaling: 10,
           span: 40,
           padding: 10,
-          offset: 1,
+          offset: 0,
           twentyFour: false,
           label: {
             text: 'Main clock',
@@ -95,8 +95,8 @@ export class Settings {
             dim: false,
             left: '[',
             right: ']',
-            scaling: 8,
-            offset: 1,
+            scaling: 10,
+            offset: -1,
             padding: 1
           },
           analog: {
@@ -108,8 +108,8 @@ export class Settings {
     },
     date: {
       enabled: true,
-      scaling: 10,
-      offset: 0,
+      scaling: 6,
+      offset: 15,
       placement: 1,
       timezone: 'Automatic',
       format: 20,
@@ -124,6 +124,7 @@ export class Settings {
       month: {
         enabled: true,
         abbr: false,
+        twoDigit: false
       },
       day: {
         enabled: true,
@@ -135,7 +136,9 @@ export class Settings {
       },
       week: {
         enabled: false,
-        label: 'Week'
+        label: 'Week',
+        scaling: 10,
+        offset: 0,
       },
     },
     search: {

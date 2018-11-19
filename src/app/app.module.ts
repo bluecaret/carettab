@@ -32,6 +32,7 @@ import { TimezoneService } from './options/time/timezone.service';
 import { TabComponent } from './tab/tab.component';
 import { TabBookmarksComponent } from './tab/bookmarks/bookmarks.component';
 import { TabTimeComponent } from './tab/time/time.component';
+import { TabDateComponent } from './tab/date/date.component';
 import { NavComponent } from './tab/nav.component';
 
 @NgModule({
@@ -55,7 +56,8 @@ import { NavComponent } from './tab/nav.component';
     TabComponent,
     NavComponent,
     TabBookmarksComponent,
-    TabTimeComponent
+    TabTimeComponent,
+    TabDateComponent
   ],
   imports: [
     BrowserModule,

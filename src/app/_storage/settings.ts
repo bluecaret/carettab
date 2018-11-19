@@ -53,7 +53,7 @@ export class Settings {
           scaling: 10,
           span: 40,
           padding: 10,
-          offset: 0,
+          offset: 1,
           twentyFour: false,
           label: {
             text: 'Main clock',
@@ -109,7 +109,7 @@ export class Settings {
     date: {
       enabled: true,
       scaling: 6,
-      offset: 15,
+      offset: 17,
       placement: 1,
       timezone: 'Automatic',
       format: 20,

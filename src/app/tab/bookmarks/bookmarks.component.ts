@@ -32,6 +32,10 @@ export class TabBookmarksComponent implements OnInit {
   allBookmarks: any;
   isLoading: boolean;
   toggle: any = {};
+  allMostVisited: any;
+  toggleMostVisited = false;
+  mostVisited = {title: 'Most Visited'};
+  toggleMvMenu = false;
 
   @ViewChild('barList') barList: ElementRef;
 
@@ -46,6 +50,12 @@ export class TabBookmarksComponent implements OnInit {
       if (data.bookmarks.bookmarksBar.enabled === true) {
         this.getBookmarks();
       }
+      if (
+        data.bookmarks.bookmarksBar.mostVisited === true ||
+        data.bookmarks.quickLinks.mostVisited === true
+      ) {
+        this.getMostVisited();
+      }
     });
   }
 
@@ -54,6 +64,22 @@ export class TabBookmarksComponent implements OnInit {
     if (this.settings.config.bookmarks.bookmarksBar.enabled) {
       this.getBookmarks();
     }
+    if (
+      this.settings.config.bookmarks.bookmarksBar.mostVisited === true ||
+      this.settings.config.bookmarks.quickLinks.mostVisited === true
+    ) {
+      this.getMostVisited();
+    }
+  }
+
+  getMostVisited() {
+    chrome.topSites.get(site => {
+      this.zone.run(() => {
+        this.isLoading = false;
+        this.allMostVisited = site;
+        console.log(this.allMostVisited);
+      });
+    });
   }
 
   getBookmarks() {
@@ -104,10 +130,6 @@ export class TabBookmarksComponent implements OnInit {
     if (el.scrollLeft === (el.scrollWidth - el.offsetWidth)) {
       return true;
     }
-  }
-
-  mostVisited() {
-    chrome.tabs.update({ url: 'chrome://mostvisited' });
   }
 
   bookmarksManager() {

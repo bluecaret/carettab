@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
- 
+
   "name": "__MSG_appName__",
   "short_name": "CaretTab",
   "description": "__MSG_appDesc__",
@@ -15,7 +15,7 @@
   "chrome_url_overrides" : {
     "newtab": "index.html"
   },
-  
+
   "background": {
     "scripts": ["js/update.js"],
     "persistent": false
@@ -26,9 +26,10 @@
   "permissions": [
     "storage",
     "bookmarks",
-    "chrome://favicon/"
+    "chrome://favicon/",
+    "topSites"
   ],
 
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
-  
+
 }

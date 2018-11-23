@@ -12,24 +12,24 @@
       </div>
       <div class="grid cols-5 span-5" *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
         <div class="field span-1">
-          <options-toggle name="mostVisitedBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.mostVisited" (ngModelChange)="saveAll()"></options-toggle>
-          <label>Most visited</label>
-        </div>
-        <div class="field span-1">
-          <options-toggle name="bookmarksManagerBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.bookmarksManager" (ngModelChange)="saveAll()"></options-toggle>
-          <label>Bookmarks manager</label>
-        </div>
-        <div class="field span-1">
-          <options-toggle name="historyBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.history" (ngModelChange)="saveAll()"></options-toggle>
-          <label>History link</label>
-        </div>
-        <div class="field span-1">
           <options-toggle name="appsBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.apps" (ngModelChange)="saveAll()"></options-toggle>
           <label>Apps link</label>
         </div>
         <div class="field span-1">
           <options-toggle name="chromeTabBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.chromeTab" (ngModelChange)="saveAll()"></options-toggle>
           <label>Chrome tab</label>
+        </div>
+        <div class="field span-1">
+          <options-toggle name="historyBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.history" (ngModelChange)="saveAll()"></options-toggle>
+          <label>History link</label>
+        </div>
+        <div class="field span-1">
+          <options-toggle name="bookmarksManagerBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.bookmarksManager" (ngModelChange)="saveAll()"></options-toggle>
+          <label>Bookmarks manager</label>
+        </div>
+        <div class="field span-1">
+          <options-toggle name="mostVisitedBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.mostVisited" (ngModelChange)="saveAll()"></options-toggle>
+          <label>Most visited</label>
         </div>
       </div>
     </div>
@@ -54,24 +54,24 @@
       </div>
       <div class="grid cols-5 span-5" *ngIf="settings.config.bookmarks.quickLinks.enabled">
         <div class="field span-1">
-          <options-toggle name="mostVisitedQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.mostVisited" (ngModelChange)="saveAll()"></options-toggle>
-          <label>Most visited</label>
-        </div>
-        <div class="field span-1">
-          <options-toggle name="bookmarksManagerQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.bookmarksManager" (ngModelChange)="saveAll()"></options-toggle>
-          <label>Bookmarks manager</label>
-        </div>
-        <div class="field span-1">
-          <options-toggle name="historyQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.history" (ngModelChange)="saveAll()"></options-toggle>
-          <label>History link</label>
-        </div>
-        <div class="field span-1">
           <options-toggle name="appsQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.apps" (ngModelChange)="saveAll()"></options-toggle>
           <label>Apps link</label>
         </div>
         <div class="field span-1">
           <options-toggle name="chromeTabQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.chromeTab" (ngModelChange)="saveAll()"></options-toggle>
           <label>Chrome tab</label>
+        </div>
+        <div class="field span-1">
+          <options-toggle name="historyQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.history" (ngModelChange)="saveAll()"></options-toggle>
+          <label>History link</label>
+        </div>
+        <div class="field span-1">
+          <options-toggle name="bookmarksManagerQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.bookmarksManager" (ngModelChange)="saveAll()"></options-toggle>
+          <label>Bookmarks manager</label>
+        </div>
+        <div class="field span-1">
+          <options-toggle name="mostVisitedQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.mostVisited" (ngModelChange)="saveAll()"></options-toggle>
+          <label>Most visited</label>
         </div>
       </div>
     </div>

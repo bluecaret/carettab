@@ -51,3 +51,57 @@
 .bookmarksBar + .quickLinksBar ul {
   top: 33px;
 }
+
+.mostVisitedLink {
+  position: relative;
+}
+.mostVisitedMenu {
+  position: absolute;
+  z-index: z('tabQuickLinksMostVisited');
+  top: 100%;
+  left: 0;
+  display: block;
+  margin: 0;
+  padding: 0;
+  min-width: 10em;
+  max-width: 20em;
+  background-color: $optionsBg;
+  border: $optionsBorder;
+  border-radius: $optionsRadius;
+  box-shadow: none;
+  a {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-size: 14px;
+    overflow: hidden;
+    color: black;
+    font-family: "Open Sans", sans-serif;
+    text-decoration: none;
+    margin: 0;
+    padding: .5em 1em;
+    cursor: pointer;
+    transition: transform .2s;
+    transform-origin: left center;
+    img {
+      flex: 0 0 auto;
+      width: 16px;
+      height: 16px;
+      font-size: 16px;
+      margin-right: .6em;
+    }
+    div {
+      flex: 1 1 auto;
+      position: relative;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      line-height: 22px;
+      font-weight: 300;
+      font-family: "Open Sans", sans-serif;
+    }
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+}

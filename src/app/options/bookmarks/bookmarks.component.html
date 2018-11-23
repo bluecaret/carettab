@@ -1,16 +1,16 @@
 <form #bookmarkOptions="ngForm" novalidate>
   <fieldset>
     <legend>Bookmarks</legend>
-    <div class="grid cols-4">
+    <div class="grid cols-5">
       <div class="field span-1">
         <options-toggle name="toggleBookmarks" [(ngModel)]="settings.config.bookmarks.bookmarksBar.enabled" (ngModelChange)="saveAll()"></options-toggle>
         <label>Bookmarks Bar</label>
       </div>
-      <div class="field span-2" *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
-        <options-range name="bookmarksSize" id="bookmarksSize" min="1" max="20" [(ngModel)]="settings.config.bookmarks.bookmarksBar.scaling" (ngModelChange)="saveAll()"></options-range>
-        <label>Size</label>
+      <div class="field span-1">
+        <options-toggle name="bookmarksBarIcons" [(ngModel)]="settings.config.bookmarks.bookmarksBar.icons" (ngModelChange)="saveAll()"></options-toggle>
+        <label>Favicons</label>
       </div>
-      <div class="grid cols-5 span-4" *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
+      <div class="grid cols-5 span-5" *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
         <div class="field span-1">
           <options-toggle name="mostVisitedBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.mostVisited" (ngModelChange)="saveAll()"></options-toggle>
           <label>Most visited</label>
@@ -36,7 +36,7 @@
   </fieldset>
   <fieldset [ngClass]="{'mb0': !settings.config.bookmarks.quickLinks.enabled}">
     <legend>Quick links</legend>
-    <div class="grid cols-4">
+    <div class="grid cols-5">
       <div class="field span-1">
         <div class="toggle">
           <input type="checkbox" name="toggleQuickLinks" id="toggleQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.enabled" (ngModelChange)="saveAll()">
@@ -44,11 +44,15 @@
         </div>
         <label>Quick Links</label>
       </div>
+      <div class="field span-1">
+        <options-toggle name="quickLinksIcons" [(ngModel)]="settings.config.bookmarks.quickLinks.icons" (ngModelChange)="saveAll()"></options-toggle>
+        <label>Favicons</label>
+      </div>
       <div class="field span-2" *ngIf="settings.config.bookmarks.quickLinks.enabled">
         <options-range name="quickLinksSize" id="quickLinksSize" min="1" max="20" [(ngModel)]="settings.config.bookmarks.quickLinks.scaling" (ngModelChange)="saveAll()"></options-range>
         <label for="quickLinksSize">Size</label>
       </div>
-      <div class="grid cols-5 span-4" *ngIf="settings.config.bookmarks.quickLinks.enabled">
+      <div class="grid cols-5 span-5" *ngIf="settings.config.bookmarks.quickLinks.enabled">
         <div class="field span-1">
           <options-toggle name="mostVisitedQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.mostVisited" (ngModelChange)="saveAll()"></options-toggle>
           <label>Most visited</label>

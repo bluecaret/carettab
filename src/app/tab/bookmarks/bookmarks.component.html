@@ -1,3 +1,4 @@
+<!-- Bookmarks Bar-->
 <div
   class="bookmarksBar"
   [style.fontSize]="getBookmarkSize(settings.config.bookmarks.bookmarksBar.scaling)"
@@ -15,31 +16,31 @@
     <ul class="barList" #barList>
       <li class="barNode" *ngIf="settings.config.bookmarks.bookmarksBar.mostVisited">
         <button title="Most visited" class="barFolder" (click)="mostVisited()">
-          <img src="/assets/img/folder.png" class="barIcon">
+          <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" src="/assets/img/folder.png" class="barIcon">
           <div class="barLabel">Most visited</div>
         </button>
       </li>
       <li class="barNode" *ngIf="settings.config.bookmarks.bookmarksBar.bookmarksManager">
         <button title="Bookmarks manager" class="barFolder" (click)="bookmarksManager()">
-          <img src="/assets/img/folder.png" class="barIcon">
+          <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" src="/assets/img/folder.png" class="barIcon">
           <div class="barLabel">Bookmarks manager</div>
         </button>
       </li>
       <li class="barNode" *ngIf="settings.config.bookmarks.bookmarksBar.history">
         <button title="History" class="barFolder" (click)="history()">
-          <img src="/assets/img/folder.png" class="barIcon">
+          <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" src="/assets/img/folder.png" class="barIcon">
           <div class="barLabel">History</div>
         </button>
       </li>
       <li class="barNode" *ngIf="settings.config.bookmarks.bookmarksBar.apps">
         <button title="Apps" class="barFolder" (click)="apps()">
-          <img src="/assets/img/folder.png" class="barIcon">
+          <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" src="/assets/img/folder.png" class="barIcon">
           <div class="barLabel">Apps</div>
         </button>
       </li>
       <li class="barNode" *ngIf="settings.config.bookmarks.bookmarksBar.chromeTab">
         <button title="Chrome tab" class="barFolder" (click)="chromeTab()">
-          <img src="/assets/img/folder.png" class="barIcon">
+          <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" src="/assets/img/folder.png" class="barIcon">
           <div class="barLabel">Chrome tab</div>
         </button>
       </li>
@@ -50,7 +51,7 @@
             title="{{item.title}}
               {{item.url}}"
             class="barLink">
-            <img [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/' + item.url)" class="barIcon">
+            <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/size/16@2x/' + item.url)" class="barIcon">
             <div class="barLabel">{{item.title}}</div>
           </a>
         </ng-container>
@@ -59,7 +60,7 @@
             class="barFolder"
             title="{{item.title}}"
             (click)="toggle[i] = !toggle[i]">
-            <img src="/assets/img/folder.png" class="barIcon">
+            <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" src="/assets/img/folder.png" class="barIcon">
             <div class="barLabel">{{item.title}}</div>
           </button>
         </ng-template>
@@ -107,7 +108,7 @@
           title="{{item.title}}
             {{item.url}}"
           class="barLink">
-          <img [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/' + item.url)" class="barIcon">
+          <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/size/16@2x/' + item.url)" class="barIcon">
           <div class="barLabel">{{item.title}}</div>
         </a>
       </ng-container>
@@ -116,7 +117,7 @@
           class="barFolder"
           title="{{item.title}}"
           (click)="toggle[idx + '.' + n] = !toggle[idx + '.' + n]">
-          <img src="/assets/img/folder.png" class="barIcon">
+          <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" src="/assets/img/folder.png" class="barIcon">
           <div class="barLabel">{{item.title}}</div>
         </button>
       </ng-template>
@@ -136,13 +137,48 @@
   </button>
 </ng-template>
 
+
+<!-- Quick Links -->
 <div
   class="quickLinksBar"
   [style.fontSize]="shared.getFontSize(settings.config.bookmarks.quickLinks.scaling)"
   *ngIf="settings.config.bookmarks.quickLinks.enabled">
   <ul>
+    <li *ngIf="settings.config.bookmarks.quickLinks.mostVisited">
+      <button title="Most visited" class="link" (click)="mostVisited()">
+        <img *ngIf="settings.config.bookmarks.quickLinks.icons" src="/assets/img/folder.png" class="quickLinksIcon">
+        <div class="quickLinksLabel">Most visited</div>
+      </button>
+    </li>
+    <li *ngIf="settings.config.bookmarks.quickLinks.bookmarksManager">
+      <button title="Bookmarks manager" class="link" (click)="bookmarksManager()">
+        <img *ngIf="settings.config.bookmarks.quickLinks.icons" src="/assets/img/folder.png" class="quickLinksIcon">
+        <div class="quickLinksLabel">Bookmarks manager</div>
+      </button>
+    </li>
+    <li *ngIf="settings.config.bookmarks.quickLinks.history">
+      <button title="History" class="link" (click)="history()">
+        <img *ngIf="settings.config.bookmarks.quickLinks.icons" src="/assets/img/folder.png" class="quickLinksIcon">
+        <div class="quickLinksLabel">History</div>
+      </button>
+    </li>
+    <li *ngIf="settings.config.bookmarks.quickLinks.apps">
+      <button title="Apps" class="link" (click)="apps()">
+        <img *ngIf="settings.config.bookmarks.quickLinks.icons" src="/assets/img/folder.png" class="quickLinksIcon">
+        <div class="quickLinksLabel">Apps</div>
+      </button>
+    </li>
+    <li *ngIf="settings.config.bookmarks.quickLinks.chromeTab">
+      <button title="Chrome tab" class="link" (click)="chromeTab()">
+        <img *ngIf="settings.config.bookmarks.quickLinks.icons" src="/assets/img/folder.png" class="quickLinksIcon">
+        <div class="quickLinksLabel">Chrome tab</div>
+      </button>
+    </li>
     <li *ngFor="let item of settings.config.bookmarks.links; let i = index">
-      {{item.label}}
+      <a href="{{item.url}}" class="link">
+        <img *ngIf="settings.config.bookmarks.quickLinks.icons" [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/size/16@2x/' + item.url)" class="quickLinksIcon">
+        <div class="quickLinksLabel">{{item.label}}</div>
+      </a>
     </li>
   </ul>
 

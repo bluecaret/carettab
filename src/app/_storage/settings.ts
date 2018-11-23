@@ -15,7 +15,7 @@ export class Settings {
     bookmarks: {
       bookmarksBar: {
         enabled: false,
-        scaling: 10,
+        icons: true,
         mostVisited: false,
         bookmarksManager: false,
         history: false,
@@ -24,6 +24,7 @@ export class Settings {
       },
       quickLinks: {
         enabled: false,
+        icons: true,
         scaling: 10,
         mostVisited: false,
         bookmarksManager: false,

@@ -1,0 +1,53 @@
+.quickLinksBar {
+  ul {
+    position: fixed;
+    z-index: z('tabQuickLinks');
+    top: 0px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: .5em 0 0 0;
+    padding: 0;
+  }
+  button.link,
+  a.link {
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: inherit;
+    font-weight: inherit;
+    align-items: center;
+    padding: .5em 1.2em;
+    text-decoration: none;
+    transition: transform 0.2s;
+    text-align: center;
+    color: inherit;
+    background: transparent;
+    font-family: inherit;
+    border: 0;
+    cursor: pointer;
+    transform: scale(1);
+    &:hover {
+      text-decoration: none;
+      transform: scale(1.1);
+    }
+  }
+  .quickLinksIcon {
+    flex: 0 0 auto;
+    width: 1em;
+    height: 1em;
+  }
+  .quickLinksLabel {
+    flex: 1 1 auto;
+  }
+  .quickLinksIcon + .quickLinksLabel {
+    margin-left: .4em;
+  }
+}
+
+.bookmarksBar + .quickLinksBar ul {
+  top: 33px;
+}

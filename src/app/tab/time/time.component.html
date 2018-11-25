@@ -117,5 +117,16 @@
   </div>
 </div>
 <tab-date
-  [style.order]="this.settings.config.date.placement"
+  *ngIf="settings.config.date.enabled"
+  [style.order]="settings.config.date.placement"
   [style.transform]="shared.getOffsetLarge(settings.config.date.offset)"></tab-date>
+<tab-message
+  *ngIf="settings.config.message.enabled"
+  [style.order]="settings.config.message.placement"
+  [style.transform]="shared.getOffsetLarge(settings.config.message.offset)"
+  [style.fontSize]="shared.getFontSize(settings.config.message.scaling, 3)"></tab-message>
+<tab-search
+  *ngIf="settings.config.search.enabled"
+  [style.order]="settings.config.search.placement"
+  [style.transform]="shared.getOffsetLarge(settings.config.search.offset)"
+  [style.fontSize]="shared.getFontSize(settings.config.search.scaling, 3)"></tab-search>

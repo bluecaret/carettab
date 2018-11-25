@@ -12,13 +12,28 @@
         </select>
         <label title="Choose a search engine to use with the search box.">Search Engine</label>
       </div>
+      <div class="field span-1">
+        <options-toggle name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete" (ngModelChange)="saveAll()"></options-toggle>
+        <label title="Turn off to disable the browser's autocomplete feature on the search box.">Autocomplete</label>
+      </div>
       <div class="field span-2">
         <options-range name="searchSize" id="searchSize" min="1" max="20" [(ngModel)]="settings.config.search.scaling" (ngModelChange)="saveAll()"></options-range>
         <label>Size</label>
       </div>
-      <div class="field span-1">
-        <options-toggle name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete" (ngModelChange)="saveAll()"></options-toggle>
-        <label title="Turn off to disable the browser's autocomplete feature on the search box.">Autocomplete</label>
+      <div class="field span-2">
+        <options-range name="searchOffset" min="-20" max="20" [(ngModel)]="settings.config.search.offset" (ngModelChange)="saveAll()"></options-range>
+        <label>Offset</label>
+      </div>
+      <div class="field span-2">
+        <options-range name="searchWidth" min="5" max="30" [(ngModel)]="settings.config.search.width" (ngModelChange)="saveAll()"></options-range>
+        <label>Width</label>
+      </div>
+      <div class="field span-2">
+        <select name="searchPlacement" [(ngModel)]="settings.config.search.placement" (ngModelChange)="saveAll()">
+          <option value=0>Before clocks</option>
+          <option *ngFor="let clock of settings.config.time.clocks; let i = index" [ngValue]="i+1">After clock #{{i + 1}}</option>
+        </select>
+        <label>Placement</label>
       </div>
     </div>
   </fieldset>

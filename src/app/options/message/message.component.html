@@ -14,6 +14,17 @@
         <options-range name="messageSize" id="messageSize" min="1" max="20" [(ngModel)]="settings.config.message.scaling" (ngModelChange)="saveAll()"></options-range>
         <label>Size</label>
       </div>
+      <div class="field span-2">
+        <options-range name="messageOffset" min="-20" max="20" [(ngModel)]="settings.config.message.offset" (ngModelChange)="saveAll()"></options-range>
+        <label>Offset</label>
+      </div>
+      <div class="field span-2">
+        <select name="messagePlacement" [(ngModel)]="settings.config.message.placement" (ngModelChange)="saveAll()">
+          <option value=0>Before clocks</option>
+          <option *ngFor="let clock of settings.config.time.clocks; let i = index" [ngValue]="i+1">After clock #{{i + 1}}</option>
+        </select>
+        <label>Placement</label>
+      </div>
     </div>
   </fieldset>
 </form>

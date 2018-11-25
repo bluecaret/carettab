@@ -110,7 +110,7 @@ export class Settings {
     date: {
       enabled: true,
       scaling: 6,
-      offset: 17,
+      offset: 16,
       placement: 1,
       timezone: 'Automatic',
       format: 20,
@@ -143,14 +143,19 @@ export class Settings {
       },
     },
     search: {
-      enabled: true,
-      scaling: 10,
+      enabled: false,
+      scaling: 6,
+      offset: 0,
+      placement: 1,
+      width: 15,
       engine: 10,
       autocomplete: true
     },
     message: {
       enabled: false,
-      scaling: 10,
+      scaling: 8,
+      offset: 0,
+      placement: 0,
       text: 'Hello world!'
     },
     title: {

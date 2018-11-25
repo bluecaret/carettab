@@ -77,7 +77,6 @@ export class TabBookmarksComponent implements OnInit {
       this.zone.run(() => {
         this.isLoading = false;
         this.allMostVisited = site;
-        console.log(this.allMostVisited);
       });
     });
   }

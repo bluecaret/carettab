@@ -30,10 +30,12 @@ import { TimezoneService } from './options/time/timezone.service';
 
 // Tab Imports
 import { TabComponent } from './tab/tab.component';
+import { NavComponent } from './tab/nav.component';
 import { TabBookmarksComponent } from './tab/bookmarks/bookmarks.component';
 import { TabTimeComponent } from './tab/time/time.component';
 import { TabDateComponent } from './tab/date/date.component';
-import { NavComponent } from './tab/nav.component';
+import { TabMessageComponent } from './tab/message/message.component';
+import { TabSearchComponent } from './tab/search/search.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { NavComponent } from './tab/nav.component';
     NavComponent,
     TabBookmarksComponent,
     TabTimeComponent,
-    TabDateComponent
+    TabDateComponent,
+    TabMessageComponent,
+    TabSearchComponent
   ],
   imports: [
     BrowserModule,

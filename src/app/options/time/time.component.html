@@ -49,7 +49,7 @@
         <div class="field btns span-4">
           <button
             type="button"
-            title="Move placement of clock up"
+            title="Move order of clock up"
             class="btn btnCircle mr5"
             [disabled]="isFirst"
             (click)="swap(settings.config.time.clocks, i, (i - 1))">
@@ -57,7 +57,7 @@
           </button>
           <button
             type="button"
-            title="Move placement of clock down"
+            title="Move order of clock down"
             class="btn btnCircle mr5"
             [disabled]="isLast"
             (click)="swap(settings.config.time.clocks, i, (i + 1))">

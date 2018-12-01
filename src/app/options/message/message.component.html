@@ -19,11 +19,11 @@
         <label>Offset</label>
       </div>
       <div class="field span-2">
-        <select name="messagePlacement" [(ngModel)]="settings.config.message.placement" (ngModelChange)="saveAll()">
+        <select name="messageOrder" [(ngModel)]="settings.config.message.order" (ngModelChange)="saveAll()">
           <option value=0>Before clocks</option>
           <option *ngFor="let clock of settings.config.time.clocks; let i = index" [ngValue]="i+1">After clock #{{i + 1}}</option>
         </select>
-        <label>Placement</label>
+        <label>Order</label>
       </div>
     </div>
   </fieldset>

@@ -55,6 +55,7 @@ export class Settings {
           span: 40,
           padding: 10,
           offset: 1,
+          order: 2.
           twentyFour: false,
           label: {
             text: 'Main clock',
@@ -111,7 +112,7 @@ export class Settings {
       enabled: true,
       scaling: 6,
       offset: 16,
-      placement: 1,
+      order: 3,
       timezone: 'Automatic',
       format: 20,
       short: {
@@ -146,7 +147,7 @@ export class Settings {
       enabled: false,
       scaling: 6,
       offset: 0,
-      placement: 1,
+      order: 1,
       width: 13,
       engine: 10,
       autocomplete: true
@@ -155,7 +156,7 @@ export class Settings {
       enabled: false,
       scaling: 8,
       offset: 0,
-      placement: 0,
+      order: 0,
       text: 'Hello world!'
     },
     title: {

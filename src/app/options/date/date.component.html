@@ -29,11 +29,11 @@
         <label>Format</label>
       </div>
       <div class="field span-2">
-        <select name="datePlacement" [(ngModel)]="settings.config.date.placement" (ngModelChange)="saveAll()">
+        <select name="dateOrder" [(ngModel)]="settings.config.date.order" (ngModelChange)="saveAll()">
           <option value=0>Before clocks</option>
           <option *ngFor="let clock of settings.config.time.clocks; let i = index" [ngValue]="i+1">After clock #{{i + 1}}</option>
         </select>
-        <label>Placement</label>
+        <label>Order</label>
       </div>
       <div class="field span-2">
         <options-range name="dateSize" min="1" max="20" [(ngModel)]="settings.config.date.scaling" (ngModelChange)="saveAll()"></options-range>

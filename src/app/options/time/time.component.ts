@@ -60,7 +60,7 @@ export class OptionsTimeComponent {
     }
   }
 
-  /** Move item's placement in array up or down */
+  /** Move item's order in array up or down */
   swap(arr: any[], from: number, to: number) {
     this.selected = null;
     arr.splice(from, 1, arr.splice(to, 1, arr[from])[0]);

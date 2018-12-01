@@ -29,11 +29,11 @@
         <label>Width</label>
       </div>
       <div class="field span-2">
-        <select name="searchPlacement" [(ngModel)]="settings.config.search.placement" (ngModelChange)="saveAll()">
+        <select name="searchOrder" [(ngModel)]="settings.config.search.order" (ngModelChange)="saveAll()">
           <option value=0>Before clocks</option>
           <option *ngFor="let clock of settings.config.time.clocks; let i = index" [ngValue]="i+1">After clock #{{i + 1}}</option>
         </select>
-        <label>Placement</label>
+        <label>Order</label>
       </div>
     </div>
   </fieldset>

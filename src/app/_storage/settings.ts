@@ -147,7 +147,7 @@ export class Settings {
       scaling: 6,
       offset: 0,
       placement: 1,
-      width: 15,
+      width: 13,
       engine: 10,
       autocomplete: true
     },

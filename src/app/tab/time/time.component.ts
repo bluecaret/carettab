@@ -1,6 +1,6 @@
-import { Component, NgZone, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import { Component, NgZone, Renderer2, ElementRef, ViewChild, Input } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
-import { Delimiter } from '../../_shared/models/clock';
+import { Clock } from '../../_shared/models/clock';
 import { SharedService } from '../../_shared/shared.service';
 import { span } from '../../_shared/lists/lists';
 import * as moment from 'moment';
@@ -8,11 +8,14 @@ import * as moment from 'moment';
 @Component({
   selector: 'tab-time',
   templateUrl: 'time.component.html',
-  host: {'class': 'tabClocks'}
+  host: {'class': 'clock'}
 })
 export class TabTimeComponent {
   currentTime: Date;
   span = span;
+
+  @Input() index: number;
+  @Input() clock: Clock;
 
   @ViewChild('time')
   public displayTime: ElementRef;
@@ -147,10 +150,6 @@ export class TabTimeComponent {
       zone = this.shared.zoneGuess;
     }
     return zone;
-  }
-
-  getSpan(clockSpan) {
-    return this.span.find(s => s.id === clockSpan).css;
   }
 
   getWidth(size: number) {

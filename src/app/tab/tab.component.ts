@@ -3,6 +3,7 @@ import { transition, trigger, style, state, animate } from '@angular/animations'
 import { Title } from '@angular/platform-browser';
 import { SharedService } from '../_shared/shared.service';
 import { Storage } from '../_storage/storage.service';
+import { span } from '../_shared/lists/lists';
 
 @Component({
   selector: 'app-tab',
@@ -24,6 +25,7 @@ import { Storage } from '../_storage/storage.service';
   ]
 })
 export class TabComponent implements OnInit {
+  span = span;
 
   constructor(
     public shared: SharedService,
@@ -84,6 +86,10 @@ export class TabComponent implements OnInit {
     } else {
       this.titleService.setTitle( 'New Tab' );
     }
+  }
+
+  getClockSpan(clockSpan) {
+    return this.span.find(s => s.id === clockSpan).css;
   }
 
 }

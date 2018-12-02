@@ -6,7 +6,32 @@
   >
 
   <tab-bookmarks></tab-bookmarks>
-  <tab-time></tab-time>
+
+  <div class="tabCenter">
+    <tab-time
+      *ngFor="let clock of settings.config.time.clocks; let i = index;"
+      [index]="i"
+      [clock]="clock"
+      [style.fontSize]="shared.getFontSize(clock.scaling, 1.7)"
+      [style.width]="getClockSpan(clock.span)"
+      [style.order]="i + 1"
+      [style.transform]="shared.getOffset(clock.offset)">
+    </tab-time>
+    <tab-date
+      *ngIf="settings.config.date.enabled"
+      [style.order]="settings.config.date.order"
+      [style.transform]="shared.getOffsetLarge(settings.config.date.offset)"></tab-date>
+    <tab-message
+      *ngIf="settings.config.message.enabled"
+      [style.order]="settings.config.message.order"
+      [style.transform]="shared.getOffsetLarge(settings.config.message.offset)"
+      [style.fontSize]="shared.getFontSize(settings.config.message.scaling, 3)"></tab-message>
+    <tab-search
+      *ngIf="settings.config.search.enabled"
+      [style.order]="settings.config.search.order"
+      [style.transform]="shared.getOffsetLarge(settings.config.search.offset)"
+      [style.fontSize]="shared.getFontSize(settings.config.search.scaling, 3)"></tab-search>
+  </div>
 
 </section>
 

@@ -55,7 +55,7 @@ export class Settings {
           span: 40,
           padding: 10,
           offset: 1,
-          order: 2.
+          order: 2,
           twentyFour: false,
           label: {
             text: 'Main clock',

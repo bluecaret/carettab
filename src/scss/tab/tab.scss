@@ -20,6 +20,18 @@ app-tab {
   transform: translate(0, 0) scale(1);
 }
 
+.tabCenter {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 @import "/toggle";
 @import "/nav";
 @import "/feature/bookmarks";

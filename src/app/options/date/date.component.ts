@@ -26,4 +26,18 @@ export class OptionsDateComponent {
   saveAll() {
     this.settings.setAll(this.settings.config);
   }
+
+  changeOrder(up) {
+    if (up) {
+      if (this.settings.config.date.order > this.shared.orderMin) {
+        this.settings.config.date.order--;
+        this.saveAll();
+      }
+    } else {
+      if (this.settings.config.date.order < this.shared.orderMax) {
+        this.settings.config.date.order++;
+        this.saveAll();
+      }
+    }
+  }
 }

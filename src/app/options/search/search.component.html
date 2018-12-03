@@ -29,10 +29,24 @@
         <label>Width</label>
       </div>
       <div class="field span-2">
-        <select name="searchOrder" [(ngModel)]="settings.config.search.order" (ngModelChange)="saveAll()">
-          <option value=0>Before clocks</option>
-          <option *ngFor="let clock of settings.config.time.clocks; let i = index" [ngValue]="i+1">After clock #{{i + 1}}</option>
-        </select>
+        <div class="orderBtns">
+          <button
+            type="button"
+            title="Move above other elements"
+            class="btn"
+            [disabled]="settings.config.search.order <= shared.orderMin"
+            (click)="changeOrder(true)">
+            <div class="icon">arrow_drop_up</div>
+          </button>
+          <button
+            type="button"
+            title="Move below other elements"
+            class="btn"
+            [disabled]="settings.config.search.order >= shared.orderMax"
+            (click)="changeOrder(false)">
+            <div class="icon">arrow_drop_down</div>
+          </button>
+        </div>
         <label>Order</label>
       </div>
     </div>

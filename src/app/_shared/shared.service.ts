@@ -9,6 +9,12 @@ export class SharedService {
   private _time: string;
   private _date: string;
   private _title: string = 'New Tab';
+  private _orderMin: number;
+  private _orderMax: number;
+
+  // Order number to start clocks at. Should equal the number of elements that
+  // display inside the .tabCenter div excluding clocks plus one.
+  public clockOrderStart = 4;
 
   get optionsToggle(): boolean {
     return this._optionsToggle;
@@ -29,6 +35,20 @@ export class SharedService {
   }
   set zoneGuess(value: string) {
     this._zoneGuess = value;
+  }
+
+  get orderMin(): number {
+    return this._orderMin;
+  }
+  set orderMin(value: number) {
+    this._orderMin = value;
+  }
+
+  get orderMax(): number {
+    return this._orderMax;
+  }
+  set orderMax(value: number) {
+    this._orderMax = value;
   }
 
   get title(): string {

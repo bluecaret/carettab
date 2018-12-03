@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding, ChangeDetectorRef, Input, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Storage } from '../../_storage/storage.service';
 import { trigger, transition, style, animate } from '@angular/animations';

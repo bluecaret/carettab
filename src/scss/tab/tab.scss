@@ -32,6 +32,14 @@ app-tab {
   align-items: center;
 }
 
+.orderBtns {
+  width: 100%;
+  display: grid;
+  grid-gap: 5px;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 @import "/toggle";
 @import "/nav";
 @import "/feature/bookmarks";

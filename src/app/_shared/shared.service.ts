@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { offlineFontList } from './lists/lists';
+import { fontList, customFontWeight } from './lists/lists';
 
 @Injectable()
 export class SharedService {
@@ -72,14 +72,24 @@ export class SharedService {
     this._date = value;
   }
 
-  public getFont(font: number) {
-    let fontName = offlineFontList.find(f => f.id === font).family;
+  public getFont(font: number, custom: string) {
+    let fontName;
+    if (font !== 0) {
+      fontName = fontList.find(f => f.id === font).family;
+    } else {
+      fontName = custom;
+    }
     return '"' + fontName + '"';
   }
 
-  public getFontWeight(font: number) {
-    let fontName = offlineFontList.find(f => f.id === font).weight;
-    return fontName;
+  public getFontWeight(font: number, weight: number) {
+    let fontWeight;
+    if (font !== 0) {
+      fontWeight = fontList.find(f => f.id === font).weight;
+    } else {
+      fontWeight = customFontWeight.find(w => w.id === weight).weight;
+    }
+    return fontWeight;
   }
 
   public getFontSize(size: number, baseSize?: number) {

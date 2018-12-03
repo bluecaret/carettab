@@ -5,10 +5,12 @@ export class Settings {
     design: {
       scalingMethod: true,
       scaling: 10,
-      offlineFont: true,
-      font: 41,
+      font: 91,
+      customFont: 'Comic Sans MS',
+      customFontWeight: 40,
       background: '#ffffff',
       foreground: '#000000',
+      image: '',
       optionsToggle: true,
       startupAnimation: true
     },

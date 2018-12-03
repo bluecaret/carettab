@@ -10,7 +10,7 @@
       class="barScroll"
       (click)="moveLeft(barList)"
       *ngIf="!isScrollAtStart(barList)">
-      <i class="barIcon fas fa-angle-double-left"></i>
+      <i class="barIcon icon">arrow_back_ios</i>
     </button>
     <!-- Bar list -->
     <ul class="barList" #barList>
@@ -84,7 +84,7 @@
       class="barScroll"
       (click)="moveRight(barList)"
       *ngIf="!isScrollAtEnd(barList)">
-      <i class="barIcon fas fa-angle-double-right"></i>
+      <i class="barIcon icon">arrow_right</i>
     </button>
   </div>
 
@@ -97,7 +97,7 @@
     *ngIf="parent"
     title="{{parent.title}}"
     (click)="toggle[idx] = !toggle[idx]; toggleMostVisited = false;">
-    <i class="barIcon fas fa-caret-up"></i>
+    <i class="barIcon icon">keyboard_arrow_up</i>
     <div class="barLabel">{{parent.title}}</div>
   </button>
   <!-- Scroll left button -->
@@ -105,7 +105,7 @@
     class="barScroll"
     (click)="moveLeft(barList)"
     *ngIf="!isScrollAtStart(barList)">
-    <i class="barIcon fas fa-angle-double-left"></i>
+    <i class="barIcon icon">arrow_back_ios</i>
   </button>
   <!-- Bar list -->
   <ul class="barList" #barList>
@@ -141,7 +141,7 @@
     class="barScroll"
     (click)="moveRight(barList)"
     *ngIf="!isScrollAtEnd(barList)">
-    <i class="barIcon fas fa-angle-double-right"></i>
+    <i class="barIcon icon">arrow_forward_ios</i>
   </button>
 </ng-template>
 

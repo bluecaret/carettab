@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
-import { offlineFontList, colors } from '../../_shared/lists/lists';
+import { fontList, colors, customFontWeight } from '../../_shared/lists/lists';
 
 @Component({
   selector: 'options-design',
   templateUrl: 'design.component.html'
 })
 export class OptionsDesignComponent implements OnInit {
-  fonts = offlineFontList;
+  fonts = fontList;
+  fontWeights = customFontWeight;
   colors = colors;
   currentFont: string;
   currentWeight: number;

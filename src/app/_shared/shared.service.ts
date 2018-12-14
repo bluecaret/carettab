@@ -11,6 +11,7 @@ export class SharedService {
   private _title: string = 'New Tab';
   private _orderMin: number;
   private _orderMax: number;
+  private _bg: string;
 
   // Order number to start clocks at. Should equal the number of elements that
   // display inside the .tabCenter div excluding clocks plus one.
@@ -70,6 +71,13 @@ export class SharedService {
   }
   set date(value: string) {
     this._date = value;
+  }
+
+  get bg(): string {
+    return this._bg;
+  }
+  set bg(value: string) {
+    this._bg = value;
   }
 
   public getFont(font: number, custom: string) {

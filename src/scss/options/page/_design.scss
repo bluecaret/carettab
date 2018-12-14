@@ -37,3 +37,15 @@
 .fontOptions label:nth-of-type(9n) {
   font-family: "Special Elite", sans-serif;
 }
+
+.patternBtn {
+  background-repeat: repeat;
+}
+
+.wallpaperPreview {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: center;
+}

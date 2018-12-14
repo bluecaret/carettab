@@ -1,19 +1,6 @@
 <form #designOptions="ngForm" novalidate>
   <fieldset>
     <legend>Design</legend>
-    <div class="grid cols-4">
-      <div class="field span-1">
-        <options-toggle name="scalingMethod" [(ngModel)]="settings.config.design.scalingMethod" (ngModelChange)="saveAll()"></options-toggle>
-        <label title="Dynamic scaling allows you to change the size of elements based on the width of your browser. Disable to keep the size the same no matter the size of your browser.">Dynamic scaling</label>
-      </div>
-      <div class="field span-2">
-        <options-range name="globalSize" id="globalSize" min="1" max="20" [(ngModel)]="settings.config.design.scaling" (ngModelChange)="saveAll()"></options-range>
-        <label title="Adjust the size of all elements.">Global size</label>
-      </div>
-    </div>
-  </fieldset>
-  <fieldset>
-    <legend>Fonts</legend>
     <div class="grid cols-6">
       <div class="field span-2">
         <select name="font" id="font"
@@ -49,40 +36,131 @@
       <div class="span-6" *ngIf="settings.config.design.font === 0">
         To use a custom font, you must type the font name exactly. Custom fonts must be <a href="https://www.adobe.com/products/type/install-instructions.html">installed locally on your computer</a>. You can get more fonts from <a href="https://fonts.google.com">Google Fonts</a> or from <a href="https://www.1001freefonts.com/">1001 Free Fonts</a>.
       </div>
-    </div>
-  </fieldset>
-  <fieldset class="mb0">
-    <legend>Colors</legend>
-    <div class="grid cols-2 mb1">
-      <div class="field span-1">
-        <div class="grid cols-3">
-          <div class="field no-label span-1">
-            <div class="inputColor" [style.backgroundColor]="settings.config.design.background">
-              <input type="color" id="set-background" name="bg-color" [(ngModel)]="settings.config.design.background" (ngModelChange)="saveAll()">
-            </div>
-          </div>
-          <div class="field no-label span-2">
-            <input type="text" aria-labelledby="set-background" name="bg-code" [(ngModel)]="settings.config.design.background" (ngModelChange)="saveAll()" autocomplete="off">
-          </div>
-        </div>
-        <label id="set-background" for="set-background">Custom Background</label>
+      <div class="field span-2">
+        <options-range name="globalSize" id="globalSize" min="1" max="20" [(ngModel)]="settings.config.design.scaling" (ngModelChange)="saveAll()"></options-range>
+        <label title="Adjust the size of all elements.">Global size</label>
       </div>
-      <div class="field span-1">
-        <div class="grid cols-3">
-          <div class="field no-label span-1">
-            <div class="inputColor" [style.backgroundColor]="settings.config.design.foreground">
-              <input type="color" id="set-foreground" name="fg-color" [(ngModel)]="settings.config.design.foreground" (ngModelChange)="saveAll()">
-            </div>
-          </div>
-          <div class="field no-label span-2">
-            <input type="text" aria-labelledby="set-foreground" name="fg-code" [(ngModel)]="settings.config.design.foreground" (ngModelChange)="saveAll()" autocomplete="off">
-          </div>
-        </div>
-        <label id="set-foreground" for="set-foreground">Custom Foreground</label>
+      <div class="field span-2">
+        <options-toggle name="scalingMethod" [(ngModel)]="settings.config.design.scalingMethod" (ngModelChange)="saveAll()"></options-toggle>
+        <label title="Dynamic scaling allows you to change the size of elements based on the width of your browser. Disable to keep the size the same no matter the size of your browser.">Dynamic scaling</label>
       </div>
     </div>
-    <div class="grid cols-8 pt1">
-      <button *ngFor="let color of colors;" class="btn btnBlock span-1" [style.backgroundColor]="color.bg" [style.color]="color.fg" (click)="setColors(color.bg, color.fg)">abc</button>
-    </div>
   </fieldset>
+  <div class="grid cols-15">
+    <fieldset class="span-7 mb0">
+      <legend>Colors</legend>
+      <div class="grid cols-1 mb1">
+        <div class="field span-1">
+          <div class="grid cols-3">
+            <div class="field no-label span-1">
+              <div class="inputColor" [style.backgroundColor]="settings.config.design.background">
+                <input type="color" id="set-background" name="bg-color" [(ngModel)]="settings.config.design.background"
+                  (ngModelChange)="settings.config.design.colorsId = 0; saveAll();">
+              </div>
+            </div>
+            <div class="field no-label span-2">
+              <input type="text" aria-labelledby="set-background" name="bg-code" [(ngModel)]="settings.config.design.background"
+                (ngModelChange)="settings.config.design.colorsId = 0; saveAll();"
+                autocomplete="off">
+            </div>
+          </div>
+          <label id="set-background" for="set-background">Custom Background</label>
+        </div>
+        <div class="field span-1">
+          <div class="grid cols-3">
+            <div class="field no-label span-1">
+              <div class="inputColor" [style.backgroundColor]="settings.config.design.foreground">
+                <input type="color" id="set-foreground" name="fg-color" [(ngModel)]="settings.config.design.foreground" (ngModelChange)="settings.config.design.colorsId = 0; saveAll();">
+              </div>
+            </div>
+            <div class="field no-label span-2">
+              <input type="text" aria-labelledby="set-foreground" name="fg-code" [(ngModel)]="settings.config.design.foreground" (ngModelChange)="settings.config.design.colorsId = 0; saveAll();" autocomplete="off">
+            </div>
+          </div>
+          <label id="set-foreground" for="set-foreground">Custom Foreground</label>
+        </div>
+      </div>
+      <div class="grid cols-4 pt1">
+        <button
+          *ngFor="let color of colors;"
+          class="colorsBtn btn btnBlock span-1"
+          [ngClass]="{'active': settings.config.design.colorsId === color.id}"
+          [style.backgroundColor]="color.bg"
+          [style.color]="color.fg"
+          (click)="setColors(color)">
+          abc
+        </button>
+      </div>
+    </fieldset>
+    <div class="span-1"></div>
+    <fieldset class="span-7 mb0">
+      <legend>Wallpaper</legend>
+      <div class="grid cols-4 mb1">
+        <div class="field span-3">
+          <button class="btn btnBlock" type="button" (click)="bgImgFile.click()">Browse for image...</button>
+          <input #bgImgFile name="imageUrl" type="file" class="btn" accept="image/*" (change)="encodeImage($event, bgImgFile)" />
+          <label title="Custom images do not sync across computers.">
+            Custom wallpaper
+            <div class="icon" style="cursor: help; font-size: 1em;">help</div>
+          </label>
+        </div>
+        <div class="span-1 wallpaperPreview"
+          [style.backgroundImage]="'url('+ shared.bg +')'"
+          [style.backgroundSize]="getBgSize()"
+          [style.backgroundRepeat]="settings.config.design.imageSize === 10 ? 'repeat' : 'no-repeat'">
+        </div>
+        <div class="span-4" *ngIf="settings.config.design.patternId === -1">
+          <div class="icon" style="font-size: 1em;">warning</div> Custom images do not sync across computers.
+        </div>
+        <div class="field span-2">
+          <select name="fill" id="fill"
+            [(ngModel)]="settings.config.design.imageSize"
+            (ngModelChange)="saveAll();">
+            <option
+              [ngValue]="s.id"
+              *ngFor="let s of bgSize;">
+              {{s.label}}
+            </option>
+          </select>
+          <label for="fill">Fill</label>
+        </div>
+        <div class="field span-2">
+          <select name="blend" id="blend"
+            [(ngModel)]="settings.config.design.imageBlend"
+            (ngModelChange)="saveAll();">
+            <option
+              [ngValue]="b.id"
+              *ngFor="let b of bgBlend;">
+              {{b.label}}
+            </option>
+          </select>
+          <label for="blend">Filter</label>
+        </div>
+      </div>
+      <div class="grid cols-4 pt1">
+        <button
+          class="patternBtn btn btnBlock span-1"
+          [ngClass]="{'active': settings.config.design.patternId === 0}"
+          (click)="setPattern(noPattern)">
+          <div class="icon" style="font-size: 1em;">remove</div>
+        </button>
+        <button
+          *ngFor="let p of patterns;"
+          class="patternBtn btn btnBlock span-1"
+          [ngClass]="{'active': settings.config.design.patternId === p.id}"
+          [style.backgroundColor]="settings.config.design.background"
+          [style.backgroundBlendMode]="getBgBlend()"
+          [style.background-image]="sanitizer.bypassSecurityTrustStyle('url(./assets/patterns/' + p.pattern + ')')"
+          (click)="setPattern(p)">
+          &nbsp;
+        </button>
+        <div class="span-4">
+          <div class="icon" style="font-size: 1em;">info</div> Get more patterns at <a href="https://www.transparenttextures.com/">Transparent Textures</a> or <a href="https://www.toptal.com/designers/subtlepatterns/">Toptal</a>
+        </div>
+        <div class="span-4">
+          <div class="icon" style="font-size: 1em;">info</div> Image too hard to see? Try changing the filter.
+        </div>
+      </div>
+    </fieldset>
+  </div>
 </form>

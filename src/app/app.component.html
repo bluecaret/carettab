@@ -2,6 +2,10 @@
   [ngClass]="{'tab--optionsOpen' : shared.optionsToggle}"
   [style.fontSize]="settings.config.design.scalingMethod === true ? '1.35vw' : '1.6rem'"
   [style.backgroundColor]="settings.config.design.background"
-  [style.color]="settings.config.design.foreground">
+  [style.color]="settings.config.design.foreground"
+  [style.backgroundImage]="'url('+ shared.bg +')'"
+  [style.backgroundSize]="getBgSize()"
+  [style.backgroundBlendMode]="getBgBlend()"
+  [style.backgroundRepeat]="settings.config.design.imageSize === 10 ? 'repeat' : 'no-repeat'">
 </app-tab>
 <app-options *ngIf="shared.optionsToggle"></app-options>

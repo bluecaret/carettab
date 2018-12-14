@@ -18,6 +18,8 @@ app-tab {
   transform-origin: 100% 100%;
   transition: $transition;
   transform: translate(0, 0) scale(1);
+  background-size: cover;
+  background-position: center;
 }
 
 .tabCenter {

@@ -10,7 +10,10 @@ export class Settings {
       customFontWeight: 40,
       background: '#ffffff',
       foreground: '#000000',
-      image: '',
+      colorsId: 0,
+      patternId: 0,
+      imageSize: 10,
+      imageBlend: 10,
       optionsToggle: true,
       startupAnimation: true
     },

@@ -51,3 +51,5 @@ $optionsBorder: 2px solid $optionsBorderColor;
 $optionsWidth: 600px;
 $optionsRadius: 15px;
 $optionsTransition: all .3s ease-in-out;
+
+$btnActiveShadow: inset 0 0 0 2px #000, inset 0 0 0 4px $optionsBg;

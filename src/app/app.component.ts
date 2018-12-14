@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { transition, trigger, style, state, animate, query, group } from '@angular/animations';
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { SharedService } from './_shared/shared.service';
 import { Storage } from './_storage/storage.service';
+import { bgSize, bgBlend } from './_shared/lists/lists';
 
 @Component({
   selector: 'app-root',
@@ -32,8 +34,28 @@ import { Storage } from './_storage/storage.service';
   ]
 })
 export class AppComponent {
+  bgSize = bgSize;
+  bgBlend = bgBlend;
 
-  constructor(public shared: SharedService, public settings: Storage) {
+  constructor(
+    public sanitizer: DomSanitizer,
+    public shared: SharedService,
+    public settings: Storage
+  ) {
+    let savedImg = localStorage.getItem('bgImg');
+    if (savedImg) {
+      this.shared.bg = savedImg;
+    }
+  }
+
+  getBgSize() {
+    let s = this.bgSize.find(x => x.id === this.settings.config.design.imageSize).size;
+    return s;
+  }
+
+  getBgBlend() {
+    let m = this.bgBlend.find(x => x.id === this.settings.config.design.imageBlend).mode;
+    return m;
   }
 
 }

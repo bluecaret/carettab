@@ -283,3 +283,8 @@ fieldset {
     background: $lightBlue;
   }
 }
+
+
+input[type='file'] {
+  display: none;
+}

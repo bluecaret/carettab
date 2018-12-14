@@ -10,27 +10,6 @@
   </div>
 </fieldset>
 <fieldset>
-  <legend>Display</legend>
-  <div class="grid cols-10">
-    <div class="field span-2">
-      <options-toggle name="animation" id="animation" [(ngModel)]="settings.config.design.startupAnimation" (ngModelChange)="saveAll()"></options-toggle>
-      <label title="Enables animation when tab is opened.">Animation</label>
-    </div>
-    <div class="field span-2">
-      <options-toggle name="settingsIcon" id="settingsIcon" [(ngModel)]="settings.config.design.optionsToggle" (ngModelChange)="saveAll()"></options-toggle>
-      <label title="The settings button opens the settings panel. Enable this to hide the icon. You can still open settings by clicking in the bottom-right corner of the page.">Settings Icon</label>
-    </div>
-    <div class="field span-4">
-      <options-range name="interfaceSize" id="interfaceSize" min="1" max="20" [(ngModel)]="settings.config.design.scaling" (ngModelChange)="saveAll()"></options-range>
-      <label for="interfaceSize" title="Change the overall size of objects.">Size</label>
-    </div>
-    <div class="field span-2">
-      <options-toggle name="scaleMethod" id="scaleMethod" [(ngModel)]="settings.config.design.scalingMethod" (ngModelChange)="saveAll()"></options-toggle>
-      <label title="With dynamic size enabled, the size of content will be based on the size of your browser window. Disable to keep content at a specific size regardless of browser size.">Dynamic size</label>
-    </div>
-  </div>
-</fieldset>
-<fieldset>
   <legend>Tab title</legend>
   <div class="grid cols-4">
     <div class="field span-2">

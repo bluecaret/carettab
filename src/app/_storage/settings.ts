@@ -13,9 +13,7 @@ export class Settings {
       colorsId: 0,
       patternId: 0,
       imageSize: 10,
-      imageBlend: 10,
-      optionsToggle: true,
-      startupAnimation: true
+      imageBlend: 10
     },
     bookmarks: {
       bookmarksBar: {

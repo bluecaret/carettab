@@ -10,7 +10,6 @@ import { Ng2ChromeStorageModule } from './_storage/storage.module';
 import { Settings } from './_storage/settings';
 import { HelpComponent } from './_shared/help/help.component';
 import { SharedService } from './_shared/shared.service';
-import { MomentModule } from 'ngx-moment';
 import { ToggleComponent } from './_shared/controls/toggle.component';
 import { RangeComponent } from './_shared/controls/range.component';
 import * as moment from 'moment-timezone';
@@ -68,8 +67,7 @@ import { TabSearchComponent } from './tab/search/search.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    Ng2ChromeStorageModule,
-    MomentModule
+    Ng2ChromeStorageModule
   ],
   exports: [
     NavComponent

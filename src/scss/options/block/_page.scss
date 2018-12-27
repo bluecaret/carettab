@@ -1,18 +1,6 @@
 .page {
-  display: block;
-  position: fixed;
-  z-index: z('optionsPage');
-  right: $optionsMarginY;
-  bottom: $optionsMarginX;
-  width: $optionsWidth;
-  max-height: calc(100vh - 115px);
-  background-color: $optionsBg;
-  border: $optionsBorder;
-  box-shadow: none;
-  border-radius: $optionsRadius;
-  transform-origin: bottom right;
-  padding: 20px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  font-size: 14px;
+  margin: 20px 0 0 -20px;
+  padding: 20px 20px 20px 20px;
+  overflow-x: visible;
+  overflow-y: scroll;
 }

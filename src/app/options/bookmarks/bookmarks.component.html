@@ -81,16 +81,16 @@
   <form #quickLinksList="ngForm" novalidate>
     <fieldset class="mb0">
       <div class="grid cols-19">
-        <div class="field no-label span-7">
+        <div class="field noLabel span-7">
           <label>Label</label>
         </div>
-        <div class="field no-label span-8">
+        <div class="field noLabel span-8">
           <label>URL</label>
         </div>
       </div>
       <div class="grid cols-19 mb15">
         <ng-container *ngFor="let link of settings.config.bookmarks.links; let i = index; trackBy:trackByFn; let isFirst = first; let isLast = last">
-          <div class="field no-label span-7">
+          <div class="field noLabel span-7">
             <input
               type="text"
               [name]="'label'+i"
@@ -99,7 +99,7 @@
               autocomplete="off"
               (ngModelChange)="saveAll()">
           </div>
-          <div class="field no-label span-8">
+          <div class="field noLabel span-8">
             <input
               type="text"
               [name]="'url'+i"
@@ -139,7 +139,7 @@
   <form #newLink="ngForm" novalidate (ngSubmit)="addLink(newLink, newLink.valid)">
     <fieldset class="mb0">
       <div class="grid cols-19">
-        <div class="field no-label span-7">
+        <div class="field noLabel span-7">
           <input
             type="text"
             name="label"
@@ -150,7 +150,7 @@
             required>
           <div class="valMsg" *ngIf="newLabel.invalid && newLink.submitted">Link must have a label.</div>
         </div>
-        <div class="field no-label span-8">
+        <div class="field noLabel span-8">
           <input
             type="text"
             name="url"

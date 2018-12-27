@@ -1,3 +1,5 @@
+$btnActiveShadow: inset 0 0 0 2px #000, inset 0 0 0 4px $optionsBg;
+
 .btn {
   display: inline-flex;
   min-width: 44px;
@@ -36,7 +38,6 @@
     margin-right: 5px;
   }
   .icon {
-    // font-size: 16px;
     line-height: $fieldHeight;
   }
 }

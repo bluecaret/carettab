@@ -6,6 +6,10 @@ import { SharedService } from '../_shared/shared.service';
   selector: 'nav',
   template:
   `
+    <svg class="navBg" version="1.1" viewBox="0 0 100 30" preserveAspectRatio="none">
+      <polyline points="0 0, 100 0, 100 22, 2 30"></polyline>
+      <polyline points="0 0, 100 0, 100 24, 4 26"></polyline>
+    </svg>
     <ul>
       <li>
         <button type="button" (click)="goToPage('Dashboard')" [ngClass]="{'active': shared.optionsPage === 'Dashboard'}">
@@ -47,6 +51,11 @@ import { SharedService } from '../_shared/shared.service';
           <div class="icon">settings</div>
         </button>
       </li>
+      <li>
+        <button type="button" (click)="shared.optionsToggle = false" class="close">
+          <div class="icon">close</div>
+        </button>
+      </li>
     </ul>
   `,
 })
@@ -56,11 +65,7 @@ export class NavComponent {
   }
 
   goToPage(page: string) {
-    if (page === this.shared.optionsPage) {
-      this.shared.optionsPage = null;
-    } else {
-      this.shared.optionsPage = page;
-    }
+    this.shared.optionsPage = page;
   }
 
 }

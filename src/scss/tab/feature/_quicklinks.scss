@@ -1,3 +1,8 @@
+$qlBg: $optionsBg;
+$qlBorderColor: #1f2020;
+$qlBorder: 1px solid $qlBorderColor;
+$qlRadius: 8px;
+
 .quickLinksBar {
   ul {
     position: fixed;
@@ -65,9 +70,9 @@
   padding: 0;
   min-width: 10em;
   max-width: 20em;
-  background-color: $optionsBg;
-  border: $optionsBorder;
-  border-radius: $optionsRadius;
+  background-color: $qlBg;
+  border: $qlBorder;
+  border-radius: $qlRadius;
   box-shadow: none;
   a {
     display: flex;

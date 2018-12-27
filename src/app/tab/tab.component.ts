@@ -8,21 +8,7 @@ import { span } from '../_shared/lists/lists';
 @Component({
   selector: 'app-tab',
   templateUrl: 'tab.component.html',
-  encapsulation: ViewEncapsulation.None,
-  animations: [
-    trigger('nav', [
-      state('*', style({
-        opacity: 1,
-        transform: 'scaleX(1)'
-      })),
-      state('void',   style({
-        opacity: 0,
-        transform: 'scaleX(0.7)'
-      })),
-      transition('* => void', animate('200ms ease-out')),
-      transition('void => *', animate('200ms ease-in'))
-    ])
-  ]
+  encapsulation: ViewEncapsulation.None
 })
 export class TabComponent implements OnInit {
   span = span;
@@ -33,7 +19,6 @@ export class TabComponent implements OnInit {
     private titleService: Title
   ) {
     this.shared.optionsToggle = false;
-    this.shared.optionsPage = 'Dashboard';
   }
 
   ngOnInit() {

@@ -1,54 +1,68 @@
-$navHeight: ($optionsToggleHeight - 20);
-$navRadius: ($navHeight / 2);
-$navButtonHeight: ($navHeight / 1.25);
-
-.options-wrapper nav {
-  position: fixed;
+nav {
+  position: relative;
+  width: calc(100% + 20px);
   z-index: z('optionsNav');
-  bottom: 10px;
-  right: 10px;
-  padding: 0 50px 0 10px;
-
-  display: grid;
-  place-items: center center;
-
-  height: $navHeight;
-  background: rgba(255,255,255,0.8);
-  border-radius: $navRadius;
-  overflow: hidden;
+  margin-left: -20px;
   ul {
+    position: relative;
+    z-index: +2;
     list-style: none;
-    padding: 0 0px;
-    margin: 0;
-    width: 100%;
     display: flex;
+    margin: 0;
+    padding: 0;
+    transform: rotate(-1deg);
     li {
-      display: block;
       button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 50px;
-        height: $navButtonHeight;
-        color: black;
+        background: transparent;
         border: 0;
-        padding: 0 10px;
-        background-color: transparent;
-        transition: background-color .3s;
-        cursor: pointer;
-        border-radius: ($navButtonHeight / 2);
-        &:focus {
-          outline: none;
-          box-shadow: $focus;
+        padding: 15px 20px;
+        transition: all .2s;
+        &.close {
+          position: absolute;
+          top: -5px;
+          right: -15px;
+          opacity: .5;
+          color: white;
+          background: rgb(69, 127, 185);
+          padding: 20px 20px 10px 10px;
+          transform: rotate(9deg);
         }
         &:hover {
-          background: rgba($lightBlue, .5);
+          transform: scale(1.6) rotate(-8deg);
+          cursor: pointer;
+          &.close {
+            opacity: .65;
+            transform: translate(-5px,5px) scale(1.4) rotate(-3deg);
+          }
         }
         &.active {
-          background: $blue;
-          cursor: default;
+          color: $blue;
+          transform: scale(1.6) rotate(-8deg);
+        }
+        &:focus {
+          outline: 0;
+          color: darken($blue, 10%);
+          &.close {
+            color: black;
+            opacity: .65;
+          }
         }
       }
+    }
+  }
+  svg.navBg {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    z-index: +1;
+    width: calc(100% + 30px);
+    height: calc(100% + 40px);
+    overflow: hidden;
+    polyline:nth-child(1) {
+      fill: rgba(100, 150, 200, 0.7);
+    }
+    polyline:nth-child(2) {
+      fill: rgba(255, 255, 255, .8);
     }
   }
 }

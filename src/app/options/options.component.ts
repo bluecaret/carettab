@@ -1,23 +1,24 @@
-import { Component, ViewEncapsulation, HostBinding, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { SharedService } from '../_shared/shared.service';
 import { Storage } from '../_storage/storage.service';
-import { slideIn } from '../_shared/animations';
+import { fadeIn, options } from '../_shared/animations';
 
 @Component({
   selector: 'app-options',
   templateUrl: 'options.component.html',
   encapsulation: ViewEncapsulation.None,
   animations: [
-    slideIn
+    fadeIn,
+    options
   ]
 })
 export class OptionsComponent implements OnInit {
-  @HostBinding('class.options-wrapper') options = true;
 
   constructor(
     public shared: SharedService,
     public settings: Storage
   ) {
+    this.shared.optionsPage = 'Dashboard';
     this.settings.onChange().subscribe((data) => {
       this.setMinMax();
     });

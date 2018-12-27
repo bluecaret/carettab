@@ -52,13 +52,13 @@
       <div class="grid cols-1 mb1">
         <div class="field span-1">
           <div class="grid cols-3">
-            <div class="field no-label span-1">
+            <div class="field noLabel span-1">
               <div class="inputColor" [style.backgroundColor]="settings.config.design.background">
                 <input type="color" id="set-background" name="bg-color" [(ngModel)]="settings.config.design.background"
                   (ngModelChange)="settings.config.design.colorsId = 0; saveAll();">
               </div>
             </div>
-            <div class="field no-label span-2">
+            <div class="field noLabel span-2">
               <input type="text" aria-labelledby="set-background" name="bg-code" [(ngModel)]="settings.config.design.background"
                 (ngModelChange)="settings.config.design.colorsId = 0; saveAll();"
                 autocomplete="off">
@@ -68,12 +68,12 @@
         </div>
         <div class="field span-1">
           <div class="grid cols-3">
-            <div class="field no-label span-1">
+            <div class="field noLabel span-1">
               <div class="inputColor" [style.backgroundColor]="settings.config.design.foreground">
                 <input type="color" id="set-foreground" name="fg-color" [(ngModel)]="settings.config.design.foreground" (ngModelChange)="settings.config.design.colorsId = 0; saveAll();">
               </div>
             </div>
-            <div class="field no-label span-2">
+            <div class="field noLabel span-2">
               <input type="text" aria-labelledby="set-foreground" name="fg-code" [(ngModel)]="settings.config.design.foreground" (ngModelChange)="settings.config.design.colorsId = 0; saveAll();" autocomplete="off">
             </div>
           </div>

@@ -23,33 +23,12 @@ $z-indexes: (
   'tabBookmarks',
   'tabQuickLinks',
   'tabQuickLinksMostVisited',
+  'optionsPanel',
   'optionsPage',
   'optionsNav',
   'tabToggle',
   'tooltip'
 );
 
-
-$headerHeight: 50px;
-
-$optionsToggleLine: 2px;
-$optionsToggleSize: 16px;
-$optionsToggleSpacing: 3px;
-$optionsTogglePadding: 30px;
-$optionsToggleHeight: ($optionsToggleSize + ($optionsTogglePadding * 2));
-
-$navMargin: 10px;
-$navHeight: ($optionsToggleHeight - ($navMargin * 2));
-$navRadius: ($navHeight / 2);
-$navButtonHeight: ($navHeight - 18);
-
-$optionsMarginY: $navMargin;
-$optionsMarginX: $optionsToggleHeight;
 $optionsBg: #f5f7fa;
-$optionsBorderColor: #1f2020;
-$optionsBorder: 2px solid $optionsBorderColor;
 $optionsWidth: 600px;
-$optionsRadius: 15px;
-$optionsTransition: all .3s ease-in-out;
-
-$btnActiveShadow: inset 0 0 0 2px #000, inset 0 0 0 4px $optionsBg;

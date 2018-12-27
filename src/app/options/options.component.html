@@ -1,8 +1,17 @@
-<options-dashboard @slideIn *ngIf="shared.optionsPage === 'Dashboard'" class="page" [ngClass]="{'open': shared.optionsPage === 'Dashboard'}"></options-dashboard>
-<options-design @slideIn *ngIf="shared.optionsPage === 'Design'" class="page" [ngClass]="{'open': shared.optionsPage === 'Design'}"></options-design>
-<options-time @slideIn *ngIf="shared.optionsPage === 'Time'" class="page" [ngClass]="{'open': shared.optionsPage === 'Time'}"></options-time>
-<options-date @slideIn *ngIf="shared.optionsPage === 'Date'" class="page" [ngClass]="{'open': shared.optionsPage === 'Date'}"></options-date>
-<options-bookmarks @slideIn *ngIf="shared.optionsPage === 'Bookmarks'" class="page" [ngClass]="{'open': shared.optionsPage === 'Bookmarks'}"></options-bookmarks>
-<options-search @slideIn *ngIf="shared.optionsPage === 'Search'" class="page" [ngClass]="{'open': shared.optionsPage === 'Search'}"></options-search>
-<options-message @slideIn *ngIf="shared.optionsPage === 'Message'" class="page" [ngClass]="{'open': shared.optionsPage === 'Message'}"></options-message>
-<options-extra @slideIn *ngIf="shared.optionsPage === 'Extra'" class="page" [ngClass]="{'open': shared.optionsPage === 'Extra'}"></options-extra>
+<section class="panel" @options *ngIf="shared.optionsToggle">
+  <svg class="panelBg" version="1.1" viewBox="0 0 50 100" preserveAspectRatio="none">
+    <polyline points="4 0, 50 0, 50 100, 0 100"></polyline>
+    <polyline points="0 0, 50 0, 50 100, 2 100"></polyline>
+  </svg>
+  <div class="panelContent">
+    <nav *ngIf="shared.optionsToggle"></nav>
+    <options-dashboard @fadeIn *ngIf="shared.optionsPage === 'Dashboard'" class="page" [ngClass]="{'open': shared.optionsPage === 'Dashboard'}"></options-dashboard>
+    <options-design @fadeIn *ngIf="shared.optionsPage === 'Design'" class="page" [ngClass]="{'open': shared.optionsPage === 'Design'}"></options-design>
+    <options-time @fadeIn *ngIf="shared.optionsPage === 'Time'" class="page" [ngClass]="{'open': shared.optionsPage === 'Time'}"></options-time>
+    <options-date @fadeIn *ngIf="shared.optionsPage === 'Date'" class="page" [ngClass]="{'open': shared.optionsPage === 'Date'}"></options-date>
+    <options-bookmarks @fadeIn *ngIf="shared.optionsPage === 'Bookmarks'" class="page" [ngClass]="{'open': shared.optionsPage === 'Bookmarks'}"></options-bookmarks>
+    <options-search @fadeIn *ngIf="shared.optionsPage === 'Search'" class="page" [ngClass]="{'open': shared.optionsPage === 'Search'}"></options-search>
+    <options-message @fadeIn *ngIf="shared.optionsPage === 'Message'" class="page" [ngClass]="{'open': shared.optionsPage === 'Message'}"></options-message>
+    <options-extra @fadeIn *ngIf="shared.optionsPage === 'Extra'" class="page" [ngClass]="{'open': shared.optionsPage === 'Extra'}"></options-extra>
+  </div>
+</section>

@@ -8,13 +8,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { Ng2ChromeStorageModule } from './_storage/storage.module';
 import { Settings } from './_storage/settings';
-import { HelpComponent } from './_shared/help/help.component';
 import { SharedService } from './_shared/shared.service';
 import { ToggleComponent } from './_shared/controls/toggle.component';
 import { RangeComponent } from './_shared/controls/range.component';
 import * as moment from 'moment-timezone';
 
 // Options Imports
+import { NavComponent } from './options/nav.component';
 import { OptionsComponent } from './options/options.component';
 import { OptionsBookmarksComponent } from './options/bookmarks/bookmarks.component';
 import { OptionsDashboardComponent } from './options/dashboard/dashboard.component';
@@ -29,7 +29,6 @@ import { TimezoneService } from './options/time/timezone.service';
 
 // Tab Imports
 import { TabComponent } from './tab/tab.component';
-import { NavComponent } from './tab/nav.component';
 import { TabBookmarksComponent } from './tab/bookmarks/bookmarks.component';
 import { TabTimeComponent } from './tab/time/time.component';
 import { TabDateComponent } from './tab/date/date.component';
@@ -39,7 +38,6 @@ import { TabSearchComponent } from './tab/search/search.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HelpComponent,
     ToggleComponent,
     RangeComponent,
 

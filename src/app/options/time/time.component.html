@@ -3,10 +3,10 @@
     <legend>Time</legend>
     <div class="grid cols-19">
       <div class="span-2"></div>
-      <div class="field no-label span-6">
+      <div class="field noLabel span-6">
         <label title="Displays a label next to the clock. Leave empty for no label.">Label</label>
       </div>
-      <div class="field no-label span-7">
+      <div class="field noLabel span-7">
         <label title="Choose a timezone for the clock (the default is your local timezone).">Timezone</label>
       </div>
     </div>
@@ -23,7 +23,7 @@
             <div class="icon" *ngIf="selected === i">close</div>
           </button>
         </div>
-        <div class="field no-label span-6">
+        <div class="field noLabel span-6">
           <input
             type="text"
             [name]="'label'+i"
@@ -31,7 +31,7 @@
             autocomplete="off"
             (ngModelChange)="saveAll()">
         </div>
-        <div class="field no-label span-7">
+        <div class="field noLabel span-7">
           <select [name]="'timezone'+i" [(ngModel)]="clock.timezone" (ngModelChange)="saveAll()">
             <option value="Automatic">Automatic ({{tz.timezoneFormat(tzGuess)}})</option>
             <ng-template let-c ngFor [ngForOf]="allTimezones">
@@ -73,8 +73,8 @@
         </div>
         <fieldset *ngIf="selected === i" class="mb1 span-19">
           <div class="grid cols-2">
-            <div class="borderGrayL p1 span-2">
-              <h4 class="m0 mb1">General clock settings</h4>
+            <div class="box span-2">
+              <h4 class="boxHeading">General clock settings</h4>
               <div class="grid cols-18">
                 <div class="field span-6">
                   <options-range [name]="'clockSize'+i" [id]="'clockSize'+i" min="1" max="40" [(ngModel)]="clock.scaling" (ngModelChange)="saveAll()"></options-range>
@@ -101,10 +101,10 @@
               </div>
             </div>
             <div class="span-1">
-              <div class="borderGrayL p1 mb15">
-                <h4 class="m0 mb1">Delimiter</h4>
-                <div class="grid flex--middle cols-3">
-                  <div class="field compact-icon span-1">
+              <div class="box mb15">
+                <h4 class="boxHeading">Delimiter</h4>
+                <div class="grid grid--middle cols-3">
+                  <div class="field compactIcon span-1">
                     <options-toggle type="check" [name]="'delimiterEnable'+i" [id]="'delimiterEnable'+i" [(ngModel)]="clock.delimiter.enabled" (ngModelChange)="saveAll()"></options-toggle>
                     <label title="Enable delimiter"><i class="icon">power_settings_new</i></label>
                   </div>
@@ -112,7 +112,7 @@
                     <options-range [name]="'delimiterScaling'+i" [id]="'delimiterScaling'+i" min="1" max="20" [(ngModel)]="clock.delimiter.scaling" (ngModelChange)="saveAll()"></options-range>
                     <label title="Adjusts the size of the delimiter relative to the clock">Size</label>
                   </div>
-                  <div class="field compact-icon span-1" *ngIf="clock.delimiter.enabled">
+                  <div class="field compactIcon span-1" *ngIf="clock.delimiter.enabled">
                     <options-toggle type="check" [name]="'delimiterDim'+i" [id]="'delimiterDim'+i" [(ngModel)]="clock.delimiter.dim" (ngModelChange)="saveAll()"></options-toggle>
                     <label title="Dim delimiter"><i class="icon">brightness_medium</i></label>
                   </div>
@@ -120,7 +120,7 @@
                     <options-range [name]="'delimiterOffset'+i" [id]="'delimiterOffset'+i" min="-10" max="10" [(ngModel)]="clock.delimiter.offset" (ngModelChange)="saveAll()"></options-range>
                     <label title="Adjust the position of the delimiter up or down">Offset</label>
                   </div>
-                  <div class="field compact-icon span-1" *ngIf="clock.delimiter.enabled">
+                  <div class="field compactIcon span-1" *ngIf="clock.delimiter.enabled">
                     <options-toggle type="check" [name]="'delimiterBlink'+i" [id]="'delimiterBlink'+i" [(ngModel)]="clock.delimiter.blink" (ngModelChange)="saveAll()"></options-toggle>
                     <label title="Blink delimiter"><i class="icon">remove_red_eye</i></label>
                   </div>
@@ -130,10 +130,10 @@
                   </div>
                 </div>
               </div>
-              <div class="borderGrayL p1 mb15">
-                <h4 class="m0 mb1">Seconds</h4>
-                <div class="grid flex--middle cols-3">
-                  <div class="field compact-icon span-1">
+              <div class="box mb15">
+                <h4 class="boxHeading">Seconds</h4>
+                <div class="grid grid--middle cols-3">
+                  <div class="field compactIcon span-1">
                     <options-toggle type="check" [name]="'secondsEnable'+i" [id]="'secondsEnable'+i" [(ngModel)]="clock.seconds.enabled" (ngModelChange)="saveAll()"></options-toggle>
                     <label title="Enable seconds"><i class="icon">power_settings_new</i></label>
                   </div>
@@ -141,7 +141,7 @@
                     <options-range [name]="'secondsScaling'+i" [id]="'secondsScaling'+i" min="1" max="20" [(ngModel)]="clock.seconds.scaling" (ngModelChange)="saveAll()"></options-range>
                     <label title="Adjusts the size of the seconds relative to the clock">Size</label>
                   </div>
-                  <div class="field compact-icon span-1" *ngIf="clock.seconds.enabled">
+                  <div class="field compactIcon span-1" *ngIf="clock.seconds.enabled">
                     <options-toggle type="check" [name]="'secondsDim'+i" [id]="'secondsDim'+i" [(ngModel)]="clock.seconds.dim" (ngModelChange)="saveAll()"></options-toggle>
                     <label title="Dim seconds"><i class="icon">brightness_medium</i></label>
                   </div>
@@ -151,10 +151,10 @@
                   </div>
                 </div>
               </div>
-              <div class="borderGrayL p1">
-                <h4 class="m0 mb1">Meridiem</h4>
-                <div class="grid flex--middle cols-3">
-                  <div class="field compact-icon span-1">
+              <div class="box">
+                <h4 class="boxHeading">Meridiem</h4>
+                <div class="grid grid--middle cols-3">
+                  <div class="field compactIcon span-1">
                     <options-toggle type="check" [name]="'meridiemEnable'+i" [id]="'meridiemEnable'+i" [(ngModel)]="clock.meridiem.enabled" (ngModelChange)="saveAll()"></options-toggle>
                     <label title="Enable meridiem"><i class="icon">power_settings_new</i></label>
                   </div>
@@ -162,7 +162,7 @@
                     <options-range [name]="'meridiemScaling'+i" [id]="'meridiemScaling'+i" min="1" max="20" [(ngModel)]="clock.meridiem.scaling" (ngModelChange)="saveAll()"></options-range>
                     <label title="Adjusts the size of the meridiem relative to the clock">Size</label>
                   </div>
-                  <div class="field compact-icon span-1" *ngIf="clock.meridiem.enabled">
+                  <div class="field compactIcon span-1" *ngIf="clock.meridiem.enabled">
                     <options-toggle type="check" [name]="'meridiemDim'+i" [id]="'meridiemDim'+i" [(ngModel)]="clock.meridiem.dim" (ngModelChange)="saveAll()"></options-toggle>
                     <label title="Dim meridiem"><i class="icon">brightness_medium</i></label>
                   </div>
@@ -184,10 +184,10 @@
               </div>
             </div>
             <div class="span-1">
-              <div class="borderGrayL p1 mb15">
-                <h4 class="m0 mb1">Label</h4>
-                <div class="grid flex--middle cols-3">
-                  <div class="field compact-icon span-1">
+              <div class="box mb15">
+                <h4 class="boxHeading">Label</h4>
+                <div class="grid grid--middle cols-3">
+                  <div class="field compactIcon span-1">
                     <options-toggle type="check" [name]="'labelEnable'+i" [id]="'labelEnable'+i" [(ngModel)]="clock.label.enabled" (ngModelChange)="saveAll()"></options-toggle>
                     <label title="Enable label"><i class="icon">power_settings_new</i></label>
                   </div>
@@ -195,7 +195,7 @@
                     <options-range [name]="'labelScaling'+i" [id]="'labelScaling'+i" min="1" max="20" [(ngModel)]="clock.label.scaling" (ngModelChange)="saveAll()"></options-range>
                     <label title="Adjusts the size of the label relative to the clock">Size</label>
                   </div>
-                  <div class="field compact-icon span-1" *ngIf="clock.label.enabled">
+                  <div class="field compactIcon span-1" *ngIf="clock.label.enabled">
                     <options-toggle type="check" [name]="'labelDim'+i" [id]="'labelDim'+i" [(ngModel)]="clock.label.dim" (ngModelChange)="saveAll()"></options-toggle>
                     <label title="Dim label"><i class="icon">brightness_medium</i></label>
                   </div>
@@ -205,10 +205,10 @@
                   </div>
                 </div>
               </div>
-              <div class="borderGrayL p1 mb15">
-                <h4 class="m0 mb1">Brackets</h4>
-                <div class="grid flex--middle cols-3">
-                  <div class="field compact-icon mb1 span-1">
+              <div class="box mb15">
+                <h4 class="boxHeading">Brackets</h4>
+                <div class="grid grid--middle cols-3">
+                  <div class="field compactIcon mb1 span-1">
                     <options-toggle type="check" [name]="'bracketsEnable'+i" [id]="'bracketsEnable'+i" [(ngModel)]="clock.brackets.enabled" (ngModelChange)="saveAll()"></options-toggle>
                     <label title="Enable brackets"><i class="icon">power_settings_new</i></label>
                   </div>
@@ -216,7 +216,7 @@
                     <options-range [name]="'bracketsScaling'+i" [id]="'bracketsScaling'+i" min="1" max="20" [(ngModel)]="clock.brackets.scaling" (ngModelChange)="saveAll()"></options-range>
                     <label title="Adjusts the size of the brackets relative to the clock">Size</label>
                   </div>
-                  <div class="field compact-icon span-1" *ngIf="clock.brackets.enabled">
+                  <div class="field compactIcon span-1" *ngIf="clock.brackets.enabled">
                     <options-toggle type="check" [name]="'bracketsDim'+i" [id]="'bracketsDim'+i" [(ngModel)]="clock.brackets.dim" (ngModelChange)="saveAll()"></options-toggle>
                     <label title="Dim brackets"><i class="icon">brightness_medium</i></label>
                   </div>
@@ -240,10 +240,10 @@
                   </div>
                 </div>
               </div>
-              <div class="borderGrayL p1 mb15">
-                <h4 class="m0 mb1">Relative time</h4>
-                <div class="grid flex--middle cols-3">
-                  <div class="field compact-icon span-1">
+              <div class="box mb15">
+                <h4 class="boxHeading">Relative time</h4>
+                <div class="grid grid--middle cols-3">
+                  <div class="field compactIcon span-1">
                     <options-toggle type="check" [name]="'relativeTimeEnable'+i" [id]="'relativeTimeEnable'+i" [(ngModel)]="clock.relativeTime.enabled" (ngModelChange)="saveAll()"></options-toggle>
                     <label title="Enable display of time relative to your local time."><i class="icon">power_settings_new</i></label>
                   </div>
@@ -251,7 +251,7 @@
                     <options-range [name]="'relativeTimeScaling'+i" [id]="'relativeTimeScaling'+i" min="1" max="20" [(ngModel)]="clock.relativeTime.scaling" (ngModelChange)="saveAll()"></options-range>
                     <label title="Adjusts the size of the relative time label relative to the clock">Size</label>
                   </div>
-                  <div class="field compact-icon span-1" *ngIf="clock.relativeTime.enabled">
+                  <div class="field compactIcon span-1" *ngIf="clock.relativeTime.enabled">
                     <options-toggle type="check" [name]="'relativeTimeDim'+i" [id]="'relativeTimeDim'+i" [(ngModel)]="clock.relativeTime.dim" (ngModelChange)="saveAll()"></options-toggle>
                     <label title="Dim relative time"><i class="icon">brightness_medium</i></label>
                   </div>
@@ -261,10 +261,10 @@
                   </div>
                 </div>
               </div>
-              <div class="borderGrayL p1">
-                <h4 class="m0 mb1">Analog</h4>
-                <div class="grid flex--middle cols-3">
-                  <div class="field compact-icon span-1">
+              <div class="box">
+                <h4 class="boxHeading">Analog</h4>
+                <div class="grid grid--middle cols-3">
+                  <div class="field compactIcon span-1">
                     <options-toggle type="check" [name]="'analogEnable'+i" [id]="'analogEnable'+i" [(ngModel)]="clock.analog.enabled" (ngModelChange)="saveAll()"></options-toggle>
                     <label title="Displays the clock in an analog style instead of digital."><i class="icon">power_settings_new</i></label>
                   </div>

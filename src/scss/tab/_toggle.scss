@@ -1,3 +1,9 @@
+$optionsToggleLine: 2px;
+$optionsToggleSize: 16px;
+$optionsToggleSpacing: 3px;
+$optionsTogglePadding: 30px;
+$optionsToggleHeight: ($optionsToggleSize + ($optionsTogglePadding * 2));
+
 .openOptions {
   position: fixed;
   z-index: z('tabToggle');
@@ -9,8 +15,7 @@
   padding: 0;
   width: $optionsToggleHeight;
   height: $optionsToggleHeight;
-  transform: rotate(0deg);
-  transition: $optionsTransition;
+  transition: all .3s;
   cursor: pointer;
   overflow: hidden;
   opacity: .5;
@@ -27,38 +32,19 @@
     background: currentColor;
     border-radius: 2px;
     opacity: 1;
-    left: $optionsTogglePadding;
-    transform: rotate(0deg);
-    transition: $optionsTransition;
+    right: $optionsTogglePadding;
     &:nth-of-type(1) {
-      top: ($optionsToggleSpacing + $optionsTogglePadding);
+      bottom: ($optionsToggleSpacing + $optionsTogglePadding);
     }
     &:nth-of-type(2), &:nth-of-type(3) {
-      top: ((($optionsToggleSize - $optionsToggleLine) / 2) + $optionsTogglePadding);
+      bottom: ((($optionsToggleSize - $optionsToggleLine) / 2) + $optionsTogglePadding);
     }
     &:nth-of-type(4) {
-      top: ($optionsToggleSize - $optionsToggleLine - $optionsToggleSpacing + $optionsTogglePadding);
+      bottom: ($optionsToggleSize - $optionsToggleLine - $optionsToggleSpacing + $optionsTogglePadding);
     }
   }
   &.open {
-    span {
-      background: black;
-      &:nth-of-type(1) {
-        top: ((($optionsToggleSize - $optionsToggleLine) / 2) + $optionsTogglePadding);
-        transform: rotate(45deg);
-      }
-      &:nth-of-type(2) {
-        top: ((($optionsToggleSize - $optionsToggleLine) / 2) + $optionsTogglePadding);
-        transform: rotate(45deg);
-      }
-      &:nth-of-type(3) {
-        top: ((($optionsToggleSize - $optionsToggleLine) / 2) + $optionsTogglePadding);
-        transform: rotate(-45deg);
-      }
-      &:nth-of-type(4) {
-        top: ((($optionsToggleSize - $optionsToggleLine) / 2) + $optionsTogglePadding);
-        transform: rotate(-45deg);
-      }
-    }
+    width: 100vw;
+    height: 100vh;
   }
 }

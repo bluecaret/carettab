@@ -26,7 +26,7 @@ export class OptionsDesignComponent implements OnInit {
   constructor(
     public sanitizer: DomSanitizer,
     public settings: Storage,
-    private shared: SharedService
+    public shared: SharedService
   ) {
     this.imageSrc = '';
   }

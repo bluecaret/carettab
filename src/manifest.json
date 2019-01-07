@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "__MSG_appName__",
+  "name": "CaretTab v3 Beta 1",
   "short_name": "CaretTab",
   "description": "__MSG_appDesc__",
   "version": "3.0.0.1",

@@ -8,9 +8,9 @@
   "version_name": "3.0.0 Beta 1",
   "default_locale": "en",
 
-  "icons": { "16": "assets/img/icon16.png",
-             "48": "assets/img/icon48.png",
-            "128": "assets/img/icon128.png" },
+  "icons": { "16": "assets/img/icon16-beta.png",
+             "48": "assets/img/icon48-beta.png",
+            "128": "assets/img/icon128-beta.png" },
 
   "chrome_url_overrides" : {
     "newtab": "index.html"

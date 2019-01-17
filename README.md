@@ -37,12 +37,9 @@ You can install CaretTab through the Chrome and Firefox web stores
 [https://addons.mozilla.org/en-US/firefox/addon/carettab/](https://addons.mozilla.org/en-US/firefox/addon/carettab/)
 
 ## Build
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-```
-npm install
-npm run build:chrome
-npm run build:firefox
-```
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
 ## Credit
 CaretTab was designed and developed by BlueCaret (John W Hancock)

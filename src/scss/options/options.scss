@@ -1,0 +1,33 @@
+/* Settings
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: solid 4px transparent;
+}
+::-webkit-scrollbar-thumb {
+  // background: $gray;
+  box-shadow: inset 0 0 10px 10px $gray;
+  border: solid 4px transparent;
+  border-radius: 10px;
+}
+
+@import "block/box";
+@import "block/btn";
+@import "block/forms";
+@import "block/check";
+@import "block/range";
+@import "block/validation";
+@import "block/nav";
+@import "block/page";
+@import "block/panel";
+@import "block/type";
+@import "block/tips";
+
+@import "page/colors";
+@import "page/dashboard";
+@import "page/design";

@@ -1,0 +1,27 @@
+.changelog {
+  padding: 0 0 0 20px;
+  list-style: none;
+  li {
+    position: relative;
+    padding: 0 0px 7px 0px;
+    line-height: 1.4;
+    &:before {
+      content: '\2714';
+      position: absolute;
+      top: 0;
+      left: -20px;
+      color: $blue;
+    }
+  }
+}
+
+#tipJar {
+  width: 50px;
+  height: auto;
+  .jar {
+    fill: $blue;
+  }
+  .heart {
+    fill: $green;
+  }
+}

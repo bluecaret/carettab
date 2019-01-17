@@ -1,0 +1,19 @@
+.grid {
+  display: grid;
+  grid-gap: 15px;
+  grid-auto-flow: row;
+  @for $i from 1 through 24 {
+    &.cols-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+    .span-#{$i} {
+      grid-column: span $i;
+    }
+    .offset-#{$i} {
+      grid-column-start: +($i + 1);
+    }
+  }
+}
+.grid--middle {
+  align-items: center;
+}

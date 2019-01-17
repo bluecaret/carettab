@@ -1,0 +1,53 @@
+.search {
+  text-align: center;
+  width: 100%;
+  form {
+    width: auto;
+    display: inline-block;
+    position: relative;
+  }
+  input {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid black;
+    font-size: 1em;
+    padding: 0 1.5em 0 .25em;
+    line-height: 1.5em;
+    opacity: .5;
+    transition: opacity .2s;
+    font-family: inherit;
+    font-weight: inherit;
+    &:focus {
+      outline: none;
+      opacity: 1;
+    }
+  }
+  button {
+    background: transparent;
+    border: 0;
+    font-size: 1em;
+    padding: 0;
+    margin: 0;
+    width: 1.5em;
+    height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: .5;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    transition: opacity .2s;
+    z-index: +1;
+    &:focus,
+    &:hover {
+      outline: none;
+      opacity: 1;
+    }
+    .icon {
+      font-size: 1em;
+    }
+  }
+}

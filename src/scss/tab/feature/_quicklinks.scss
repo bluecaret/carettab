@@ -1,0 +1,112 @@
+$qlBg: $optionsBg;
+$qlBorderColor: #1f2020;
+$qlBorder: 1px solid $qlBorderColor;
+$qlRadius: 8px;
+
+.quickLinksBar {
+  ul {
+    position: fixed;
+    z-index: z('tabQuickLinks');
+    top: 0px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: .5em 0 0 0;
+    padding: 0;
+  }
+  button.link,
+  a.link {
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: inherit;
+    font-weight: inherit;
+    align-items: center;
+    padding: .5em 1.2em;
+    text-decoration: none;
+    transition: transform 0.2s;
+    text-align: center;
+    color: inherit;
+    background: transparent;
+    font-family: inherit;
+    border: 0;
+    cursor: pointer;
+    transform: scale(1);
+    &:hover {
+      text-decoration: none;
+      transform: scale(1.1);
+    }
+  }
+  .quickLinksIcon {
+    flex: 0 0 auto;
+    width: 1em;
+    height: 1em;
+  }
+  .quickLinksLabel {
+    flex: 1 1 auto;
+  }
+  .quickLinksIcon + .quickLinksLabel {
+    margin-left: .4em;
+  }
+}
+
+.bookmarksBar + .quickLinksBar ul {
+  top: 33px;
+}
+
+.mostVisitedLink {
+  position: relative;
+}
+.mostVisitedMenu {
+  position: absolute;
+  z-index: z('tabQuickLinksMostVisited');
+  top: 100%;
+  left: 0;
+  display: block;
+  margin: 0;
+  padding: 0;
+  min-width: 10em;
+  max-width: 20em;
+  background-color: $qlBg;
+  border: $qlBorder;
+  border-radius: $qlRadius;
+  box-shadow: none;
+  a {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-size: 14px;
+    overflow: hidden;
+    color: black;
+    font-family: "Open Sans", sans-serif;
+    text-decoration: none;
+    margin: 0;
+    padding: .5em 1em;
+    cursor: pointer;
+    transition: transform .2s;
+    transform-origin: left center;
+    img {
+      flex: 0 0 auto;
+      width: 16px;
+      height: 16px;
+      font-size: 16px;
+      margin-right: .6em;
+    }
+    div {
+      flex: 1 1 auto;
+      position: relative;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      line-height: 22px;
+      font-weight: 300;
+      font-family: "Open Sans", sans-serif;
+    }
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+}

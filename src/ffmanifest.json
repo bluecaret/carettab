@@ -4,7 +4,7 @@
   "name": "__MSG_appName__",
   "short_name": "CaretTab",
   "description": "__MSG_appDesc__",
-  "version": "2.3.1",
+  "version": "3.0.0.beta",
   "default_locale": "en",
 
   "icons": { "16": "assets/img/icon16.png",
@@ -12,7 +12,7 @@
             "128": "assets/img/icon128.png" },
 
   "chrome_url_overrides" : {
-    "newtab": "carettab.htm"
+    "newtab": "index.html"
   },
   
   "background": {

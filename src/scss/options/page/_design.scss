@@ -1,0 +1,51 @@
+.fontOptions label {
+  font-size: 20px !important;
+}
+
+.fontOptions label:nth-of-type(1n) {
+  font-family: "Exo 2", sans-serif;
+}
+
+.fontOptions label:nth-of-type(2n) {
+  font-family: "Quicksand", sans-serif;
+}
+
+.fontOptions label:nth-of-type(3n) {
+  font-family: "Amatic SC", sans-serif;
+}
+
+.fontOptions label:nth-of-type(4n) {
+  font-family: "Anton", sans-serif;
+}
+
+.fontOptions label:nth-of-type(5n) {
+  font-family: "EB Garamond", sans-serif;
+}
+
+.fontOptions label:nth-of-type(6n) {
+  font-family: "Lobster", sans-serif;
+}
+
+.fontOptions label:nth-of-type(7n) {
+  font-family: "Monoton", sans-serif;
+}
+
+.fontOptions label:nth-of-type(8n) {
+  font-family: "PRess Start 2P", sans-serif;
+}
+
+.fontOptions label:nth-of-type(9n) {
+  font-family: "Special Elite", sans-serif;
+}
+
+.patternBtn {
+  background-repeat: repeat;
+}
+
+.wallpaperPreview {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: center;
+}

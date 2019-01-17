@@ -1,0 +1,111 @@
+<div
+  class="bracket bracket--left"
+  *ngIf="clock.brackets.enabled && clock.brackets.left !== ''"
+  [ngClass]="{'dim':clock.brackets.dim}"
+  [style.fontSize]="shared.getFontSize(clock.brackets.scaling, 5)"
+  [style.transform]="shared.getOffset(clock.brackets.offset)"
+  [style.marginRight]="getPadding(clock.brackets.padding)">
+  {{clock.brackets.left}}
+</div>
+<div class="clockContent">
+  <div class="time" *ngIf="!clock.analog.enabled">
+    <div class="timeDigit hour">
+      <span [style.width]="getWidth(clock.padding)">{{getHour(clock.timezone, clock.twentyFour, 1)}}</span>
+      <span [style.width]="getWidth(clock.padding)" *ngIf="getHour(clock.timezone, clock.twentyFour, 2)">{{getHour(clock.timezone, clock.twentyFour, 2)}}</span>
+    </div>
+    <div
+      *ngIf="clock.delimiter.enabled"
+      class="delimiter"
+      [ngClass]="{'dim':clock.delimiter.dim, 'blink':getBlink(clock.delimiter.blink)}"
+      [style.fontSize]="shared.getFontSize(clock.delimiter.scaling, 10)"
+      [style.transform]="shared.getOffset(clock.delimiter.offset)"
+      >{{clock.delimiter.symbol}}</div>
+    <div class="timeDigit minute">
+      <span [style.width]="getWidth(clock.padding)">{{getMinute(clock.timezone, 1)}}</span>
+      <span [style.width]="getWidth(clock.padding)">{{getMinute(clock.timezone, 2)}}</span>
+    </div>
+    <div
+      *ngIf="clock.seconds.enabled && clock.delimiter.enabled"
+      class="delimiter"
+      [ngClass]="{'dim':clock.delimiter.dim, 'blink':getBlink(clock.delimiter.blink)}"
+      [style.fontSize]="shared.getFontSize(clock.delimiter.scaling, 10)"
+      [style.transform]="shared.getOffset(clock.delimiter.offset)"
+      >{{clock.delimiter.symbol}}</div>
+    <div
+      *ngIf="clock.seconds.enabled"
+      class="timeDigit second"
+      [ngClass]="{'dim':clock.seconds.dim}"
+      [style.fontSize]="shared.getFontSize(clock.seconds.scaling, 20)"
+      [style.transform]="shared.getOffset(clock.seconds.offset)">
+      <span [style.width]="getWidth(clock.padding)">{{getSecond(clock.timezone, 1)}}</span>
+      <span [style.width]="getWidth(clock.padding)">{{getSecond(clock.timezone, 2)}}</span>
+    </div>
+    <div
+      *ngIf="clock.meridiem.enabled && showMeridiem(clock.timezone, clock.meridiem.am, clock.meridiem.pm)"
+      class="timeMeridiem"
+      [ngClass]="{'dim':clock.meridiem.dim}"
+      [style.fontSize]="shared.getFontSize(clock.meridiem.scaling, 20)"
+      [style.transform]="shared.getOffset(clock.meridiem.offset)"
+    >{{getMeridiem(clock.timezone, clock.meridiem.am, clock.meridiem.pm)}}</div>
+  </div>
+  <div class="analog" *ngIf="clock.analog.enabled" [style.fontSize]="shared.getFontSize(clock.delimiter.scaling, 1.2)">
+    <div class="analogFace">
+      <svg version="1.1" id="analog-face-01" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" xml:space="preserve" [style.fill]="settings.config.design.foreground">
+        <circle cx="250" cy="11.4" r="11.4"/>
+        <ellipse transform="matrix(0.5 -0.866 0.866 0.5 147.13 341.5063)" cx="369.3" cy="43.3" rx="11.4" ry="11.4"/>
+        <ellipse transform="matrix(0.866 -0.5 0.5 0.866 -4.1594 245.8406)" cx="456.7" cy="130.7" rx="11.4" ry="11.4"/>
+        <circle cx="488.6" cy="250" r="11.4"/>
+        <ellipse transform="matrix(0.5 -0.866 0.866 0.5 -91.5063 580.1427)" cx="456.7" cy="369.3" rx="11.4" ry="11.4"/>
+        <ellipse transform="matrix(0.866 -0.5 0.5 0.866 -178.8533 245.8406)" cx="369.3" cy="456.7" rx="11.4" ry="11.4"/>
+        <circle cx="250" cy="488.6" r="11.4"/>
+        <ellipse transform="matrix(0.5 -0.866 0.866 0.5 -330.1427 341.5063)" cx="130.7" cy="456.7" rx="11.4" ry="11.4"/>
+        <ellipse transform="matrix(0.866 -0.5 0.5 0.866 -178.8533 71.1467)" cx="43.3" cy="369.3" rx="11.4" ry="11.4"/>
+        <circle cx="11.4" cy="250" r="11.4"/>
+        <ellipse transform="matrix(0.5 -0.866 0.866 0.5 -91.5063 102.87)" cx="43.3" cy="130.7" rx="11.4" ry="11.4"/>
+        <ellipse transform="matrix(0.866 -0.5 0.5 0.866 -4.1594 71.1467)" cx="130.7" cy="43.3" rx="11.4" ry="11.4"/>
+      </svg>
+      <div class="analogCenter"
+        [style.background]="settings.config.design.foreground">
+      </div>
+      <div class="analogHour"
+        [ngStyle]="{'transform': getAnalogHour(clock.timezone)}"
+        [style.background]="settings.config.design.foreground">
+      </div>
+      <div class="analogMinute"
+        [ngStyle]="{'transform': getAnalogMinute(clock.timezone)}"
+        [style.background]="settings.config.design.foreground">
+      </div>
+      <div class="analogSecond"
+        *ngIf="clock.seconds.enabled"
+        [ngClass]="{'dim':clock.seconds.dim}"
+        [ngStyle]="{'transform': getAnalogSecond(clock.timezone)}"
+        [style.background]="settings.config.design.foreground">
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="clock.label.text !== '' && clock.label.enabled === true"
+    class="label"
+    [ngClass]="{'dim':clock.label.dim}"
+    [style.fontSize]="shared.getFontSize(clock.label.scaling, 20)"
+    [style.transform]="shared.getOffset(clock.label.offset)">
+    {{clock.label.text}}
+  </div>
+  <div
+    *ngIf="clock.relativeTime.enabled === true"
+    class="clockDate"
+    [ngClass]="{'dim':clock.relativeTime.dim}"
+    [style.fontSize]="shared.getFontSize(clock.relativeTime.scaling, 20)"
+    [style.transform]="shared.getOffset(clock.relativeTime.offset)">
+    {{getRelative(clock.timezone)}}
+  </div>
+</div>
+<div
+  class="bracket bracket--right"
+  *ngIf="clock.brackets.enabled && clock.brackets.right !== ''"
+  [ngClass]="{'dim':clock.brackets.dim}"
+  [style.fontSize]="shared.getFontSize(clock.brackets.scaling, 5)"
+  [style.transform]="shared.getOffset(clock.brackets.offset)"
+  [style.marginLeft]="getPadding(clock.brackets.padding)">
+  {{clock.brackets.right}}
+</div>

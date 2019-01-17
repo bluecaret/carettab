@@ -1,0 +1,43 @@
+import { Component } from '@angular/core';
+import { Storage } from '../../_storage/storage.service';
+import { TimezoneService, Timezone } from '../time/timezone.service';
+import { SharedService } from '../../_shared/shared.service';
+import { dateFormat } from '../../_shared/lists/lists';
+
+@Component({
+  selector: 'options-date',
+  templateUrl: 'date.component.html'
+})
+export class OptionsDateComponent {
+  allTimezones: Timezone[];
+  tzGuess: string;
+  dateFormat = dateFormat;
+
+  constructor(
+    public shared: SharedService,
+    public settings: Storage,
+    public tz: TimezoneService
+  ) {
+    this.allTimezones = tz.getZones();
+    this.tzGuess = this.shared.zoneGuess;
+  }
+
+  /** Updates storage */
+  saveAll() {
+    this.settings.setAll(this.settings.config);
+  }
+
+  changeOrder(up) {
+    if (up) {
+      if (this.settings.config.date.order > this.shared.orderMin) {
+        this.settings.config.date.order--;
+        this.saveAll();
+      }
+    } else {
+      if (this.settings.config.date.order < this.shared.orderMax) {
+        this.settings.config.date.order++;
+        this.saveAll();
+      }
+    }
+  }
+}

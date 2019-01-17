@@ -1,0 +1,68 @@
+nav {
+  position: relative;
+  width: calc(100% + 20px);
+  z-index: z('optionsNav');
+  margin-left: -20px;
+  ul {
+    position: relative;
+    z-index: +2;
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    transform: rotate(-1deg);
+    li {
+      button {
+        background: transparent;
+        border: 0;
+        padding: 15px 20px;
+        transition: all .2s;
+        &.close {
+          position: absolute;
+          top: -5px;
+          right: -15px;
+          opacity: .5;
+          color: white;
+          background: rgb(69, 127, 185);
+          padding: 20px 20px 10px 10px;
+          transform: rotate(9deg);
+        }
+        &:hover {
+          transform: scale(1.6) rotate(-8deg);
+          cursor: pointer;
+          &.close {
+            opacity: .65;
+            transform: translate(-5px,5px) scale(1.4) rotate(-3deg);
+          }
+        }
+        &.active {
+          color: $blue;
+          transform: scale(1.6) rotate(-8deg);
+        }
+        &:focus {
+          outline: 0;
+          color: darken($blue, 10%);
+          &.close {
+            color: black;
+            opacity: .65;
+          }
+        }
+      }
+    }
+  }
+  svg.navBg {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    z-index: +1;
+    width: calc(100% + 30px);
+    height: calc(100% + 40px);
+    overflow: hidden;
+    polyline:nth-child(1) {
+      fill: rgba(100, 150, 200, 0.7);
+    }
+    polyline:nth-child(2) {
+      fill: rgba(255, 255, 255, .8);
+    }
+  }
+}

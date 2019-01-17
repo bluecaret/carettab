@@ -1,0 +1,44 @@
+<form #messageOptions="ngForm" novalidate>
+  <fieldset class="mb0">
+    <legend>Custom message</legend>
+    <div class="grid cols-5">
+      <div class="field span-1">
+        <options-toggle name="message" id="message" [(ngModel)]="settings.config.message.enabled" (ngModelChange)="saveAll()"></options-toggle>
+        <label>Message</label>
+      </div>
+      <div class="field span-2">
+        <input type="text" name="messageText" id="messageText" [(ngModel)]="settings.config.message.text" (ngModelChange)="saveAll()" autocomplete="off">
+        <label title="Enter text for the custom message.">Message text</label>
+      </div>
+      <div class="field span-2">
+        <options-range name="messageSize" id="messageSize" min="1" max="20" [(ngModel)]="settings.config.message.scaling" (ngModelChange)="saveAll()"></options-range>
+        <label>Size</label>
+      </div>
+      <div class="field span-2">
+        <options-range name="messageOffset" min="-20" max="20" [(ngModel)]="settings.config.message.offset" (ngModelChange)="saveAll()"></options-range>
+        <label>Offset</label>
+      </div>
+      <div class="field span-2">
+        <div class="orderBtns">
+          <button
+            type="button"
+            title="Move above other elements"
+            class="btn"
+            [disabled]="settings.config.message.order <= shared.orderMin"
+            (click)="changeOrder(true)">
+            <div class="icon">arrow_drop_up</div>
+          </button>
+          <button
+            type="button"
+            title="Move below other elements"
+            class="btn"
+            [disabled]="settings.config.message.order >= shared.orderMax"
+            (click)="changeOrder(false)">
+            <div class="icon">arrow_drop_down</div>
+          </button>
+        </div>
+        <label>Order</label>
+      </div>
+    </div>
+  </fieldset>
+</form>

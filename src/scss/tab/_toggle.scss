@@ -1,0 +1,50 @@
+$optionsToggleLine: 2px;
+$optionsToggleSize: 16px;
+$optionsToggleSpacing: 3px;
+$optionsTogglePadding: 30px;
+$optionsToggleHeight: ($optionsToggleSize + ($optionsTogglePadding * 2));
+
+.openOptions {
+  position: fixed;
+  z-index: z('tabToggle');
+  bottom: 0;
+  right: 0;
+  background: transparent;
+  color: inherit;
+  border: 0;
+  padding: 0;
+  width: $optionsToggleHeight;
+  height: $optionsToggleHeight;
+  transition: all .3s;
+  cursor: pointer;
+  overflow: hidden;
+  opacity: .5;
+  &:hover,
+  &:focus {
+    outline: 0;
+    opacity: 1;
+  }
+  span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: $optionsToggleSize;
+    background: currentColor;
+    border-radius: 2px;
+    opacity: 1;
+    right: $optionsTogglePadding;
+    &:nth-of-type(1) {
+      bottom: ($optionsToggleSpacing + $optionsTogglePadding);
+    }
+    &:nth-of-type(2), &:nth-of-type(3) {
+      bottom: ((($optionsToggleSize - $optionsToggleLine) / 2) + $optionsTogglePadding);
+    }
+    &:nth-of-type(4) {
+      bottom: ($optionsToggleSize - $optionsToggleLine - $optionsToggleSpacing + $optionsTogglePadding);
+    }
+  }
+  &.open {
+    width: 100vw;
+    height: 100vh;
+  }
+}

@@ -1,0 +1,41 @@
+<fieldset>
+  <legend>Language</legend>
+  <div class="grid cols-2">
+    <div class="field span-1">
+      <select name="lang" id="lang" [(ngModel)]="settings.config.lang" (ngModelChange)="saveAll()">
+        <option *ngFor="let lang of languages" [ngValue]="lang.id">{{lang.label}}</option>
+      </select>
+      <label for="lang">Language</label>
+    </div>
+  </div>
+</fieldset>
+<fieldset>
+  <legend>Tab title</legend>
+  <div class="grid cols-4">
+    <div class="field span-2">
+      <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.title.type" (ngModelChange)="saveAll()">
+        <option *ngFor="let type of titleOptions" [ngValue]="type.id">{{type.label}}</option>
+      </select>
+      <label for="tabTitle" title="Choose what to display in the New Tab title (shows on the tab itself as well as in the browser's title bar).">Tab Title</label>
+    </div>
+    <div class="field span-2" *ngIf="settings.config.title.type === 60">
+      <input type="text" name="tabTitleCustom" id="tabTitleCustom" [(ngModel)]="settings.config.title.text" (ngModelChange)="saveAll()">
+      <label for="tabTitleCustom" title='Enter text for the custom tab title. Only applies if "Custom Text" is selected for Tab Title.'>Custom Text for Tab Title</label>
+    </div>
+    <div class="field span-1" *ngIf="settings.config.title.type === 20 || settings.config.title.type === 40 || settings.config.title.type === 50">
+      <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.title.clockUsed" (ngModelChange)="saveAll()">
+        <option *ngFor="let clock of settings.config.time.clocks; let i = index" [ngValue]="i+1">Clock #{{i + 1}}</option>
+      </select>
+      <label for="tabTitle" title="Choose what to display in the New Tab title (shows on the tab itself as well as in the browser's title bar).">Clock for title</label>
+    </div>
+  </div>
+</fieldset>
+<fieldset class="mb0">
+  <legend>Advanced</legend>
+  <div class="grid cols-3">
+    <div class="field span-1">
+      <button id="reset" type="button" class="btn" (click)="reset()">Reset</button>
+      <label for="reset" title="If you would like to reset all settings back to the default, you can click this button and then refresh the page. This will remove all of your settings.">Reset to Default</label>
+    </div>
+  </div>
+</fieldset>

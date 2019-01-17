@@ -1,0 +1,52 @@
+/* Tab
+   ========================================================================== */
+
+app-tab {
+  position: fixed;
+  z-index: z('tabUI');
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background: #272e33;
+  color: white;
+  transform-origin: 100% 100%;
+  transition: $transition;
+  transform: translate(0, 0) scale(1);
+  background-size: cover;
+  background-position: center;
+}
+
+.tabCenter {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.orderBtns {
+  width: 100%;
+  display: grid;
+  grid-gap: 5px;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@import "/toggle";
+@import "/feature/bookmarks";
+@import "/feature/quicklinks";
+@import "/feature/time";
+@import "/feature/analog";
+@import "/feature/date";
+@import "/feature/message";
+@import "/feature/search";

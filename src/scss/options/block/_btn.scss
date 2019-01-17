@@ -1,0 +1,53 @@
+$btnActiveShadow: inset 0 0 0 2px #000, inset 0 0 0 4px $optionsBg;
+
+.btn {
+  display: inline-flex;
+  min-width: 44px;
+  padding: 0 10px;
+  font-size: 13px;
+  align-items: center;
+  justify-content: center;
+  line-height: $fieldHeight;
+  vertical-align: middle;
+  background: $lightBlue;
+  border: 0;
+  border-radius: ($fieldHeight / 2);
+  color: black;
+  cursor: pointer;
+  transition: $transition;
+  text-decoration: none;
+  &:focus {
+    outline: none;
+    box-shadow: $focus;
+  }
+  &:hover {
+    background: $blue;
+  }
+  &.active {
+    box-shadow: $btnActiveShadow;
+  }
+  &.active:focus {
+    box-shadow: $focus, $btnActiveShadow;
+  }
+  &:disabled {
+    background: #dcdcdc;
+    color: #666;
+    cursor: not-allowed;
+  }
+  .icon.space {
+    margin-right: 5px;
+  }
+  .icon {
+    line-height: $fieldHeight;
+  }
+}
+
+.btnCircle {
+  padding: 0;
+  min-width: 30px;
+}
+
+.btnBlock {
+  display: block;
+  width: 100%;
+}

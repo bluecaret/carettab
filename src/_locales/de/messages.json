@@ -1,9 +1,9 @@
 {
   "appName": {
-    "message": "CaretTab - Neuer Tab-Seite mit Uhrzeit und Datum"
+    "message": "CaretTab - Neuer-Tab-Seite mit Uhrzeit und Datum"
   },
   "appDesc": {
-    "message": "Eine wunderschön einfache Neuer Tab-Seite, die mehrere Uhren, Datum, Suche, Schnellzugriffe und mehr! Vollständig anpassbar!"
+    "message": "Eine wunderschön einfache Neuer-Tab-Seite, die mehrere Uhren, das Datum, eine Web-Suche, Schnellzugriffe und mehr bietet! Vollständig an Ihre Bedürfnisse anpassbar!"
   },
 
   "sunday": {
@@ -41,7 +41,7 @@
     "message": "April"
   },
   "may": {
-    "message": "Kann"
+    "message": "Mai"
   },
   "june": {
     "message": "Juni"
@@ -72,10 +72,10 @@
     "message": "CaretTab wurde aktualisiert auf"
   },
   "configureEverything": {
-    "message": "Klicken Sie auf das Pfeil-Symbol um alles anzupassen!"
+    "message": "Klicken Sie auf das Pfeil-Symbol, um alles anzupassen!"
   },
   "settingsPanel": {
-    "message": "Schauen Sie sich die Tabs an um alle Einstellungen zu sehen."
+    "message": "Schauen Sie sich die Tabs an, um alle Einstellungen zu sehen."
   },
 
   "tabAbout": {
@@ -104,10 +104,10 @@
     "message": "Neuestes Update"
   },
   "keepFree": {
-    "message": "Helfen Sie CaretTab kostenlos zu bleiben"
+    "message": "Sie können dabei helfen, dass CaretTab kostenlos bleibt"
   },
   "keepFreeDesc": {
-    "message": "Wenn Sie CaretTab nützlich finden, bitten wir Sie eine kleine Spende zu hinterlassen. Spenden helfen CaretTab dabei, kostenlos und frei von Werbung zu bleiben. Wir schätzen Ihre Unterstützung sehr!"
+    "message": "Wenn Sie CaretTab nützlich finden, bitten wir Sie um eine kleine Spende. Spenden helfen CaretTab dabei, kostenlos und frei von Werbung zu bleiben. Wir schätzen Ihre Unterstützung sehr!"
   },
   "generousTip": {
     "message": "Großzügige<br>Spende von"
@@ -131,10 +131,10 @@
     "message": "Hilfe"
   },
   "supportDesc": {
-    "message": "Falls Sie Unterstützung benötigen, einen Vorschlag oder Kommentar haben, kontaktieren Sie uns, <a href=\"http://bluecaret.com\">BlueCaret</a> bei Twitter <a href=\"https://twitter.com/BlueCaret\">@BlueCaret</a> oder besuchen Sie CaretTab auf <a href=\"https://github.com/bluecaret/carettab\">GitHub</a>."
+    "message": "Falls Sie Unterstützung benötigen, einen Vorschlag oder Kommentar haben, besuchen Sie uns, BlueCaret auf unserer <a href=\"http://bluecaret.com\">Homepage</a>, kontaktieren Sie uns bei Twitter <a href=\"https://twitter.com/BlueCaret\">@BlueCaret</a> oder arbeiten Sie an CaretTab auf <a href=\"https://github.com/bluecaret/carettab\">GitHub</a> mit."
   },
   "resetDesc": {
-    "message": "Falls Sie alle Einstellungen auf ihre Standardwerte zurücksetzen möchten, klicken Sie auf folgenden Button."
+    "message": "Falls Sie sämtliche Einstellungen auf die Werkseinstellungen zurücksetzen möchten, klicken Sie auf folgenden Button."
   },
   "resetButton": {
     "message": "Zurücksetzen"
@@ -143,7 +143,7 @@
     "message": "<a href=\"http://bluecaret.com/project/carettab\">CaretTab</a> wurde designed und entwickelt von <a href=\"http://jwh.design\">JWH Design, LLC</a> (<a href=\"http://bluecaret.com\">BlueCaret</a>) und ist lizensiert unter der <a href=\"https://opensource.org/licenses/MIT\">MIT License</a>."
   },
   "disclaimer": {
-    "message": "CaretTab haftet nicht für Schäden und Probleme die durch die Benutzung der Erweiterung hervorgehen. Wenn Sie zu spät zu Arbeit kommen, weil die Uhrzeit falsch angezeit wurde, ist das Ihr Problem."
+    "message": "CaretTab haftet nicht für Schäden und Probleme die auf die Benutzung der Erweiterung zurückgehen. Wenn Sie zu spät zur Arbeit kommen, weil die Uhrzeit falsch angezeigt wurde, ist das leider Ihr Problem."
   },
 
   "customColor": {
@@ -169,13 +169,13 @@
     "message": "Hauptuhr"
   },
   "primaryClockDesc": {
-    "message": "Shows the primary clock in the middle of the page."
+    "message": "Zeigt die Hauptuhr in der Mitte der Seite an."
   },
   "clockStyle": {
     "message": "Uhrendesign"
   },
   "clockStyleDesc": {
-    "message": "Wechseln Sie zwischen einer digitalen und analogen Uhr (Klammern werden nicht angezeit wenn aktiviert)."
+    "message": "Wechseln Sie zwischen einer digitalen und einer analogen Uhr (Klammern werden nicht angezeit wenn aktiviert)."
   },
   "seconds": {
     "message": "Sekunden"
@@ -193,7 +193,7 @@
     "message": "24 Stunden"
   },
   "militaryDesc": {
-    "message": "Benutzt das 24 Stunden Zeitformat (deaktiviert die Anzeige von AM/PM)."
+    "message": "Benutzt das 24-Stunden-Zeitformat (deaktiviert die Anzeige von AM/PM)."
   },
   "delimiter": {
     "message": "Trennzeichen"
@@ -223,7 +223,7 @@
     "message": "Wählen Sie eine Zeitzone für diese Uhr."
   },
   "secondClockLabel": {
-    "message": "Name der zweiten Uhr"
+    "message": "Bezeichnung der zweiten Uhr"
   },
   "secondClockLabelDesc": {
     "message": "Geben Sie einen Namen für diese Uhr ein (freilassen um keinen Namen zu setzen)."
@@ -241,7 +241,7 @@
     "message": "Wählen Sie eine Zeitzone für diese Uhr."
   },
   "thirdClockLabel": {
-    "message": "Name der dritten Uhr"
+    "message": "Bezeichnung der dritten Uhr"
   },
   "thirdClockLabelDesc": {
     "message": "Geben Sie einen Namen für diese Uhr ein (freilassen um keinen Namen zu setzen)."
@@ -259,13 +259,13 @@
     "message": "Wählen Sie eine Zeitzone für diese Uhr."
   },
   "fourthClockLabel": {
-    "message": "Name der vierten Uhr"
+    "message": "Bezeichnung der vierten Uhr"
   },
   "fourthClockLabelDesc": {
     "message": "Geben Sie einen Namen für diese Uhr ein (freilassen um keinen Namen zu setzen)."
   },
   "timeDisclaimer": {
-    "message": "<b>Hinweis:</b> Die Anzeige der Uhrzeit der Haupt- und Zusatzuhren erfolgt nach der Uhrzeit und Zeitzone auf Ihrem Computer. Die automatisch Erratene Zeitzone muss nicht immer zwangsläufig mit Ihrer wirklichen Zeitzone übereinstimmen, was zur Abweichung von den zusätzlichen Uhren führen kann. CaretTab erkennt Ihre aktuelle Zeitzone als:"
+    "message": "<b>Hinweis:</b> Die Anzeige der Uhrzeit der Haupt- und Zusatzuhren erfolgt entsprechend der Uhrzeit und Zeitzone auf Ihrem Computer. Die automatisch erratene Zeitzone muss nicht zwangsläufig mit Ihrer tatsächlichen Zeitzone übereinstimmen, was zur Abweichung bei den zusätzlichen Uhren führen kann. CaretTab erkennt Ihre aktuelle Zeitzone als:"
   },
 
   "date": {
@@ -311,17 +311,17 @@
     "message": "Zeight die Wochennummer unter dem Datum."
   },
   "weekLabel": {
-    "message": "Label für Wochennummer"
+    "message": "Bezeichner für Wochennummer"
   },
   "weekLabelDesc": {
-    "message": "Label, das neben der Wochennummer angezeigt werden soll."
+    "message": "Bezeichnung, die neben der Wochennummer angezeigt werden soll."
   },
 
   "quickLinks": {
     "message": "Schnellzugriffe"
   },
   "quickLinksDesc": {
-    "message": "Zeigt einen Link für den Schnellzugriff am Anfang der Seite."
+    "message": "Zeigt eine Verknüpfung für den Schnellzugriff am Anfang der Seite."
   },
   "addLink": {
     "message": "Verknüpfung hinzufügen"
@@ -376,7 +376,7 @@
     "message": "Titel des Tabs"
   },
   "tabTitleDesc": {
-    "message": "Wählen Sie, was im Name des Tabs angezeigt werden soll (wird sowohl im Tab selbst, als auch in der Titelleise des Browsers angezeigt)."
+    "message": "Wählen Sie, was im Titel des Tabs angezeigt werden soll (wird sowohl im Tab selbst, als auch in der Titelleise des Browsers angezeigt)."
   },
   "customTabText": {
     "message": "Eigener Titel-Text"
@@ -388,7 +388,7 @@
     "message": "Sprache"
   },
   "languageDesc": {
-    "message": "CaretTab unterstützt mehrere Sprachen, die automatisch basierend auf den Einstellungen Ihres Browsers übersetzt werden (die manuelle Einstellung der Sprache in der Erweiterung wird später erfolgen). Aktuelle unterstützte Sprachen: Englisch, Französisch, Chinesisch (vereinfacht und traditionell), Japanisch, Deutsch."
+    "message": "CaretTab unterstützt mehrere Sprachen, die automatisch basierend auf den Einstellungen Ihres Browsers gewählt werden (die manuelle Einstellung der Sprache in der Erweiterung wird später ermöglicht). Aktuelle unterstützte Sprachen: Englisch, Französisch, Chinesisch (vereinfacht und traditionell), Japanisch, Deutsch."
   },
 
   "globalStyle": {
@@ -425,7 +425,7 @@
     "message": "Trennzeichen dimmen"
   },
   "dimDelimiterDesc": {
-    "message": "Setzt die Tranzparenz der Trennzeichen auf 50% (nur wenn das Blinken deaktiviert ist)."
+    "message": "Setzt die Tranzparenz der Trennzeichen auf 50% (nur wenn Blinken deaktiviert ist)."
   },
   "dimBrackets": {
     "message": "Klammern dimmen"
@@ -443,6 +443,6 @@
     "message": "Einstellungsknopf ausblenden"
   },
   "hideSettingsButtonDesc": {
-    "message": "Der Einstellungsknopf öffnet die Einstellungen. Aktivieren um den Knopf auszublenden. Sie können die Einstellungen weiterhin duck klicken auf die rechte obere Ecke des Fensters öffnen."
+    "message": "Der Einstellungsknopf öffnet die Einstellungen. Aktivieren um den Knopf auszublenden. Sie können die Einstellungen weiterhin per Klick auf die rechte obere Ecke des Fensters öffnen."
   }
 }

@@ -43,6 +43,6 @@
   (click)="toggleOptions()"
   class="openOptions"
   [ngClass]="{'open': shared.optionsToggle}"
-  title="Open Settings">
+  [title]="shared.optionsToggle ? 'Close settings' : 'Open settings'">
   <span></span><span></span><span></span><span></span>
 </button>

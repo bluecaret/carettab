@@ -57,7 +57,7 @@ export class Settings {
           scaling: 10,
           span: 40,
           padding: 10,
-          offset: 1,
+          offset: 0,
           twentyFour: false,
           label: {
             text: 'Main clock',
@@ -92,15 +92,15 @@ export class Settings {
             blink: false,
             symbol: ':',
             scaling: 10,
-            offset: 2
+            offset: 0
           },
           brackets: {
-            enabled: true,
+            enabled: false,
             dim: false,
             left: '[',
             right: ']',
             scaling: 10,
-            offset: -1,
+            offset: 0,
             padding: 1
           },
           analog: {
@@ -113,7 +113,7 @@ export class Settings {
     date: {
       enabled: true,
       scaling: 6,
-      offset: 16,
+      offset: 0,
       order: 4,
       timezone: 'Automatic',
       format: 20,

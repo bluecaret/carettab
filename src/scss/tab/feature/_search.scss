@@ -9,7 +9,8 @@
   input {
     background: transparent;
     border: 0;
-    border-bottom: 1px solid black;
+    color: currentColor;
+    border-bottom: 1px solid currentColor;
     font-size: 1em;
     padding: 0 1.5em 0 .25em;
     line-height: 1.5em;
@@ -24,6 +25,7 @@
   }
   button {
     background: transparent;
+    color: currentColor;
     border: 0;
     font-size: 1em;
     padding: 0;

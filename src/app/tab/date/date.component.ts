@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
 import * as moment from 'moment';
@@ -8,13 +8,15 @@ import * as moment from 'moment';
   templateUrl: 'date.component.html',
   host: {'class': 'date'}
 })
-export class TabDateComponent {
+export class TabDateComponent implements OnInit {
   currentDate: Date;
 
   constructor(
     public shared: SharedService,
     public settings: Storage
-  ) {
+  ) {}
+
+  ngOnInit() {
     if (this.settings.config.date.enabled) {
       this.shared.zoneGuess = moment.tz.guess();
       setInterval(() => {
@@ -30,16 +32,8 @@ export class TabDateComponent {
       this.settings.config.title.type === 40 ||
       this.settings.config.title.type === 50
     ) {
-      this.shared.time = this.constructTitleDate();
+      this.shared.date = this.getDate();
     }
-  }
-
-  constructTitleDate(): string {
-    let date = this.settings.config.date.enabled;
-    if (date) {
-      return date;
-    }
-    return '';
   }
 
   getDate(): string {

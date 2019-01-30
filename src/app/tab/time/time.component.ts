@@ -1,4 +1,4 @@
-import { Component, NgZone, Renderer2, ElementRef, ViewChild, Input } from '@angular/core';
+import { Component, NgZone, Renderer2, ElementRef, ViewChild, Input, OnInit } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { Clock } from '../../_shared/models/clock';
 import { SharedService } from '../../_shared/shared.service';
@@ -10,7 +10,7 @@ import * as moment from 'moment';
   templateUrl: 'time.component.html',
   host: {'class': 'clock'}
 })
-export class TabTimeComponent {
+export class TabTimeComponent implements OnInit {
   currentTime: Date;
   span = span;
 
@@ -25,7 +25,9 @@ export class TabTimeComponent {
     public settings: Storage,
     private zone: NgZone,
     private renderer: Renderer2
-  ) {
+  ) {}
+
+  ngOnInit() {
     if (this.settings.config.time.clocks.length > 0) {
       this.shared.zoneGuess = moment.tz.guess();
       setInterval(() => {

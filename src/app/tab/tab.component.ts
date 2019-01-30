@@ -19,10 +19,39 @@ export class TabComponent implements OnInit {
     private titleService: Title
   ) {
     this.shared.optionsToggle = false;
+    this.titleService.setTitle( 'New Tab' );
   }
 
   ngOnInit() {
     this.setTitle();
+    this.setTitleOnInterval();
+    this.settings.onChange().subscribe((data) => {
+      if (
+        this.settings.config.title.type === 20 ||
+        this.settings.config.title.type === 40 ||
+        this.settings.config.title.type === 50
+      ) {
+        this.setTitle();
+        this.setTitleOnInterval();
+      }
+    });
+  }
+
+  /** Updates storage */
+  saveAll() {
+    this.settings.setAll(this.settings.config);
+  }
+
+  toggleOptions() {
+    if (this.shared.optionsToggle === true) {
+      this.saveAll();
+      this.shared.optionsToggle = false;
+    } else {
+      this.shared.optionsToggle = true;
+    }
+  }
+
+  setTitleOnInterval() {
     if (
       this.settings.config.time.clocks.length > 0 &&
       this.settings.config.title.type === 20 ||
@@ -43,29 +72,23 @@ export class TabComponent implements OnInit {
     }
   }
 
-  /** Updates storage */
-  saveAll() {
-    this.settings.setAll(this.settings.config);
-  }
-
-  toggleOptions() {
-    if (this.shared.optionsToggle === true) {
-      this.saveAll();
-      this.shared.optionsToggle = false;
-    } else {
-      this.shared.optionsToggle = true;
-    }
-  }
-
-  public setTitle() {
+  setTitle() {
     if (this.settings.config.title.type === 20) {
-      this.titleService.setTitle( this.shared.time );
+      if (this.shared.time) {
+        this.titleService.setTitle( this.shared.time );
+      }
     } else if (this.settings.config.title.type === 30) {
-      this.titleService.setTitle( this.shared.date );
+      if (this.shared.date) {
+        this.titleService.setTitle( this.shared.date );
+      }
     } else if (this.settings.config.title.type === 40) {
-      this.titleService.setTitle( this.shared.time + ' ' + this.shared.date );
+      if (this.shared.time && this.shared.date) {
+        this.titleService.setTitle( this.shared.time + ' | ' + this.shared.date );
+      }
     } else if (this.settings.config.title.type === 50) {
-      this.titleService.setTitle( this.shared.date + ' - ' + this.shared.time );
+      if (this.shared.time && this.shared.date) {
+        this.titleService.setTitle( this.shared.date + ' | ' + this.shared.time );
+      }
     } else if (this.settings.config.title.type === 60) {
       this.titleService.setTitle( this.settings.config.title.text );
     } else {

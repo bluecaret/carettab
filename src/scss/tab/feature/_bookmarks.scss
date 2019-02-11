@@ -1,4 +1,4 @@
-$bookmarksBaseScale: 12px;
+$bookmarksBaseScale: 13px;
 $barBg: #fdfeff;
 $barBgHover: #e9eaec;
 $barBorder: #b6b4b6;
@@ -7,6 +7,8 @@ $barTitleBgHover: darken($barTitleBg, 5%);
 $barBtnBorder: lighten($barBorder, 15%);
 $barHeight: 22px;
 $barMaxWidth: 9.7em;
+$barFontFamily: "Roboto", sans-serif;
+$barFontWeight: 300;
 
 .bookmarksBar {
   font-size: $bookmarksBaseScale;
@@ -97,8 +99,8 @@ $barMaxWidth: 9.7em;
   text-overflow: clip;
   overflow: hidden;
   line-height: $barHeight;
-  font-weight: 300;
-  font-family: $settingsFont;
+  font-weight: $barFontWeight;
+  font-family: $barFontFamily;
   &::after {
     content: '';
     width: $barMaxWidth;

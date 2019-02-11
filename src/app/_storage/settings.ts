@@ -42,7 +42,7 @@ export class Settings {
         },
         {
           label: 'Gmail',
-          url: 'https://www.gmail.com/'
+          url: 'https://gmail.com/'
         },
         {
           label: 'YouTube',

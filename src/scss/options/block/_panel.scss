@@ -30,8 +30,8 @@
   right: 0;
   bottom: 0;
   overflow: hidden;
-  padding: 0 0 0 50px;
+  padding: 0 0 0 0;
   z-index: z('optionsPage');
   display: grid;
-  grid-template: 60px 1fr / 1fr;
+  grid-template: 57px 1fr / 1fr;
 }

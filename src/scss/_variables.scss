@@ -17,15 +17,15 @@ $lg: 1200px;
 
 // Z-index
 $z-indexes: (
+  'optionsPanel',
+  'optionsPage',
+  'optionsNav',
   'tabUI',
   'tabClock',
   'tabDate',
   'tabBookmarks',
   'tabQuickLinks',
   'tabQuickLinksMostVisited',
-  'optionsPanel',
-  'optionsPage',
-  'optionsNav',
   'tabToggle',
   'tooltip'
 );

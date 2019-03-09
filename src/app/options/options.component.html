@@ -1,8 +1,8 @@
-<section class="panel" @options *ngIf="shared.optionsToggle">
-  <svg class="panelBg" version="1.1" viewBox="0 0 50 100" preserveAspectRatio="none">
+<section class="panel" [@options] *ngIf="shared.optionsToggle">
+  <!-- <svg class="panelBg" version="1.1" viewBox="0 0 50 100" preserveAspectRatio="none">
     <polyline points="4 0, 50 0, 50 100, 0 100"></polyline>
     <polyline points="0 0, 50 0, 50 100, 2 100"></polyline>
-  </svg>
+  </svg> -->
   <div class="panelContent">
     <nav *ngIf="shared.optionsToggle"></nav>
     <options-dashboard @fadeIn *ngIf="shared.optionsPage === 'Dashboard'" class="page" [ngClass]="{'open': shared.optionsPage === 'Dashboard'}"></options-dashboard>

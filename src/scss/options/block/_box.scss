@@ -6,3 +6,13 @@
 .boxHeading {
   margin: 0 0 10px 0;
 }
+
+.sub {
+  border: 0 solid darken($lightGray, 10%);
+  border-left-width: 5px;
+  padding: 10px 0 10px 10px;
+  margin-left: 5px;
+}
+.subHeading {
+  margin-top: 0;
+}

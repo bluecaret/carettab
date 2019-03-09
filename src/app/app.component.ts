@@ -4,11 +4,13 @@ import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { SharedService } from './_shared/shared.service';
 import { Storage } from './_storage/storage.service';
 import { bgSize, bgBlend } from './_shared/lists/lists';
+import { tab } from './_shared/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   animations: [
+    tab,
     trigger('fade', [
       state('*', style({
         opacity: 1

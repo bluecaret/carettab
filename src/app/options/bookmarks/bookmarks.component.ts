@@ -29,7 +29,6 @@ export class OptionsBookmarksComponent {
         label: label,
         url: url,
       });
-      this.saveAll();
       this.resetEdit();
       model.resetForm();
     } else {
@@ -41,14 +40,12 @@ export class OptionsBookmarksComponent {
     if (isValid) {
       this.settings.config.bookmarks.links[index].label = label;
       this.settings.config.bookmarks.links[index].url = this.checkLink(url);
-      this.saveAll();
       this.resetEdit();
     }
   }
 
   swap(arr: any[], from: number, to: number) {
     arr.splice(from, 1, arr.splice(to, 1, arr[from])[0]);
-    this.saveAll();
   }
 
   enterEditMode(index: number) {
@@ -62,7 +59,6 @@ export class OptionsBookmarksComponent {
 
   deleteLink(link: any[], index: number) {
     this.settings.config.bookmarks.links.splice(index, 1);
-    this.saveAll();
     this.resetEdit();
   }
 
@@ -75,9 +71,5 @@ export class OptionsBookmarksComponent {
 
   trackByFn(index: any, item: any) {
     return index;
-  }
-
-  saveAll() {
-    this.settings.setAll(this.settings.config);
   }
 }

@@ -28,11 +28,10 @@
             type="text"
             [name]="'label'+i"
             [(ngModel)]="clock.label.text"
-            autocomplete="off"
-            (ngModelChange)="saveAll()">
+            autocomplete="off">
         </div>
         <div class="field noLabel span-7">
-          <select [name]="'timezone'+i" [(ngModel)]="clock.timezone" (ngModelChange)="saveAll()">
+          <select [name]="'timezone'+i" [(ngModel)]="clock.timezone">
             <option value="Automatic">Automatic ({{tz.timezoneFormat(tzGuess)}})</option>
             <ng-template let-c ngFor [ngForOf]="allTimezones">
               <optgroup *ngIf="c.zones.length > 1" [label]="c.iso | iso2CountryPipe">
@@ -77,25 +76,25 @@
               <h4 class="boxHeading">General clock settings</h4>
               <div class="grid cols-18">
                 <div class="field span-6">
-                  <options-range [name]="'clockSize'+i" [id]="'clockSize'+i" min="1" max="40" [(ngModel)]="clock.scaling" (ngModelChange)="saveAll()"></options-range>
+                  <options-range [name]="'clockSize'+i" [id]="'clockSize'+i" min="1" max="40" [(ngModel)]="clock.scaling"></options-range>
                   <label [for]="'clockSize'+i" title="Change the size of the clock.">Size</label>
                 </div>
                 <div class="field span-6">
-                  <options-range [name]="'clockPadding'+i" [id]="'clockPadding'+i" min="1" max="20" [(ngModel)]="clock.padding" (ngModelChange)="saveAll()"></options-range>
+                  <options-range [name]="'clockPadding'+i" [id]="'clockPadding'+i" min="1" max="20" [(ngModel)]="clock.padding"></options-range>
                   <label [for]="'clockPadding'+i" title="Change the padding between the digits of the clock.">Padding</label>
                 </div>
                 <div class="field span-6">
-                  <options-range [name]="'clockOffset'+i" [id]="'clockOffset'+i" min="-20" max="20" [(ngModel)]="clock.offset" (ngModelChange)="saveAll()"></options-range>
+                  <options-range [name]="'clockOffset'+i" [id]="'clockOffset'+i" min="-20" max="20" [(ngModel)]="clock.offset"></options-range>
                   <label [for]="'clockOffset'+i" title="Adjust the position of the clock up or down">Offset</label>
                 </div>
                 <div class="field span-4">
-                  <select [name]="'clockSpan'+i" [id]="'clockSpan'+i" [(ngModel)]="clock.span" (ngModelChange)="saveAll()">
+                  <select [name]="'clockSpan'+i" [id]="'clockSpan'+i" [(ngModel)]="clock.span">
                     <option *ngFor="let s of span" [ngValue]="s.id">{{s.label}}</option>
                   </select>
                   <label [for]="'clockSpan'+i" title="Changes how much space the clock uses.">Span</label>
                 </div>
                 <div class="field span-3">
-                  <options-toggle [name]="'clockTwentyFour'+i" [id]="'clockTwentyFour'+i" [(ngModel)]="clock.twentyFour" (ngModelChange)="saveAll()"></options-toggle>
+                  <options-toggle [name]="'clockTwentyFour'+i" [id]="'clockTwentyFour'+i" [(ngModel)]="clock.twentyFour"></options-toggle>
                   <label title="Display clock in 24-hour format instead of 12-hour (will disable meridiem).">24 hour</label>
                 </div>
               </div>
@@ -105,27 +104,27 @@
                 <h4 class="boxHeading">Delimiter</h4>
                 <div class="grid grid--middle cols-3">
                   <div class="field compactIcon span-1">
-                    <options-toggle type="check" [name]="'delimiterEnable'+i" [id]="'delimiterEnable'+i" [(ngModel)]="clock.delimiter.enabled" (ngModelChange)="saveAll()"></options-toggle>
+                    <options-toggle type="check" [name]="'delimiterEnable'+i" [id]="'delimiterEnable'+i" [(ngModel)]="clock.delimiter.enabled"></options-toggle>
                     <label title="Enable delimiter"><i class="icon">power_settings_new</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.delimiter.enabled">
-                    <options-range [name]="'delimiterScaling'+i" [id]="'delimiterScaling'+i" min="1" max="20" [(ngModel)]="clock.delimiter.scaling" (ngModelChange)="saveAll()"></options-range>
+                    <options-range [name]="'delimiterScaling'+i" [id]="'delimiterScaling'+i" min="1" max="20" [(ngModel)]="clock.delimiter.scaling"></options-range>
                     <label title="Adjusts the size of the delimiter relative to the clock">Size</label>
                   </div>
                   <div class="field compactIcon span-1" *ngIf="clock.delimiter.enabled">
-                    <options-toggle type="check" [name]="'delimiterDim'+i" [id]="'delimiterDim'+i" [(ngModel)]="clock.delimiter.dim" (ngModelChange)="saveAll()"></options-toggle>
+                    <options-toggle type="check" [name]="'delimiterDim'+i" [id]="'delimiterDim'+i" [(ngModel)]="clock.delimiter.dim"></options-toggle>
                     <label title="Dim delimiter"><i class="icon">brightness_medium</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.delimiter.enabled">
-                    <options-range [name]="'delimiterOffset'+i" [id]="'delimiterOffset'+i" min="-10" max="10" [(ngModel)]="clock.delimiter.offset" (ngModelChange)="saveAll()"></options-range>
+                    <options-range [name]="'delimiterOffset'+i" [id]="'delimiterOffset'+i" min="-10" max="10" [(ngModel)]="clock.delimiter.offset"></options-range>
                     <label title="Adjust the position of the delimiter up or down">Offset</label>
                   </div>
                   <div class="field compactIcon span-1" *ngIf="clock.delimiter.enabled">
-                    <options-toggle type="check" [name]="'delimiterBlink'+i" [id]="'delimiterBlink'+i" [(ngModel)]="clock.delimiter.blink" (ngModelChange)="saveAll()"></options-toggle>
+                    <options-toggle type="check" [name]="'delimiterBlink'+i" [id]="'delimiterBlink'+i" [(ngModel)]="clock.delimiter.blink"></options-toggle>
                     <label title="Blink delimiter"><i class="icon">remove_red_eye</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.delimiter.enabled">
-                    <input type="text" maxlength="1" [id]="'delimiterSymbol'+i" [name]="'delimiterSymbol'+i" [(ngModel)]="clock.delimiter.symbol" (ngModelChange)="saveAll()" autocomplete="off">
+                    <input type="text" maxlength="1" [id]="'delimiterSymbol'+i" [name]="'delimiterSymbol'+i" [(ngModel)]="clock.delimiter.symbol" autocomplete="off">
                     <label [for]="'delimiterSymbol'+i" title="Enter the symbol to represent the delimiter">Symbol</label>
                   </div>
                 </div>
@@ -134,19 +133,19 @@
                 <h4 class="boxHeading">Seconds</h4>
                 <div class="grid grid--middle cols-3">
                   <div class="field compactIcon span-1">
-                    <options-toggle type="check" [name]="'secondsEnable'+i" [id]="'secondsEnable'+i" [(ngModel)]="clock.seconds.enabled" (ngModelChange)="saveAll()"></options-toggle>
+                    <options-toggle type="check" [name]="'secondsEnable'+i" [id]="'secondsEnable'+i" [(ngModel)]="clock.seconds.enabled"></options-toggle>
                     <label title="Enable seconds"><i class="icon">power_settings_new</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.seconds.enabled">
-                    <options-range [name]="'secondsScaling'+i" [id]="'secondsScaling'+i" min="1" max="20" [(ngModel)]="clock.seconds.scaling" (ngModelChange)="saveAll()"></options-range>
+                    <options-range [name]="'secondsScaling'+i" [id]="'secondsScaling'+i" min="1" max="20" [(ngModel)]="clock.seconds.scaling"></options-range>
                     <label title="Adjusts the size of the seconds relative to the clock">Size</label>
                   </div>
                   <div class="field compactIcon span-1" *ngIf="clock.seconds.enabled">
-                    <options-toggle type="check" [name]="'secondsDim'+i" [id]="'secondsDim'+i" [(ngModel)]="clock.seconds.dim" (ngModelChange)="saveAll()"></options-toggle>
+                    <options-toggle type="check" [name]="'secondsDim'+i" [id]="'secondsDim'+i" [(ngModel)]="clock.seconds.dim"></options-toggle>
                     <label title="Dim seconds"><i class="icon">brightness_medium</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.seconds.enabled">
-                    <options-range [name]="'secondsOffset'+i" [id]="'secondsOffset'+i" min="-10" max="10" [(ngModel)]="clock.seconds.offset" (ngModelChange)="saveAll()"></options-range>
+                    <options-range [name]="'secondsOffset'+i" [id]="'secondsOffset'+i" min="-10" max="10" [(ngModel)]="clock.seconds.offset"></options-range>
                     <label title="Adjust the position of the seconds up or down">Offset</label>
                   </div>
                 </div>
@@ -155,28 +154,28 @@
                 <h4 class="boxHeading">Meridiem</h4>
                 <div class="grid grid--middle cols-3">
                   <div class="field compactIcon span-1">
-                    <options-toggle type="check" [name]="'meridiemEnable'+i" [id]="'meridiemEnable'+i" [(ngModel)]="clock.meridiem.enabled" (ngModelChange)="saveAll()"></options-toggle>
+                    <options-toggle type="check" [name]="'meridiemEnable'+i" [id]="'meridiemEnable'+i" [(ngModel)]="clock.meridiem.enabled"></options-toggle>
                     <label title="Enable meridiem"><i class="icon">power_settings_new</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.meridiem.enabled">
-                    <options-range [name]="'meridiemScaling'+i" [id]="'meridiemScaling'+i" min="1" max="20" [(ngModel)]="clock.meridiem.scaling" (ngModelChange)="saveAll()"></options-range>
+                    <options-range [name]="'meridiemScaling'+i" [id]="'meridiemScaling'+i" min="1" max="20" [(ngModel)]="clock.meridiem.scaling"></options-range>
                     <label title="Adjusts the size of the meridiem relative to the clock">Size</label>
                   </div>
                   <div class="field compactIcon span-1" *ngIf="clock.meridiem.enabled">
-                    <options-toggle type="check" [name]="'meridiemDim'+i" [id]="'meridiemDim'+i" [(ngModel)]="clock.meridiem.dim" (ngModelChange)="saveAll()"></options-toggle>
+                    <options-toggle type="check" [name]="'meridiemDim'+i" [id]="'meridiemDim'+i" [(ngModel)]="clock.meridiem.dim"></options-toggle>
                     <label title="Dim meridiem"><i class="icon">brightness_medium</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.meridiem.enabled">
-                    <options-range [name]="'meridiemOffset'+i" [id]="'meridiemOffset'+i" min="-10" max="10" [(ngModel)]="clock.meridiem.offset" (ngModelChange)="saveAll()"></options-range>
+                    <options-range [name]="'meridiemOffset'+i" [id]="'meridiemOffset'+i" min="-10" max="10" [(ngModel)]="clock.meridiem.offset"></options-range>
                     <label title="Adjust the position of the meridiem up or down">Offset</label>
                   </div>
                   <div class="grid cols-2 span-3" *ngIf="clock.meridiem.enabled">
                     <div class="field span-1">
-                      <input type="text" [id]="'meridiemAm'+i" [name]="'meridiemAm'+i" [(ngModel)]="clock.meridiem.am" (ngModelChange)="saveAll()" autocomplete="off">
+                      <input type="text" [id]="'meridiemAm'+i" [name]="'meridiemAm'+i" [(ngModel)]="clock.meridiem.am" autocomplete="off">
                       <label [for]="'meridiemAm'+i" title='Enter the symbol to represent "A.M."'>A.M.</label>
                     </div>
                     <div class="field span-1">
-                      <input type="text" [id]="'meridiemPm'+i" [name]="'meridiemPm'+i" [(ngModel)]="clock.meridiem.pm" (ngModelChange)="saveAll()" autocomplete="off">
+                      <input type="text" [id]="'meridiemPm'+i" [name]="'meridiemPm'+i" [(ngModel)]="clock.meridiem.pm" autocomplete="off">
                       <label [for]="'meridiemPm'+i" title='Enter the symbol to represent "P.M."'>P.M.</label>
                     </div>
                   </div>
@@ -188,19 +187,19 @@
                 <h4 class="boxHeading">Label</h4>
                 <div class="grid grid--middle cols-3">
                   <div class="field compactIcon span-1">
-                    <options-toggle type="check" [name]="'labelEnable'+i" [id]="'labelEnable'+i" [(ngModel)]="clock.label.enabled" (ngModelChange)="saveAll()"></options-toggle>
+                    <options-toggle type="check" [name]="'labelEnable'+i" [id]="'labelEnable'+i" [(ngModel)]="clock.label.enabled"></options-toggle>
                     <label title="Enable label"><i class="icon">power_settings_new</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.label.enabled">
-                    <options-range [name]="'labelScaling'+i" [id]="'labelScaling'+i" min="1" max="20" [(ngModel)]="clock.label.scaling" (ngModelChange)="saveAll()"></options-range>
+                    <options-range [name]="'labelScaling'+i" [id]="'labelScaling'+i" min="1" max="20" [(ngModel)]="clock.label.scaling"></options-range>
                     <label title="Adjusts the size of the label relative to the clock">Size</label>
                   </div>
                   <div class="field compactIcon span-1" *ngIf="clock.label.enabled">
-                    <options-toggle type="check" [name]="'labelDim'+i" [id]="'labelDim'+i" [(ngModel)]="clock.label.dim" (ngModelChange)="saveAll()"></options-toggle>
+                    <options-toggle type="check" [name]="'labelDim'+i" [id]="'labelDim'+i" [(ngModel)]="clock.label.dim"></options-toggle>
                     <label title="Dim label"><i class="icon">brightness_medium</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.label.enabled">
-                    <options-range [name]="'labelOffset'+i" [id]="'labelOffset'+i" min="-10" max="10" [(ngModel)]="clock.label.offset" (ngModelChange)="saveAll()"></options-range>
+                    <options-range [name]="'labelOffset'+i" [id]="'labelOffset'+i" min="-10" max="10" [(ngModel)]="clock.label.offset"></options-range>
                     <label title="Adjust the position of the label up or down">Offset</label>
                   </div>
                 </div>
@@ -209,32 +208,32 @@
                 <h4 class="boxHeading">Brackets</h4>
                 <div class="grid grid--middle cols-3">
                   <div class="field compactIcon mb1 span-1">
-                    <options-toggle type="check" [name]="'bracketsEnable'+i" [id]="'bracketsEnable'+i" [(ngModel)]="clock.brackets.enabled" (ngModelChange)="saveAll()"></options-toggle>
+                    <options-toggle type="check" [name]="'bracketsEnable'+i" [id]="'bracketsEnable'+i" [(ngModel)]="clock.brackets.enabled"></options-toggle>
                     <label title="Enable brackets"><i class="icon">power_settings_new</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.brackets.enabled">
-                    <options-range [name]="'bracketsScaling'+i" [id]="'bracketsScaling'+i" min="1" max="20" [(ngModel)]="clock.brackets.scaling" (ngModelChange)="saveAll()"></options-range>
+                    <options-range [name]="'bracketsScaling'+i" [id]="'bracketsScaling'+i" min="1" max="20" [(ngModel)]="clock.brackets.scaling"></options-range>
                     <label title="Adjusts the size of the brackets relative to the clock">Size</label>
                   </div>
                   <div class="field compactIcon span-1" *ngIf="clock.brackets.enabled">
-                    <options-toggle type="check" [name]="'bracketsDim'+i" [id]="'bracketsDim'+i" [(ngModel)]="clock.brackets.dim" (ngModelChange)="saveAll()"></options-toggle>
+                    <options-toggle type="check" [name]="'bracketsDim'+i" [id]="'bracketsDim'+i" [(ngModel)]="clock.brackets.dim"></options-toggle>
                     <label title="Dim brackets"><i class="icon">brightness_medium</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.brackets.enabled">
-                    <options-range [name]="'bracketsOffset'+i" [id]="'bracketsOffset'+i" min="-10" max="10" [(ngModel)]="clock.brackets.offset" (ngModelChange)="saveAll()"></options-range>
+                    <options-range [name]="'bracketsOffset'+i" [id]="'bracketsOffset'+i" min="-10" max="10" [(ngModel)]="clock.brackets.offset"></options-range>
                     <label title="Adjust the position of the brackets up or down">Offset</label>
                   </div>
                   <div class="grid cols-4 span-3" *ngIf="clock.brackets.enabled">
                     <div class="field span-1">
-                      <input type="text" maxlength="1" [id]="'bracketsLeft'+i" [name]="'bracketsLeft'+i" [(ngModel)]="clock.brackets.left" (ngModelChange)="saveAll()" autocomplete="off">
+                      <input type="text" maxlength="1" [id]="'bracketsLeft'+i" [name]="'bracketsLeft'+i" [(ngModel)]="clock.brackets.left" autocomplete="off">
                       <label [for]="'bracketsLeft'+i" title="Enter the symbol to represent the left-side bracket">Left</label>
                     </div>
                     <div class="field span-1">
-                      <input type="text" maxlength="1" [id]="'bracketsRight'+i" [name]="'bracketsRight'+i" [(ngModel)]="clock.brackets.right" (ngModelChange)="saveAll()" autocomplete="off">
+                      <input type="text" maxlength="1" [id]="'bracketsRight'+i" [name]="'bracketsRight'+i" [(ngModel)]="clock.brackets.right" autocomplete="off">
                       <label [for]="'bracketsRight'+i" title="Enter the symbol to represent the right-side bracket">Right</label>
                     </div>
                     <div class="field span-2" *ngIf="clock.brackets.enabled">
-                      <options-range [name]="'bracketsPadding'+i" [id]="'bracketsPadding'+i" min="0" max="5" [(ngModel)]="clock.brackets.padding" (ngModelChange)="saveAll()"></options-range>
+                      <options-range [name]="'bracketsPadding'+i" [id]="'bracketsPadding'+i" min="0" max="5" [(ngModel)]="clock.brackets.padding"></options-range>
                       <label title="Adjust the padding between the brackets and the time">Padding</label>
                     </div>
                   </div>
@@ -244,19 +243,19 @@
                 <h4 class="boxHeading">Relative time</h4>
                 <div class="grid grid--middle cols-3">
                   <div class="field compactIcon span-1">
-                    <options-toggle type="check" [name]="'relativeTimeEnable'+i" [id]="'relativeTimeEnable'+i" [(ngModel)]="clock.relativeTime.enabled" (ngModelChange)="saveAll()"></options-toggle>
+                    <options-toggle type="check" [name]="'relativeTimeEnable'+i" [id]="'relativeTimeEnable'+i" [(ngModel)]="clock.relativeTime.enabled"></options-toggle>
                     <label title="Enable display of time relative to your local time."><i class="icon">power_settings_new</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.relativeTime.enabled">
-                    <options-range [name]="'relativeTimeScaling'+i" [id]="'relativeTimeScaling'+i" min="1" max="20" [(ngModel)]="clock.relativeTime.scaling" (ngModelChange)="saveAll()"></options-range>
+                    <options-range [name]="'relativeTimeScaling'+i" [id]="'relativeTimeScaling'+i" min="1" max="20" [(ngModel)]="clock.relativeTime.scaling"></options-range>
                     <label title="Adjusts the size of the relative time label relative to the clock">Size</label>
                   </div>
                   <div class="field compactIcon span-1" *ngIf="clock.relativeTime.enabled">
-                    <options-toggle type="check" [name]="'relativeTimeDim'+i" [id]="'relativeTimeDim'+i" [(ngModel)]="clock.relativeTime.dim" (ngModelChange)="saveAll()"></options-toggle>
+                    <options-toggle type="check" [name]="'relativeTimeDim'+i" [id]="'relativeTimeDim'+i" [(ngModel)]="clock.relativeTime.dim"></options-toggle>
                     <label title="Dim relative time"><i class="icon">brightness_medium</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.relativeTime.enabled">
-                    <options-range [name]="'relativeTimeOffset'+i" [id]="'relativeTimeOffset'+i" min="-10" max="10" [(ngModel)]="clock.relativeTime.offset" (ngModelChange)="saveAll()"></options-range>
+                    <options-range [name]="'relativeTimeOffset'+i" [id]="'relativeTimeOffset'+i" min="-10" max="10" [(ngModel)]="clock.relativeTime.offset"></options-range>
                     <label title="Adjust the position of the relative time label up or down">Offset</label>
                   </div>
                 </div>
@@ -265,11 +264,11 @@
                 <h4 class="boxHeading">Analog</h4>
                 <div class="grid grid--middle cols-3">
                   <div class="field compactIcon span-1">
-                    <options-toggle type="check" [name]="'analogEnable'+i" [id]="'analogEnable'+i" [(ngModel)]="clock.analog.enabled" (ngModelChange)="saveAll()"></options-toggle>
+                    <options-toggle type="check" [name]="'analogEnable'+i" [id]="'analogEnable'+i" [(ngModel)]="clock.analog.enabled"></options-toggle>
                     <label title="Displays the clock in an analog style instead of digital."><i class="icon">power_settings_new</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.analog.enabled === true">
-                    <select [name]="'analogStyle'+i" [id]="'analogStyle'+i" [(ngModel)]="clock.analog.style" (ngModelChange)="saveAll()">
+                    <select [name]="'analogStyle'+i" [id]="'analogStyle'+i" [(ngModel)]="clock.analog.style">
                       <option *ngFor="let s of analog" [ngValue]="s.id">{{s.label}}</option>
                     </select>
                     <label [for]="'analogStyle'+i" title="Choose the style of analog clock">Analog style</label>

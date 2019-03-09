@@ -3,32 +3,32 @@
     <legend>Bookmarks</legend>
     <div class="grid cols-5">
       <div class="field span-1">
-        <options-toggle name="toggleBookmarks" [(ngModel)]="settings.config.bookmarks.bookmarksBar.enabled" (ngModelChange)="saveAll()"></options-toggle>
+        <options-toggle name="toggleBookmarks" [(ngModel)]="settings.config.bookmarks.bookmarksBar.enabled"></options-toggle>
         <label>Bookmarks Bar</label>
       </div>
       <div class="field span-1">
-        <options-toggle name="bookmarksBarIcons" [(ngModel)]="settings.config.bookmarks.bookmarksBar.icons" (ngModelChange)="saveAll()"></options-toggle>
+        <options-toggle name="bookmarksBarIcons" [(ngModel)]="settings.config.bookmarks.bookmarksBar.icons"></options-toggle>
         <label>Favicons</label>
       </div>
       <div class="grid cols-5 span-5" *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
         <div class="field span-1">
-          <options-toggle name="appsBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.apps" (ngModelChange)="saveAll()"></options-toggle>
+          <options-toggle name="appsBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.apps"></options-toggle>
           <label>Apps link</label>
         </div>
         <div class="field span-1">
-          <options-toggle name="chromeTabBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.chromeTab" (ngModelChange)="saveAll()"></options-toggle>
+          <options-toggle name="chromeTabBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.chromeTab"></options-toggle>
           <label>Chrome tab</label>
         </div>
         <div class="field span-1">
-          <options-toggle name="historyBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.history" (ngModelChange)="saveAll()"></options-toggle>
+          <options-toggle name="historyBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.history"></options-toggle>
           <label>History link</label>
         </div>
         <div class="field span-1">
-          <options-toggle name="bookmarksManagerBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.bookmarksManager" (ngModelChange)="saveAll()"></options-toggle>
+          <options-toggle name="bookmarksManagerBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.bookmarksManager"></options-toggle>
           <label>Bookmarks manager</label>
         </div>
         <div class="field span-1">
-          <options-toggle name="mostVisitedBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.mostVisited" (ngModelChange)="saveAll()"></options-toggle>
+          <options-toggle name="mostVisitedBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.mostVisited"></options-toggle>
           <label>Most visited</label>
         </div>
       </div>
@@ -39,38 +39,38 @@
     <div class="grid cols-5">
       <div class="field span-1">
         <div class="toggle">
-          <input type="checkbox" name="toggleQuickLinks" id="toggleQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.enabled" (ngModelChange)="saveAll()">
+          <input type="checkbox" name="toggleQuickLinks" id="toggleQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.enabled">
           <label for="toggleQuickLinks"></label>
         </div>
         <label>Quick Links</label>
       </div>
       <div class="field span-1">
-        <options-toggle name="quickLinksIcons" [(ngModel)]="settings.config.bookmarks.quickLinks.icons" (ngModelChange)="saveAll()"></options-toggle>
+        <options-toggle name="quickLinksIcons" [(ngModel)]="settings.config.bookmarks.quickLinks.icons"></options-toggle>
         <label>Favicons</label>
       </div>
       <div class="field span-2" *ngIf="settings.config.bookmarks.quickLinks.enabled">
-        <options-range name="quickLinksSize" id="quickLinksSize" min="1" max="20" [(ngModel)]="settings.config.bookmarks.quickLinks.scaling" (ngModelChange)="saveAll()"></options-range>
+        <options-range name="quickLinksSize" id="quickLinksSize" min="1" max="20" [(ngModel)]="settings.config.bookmarks.quickLinks.scaling"></options-range>
         <label for="quickLinksSize">Size</label>
       </div>
       <div class="grid cols-5 span-5" *ngIf="settings.config.bookmarks.quickLinks.enabled">
         <div class="field span-1">
-          <options-toggle name="appsQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.apps" (ngModelChange)="saveAll()"></options-toggle>
+          <options-toggle name="appsQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.apps"></options-toggle>
           <label>Apps link</label>
         </div>
         <div class="field span-1">
-          <options-toggle name="chromeTabQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.chromeTab" (ngModelChange)="saveAll()"></options-toggle>
+          <options-toggle name="chromeTabQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.chromeTab"></options-toggle>
           <label>Chrome tab</label>
         </div>
         <div class="field span-1">
-          <options-toggle name="historyQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.history" (ngModelChange)="saveAll()"></options-toggle>
+          <options-toggle name="historyQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.history"></options-toggle>
           <label>History link</label>
         </div>
         <div class="field span-1">
-          <options-toggle name="bookmarksManagerQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.bookmarksManager" (ngModelChange)="saveAll()"></options-toggle>
+          <options-toggle name="bookmarksManagerQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.bookmarksManager"></options-toggle>
           <label>Bookmarks manager</label>
         </div>
         <div class="field span-1">
-          <options-toggle name="mostVisitedQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.mostVisited" (ngModelChange)="saveAll()"></options-toggle>
+          <options-toggle name="mostVisitedQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.mostVisited"></options-toggle>
           <label>Most visited</label>
         </div>
       </div>
@@ -96,8 +96,7 @@
               [name]="'label'+i"
               #editLabel="ngModel"
               [(ngModel)]="link.label"
-              autocomplete="off"
-              (ngModelChange)="saveAll()">
+              autocomplete="off">
           </div>
           <div class="field noLabel span-8">
             <input
@@ -106,7 +105,6 @@
               #editUrl="ngModel"
               [(ngModel)]="link.url"
               autocomplete="off"
-              (ngModelChange)="saveAll()"
               required>
             <div class="valMsg" *ngIf="quickLinksList.invalid && quickLinksList.submitted">Link must have a URL (website address).</div>
           </div>

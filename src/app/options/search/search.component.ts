@@ -16,21 +16,14 @@ export class OptionsSearchComponent {
   ) {
   }
 
-  /** Updates storage */
-  saveAll() {
-    this.settings.setAll(this.settings.config);
-  }
-
   changeOrder(up) {
     if (up) {
       if (this.settings.config.search.order > this.shared.orderMin) {
         this.settings.config.search.order--;
-        this.saveAll();
       }
     } else {
       if (this.settings.config.search.order < this.shared.orderMax) {
         this.settings.config.search.order++;
-        this.saveAll();
       }
     }
   }

@@ -14,21 +14,14 @@ export class OptionsMessageComponent {
   ) {
   }
 
-  /** Updates storage */
-  saveAll() {
-    this.settings.setAll(this.settings.config);
-  }
-
   changeOrder(up) {
     if (up) {
       if (this.settings.config.message.order > this.shared.orderMin) {
         this.settings.config.message.order--;
-        this.saveAll();
       }
     } else {
       if (this.settings.config.message.order < this.shared.orderMax) {
         this.settings.config.message.order++;
-        this.saveAll();
       }
     }
   }

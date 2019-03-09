@@ -25,24 +25,33 @@ export const fade = trigger('fade', [
 ]);
 
 export const fadeIn = trigger('fadeIn', [
-  state('*', style({
-    opacity: 1,
-  })),
-  state('void', style({
-    opacity: 0,
-  })),
-  transition('void => *', animate('250ms ease-in'))
+  transition(':enter', [
+    style({opacity: 0}),
+    animate('200ms 150ms ease', style({opacity: 1}))
+  ]),
+  transition(':leave', [
+    style({position: 'absolute', left: 0, right: 0, top: '57px'}),
+    animate('200ms ease', style({opacity: 0}))
+  ])
 ]);
 
 export const options = trigger('options', [
-  state('*', style({
-    opacity: 1,
-    transform: 'translateX(0)'
+  transition(':enter', [
+    style({transform: 'translateX(100%)'}),
+    animate('400ms ease-in-out', style({transform: 'translateX(0%)'}))
+  ]),
+  transition(':leave', [
+    animate('400ms ease-in-out', style({transform: 'translateX(100%)'}))
+  ])
+]);
+
+export const tab = trigger('tab', [
+  state('false', style({
+    width: '100vw'
   })),
-  state('void', style({
-    opacity: 0,
-    transform: 'translateX(30%)'
+  state('true', style({
+    width: 'calc(100vw - 600px)'
   })),
-  transition('* => void', animate('300ms ease-out')),
-  transition('void => *', animate('300ms ease-in'))
+  transition('false => true', animate('400ms ease-in-out')),
+  transition('true => false', animate('400ms ease-in-out'))
 ]);

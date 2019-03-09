@@ -1,4 +1,5 @@
 <app-tab
+  [@tab]="shared.optionsToggle"
   [ngClass]="{'tab--optionsOpen' : shared.optionsToggle}"
   [style.fontSize]="settings.config.design.scalingMethod === true ? '1.35vw' : '1.6rem'"
   [style.backgroundColor]="settings.config.design.background"

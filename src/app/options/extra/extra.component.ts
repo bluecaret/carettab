@@ -15,11 +15,6 @@ export class OptionsExtraComponent {
   ) {
   }
 
-  /** Updates storage */
-  saveAll() {
-    this.settings.setAll(this.settings.config);
-  }
-
   // Reset settings
   reset() {
     if (confirm('Are you sure you want to reset all settings to default?')) {

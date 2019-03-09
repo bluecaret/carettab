@@ -3,11 +3,11 @@
     <legend>Date</legend>
     <div class="grid cols-6">
       <div class="field span-1">
-        <options-toggle name="date" [(ngModel)]="settings.config.date.enabled" (ngModelChange)="saveAll()"></options-toggle>
+        <options-toggle name="date" [(ngModel)]="settings.config.date.enabled"></options-toggle>
         <label>Date</label>
       </div>
       <div class="field span-3">
-        <select name="dateTimezone" [(ngModel)]="settings.config.date.timezone" (ngModelChange)="saveAll()">
+        <select name="dateTimezone" [(ngModel)]="settings.config.date.timezone">
           <option value="Automatic">Automatic ({{tz.timezoneFormat(tzGuess)}})</option>
           <ng-template let-c ngFor [ngForOf]="allTimezones">
             <optgroup *ngIf="c.zones.length > 1" [label]="c.iso | iso2CountryPipe">
@@ -23,7 +23,7 @@
         <label>Timezone</label>
       </div>
       <div class="field span-2">
-        <select name="dateFormat" [(ngModel)]="settings.config.date.format" (ngModelChange)="saveAll()">
+        <select name="dateFormat" [(ngModel)]="settings.config.date.format">
           <option *ngFor="let f of dateFormat" [ngValue]="f.id">{{f.label}}</option>
         </select>
         <label>Format</label>
@@ -50,11 +50,11 @@
         <label>Order</label>
       </div>
       <div class="field span-2">
-        <options-range name="dateSize" min="1" max="20" [(ngModel)]="settings.config.date.scaling" (ngModelChange)="saveAll()"></options-range>
+        <options-range name="dateSize" min="1" max="20" [(ngModel)]="settings.config.date.scaling"></options-range>
         <label>Size</label>
       </div>
       <div class="field span-2">
-        <options-range name="dateOffset" min="-20" max="20" [(ngModel)]="settings.config.date.offset" (ngModelChange)="saveAll()"></options-range>
+        <options-range name="dateOffset" min="-20" max="20" [(ngModel)]="settings.config.date.offset"></options-range>
         <label>Offset</label>
       </div>
       <div class="span-3 mt1">
@@ -62,11 +62,11 @@
           <h4 class="boxHeading span-2">Year</h4>
           <div class="grid grid--middle cols-3">
             <div class="field compactIcon span-1">
-              <options-toggle type="check" name="year" [(ngModel)]="settings.config.date.year.enabled" (ngModelChange)="saveAll()"></options-toggle>
+              <options-toggle type="check" name="year" [(ngModel)]="settings.config.date.year.enabled"></options-toggle>
               <label title="Enable year"><i class="icon">power_settings_new</i></label>
             </div>
             <div class="field span-2">
-              <options-toggle name="yearShort" [(ngModel)]="settings.config.date.year.twoDigit" (ngModelChange)="saveAll()"></options-toggle>
+              <options-toggle name="yearShort" [(ngModel)]="settings.config.date.year.twoDigit"></options-toggle>
               <label>Two-digit</label>
             </div>
           </div>
@@ -75,15 +75,15 @@
           <h4 class="boxHeading span-2">Month</h4>
           <div class="grid grid--middle cols-3">
             <div class="field compactIcon span-1">
-              <options-toggle type="check" name="month" [(ngModel)]="settings.config.date.month.enabled" (ngModelChange)="saveAll()"></options-toggle>
+              <options-toggle type="check" name="month" [(ngModel)]="settings.config.date.month.enabled"></options-toggle>
               <label title="Enable month"><i class="icon">power_settings_new</i></label>
             </div>
             <div class="field span-2" *ngIf="!settings.config.date.short.enabled">
-              <options-toggle name="monthAbbr" [(ngModel)]="settings.config.date.month.abbr" (ngModelChange)="saveAll()"></options-toggle>
+              <options-toggle name="monthAbbr" [(ngModel)]="settings.config.date.month.abbr"></options-toggle>
               <label>Abbreviated</label>
             </div>
             <div class="field span-2" *ngIf="settings.config.date.short.enabled">
-              <options-toggle name="monthTwoDigit" [(ngModel)]="settings.config.date.month.twoDigit" (ngModelChange)="saveAll()"></options-toggle>
+              <options-toggle name="monthTwoDigit" [(ngModel)]="settings.config.date.month.twoDigit"></options-toggle>
               <label>Two-digit</label>
             </div>
           </div>
@@ -92,11 +92,11 @@
           <h4 class="boxHeading span-2">Day</h4>
           <div class="grid grid--middle cols-3">
             <div class="field compactIcon span-1">
-              <options-toggle type="check" name="day" [(ngModel)]="settings.config.date.day.enabled" (ngModelChange)="saveAll()"></options-toggle>
+              <options-toggle type="check" name="day" [(ngModel)]="settings.config.date.day.enabled"></options-toggle>
               <label title="Enable day"><i class="icon">power_settings_new</i></label>
             </div>
             <div class="field span-2">
-              <options-toggle name="dayTwoDigit" [(ngModel)]="settings.config.date.day.twoDigit" (ngModelChange)="saveAll()"></options-toggle>
+              <options-toggle name="dayTwoDigit" [(ngModel)]="settings.config.date.day.twoDigit"></options-toggle>
               <label>Two-digit</label>
             </div>
           </div>
@@ -105,11 +105,11 @@
           <h4 class="boxHeading span-2">Day of week</h4>
           <div class="grid grid--middle cols-3">
             <div class="field compactIcon span-1">
-              <options-toggle type="check" name="dayOfWeek" [(ngModel)]="settings.config.date.dayOfWeek.enabled" (ngModelChange)="saveAll()"></options-toggle>
+              <options-toggle type="check" name="dayOfWeek" [(ngModel)]="settings.config.date.dayOfWeek.enabled"></options-toggle>
               <label title="Enable day of week"><i class="icon">power_settings_new</i></label>
             </div>
             <div class="field span-2">
-              <options-toggle name="dayOfWeekAbbr" [(ngModel)]="settings.config.date.dayOfWeek.abbr" (ngModelChange)="saveAll()"></options-toggle>
+              <options-toggle name="dayOfWeekAbbr" [(ngModel)]="settings.config.date.dayOfWeek.abbr"></options-toggle>
               <label>Abbreviated</label>
             </div>
           </div>
@@ -120,11 +120,11 @@
           <h4 class="boxHeading span-2">Short date</h4>
           <div class="grid grid--middle cols-3">
             <div class="field compactIcon span-1">
-              <options-toggle type="check" name="short" [(ngModel)]="settings.config.date.short.enabled" (ngModelChange)="saveAll()"></options-toggle>
+              <options-toggle type="check" name="short" [(ngModel)]="settings.config.date.short.enabled"></options-toggle>
               <label title="Enable short date"><i class="icon">power_settings_new</i></label>
             </div>
             <div class="field span-2">
-              <input type="text" maxlength="1" id="shortDelimiter" name="shortDelimiter" [(ngModel)]="settings.config.date.short.delimiter" (ngModelChange)="saveAll()" autocomplete="off">
+              <input type="text" maxlength="1" id="shortDelimiter" name="shortDelimiter" [(ngModel)]="settings.config.date.short.delimiter" autocomplete="off">
               <label for="shortDelimiter">Delimiter</label>
             </div>
           </div>
@@ -133,20 +133,20 @@
           <h4 class="boxHeading span-2">Week number</h4>
           <div class="grid grid--middle cols-3">
             <div class="field compactIcon span-1">
-              <options-toggle type="check" name="week" [(ngModel)]="settings.config.date.week.enabled" (ngModelChange)="saveAll()"></options-toggle>
+              <options-toggle type="check" name="week" [(ngModel)]="settings.config.date.week.enabled"></options-toggle>
               <label title="Enable week number"><i class="icon">power_settings_new</i></label>
             </div>
             <div class="field span-2">
-              <input type="text" id="yearShort" name="yearShort" [(ngModel)]="settings.config.date.week.label" (ngModelChange)="saveAll()" autocomplete="off">
+              <input type="text" id="yearShort" name="yearShort" [(ngModel)]="settings.config.date.week.label" autocomplete="off">
               <label for="yearShort">Label</label>
             </div>
             <div class="span-3 grid cols-2">
               <div class="field span-1">
-                <options-range name="weekSize" min="1" max="20" [(ngModel)]="settings.config.date.week.scaling" (ngModelChange)="saveAll()"></options-range>
+                <options-range name="weekSize" min="1" max="20" [(ngModel)]="settings.config.date.week.scaling"></options-range>
                 <label>Size</label>
               </div>
               <div class="field span-1">
-                <options-range name="weekOffset" min="-10" max="10" [(ngModel)]="settings.config.date.week.offset" (ngModelChange)="saveAll()"></options-range>
+                <options-range name="weekOffset" min="-10" max="10" [(ngModel)]="settings.config.date.week.offset"></options-range>
                 <label>Offset</label>
               </div>
             </div>

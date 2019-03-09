@@ -35,10 +35,6 @@ export class OptionsDesignComponent implements OnInit {
     this.getFont();
   }
 
-  saveAll() {
-    this.settings.setAll(this.settings.config);
-  }
-
   getFont() {
     let f = this.fonts.find(x => x.id === this.settings.config.design.font).family;
     let w = this.fonts.find(x => x.id === this.settings.config.design.font).weight;
@@ -64,7 +60,6 @@ export class OptionsDesignComponent implements OnInit {
     this.settings.config.design.background = c.bg;
     this.settings.config.design.foreground = c.fg;
     this.settings.config.design.colorsId = c.id;
-    this.saveAll();
   }
 
   setPattern(p: {id: number, pattern: string}) {
@@ -73,7 +68,6 @@ export class OptionsDesignComponent implements OnInit {
     this.shared.bg = bg;
     this.settings.config.design.patternId = p.id;
     this.settings.config.design.imageSize = 10;
-    this.saveAll();
   }
 
   encodeImage(e, input) {
@@ -98,7 +92,6 @@ export class OptionsDesignComponent implements OnInit {
         this.shared.bg = uploadSrc;
         this.settings.config.design.patternId = -1;
         this.settings.config.design.imageSize = 20;
-        this.saveAll();
       } catch (e) {
         if (this.isQuotaExceeded(e)) {
           let msg = 'Sorry, the file size of your image is too big.';

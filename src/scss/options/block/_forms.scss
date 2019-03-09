@@ -4,9 +4,9 @@ fieldset {
   padding: 0;
   margin: 0 0 30px 0;
   legend {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 300;
-    margin: 0 0 10px 0;
+    margin: 0 0 15px 0;
   }
 }
 
@@ -18,6 +18,101 @@ fieldset {
 .customControl {
   display: block;
   width: 100%;
+}
+
+.fieldGroup {
+  display: flex;
+  margin: 0 -5px;
+  min-height: $fieldHeight;
+  place-items: center left;
+  > * {
+    margin: 0 5px;
+    flex: 1 1 auto;
+  }
+  > label {
+    width: 30%;
+    flex: 0 0 auto;
+    font-size: 14px;
+    line-height: 1.3;
+    color: #555;
+    small {
+      display: block;
+      margin-top: 2px;
+      opacity: .8;
+      font-size: 12px;
+      line-height: 1.3;
+    }
+    &[title] {
+      cursor: help;
+    }
+  }
+  > input,
+  > select,
+  > textarea,
+  .inputColor,
+  .inputColor__preview,
+  .inputColor__code {
+    display: block;
+    width: 100%;
+    height: $fieldHeight;
+    padding: 0 10px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 7px;
+    background: #fff;
+    color: #202020;
+    &:focus {
+      outline: 0;
+      box-shadow: $focus;
+    }
+    &:disabled {
+      background: $optionsBg;
+      color: #353535;
+    }
+  }
+
+  > select {
+    padding: 0 6px;
+  }
+  .inputColor {
+    padding: 0;
+    input[type="color"] {
+      opacity: 0;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &.fieldGroup--break {
+    flex-wrap: wrap;
+    > label {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  }
+  .labelIcon {
+    width: 28px;
+  }
+  .fieldMd {
+    width: 75%;
+    flex: 0 0 auto;
+  }
+  .fieldSm {
+    width: 50%;
+    flex: 0 0 auto;
+  }
+  .fieldXs {
+    width: 25%;
+    flex: 0 0 auto;
+  }
+}
+
+.fieldInfo {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #555;
 }
 
 .field {
@@ -43,7 +138,7 @@ fieldset {
     font-size: 12px;
     font-weight: 600;
     line-height: 1.4;
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 7px;
     background: #fff;
     color: #202020;

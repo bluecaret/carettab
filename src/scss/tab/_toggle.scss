@@ -33,6 +33,7 @@ $optionsToggleHeight: ($optionsToggleSize + ($optionsTogglePadding * 2));
     border-radius: 2px;
     opacity: 1;
     right: $optionsTogglePadding;
+    transition: opacity .5s;
     &:nth-of-type(1) {
       bottom: ($optionsToggleSpacing + $optionsTogglePadding);
     }
@@ -46,5 +47,8 @@ $optionsToggleHeight: ($optionsToggleSize + ($optionsTogglePadding * 2));
   &.open {
     width: 100vw;
     height: 100vh;
+    span {
+      opacity: 0;
+    }
   }
 }

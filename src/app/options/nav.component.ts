@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
 import { SharedService } from '../_shared/shared.service';
+import { Storage } from '../_storage/storage.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'nav',
   template:
   `
-    <svg class="navBg" version="1.1" viewBox="0 0 100 30" preserveAspectRatio="none">
-      <polyline points="0 0, 100 0, 100 22, 2 30"></polyline>
-      <polyline points="0 0, 100 0, 100 24, 4 26"></polyline>
-    </svg>
     <ul>
       <li>
         <button type="button" (click)="goToPage('Dashboard')" [ngClass]="{'active': shared.optionsPage === 'Dashboard'}">
@@ -52,8 +49,8 @@ import { SharedService } from '../_shared/shared.service';
         </button>
       </li>
       <li>
-        <button type="button" (click)="shared.optionsToggle = false" class="close">
-          <div class="icon">close</div>
+        <button type="button" (click)="saveAndClose()" class="close" title="Save and close settings">
+          <div class="icon">save</div>
         </button>
       </li>
     </ul>
@@ -61,11 +58,19 @@ import { SharedService } from '../_shared/shared.service';
 })
 export class NavComponent {
 
-  constructor(public shared: SharedService) {
+  constructor(
+    public shared: SharedService,
+    public settings: Storage
+  ) {
   }
 
   goToPage(page: string) {
     this.shared.optionsPage = page;
+  }
+
+  saveAndClose() {
+    this.settings.setAll(this.settings.config);
+    this.shared.optionsToggle = false;
   }
 
 }

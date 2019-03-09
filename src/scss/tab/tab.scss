@@ -16,10 +16,10 @@ app-tab {
   background: #272e33;
   color: white;
   transform-origin: 100% 100%;
-  transition: $transition;
   transform: translate(0, 0) scale(1);
   background-size: cover;
   background-position: center;
+  box-shadow: #000000 -8px 0px 20px 2px;
 }
 
 .tabCenter {

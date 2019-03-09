@@ -37,14 +37,9 @@ export class TabComponent implements OnInit {
     });
   }
 
-  /** Updates storage */
-  saveAll() {
-    this.settings.setAll(this.settings.config);
-  }
-
   toggleOptions() {
     if (this.shared.optionsToggle === true) {
-      this.saveAll();
+      this.settings.setAll(this.settings.config); // Save
       this.shared.optionsToggle = false;
     } else {
       this.shared.optionsToggle = true;

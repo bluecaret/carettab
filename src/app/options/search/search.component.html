@@ -3,29 +3,29 @@
     <legend>Search</legend>
     <div class="grid cols-5">
       <div class="field span-1">
-        <options-toggle name="searchBox" id="searchBox" [(ngModel)]="settings.config.search.enabled" (ngModelChange)="saveAll()"></options-toggle>
+        <options-toggle name="searchBox" id="searchBox" [(ngModel)]="settings.config.search.enabled"></options-toggle>
         <label>Search box</label>
       </div>
       <div class="field span-2">
-        <select name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine" (ngModelChange)="saveAll()">
+        <select name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine">
           <option *ngFor="let e of engines" [ngValue]="e.id">{{e.label}}</option>
         </select>
         <label title="Choose a search engine to use with the search box.">Search Engine</label>
       </div>
       <div class="field span-1">
-        <options-toggle name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete" (ngModelChange)="saveAll()"></options-toggle>
+        <options-toggle name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete"></options-toggle>
         <label title="Turn off to disable the browser's autocomplete feature on the search box.">Autocomplete</label>
       </div>
       <div class="field span-2">
-        <options-range name="searchSize" id="searchSize" min="1" max="20" [(ngModel)]="settings.config.search.scaling" (ngModelChange)="saveAll()"></options-range>
+        <options-range name="searchSize" id="searchSize" min="1" max="20" [(ngModel)]="settings.config.search.scaling"></options-range>
         <label>Size</label>
       </div>
       <div class="field span-2">
-        <options-range name="searchOffset" min="-20" max="20" [(ngModel)]="settings.config.search.offset" (ngModelChange)="saveAll()"></options-range>
+        <options-range name="searchOffset" min="-20" max="20" [(ngModel)]="settings.config.search.offset"></options-range>
         <label>Offset</label>
       </div>
       <div class="field span-2">
-        <options-range name="searchWidth" min="5" max="30" [(ngModel)]="settings.config.search.width" (ngModelChange)="saveAll()"></options-range>
+        <options-range name="searchWidth" min="5" max="30" [(ngModel)]="settings.config.search.width"></options-range>
         <label>Width</label>
       </div>
       <div class="field span-2">

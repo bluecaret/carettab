@@ -1,14 +1,14 @@
 {
   "list": {
     "lang": {
-      "ch": "Chinesisch",
       "de": "Deutsche",
       "en": "Englisch",
       "es": "Spanisch",
       "fr": "Französisch",
       "ja": "Japanisch",
       "ru": "Russisch",
-      "uk": "Ukrainisch"
+      "uk": "Ukrainisch",
+      "zh": "Chinesisch"
     },
     "title": {
       "custom": "Benutzerdefinierter Text",
@@ -17,6 +17,17 @@
       "newTab": "\"Neue Registerkarte\"",
       "time": "Zeit",
       "timeDate": "Zeit, dann Datum"
+    }
+  },
+  "tab": {
+    "bookmarks": {
+      "links": {
+        "apps": "Apps",
+        "bookmarksManager": "Lesezeichen-Manager",
+        "chromeTab": "Chrome Tab",
+        "history": "Geschichte",
+        "mostVisited": "Meist besuchte"
+      }
     }
   },
   "title": {

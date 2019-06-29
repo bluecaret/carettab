@@ -2,7 +2,7 @@ export const languages = [
   { id: 'en', label: 'English', i18n: 'list.lang.en' },
   { id: 'es', label: 'Spanish', i18n: 'list.lang.es' },
   { id: 'fr', label: 'French', i18n: 'list.lang.fr' },
-  { id: 'ch', label: 'Chinese', i18n: 'list.lang.ch' },
+  { id: 'zh', label: 'Chinese', i18n: 'list.lang.zh' },
   { id: 'uk', label: 'Ukrainian', i18n: 'list.lang.uk' },
   { id: 'ja', label: 'Japanese', i18n: 'list.lang.ja' },
   { id: 'de', label: 'German', i18n: 'list.lang.de' },

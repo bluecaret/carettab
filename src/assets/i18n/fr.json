@@ -1,14 +1,14 @@
 {
   "list": {
     "lang": {
-      "ch": "chinois",
       "de": "Allemand",
       "en": "Anglais",
       "es": "Espanol",
       "fr": "français",
       "ja": "japonais",
       "ru": "russe",
-      "uk": "ukrainien"
+      "uk": "ukrainien",
+      "zh": "chinois"
     },
     "title": {
       "custom": "Texte personnalisé",
@@ -17,6 +17,17 @@
       "newTab": "\"Nouvel onglet\"",
       "time": "Temps",
       "timeDate": "Heure puis date"
+    }
+  },
+  "tab": {
+    "bookmarks": {
+      "links": {
+        "apps": "applications",
+        "bookmarksManager": "Gestionnaire de favoris",
+        "chromeTab": "Onglet Chrome",
+        "history": "L'histoire",
+        "mostVisited": "Le plus visité"
+      }
     }
   },
   "title": {

@@ -1,14 +1,14 @@
 {
   "list": {
     "lang": {
-      "ch": "chino",
       "de": "alemán",
       "en": "Inglés",
       "es": "español",
       "fr": "francés",
       "ja": "japonés",
       "ru": "ruso",
-      "uk": "ucranio"
+      "uk": "ucranio",
+      "zh": "chino"
     },
     "title": {
       "custom": "Texto personalizado",
@@ -17,6 +17,17 @@
       "newTab": "\"Nueva pestaña\"",
       "time": "hora",
       "timeDate": "Tiempo, luego fecha"
+    }
+  },
+  "tab": {
+    "bookmarks": {
+      "links": {
+        "apps": "Aplicaciones",
+        "bookmarksManager": "Gestor de marcadores",
+        "chromeTab": "Pestaña de cromo",
+        "history": "historia",
+        "mostVisited": "Más visitado"
+      }
     }
   },
   "title": {

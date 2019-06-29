@@ -1,14 +1,14 @@
 {
   "list": {
     "lang": {
-      "ch": "中国語",
       "de": "ドイツ人",
       "en": "英語",
       "es": "スペイン語",
       "fr": "フランス語",
       "ja": "日本人",
       "ru": "ロシア",
-      "uk": "ウクライナ語"
+      "uk": "ウクライナ語",
+      "zh": "中国語"
     },
     "title": {
       "custom": "カスタムテキスト",
@@ -17,6 +17,17 @@
       "newTab": "\"新しいタブ\"",
       "time": "時間",
       "timeDate": "時間、そして日付"
+    }
+  },
+  "tab": {
+    "bookmarks": {
+      "links": {
+        "apps": "アプリ",
+        "bookmarksManager": "ブックマークマネージャ",
+        "chromeTab": "Chromeタブ",
+        "history": "歴史",
+        "mostVisited": "最も訪問した"
+      }
     }
   },
   "title": {

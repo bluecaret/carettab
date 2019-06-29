@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { transition, trigger, style, state, animate } from '@angular/animations';
 import { Title } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from '../_shared/shared.service';
 import { Storage } from '../_storage/storage.service';
 import { span } from '../_shared/lists/lists';
@@ -11,18 +12,25 @@ import { span } from '../_shared/lists/lists';
   encapsulation: ViewEncapsulation.None
 })
 export class TabComponent implements OnInit {
+  NEW_TAB_TEXT = 'New Tab';
   span = span;
 
   constructor(
     public shared: SharedService,
     public settings: Storage,
-    private titleService: Title
+    private titleService: Title,
+    private translate: TranslateService
   ) {
     this.shared.optionsToggle = false;
-    this.titleService.setTitle( 'New Tab' );
+    this.titleService.setTitle(this.NEW_TAB_TEXT);
   }
 
   ngOnInit() {
+    this.translate.use(this.settings.config.lang);
+    this.translate.get('title.newTab').subscribe(value => {
+      this.NEW_TAB_TEXT = value;
+    });
+    console.log('Current Language: ', this.translate.currentLang);
     this.setTitle();
     this.setTitleOnInterval();
     this.settings.onChange().subscribe((data) => {
@@ -87,7 +95,7 @@ export class TabComponent implements OnInit {
     } else if (this.settings.config.title.type === 60) {
       this.titleService.setTitle( this.settings.config.title.text );
     } else {
-      this.titleService.setTitle( 'New Tab' );
+      this.titleService.setTitle( this.NEW_TAB_TEXT );
     }
   }
 

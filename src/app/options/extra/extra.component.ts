@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '../../_storage/storage.service';
 import { title, languages } from '../../_shared/lists/lists';
 
@@ -11,7 +12,8 @@ export class OptionsExtraComponent {
   languages = languages;
 
   constructor(
-    public settings: Storage
+    public settings: Storage,
+    private translate: TranslateService
   ) {
   }
 
@@ -23,5 +25,10 @@ export class OptionsExtraComponent {
     } else {
       return;
     }
+  }
+
+  useLanguage(language: string) {
+    console.log('Language changed to: ' + language);
+    this.translate.use(language);
   }
 }

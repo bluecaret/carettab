@@ -1,0 +1,29 @@
+{
+  "list": {
+    "lang": {
+      "ch": "Chinese",
+      "de": "German",
+      "en": "English",
+      "es": "Spanish",
+      "fr": "French",
+      "ja": "Japanese",
+      "ru": "Russian",
+      "uk": "Ukrainian"
+    },
+    "title": {
+      "custom": "Custom text",
+      "date": "Date",
+      "dateTime": "Date, then time",
+      "newTab": "\"New Tab\"",
+      "time": "Time",
+      "timeDate": "Time, then date"
+    }
+  },
+  "title": {
+    "newTab": "New Tab"
+  },
+  "toggleSettings": {
+    "close": "Save and close settings",
+    "open": "Open settings"
+  }
+}

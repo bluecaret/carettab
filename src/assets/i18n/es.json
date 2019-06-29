@@ -1,0 +1,29 @@
+{
+  "list": {
+    "lang": {
+      "ch": "chino",
+      "de": "alemán",
+      "en": "Inglés",
+      "es": "español",
+      "fr": "francés",
+      "ja": "japonés",
+      "ru": "ruso",
+      "uk": "ucranio"
+    },
+    "title": {
+      "custom": "Texto personalizado",
+      "date": "Fecha",
+      "dateTime": "Fecha, luego hora",
+      "newTab": "\"Nueva pestaña\"",
+      "time": "hora",
+      "timeDate": "Tiempo, luego fecha"
+    }
+  },
+  "title": {
+    "newTab": "Nueva pestaña"
+  },
+  "toggleSettings": {
+    "close": "Guardar y cerrar ajustes",
+    "open": "Configuración abierta"
+  }
+}

@@ -1,7 +1,7 @@
 export class Settings {
   storeKey = 'carettab';  // identifier to be used as a key for storage
   data = {
-    lang: 10,
+    lang: 'en',
     design: {
       scalingMethod: true,
       scaling: 10,

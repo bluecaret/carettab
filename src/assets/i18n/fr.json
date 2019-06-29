@@ -1,0 +1,29 @@
+{
+  "list": {
+    "lang": {
+      "ch": "chinois",
+      "de": "Allemand",
+      "en": "Anglais",
+      "es": "Espanol",
+      "fr": "français",
+      "ja": "japonais",
+      "ru": "russe",
+      "uk": "ukrainien"
+    },
+    "title": {
+      "custom": "Texte personnalisé",
+      "date": "Rendez-vous amoureux",
+      "dateTime": "Date, puis heure",
+      "newTab": "\"Nouvel onglet\"",
+      "time": "Temps",
+      "timeDate": "Heure puis date"
+    }
+  },
+  "title": {
+    "newTab": "Nouvel onglet"
+  },
+  "toggleSettings": {
+    "close": "Enregistrer et fermer les paramètres",
+    "open": "Paramètres ouverts"
+  }
+}

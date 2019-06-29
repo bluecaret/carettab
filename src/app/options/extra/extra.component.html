@@ -2,7 +2,7 @@
   <legend>Language</legend>
   <div class="grid cols-2">
     <div class="field span-1">
-      <select name="lang" id="lang" [(ngModel)]="settings.config.lang">
+      <select name="lang" id="lang" [(ngModel)]="settings.config.lang" (ngModelChange)="useLanguage($event)">
         <option *ngFor="let lang of languages" [ngValue]="lang.id">{{lang.label}}</option>
       </select>
       <label for="lang">Language</label>

@@ -8,7 +8,8 @@
     "build": "ng build --prod",
     "build:ext": "web-ext build --source-dir=dist --artifacts-dir=.",
     "lint": "ng lint",
-    "lint:webext": "web-ext lint --source-dir ./dist"
+    "lint:webext": "web-ext lint --source-dir ./dist",
+    "extract-translations": "ngx-translate-extract --input ./src --output ./src/assets/i18n/en.json ./src/assets/i18n/de.json ./src/assets/i18n/es.json ./src/assets/i18n/fr.json ./src/assets/i18n/ja.json ./src/assets/i18n/ru.json ./src/assets/i18n/uk.json ./src/assets/i18n/zh.json --sort --format namespaced-json -m _"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +22,8 @@
     "@angular/platform-browser": "7.1.4",
     "@angular/platform-browser-dynamic": "7.1.4",
     "@angular/router": "7.1.4",
+    "@ngx-translate/core": "^11.0.1",
+    "@ngx-translate/http-loader": "^4.0.0",
     "@types/chrome": "0.0.65",
     "@types/moment": "^2.13.0",
     "@types/moment-timezone": "^0.5.6",
@@ -28,19 +31,20 @@
     "material-design-icons": "^3.0.1",
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.21",
-    "rxjs": "6.3.3",
+    "rxjs": "^6.3.3",
     "rxjs-compat": "^6.1.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~0.6.0",
     "@angular/cli": "7.1.4",
     "@angular/compiler-cli": "7.1.4",
     "@angular/language-service": "7.1.4",
+    "@biesbjerg/ngx-translate-extract": "^2.3.4",
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
-    "typescript": "3.1.6",
-    "@angular-devkit/build-angular": "~0.6.0"
+    "typescript": "3.1.6"
   }
 }

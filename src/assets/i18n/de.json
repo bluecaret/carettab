@@ -1,0 +1,29 @@
+{
+  "list": {
+    "lang": {
+      "ch": "Chinesisch",
+      "de": "Deutsche",
+      "en": "Englisch",
+      "es": "Spanisch",
+      "fr": "Französisch",
+      "ja": "Japanisch",
+      "ru": "Russisch",
+      "uk": "Ukrainisch"
+    },
+    "title": {
+      "custom": "Benutzerdefinierter Text",
+      "date": "Datum",
+      "dateTime": "Datum, dann Uhrzeit",
+      "newTab": "\"Neue Registerkarte\"",
+      "time": "Zeit",
+      "timeDate": "Zeit, dann Datum"
+    }
+  },
+  "title": {
+    "newTab": "Neue Registerkarte"
+  },
+  "toggleSettings": {
+    "close": "Einstellungen speichern und schließen",
+    "open": "Einstellungen öffnen"
+  }
+}

@@ -18,339 +18,6 @@
                 <name>list</name>
                 <children>
                     <folder_node>
-                        <name>lang</name>
-                        <children>
-                            <concept_node>
-                                <name>de</name>
-                                <definition_loaded>false</definition_loaded>
-                                <description></description>
-                                <comment></comment>
-                                <default_text></default_text>
-                                <translations>
-                                    <translation>
-                                        <language>de-DE</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>en-US</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>es-MX</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>fr-FR</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>ja-JP</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>ru-RU</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>uk-UA</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>zh-CN</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                </translations>
-                            </concept_node>
-                            <concept_node>
-                                <name>en</name>
-                                <definition_loaded>false</definition_loaded>
-                                <description></description>
-                                <comment></comment>
-                                <default_text></default_text>
-                                <translations>
-                                    <translation>
-                                        <language>de-DE</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>en-US</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>es-MX</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>fr-FR</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>ja-JP</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>ru-RU</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>uk-UA</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>zh-CN</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                </translations>
-                            </concept_node>
-                            <concept_node>
-                                <name>es</name>
-                                <definition_loaded>false</definition_loaded>
-                                <description></description>
-                                <comment></comment>
-                                <default_text></default_text>
-                                <translations>
-                                    <translation>
-                                        <language>de-DE</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>en-US</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>es-MX</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>fr-FR</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>ja-JP</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>ru-RU</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>uk-UA</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>zh-CN</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                </translations>
-                            </concept_node>
-                            <concept_node>
-                                <name>fr</name>
-                                <definition_loaded>false</definition_loaded>
-                                <description></description>
-                                <comment></comment>
-                                <default_text></default_text>
-                                <translations>
-                                    <translation>
-                                        <language>de-DE</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>en-US</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>es-MX</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>fr-FR</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>ja-JP</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>ru-RU</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>uk-UA</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>zh-CN</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                </translations>
-                            </concept_node>
-                            <concept_node>
-                                <name>ja</name>
-                                <definition_loaded>false</definition_loaded>
-                                <description></description>
-                                <comment></comment>
-                                <default_text></default_text>
-                                <translations>
-                                    <translation>
-                                        <language>de-DE</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>en-US</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>es-MX</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>fr-FR</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>ja-JP</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>ru-RU</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>uk-UA</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>zh-CN</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                </translations>
-                            </concept_node>
-                            <concept_node>
-                                <name>ru</name>
-                                <definition_loaded>false</definition_loaded>
-                                <description></description>
-                                <comment></comment>
-                                <default_text></default_text>
-                                <translations>
-                                    <translation>
-                                        <language>de-DE</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>en-US</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>es-MX</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>fr-FR</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>ja-JP</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>ru-RU</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>uk-UA</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>zh-CN</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                </translations>
-                            </concept_node>
-                            <concept_node>
-                                <name>uk</name>
-                                <definition_loaded>false</definition_loaded>
-                                <description></description>
-                                <comment></comment>
-                                <default_text></default_text>
-                                <translations>
-                                    <translation>
-                                        <language>de-DE</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>en-US</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>es-MX</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>fr-FR</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>ja-JP</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>ru-RU</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>uk-UA</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>zh-CN</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                </translations>
-                            </concept_node>
-                            <concept_node>
-                                <name>zh</name>
-                                <definition_loaded>false</definition_loaded>
-                                <description></description>
-                                <comment></comment>
-                                <default_text></default_text>
-                                <translations>
-                                    <translation>
-                                        <language>de-DE</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>en-US</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>es-MX</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>fr-FR</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>ja-JP</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>ru-RU</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>uk-UA</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                    <translation>
-                                        <language>zh-CN</language>
-                                        <approved>false</approved>
-                                    </translation>
-                                </translations>
-                            </concept_node>
-                        </children>
-                    </folder_node>
-                    <folder_node>
                         <name>title</name>
                         <children>
                             <concept_node>
@@ -963,68 +630,68 @@
         <language>
             <code>de-DE</code>
             <source_id></source_id>
-            <source_file>src/assets/i18n/de.json</source_file>
+            <source_file>src/assets/i18n/de-DE.json</source_file>
         </language>
         <language>
             <code>en-US</code>
             <source_id></source_id>
-            <source_file>src/assets/i18n/en.json</source_file>
+            <source_file>src/assets/i18n/en-US.json</source_file>
         </language>
         <language>
             <code>es-MX</code>
             <source_id></source_id>
-            <source_file>src/assets/i18n/es.json</source_file>
+            <source_file>src/assets/i18n/es-MX.json</source_file>
         </language>
         <language>
             <code>fr-FR</code>
             <source_id></source_id>
-            <source_file>src/assets/i18n/fr.json</source_file>
+            <source_file>src/assets/i18n/fr-FR.json</source_file>
         </language>
         <language>
             <code>ja-JP</code>
             <source_id></source_id>
-            <source_file>src/assets/i18n/ja.json</source_file>
+            <source_file>src/assets/i18n/ja-JP.json</source_file>
         </language>
         <language>
             <code>ru-RU</code>
             <source_id></source_id>
-            <source_file>src/assets/i18n/ru.json</source_file>
+            <source_file>src/assets/i18n/ru-RU.json</source_file>
         </language>
         <language>
             <code>uk-UA</code>
             <source_id></source_id>
-            <source_file>src/assets/i18n/uk.json</source_file>
+            <source_file>src/assets/i18n/uk-UA.json</source_file>
         </language>
         <language>
             <code>zh-CN</code>
             <source_id></source_id>
-            <source_file>src/assets/i18n/zh.json</source_file>
+            <source_file>src/assets/i18n/zh-CN.json</source_file>
         </language>
     </languages>
     <translation_files>
         <translation_file>
-            <file>src/assets/i18n/en.json</file>
+            <file>src/assets/i18n/de-DE.json</file>
         </translation_file>
         <translation_file>
-            <file>src/assets/i18n/fr.json</file>
+            <file>src/assets/i18n/en-US.json</file>
         </translation_file>
         <translation_file>
-            <file>src/assets/i18n/de.json</file>
+            <file>src/assets/i18n/es-MX.json</file>
         </translation_file>
         <translation_file>
-            <file>src/assets/i18n/ja.json</file>
+            <file>src/assets/i18n/fr-FR.json</file>
         </translation_file>
         <translation_file>
-            <file>src/assets/i18n/ru.json</file>
+            <file>src/assets/i18n/ja-JP.json</file>
         </translation_file>
         <translation_file>
-            <file>src/assets/i18n/uk.json</file>
+            <file>src/assets/i18n/ru-RU.json</file>
         </translation_file>
         <translation_file>
-            <file>src/assets/i18n/zh.json</file>
+            <file>src/assets/i18n/uk-UA.json</file>
         </translation_file>
         <translation_file>
-            <file>src/assets/i18n/es.json</file>
+            <file>src/assets/i18n/zh-CN.json</file>
         </translation_file>
     </translation_files>
     <editor_configuration>

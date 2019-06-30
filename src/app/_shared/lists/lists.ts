@@ -1,12 +1,12 @@
 export const languages = [
-  { id: 'en', label: 'English', i18n: 'list.lang.en' },
-  { id: 'es', label: 'Spanish', i18n: 'list.lang.es' },
-  { id: 'fr', label: 'French', i18n: 'list.lang.fr' },
-  { id: 'zh', label: 'Chinese', i18n: 'list.lang.zh' },
-  { id: 'uk', label: 'Ukrainian', i18n: 'list.lang.uk' },
-  { id: 'ja', label: 'Japanese', i18n: 'list.lang.ja' },
-  { id: 'de', label: 'German', i18n: 'list.lang.de' },
-  { id: 'ru', label: 'Russian', i18n: 'list.lang.ru' }
+  { id: 'en-US', label: 'English' },
+  { id: 'es-MX', label: 'Español' },
+  { id: 'fr-FR', label: 'Français' },
+  { id: 'zh-cn', label: '中文' },
+  { id: 'uk-UA', label: 'Українська' },
+  { id: 'ja-JP', label: '日本人' },
+  { id: 'de-DE', label: 'Deutsche' },
+  { id: 'ru-RU', label: 'Pусский' }
 ];
 
 export const span = [

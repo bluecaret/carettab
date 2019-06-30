@@ -1,15 +1,5 @@
 {
   "list": {
-    "lang": {
-      "de": "alemán",
-      "en": "Inglés",
-      "es": "español",
-      "fr": "francés",
-      "ja": "japonés",
-      "ru": "ruso",
-      "uk": "ucranio",
-      "zh": "chino"
-    },
     "title": {
       "custom": "Texto personalizado",
       "date": "Fecha",

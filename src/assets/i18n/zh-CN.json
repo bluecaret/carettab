@@ -29,6 +29,13 @@
     "common": {
       "label": "标签",
       "size": "尺寸"
+    },
+    "dashboard": {
+      "credit": "CaretTab|由|BlueCaret|设计和编码，并根据|MIT|许可证授权。",
+      "donate": "捐赠PayPal",
+      "needHelp": "如果您需要帮助或有建议，可以联系开发人员，|BlueCaret|在Twitter上|@BlueCaret|或查看CaretTab on |GitHub|。",
+      "new": "什么是新的？",
+      "supportDev": "通过倾斜开发人员来支持CaretTab！"
     }
   },
   "tab": {

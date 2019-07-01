@@ -29,6 +29,13 @@
     "common": {
       "label": "Étiquette",
       "size": "Taille"
+    },
+    "dashboard": {
+      "credit": "CaretTab| est conçu et codé par |BlueCaret| et est sous |licence MIT|.",
+      "donate": "Donner avec PayPal",
+      "needHelp": "Si vous avez besoin d’aide ou si vous avez une suggestion, vous pouvez contacter le développeur, |BlueCaret| sur Twitter |@BlueCaret| ou consultez CaretTab sur |GitHub|.",
+      "new": "Quoi de neuf?",
+      "supportDev": "Soutenez CaretTab en inclinant le développeur!"
     }
   },
   "tab": {

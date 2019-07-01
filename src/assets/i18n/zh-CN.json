@@ -9,6 +9,28 @@
       "timeDate": "时间，然后约会"
     }
   },
+  "options": {
+    "bookmarks": {
+      "appsLink": "应用链接",
+      "chromeTabLink": "Chrome标签",
+      "enableBar": "书签栏",
+      "enableQuick": "快速链接",
+      "favicons": "网站图示",
+      "headingBar": "书签",
+      "headingQuick": "快速链接",
+      "historyLink": "历史链接",
+      "labelValidation": "链接必须有标签。",
+      "linkValidation": "链接必须具有URL（网站地址）。",
+      "managerLink": "书签管理员",
+      "mostVisited": "访问最多的站点",
+      "save": "保存新链接",
+      "url": "网址"
+    },
+    "common": {
+      "label": "标签",
+      "size": "尺寸"
+    }
+  },
   "tab": {
     "bookmarks": {
       "links": {

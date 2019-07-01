@@ -9,6 +9,28 @@
       "timeDate": "Heure puis date"
     }
   },
+  "options": {
+    "bookmarks": {
+      "appsLink": "Lien Apps",
+      "chromeTabLink": "Onglet Chrome",
+      "enableBar": "Barre des favoris",
+      "enableQuick": "Liens rapides",
+      "favicons": "Favicons",
+      "headingBar": "Signets",
+      "headingQuick": "Liens rapides",
+      "historyLink": "Lien historique",
+      "labelValidation": "Le lien doit avoir une étiquette.",
+      "linkValidation": "Le lien doit avoir une URL (adresse du site Web).",
+      "managerLink": "Gestionnaire de favoris",
+      "mostVisited": "Le plus visité",
+      "save": "Enregistrer le nouveau lien",
+      "url": "URL"
+    },
+    "common": {
+      "label": "Étiquette",
+      "size": "Taille"
+    }
+  },
   "tab": {
     "bookmarks": {
       "links": {

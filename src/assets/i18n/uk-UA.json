@@ -9,6 +9,28 @@
       "timeDate": "Час, потім дата"
     }
   },
+  "options": {
+    "bookmarks": {
+      "appsLink": "Посилання на програми",
+      "chromeTabLink": "Вкладка Chrome",
+      "enableBar": "Панель закладок",
+      "enableQuick": "Швидкі посилання",
+      "favicons": "Favicons",
+      "headingBar": "Закладки",
+      "headingQuick": "Швидкі посилання",
+      "historyLink": "Історія посилання",
+      "labelValidation": "Посилання має мати позначку.",
+      "linkValidation": "Посилання має мати URL-адресу (адресу веб-сайту).",
+      "managerLink": "Менеджер закладок",
+      "mostVisited": "Найбільш відвідуваний",
+      "save": "Зберегти нове посилання",
+      "url": "URL"
+    },
+    "common": {
+      "label": "Мітка",
+      "size": "Розмір"
+    }
+  },
   "tab": {
     "bookmarks": {
       "links": {

@@ -9,6 +9,28 @@
       "timeDate": "Время, затем дата"
     }
   },
+  "options": {
+    "bookmarks": {
+      "appsLink": "Ссылка на приложения",
+      "chromeTabLink": "Chrome Tab",
+      "enableBar": "Панель закладок",
+      "enableQuick": "Быстрые ссылки",
+      "favicons": "Favicons",
+      "headingBar": "Закладки",
+      "headingQuick": "Быстрые ссылки",
+      "historyLink": "Ссылка на историю",
+      "labelValidation": "Ссылка должна иметь ярлык.",
+      "linkValidation": "Ссылка должна иметь URL (адрес веб-сайта).",
+      "managerLink": "Диспетчер закладок",
+      "mostVisited": "Самый посещаемый",
+      "save": "Сохранить новую ссылку",
+      "url": "Веб-сайт"
+    },
+    "common": {
+      "label": "этикетка",
+      "size": "Размер"
+    }
+  },
   "tab": {
     "bookmarks": {
       "links": {

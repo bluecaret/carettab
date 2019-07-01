@@ -9,6 +9,28 @@
       "timeDate": "時間、そして日付"
     }
   },
+  "options": {
+    "bookmarks": {
+      "appsLink": "アプリリンク",
+      "chromeTabLink": "Chromeタブ",
+      "enableBar": "ブックマークバー",
+      "enableQuick": "クイックリンク",
+      "favicons": "ファビコン",
+      "headingBar": "ブックマーク",
+      "headingQuick": "クイックリンク",
+      "historyLink": "履歴リンク",
+      "labelValidation": "リンクにはラベルが必要です。",
+      "linkValidation": "リンクにはURL（ウェブサイトアドレス）が必要です。",
+      "managerLink": "ブックマークマネージャ",
+      "mostVisited": "最も訪問した",
+      "save": "新しいリンクを保存",
+      "url": "URL"
+    },
+    "common": {
+      "label": "ラベル",
+      "size": "サイズ"
+    }
+  },
   "tab": {
     "bookmarks": {
       "links": {

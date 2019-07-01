@@ -9,6 +9,28 @@
       "timeDate": "Zeit, dann Datum"
     }
   },
+  "options": {
+    "bookmarks": {
+      "appsLink": "Apps-Link",
+      "chromeTabLink": "Chrome Tab",
+      "enableBar": "Lesezeichenleiste",
+      "enableQuick": "SCHNELLE LINKS",
+      "favicons": "Favicons",
+      "headingBar": "Lesezeichen",
+      "headingQuick": "SCHNELLE LINKS",
+      "historyLink": "Link zur Geschichte",
+      "labelValidation": "Der Link muss eine Beschriftung haben.",
+      "linkValidation": "Der Link muss eine URL (Website-Adresse) haben.",
+      "managerLink": "Lesezeichen-Manager",
+      "mostVisited": "Meist besuchte",
+      "save": "Neuen Link speichern",
+      "url": "Url"
+    },
+    "common": {
+      "label": "Etikette",
+      "size": "Größe"
+    }
+  },
   "tab": {
     "bookmarks": {
       "links": {

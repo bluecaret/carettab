@@ -85,6 +85,19 @@
       "globalSizeDesc": "Ajustez la taille de tous les éléments.",
       "hardToSee": "Image trop difficile à voir? Essayez de changer le filtre.",
       "wallpaper": "Fond d'écran"
+    },
+    "extra": {
+      "advanced": "Avancée",
+      "lang": "La langue",
+      "reset": "Réinitialiser",
+      "resetDesc": "Si vous souhaitez rétablir tous les paramètres par défaut, vous pouvez cliquer sur ce bouton, puis actualiser la page. Cela supprimera tous vos paramètres.",
+      "resetToDefault": "Réinitialiser aux valeurs par défaut",
+      "tabClock": "Horloge pour le titre",
+      "tabClockDesc": "Choisissez les éléments à afficher dans le titre du nouvel onglet (s'affiche sur l'onglet lui-même ainsi que dans la barre de titre du navigateur).",
+      "tabCustomText": "Texte personnalisé pour le titre de l'onglet",
+      "tabCustomTextDesc": "Entrez le texte du titre de l'onglet personnalisé. Ne s'applique que si \"Texte personnalisé\" est sélectionné pour Titre de l'onglet.",
+      "tabTitle": "Titre de l'onglet",
+      "tabTitleDesc": "Choisissez les éléments à afficher dans le titre du nouvel onglet (s'affiche sur l'onglet lui-même ainsi que dans la barre de titre du navigateur)."
     }
   },
   "tab": {

@@ -85,6 +85,19 @@
       "globalSizeDesc": "调整所有元素的大小。",
       "hardToSee": "图像太难看了？尝试更改过滤器。",
       "wallpaper": "墙纸"
+    },
+    "extra": {
+      "advanced": "高级",
+      "lang": "语言",
+      "reset": "重启",
+      "resetDesc": "如果要将所有设置重置为默认设置，可以单击此按钮，然后刷新页面。这将删除所有设置。",
+      "resetToDefault": "重置为默认",
+      "tabClock": "标题时钟",
+      "tabClockDesc": "选择要在“新标签”标题中显示的内容（显示在标签本身以及浏览器的标题栏中）。",
+      "tabCustomText": "标题标题的自定义文本",
+      "tabCustomTextDesc": "输入自定义标签标题的文本。仅适用于选项卡标题的“自定义文本”。",
+      "tabTitle": "标签标题",
+      "tabTitleDesc": "选择要在“新标签”标题中显示的内容（显示在标签本身以及浏览器的标题栏中）。"
     }
   },
   "tab": {

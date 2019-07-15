@@ -85,6 +85,19 @@
       "globalSizeDesc": "Ajustar el tamaño de todos los elementos.",
       "hardToSee": "Imagen demasiado difícil de ver? Intenta cambiar el filtro.",
       "wallpaper": "Papel pintado"
+    },
+    "extra": {
+      "advanced": "Avanzado",
+      "lang": "idioma",
+      "reset": "Reiniciar",
+      "resetDesc": "Si desea restablecer todas las configuraciones a sus valores predeterminados, puede hacer clic en este botón y luego actualizar la página. Esto eliminará todas tus configuraciones.",
+      "resetToDefault": "Restablecen a los predeterminados",
+      "tabClock": "Reloj de titulo",
+      "tabClockDesc": "Elija qué mostrar en el título Nueva pestaña (se muestra en la pestaña misma, así como en la barra de título del navegador).",
+      "tabCustomText": "Texto personalizado para el título de la pestaña",
+      "tabCustomTextDesc": "Introduzca texto para el título de la pestaña personalizada. Solo se aplica si se selecciona \"Texto personalizado\" para Título de pestaña.",
+      "tabTitle": "Título de la pestaña",
+      "tabTitleDesc": "Elija qué mostrar en el título Nueva pestaña (se muestra en la pestaña misma, así como en la barra de título del navegador)."
     }
   },
   "tab": {

@@ -98,6 +98,12 @@
       "tabCustomTextDesc": "Geben Sie Text für den Titel der benutzerdefinierten Registerkarte ein. Gilt nur, wenn \"Benutzerdefinierter Text\" als Tabulatortitel ausgewählt ist.",
       "tabTitle": "Titel der Registerkarte",
       "tabTitleDesc": "Wählen Sie aus, was im Titel der neuen Registerkarte angezeigt werden soll (wird sowohl auf der Registerkarte selbst als auch in der Titelleiste des Browsers angezeigt)."
+    },
+    "message": {
+      "customMsg": "benutzerdefinierte Nachricht",
+      "msg": "Botschaft",
+      "msgText": "Nachrichtentext",
+      "msgTextDesc": "Geben Sie einen Text für die benutzerdefinierte Nachricht ein."
     }
   },
   "tab": {

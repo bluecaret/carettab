@@ -98,6 +98,12 @@
       "tabCustomTextDesc": "Introduzca texto para el título de la pestaña personalizada. Solo se aplica si se selecciona \"Texto personalizado\" para Título de pestaña.",
       "tabTitle": "Título de la pestaña",
       "tabTitleDesc": "Elija qué mostrar en el título Nueva pestaña (se muestra en la pestaña misma, así como en la barra de título del navegador)."
+    },
+    "message": {
+      "customMsg": "mensaje personalizado",
+      "msg": "Mensaje",
+      "msgText": "Mensaje de texto",
+      "msgTextDesc": "Introduzca texto para el mensaje personalizado."
     }
   },
   "tab": {

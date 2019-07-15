@@ -98,6 +98,12 @@
       "tabCustomTextDesc": "Entrez le texte du titre de l'onglet personnalisé. Ne s'applique que si \"Texte personnalisé\" est sélectionné pour Titre de l'onglet.",
       "tabTitle": "Titre de l'onglet",
       "tabTitleDesc": "Choisissez les éléments à afficher dans le titre du nouvel onglet (s'affiche sur l'onglet lui-même ainsi que dans la barre de titre du navigateur)."
+    },
+    "message": {
+      "customMsg": "message personnalisé",
+      "msg": "Message",
+      "msgText": "Texte du message",
+      "msgTextDesc": "Entrez le texte du message personnalisé."
     }
   },
   "tab": {

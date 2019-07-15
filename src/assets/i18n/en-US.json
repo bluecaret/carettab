@@ -98,6 +98,12 @@
       "tabCustomTextDesc": "Enter text for the custom tab title. Only applies if \"Custom Text\" is selected for Tab Title.",
       "tabTitle": "Tab title",
       "tabTitleDesc": "Choose what to display in the New Tab title (shows on the tab itself as well as in the browser's title bar)."
+    },
+    "message": {
+      "customMsg": "Custom message",
+      "msg": "Message",
+      "msgText": "Message text",
+      "msgTextDesc": "Enter text for the custom message."
     }
   },
   "tab": {

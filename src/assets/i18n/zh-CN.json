@@ -98,6 +98,12 @@
       "tabCustomTextDesc": "输入自定义标签标题的文本。仅适用于选项卡标题的“自定义文本”。",
       "tabTitle": "标签标题",
       "tabTitleDesc": "选择要在“新标签”标题中显示的内容（显示在标签本身以及浏览器的标题栏中）。"
+    },
+    "message": {
+      "customMsg": "自定义消息",
+      "msg": "信息",
+      "msgText": "消息文本",
+      "msgTextDesc": "输入自定义消息的文本。"
     }
   },
   "tab": {

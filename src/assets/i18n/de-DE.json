@@ -61,6 +61,30 @@
       "twoDigit": "Zweistellig",
       "weekNum": "Wochennummer",
       "year": "Jahr"
+    },
+    "design": {
+      "bg": "Benutzerdefinierter Hintergrund",
+      "browseForImg": "Nach Bild suchen ...",
+      "colors": "Farben",
+      "customFontDesc": "Geben Sie den Namen einer lokal installierten Schriftart ein. Sie müssen die Schriftart auf Ihrem Computer installieren, damit sie funktioniert.",
+      "customFontName": "Name der benutzerdefinierten Schriftart",
+      "customFontUsage": "Um eine benutzerdefinierte Schriftart zu verwenden, müssen Sie den Namen der Schriftart genau eingeben. Benutzerdefinierte Schriften müssen lokal auf Ihrem Computer installiert werden. Weitere Schriftarten finden Sie unter | Google Fonts | oder von | 1001 Free Fonts |.",
+      "customWallpaper": "Benutzerdefinierte Tapete",
+      "design": "Design",
+      "dontSync": "Benutzerdefinierte Bilder werden nicht zwischen Computern synchronisiert.",
+      "dynScale": "Dynamische Skalierung",
+      "dynScaleDesc": "Mithilfe der dynamischen Skalierung können Sie die Größe von Elementen basierend auf der Breite Ihres Browsers ändern. Deaktivieren Sie diese Option, um die Größe unabhängig von der Größe Ihres Browsers gleich zu halten.",
+      "fg": "Benutzerdefinierter Vordergrund",
+      "fill": "Füllen",
+      "filter": "Filter",
+      "font": "Schriftart",
+      "fontWeight": "Benutzerdefinierte Schriftgröße",
+      "fontWeightDesc": "Wählen Sie eine Schriftgröße für Ihre benutzerdefinierte Schriftart. Einige Schriftarten unterstützen nicht alle Gewichte.",
+      "getMorePatterns": "Weitere Muster finden Sie unter | Transparente Texturen | oder | Toptal |.",
+      "globalSize": "Globale Größe",
+      "globalSizeDesc": "Passen Sie die Größe aller Elemente an.",
+      "hardToSee": "Bild zu schwer zu sehen? Versuchen Sie, den Filter zu wechseln.",
+      "wallpaper": "Tapete"
     }
   },
   "tab": {

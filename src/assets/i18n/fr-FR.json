@@ -61,6 +61,30 @@
       "twoDigit": "Deux chiffres",
       "weekNum": "Numéro de semaine",
       "year": "année"
+    },
+    "design": {
+      "bg": "Arrière-plan personnalisé",
+      "browseForImg": "Recherchez une image ...",
+      "colors": "Couleurs",
+      "customFontDesc": "Entrez le nom d'une police installée localement. Vous devez installer la police sur votre ordinateur pour que cela fonctionne.",
+      "customFontName": "Nom de police personnalisé",
+      "customFontUsage": "Pour utiliser une police personnalisée, vous devez taper le nom de la police avec précision. Les polices personnalisées doivent être | installées localement sur votre ordinateur |. Vous pouvez obtenir plus de polices à partir de | Google Fonts | ou de | 1001 polices gratuites |.",
+      "customWallpaper": "Papier peint personnalisé",
+      "design": "Conception",
+      "dontSync": "Les images personnalisées ne se synchronisent pas entre ordinateurs.",
+      "dynScale": "Mise à l'échelle dynamique",
+      "dynScaleDesc": "La mise à l'échelle dynamique vous permet de modifier la taille des éléments en fonction de la largeur de votre navigateur. Désactiver pour garder la taille identique quelle que soit la taille de votre navigateur.",
+      "fg": "Avant-plan personnalisé",
+      "fill": "remplir",
+      "filter": "Filtre",
+      "font": "Police de caractère",
+      "fontWeight": "Poids de la police personnalisée",
+      "fontWeightDesc": "Sélectionnez une épaisseur de police pour votre police personnalisée. Certaines polices ne supportent pas tous les poids.",
+      "getMorePatterns": "Obtenez plus de motifs sur | Textures transparentes | ou | Toptal |.",
+      "globalSize": "Taille globale",
+      "globalSizeDesc": "Ajustez la taille de tous les éléments.",
+      "hardToSee": "Image trop difficile à voir? Essayez de changer le filtre.",
+      "wallpaper": "Fond d'écran"
     }
   },
   "tab": {

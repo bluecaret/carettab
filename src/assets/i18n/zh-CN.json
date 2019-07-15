@@ -61,6 +61,30 @@
       "twoDigit": "两位数",
       "weekNum": "周数",
       "year": "年"
+    },
+    "design": {
+      "bg": "自定义背景",
+      "browseForImg": "浏览图片......",
+      "colors": "颜色",
+      "customFontDesc": "输入本地安装的字体的名称。您必须在计算机上安装该字体才能使用它。",
+      "customFontName": "自定义字体名称",
+      "customFontUsage": "要使用自定义字体，必须准确键入字体名称。必须在您的计算机上本地安装自定义字体。您可以从| Google字体|中获取更多字体或者来自| 1001个免费字体|。",
+      "customWallpaper": "自定义壁纸",
+      "design": "设计",
+      "dontSync": "自定义图像不会跨计算机同步。",
+      "dynScale": "动态缩放",
+      "dynScaleDesc": "动态缩放允许您根据浏览器的宽度更改元素的大小。无论浏览器的大小如何，禁用以保持大小相同。",
+      "fg": "自定义前景",
+      "fill": "填",
+      "filter": "过滤",
+      "font": "字形",
+      "fontWeight": "自定义字体重量",
+      "fontWeightDesc": "选择自定义字体的字体粗细。某些字体不支持所有权重。",
+      "getMorePatterns": "获得更多模式|透明纹理|或者| Toptal |。",
+      "globalSize": "全球规模",
+      "globalSizeDesc": "调整所有元素的大小。",
+      "hardToSee": "图像太难看了？尝试更改过滤器。",
+      "wallpaper": "墙纸"
     }
   },
   "tab": {

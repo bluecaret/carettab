@@ -61,6 +61,30 @@
       "twoDigit": "Two-digit",
       "weekNum": "Week number",
       "year": "Year"
+    },
+    "design": {
+      "bg": "Custom background",
+      "browseForImg": "Browse for image...",
+      "colors": "Colors",
+      "customFontDesc": "Enter the name of a locally installed font. You must install the font on your computer for it to work.",
+      "customFontName": "Custom font name",
+      "customFontUsage": "To use a custom font, you must type the font name exactly. Custom fonts must be |installed locally on your computer|. You can get more fonts from |Google Fonts| or from |1001 Free Fonts|.",
+      "customWallpaper": "Custom wallpaper",
+      "design": "Design",
+      "dontSync": "Custom images do not sync across computers.",
+      "dynScale": "Dynamic scaling",
+      "dynScaleDesc": "Dynamic scaling allows you to change the size of elements based on the width of your browser. Disable to keep the size the same no matter the size of your browser.",
+      "fg": "Custom foreground",
+      "fill": "Fill",
+      "filter": "Filter",
+      "font": "Font",
+      "fontWeight": "Custom font weight",
+      "fontWeightDesc": "Select a font weight for your custom font. Some fonts do not support all weights.",
+      "getMorePatterns": "Get more patterns at |Transparent Textures| or |Toptal|.",
+      "globalSize": "Global size",
+      "globalSizeDesc": "Adjust the size of all elements.",
+      "hardToSee": "Image too hard to see? Try changing the filter.",
+      "wallpaper": "Wallpaper"
     }
   },
   "tab": {

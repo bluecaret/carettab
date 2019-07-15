@@ -27,7 +27,13 @@
       "url": "URL"
     },
     "common": {
+      "delimiter": "Délimiteur",
+      "format": "Format",
       "label": "Étiquette",
+      "moveDown": "Déplacer en dessous d'autres éléments",
+      "moveUp": "Dépasser les autres éléments",
+      "offset": "Décalage",
+      "order": "ordre",
       "size": "Taille"
     },
     "dashboard": {
@@ -36,6 +42,25 @@
       "needHelp": "Si vous avez besoin d’aide ou si vous avez une suggestion, vous pouvez contacter le développeur, |BlueCaret| sur Twitter |@BlueCaret| ou consultez CaretTab sur |GitHub|.",
       "new": "Quoi de neuf?",
       "supportDev": "Soutenez CaretTab en inclinant le développeur!"
+    },
+    "date": {
+      "abbr": "Abrégé",
+      "automatic": "Automatique",
+      "date": "Rendez-vous amoureux",
+      "day": "journée",
+      "dayOfWk": "Jour de la semaine",
+      "enableDay": "Activer le jour",
+      "enableDayOfWk": "Activer le jour de la semaine",
+      "enableMonth": "Activer le mois",
+      "enableShortDate": "Activer la date courte",
+      "enableWeekNum": "Activer le numéro de semaine",
+      "enableYear": "Activer l'année",
+      "month": "mois",
+      "shortDate": "Date courte",
+      "timezone": "Fuseau horaire",
+      "twoDigit": "Deux chiffres",
+      "weekNum": "Numéro de semaine",
+      "year": "année"
     }
   },
   "tab": {

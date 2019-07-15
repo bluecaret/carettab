@@ -27,7 +27,13 @@
       "url": "网址"
     },
     "common": {
+      "delimiter": "分隔符",
+      "format": "格式",
       "label": "标签",
+      "moveDown": "移动到其他元素下方",
+      "moveUp": "移动到其他元素之上",
+      "offset": "抵消",
+      "order": "订购",
       "size": "尺寸"
     },
     "dashboard": {
@@ -36,6 +42,25 @@
       "needHelp": "如果您需要帮助或有建议，可以联系开发人员，|BlueCaret|在Twitter上|@BlueCaret|或查看CaretTab on |GitHub|。",
       "new": "什么是新的？",
       "supportDev": "通过倾斜开发人员来支持CaretTab！"
+    },
+    "date": {
+      "abbr": "简短的",
+      "automatic": "自动",
+      "date": "日期",
+      "day": "天",
+      "dayOfWk": "一周的一天",
+      "enableDay": "启用日期",
+      "enableDayOfWk": "启用星期几",
+      "enableMonth": "启用月份",
+      "enableShortDate": "启用短日期",
+      "enableWeekNum": "启用周数",
+      "enableYear": "启用年份",
+      "month": "月",
+      "shortDate": "短日期",
+      "timezone": "时区",
+      "twoDigit": "两位数",
+      "weekNum": "周数",
+      "year": "年"
     }
   },
   "tab": {

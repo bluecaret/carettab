@@ -1,14 +1,14 @@
 <form #date="ngForm" novalidate>
   <fieldset class="mb0">
-    <legend>Date</legend>
+    <legend>{{'options.date.date' | translate}}</legend>
     <div class="grid cols-6">
       <div class="field span-1">
         <options-toggle name="date" [(ngModel)]="settings.config.date.enabled"></options-toggle>
-        <label>Date</label>
+        <label>{{'options.date.date' | translate}}</label>
       </div>
       <div class="field span-3">
         <select name="dateTimezone" [(ngModel)]="settings.config.date.timezone">
-          <option value="Automatic">Automatic ({{tz.timezoneFormat(tzGuess)}})</option>
+          <option value="Automatic">{{'options.date.automatic' | translate}} ({{tz.timezoneFormat(tzGuess)}})</option>
           <ng-template let-c ngFor [ngForOf]="allTimezones">
             <optgroup *ngIf="c.zones.length > 1" [label]="c.iso | iso2CountryPipe">
               <option *ngFor="let t of c.zones" [ngValue]="t">{{tz.timezoneFormat(t)}}
@@ -20,19 +20,19 @@
             </option>
           </ng-template>
         </select>
-        <label>Timezone</label>
+        <label>{{'options.date.timezone' | translate}}</label>
       </div>
       <div class="field span-2">
         <select name="dateFormat" [(ngModel)]="settings.config.date.format">
           <option *ngFor="let f of dateFormat" [ngValue]="f.id">{{f.label}}</option>
         </select>
-        <label>Format</label>
+        <label>options.common.format</label>
       </div>
       <div class="field span-2">
         <div class="orderBtns">
           <button
             type="button"
-            title="Move above other elements"
+            title="{{'options.common.moveUp' | translate}}"
             class="btn"
             [disabled]="settings.config.date.order <= shared.orderMin"
             (click)="changeOrder(true)">
@@ -40,114 +40,114 @@
           </button>
           <button
             type="button"
-            title="Move below other elements"
+            title="{{'options.common.moveDown' | translate}}"
             class="btn"
             [disabled]="settings.config.date.order >= shared.orderMax"
             (click)="changeOrder(false)">
             <div class="icon">arrow_drop_down</div>
           </button>
         </div>
-        <label>Order</label>
+        <label>{{'options.common.order' | translate}}</label>
       </div>
       <div class="field span-2">
         <options-range name="dateSize" min="1" max="20" [(ngModel)]="settings.config.date.scaling"></options-range>
-        <label>Size</label>
+        <label>{{'options.common.size' | translate}}</label>
       </div>
       <div class="field span-2">
         <options-range name="dateOffset" min="-20" max="20" [(ngModel)]="settings.config.date.offset"></options-range>
-        <label>Offset</label>
+        <label>{{'options.common.offset' | translate}}</label>
       </div>
       <div class="span-3 mt1">
         <div class="box mb15">
-          <h4 class="boxHeading span-2">Year</h4>
+          <h4 class="boxHeading span-2">{{'options.date.year' | translate}}</h4>
           <div class="grid grid--middle cols-3">
             <div class="field compactIcon span-1">
               <options-toggle type="check" name="year" [(ngModel)]="settings.config.date.year.enabled"></options-toggle>
-              <label title="Enable year"><i class="icon">power_settings_new</i></label>
+              <label title="{{'options.date.enableYear' | translate}}"><i class="icon">power_settings_new</i></label>
             </div>
             <div class="field span-2">
               <options-toggle name="yearShort" [(ngModel)]="settings.config.date.year.twoDigit"></options-toggle>
-              <label>Two-digit</label>
+              <label>{{'options.date.twoDigit' | translate}}</label>
             </div>
           </div>
         </div>
         <div class="box mb15">
-          <h4 class="boxHeading span-2">Month</h4>
+          <h4 class="boxHeading span-2">{{'options.date.month' | translate}}</h4>
           <div class="grid grid--middle cols-3">
             <div class="field compactIcon span-1">
               <options-toggle type="check" name="month" [(ngModel)]="settings.config.date.month.enabled"></options-toggle>
-              <label title="Enable month"><i class="icon">power_settings_new</i></label>
+              <label title="{{'options.date.enableMonth' | translate}}"><i class="icon">power_settings_new</i></label>
             </div>
             <div class="field span-2" *ngIf="!settings.config.date.short.enabled">
               <options-toggle name="monthAbbr" [(ngModel)]="settings.config.date.month.abbr"></options-toggle>
-              <label>Abbreviated</label>
+              <label>{{'options.date.abbr' | translate}}</label>
             </div>
             <div class="field span-2" *ngIf="settings.config.date.short.enabled">
               <options-toggle name="monthTwoDigit" [(ngModel)]="settings.config.date.month.twoDigit"></options-toggle>
-              <label>Two-digit</label>
+              <label>{{'options.date.twoDigit' | translate}}</label>
             </div>
           </div>
         </div>
         <div class="box mb15">
-          <h4 class="boxHeading span-2">Day</h4>
+          <h4 class="boxHeading span-2">{{'options.date.day' | translate}}</h4>
           <div class="grid grid--middle cols-3">
             <div class="field compactIcon span-1">
               <options-toggle type="check" name="day" [(ngModel)]="settings.config.date.day.enabled"></options-toggle>
-              <label title="Enable day"><i class="icon">power_settings_new</i></label>
+              <label title="{{'options.date.enableDay' | translate}}"><i class="icon">power_settings_new</i></label>
             </div>
             <div class="field span-2">
               <options-toggle name="dayTwoDigit" [(ngModel)]="settings.config.date.day.twoDigit"></options-toggle>
-              <label>Two-digit</label>
+              <label>{{'options.date.twoDigit' | translate}}</label>
             </div>
           </div>
         </div>
         <div class="box mb15">
-          <h4 class="boxHeading span-2">Day of week</h4>
+          <h4 class="boxHeading span-2">{{'options.date.dayOfWk' | translate}}</h4>
           <div class="grid grid--middle cols-3">
             <div class="field compactIcon span-1">
               <options-toggle type="check" name="dayOfWeek" [(ngModel)]="settings.config.date.dayOfWeek.enabled"></options-toggle>
-              <label title="Enable day of week"><i class="icon">power_settings_new</i></label>
+              <label title="{{'options.date.enableDayOfWk' | translate}}"><i class="icon">power_settings_new</i></label>
             </div>
             <div class="field span-2">
               <options-toggle name="dayOfWeekAbbr" [(ngModel)]="settings.config.date.dayOfWeek.abbr"></options-toggle>
-              <label>Abbreviated</label>
+              <label>{{'options.date.abbr' | translate}}</label>
             </div>
           </div>
         </div>
       </div>
       <div class="span-3 mt1">
         <div class="box mb15">
-          <h4 class="boxHeading span-2">Short date</h4>
+          <h4 class="boxHeading span-2">{{'options.date.shortDate' | translate}}</h4>
           <div class="grid grid--middle cols-3">
             <div class="field compactIcon span-1">
               <options-toggle type="check" name="short" [(ngModel)]="settings.config.date.short.enabled"></options-toggle>
-              <label title="Enable short date"><i class="icon">power_settings_new</i></label>
+              <label title="{{'options.date.enableShortDate' | translate}}"><i class="icon">power_settings_new</i></label>
             </div>
             <div class="field span-2">
               <input type="text" maxlength="1" id="shortDelimiter" name="shortDelimiter" [(ngModel)]="settings.config.date.short.delimiter" autocomplete="off">
-              <label for="shortDelimiter">Delimiter</label>
+              <label for="shortDelimiter">{{'options.common.delimiter' | translate}}</label>
             </div>
           </div>
         </div>
         <div class="box mb15">
-          <h4 class="boxHeading span-2">Week number</h4>
+          <h4 class="boxHeading span-2">{{'options.date.weekNum' | translate}}</h4>
           <div class="grid grid--middle cols-3">
             <div class="field compactIcon span-1">
               <options-toggle type="check" name="week" [(ngModel)]="settings.config.date.week.enabled"></options-toggle>
-              <label title="Enable week number"><i class="icon">power_settings_new</i></label>
+              <label title="{{'options.date.enableWeekNum' | translate}}"><i class="icon">power_settings_new</i></label>
             </div>
             <div class="field span-2">
               <input type="text" id="yearShort" name="yearShort" [(ngModel)]="settings.config.date.week.label" autocomplete="off">
-              <label for="yearShort">Label</label>
+              <label for="yearShort">{{'options.common.label' | translate}}</label>
             </div>
             <div class="span-3 grid cols-2">
               <div class="field span-1">
                 <options-range name="weekSize" min="1" max="20" [(ngModel)]="settings.config.date.week.scaling"></options-range>
-                <label>Size</label>
+                <label>{{'options.common.size' | translate}}</label>
               </div>
               <div class="field span-1">
                 <options-range name="weekOffset" min="-10" max="10" [(ngModel)]="settings.config.date.week.offset"></options-range>
-                <label>Offset</label>
+                <label>{{'options.common.offset' | translate}}</label>
               </div>
             </div>
           </div>

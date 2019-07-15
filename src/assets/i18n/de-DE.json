@@ -27,7 +27,13 @@
       "url": "Url"
     },
     "common": {
+      "delimiter": "Trennzeichen",
+      "format": "Format",
       "label": "Etikette",
+      "moveDown": "Bewegen Sie sich unter andere Elemente",
+      "moveUp": "Bewegen Sie sich über andere Elemente",
+      "offset": "Versatz",
+      "order": "Auftrag",
       "size": "Größe"
     },
     "dashboard": {
@@ -36,6 +42,25 @@
       "needHelp": "Wenn Sie Hilfe benötigen oder einen Vorschlag haben, können Sie sich an den Entwickler |BlueCaret| wenden auf Twitter |@BlueCaret| oder sehen Sie sich CaretTab auf |GitHub| an.",
       "new": "Was gibt's neues?",
       "supportDev": "Unterstützen Sie CaretTab, indem Sie dem Entwickler einen Tipp geben!"
+    },
+    "date": {
+      "abbr": "Abgekürzt",
+      "automatic": "Automatik",
+      "date": "Datum",
+      "day": "Tag",
+      "dayOfWk": "Wochentag",
+      "enableDay": "Tag aktivieren",
+      "enableDayOfWk": "Wochentag aktivieren",
+      "enableMonth": "Monat aktivieren",
+      "enableShortDate": "Kurzes Datum aktivieren",
+      "enableWeekNum": "Aktivieren Sie die Wochennummer",
+      "enableYear": "Jahr aktivieren",
+      "month": "Monat",
+      "shortDate": "Kurzes Date",
+      "timezone": "Zeitzone",
+      "twoDigit": "Zweistellig",
+      "weekNum": "Wochennummer",
+      "year": "Jahr"
     }
   },
   "tab": {

@@ -34,7 +34,8 @@
       "moveUp": "Mover por encima de otros elementos",
       "offset": "Compensar",
       "order": "Orden",
-      "size": "Tamaño"
+      "size": "Tamaño",
+      "width": ""
     },
     "dashboard": {
       "credit": "CaretTab| está diseñado y codificado por |BlueCaret| y está licenciado bajo |la Licencia MIT|.",
@@ -104,6 +105,13 @@
       "msg": "Mensaje",
       "msgText": "Mensaje de texto",
       "msgTextDesc": "Introduzca texto para el mensaje personalizado."
+    },
+    "search": {
+      "autocomplete": "Autocompletar",
+      "autocompleteDesc": "Desactivar para deshabilitar la función de autocompletar del navegador en el cuadro de búsqueda.",
+      "search": "Buscar",
+      "searchBox": "Caja de búsqeda",
+      "searchEngine": "Buscador"
     }
   },
   "tab": {

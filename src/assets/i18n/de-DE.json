@@ -34,7 +34,8 @@
       "moveUp": "Bewegen Sie sich über andere Elemente",
       "offset": "Versatz",
       "order": "Auftrag",
-      "size": "Größe"
+      "size": "Größe",
+      "width": ""
     },
     "dashboard": {
       "credit": "CaretTab| wurde von |BlueCaret| entwickelt und codiert und unterliegt der |MIT-Lizenz|.",
@@ -104,6 +105,13 @@
       "msg": "Botschaft",
       "msgText": "Nachrichtentext",
       "msgTextDesc": "Geben Sie einen Text für die benutzerdefinierte Nachricht ein."
+    },
+    "search": {
+      "autocomplete": "Autovervollständigen",
+      "autocompleteDesc": "Deaktivieren Sie diese Option, um die automatische Vervollständigung des Browsers im Suchfeld zu deaktivieren.",
+      "search": "Suche",
+      "searchBox": "Suchbox",
+      "searchEngine": "Suchmaschine"
     }
   },
   "tab": {

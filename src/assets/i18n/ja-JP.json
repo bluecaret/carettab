@@ -34,7 +34,8 @@
       "moveUp": "他の要素の上に移動",
       "offset": "オフセット",
       "order": "注文",
-      "size": "サイズ"
+      "size": "サイズ",
+      "width": ""
     },
     "dashboard": {
       "credit": "CaretTab|は|BlueCaret|によって設計およびコード化されており、|MIT|ライセンスの下でライセンスされています。",
@@ -104,6 +105,13 @@
       "msg": "メッセージ",
       "msgText": "メッセージテキスト",
       "msgTextDesc": "カスタムメッセージのテキストを入力してください。"
+    },
+    "search": {
+      "autocomplete": "オートコンプリート",
+      "autocompleteDesc": "検索ボックスでブラウザのオートコンプリート機能を無効にするには、オフにします。",
+      "search": "サーチ",
+      "searchBox": "検索ボックス",
+      "searchEngine": "検索エンジン"
     }
   },
   "tab": {

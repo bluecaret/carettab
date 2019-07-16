@@ -34,7 +34,8 @@
       "moveUp": "Move above other elements",
       "offset": "Offset",
       "order": "Order",
-      "size": "Size"
+      "size": "Size",
+      "width": "Width"
     },
     "dashboard": {
       "credit": "CaretTab| is designed and coded by |BlueCaret| and is licensed under the |MIT License|.",
@@ -104,6 +105,13 @@
       "msg": "Message",
       "msgText": "Message text",
       "msgTextDesc": "Enter text for the custom message."
+    },
+    "search": {
+      "autocomplete": "Autocomplete",
+      "autocompleteDesc": "Turn off to disable the browser's autocomplete feature on the search box.",
+      "search": "Search",
+      "searchBox": "Search box",
+      "searchEngine": "Search engine"
     }
   },
   "tab": {

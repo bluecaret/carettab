@@ -34,7 +34,8 @@
       "moveUp": "移动到其他元素之上",
       "offset": "抵消",
       "order": "订购",
-      "size": "尺寸"
+      "size": "尺寸",
+      "width": ""
     },
     "dashboard": {
       "credit": "CaretTab|由|BlueCaret|设计和编码，并根据|MIT|许可证授权。",
@@ -104,6 +105,13 @@
       "msg": "信息",
       "msgText": "消息文本",
       "msgTextDesc": "输入自定义消息的文本。"
+    },
+    "search": {
+      "autocomplete": "自动完成",
+      "autocompleteDesc": "关闭以在搜索框中禁用浏览器的自动完成功能。",
+      "search": "搜索",
+      "searchBox": "搜索框",
+      "searchEngine": "搜索引擎"
     }
   },
   "tab": {

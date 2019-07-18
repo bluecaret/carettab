@@ -1,13 +1,13 @@
 <form #clockList="ngForm" novalidate>
   <fieldset class="mb0">
-    <legend>Time</legend>
+    <legend>{{'options.time.time' | translate}}</legend>
     <div class="grid cols-19">
       <div class="span-2"></div>
       <div class="field noLabel span-6">
-        <label title="Displays a label next to the clock. Leave empty for no label.">Label</label>
+        <label title="{{'options.time.labelDesc' | translate}}">{{'options.common.label' | translate}}</label>
       </div>
       <div class="field noLabel span-7">
-        <label title="Choose a timezone for the clock (the default is your local timezone).">Timezone</label>
+        <label title="{{'options.time.timezoneDesc' | translate}}">{{'options.common.timezone' | translate}}</label>
       </div>
     </div>
     <div class="grid cols-19 mb15">
@@ -16,7 +16,7 @@
           <button
             type="button"
             class="btn"
-            [title]="selected === i ? 'Hide additional options' : 'Show more options'"
+            title="{{selected === i ? 'options.time.hideOptions' : 'options.time.showOptions' | translate}}"
             [ngClass]="{'active': selected === i}"
             (click)="setSelected(i)">
             <div class="icon" *ngIf="selected !== i">more_horiz</div>
@@ -32,7 +32,7 @@
         </div>
         <div class="field noLabel span-7">
           <select [name]="'timezone'+i" [(ngModel)]="clock.timezone">
-            <option value="Automatic">Automatic ({{tz.timezoneFormat(tzGuess)}})</option>
+            <option value="Automatic">{{'options.time.automatic' | translate}} ({{tz.timezoneFormat(tzGuess)}})</option>
             <ng-template let-c ngFor [ngForOf]="allTimezones">
               <optgroup *ngIf="c.zones.length > 1" [label]="c.iso | iso2CountryPipe">
                 <option *ngFor="let t of c.zones" [value]="t">{{tz.timezoneFormat(t)}}
@@ -48,7 +48,7 @@
         <div class="field btns span-4">
           <button
             type="button"
-            title="Move order of clock up"
+            title="{{'options.time.moveUp' | translate}}"
             class="btn btnCircle mr5"
             [disabled]="isFirst"
             (click)="swap(settings.config.time.clocks, i, (i - 1))">
@@ -56,7 +56,7 @@
           </button>
           <button
             type="button"
-            title="Move order of clock down"
+            title="{{'options.time.moveDown' | translate}}"
             class="btn btnCircle mr5"
             [disabled]="isLast"
             (click)="swap(settings.config.time.clocks, i, (i + 1))">
@@ -64,7 +64,7 @@
           </button>
           <button
             type="button"
-            title="Delete clock"
+            title="{{'options.time.deleteClock' | translate}}"
             class="btn btnCircle"
             (click)="delete(i)">
             <div class="icon">delete</div>
@@ -73,110 +73,110 @@
         <fieldset *ngIf="selected === i" class="mb1 span-19">
           <div class="grid cols-2">
             <div class="box span-2">
-              <h4 class="boxHeading">General clock settings</h4>
+              <h4 class="boxHeading">{{'options.time.generalSettings' | translate}}</h4>
               <div class="grid cols-18">
                 <div class="field span-6">
                   <options-range [name]="'clockSize'+i" [id]="'clockSize'+i" min="1" max="40" [(ngModel)]="clock.scaling"></options-range>
-                  <label [for]="'clockSize'+i" title="Change the size of the clock.">Size</label>
+                  <label [for]="'clockSize'+i" title="{{'options.time.sizeDesc' | translate}}">{{'options.common.size' | translate}}</label>
                 </div>
                 <div class="field span-6">
                   <options-range [name]="'clockPadding'+i" [id]="'clockPadding'+i" min="1" max="20" [(ngModel)]="clock.padding"></options-range>
-                  <label [for]="'clockPadding'+i" title="Change the padding between the digits of the clock.">Padding</label>
+                  <label [for]="'clockPadding'+i" title="{{'options.time.paddingDesc' | translate}}">{{'options.time.padding' | translate}}</label>
                 </div>
                 <div class="field span-6">
                   <options-range [name]="'clockOffset'+i" [id]="'clockOffset'+i" min="-20" max="20" [(ngModel)]="clock.offset"></options-range>
-                  <label [for]="'clockOffset'+i" title="Adjust the position of the clock up or down">Offset</label>
+                  <label [for]="'clockOffset'+i" title="{{'options.time.offsetDesc' | translate}}">{{'options.common.offset' | translate}}</label>
                 </div>
                 <div class="field span-4">
                   <select [name]="'clockSpan'+i" [id]="'clockSpan'+i" [(ngModel)]="clock.span">
                     <option *ngFor="let s of span" [ngValue]="s.id">{{s.label}}</option>
                   </select>
-                  <label [for]="'clockSpan'+i" title="Changes how much space the clock uses.">Span</label>
+                  <label [for]="'clockSpan'+i" title="{{'options.time.spanDesc' | translate}}">{{'options.time.span' | translate}}</label>
                 </div>
                 <div class="field span-3">
                   <options-toggle [name]="'clockTwentyFour'+i" [id]="'clockTwentyFour'+i" [(ngModel)]="clock.twentyFour"></options-toggle>
-                  <label title="Display clock in 24-hour format instead of 12-hour (will disable meridiem).">24 hour</label>
+                  <label title="{{'options.time.twentyFourDesc' | translate}}">{{'options.time.twentyFour' | translate}}</label>
                 </div>
               </div>
             </div>
             <div class="span-1">
               <div class="box mb15">
-                <h4 class="boxHeading">Delimiter</h4>
+                <h4 class="boxHeading">{{'options.time.delimiter' | translate}}</h4>
                 <div class="grid grid--middle cols-3">
                   <div class="field compactIcon span-1">
                     <options-toggle type="check" [name]="'delimiterEnable'+i" [id]="'delimiterEnable'+i" [(ngModel)]="clock.delimiter.enabled"></options-toggle>
-                    <label title="Enable delimiter"><i class="icon">power_settings_new</i></label>
+                    <label title="{{'options.time.enableDelimiter' | translate}}"><i class="icon">power_settings_new</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.delimiter.enabled">
                     <options-range [name]="'delimiterScaling'+i" [id]="'delimiterScaling'+i" min="1" max="20" [(ngModel)]="clock.delimiter.scaling"></options-range>
-                    <label title="Adjusts the size of the delimiter relative to the clock">Size</label>
+                    <label title="{{'options.time.delimiterSize' | translate}}">{{'options.common.size' | translate}}</label>
                   </div>
                   <div class="field compactIcon span-1" *ngIf="clock.delimiter.enabled">
                     <options-toggle type="check" [name]="'delimiterDim'+i" [id]="'delimiterDim'+i" [(ngModel)]="clock.delimiter.dim"></options-toggle>
-                    <label title="Dim delimiter"><i class="icon">brightness_medium</i></label>
+                    <label title="{{'options.time.dimDelimiter' | translate}}"><i class="icon">brightness_medium</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.delimiter.enabled">
                     <options-range [name]="'delimiterOffset'+i" [id]="'delimiterOffset'+i" min="-10" max="10" [(ngModel)]="clock.delimiter.offset"></options-range>
-                    <label title="Adjust the position of the delimiter up or down">Offset</label>
+                    <label title="{{'options.time.delimiterOffset' | translate}}">{{'options.common.offset' | translate}}</label>
                   </div>
                   <div class="field compactIcon span-1" *ngIf="clock.delimiter.enabled">
                     <options-toggle type="check" [name]="'delimiterBlink'+i" [id]="'delimiterBlink'+i" [(ngModel)]="clock.delimiter.blink"></options-toggle>
-                    <label title="Blink delimiter"><i class="icon">remove_red_eye</i></label>
+                    <label title="{{'options.time.delimiterBlink' | translate}}"><i class="icon">remove_red_eye</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.delimiter.enabled">
                     <input type="text" maxlength="1" [id]="'delimiterSymbol'+i" [name]="'delimiterSymbol'+i" [(ngModel)]="clock.delimiter.symbol" autocomplete="off">
-                    <label [for]="'delimiterSymbol'+i" title="Enter the symbol to represent the delimiter">Symbol</label>
+                    <label [for]="'delimiterSymbol'+i" title="{{'options.time.symbolDesc' | translate}}">{{'options.time.symbol' | translate}}</label>
                   </div>
                 </div>
               </div>
               <div class="box mb15">
-                <h4 class="boxHeading">Seconds</h4>
+                <h4 class="boxHeading">{{'options.time.seconds' | translate}}</h4>
                 <div class="grid grid--middle cols-3">
                   <div class="field compactIcon span-1">
                     <options-toggle type="check" [name]="'secondsEnable'+i" [id]="'secondsEnable'+i" [(ngModel)]="clock.seconds.enabled"></options-toggle>
-                    <label title="Enable seconds"><i class="icon">power_settings_new</i></label>
+                    <label title="{{'options.time.secondsEnable' | translate}}"><i class="icon">power_settings_new</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.seconds.enabled">
                     <options-range [name]="'secondsScaling'+i" [id]="'secondsScaling'+i" min="1" max="20" [(ngModel)]="clock.seconds.scaling"></options-range>
-                    <label title="Adjusts the size of the seconds relative to the clock">Size</label>
+                    <label title="{{'options.time.secondsSize' | translate}}">{{'options.common.size' | translate}}</label>
                   </div>
                   <div class="field compactIcon span-1" *ngIf="clock.seconds.enabled">
                     <options-toggle type="check" [name]="'secondsDim'+i" [id]="'secondsDim'+i" [(ngModel)]="clock.seconds.dim"></options-toggle>
-                    <label title="Dim seconds"><i class="icon">brightness_medium</i></label>
+                    <label title="{{'options.time.secondsDim' | translate}}"><i class="icon">brightness_medium</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.seconds.enabled">
                     <options-range [name]="'secondsOffset'+i" [id]="'secondsOffset'+i" min="-10" max="10" [(ngModel)]="clock.seconds.offset"></options-range>
-                    <label title="Adjust the position of the seconds up or down">Offset</label>
+                    <label title="{{'options.time.secondsOffset' | translate}}">{{'options.common.offset' | translate}}</label>
                   </div>
                 </div>
               </div>
               <div class="box">
-                <h4 class="boxHeading">Meridiem</h4>
+                <h4 class="boxHeading">{{'options.time.meridiem' | translate}}</h4>
                 <div class="grid grid--middle cols-3">
                   <div class="field compactIcon span-1">
                     <options-toggle type="check" [name]="'meridiemEnable'+i" [id]="'meridiemEnable'+i" [(ngModel)]="clock.meridiem.enabled"></options-toggle>
-                    <label title="Enable meridiem"><i class="icon">power_settings_new</i></label>
+                    <label title="{{'options.time.meridiemEnable' | translate}}"><i class="icon">power_settings_new</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.meridiem.enabled">
                     <options-range [name]="'meridiemScaling'+i" [id]="'meridiemScaling'+i" min="1" max="20" [(ngModel)]="clock.meridiem.scaling"></options-range>
-                    <label title="Adjusts the size of the meridiem relative to the clock">Size</label>
+                    <label title="{{'options.time.meridiemSize' | translate}}">{{'options.common.size' | translate}}</label>
                   </div>
                   <div class="field compactIcon span-1" *ngIf="clock.meridiem.enabled">
                     <options-toggle type="check" [name]="'meridiemDim'+i" [id]="'meridiemDim'+i" [(ngModel)]="clock.meridiem.dim"></options-toggle>
-                    <label title="Dim meridiem"><i class="icon">brightness_medium</i></label>
+                    <label title="{{'options.time.meridiemDim' | translate}}"><i class="icon">brightness_medium</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.meridiem.enabled">
                     <options-range [name]="'meridiemOffset'+i" [id]="'meridiemOffset'+i" min="-10" max="10" [(ngModel)]="clock.meridiem.offset"></options-range>
-                    <label title="Adjust the position of the meridiem up or down">Offset</label>
+                    <label title="{{'options.time.meridiemOffset' | translate}}">{{'options.common.offset' | translate}}</label>
                   </div>
                   <div class="grid cols-2 span-3" *ngIf="clock.meridiem.enabled">
                     <div class="field span-1">
                       <input type="text" [id]="'meridiemAm'+i" [name]="'meridiemAm'+i" [(ngModel)]="clock.meridiem.am" autocomplete="off">
-                      <label [for]="'meridiemAm'+i" title='Enter the symbol to represent "A.M."'>A.M.</label>
+                      <label [for]="'meridiemAm'+i" title="{{'options.time.symbolAm' | translate}}">A.M.</label>
                     </div>
                     <div class="field span-1">
                       <input type="text" [id]="'meridiemPm'+i" [name]="'meridiemPm'+i" [(ngModel)]="clock.meridiem.pm" autocomplete="off">
-                      <label [for]="'meridiemPm'+i" title='Enter the symbol to represent "P.M."'>P.M.</label>
+                      <label [for]="'meridiemPm'+i" title="{{'options.time.symbolPm' | translate}}">P.M.</label>
                     </div>
                   </div>
                 </div>
@@ -184,94 +184,94 @@
             </div>
             <div class="span-1">
               <div class="box mb15">
-                <h4 class="boxHeading">Label</h4>
+                <h4 class="boxHeading">{{'options.time.label' | translate}}</h4>
                 <div class="grid grid--middle cols-3">
                   <div class="field compactIcon span-1">
                     <options-toggle type="check" [name]="'labelEnable'+i" [id]="'labelEnable'+i" [(ngModel)]="clock.label.enabled"></options-toggle>
-                    <label title="Enable label"><i class="icon">power_settings_new</i></label>
+                    <label title="{{'options.time.labelEnable' | translate}}"><i class="icon">power_settings_new</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.label.enabled">
                     <options-range [name]="'labelScaling'+i" [id]="'labelScaling'+i" min="1" max="20" [(ngModel)]="clock.label.scaling"></options-range>
-                    <label title="Adjusts the size of the label relative to the clock">Size</label>
+                    <label title="{{'options.time.labelSize' | translate}}">{{'options.common.size' | translate}}</label>
                   </div>
                   <div class="field compactIcon span-1" *ngIf="clock.label.enabled">
                     <options-toggle type="check" [name]="'labelDim'+i" [id]="'labelDim'+i" [(ngModel)]="clock.label.dim"></options-toggle>
-                    <label title="Dim label"><i class="icon">brightness_medium</i></label>
+                    <label title="{{'options.time.labelDim' | translate}}"><i class="icon">brightness_medium</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.label.enabled">
                     <options-range [name]="'labelOffset'+i" [id]="'labelOffset'+i" min="-10" max="10" [(ngModel)]="clock.label.offset"></options-range>
-                    <label title="Adjust the position of the label up or down">Offset</label>
+                    <label title="{{'options.time.labelOffset' | translate}}">{{'options.common.offset' | translate}}</label>
                   </div>
                 </div>
               </div>
               <div class="box mb15">
-                <h4 class="boxHeading">Brackets</h4>
+                <h4 class="boxHeading">{{'options.time.brackets' | translate}}</h4>
                 <div class="grid grid--middle cols-3">
                   <div class="field compactIcon mb1 span-1">
                     <options-toggle type="check" [name]="'bracketsEnable'+i" [id]="'bracketsEnable'+i" [(ngModel)]="clock.brackets.enabled"></options-toggle>
-                    <label title="Enable brackets"><i class="icon">power_settings_new</i></label>
+                    <label title="{{'options.time.bracketsEnable' | translate}}"><i class="icon">power_settings_new</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.brackets.enabled">
                     <options-range [name]="'bracketsScaling'+i" [id]="'bracketsScaling'+i" min="1" max="20" [(ngModel)]="clock.brackets.scaling"></options-range>
-                    <label title="Adjusts the size of the brackets relative to the clock">Size</label>
+                    <label title="{{'options.time.bracketsSize' | translate}}">{{'options.common.size' | translate}}</label>
                   </div>
                   <div class="field compactIcon span-1" *ngIf="clock.brackets.enabled">
                     <options-toggle type="check" [name]="'bracketsDim'+i" [id]="'bracketsDim'+i" [(ngModel)]="clock.brackets.dim"></options-toggle>
-                    <label title="Dim brackets"><i class="icon">brightness_medium</i></label>
+                    <label title="{{'options.time.bracketsDim' | translate}}"><i class="icon">brightness_medium</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.brackets.enabled">
                     <options-range [name]="'bracketsOffset'+i" [id]="'bracketsOffset'+i" min="-10" max="10" [(ngModel)]="clock.brackets.offset"></options-range>
-                    <label title="Adjust the position of the brackets up or down">Offset</label>
+                    <label title="{{'options.time.bracketsOffset' | translate}}">{{'options.common.offset' | translate}}</label>
                   </div>
                   <div class="grid cols-4 span-3" *ngIf="clock.brackets.enabled">
                     <div class="field span-1">
                       <input type="text" maxlength="1" [id]="'bracketsLeft'+i" [name]="'bracketsLeft'+i" [(ngModel)]="clock.brackets.left" autocomplete="off">
-                      <label [for]="'bracketsLeft'+i" title="Enter the symbol to represent the left-side bracket">Left</label>
+                      <label [for]="'bracketsLeft'+i" title="{{'options.time.bracketsLeftDesc' | translate}}">{{'options.time.bracketsLeft' | translate}}</label>
                     </div>
                     <div class="field span-1">
                       <input type="text" maxlength="1" [id]="'bracketsRight'+i" [name]="'bracketsRight'+i" [(ngModel)]="clock.brackets.right" autocomplete="off">
-                      <label [for]="'bracketsRight'+i" title="Enter the symbol to represent the right-side bracket">Right</label>
+                      <label [for]="'bracketsRight'+i" title="{{'options.time.bracketsRightDesc' | translate}}">{{'options.time.bracketsRight' | translate}}</label>
                     </div>
                     <div class="field span-2" *ngIf="clock.brackets.enabled">
                       <options-range [name]="'bracketsPadding'+i" [id]="'bracketsPadding'+i" min="0" max="5" [(ngModel)]="clock.brackets.padding"></options-range>
-                      <label title="Adjust the padding between the brackets and the time">Padding</label>
+                      <label title="{{'options.time.bracketsPaddingDesc' | translate}}">{{'options.time.bracketsPadding' | translate}}</label>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="box mb15">
-                <h4 class="boxHeading">Relative time</h4>
+                <h4 class="boxHeading">{{'options.time.relativeTime' | translate}}</h4>
                 <div class="grid grid--middle cols-3">
                   <div class="field compactIcon span-1">
                     <options-toggle type="check" [name]="'relativeTimeEnable'+i" [id]="'relativeTimeEnable'+i" [(ngModel)]="clock.relativeTime.enabled"></options-toggle>
-                    <label title="Enable display of time relative to your local time."><i class="icon">power_settings_new</i></label>
+                    <label title="{{'options.time.relativeEnable' | translate}}"><i class="icon">power_settings_new</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.relativeTime.enabled">
                     <options-range [name]="'relativeTimeScaling'+i" [id]="'relativeTimeScaling'+i" min="1" max="20" [(ngModel)]="clock.relativeTime.scaling"></options-range>
-                    <label title="Adjusts the size of the relative time label relative to the clock">Size</label>
+                    <label title="{{'options.time.relativeSize' | translate}}">{{'options.common.size' | translate}}</label>
                   </div>
                   <div class="field compactIcon span-1" *ngIf="clock.relativeTime.enabled">
                     <options-toggle type="check" [name]="'relativeTimeDim'+i" [id]="'relativeTimeDim'+i" [(ngModel)]="clock.relativeTime.dim"></options-toggle>
-                    <label title="Dim relative time"><i class="icon">brightness_medium</i></label>
+                    <label title="{{'options.time.relativeDim' | translate}}"><i class="icon">brightness_medium</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.relativeTime.enabled">
                     <options-range [name]="'relativeTimeOffset'+i" [id]="'relativeTimeOffset'+i" min="-10" max="10" [(ngModel)]="clock.relativeTime.offset"></options-range>
-                    <label title="Adjust the position of the relative time label up or down">Offset</label>
+                    <label title="{{'options.time.relativeOffset' | translate}}">{{'options.common.offset' | translate}}</label>
                   </div>
                 </div>
               </div>
               <div class="box">
-                <h4 class="boxHeading">Analog</h4>
+                <h4 class="boxHeading">{{'options.time.analog' | translate}}</h4>
                 <div class="grid grid--middle cols-3">
                   <div class="field compactIcon span-1">
                     <options-toggle type="check" [name]="'analogEnable'+i" [id]="'analogEnable'+i" [(ngModel)]="clock.analog.enabled"></options-toggle>
-                    <label title="Displays the clock in an analog style instead of digital."><i class="icon">power_settings_new</i></label>
+                    <label title="{{'options.time.analogEnable' | translate}}"><i class="icon">power_settings_new</i></label>
                   </div>
                   <div class="field span-2" *ngIf="clock.analog.enabled === true">
                     <select [name]="'analogStyle'+i" [id]="'analogStyle'+i" [(ngModel)]="clock.analog.style">
                       <option *ngFor="let s of analog" [ngValue]="s.id">{{s.label}}</option>
                     </select>
-                    <label [for]="'analogStyle'+i" title="Choose the style of analog clock">Analog style</label>
+                    <label [for]="'analogStyle'+i" title="{{'options.time.analogStyleDesc' | translate}}">{{'options.time.analogStyle' | translate}}</label>
                   </div>
                 </div>
               </div>
@@ -283,8 +283,8 @@
   </fieldset>
 </form>
 
-<button class="btn" (click)="add()"><i class="icon mr5">add</i>Add New Clock</button>
+<button class="btn" (click)="add()"><i class="icon mr5">add</i>{{'options.time.addNewClock' | translate}}</button>
 
 <p class="mb0">
-  <small><b>Note:</b> the time is an educated guess based on the time and timezone your computer is set to and may not reflect your actual time. CaretTab is guessing your current timezone to be:<br>"{{tz.timezoneFormat(this.tzGuess)}}".</small>
+  <small><b>{{'options.time.note' | translate}}</b> {{'options.time.noteText' | translate}}<br>"{{tz.timezoneFormat(this.tzGuess)}}".</small>
 </p>

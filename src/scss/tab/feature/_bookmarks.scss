@@ -5,6 +5,12 @@ $barBorder: #b6b4b6;
 $barTitleBg: #E2E2E2;
 $barTitleBgHover: darken($barTitleBg, 5%);
 $barBtnBorder: lighten($barBorder, 15%);
+$barBgDark: #323639;
+$barBgHoverDark: #424649;
+$barBorderDark: #2C2F32;
+$barTitleBgDark: #565C61;
+$barTitleBgHoverDark: lighten($barTitleBgDark, 15%);
+$barBtnBorderDark: darken($barBorderDark, 5%);
 $barHeight: 22px;
 $barMaxWidth: 9.7em;
 $barFontFamily: "Roboto", sans-serif;
@@ -28,6 +34,11 @@ $barFontWeight: 300;
   padding: .4em .6em;
   border-bottom: 1px solid $barBorder;
   z-index: z('tabBookmarks');
+  @media (prefers-color-scheme: dark) {
+    background: $barBgDark;
+    border-bottom-color: $barBorderDark;
+    color: white;
+  }
 }
 
 .barTitle,
@@ -51,6 +62,9 @@ $barFontWeight: 300;
   &:focus:not(:disabled) {
     outline: none;
     background-color: $barBgHover;
+    @media (prefers-color-scheme: dark) {
+      background-color: $barBgHoverDark;
+    }
   }
   &:disabled {
     opacity: .15;
@@ -74,9 +88,15 @@ $barFontWeight: 300;
 .barTitle {
   background-color: $barTitleBg;
   font-weight: 700;
+  @media (prefers-color-scheme: dark) {
+    background-color: $barTitleBgDark;
+  }
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
     background-color: $barTitleBgHover;
+    @media (prefers-color-scheme: dark) {
+      background-color: $barTitleBgHoverDark;
+    }
   }
 }
 
@@ -117,11 +137,17 @@ $barFontWeight: 300;
   .barLabel::after {
     background: linear-gradient(to right, rgba($barBg, 0) 0%, rgba($barBg, 0) 80%, rgba($barBg, 1) 100%);
     transition: background-color .2s;
+    @media (prefers-color-scheme: dark) {
+      background: linear-gradient(to right, rgba($barBgDark, 0) 0%, rgba($barBgDark, 0) 80%, rgba($barBgDark, 1) 100%);
+    }
   }
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
     .barLabel::after {
       background: linear-gradient(to right, rgba($barBgHover, 0) 0%, rgba($barBgHover, 0) 80%, rgba($barBgHover, 1) 100%);
+      @media (prefers-color-scheme: dark) {
+        background: linear-gradient(to right, rgba($barBgHoverDark, 0) 0%, rgba($barBgHoverDark, 0) 80%, rgba($barBgHoverDark, 1) 100%);
+      }
     }
   }
 }
@@ -130,11 +156,17 @@ $barFontWeight: 300;
   .barLabel::after {
     background: linear-gradient(to right, rgba($barTitleBg, 0) 0%, rgba($barTitleBg, 0) 80%, rgba($barTitleBg, 1) 100%);
     transition: background-color .2s;
+    @media (prefers-color-scheme: dark) {
+      background: linear-gradient(to right, rgba($barTitleBgDark, 0) 0%, rgba($barTitleBgDark, 0) 80%, rgba($barTitleBgDark, 1) 100%);
+    }
   }
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
     .barLabel::after {
       background: linear-gradient(to right, rgba($barTitleBgHover, 0) 0%, rgba($barTitleBgHover, 0) 80%, rgba($barTitleBgHover, 1) 100%);
+      @media (prefers-color-scheme: dark) {
+        background: linear-gradient(to right, rgba($barTitleBgHoverDark, 0) 0%, rgba($barTitleBgHoverDark, 0) 80%, rgba($barTitleBgHoverDark, 1) 100%);
+      }
     }
   }
 }

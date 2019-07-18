@@ -1,77 +1,77 @@
 <form #bookmarkOptions="ngForm" novalidate>
   <fieldset>
-    <legend>Bookmarks</legend>
+    <legend>{{'options.bookmarks.headingBar' | translate}}</legend>
     <div class="grid cols-5">
       <div class="field span-1">
         <options-toggle name="toggleBookmarks" [(ngModel)]="settings.config.bookmarks.bookmarksBar.enabled"></options-toggle>
-        <label>Bookmarks Bar</label>
+        <label>{{'options.bookmarks.enableBar' | translate}}</label>
       </div>
       <div class="field span-1">
         <options-toggle name="bookmarksBarIcons" [(ngModel)]="settings.config.bookmarks.bookmarksBar.icons"></options-toggle>
-        <label>Favicons</label>
+        <label>{{'options.bookmarks.favicons' | translate}}</label>
       </div>
       <div class="grid cols-5 span-5" *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
         <div class="field span-1">
           <options-toggle name="appsBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.apps"></options-toggle>
-          <label>Apps link</label>
+          <label>{{'options.bookmarks.appsLink' | translate}}</label>
         </div>
         <div class="field span-1">
           <options-toggle name="chromeTabBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.chromeTab"></options-toggle>
-          <label>Chrome tab</label>
+          <label>{{'options.bookmarks.chromeTabLink' | translate}}</label>
         </div>
         <div class="field span-1">
           <options-toggle name="historyBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.history"></options-toggle>
-          <label>History link</label>
+          <label>{{'options.bookmarks.historyLink' | translate}}</label>
         </div>
         <div class="field span-1">
           <options-toggle name="bookmarksManagerBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.bookmarksManager"></options-toggle>
-          <label>Bookmarks manager</label>
+          <label>{{'options.bookmarks.managerLink' | translate}}</label>
         </div>
         <div class="field span-1">
           <options-toggle name="mostVisitedBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.mostVisited"></options-toggle>
-          <label>Most visited</label>
+          <label>{{'options.bookmarks.mostVisited' | translate}}</label>
         </div>
       </div>
     </div>
   </fieldset>
   <fieldset [ngClass]="{'mb0': !settings.config.bookmarks.quickLinks.enabled}">
-    <legend>Quick links</legend>
+    <legend>{{'options.bookmarks.headingQuick' | translate}}</legend>
     <div class="grid cols-5">
       <div class="field span-1">
         <div class="toggle">
           <input type="checkbox" name="toggleQuickLinks" id="toggleQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.enabled">
           <label for="toggleQuickLinks"></label>
         </div>
-        <label>Quick Links</label>
+        <label>{{'options.bookmarks.enableQuick' | translate}}</label>
       </div>
       <div class="field span-1">
         <options-toggle name="quickLinksIcons" [(ngModel)]="settings.config.bookmarks.quickLinks.icons"></options-toggle>
-        <label>Favicons</label>
+        <label>{{'options.bookmarks.favicons' | translate}}</label>
       </div>
       <div class="field span-2" *ngIf="settings.config.bookmarks.quickLinks.enabled">
         <options-range name="quickLinksSize" id="quickLinksSize" min="1" max="20" [(ngModel)]="settings.config.bookmarks.quickLinks.scaling"></options-range>
-        <label for="quickLinksSize">Size</label>
+        <label for="quickLinksSize">{{'options.common.size' | translate}}</label>
       </div>
       <div class="grid cols-5 span-5" *ngIf="settings.config.bookmarks.quickLinks.enabled">
         <div class="field span-1">
           <options-toggle name="appsQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.apps"></options-toggle>
-          <label>Apps link</label>
+          <label>{{'options.bookmarks.appsLink' | translate}}</label>
         </div>
         <div class="field span-1">
           <options-toggle name="chromeTabQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.chromeTab"></options-toggle>
-          <label>Chrome tab</label>
+          <label>{{'options.bookmarks.chromeTabLink' | translate}}</label>
         </div>
         <div class="field span-1">
           <options-toggle name="historyQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.history"></options-toggle>
-          <label>History link</label>
+          <label>{{'options.bookmarks.historyLink' | translate}}</label>
         </div>
         <div class="field span-1">
           <options-toggle name="bookmarksManagerQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.bookmarksManager"></options-toggle>
-          <label>Bookmarks manager</label>
+          <label>{{'options.bookmarks.managerLink' | translate}}</label>
         </div>
         <div class="field span-1">
           <options-toggle name="mostVisitedQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.mostVisited"></options-toggle>
-          <label>Most visited</label>
+          <label>{{'options.bookmarks.mostVisited' | translate}}</label>
         </div>
       </div>
     </div>
@@ -82,10 +82,10 @@
     <fieldset class="mb0">
       <div class="grid cols-19">
         <div class="field noLabel span-7">
-          <label>Label</label>
+          <label>{{'options.common.label' | translate}}</label>
         </div>
         <div class="field noLabel span-8">
-          <label>URL</label>
+          <label>{{'options.bookmarks.url' | translate}}</label>
         </div>
       </div>
       <div class="grid cols-19 mb15">
@@ -106,7 +106,7 @@
               [(ngModel)]="link.url"
               autocomplete="off"
               required>
-            <div class="valMsg" *ngIf="quickLinksList.invalid && quickLinksList.submitted">Link must have a URL (website address).</div>
+            <div class="valMsg" *ngIf="quickLinksList.invalid && quickLinksList.submitted">{{'options.bookmarks.linkValidation' | translate}}</div>
           </div>
           <div class="field btns span-4">
             <button
@@ -146,7 +146,7 @@
             [(ngModel)]="label"
             autocomplete="off"
             required>
-          <div class="valMsg" *ngIf="newLabel.invalid && newLink.submitted">Link must have a label.</div>
+          <div class="valMsg" *ngIf="newLabel.invalid && newLink.submitted">{{'options.bookmarks.labelValidation' | translate}}</div>
         </div>
         <div class="field noLabel span-8">
           <input
@@ -157,10 +157,10 @@
             [(ngModel)]="url"
             autocomplete="off"
             required>
-          <div class="valMsg" *ngIf="newUrl.invalid && newLink.submitted">Link must have a URL (website address).</div>
+          <div class="valMsg" *ngIf="newUrl.invalid && newLink.submitted">{{'options.bookmarks.linkValidation' | translate}}</div>
         </div>
         <div class="field btns span-4">
-          <button type="submit" class="btn" title="Save new link"><div class="icon">save</div></button>
+          <button type="submit" class="btn" title="{{'options.bookmarks.save' | translate}}"><div class="icon">save</div></button>
         </div>
       </div>
     </fieldset>

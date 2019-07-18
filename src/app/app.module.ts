@@ -1,14 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // Core Imports
 import { AppComponent } from './app.component';
 import { Ng2ChromeStorageModule } from './_storage/storage.module';
 import { Settings } from './_storage/settings';
-import { SharedService } from './_shared/shared.service';
+import { SharedService, TranslateCut } from './_shared/shared.service';
 import { ToggleComponent } from './_shared/controls/toggle.component';
 import { RangeComponent } from './_shared/controls/range.component';
 import * as moment from 'moment-timezone';
@@ -40,6 +42,7 @@ import { TabSearchComponent } from './tab/search/search.component';
     AppComponent,
     ToggleComponent,
     RangeComponent,
+    TranslateCut,
 
     OptionsComponent,
     OptionsBookmarksComponent,
@@ -65,7 +68,14 @@ import { TabSearchComponent } from './tab/search/search.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    Ng2ChromeStorageModule
+    Ng2ChromeStorageModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   exports: [
     NavComponent
@@ -77,3 +87,7 @@ import { TabSearchComponent } from './tab/search/search.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

@@ -1,11 +1,12 @@
 export const languages = [
-  { id: 10, label: 'English' },
-  { id: 20, label: 'French' },
-  { id: 30, label: 'Chinese (simplified)' },
-  { id: 40, label: 'Chinese (traditional)' },
-  { id: 50, label: 'Japanese' },
-  { id: 60, label: 'German' },
-  { id: 70, label: 'Russian' }
+  { id: 'en-US', label: 'English' },
+  { id: 'es-MX', label: 'Español' },
+  { id: 'fr-FR', label: 'Français' },
+  { id: 'zh-cn', label: '中文' },
+  { id: 'uk-UA', label: 'Українська' },
+  { id: 'ja-JP', label: '日本人' },
+  { id: 'de-DE', label: 'Deutsche' },
+  { id: 'ru-RU', label: 'Pусский' }
 ];
 
 export const span = [
@@ -16,12 +17,12 @@ export const span = [
 ];
 
 export const title = [
-  { id: 10, label: '"New Tab"' },
-  { id: 20, label: 'Time' },
-  { id: 30, label: 'Date' },
-  { id: 40, label: 'Time, then date' },
-  { id: 50, label: 'Date, then time' },
-  { id: 60, label: 'Custom text' }
+  { id: 10, label: '"New Tab"', i18n: 'list.title.newTab' },
+  { id: 20, label: 'Time', i18n: 'list.title.time' },
+  { id: 30, label: 'Date', i18n: 'list.title.date' },
+  { id: 40, label: 'Time, then date', i18n: 'list.title.timeDate' },
+  { id: 50, label: 'Date, then time', i18n: 'list.title.dateTime' },
+  { id: 60, label: 'Custom text', i18n: 'list.title.custom' }
 ];
 
 export const fontList = [

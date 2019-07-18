@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { transition, trigger, style, state, animate, query, group } from '@angular/animations';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from './_shared/shared.service';
 import { Storage } from './_storage/storage.service';
 import { bgSize, bgBlend } from './_shared/lists/lists';
@@ -42,8 +43,10 @@ export class AppComponent {
   constructor(
     public sanitizer: DomSanitizer,
     public shared: SharedService,
-    public settings: Storage
+    public settings: Storage,
+    private translate: TranslateService
   ) {
+    this.translate.setDefaultLang('en');
     let savedImg = localStorage.getItem('bgImg');
     if (savedImg) {
       this.shared.bg = savedImg;

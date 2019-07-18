@@ -1,38 +1,38 @@
 <form #searchOptions="ngForm" novalidate>
   <fieldset class="mb0">
-    <legend>Search</legend>
+    <legend>{{'options.search.search' | translate}}</legend>
     <div class="grid cols-5">
       <div class="field span-1">
         <options-toggle name="searchBox" id="searchBox" [(ngModel)]="settings.config.search.enabled"></options-toggle>
-        <label>Search box</label>
+        <label>{{'options.search.searchBox' | translate}}</label>
       </div>
       <div class="field span-2">
         <select name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine">
           <option *ngFor="let e of engines" [ngValue]="e.id">{{e.label}}</option>
         </select>
-        <label title="Choose a search engine to use with the search box.">Search Engine</label>
+        <label>{{'options.search.searchEngine' | translate}}</label>
       </div>
       <div class="field span-1">
         <options-toggle name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete"></options-toggle>
-        <label title="Turn off to disable the browser's autocomplete feature on the search box.">Autocomplete</label>
+        <label title="{{'options.search.autocompleteDesc' | translate}}">{{'options.search.autocomplete' | translate}}</label>
       </div>
       <div class="field span-2">
         <options-range name="searchSize" id="searchSize" min="1" max="20" [(ngModel)]="settings.config.search.scaling"></options-range>
-        <label>Size</label>
+        <label>{{'options.common.size' | translate}}</label>
       </div>
       <div class="field span-2">
         <options-range name="searchOffset" min="-20" max="20" [(ngModel)]="settings.config.search.offset"></options-range>
-        <label>Offset</label>
+        <label>{{'options.common.offset' | translate}}</label>
       </div>
       <div class="field span-2">
         <options-range name="searchWidth" min="5" max="30" [(ngModel)]="settings.config.search.width"></options-range>
-        <label>Width</label>
+        <label>{{'options.common.width' | translate}}</label>
       </div>
       <div class="field span-2">
         <div class="orderBtns">
           <button
             type="button"
-            title="Move above other elements"
+            title="{{'options.common.moveUp' | translate}}"
             class="btn"
             [disabled]="settings.config.search.order <= shared.orderMin"
             (click)="changeOrder(true)">
@@ -40,14 +40,14 @@
           </button>
           <button
             type="button"
-            title="Move below other elements"
+            title="{{'options.common.moveDown' | translate}}"
             class="btn"
             [disabled]="settings.config.search.order >= shared.orderMax"
             (click)="changeOrder(false)">
             <div class="icon">arrow_drop_down</div>
           </button>
         </div>
-        <label>Order</label>
+        <label>{{'options.common.order' | translate}}</label>
       </div>
     </div>
   </fieldset>

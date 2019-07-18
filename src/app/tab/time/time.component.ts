@@ -69,6 +69,7 @@ export class TabTimeComponent implements OnInit {
   }
 
   getHour(zone: string, twentyFour: boolean, digit: 1|2): string {
+    moment.locale(this.settings.config.lang);
     zone = this.getZone(zone);
     let format: string;
     twentyFour ? format = 'HH' : format = 'h';
@@ -77,18 +78,21 @@ export class TabTimeComponent implements OnInit {
   }
 
   getMinute(zone: string, digit: 1|2): string {
+    moment.locale(this.settings.config.lang);
     zone = this.getZone(zone);
     let time = moment(this.currentTime).tz(zone).format('mm');
     return this.splitDigits(time, digit);
   }
 
   getSecond(zone: string, digit: 1|2): string {
+    moment.locale(this.settings.config.lang);
     zone = this.getZone(zone);
     let time = moment(this.currentTime).tz(zone).format('ss');
     return this.splitDigits(time, digit);
   }
 
   getMeridiem(zone: string, am: string, pm: string): string {
+    moment.locale('en-US');
     zone = this.getZone(zone);
     let time = moment(this.currentTime).tz(zone).format('a');
     if (time === 'pm') {
@@ -100,6 +104,7 @@ export class TabTimeComponent implements OnInit {
   }
 
   getRelative(zone: string) {
+    moment.locale(this.settings.config.lang);
     zone = this.getZone(zone);
     let here = moment(this.currentTime);
     let hereOffset = here.utcOffset();
@@ -128,6 +133,7 @@ export class TabTimeComponent implements OnInit {
   }
 
   showMeridiem(zone: string, am: string, pm: string): boolean {
+    moment.locale('en-US');
     zone = this.getZone(zone);
     let time = moment(this.currentTime).tz(zone).format('a');
     if (time === 'pm' && pm !== '') {

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Pipe, PipeTransform } from '@angular/core';
 import { fontList, customFontWeight } from './lists/lists';
 
 @Injectable()
@@ -115,4 +115,12 @@ export class SharedService {
     return 'translateY(' + offset + '%)';
   }
 
+}
+
+@Pipe({ name: 'translateCut' })
+export class TranslateCut implements PipeTransform {
+  transform(value: string, index: string): string {
+    const cutIndex = Number(index);
+    return value.split('|')[cutIndex];
+  }
 }

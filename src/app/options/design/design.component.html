@@ -1,6 +1,6 @@
 <form #designOptions="ngForm" novalidate>
   <fieldset>
-    <legend>Design</legend>
+    <legend>{{'options.design.design' | translate}}</legend>
     <div class="grid cols-6">
       <div class="field span-2">
         <select name="font" id="font"
@@ -17,11 +17,11 @@
             {{font.label}}
           </option>
         </select>
-        <label for="font">Font</label>
+        <label for="font">{{'options.design.font' | translate}}</label>
       </div>
       <div class="field span-2" *ngIf="settings.config.design.font === 0">
         <input type="text" id="customFont" name="customFont" [(ngModel)]="settings.config.design.customFont" autocomplete="off">
-        <label title="Enter the name of a locally installed font. You must install the font on your computer for it to work.">Custom font name</label>
+        <label title="{{'options.design.customFontDesc' | translate}}">{{'options.design.customFontName' | translate}}</label>
       </div>
       <div class="field span-2" *ngIf="settings.config.design.font === 0">
         <select name="customFontWeight" id="customFontWeight"
@@ -30,24 +30,24 @@
             {{w.label}}
           </option>
         </select>
-        <label title="Select a font weight for your custom font. Some fonts do not support all weights.">Custom font weight</label>
+        <label title="{{'options.design.fontWeightDesc' | translate}}">{{'options.design.fontWeight' | translate}}</label>
       </div>
       <div class="span-6" *ngIf="settings.config.design.font === 0">
-        To use a custom font, you must type the font name exactly. Custom fonts must be <a href="https://www.adobe.com/products/type/install-instructions.html">installed locally on your computer</a>. You can get more fonts from <a href="https://fonts.google.com">Google Fonts</a> or from <a href="https://www.1001freefonts.com/">1001 Free Fonts</a>.
+        {{'options.design.customFontUsage' | translate | translateCut:0}}<a href="https://www.adobe.com/products/type/install-instructions.html">{{'options.design.customFontUsage' | translate | translateCut:1}}</a>{{'options.design.customFontUsage' | translate | translateCut:2}}<a href="https://fonts.google.com">{{'options.design.customFontUsage' | translate | translateCut:3}}</a>{{'options.design.customFontUsage' | translate | translateCut:4}}<a href="https://www.1001freefonts.com/">{{'options.design.customFontUsage' | translate | translateCut:5}}</a>{{'options.design.customFontUsage' | translate | translateCut:6}}
       </div>
       <div class="field span-2">
         <options-range name="globalSize" id="globalSize" min="1" max="20" [(ngModel)]="settings.config.design.scaling"></options-range>
-        <label title="Adjust the size of all elements.">Global size</label>
+        <label title="{{'options.design.globalSizeDesc' | translate}}">{{'options.design.globalSize' | translate}}</label>
       </div>
       <div class="field span-2">
         <options-toggle name="scalingMethod" [(ngModel)]="settings.config.design.scalingMethod"></options-toggle>
-        <label title="Dynamic scaling allows you to change the size of elements based on the width of your browser. Disable to keep the size the same no matter the size of your browser.">Dynamic scaling</label>
+        <label title="{{'options.design.dynScaleDesc' | translate}}">{{'options.design.dynScale' | translate}}</label>
       </div>
     </div>
   </fieldset>
   <div class="grid cols-15">
     <fieldset class="span-7 mb0">
-      <legend>Colors</legend>
+      <legend>{{'options.design.colors' | translate}}</legend>
       <div class="grid cols-1 mb1">
         <div class="field span-1">
           <div class="grid cols-3">
@@ -63,7 +63,7 @@
                 autocomplete="off">
             </div>
           </div>
-          <label id="set-background" for="set-background">Custom Background</label>
+          <label id="set-background" for="set-background">{{'options.design.bg' | translate}}</label>
         </div>
         <div class="field span-1">
           <div class="grid cols-3">
@@ -76,7 +76,7 @@
               <input type="text" aria-labelledby="set-foreground" name="fg-code" [(ngModel)]="settings.config.design.foreground" (ngModelChange)="settings.config.design.colorsId = 0" autocomplete="off">
             </div>
           </div>
-          <label id="set-foreground" for="set-foreground">Custom Foreground</label>
+          <label id="set-foreground" for="set-foreground">{{'options.design.fg' | translate}}</label>
         </div>
       </div>
       <div class="grid cols-4 pt1">
@@ -93,13 +93,13 @@
     </fieldset>
     <div class="span-1"></div>
     <fieldset class="span-7 mb0">
-      <legend>Wallpaper</legend>
+      <legend>{{'options.design.wallpaper' | translate}}</legend>
       <div class="grid cols-4 mb1">
         <div class="field span-3">
-          <button class="btn btnBlock" type="button" (click)="bgImgFile.click()">Browse for image...</button>
+          <button class="btn btnBlock" type="button" (click)="bgImgFile.click()">{{'options.design.browseForImg' | translate}}</button>
           <input #bgImgFile name="imageUrl" type="file" class="btn" accept="image/*" (change)="encodeImage($event, bgImgFile)" />
-          <label title="Custom images do not sync across computers.">
-            Custom wallpaper
+          <label title="{{'options.design.dontSync' | translate}}">
+            {{'options.design.customWallpaper' | translate}}
             <div class="icon" style="cursor: help; font-size: 1em;">help</div>
           </label>
         </div>
@@ -109,7 +109,7 @@
           [style.backgroundRepeat]="settings.config.design.imageSize === 10 ? 'repeat' : 'no-repeat'">
         </div>
         <div class="span-4" *ngIf="settings.config.design.patternId === -1">
-          <div class="icon" style="font-size: 1em;">warning</div> Custom images do not sync across computers.
+          <div class="icon" style="font-size: 1em;">warning</div> {{'options.design.dontSync' | translate}}
         </div>
         <div class="field span-2">
           <select name="fill" id="fill"
@@ -120,7 +120,7 @@
               {{s.label}}
             </option>
           </select>
-          <label for="fill">Fill</label>
+          <label for="fill">{{'options.design.fill' | translate}}</label>
         </div>
         <div class="field span-2">
           <select name="blend" id="blend"
@@ -131,7 +131,7 @@
               {{b.label}}
             </option>
           </select>
-          <label for="blend">Filter</label>
+          <label for="blend">{{'options.design.filter' | translate}}</label>
         </div>
       </div>
       <div class="grid cols-4 pt1">
@@ -152,10 +152,10 @@
           &nbsp;
         </button>
         <div class="span-4">
-          <div class="icon" style="font-size: 1em;">info</div> Get more patterns at <a href="https://www.transparenttextures.com/">Transparent Textures</a> or <a href="https://www.toptal.com/designers/subtlepatterns/">Toptal</a>
+          <div class="icon" style="font-size: 1em;">info</div> {{'options.design.getMorePatterns' | translate | translateCut:0}}<a href="https://www.transparenttextures.com/">{{'options.design.getMorePatterns' | translate | translateCut:1}}</a>{{'options.design.getMorePatterns' | translate | translateCut:2}}<a href="https://www.toptal.com/designers/subtlepatterns/">{{'options.design.getMorePatterns' | translate | translateCut:3}}</a>{{'options.design.getMorePatterns' | translate | translateCut:4}}
         </div>
         <div class="span-4">
-          <div class="icon" style="font-size: 1em;">info</div> Image too hard to see? Try changing the filter.
+          <div class="icon" style="font-size: 1em;">info</div> {{'options.design.hardToSee' | translate}}
         </div>
       </div>
     </fieldset>

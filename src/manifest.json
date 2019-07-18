@@ -4,8 +4,8 @@
   "name": "CaretTab v3 Beta",
   "short_name": "CaretTab",
   "description": "__MSG_appDesc__",
-  "version": "3.0.0.3",
-  "version_name": "3.0.0 Beta 3",
+  "version": "3.0.0.4",
+  "version_name": "3.0.0 Beta 4",
   "default_locale": "en",
 
   "icons": { "16": "assets/img/icon16-beta.png",

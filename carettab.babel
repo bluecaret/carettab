@@ -6956,6 +6956,11 @@
             <source_file>src/assets/i18n/de-DE.json</source_file>
         </language>
         <language>
+            <code>ko-KR</code>
+            <source_id></source_id>
+            <source_file>src/assets/i18n/ko-KR.json</source_file>
+        </language>
+        <language>
             <code>en-US</code>
             <source_id></source_id>
             <source_file>src/assets/i18n/en-US.json</source_file>

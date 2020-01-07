@@ -9,7 +9,7 @@
     "build:ext": "web-ext build --source-dir=dist --artifacts-dir=.",
     "lint": "ng lint",
     "lint:webext": "web-ext lint --source-dir ./dist",
-    "extract-translations": "ngx-translate-extract --input ./src --output ./src/assets/i18n/en.json ./src/assets/i18n/de.json ./src/assets/i18n/es.json ./src/assets/i18n/fr.json ./src/assets/i18n/ja.json ./src/assets/i18n/ru.json ./src/assets/i18n/uk.json ./src/assets/i18n/zh.json --sort --format namespaced-json -m _"
+    "extract-translations": "ngx-translate-extract --input ./src --output ./src/assets/i18n/en-US.json ./src/assets/i18n/de-DE.json ./src/assets/i18n/es-MX.json ./src/assets/i18n/fr-FR.json ./src/assets/i18n/ja-JP.json ./src/assets/i18n/ko-KR.json  ./src/assets/i18n/ru-RU.json ./src/assets/i18n/uk-UA.json ./src/assets/i18n/zh-CN.json --sort --format namespaced-json -m _"
   },
   "private": true,
   "dependencies": {

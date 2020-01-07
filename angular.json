@@ -17,7 +17,6 @@
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
             "assets": [
-              "src/_locales",
               "src/assets",
               "src/js",
               "src/manifest.json",

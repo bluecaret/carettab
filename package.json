@@ -13,15 +13,15 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "7.1.4",
-    "@angular/common": "7.1.4",
-    "@angular/compiler": "7.1.4",
-    "@angular/core": "7.1.4",
-    "@angular/forms": "7.1.4",
+    "@angular/animations": "8.2.14",
+    "@angular/common": "8.2.14",
+    "@angular/compiler": "8.2.14",
+    "@angular/core": "8.2.14",
+    "@angular/forms": "8.2.14",
     "@angular/http": "7.1.4",
-    "@angular/platform-browser": "7.1.4",
-    "@angular/platform-browser-dynamic": "7.1.4",
-    "@angular/router": "7.1.4",
+    "@angular/platform-browser": "8.2.14",
+    "@angular/platform-browser-dynamic": "8.2.14",
+    "@angular/router": "8.2.14",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "@types/chrome": "0.0.65",
@@ -31,20 +31,21 @@
     "material-design-icons": "^3.0.1",
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.21",
-    "rxjs": "^6.3.3",
+    "rxjs": "^6.5.4",
     "rxjs-compat": "^6.1.0",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.0",
     "@angular/cli": "8.3.21",
-    "@angular/compiler-cli": "7.1.4",
-    "@angular/language-service": "7.1.4",
+    "@angular/compiler-cli": "8.2.14",
+    "@angular/language-service": "8.2.14",
     "@biesbjerg/ngx-translate-extract": "^2.3.4",
     "@types/node": "~6.0.60",
     "codelyzer": "^5.2.1",
+    "node-sass": "^4.13.0",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
-    "typescript": "3.1.6"
+    "typescript": "3.5.3"
   }
 }

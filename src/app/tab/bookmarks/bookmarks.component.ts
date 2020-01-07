@@ -37,7 +37,7 @@ export class TabBookmarksComponent implements OnInit {
   mostVisited = {title: 'Most Visited'};
   toggleMvMenu = false;
 
-  @ViewChild('barList') barList: ElementRef;
+  @ViewChild('barList', { static: false }) barList: ElementRef;
 
   constructor(
     public shared: SharedService,

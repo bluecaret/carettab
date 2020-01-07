@@ -17,7 +17,7 @@ export class TabTimeComponent implements OnInit {
   @Input() index: number;
   @Input() clock: Clock;
 
-  @ViewChild('time')
+  @ViewChild('time', { static: false })
   public displayTime: ElementRef;
 
   constructor(

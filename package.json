@@ -37,12 +37,12 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.0",
-    "@angular/cli": "7.1.4",
+    "@angular/cli": "8.3.21",
     "@angular/compiler-cli": "7.1.4",
     "@angular/language-service": "7.1.4",
     "@biesbjerg/ngx-translate-extract": "^2.3.4",
     "@types/node": "~6.0.60",
-    "codelyzer": "^4.0.1",
+    "codelyzer": "^5.2.1",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "3.1.6"

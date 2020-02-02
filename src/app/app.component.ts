@@ -46,7 +46,7 @@ export class AppComponent {
     public settings: Storage,
     private translate: TranslateService
   ) {
-    this.translate.setDefaultLang('en');
+    this.translate.setDefaultLang('en-US');
     let savedImg = localStorage.getItem('bgImg');
     if (savedImg) {
       this.shared.bg = savedImg;

@@ -39,10 +39,4 @@
 </section>
 
 <!-- Options toggle / nav -->
-<button
-  (click)="toggleOptions()"
-  class="openOptions"
-  [ngClass]="{'open': shared.optionsToggle}"
-  [title]="(shared.optionsToggle ? 'toggleSettings.close' : 'toggleSettings.open') | translate">
-  <span></span><span></span><span></span><span></span>
-</button>
+<app-settings-toggle></app-settings-toggle>

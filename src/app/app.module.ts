@@ -13,7 +13,11 @@ import { Settings } from './_storage/settings';
 import { SharedService, TranslateCut } from './_shared/shared.service';
 import { ToggleComponent } from './_shared/controls/toggle.component';
 import { RangeComponent } from './_shared/controls/range.component';
+import { SettingsToggleComponent } from './_shared/controls/settings-toggle.component';
 import * as moment from 'moment-timezone';
+
+// Intro Imports
+import { IntroComponent } from './intro/intro.component';
 
 // Options Imports
 import { NavComponent } from './options/nav.component';
@@ -42,7 +46,10 @@ import { TabSearchComponent } from './tab/search/search.component';
     AppComponent,
     ToggleComponent,
     RangeComponent,
+    SettingsToggleComponent,
     TranslateCut,
+
+    IntroComponent,
 
     OptionsComponent,
     OptionsBookmarksComponent,

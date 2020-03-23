@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { transition, trigger, style, state, animate, query, group } from '@angular/animations';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
@@ -36,14 +36,16 @@ import { tab } from './_shared/animations';
     ])
   ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   bgSize = bgSize;
   bgBlend = bgBlend;
+  status: string;
 
   constructor(
     public sanitizer: DomSanitizer,
     public shared: SharedService,
     public settings: Storage,
+    private zone: NgZone,
     private translate: TranslateService
   ) {
     this.translate.setDefaultLang('en-US');
@@ -51,6 +53,22 @@ export class AppComponent {
     if (savedImg) {
       this.shared.bg = savedImg;
     }
+  }
+
+  ngOnInit() {
+    chrome.storage.sync.get('caretTabStatus', (data) => this.zone.run(() => {
+      this.shared.status = data['caretTabStatus'];
+      console.log(this.shared.status);
+    }));
+    this.settings.onChange().subscribe((data) => {
+      if (
+        this.settings.config.title.type === 20 ||
+        this.settings.config.title.type === 40 ||
+        this.settings.config.title.type === 50
+      ) {
+        // TODO: What was I doing here???
+      }
+    });
   }
 
   getBgSize() {

@@ -1,6 +1,7 @@
 export const languages = [
   { id: 'en-US', label: 'English' },
   { id: 'ko-KR', label: '한국어' },
+  { id: 'he-IL', label: 'עברית' },
   { id: 'es-MX', label: 'Español' },
   { id: 'fr-FR', label: 'Français' },
   { id: 'zh-cn', label: '中文' },

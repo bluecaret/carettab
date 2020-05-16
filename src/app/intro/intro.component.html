@@ -22,17 +22,20 @@
 <!-- STEP 2 -->
 <div id="step2" class="intro-steps" *ngIf="step === 2">
   <div class="intro-options">
-    <h3>Do you want to display a clock?</h3>
-    <div style="display: flex; justify-content: space-between;">
-      <button type="button" class="btn btn--intro" (click)="enableTime(false)">No</button>
-      <button type="button" class="btn btn--intro" (click)="enableTime(true)">Yes</button>
+    <h3>Choose a language</h3>
+    <div class="intro_lang-btns">
+      <button
+        *ngFor="let lang of languages"
+        type="button"
+        class="btn btn--intro"
+        (click)="chooseLang(lang.id); newLang = lang.id"
+        [ngClass]="{'active': newLang === lang.id}">
+        {{lang.label}}
+      </button>
     </div>
-    <!-- <div class="field span-1">
-      <options-toggle name="date" [(ngModel)]="settings.config.date.enabled"></options-toggle>
-      <label>{{'options.date.date' | translate}}</label>
-    </div> -->
   </div>
   <div class="intro-nav">
+    <button type="button" class="btn btn--intro btn--next" (click)="step = 3" [disabled]="newLang == null">Next &rarr;</button>
     <div class="intro-nav_misc">
       <button type="button" class="btn btn--intro btn--skip" (click)="skipIntro()">Skip</button>&nbsp;
       <button type="button" class="btn btn--intro btn--back" (click)="step = 1">&larr; Back</button>
@@ -43,10 +46,10 @@
 <!-- STEP 3 -->
 <div id="step3" class="intro-steps" *ngIf="step === 3">
   <div class="intro-options">
-    <h3>Do you want to show the date?</h3>
+    <h3>Do you want to display a clock?</h3>
     <div style="display: flex; justify-content: space-between;">
-      <button type="button" class="btn btn--intro" (click)="enableDate(false)">No</button>
-      <button type="button" class="btn btn--intro" (click)="enableDate(true)">Yes</button>
+      <button type="button" class="btn btn--intro" (click)="enableTime(false)">No</button>
+      <button type="button" class="btn btn--intro" (click)="enableTime(true)">Yes</button>
     </div>
   </div>
   <div class="intro-nav">
@@ -60,10 +63,10 @@
 <!-- STEP 4 -->
 <div id="step4" class="intro-steps" *ngIf="step === 4">
   <div class="intro-options">
-    <h3>Show a bookmarks bar?</h3>
+    <h3>Do you want to show the date?</h3>
     <div style="display: flex; justify-content: space-between;">
-      <button type="button" class="btn btn--intro" (click)="enableBookmarks(false)">No</button>
-      <button type="button" class="btn btn--intro" (click)="enableBookmarks(true)">Yes</button>
+      <button type="button" class="btn btn--intro" (click)="enableDate(false)">No</button>
+      <button type="button" class="btn btn--intro" (click)="enableDate(true)">Yes</button>
     </div>
   </div>
   <div class="intro-nav">
@@ -76,6 +79,23 @@
 
 <!-- STEP 5 -->
 <div id="step5" class="intro-steps" *ngIf="step === 5">
+  <div class="intro-options">
+    <h3>Show a bookmarks bar?</h3>
+    <div style="display: flex; justify-content: space-between;">
+      <button type="button" class="btn btn--intro" (click)="enableBookmarks(false)">No</button>
+      <button type="button" class="btn btn--intro" (click)="enableBookmarks(true)">Yes</button>
+    </div>
+  </div>
+  <div class="intro-nav">
+    <div class="intro-nav_misc">
+      <button type="button" class="btn btn--intro btn--skip" (click)="skipIntro()">Skip</button>&nbsp;
+      <button type="button" class="btn btn--intro btn--back" (click)="step = 4">&larr; Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 6 -->
+<div id="step6" class="intro-steps" *ngIf="step === 6">
   <div class="intro-options">
     <h3>Choose your favorite colors</h3>
     <div class="grid cols-4 pt1">
@@ -91,16 +111,16 @@
     </div>
   </div>
   <div class="intro-nav">
-    <button type="button" class="btn btn--intro btn--next" (click)="step = 6" [disabled]="settings.config.design.colorsId === 0">Next &rarr;</button>
+    <button type="button" class="btn btn--intro btn--next" (click)="step = 7" [disabled]="settings.config.design.colorsId === 0">Next &rarr;</button>
     <div class="intro-nav_misc">
       <button type="button" class="btn btn--intro btn--skip" (click)="skipIntro()">Skip</button>&nbsp;
-      <button type="button" class="btn btn--intro btn--back" (click)="step = 4">&larr; Back</button>
+      <button type="button" class="btn btn--intro btn--back" (click)="step = 5">&larr; Back</button>
     </div>
   </div>
 </div>
 
-<!-- STEP 6 -->
-<div id="step6" class="intro-steps" *ngIf="step === 6">
+<!-- STEP 7 -->
+<div id="step7" class="intro-steps" *ngIf="step === 7">
   <div class="intro-options">
     <h3>This is just the tip of the iceberg!</h3>
     <p>CaretTab can be fully customized! You will find many more options in the settings menu.</p>
@@ -109,10 +129,10 @@
   <div class="intro-nav">
     <button type="button" class="btn btn--intro btn--next" (click)="finishIntro()">Let's go!</button>
     <div class="intro-nav_misc">
-      <button type="button" class="btn btn--intro btn--back" (click)="step = 5">&larr; Back</button>
+      <button type="button" class="btn btn--intro btn--back" (click)="step = 6">&larr; Back</button>
     </div>
   </div>
 </div>
 
 <!-- Options toggle / nav -->
-<app-settings-toggle *ngIf="step === 6" class="intro-settings-toggle"></app-settings-toggle>
+<app-settings-toggle *ngIf="step === 7" class="intro-settings-toggle"></app-settings-toggle>

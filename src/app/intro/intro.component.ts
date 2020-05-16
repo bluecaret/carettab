@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from '../_shared/shared.service';
 import { Storage } from '../_storage/storage.service';
-import { span, colors } from '../_shared/lists/lists';
+import { colors, languages } from '../_shared/lists/lists';
 
 @Component({
   selector: 'app-intro',
@@ -22,6 +22,8 @@ import { span, colors } from '../_shared/lists/lists';
 export class IntroComponent implements OnInit {
   step = 1;
   colors = colors;
+  languages = languages;
+  newLang: string;
 
   constructor(
     public shared: SharedService,
@@ -46,6 +48,12 @@ export class IntroComponent implements OnInit {
   skipIntro() {
     this.settings.setAll(this.settings.config); // Save
     this.removeIntro();
+  }
+
+  chooseLang(lang: string) {
+    this.settings.config.lang = lang;
+    console.log('Language changed to: ' + lang);
+    this.translate.use(lang);
   }
 
   enableTime(enable: boolean) {
@@ -110,7 +118,7 @@ export class IntroComponent implements OnInit {
     } else {
       this.settings.config.time.clocks = [];
     }
-    this.step = 3;
+    this.step = 4;
   }
 
   enableDate(enable: boolean) {
@@ -119,7 +127,7 @@ export class IntroComponent implements OnInit {
     } else {
       this.settings.config.date.enabled = false;
     }
-    this.step = 4;
+    this.step = 5;
   }
 
   enableBookmarks(enable: boolean) {
@@ -128,7 +136,7 @@ export class IntroComponent implements OnInit {
     } else {
       this.settings.config.bookmarks.bookmarksBar.enabled = false;
     }
-    this.step = 5;
+    this.step = 6;
   }
 
   setColors(c: {id: number, bg: string, fg: string}) {

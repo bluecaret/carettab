@@ -114,6 +114,13 @@ app-intro {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  .btn {
+    &[disabled] {
+      background: transparent;
+      color: darken($lightBlue, 10%);
+      border-color: darken($lightBlue, 10%);
+    }
+  }
 }
 
 .intro-settings-toggle {
@@ -127,7 +134,13 @@ app-intro {
   }
 }
 
-
+.intro_lang-btns {
+  button {
+    display: inline-block;
+    margin-right: .5rem;
+    margin-bottom: .5rem;
+  }
+}
 
 @keyframes intro-settings-toggle {
   0% {

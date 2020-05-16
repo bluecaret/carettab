@@ -119,7 +119,8 @@ app-intro {
 .intro-settings-toggle {
   .openOptions {
     // box-shadow: 0 0 0rem 8rem #3FA9F5, 0 0 0rem 10rem black;
-    box-shadow: 0 0 0 0 #3FA9F5, 0 0 0 0 $lightBlue;
+    background: $blue;
+    box-shadow: 0 0 0 0 $blue, 0 0 0 0 $lightBlue;
     border-radius: 50%;
     animation: intro-settings-toggle 1s 2s ease-in-out forwards;
     // transition: .7s ease-in-out box-shadow;
@@ -132,7 +133,7 @@ app-intro {
   0% {
     display: none;
     opacity: 0;
-    box-shadow: 0 0 0 0 #3FA9F5, 0 0 0 0 $lightBlue;
+    box-shadow: 0 0 0 0 $blue, 0 0 0 0 $lightBlue, 0 0 0 0 $lightBlue;
   }
   1% {
     display: block;
@@ -140,10 +141,10 @@ app-intro {
   }
   50% {
     opacity: 1;
-    box-shadow: 0 0 0rem 25rem #3FA9F5, 0 0 0rem 35rem $lightBlue;
+    box-shadow: 0 0 0 25rem $blue, 0 0 0 35rem $lightBlue, 0 0 100rem 30rem $lightBlue;
   }
   100% {
     opacity: 1;
-    box-shadow: 0 0 0rem 7rem #3FA9F5, 0 0 0rem 7.5rem $lightBlue;
+    box-shadow: 0 0 0 7rem $blue, 0 0 0 7.5rem $lightBlue, 0 0 40rem 20rem $lightBlue;
   }
 }

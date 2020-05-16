@@ -20,7 +20,7 @@ import { span, colors } from '../_shared/lists/lists';
   ]
 })
 export class IntroComponent implements OnInit {
-  step = 6;
+  step = 1;
   colors = colors;
 
   constructor(

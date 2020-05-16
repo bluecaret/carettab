@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, NgZone } from '@angular/core';
 import { transition, trigger, style, state, animate } from '@angular/animations';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
@@ -34,9 +34,18 @@ export class IntroComponent implements OnInit {
   ngOnInit() {
   }
 
+  removeIntro() {
+    chrome.storage.sync.set({'caretTabStatus': 'existing'}, function() {
+      if (chrome.runtime.lastError) {
+        console.log('Error: ', chrome.runtime.lastError);
+      }
+    });
+    this.shared.status = 'existing';
+  }
+
   skipIntro() {
     this.settings.setAll(this.settings.config); // Save
-    this.shared.status = null;
+    this.removeIntro();
   }
 
   enableTime(enable: boolean) {
@@ -130,7 +139,7 @@ export class IntroComponent implements OnInit {
 
   finishIntro() {
     this.settings.setAll(this.settings.config); // Save
-    this.shared.status = null;
+    this.removeIntro();
     this.shared.optionsToggle = true;
   }
 

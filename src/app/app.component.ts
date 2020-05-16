@@ -6,6 +6,7 @@ import { SharedService } from './_shared/shared.service';
 import { Storage } from './_storage/storage.service';
 import { bgSize, bgBlend } from './_shared/lists/lists';
 import { tab } from './_shared/animations';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-root',
@@ -69,6 +70,7 @@ export class AppComponent implements OnInit {
         // TODO: What was I doing here???
       }
     });
+    this.shared.zoneGuess = moment.tz.guess();
   }
 
   getBgSize() {

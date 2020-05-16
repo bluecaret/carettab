@@ -49,6 +49,7 @@ export class AppComponent implements OnInit {
     private zone: NgZone,
     private translate: TranslateService
   ) {
+    console.log('Thank you for using CaretTab!');
     this.translate.setDefaultLang('en-US');
     let savedImg = localStorage.getItem('bgImg');
     if (savedImg) {
@@ -59,7 +60,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     chrome.storage.sync.get('caretTabStatus', (data) => this.zone.run(() => {
       this.shared.status = data['caretTabStatus'];
-      console.log(this.shared.status);
+      console.log('CaretTab status: ' + this.shared.status);
     }));
     this.settings.onChange().subscribe((data) => {
       if (

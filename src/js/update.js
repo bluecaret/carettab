@@ -13,4 +13,5 @@ if(typeof chrome.runtime.onInstalled  !== 'undefined')
     });
 }
 
-chrome.runtime.setUninstallURL('https://docs.google.com/forms/d/e/1FAIpQLSdGygInFzRggKclxz82yOaWKN4biHJTMXw-Vz-2rAnBhT5fqA/viewform');
+// Send user to uninstall page
+// chrome.runtime.setUninstallURL('https://carettab.com/uninstall');

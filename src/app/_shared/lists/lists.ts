@@ -1,14 +1,14 @@
 export const languages = [
-  { id: 'en-US', label: 'English' },
-  { id: 'ko-KR', label: '한국어' },
-  { id: 'he-IL', label: 'עברית' },
-  { id: 'es-MX', label: 'Español' },
-  { id: 'fr-FR', label: 'Français' },
-  { id: 'zh-cn', label: '中文' },
-  { id: 'uk-UA', label: 'Українська' },
-  { id: 'ja-JP', label: '日本人' },
-  { id: 'de-DE', label: 'Deutsche' },
-  { id: 'ru-RU', label: 'Pусский' }
+  { id: 'en-US', label: 'English', name: 'English (United States)' },
+  { id: 'ko-KR', label: '한국어', name: 'Korean (Korea)' },
+  { id: 'he-IL', label: 'עברית', name: 'Hebrew (Israel)' },
+  { id: 'es-MX', label: 'Español', name: 'Spanish (Mexico)' },
+  { id: 'fr-FR', label: 'Français', name: 'French (France)' },
+  { id: 'zh-cn', label: '中文', name: 'Chinese (S)' },
+  { id: 'uk-UA', label: 'Українська', name: 'Ukrainian (Ukraine)' },
+  { id: 'ja-JP', label: '日本人', name: 'Japanese (Japan)' },
+  { id: 'de-DE', label: 'Deutsche', name: 'German (Germany)' },
+  { id: 'ru-RU', label: 'Pусский', name: 'Russian (Russia)' }
 ];
 
 export const span = [

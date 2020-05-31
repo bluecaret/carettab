@@ -7,11 +7,11 @@ import { Storage } from '../_storage/storage.service';
 import { colors, languages } from '../_shared/lists/lists';
 
 @Component({
-  selector: 'app-intro',
-  templateUrl: 'intro.component.html',
+  selector: 'app-splash',
+  templateUrl: 'splash.component.html',
   encapsulation: ViewEncapsulation.None,
   animations: [
-    trigger('introFade', [
+    trigger('splashFade', [
       state('void', style({ opacity: 0 })),
       state('*', style({ opacity: 1 })),
       transition(':enter', animate('800ms ease-out')),
@@ -19,7 +19,7 @@ import { colors, languages } from '../_shared/lists/lists';
     ])
   ]
 })
-export class IntroComponent implements OnInit {
+export class SplashComponent implements OnInit {
   step = 1;
   colors = colors;
   languages = languages;
@@ -28,12 +28,14 @@ export class IntroComponent implements OnInit {
   constructor(
     public shared: SharedService,
     public settings: Storage,
-    private titleService: Title,
     private translate: TranslateService
   ) {
   }
 
   ngOnInit() {
+    if (this.shared.status === 'updated') {
+      this.step = 900;
+    }
   }
 
   removeIntro() {

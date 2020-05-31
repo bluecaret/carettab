@@ -10,4 +10,4 @@
   [style.backgroundRepeat]="settings.config.design.imageSize === 10 ? 'repeat' : 'no-repeat'">
 </app-tab>
 <app-options></app-options>
-<app-intro *ngIf="shared.status === 'installed'"></app-intro>
+<app-splash *ngIf="shared.status === 'installed' || shared.status === 'updated'"></app-splash>

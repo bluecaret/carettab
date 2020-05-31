@@ -17,7 +17,7 @@ import { SettingsToggleComponent } from './_shared/controls/settings-toggle.comp
 import * as moment from 'moment-timezone';
 
 // Intro Imports
-import { IntroComponent } from './intro/intro.component';
+import { SplashComponent } from './splash/splash.component';
 
 // Options Imports
 import { NavComponent } from './options/nav.component';
@@ -49,7 +49,7 @@ import { TabSearchComponent } from './tab/search/search.component';
     SettingsToggleComponent,
     TranslateCut,
 
-    IntroComponent,
+    SplashComponent,
 
     OptionsComponent,
     OptionsBookmarksComponent,

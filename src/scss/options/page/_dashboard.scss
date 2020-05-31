@@ -1,3 +1,27 @@
+.dash-nav {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    li {
+      display: block;
+    }
+  }
+  button {
+    padding: .5rem 1rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-start;
+    .icon {
+      margin-right: .5rem;
+    }
+  }
+}
+
 .changelog {
   padding: 0 0 0 20px;
   list-style: none;
@@ -15,13 +39,53 @@
   }
 }
 
-#tipJar {
+.donate {
+  background: $lightGray;
+  border: 1px solid darken($lightGray, 14%);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin: 3rem 0;
+  .donate-intro {
+    display: grid;
+    grid-template: 1fr / 50px 1fr;
+    grid-gap: 1.5rem;
+    align-items: center;
+  }
+  .btn {
+    .icon {
+      font-size: 1.4rem;
+      margin-right: .5rem;
+    }
+  }
+}
+
+.heart {
   width: 50px;
   height: auto;
-  .jar {
+  path {
     fill: $blue;
   }
-  .heart {
-    fill: $green;
+}
+
+.share-it {
+  display: inline-block;
+  position: relative;
+}
+
+.share-it_menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  min-width: 15rem;
+  border-radius: 1rem;
+  background: darken($lightGray, 8%);
+  padding: .5rem 1rem;
+  box-shadow: 0px 0px 20px 2px rgba(0,0,0,.5);
+  z-index: +1;
+  a.btn {
+    display: block;
+    white-space: nowrap;
+    margin: .5rem 0;
+    text-align: center;
   }
 }

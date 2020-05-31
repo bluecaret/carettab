@@ -1,42 +1,100 @@
-<div class="grid cols-2">
-  <div class="span-1">
-    <fieldset class="mb0">
-      <legend class="mb0">{{'options.dashboard.new' | translate}}</legend>
-      <p class="mt5">Updated November 29, 2018</p>
-      <ul class="changelog">
-        <li>Complete rework! CaretTab has been re-coded from scratch to provide a faster, leaner new tab page for you! This update also allows more flexibility for future updates!</li>
-        <li>Clocks now have full customization! You can now set all settings on all clocks, give it a try!</li>
-        <li>Change the order of clocks and quick links.</li>
-        <li>More size options. Now most elements can be resized individually.</li>
-        <li>Lots more! take a look around and try things out.</li>
-      </ul>
-    </fieldset>
-  </div>
-  <div class="span-1">
-    <div>
-      <svg version="1.1" id="tipJar" class="pr1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        viewBox="0 0 382 467" xml:space="preserve">
-        <path class="jar" d="M189.8,10c0,0,130.9,2.1,131.2,19.4s0,46.2,0,46.2s51,10.4,51,46.2s0,279.4,0,279.4S342.9,457,189.8,457
-          S10,401.1,10,401.1s0-243.8,0-279.4s51-46.2,51-46.2s0.4-29.7,0-46.2S189.8,10,189.8,10z M192.2,432.7
-          c116.7-0.3,155.5-38.9,155.5-38.9s-0.1-257.5,0-269.7s-24.3-24.3-24.3-24.3s-49,16.9-133.6,17s-131.2-17-131.2-17
-          s-24,10.7-24.3,26.7s0,267.2,0,267.2S75.5,433,192.2,432.7z"/>
-        <path class="heart" d="M191,212.6c-30.3-70.7-116.4-54.2-117,27.9C73.7,287.9,187.7,360.2,191.1,372c3.1-12.2,117.2-84.9,116.9-132
-          C307.5,157.6,219.9,144.6,191,212.6z"/>
-      </svg>
-      <div class="">
-        <p class="mt0 mb5">
-          {{'options.dashboard.supportDev' | translate}}
-        </p>
-        <a href="https://paypal.me/bluecaret" class="btn">{{'options.dashboard.donate' | translate}}</a>
-      </div>
-    </div>
-    <p>
-      {{'options.dashboard.needHelp' | translate | translateCut:0 }}<a href="http://bluecaret.com">{{'options.dashboard.needHelp' | translate | translateCut:1 }}</a>{{'options.dashboard.needHelp' | translate | translateCut:2 }}<a href="http://twitter.com/bluecaret">{{'options.dashboard.needHelp' | translate | translateCut:3 }}</a>{{'options.dashboard.needHelp' | translate | translateCut:4 }}<a href="https://github.com/bluecaret/carettab">{{'options.dashboard.needHelp' | translate | translateCut:5 }}</a>{{'options.dashboard.needHelp' | translate | translateCut:6 }}
+<div class="dash-nav">
+  <ul>
+    <li>
+      <button type="button" class="btn" (click)="goToPage('Design')">
+        <div class="icon">format_paint</div> {{'options.design.design' | translate}}
+      </button>
+    </li>
+    <li>
+      <button type="button" class="btn" (click)="goToPage('Time')">
+        <div class="icon">access_time</div> {{'options.time.time' | translate}}
+      </button>
+    </li>
+    <li>
+      <button type="button" class="btn" (click)="goToPage('Date')">
+        <div class="icon">insert_invitation</div> {{'options.date.date' | translate}}
+      </button>
+    </li>
+    <li>
+      <button type="button" class="btn" (click)="goToPage('Bookmarks')">
+        <div class="icon">star</div> {{'options.bookmarks.headingBar' | translate}}
+      </button>
+    </li>
+    <li>
+      <button type="button" class="btn" (click)="goToPage('Search')">
+        <div class="icon">search</div> {{'options.search.search' | translate}}
+      </button>
+    </li>
+    <li>
+      <button type="button" class="btn" (click)="goToPage('Message')">
+        <div class="icon">textsms</div> {{'options.message.msg' | translate}}
+      </button>
+    </li>
+    <li>
+      <button type="button" class="btn" (click)="goToPage('Extra')">
+        <div class="icon">settings</div> Extra
+      </button>
+    </li>
+  </ul>
+</div>
+
+<div class="donate">
+  <div class="donate-intro">
+    <svg class="heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.6 30.6">
+      <path d="M15.3 11c-1.2-3.5-8.7-4.5-9.2 1.6 -0.7 7.8 9.2 11.7 9.2 11.7s9.9-3.8 9.2-11.7C24 6.5 16.5 7.5 15.3 11zM10.1 19.1c-2.4-1.8-4.7-8.6 0.1-9.4C7.8 12 8.1 16.5 10.1 19.1z"/>
+      <path d="M15.3 3.5c0.2 0 0.4-0.2 0.4-0.4V0.4C15.8 0.2 15.6 0 15.3 0s-0.4 0.2-0.4 0.4v2.7C14.9 3.3 15.1 3.5 15.3 3.5z"/>
+      <path d="M15.3 27.1c-0.2 0-0.4 0.2-0.4 0.4v2.7c0 0.2 0.2 0.4 0.4 0.4s0.4-0.2 0.4-0.4v-2.6C15.8 27.3 15.6 27.1 15.3 27.1z"/>
+      <path d="M8.8 5c0.1 0.1 0.2 0.2 0.4 0.2 0.1 0 0.2 0 0.2-0.1 0.2-0.1 0.3-0.4 0.2-0.6L8.3 2.2C8.1 2 7.9 1.9 7.7 2.1 7.4 2.2 7.4 2.4 7.5 2.7L8.8 5z"/>
+      <path d="M21.8 25.7c-0.1-0.2-0.4-0.3-0.6-0.2 -0.2 0.1-0.3 0.4-0.2 0.6l1.3 2.3c0.1 0.1 0.2 0.2 0.4 0.2 0.1 0 0.2 0 0.2-0.1 0.2-0.1 0.3-0.4 0.2-0.6L21.8 25.7z"/>
+      <path d="M2.2 8.3l2.3 1.3c0.1 0 0.1 0.1 0.2 0.1 0.2 0 0.3-0.1 0.4-0.2C5.2 9.2 5.2 8.9 5 8.8L2.7 7.5C2.4 7.4 2.2 7.4 2.1 7.7 1.9 7.9 2 8.1 2.2 8.3z"/>
+      <path d="M28.4 22.4l-2.3-1.3c-0.2-0.1-0.5 0-0.6 0.2 -0.1 0.2-0.1 0.5 0.2 0.6l2.3 1.3c0.1 0 0.1 0.1 0.2 0.1 0.2 0 0.3-0.1 0.4-0.2C28.7 22.8 28.6 22.5 28.4 22.4z"/>
+      <path d="M3.5 15.3c0-0.2-0.2-0.4-0.4-0.4H0.4C0.2 14.9 0 15.1 0 15.3s0.2 0.4 0.4 0.4h2.7C3.3 15.8 3.5 15.6 3.5 15.3z"/>
+      <path d="M30.2 14.9h-2.6c-0.2 0-0.4 0.2-0.4 0.4s0.2 0.4 0.4 0.4h2.7c0.2 0 0.4-0.2 0.4-0.4S30.4 14.9 30.2 14.9z"/>
+      <path d="M4.5 21l-2.3 1.3c-0.2 0.1-0.3 0.4-0.2 0.6 0.1 0.1 0.2 0.2 0.4 0.2 0.1 0 0.2 0 0.2-0.1l2.3-1.3c0.2-0.1 0.3-0.4 0.2-0.6C5 21 4.7 20.9 4.5 21z"/>
+      <path d="M25.9 9.6c0.1 0 0.2 0 0.2-0.1l2.3-1.3c0.2-0.1 0.3-0.4 0.2-0.6 -0.1-0.2-0.4-0.3-0.6-0.2l-2.3 1.3c-0.2 0.1-0.3 0.4-0.2 0.6C25.6 9.6 25.7 9.6 25.9 9.6z"/>
+      <path d="M9.4 25.5c-0.2-0.1-0.5-0.1-0.6 0.2l-1.3 2.3c-0.1 0.2 0 0.5 0.2 0.6 0.1 0 0.1 0.1 0.2 0.1 0.2 0 0.3-0.1 0.4-0.2l1.3-2.3C9.7 25.9 9.6 25.6 9.4 25.5z"/>
+      <path d="M21.2 5.1c0.1 0 0.1 0.1 0.2 0.1 0.2 0 0.3-0.1 0.4-0.2l1.3-2.3c0.1-0.2 0.1-0.5-0.2-0.6C22.8 1.9 22.5 2 22.4 2.2l-1.3 2.3C20.9 4.7 21 5 21.2 5.1z"/>
+    </svg>
+    <p class="m0">
+      You can help support and improve CaretTab
     </p>
-    <p class="mb0"><small>
-      <a href="http://bluecaret.com/project/carettab">{{'options.dashboard.credit' | translate | translateCut:0 }}</a>{{'options.dashboard.credit' | translate | translateCut:1 }}<a href="http://bluecaret.com">{{'options.dashboard.credit' | translate | translateCut:2 }}</a>{{'options.dashboard.credit' | translate | translateCut:3 }}<a href="https://opensource.org/licenses/MIT">{{'options.dashboard.credit' | translate | translateCut:4 }}</a>{{'options.dashboard.credit' | translate | translateCut:5 }}
-    </small></p>
+  </div>
+  <div class="mt1">
+    <div class="share-it">
+      <button class="btn" (click)="shareMenu = !shareMenu">
+        <div class="icon">share</div>Share
+      </button>
+      <div class="share-it_menu" *ngIf="shareMenu">
+        <a href="https://twitter.com/intent/tweet?url={{getReviewLink(true)}}" class="btn btn-block">Twitter</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{getReviewLink(true)}}" class="btn btn-block">Facebook</a>
+        <a href="http://www.linkedin.com/shareArticle?mini=true&url={{getReviewLink(true)}}" class="btn btn-block">LinkedIn</a>
+        <a href="mailto:?body={{getReviewLink(true)}}" class="btn btn-block">Email</a>
+      </div>
+    </div>&nbsp;
+    <a href="{{getReviewLink()}}" class="btn"><div class="icon">comment</div>Leave review</a>&nbsp;
+    <a href="https://paypal.me/bluecaret" class="btn"><div class="icon">attach_money</div>{{'options.dashboard.donate' | translate}}</a>&nbsp;
+    <a href="https://github.com/bluecaret/carettab" class="btn"><div class="icon">code</div>Contribute code</a>&nbsp;
   </div>
 </div>
+<fieldset class="mb0">
+  <legend class="mb0">{{'options.dashboard.new' | translate}}</legend>
+  <p class="mt5">Updated May 30, 2020</p>
+  <ul class="changelog">
+    <li>CaretTab has been recreated from scratch to improve performance and stability!</li>
+    <li>Clocks now have full customization! You can now set all settings on all clocks, give it a try!</li>
+    <li>Change the order of clocks and quick links.</li>
+    <li>More size options. Now most elements can be resized individually.</li>
+    <li>Wallpaper options! Use some provided textures or your own custom image.</li>
+    <li>Use any font installed on your machine!</li>
+    <li>Display your browser's bookmarks bar on the new tab page.</li>
+    <li>Lots more! take a look around and try things out.</li>
+  </ul>
+</fieldset>
+<p>
+  {{'options.dashboard.needHelp' | translate | translateCut:0 }}<a href="http://bluecaret.com">{{'options.dashboard.needHelp' | translate | translateCut:1 }}</a>{{'options.dashboard.needHelp' | translate | translateCut:2 }}<a href="http://twitter.com/bluecaret">{{'options.dashboard.needHelp' | translate | translateCut:3 }}</a>{{'options.dashboard.needHelp' | translate | translateCut:4 }}<a href="https://github.com/bluecaret/carettab">{{'options.dashboard.needHelp' | translate | translateCut:5 }}</a>{{'options.dashboard.needHelp' | translate | translateCut:6 }}
+</p>
+<p class="mb0"><small>
+  <a href="http://bluecaret.com/project/carettab">{{'options.dashboard.credit' | translate | translateCut:0 }}</a>{{'options.dashboard.credit' | translate | translateCut:1 }}<a href="http://bluecaret.com">{{'options.dashboard.credit' | translate | translateCut:2 }}</a>{{'options.dashboard.credit' | translate | translateCut:3 }}<a href="https://opensource.org/licenses/MIT">{{'options.dashboard.credit' | translate | translateCut:4 }}</a>{{'options.dashboard.credit' | translate | translateCut:5 }}
+</small></p>
 
 

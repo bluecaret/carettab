@@ -36,14 +36,17 @@
       "order": "Orden",
       "size": "Tamaño",
       "timezone": "Zona horaria",
-      "width": ""
+      "width": "Anchura"
     },
     "dashboard": {
+      "contribute": "Código de contribución",
       "credit": "CaretTab| está diseñado y codificado por |BlueCaret| y está licenciado bajo |la Licencia MIT|.",
       "donate": "Dona con PayPal",
       "needHelp": "Si necesita ayuda o tiene una sugerencia, puede ponerse en contacto con el desarrollador, |BlueCaret| en Twitter |@BlueCaret| o ver CaretTab en |GitHub|.",
       "new": "¿Qué hay de nuevo?",
-      "supportDev": "¡Apoya a CaretTab inclinando al desarrollador!"
+      "review": "Deje opinión",
+      "share": "Compartir",
+      "supportDev": "Puedes ayudar a apoyar y mejorar CaretTab"
     },
     "date": {
       "abbr": "Abreviado",
@@ -89,6 +92,7 @@
     },
     "extra": {
       "advanced": "Avanzado",
+      "extra": "Extra",
       "lang": "idioma",
       "reset": "Reiniciar",
       "resetDesc": "Si desea restablecer todas las configuraciones a sus valores predeterminados, puede hacer clic en este botón y luego actualizar la página. Esto eliminará todas tus configuraciones.",
@@ -136,7 +140,7 @@
       "delimiterBlink": "Delimitador de parpadeo",
       "delimiterOffset": "Ajusta la posición del delimitador hacia arriba o hacia abajo.",
       "delimiterSize": "Ajusta el tamaño del delimitador relativo al reloj.",
-      "dimDelimiter": "options.common.dimDelimiter",
+      "dimDelimiter": "Delimitador tenue",
       "enableDelimiter": "Habilitar delimitador",
       "generalSettings": "Ajustes generales del reloj",
       "hideOptions": "Ocultar opciones adicionales",
@@ -181,6 +185,56 @@
       "twentyFour": "24 horas",
       "twentyFourDesc": "Mostrar el reloj en formato de 24 horas en lugar de 12 horas (deshabilitará el meridiem)."
     }
+  },
+  "splash": {
+    "back": "atrás",
+    "getStarted": "¡Empezar!",
+    "letsGo": "¡Vamonos!",
+    "new": "¿Qué hay de nuevo?",
+    "next": "Siguiente",
+    "no": "No",
+    "s1": {
+      "p1": "Repasemos algunas configuraciones básicas para comenzar ...",
+      "welcome": "Bienvenido a CaretTab | Su | nueva | Nueva página de pestaña!"
+    },
+    "s2": {
+      "title": "Elige un idioma"
+    },
+    "s3": {
+      "title": "¿Quieres mostrar un reloj?"
+    },
+    "s4": {
+      "title": "¿Quieres mostrar la fecha?"
+    },
+    "s5": {
+      "title": "¿Mostrar una barra de marcadores?"
+    },
+    "s6": {
+      "title": "Elige tus colores favoritos"
+    },
+    "s7": {
+      "p1": "¡CaretTab se puede personalizar completamente! Encontrará muchas más opciones en el menú de configuración.",
+      "p2": "Para abrir el menú de configuración, haga clic en el icono en la esquina inferior derecha.",
+      "title": "¡Esto es sólo la punta del iceberg!"
+    },
+    "skip": "Omitir",
+    "updatedTo": "CaretTab se ha actualizado a",
+    "v3": {
+      "important": "IMPORTANTE:",
+      "l1": "¡CaretTab ha sido recreado desde cero para mejorar el rendimiento y la estabilidad!",
+      "l2": "¡Los relojes ahora tienen personalización completa! Ahora puede configurar todos los ajustes en todos los relojes, ¡pruébelo!",
+      "l3": "Cambiar el orden de los relojes y enlaces rápidos.",
+      "l4": "Más opciones de tamaño. Ahora la mayoría de los elementos pueden redimensionarse individualmente.",
+      "l5": "Opciones de fondo de pantalla! Use algunas texturas proporcionadas o su propia imagen personalizada.",
+      "l6": "¡Use cualquier fuente instalada en su máquina!",
+      "l7": "Muestra la barra de marcadores de tu navegador en la nueva pestaña.",
+      "l8": "¡Mucho más! Echa un vistazo y prueba cosas.",
+      "p1": "Repasemos información importante y las novedades.",
+      "p2": "Esta actualización cambia la forma en que se guardan las configuraciones, así como también muchas características. Desafortunadamente, esto significa que su configuración no se puede guardar. Deberá volver a aplicar su configuración. Pido disculpas por la molestia que esto causa, ¡pero prometo que la actualización valdrá la pena!",
+      "p3": "La siguiente pantalla lo llevará a través de algunas opciones básicas para comenzar.",
+      "title": "¡La mayor actualización hasta ahora!"
+    },
+    "yes": "Sí"
   },
   "tab": {
     "bookmarks": {

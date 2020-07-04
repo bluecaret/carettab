@@ -36,14 +36,17 @@
       "order": "Auftrag",
       "size": "Größe",
       "timezone": "Zeitzone",
-      "width": ""
+      "width": "Breite"
     },
     "dashboard": {
+      "contribute": "Code beitragen",
       "credit": "CaretTab| wurde von |BlueCaret| entwickelt und codiert und unterliegt der |MIT-Lizenz|.",
       "donate": "Spenden Sie mit PayPal",
       "needHelp": "Wenn Sie Hilfe benötigen oder einen Vorschlag haben, können Sie sich an den Entwickler |BlueCaret| wenden auf Twitter |@BlueCaret| oder sehen Sie sich CaretTab auf |GitHub| an.",
       "new": "Was gibt's neues?",
-      "supportDev": "Unterstützen Sie CaretTab, indem Sie dem Entwickler einen Tipp geben!"
+      "review": "Eine Rezension hinterlassen",
+      "share": "Aktie",
+      "supportDev": "Sie können CaretTab unterstützen und verbessern"
     },
     "date": {
       "abbr": "Abgekürzt",
@@ -89,6 +92,7 @@
     },
     "extra": {
       "advanced": "Erweitert",
+      "extra": "Extra",
       "lang": "Sprache",
       "reset": "Zurücksetzen",
       "resetDesc": "Wenn Sie alle Einstellungen auf die Standardeinstellungen zurücksetzen möchten, können Sie auf diese Schaltfläche klicken und die Seite anschließend aktualisieren. Dadurch werden alle Ihre Einstellungen entfernt.",
@@ -136,7 +140,7 @@
       "delimiterBlink": "Begrenzer blinken",
       "delimiterOffset": "Passen Sie die Position des Begrenzers nach oben oder unten an",
       "delimiterSize": "Passt die Größe des Begrenzers relativ zur Uhr an",
-      "dimDelimiter": "options.common.dimDelimiter",
+      "dimDelimiter": "Dim Delimiter",
       "enableDelimiter": "Trennzeichen aktivieren",
       "generalSettings": "Allgemeine Uhreinstellungen",
       "hideOptions": "Zusätzliche Optionen ausblenden",
@@ -181,6 +185,56 @@
       "twentyFour": "24 Stunden",
       "twentyFourDesc": "Anzeige der Uhr im 24-Stunden-Format anstelle von 12 Stunden (deaktiviert meridiem)."
     }
+  },
+  "splash": {
+    "back": "Zurück",
+    "getStarted": "Loslegen!",
+    "letsGo": "Lass uns gehen!",
+    "new": "Was gibt's neues?",
+    "next": "Nächster",
+    "no": "Nein",
+    "s1": {
+      "p1": "Lassen Sie uns einige Grundeinstellungen durchgehen, um Ihnen den Einstieg zu erleichtern ...",
+      "welcome": "Willkommen bei CaretTab | Your | new | New Tab page!"
+    },
+    "s2": {
+      "title": "Wählen Sie eine Sprache aus"
+    },
+    "s3": {
+      "title": "Möchten Sie eine Uhr anzeigen?"
+    },
+    "s4": {
+      "title": "Möchten Sie das Datum anzeigen?"
+    },
+    "s5": {
+      "title": "Lesezeichenleiste anzeigen?"
+    },
+    "s6": {
+      "title": "Wählen Sie Ihre Lieblingsfarben"
+    },
+    "s7": {
+      "p1": "CaretTab kann vollständig angepasst werden! Im Einstellungsmenü finden Sie viele weitere Optionen.",
+      "p2": "Klicken Sie zum Öffnen des Einstellungsmenüs auf das Symbol in der unteren rechten Ecke.",
+      "title": "Dies ist nur die Spitze des Eisbergs!"
+    },
+    "skip": "Überspringen",
+    "updatedTo": "CaretTab wurde auf aktualisiert",
+    "v3": {
+      "important": "WICHTIG:",
+      "l1": "CaretTab wurde von Grund auf neu erstellt, um Leistung und Stabilität zu verbessern!",
+      "l2": "Die Uhren können jetzt vollständig angepasst werden! Sie können jetzt alle Einstellungen für alle Uhren vornehmen, probieren Sie es aus!",
+      "l3": "Ändern Sie die Reihenfolge der Uhren und Quicklinks.",
+      "l4": "Weitere Größenoptionen. Jetzt können die meisten Elemente einzeln in der Größe geändert werden.",
+      "l5": "Hintergrundbildoptionen! Verwenden Sie einige bereitgestellte Texturen oder Ihr eigenes benutzerdefiniertes Bild.",
+      "l6": "Verwenden Sie eine beliebige auf Ihrem Computer installierte Schriftart!",
+      "l7": "Zeigen Sie die Lesezeichenleiste Ihres Browsers auf der neuen Registerkarte an.",
+      "l8": "Viel mehr! Schauen Sie sich um und probieren Sie es aus.",
+      "p1": "Lassen Sie uns einige wichtige Informationen und Neuigkeiten durchgehen.",
+      "p2": "Dieses Update ändert die Art und Weise, wie Einstellungen gespeichert werden, sowie viele Funktionen. Leider bedeutet dies, dass Ihre Einstellungen nicht gespeichert werden können. Sie müssen Ihre Einstellungen erneut anwenden. Ich entschuldige mich für die Unannehmlichkeiten, die dies verursacht, aber ich verspreche, dass sich das Update lohnt!",
+      "p3": "Der nächste Bildschirm führt Sie durch einige grundlegende Optionen, um loszulegen.",
+      "title": "Das bisher größte Update!"
+    },
+    "yes": "Ja"
   },
   "tab": {
     "bookmarks": {

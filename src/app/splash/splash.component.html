@@ -15,27 +15,27 @@
           V118z"/>
       </g>
     </svg>
-    <div>CaretTab has been updated to v3.0.0!</div>
+    <div>{{'splash.updatedTo' | translate}} v3.0.0!</div>
   </h1>
   <div class="splash-options">
-    <h3>The biggest update yet!</h3>
-    <p>Let's go over some important information and what's new.</p>
-    <h3>Important:</h3>
-    <p>This update changes the way settings are saved as well as changes a lot of features. Unfortunately this means your settings cannot be saved. You will need to apply your settings again. I apologize for the inconvienance this causes but I promise the update will be worth it!</p>
-    <p>The next screen will bring you through some basic options to get started.</p>
-    <h3>What's new?</h3>
+    <h3>{{'splash.v3.title' | translate}}</h3>
+    <p>{{'splash.v3.p1' | translate}}</p>
+    <h3>{{'splash.v3.important' | translate}}</h3>
+    <p>{{'splash.v3.p2' | translate}}</p>
+    <p>{{'splash.v3.p3' | translate}}</p>
+    <h3>{{'splash.new' | translate}}</h3>
     <ul>
-      <li>CaretTab has been recreated from scratch to improve performance and stability!</li>
-      <li>Clocks now have full customization! You can now set all settings on all clocks, give it a try!</li>
-      <li>Change the order of clocks and quick links.</li>
-      <li>More size options. Now most elements can be resized individually.</li>
-      <li>Wallpaper options! Use some provided textures or your own custom image.</li>
-      <li>Use any font installed on your machine!</li>
-      <li>Display your browser's bookmarks bar on the new tab page.</li>
-      <li>Lots more! take a look around and try things out.</li>
+      <li>{{'splash.v3.l1' | translate}}</li>
+      <li>{{'splash.v3.l2' | translate}}</li>
+      <li>{{'splash.v3.l3' | translate}}</li>
+      <li>{{'splash.v3.l4' | translate}}</li>
+      <li>{{'splash.v3.l5' | translate}}</li>
+      <li>{{'splash.v3.l6' | translate}}</li>
+      <li>{{'splash.v3.l7' | translate}}</li>
+      <li>{{'splash.v3.l8' | translate}}</li>
     </ul>
   </div>
-  <button type="button" class="btn btn--splash btn--start" (click)="step = 2">Get started!</button>
+  <button type="button" class="btn btn--splash btn--start" (click)="step = 2">{{'splash.getStarted' | translate}}</button>
 </div>
 
 <!-- INSTALLED: -->
@@ -55,16 +55,16 @@
           V118z"/>
       </g>
     </svg>
-    <div><strong>Welcome to CaretTab</strong>Your <em>new</em> New Tab page!</div>
+    <div><strong>{{'splash.s1.welcome' | translate | translateCut:0 }}</strong> {{'splash.s1.welcome' | translate | translateCut:1 }} <em>{{'splash.s1.welcome' | translate | translateCut:2 }}</em> {{'splash.s1.welcome' | translate | translateCut:3 }}</div>
   </h1>
-  <h2>Let's go over some basic settings to get you started...</h2>
-  <button type="button" class="btn btn--splash btn--start" (click)="step = 2">Get started!</button>
+  <h2>{{'splash.s1.p1' | translate}}</h2>
+  <button type="button" class="btn btn--splash btn--start" (click)="step = 2">{{'splash.getStarted' | translate}}</button>
 </div>
 
 <!-- STEP 2 -->
 <div id="step2" class="splash-steps" *ngIf="step === 2">
   <div class="splash-options">
-    <h3>Choose a language</h3>
+    <h3>{{'splash.s2.title' | translate}}</h3>
     <div class="splash_lang-btns">
       <button
         *ngFor="let lang of languages"
@@ -77,10 +77,10 @@
     </div>
   </div>
   <div class="splash-nav">
-    <button type="button" class="btn btn--splash btn--next" (click)="step = 3" [disabled]="newLang == null">Next &rarr;</button>
+    <button type="button" class="btn btn--splash btn--next" (click)="step = 3" [disabled]="newLang == null">{{'splash.next' | translate}} &rarr;</button>
     <div class="splash-nav_misc">
-      <button type="button" class="btn btn--splash btn--skip" (click)="skipIntro()">Skip</button>&nbsp;
-      <button type="button" class="btn btn--splash btn--back" (click)="shared.status === 'updated' ? step = 900 : step = 1">&larr; Back</button>
+      <button type="button" class="btn btn--splash btn--skip" (click)="skipIntro()">{{'splash.skip' | translate}}</button>&nbsp;
+      <button type="button" class="btn btn--splash btn--back" (click)="shared.status === 'updated' ? step = 900 : step = 1">&larr; {{'splash.back' | translate}}</button>
     </div>
   </div>
 </div>
@@ -88,16 +88,16 @@
 <!-- STEP 3 -->
 <div id="step3" class="splash-steps" *ngIf="step === 3">
   <div class="splash-options">
-    <h3>Do you want to display a clock?</h3>
+    <h3>{{'splash.s3.title' | translate}}</h3>
     <div style="display: flex; justify-content: space-between;">
-      <button type="button" class="btn btn--splash" (click)="enableTime(false)">No</button>
-      <button type="button" class="btn btn--splash" (click)="enableTime(true)">Yes</button>
+      <button type="button" class="btn btn--splash" (click)="enableTime(false)">{{'splash.no' | translate}}</button>
+      <button type="button" class="btn btn--splash" (click)="enableTime(true)">{{'splash.yes' | translate}}</button>
     </div>
   </div>
   <div class="splash-nav">
     <div class="splash-nav_misc">
-      <button type="button" class="btn btn--splash btn--skip" (click)="skipIntro()">Skip</button>&nbsp;
-      <button type="button" class="btn btn--splash btn--back" (click)="step = 2">&larr; Back</button>
+      <button type="button" class="btn btn--splash btn--skip" (click)="skipIntro()">{{'splash.skip' | translate}}</button>&nbsp;
+      <button type="button" class="btn btn--splash btn--back" (click)="step = 2">&larr; {{'splash.back' | translate}}</button>
     </div>
   </div>
 </div>
@@ -105,16 +105,16 @@
 <!-- STEP 4 -->
 <div id="step4" class="splash-steps" *ngIf="step === 4">
   <div class="splash-options">
-    <h3>Do you want to show the date?</h3>
+    <h3>{{'splash.s4.title' | translate}}</h3>
     <div style="display: flex; justify-content: space-between;">
-      <button type="button" class="btn btn--splash" (click)="enableDate(false)">No</button>
-      <button type="button" class="btn btn--splash" (click)="enableDate(true)">Yes</button>
+      <button type="button" class="btn btn--splash" (click)="enableDate(false)">{{'splash.no' | translate}}</button>
+      <button type="button" class="btn btn--splash" (click)="enableDate(true)">{{'splash.yes' | translate}}</button>
     </div>
   </div>
   <div class="splash-nav">
     <div class="splash-nav_misc">
-      <button type="button" class="btn btn--splash btn--skip" (click)="skipIntro()">Skip</button>&nbsp;
-      <button type="button" class="btn btn--splash btn--back" (click)="step = 3">&larr; Back</button>
+      <button type="button" class="btn btn--splash btn--skip" (click)="skipIntro()">{{'splash.skip' | translate}}</button>&nbsp;
+      <button type="button" class="btn btn--splash btn--back" (click)="step = 3">&larr; {{'splash.back' | translate}}</button>
     </div>
   </div>
 </div>
@@ -122,16 +122,16 @@
 <!-- STEP 5 -->
 <div id="step5" class="splash-steps" *ngIf="step === 5">
   <div class="splash-options">
-    <h3>Show a bookmarks bar?</h3>
+    <h3>{{'splash.s5.title' | translate}}</h3>
     <div style="display: flex; justify-content: space-between;">
-      <button type="button" class="btn btn--splash" (click)="enableBookmarks(false)">No</button>
-      <button type="button" class="btn btn--splash" (click)="enableBookmarks(true)">Yes</button>
+      <button type="button" class="btn btn--splash" (click)="enableBookmarks(false)">{{'splash.no' | translate}}</button>
+      <button type="button" class="btn btn--splash" (click)="enableBookmarks(true)">{{'splash.yes' | translate}}</button>
     </div>
   </div>
   <div class="splash-nav">
     <div class="splash-nav_misc">
-      <button type="button" class="btn btn--splash btn--skip" (click)="skipIntro()">Skip</button>&nbsp;
-      <button type="button" class="btn btn--splash btn--back" (click)="step = 4">&larr; Back</button>
+      <button type="button" class="btn btn--splash btn--skip" (click)="skipIntro()">{{'splash.skip' | translate}}</button>&nbsp;
+      <button type="button" class="btn btn--splash btn--back" (click)="step = 4">&larr; {{'splash.back' | translate}}</button>
     </div>
   </div>
 </div>
@@ -139,7 +139,7 @@
 <!-- STEP 6 -->
 <div id="step6" class="splash-steps" *ngIf="step === 6">
   <div class="splash-options">
-    <h3>Choose your favorite colors</h3>
+    <h3>{{'splash.s6.title' | translate}}</h3>
     <div class="grid cols-4 pt1">
       <button
         *ngFor="let color of colors;"
@@ -153,10 +153,10 @@
     </div>
   </div>
   <div class="splash-nav">
-    <button type="button" class="btn btn--splash btn--next" (click)="step = 7" [disabled]="settings.config.design.colorsId === 0">Next &rarr;</button>
+    <button type="button" class="btn btn--splash btn--next" (click)="step = 7" [disabled]="settings.config.design.colorsId === 0">{{'splash.next' | translate}} &rarr;</button>
     <div class="splash-nav_misc">
-      <button type="button" class="btn btn--splash btn--skip" (click)="skipIntro()">Skip</button>&nbsp;
-      <button type="button" class="btn btn--splash btn--back" (click)="step = 5">&larr; Back</button>
+      <button type="button" class="btn btn--splash btn--skip" (click)="skipIntro()">{{'splash.skip' | translate}}</button>&nbsp;
+      <button type="button" class="btn btn--splash btn--back" (click)="step = 5">&larr; {{'splash.back' | translate}}</button>
     </div>
   </div>
 </div>
@@ -164,14 +164,14 @@
 <!-- STEP 7 -->
 <div id="step7" class="splash-steps" *ngIf="step === 7">
   <div class="splash-options">
-    <h3>This is just the tip of the iceberg!</h3>
-    <p>CaretTab can be fully customized! You will find many more options in the settings menu.</p>
-    <p>To open the settings menu, click the icon in the bottom-right corner.</p>
+    <h3>{{'splash.s7.title' | translate}}</h3>
+    <p>{{'splash.s7.p1' | translate}}</p>
+    <p>{{'splash.s7.p2' | translate}}</p>
   </div>
   <div class="splash-nav">
-    <button type="button" class="btn btn--splash btn--next" (click)="finishIntro()">Let's go!</button>
+    <button type="button" class="btn btn--splash btn--next" (click)="finishIntro()">{{'splash.letsGo' | translate}}</button>
     <div class="splash-nav_misc">
-      <button type="button" class="btn btn--splash btn--back" (click)="step = 6">&larr; Back</button>
+      <button type="button" class="btn btn--splash btn--back" (click)="step = 6">&larr; {{'splash.back' | translate}}</button>
     </div>
   </div>
 </div>

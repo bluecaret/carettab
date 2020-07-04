@@ -26,7 +26,7 @@
         <select name="dateFormat" [(ngModel)]="settings.config.date.format">
           <option *ngFor="let f of dateFormat" [ngValue]="f.id">{{f.label}}</option>
         </select>
-        <label>options.common.format</label>
+        <label>{{'options.common.format' | translate}}</label>
       </div>
       <div class="field span-2">
         <div class="orderBtns">

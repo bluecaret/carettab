@@ -36,14 +36,17 @@
       "order": "订购",
       "size": "尺寸",
       "timezone": "时区",
-      "width": ""
+      "width": "宽度"
     },
     "dashboard": {
+      "contribute": "贡献代码",
       "credit": "CaretTab|由|BlueCaret|设计和编码，并根据|MIT|许可证授权。",
       "donate": "捐赠PayPal",
       "needHelp": "如果您需要帮助或有建议，可以联系开发人员，|BlueCaret|在Twitter上|@BlueCaret|或查看CaretTab on |GitHub|。",
       "new": "什么是新的？",
-      "supportDev": "通过倾斜开发人员来支持CaretTab！"
+      "review": "留下评论",
+      "share": "分享",
+      "supportDev": "您可以帮助支持和改善CaretTab"
     },
     "date": {
       "abbr": "简短的",
@@ -89,6 +92,7 @@
     },
     "extra": {
       "advanced": "高级",
+      "extra": "额外",
       "lang": "语言",
       "reset": "重启",
       "resetDesc": "如果要将所有设置重置为默认设置，可以单击此按钮，然后刷新页面。这将删除所有设置。",
@@ -136,7 +140,7 @@
       "delimiterBlink": "眨眼分隔符",
       "delimiterOffset": "向上或向下调整分隔符的位置",
       "delimiterSize": "调整分隔符相对于时钟的大小",
-      "dimDelimiter": "options.common.dimDelimiter",
+      "dimDelimiter": "昏暗定界符",
       "enableDelimiter": "启用分隔符",
       "generalSettings": "一般时钟设置",
       "hideOptions": "隐藏其他选项",
@@ -181,6 +185,56 @@
       "twentyFour": "24小时",
       "twentyFourDesc": "以24小时格式显示时钟而不是12小时（将禁用meridiem）。"
     }
+  },
+  "splash": {
+    "back": "背部",
+    "getStarted": "开始吧！",
+    "letsGo": "我们走吧！",
+    "new": "什么是新的？",
+    "next": "下一个",
+    "no": "没有",
+    "s1": {
+      "p1": "让我们来看一些基本设置以开始使用...",
+      "welcome": "欢迎来到CaretTab |您的|新|新标签页！"
+    },
+    "s2": {
+      "title": "选择一种语言"
+    },
+    "s3": {
+      "title": "您要显示时钟吗？"
+    },
+    "s4": {
+      "title": "您要显示日期吗？"
+    },
+    "s5": {
+      "title": "显示书签栏？"
+    },
+    "s6": {
+      "title": "选择您喜欢的颜色"
+    },
+    "s7": {
+      "p1": "CaretTab可以完全定制！您将在设置菜单中找到更多选项。",
+      "p2": "要打开设置菜单，请单击右下角的图标。",
+      "title": "这只是冰山一角！"
+    },
+    "skip": "跳跃",
+    "updatedTo": "CaretTab已更新至",
+    "v3": {
+      "important": "重要：",
+      "l1": "CaretTab已从头开始重新创建，以提高性能和稳定性！",
+      "l2": "时钟现已完全定制！您现在可以在所有时钟上设置所有设置，尝试一下！",
+      "l3": "更改时钟和快速链接的顺序。",
+      "l4": "更多尺寸选项。现在，大多数元素都可以单独调整大小。",
+      "l5": "墙纸选项！使用一些提供的纹理或您自己的自定义图像。",
+      "l6": "使用计算机上安装的任何字体！",
+      "l7": "在新标签页上显示浏览器的书签栏。",
+      "l8": "还有更多！环顾四周，尝试一下。",
+      "p1": "让我们来看一些重要的信息和新功能。",
+      "p2": "此更新更改了设置的保存方式以及许多功能。不幸的是，这意味着您的设置无法保存。您将需要再次应用设置。对于造成的不便，我深表歉意，但我保证更新是值得的！",
+      "p3": "下一个屏幕将带您入门一些基本选项。",
+      "title": "迄今为止最大的更新！"
+    },
+    "yes": "是"
   },
   "tab": {
     "bookmarks": {

@@ -32,7 +32,7 @@
     </li>
     <li>
       <button type="button" class="btn" (click)="goToPage('Extra')">
-        <div class="icon">settings</div> Extra
+        <div class="icon">settings</div> {{'options.extra.extra' | translate}}
       </button>
     </li>
   </ul>
@@ -56,13 +56,13 @@
       <path d="M21.2 5.1c0.1 0 0.1 0.1 0.2 0.1 0.2 0 0.3-0.1 0.4-0.2l1.3-2.3c0.1-0.2 0.1-0.5-0.2-0.6C22.8 1.9 22.5 2 22.4 2.2l-1.3 2.3C20.9 4.7 21 5 21.2 5.1z"/>
     </svg>
     <p class="m0">
-      You can help support and improve CaretTab
+      {{'options.dashboard.supportDev' | translate}}
     </p>
   </div>
   <div class="mt1">
     <div class="share-it">
       <button class="btn" (click)="shareMenu = !shareMenu">
-        <div class="icon">share</div>Share
+        <div class="icon">share</div>{{'options.dashboard.share' | translate}}
       </button>
       <div class="share-it_menu" *ngIf="shareMenu">
         <a href="https://twitter.com/intent/tweet?url={{getReviewLink(true)}}" class="btn btn-block">Twitter</a>
@@ -71,14 +71,14 @@
         <a href="mailto:?body={{getReviewLink(true)}}" class="btn btn-block">Email</a>
       </div>
     </div>&nbsp;
-    <a href="{{getReviewLink()}}" class="btn"><div class="icon">comment</div>Leave review</a>&nbsp;
+    <a href="{{getReviewLink()}}" class="btn"><div class="icon">comment</div>{{'options.dashboard.review' | translate}}</a>&nbsp;
     <a href="https://paypal.me/bluecaret" class="btn"><div class="icon">attach_money</div>{{'options.dashboard.donate' | translate}}</a>&nbsp;
-    <a href="https://github.com/bluecaret/carettab" class="btn"><div class="icon">code</div>Contribute code</a>&nbsp;
+    <a href="https://github.com/bluecaret/carettab" class="btn"><div class="icon">code</div>{{'options.dashboard.contribute' | translate}}</a>&nbsp;
   </div>
 </div>
 <fieldset class="mb0">
   <legend class="mb0">{{'options.dashboard.new' | translate}}</legend>
-  <p class="mt5">Updated May 30, 2020</p>
+  <p class="mt5">Updated July 4, 2020</p>
   <ul class="changelog">
     <li>CaretTab has been recreated from scratch to improve performance and stability!</li>
     <li>Clocks now have full customization! You can now set all settings on all clocks, give it a try!</li>

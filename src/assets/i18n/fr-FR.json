@@ -36,14 +36,17 @@
       "order": "ordre",
       "size": "Taille",
       "timezone": "Fuseau horaire",
-      "width": ""
+      "width": "Largeur"
     },
     "dashboard": {
+      "contribute": "Code de contribution",
       "credit": "CaretTab| est conçu et codé par |BlueCaret| et est sous |licence MIT|.",
       "donate": "Donner avec PayPal",
       "needHelp": "Si vous avez besoin d’aide ou si vous avez une suggestion, vous pouvez contacter le développeur, |BlueCaret| sur Twitter |@BlueCaret| ou consultez CaretTab sur |GitHub|.",
       "new": "Quoi de neuf?",
-      "supportDev": "Soutenez CaretTab en inclinant le développeur!"
+      "review": "Laisser un avis",
+      "share": "Partager",
+      "supportDev": "Vous pouvez aider à soutenir et à améliorer CaretTab"
     },
     "date": {
       "abbr": "Abrégé",
@@ -89,6 +92,7 @@
     },
     "extra": {
       "advanced": "Avancée",
+      "extra": "Supplémentaire",
       "lang": "La langue",
       "reset": "Réinitialiser",
       "resetDesc": "Si vous souhaitez rétablir tous les paramètres par défaut, vous pouvez cliquer sur ce bouton, puis actualiser la page. Cela supprimera tous vos paramètres.",
@@ -136,7 +140,7 @@
       "delimiterBlink": "Délimiteur de clignotement",
       "delimiterOffset": "Ajuste la position du délimiteur vers le haut ou le bas",
       "delimiterSize": "Ajuste la taille du délimiteur par rapport à l'horloge",
-      "dimDelimiter": "options.common.dimDelimiter",
+      "dimDelimiter": "Délimiteur faible",
       "enableDelimiter": "Activer le délimiteur",
       "generalSettings": "Réglages généraux de l'horloge",
       "hideOptions": "Masquer les options supplémentaires",
@@ -181,6 +185,56 @@
       "twentyFour": "24 heures",
       "twentyFourDesc": "Afficher l'horloge au format 24 heures au lieu de 12 heures (désactive Meridiem)."
     }
+  },
+  "splash": {
+    "back": "Retour",
+    "getStarted": "Commencer!",
+    "letsGo": "Allons-y!",
+    "new": "Quoi de neuf?",
+    "next": "Suivant",
+    "no": "Non",
+    "s1": {
+      "p1": "Passons en revue certains paramètres de base pour commencer ...",
+      "welcome": "Bienvenue dans CaretTab | Votre | nouvelle | nouvelle page d'onglet!"
+    },
+    "s2": {
+      "title": "Choisissez une langue"
+    },
+    "s3": {
+      "title": "Voulez-vous afficher une horloge?"
+    },
+    "s4": {
+      "title": "Voulez-vous afficher la date?"
+    },
+    "s5": {
+      "title": "Afficher une barre de favoris?"
+    },
+    "s6": {
+      "title": "Choisissez vos couleurs préférées"
+    },
+    "s7": {
+      "p1": "CaretTab peut être entièrement personnalisé! Vous trouverez de nombreuses autres options dans le menu des paramètres.",
+      "p2": "Pour ouvrir le menu des paramètres, cliquez sur l'icône dans le coin inférieur droit.",
+      "title": "Ce n'est que la pointe de l'iceberg!"
+    },
+    "skip": "Sauter",
+    "updatedTo": "CaretTab a été mis à jour pour",
+    "v3": {
+      "important": "IMPORTANT:",
+      "l1": "CaretTab a été recréé à partir de zéro pour améliorer les performances et la stabilité!",
+      "l2": "Les horloges ont maintenant une personnalisation complète! Vous pouvez maintenant définir tous les paramètres sur toutes les horloges, essayez-le!",
+      "l3": "Modifiez l'ordre des horloges et des liens rapides.",
+      "l4": "Plus d'options de taille. Maintenant, la plupart des éléments peuvent être redimensionnés individuellement.",
+      "l5": "Options de papier peint! Utilisez certaines textures fournies ou votre propre image personnalisée.",
+      "l6": "Utilisez n'importe quelle police installée sur votre machine!",
+      "l7": "Affichez la barre de favoris de votre navigateur sur la nouvelle page à onglet.",
+      "l8": "Beaucoup plus! jetez un œil et essayez les choses.",
+      "p1": "Passons en revue certaines informations importantes et les nouveautés.",
+      "p2": "Cette mise à jour modifie la façon dont les paramètres sont enregistrés ainsi que de nombreuses fonctionnalités. Malheureusement, cela signifie que vos paramètres ne peuvent pas être enregistrés. Vous devrez à nouveau appliquer vos paramètres. Je m'excuse pour la gêne occasionnée, mais je promets que la mise à jour en vaudra la peine!",
+      "p3": "L'écran suivant vous présentera quelques options de base pour commencer.",
+      "title": "La plus grande mise à jour à ce jour!"
+    },
+    "yes": "Oui"
   },
   "tab": {
     "bookmarks": {

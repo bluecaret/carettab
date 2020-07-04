@@ -39,11 +39,14 @@
       "width": "Width"
     },
     "dashboard": {
+      "contribute": "Contribute code",
       "credit": "CaretTab| is designed and coded by |BlueCaret| and is licensed under the |MIT License|.",
       "donate": "Donate with PayPal",
       "needHelp": "If you need help or have a suggestion you can contact the developer, |BlueCaret| on Twitter |@BlueCaret| or view CaretTab on |GitHub|.",
       "new": "What's new?",
-      "supportDev": "Support CaretTab by tipping the developer!"
+      "review": "Leave review",
+      "share": "Share",
+      "supportDev": "You can help support and improve CaretTab"
     },
     "date": {
       "abbr": "Abbreviated",
@@ -89,6 +92,7 @@
     },
     "extra": {
       "advanced": "Advanced",
+      "extra": "Extra",
       "lang": "Language",
       "reset": "Reset",
       "resetDesc": "If you would like to reset all settings back to the default, you can click this button and then refresh the page. This will remove all of your settings.",
@@ -136,7 +140,7 @@
       "delimiterBlink": "Blink delimiter",
       "delimiterOffset": "Adjust the position of the delimiter up or down",
       "delimiterSize": "Adjusts the size of the delimiter relative to the clock",
-      "dimDelimiter": "options.common.dimDelimiter",
+      "dimDelimiter": "Dim Delimiter",
       "enableDelimiter": "Enable delimiter",
       "generalSettings": "General clock settings",
       "hideOptions": "Hide additional options",
@@ -181,6 +185,56 @@
       "twentyFour": "24 hour",
       "twentyFourDesc": "Display clock in 24-hour format instead of 12-hour (will disable meridiem)."
     }
+  },
+  "splash": {
+    "back": "Back",
+    "getStarted": "Get started!",
+    "letsGo": "Let's go!",
+    "new": "What's new?",
+    "next": "Next",
+    "no": "No",
+    "s1": {
+      "p1": "Let's go over some basic settings to get you started...",
+      "welcome": "Welcome to CaretTab|Your|new|New Tab page!"
+    },
+    "s2": {
+      "title": "Choose a language"
+    },
+    "s3": {
+      "title": "Do you want to display a clock?"
+    },
+    "s4": {
+      "title": "Do you want to show the date?"
+    },
+    "s5": {
+      "title": "Show a bookmarks bar?"
+    },
+    "s6": {
+      "title": "Choose your favorite colors"
+    },
+    "s7": {
+      "p1": "CaretTab can be fully customized! You will find many more options in the settings menu.",
+      "p2": "To open the settings menu, click the icon in the bottom-right corner.",
+      "title": "This is just the tip of the iceberg!"
+    },
+    "skip": "Skip",
+    "updatedTo": "CaretTab has been updated to",
+    "v3": {
+      "important": "Important:",
+      "l1": "CaretTab has been recreated from scratch to improve performance and stability!",
+      "l2": "Clocks now have full customization! You can now set all settings on all clocks, give it a try!",
+      "l3": "Change the order of clocks and quick links.",
+      "l4": "More size options. Now most elements can be resized individually.",
+      "l5": "Wallpaper options! Use some provided textures or your own custom image.",
+      "l6": "Use any font installed on your machine!",
+      "l7": "Display your browser's bookmarks bar on the new tab page.",
+      "l8": "Lots more! take a look around and try things out.",
+      "p1": "Let's go over some important information and what's new.",
+      "p2": "This update changes the way settings are saved as well as changes a lot of features. Unfortunately this means your settings cannot be saved. You will need to apply your settings again. I apologize for the inconvienance this causes but I promise the update will be worth it!",
+      "p3": "The next screen will bring you through some basic options to get started.",
+      "title": "The biggest update yet!"
+    },
+    "yes": "Yes"
   },
   "tab": {
     "bookmarks": {

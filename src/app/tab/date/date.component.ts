@@ -53,7 +53,7 @@ export class TabDateComponent implements OnInit {
     }
     let delimiter = c.short.delimiter;
     if (c.short.enabled) {
-      month = date.format('M');
+      month = c.month.twoDigit ? date.format('MM') : date.format('M');
       if (c.format === 10) {
         if (c.year.enabled && c.month.enabled && c.day.enabled) {
           return weekDay + day + delimiter + month + delimiter + year;

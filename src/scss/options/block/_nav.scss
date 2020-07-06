@@ -16,6 +16,9 @@ nav {
         border: 0;
         padding: 15px 20px;
         transition: all .2s;
+        .icon {
+          transition: transform .2s;
+        }
         &.close {
           position: absolute;
           top: 0;
@@ -25,8 +28,10 @@ nav {
           background: rgb(69, 127, 185);
         }
         &:hover {
-          transform: scale(1.6) rotate(-8deg);
           cursor: pointer;
+          .icon {
+            transform: scale(1.6);
+          }
           &.close {
             opacity: 1;
             transform: none;
@@ -34,8 +39,10 @@ nav {
         }
         &.active {
           color: $blue;
-          transform: scale(1.6) rotate(-8deg);
           cursor: default;
+          .icon {
+            transform: scale(1.6);
+          }
         }
         &:focus {
           outline: 0;

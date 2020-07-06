@@ -22,6 +22,15 @@ app-tab {
   box-shadow: #000000 -8px 0px 20px 2px;
 }
 
+.tabBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-position: center;
+}
+
 .tabCenter {
   position: fixed;
   top: 50%;

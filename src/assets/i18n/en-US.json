@@ -68,6 +68,7 @@
     },
     "design": {
       "bg": "Custom background",
+      "brightness": "Brightness",
       "browseForImg": "Browse for image...",
       "colors": "Colors",
       "customFontDesc": "Enter the name of a locally installed font. You must install the font on your computer for it to work.",

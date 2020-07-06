@@ -13,7 +13,8 @@ export class Settings {
       colorsId: 0,
       patternId: 0,
       imageSize: 10,
-      imageBlend: 10
+      imageBlend: 10,
+      brightness: 10
     },
     bookmarks: {
       bookmarksBar: {

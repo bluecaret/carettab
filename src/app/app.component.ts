@@ -1,10 +1,8 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import { transition, trigger, style, state, animate, query, group } from '@angular/animations';
-import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { transition, trigger, style, state, animate } from '@angular/animations';
 import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from './_shared/shared.service';
 import { Storage } from './_storage/storage.service';
-import { bgSize, bgBlend } from './_shared/lists/lists';
 import { tab } from './_shared/animations';
 import * as moment from 'moment';
 
@@ -38,12 +36,9 @@ import * as moment from 'moment';
   ]
 })
 export class AppComponent implements OnInit {
-  bgSize = bgSize;
-  bgBlend = bgBlend;
   status: string;
 
   constructor(
-    public sanitizer: DomSanitizer,
     public shared: SharedService,
     public settings: Storage,
     private zone: NgZone,
@@ -72,16 +67,6 @@ export class AppComponent implements OnInit {
       }
     });
     this.shared.zoneGuess = moment.tz.guess();
-  }
-
-  getBgSize() {
-    let s = this.bgSize.find(x => x.id === this.settings.config.design.imageSize).size;
-    return s;
-  }
-
-  getBgBlend() {
-    let m = this.bgBlend.find(x => x.id === this.settings.config.design.imageBlend).mode;
-    return m;
   }
 
 }

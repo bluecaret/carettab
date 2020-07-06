@@ -111,6 +111,10 @@
         <div class="span-4" *ngIf="settings.config.design.patternId === -1">
           <div class="icon" style="font-size: 1em;">warning</div> {{'options.design.dontSync' | translate}}
         </div>
+        <div class="field span-4">
+          <options-range name="brightness" id="brightness" min="0" max="20" [(ngModel)]="settings.config.design.brightness"></options-range>
+          <label title="{{'options.design.brightness' | translate}}">{{'options.design.brightness' | translate}}</label>
+        </div>
         <div class="field span-2">
           <select name="fill" id="fill"
             [(ngModel)]="settings.config.design.imageSize">

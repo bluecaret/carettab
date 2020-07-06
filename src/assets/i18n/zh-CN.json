@@ -68,6 +68,7 @@
     },
     "design": {
       "bg": "自定义背景",
+      "brightness": "亮度",
       "browseForImg": "浏览图片......",
       "colors": "颜色",
       "customFontDesc": "输入本地安装的字体的名称。您必须在计算机上安装该字体才能使用它。",

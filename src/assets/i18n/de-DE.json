@@ -68,6 +68,7 @@
     },
     "design": {
       "bg": "Benutzerdefinierter Hintergrund",
+      "brightness": "Helligkeit",
       "browseForImg": "Nach Bild suchen ...",
       "colors": "Farben",
       "customFontDesc": "Geben Sie den Namen einer lokal installierten Schriftart ein. Sie müssen die Schriftart auf Ihrem Computer installieren, damit sie funktioniert.",

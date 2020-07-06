@@ -68,6 +68,7 @@
     },
     "design": {
       "bg": "Fondo personalizado",
+      "brightness": "brillo",
       "browseForImg": "Buscar imagen ...",
       "colors": "Colores",
       "customFontDesc": "Introduzca el nombre de una fuente instalada localmente. Debe instalar la fuente en su computadora para que funcione.",

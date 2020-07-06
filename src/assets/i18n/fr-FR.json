@@ -68,6 +68,7 @@
     },
     "design": {
       "bg": "Arrière-plan personnalisé",
+      "brightness": "luminosité",
       "browseForImg": "Recherchez une image ...",
       "colors": "Couleurs",
       "customFontDesc": "Entrez le nom d'une police installée localement. Vous devez installer la police sur votre ordinateur pour que cela fonctionne.",

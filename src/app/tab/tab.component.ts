@@ -1,10 +1,10 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { transition, trigger, style, state, animate } from '@angular/animations';
 import { Title } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from '../_shared/shared.service';
 import { Storage } from '../_storage/storage.service';
-import { span } from '../_shared/lists/lists';
+import { span, bgSize, bgBlend } from '../_shared/lists/lists';
 
 @Component({
   selector: 'app-tab',
@@ -14,8 +14,11 @@ import { span } from '../_shared/lists/lists';
 export class TabComponent implements OnInit {
   NEW_TAB_TEXT = 'New Tab';
   span = span;
+  bgSize = bgSize;
+  bgBlend = bgBlend;
 
   constructor(
+    public sanitizer: DomSanitizer,
     public shared: SharedService,
     public settings: Storage,
     private titleService: Title,
@@ -101,6 +104,22 @@ export class TabComponent implements OnInit {
 
   getClockSpan(clockSpan) {
     return this.span.find(s => s.id === clockSpan).css;
+  }
+
+  getBgSize() {
+    let s = this.bgSize.find(x => x.id === this.settings.config.design.imageSize).size;
+    return s;
+  }
+
+  getBgBlend() {
+    let m = this.bgBlend.find(x => x.id === this.settings.config.design.imageBlend).mode;
+    return m;
+  }
+
+  getBrightness() {
+    let b = this.settings.config.design.brightness * .1;
+    let value = 'brightness(' + b + ')';
+    return this.sanitizer.bypassSecurityTrustStyle(value);
   }
 
 }

@@ -1,5 +1,8 @@
+import { SharedService } from '../shared.service';
+
 export class Clock {
   constructor(
+    public id: string = SharedService.prototype.createID('CLOCK'),
     public label: Label = new Label(),
     public timezone: string = 'Automatic',
     public scaling: number = 5,

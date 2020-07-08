@@ -50,16 +50,16 @@
             type="button"
             title="{{'options.time.moveUp' | translate}}"
             class="btn btnCircle mr5"
-            [disabled]="isFirst"
-            (click)="swap(settings.config.time.clocks, i, (i - 1))">
+            [disabled]="shared.isFirst(clock.id)"
+            (click)="shared.changeOrder(clock.id, true)">
             <div class="icon">arrow_drop_up</div>
           </button>
           <button
             type="button"
             title="{{'options.time.moveDown' | translate}}"
             class="btn btnCircle mr5"
-            [disabled]="isLast"
-            (click)="swap(settings.config.time.clocks, i, (i + 1))">
+            [disabled]="shared.isLast(clock.id)"
+            (click)="shared.changeOrder(clock.id, false)">
             <div class="icon">arrow_drop_down</div>
           </button>
           <button

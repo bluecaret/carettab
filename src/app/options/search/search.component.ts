@@ -16,16 +16,4 @@ export class OptionsSearchComponent {
   ) {
   }
 
-  changeOrder(up) {
-    if (up) {
-      if (this.settings.config.search.order > this.shared.orderMin) {
-        this.settings.config.search.order--;
-      }
-    } else {
-      if (this.settings.config.search.order < this.shared.orderMax) {
-        this.settings.config.search.order++;
-      }
-    }
-  }
-
 }

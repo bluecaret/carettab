@@ -22,15 +22,4 @@ export class OptionsDateComponent {
     this.tzGuess = this.shared.zoneGuess;
   }
 
-  changeOrder(up) {
-    if (up) {
-      if (this.settings.config.date.order > this.shared.orderMin) {
-        this.settings.config.date.order--;
-      }
-    } else {
-      if (this.settings.config.date.order < this.shared.orderMax) {
-        this.settings.config.date.order++;
-      }
-    }
-  }
 }

@@ -1,6 +1,18 @@
+import { Clock } from '../_shared/models/clock';
+
 export class Settings {
   storeKey = 'carettab';  // identifier to be used as a key for storage
   data = {
+    order: [
+      {
+        id: 'CLOCK_QEXA4RAH17',
+        order: 1
+      },
+      {
+        id: 'DATE_183AQFVON78',
+        order: 2
+      }
+    ],
     lang: 'en-US',
     design: {
       scalingMethod: true,
@@ -38,14 +50,17 @@ export class Settings {
       },
       links: [
         {
+          id: 'LINK_2OKQ6AXD3ZW',
           label: 'Google',
           url: 'https://www.google.com/'
         },
         {
+          id: 'LINK_1EXP1722D1K',
           label: 'Gmail',
           url: 'https://gmail.com/'
         },
         {
+          id: 'LINK_2EEUNROCLLG',
           label: 'YouTube',
           url: 'https://www.youtube.com/'
         }
@@ -54,7 +69,9 @@ export class Settings {
     time: {
       clocks: [
         {
+          id: 'CLOCK_QEXA4RAH17',
           timezone: 'Automatic',
+          order: 3,
           scaling: 10,
           span: 40,
           padding: 10,
@@ -112,6 +129,7 @@ export class Settings {
       ]
     },
     date: {
+      id: 'DATE_183AQFVON78',
       enabled: true,
       scaling: 6,
       offset: 0,
@@ -147,19 +165,21 @@ export class Settings {
       },
     },
     search: {
+      id: 'SEARCH_1QUHAEPMFGX',
       enabled: false,
       scaling: 6,
       offset: 0,
-      order: 1,
+      order: 2,
       width: 13,
       engine: 10,
       autocomplete: true
     },
     message: {
+      id: 'MESSAGE_1CUETHV7L63',
       enabled: false,
       scaling: 8,
       offset: 0,
-      order: 0,
+      order: 1,
       text: 'Hello world!'
     },
     title: {

@@ -3,7 +3,7 @@
     <legend>{{'options.date.date' | translate}}</legend>
     <div class="grid cols-6">
       <div class="field span-1">
-        <options-toggle name="date" [(ngModel)]="settings.config.date.enabled"></options-toggle>
+        <options-toggle name="date" [(ngModel)]="settings.config.date.enabled" (ngModelChange)="shared.toggleOrder(settings.config.date.id, $event)"></options-toggle>
         <label>{{'options.date.date' | translate}}</label>
       </div>
       <div class="field span-3">
@@ -34,16 +34,16 @@
             type="button"
             title="{{'options.common.moveUp' | translate}}"
             class="btn"
-            [disabled]="settings.config.date.order <= shared.orderMin"
-            (click)="changeOrder(true)">
+            [disabled]="!settings.config.date.enabled || shared.isFirst(settings.config.date.id)"
+            (click)="shared.changeOrder(settings.config.date.id, true)">
             <div class="icon">arrow_drop_up</div>
           </button>
           <button
             type="button"
             title="{{'options.common.moveDown' | translate}}"
             class="btn"
-            [disabled]="settings.config.date.order >= shared.orderMax"
-            (click)="changeOrder(false)">
+            [disabled]="!settings.config.date.enabled || shared.isLast(settings.config.date.id)"
+            (click)="shared.changeOrder(settings.config.date.id, false)">
             <div class="icon">arrow_drop_down</div>
           </button>
         </div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { fade } from '../../_shared/animations';
+import { SharedService } from '../../_shared/shared.service';
 
 @Component({
   selector: 'options-bookmarks',
@@ -11,7 +12,7 @@ export class OptionsBookmarksComponent {
   editMode: boolean[] = [];
   isInvalid = false;
 
-  constructor(public settings: Storage) {
+  constructor(public settings: Storage, public shared: SharedService) {
   }
 
   resetEdit() {
@@ -23,9 +24,11 @@ export class OptionsBookmarksComponent {
   addLink(model: any, isValid: boolean) {
     if (isValid) {
       this.isInvalid = false;
+      let id = this.shared.createID('LINK');
       let label = model.value.label;
       let url = this.checkLink(model.value.url);
       this.settings.config.bookmarks.links.push({
+        id: id,
         label: label,
         url: url,
       });

@@ -1,3 +1,5 @@
+import { SharedService } from '../shared.service';
+
 export class Bookmarks {
   constructor(
     bookmarksBar: boolean = false,
@@ -10,6 +12,7 @@ export class Bookmarks {
 
 export class Link {
   constructor(
+    id: string = SharedService.prototype.createID('LINK'),
     label: string = '',
     url: string = '',
   ) {}

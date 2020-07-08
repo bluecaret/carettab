@@ -46,22 +46,18 @@ export class OptionsTimeComponent {
   add() {
     this.settings.config.time.clocks.push(new Clock());
     let i = (this.settings.config.time.clocks.length - 1);
+    this.shared.toggleOrder(this.settings.config.time.clocks[i].id, true);
     this.selected = i;
   }
 
   /** Deletes clock */
   delete(index: number) {
     if (confirm('Are you sure you want to delete this clock?')) {
+      this.shared.toggleOrder(this.settings.config.time.clocks[index].id, false);
       this.settings.config.time.clocks.splice(index, 1);
     } else {
       return;
     }
-  }
-
-  /** Move item's order in array up or down */
-  swap(arr: any[], from: number, to: number) {
-    this.selected = null;
-    arr.splice(from, 1, arr.splice(to, 1, arr[from])[0]);
   }
 
 }

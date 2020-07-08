@@ -14,16 +14,4 @@ export class OptionsMessageComponent {
   ) {
   }
 
-  changeOrder(up) {
-    if (up) {
-      if (this.settings.config.message.order > this.shared.orderMin) {
-        this.settings.config.message.order--;
-      }
-    } else {
-      if (this.settings.config.message.order < this.shared.orderMax) {
-        this.settings.config.message.order++;
-      }
-    }
-  }
-
 }

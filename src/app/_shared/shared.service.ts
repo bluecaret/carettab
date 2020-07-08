@@ -1,5 +1,6 @@
 import { Injectable, Pipe, PipeTransform } from '@angular/core';
 import { fontList, customFontWeight } from './lists/lists';
+import { Storage } from '../_storage/storage.service';
 
 @Injectable()
 export class SharedService {
@@ -14,9 +15,10 @@ export class SharedService {
   private _bg: string;
   private _status: string;
 
-  // Order number to start clocks at. Should equal the number of elements that
-  // display inside the .tabCenter div excluding clocks plus one.
-  public clockOrderStart = 4;
+  constructor(
+    public settings: Storage
+  ) {
+  }
 
   get optionsToggle(): boolean {
     return this._optionsToggle;
@@ -88,6 +90,14 @@ export class SharedService {
     this._status = value;
   }
 
+  public createID(prefix: string) {
+    return prefix + '_' + (
+      Number(String(Math.random()).slice(2)) +
+      Date.now() +
+      Math.round(performance.now())
+    ).toString(36).toUpperCase();
+  }
+
   public getFont(font: number, custom: string) {
     let fontName;
     if (font !== 0) {
@@ -121,6 +131,73 @@ export class SharedService {
   public getOffsetLarge(size: number) {
     let offset = ((size * 10) * -1);
     return 'translateY(' + offset + '%)';
+  }
+
+  public toggleOrder(id: string, enabled: boolean) {
+    if (!enabled) {
+      let elIndex = this.settings.config.order.findIndex(e => e.id === id);
+      this.settings.config.order.splice(elIndex, 1);
+
+      let sorted = this.settings.config.order.sort((a, b) => a.order - b.order);
+      sorted.forEach((e, index) => {
+        e.order = index + 1;
+      });
+    } else {
+      let sorted = this.settings.config.order.sort((a, b) => a.order - b.order);
+      let newOrderNumber = (sorted[sorted.length - 1].order) + 1;
+      this.settings.config.order.push({
+        id: id,
+        order: newOrderNumber
+      });
+    }
+  }
+
+  public changeOrder(id: string, up: boolean) {
+    let sibling: any;
+    let el = this.settings.config.order.find(e => e.id === id);
+
+    if (up) {
+      sibling = this.settings.config.order.find(e => e.order === el.order - 1);
+      if (sibling) {
+        sibling.order += 1;
+        el.order -= 1;
+      }
+    } else {
+      sibling = this.settings.config.order.find(e => e.order === el.order + 1);
+      if (sibling) {
+        sibling.order -= 1;
+        el.order += 1;
+      }
+    }
+  }
+
+  public getOrder(id: string) {
+    let el = this.settings.config.order.find(e => e.id === id);
+    if (el) {
+      return el.order;
+    } else {
+      return 'unset';
+    }
+  }
+
+  public isFirst(id: string): boolean {
+    let el = this.settings.config.order.find(e => e.id === id);
+    if (el) {
+      return el.order === 1;
+    } else {
+      return false;
+    }
+  }
+
+  public isLast(id: string): boolean {
+    let el = this.settings.config.order.find(e => e.id === id);
+    if (el) {
+      let sorted = this.settings.config.order.sort((a, b) => a.order - b.order);
+      let last = sorted[sorted.length - 1].order;
+      return el.order === last;
+    } else {
+      return false;
+    }
   }
 
 }

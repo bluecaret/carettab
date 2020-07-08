@@ -3,7 +3,7 @@
     <legend>{{'options.search.search' | translate}}</legend>
     <div class="grid cols-5">
       <div class="field span-1">
-        <options-toggle name="searchBox" id="searchBox" [(ngModel)]="settings.config.search.enabled"></options-toggle>
+        <options-toggle name="searchBox" id="searchBox" [(ngModel)]="settings.config.search.enabled" (ngModelChange)="shared.toggleOrder(settings.config.search.id, $event)"></options-toggle>
         <label>{{'options.search.searchBox' | translate}}</label>
       </div>
       <div class="field span-2">
@@ -34,16 +34,16 @@
             type="button"
             title="{{'options.common.moveUp' | translate}}"
             class="btn"
-            [disabled]="settings.config.search.order <= shared.orderMin"
-            (click)="changeOrder(true)">
+            [disabled]="!settings.config.search.enabled || shared.isFirst(settings.config.search.id)"
+            (click)="shared.changeOrder(settings.config.search.id, true)">
             <div class="icon">arrow_drop_up</div>
           </button>
           <button
             type="button"
             title="{{'options.common.moveDown' | translate}}"
             class="btn"
-            [disabled]="settings.config.search.order >= shared.orderMax"
-            (click)="changeOrder(false)">
+            [disabled]="!settings.config.search.enabled || shared.isLast(settings.config.search.id)"
+            (click)="shared.changeOrder(settings.config.search.id, false)">
             <div class="icon">arrow_drop_down</div>
           </button>
         </div>

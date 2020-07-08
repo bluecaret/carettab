@@ -28,7 +28,6 @@ export class OptionsExtraComponent {
   }
 
   useLanguage(language: string) {
-    console.log('Language changed to: ' + language);
     this.translate.use(language);
   }
 }

@@ -54,7 +54,6 @@ export class SplashComponent implements OnInit {
 
   chooseLang(lang: string) {
     this.settings.config.lang = lang;
-    console.log('Language changed to: ' + lang);
     this.translate.use(lang);
   }
 

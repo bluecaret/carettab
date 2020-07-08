@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     chrome.storage.sync.get('caretTabStatus', (data) => this.zone.run(() => {
       this.shared.status = data['caretTabStatus'];
-      console.log('CaretTab status: ' + this.shared.status);
+      // console.log('CaretTab status: ' + this.shared.status);
     }));
     this.settings.onChange().subscribe((data) => {
       if (

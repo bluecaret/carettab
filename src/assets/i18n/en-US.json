@@ -34,6 +34,7 @@
       "moveUp": "Move above other elements",
       "offset": "Offset",
       "order": "Order",
+      "placement": "Placement",
       "size": "Size",
       "timezone": "Timezone",
       "width": "Width"

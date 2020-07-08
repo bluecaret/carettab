@@ -34,6 +34,7 @@
       "moveUp": "他の要素の上に移動",
       "offset": "オフセット",
       "order": "注文",
+      "placement": "配置",
       "size": "サイズ",
       "timezone": "タイムゾーン",
       "width": "幅"

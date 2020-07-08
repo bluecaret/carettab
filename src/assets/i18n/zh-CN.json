@@ -34,6 +34,7 @@
       "moveUp": "移动到其他元素之上",
       "offset": "抵消",
       "order": "订购",
+      "placement": "放置",
       "size": "尺寸",
       "timezone": "时区",
       "width": "宽度"

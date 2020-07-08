@@ -74,28 +74,33 @@
           <div class="grid cols-2">
             <div class="box span-2">
               <h4 class="boxHeading">{{'options.time.generalSettings' | translate}}</h4>
-              <div class="grid cols-18">
-                <div class="field span-6">
-                  <options-range [name]="'clockSize'+i" [id]="'clockSize'+i" min="1" max="40" [(ngModel)]="clock.scaling"></options-range>
-                  <label [for]="'clockSize'+i" title="{{'options.time.sizeDesc' | translate}}">{{'options.common.size' | translate}}</label>
+              <div class="grid cols-5">
+                <div class="field span-1">
+                  <options-toggle [name]="'clockTwentyFour'+i" [id]="'clockTwentyFour'+i" [(ngModel)]="clock.twentyFour"></options-toggle>
+                  <label title="{{'options.time.twentyFourDesc' | translate}}">{{'options.time.twentyFour' | translate}}</label>
                 </div>
-                <div class="field span-6">
+                <div class="field span-3">
                   <options-range [name]="'clockPadding'+i" [id]="'clockPadding'+i" min="1" max="20" [(ngModel)]="clock.padding"></options-range>
                   <label [for]="'clockPadding'+i" title="{{'options.time.paddingDesc' | translate}}">{{'options.time.padding' | translate}}</label>
                 </div>
-                <div class="field span-6">
-                  <options-range [name]="'clockOffset'+i" [id]="'clockOffset'+i" min="-20" max="20" [(ngModel)]="clock.offset"></options-range>
-                  <label [for]="'clockOffset'+i" title="{{'options.time.offsetDesc' | translate}}">{{'options.common.offset' | translate}}</label>
-                </div>
-                <div class="field span-4">
+              </div>
+            </div>
+            <div class="box span-2">
+              <h4 class="boxHeading">{{'options.common.placement' | translate}}</h4>
+              <div class="grid cols-6">
+                <div class="field span-2">
                   <select [name]="'clockSpan'+i" [id]="'clockSpan'+i" [(ngModel)]="clock.span">
                     <option *ngFor="let s of span" [ngValue]="s.id">{{s.label}}</option>
                   </select>
                   <label [for]="'clockSpan'+i" title="{{'options.time.spanDesc' | translate}}">{{'options.time.span' | translate}}</label>
                 </div>
-                <div class="field span-3">
-                  <options-toggle [name]="'clockTwentyFour'+i" [id]="'clockTwentyFour'+i" [(ngModel)]="clock.twentyFour"></options-toggle>
-                  <label title="{{'options.time.twentyFourDesc' | translate}}">{{'options.time.twentyFour' | translate}}</label>
+                <div class="field span-2">
+                  <options-range [name]="'clockSize'+i" [id]="'clockSize'+i" min="1" max="40" [(ngModel)]="clock.scaling"></options-range>
+                  <label [for]="'clockSize'+i" title="{{'options.time.sizeDesc' | translate}}">{{'options.common.size' | translate}}</label>
+                </div>
+                <div class="field span-2">
+                  <options-range [name]="'clockOffset'+i" [id]="'clockOffset'+i" min="-20" max="20" [(ngModel)]="clock.offset"></options-range>
+                  <label [for]="'clockOffset'+i" title="{{'options.time.offsetDesc' | translate}}">{{'options.common.offset' | translate}}</label>
                 </div>
               </div>
             </div>

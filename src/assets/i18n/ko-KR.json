@@ -34,6 +34,7 @@
       "moveUp": "",
       "offset": "",
       "order": "",
+      "placement": "놓기",
       "size": "",
       "timezone": "",
       "width": ""
@@ -68,7 +69,7 @@
     },
     "design": {
       "bg": "",
-      "brightness": "명도",
+      "brightness": "",
       "browseForImg": "",
       "colors": "",
       "customFontDesc": "",

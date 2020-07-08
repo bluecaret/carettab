@@ -6,6 +6,7 @@
   "description": "A beautifully simplistic New Tab page that includes multiple clocks, date, search, quick links, and more! Fully customizable!",
   "version": "3.0.0.4",
   "version_name": "3.0.0 Beta 4",
+  "default_locale": "en",
 
   "icons": { "16": "assets/img/icon16-beta.png",
              "48": "assets/img/icon48-beta.png",

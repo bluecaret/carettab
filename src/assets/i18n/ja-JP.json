@@ -12,7 +12,7 @@
   "options": {
     "bookmarks": {
       "appsLink": "アプリリンク",
-      "chromeTabLink": "Chromeタブ",
+      "chromeTabLink": "デフォルトのタブ",
       "enableBar": "ブックマークバー",
       "enableQuick": "クイックリンク",
       "favicons": "ファビコン",
@@ -245,7 +245,7 @@
       "links": {
         "apps": "アプリ",
         "bookmarksManager": "ブックマークマネージャ",
-        "chromeTab": "Chromeタブ",
+        "chromeTab": "デフォルトのタブ",
         "history": "歴史",
         "mostVisited": "最も訪問した"
       }

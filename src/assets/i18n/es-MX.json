@@ -12,7 +12,7 @@
   "options": {
     "bookmarks": {
       "appsLink": "Enlace de aplicaciones",
-      "chromeTabLink": "Pestaña de cromo",
+      "chromeTabLink": "Ficha predeterminada",
       "enableBar": "La barra de marcadores",
       "enableQuick": "enlaces rápidos",
       "favicons": "Favicons",
@@ -245,7 +245,7 @@
       "links": {
         "apps": "Aplicaciones",
         "bookmarksManager": "Gestor de marcadores",
-        "chromeTab": "Pestaña de cromo",
+        "chromeTab": "Ficha predeterminada",
         "history": "historia",
         "mostVisited": "Más visitado"
       }

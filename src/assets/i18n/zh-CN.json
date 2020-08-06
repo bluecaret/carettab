@@ -12,7 +12,7 @@
   "options": {
     "bookmarks": {
       "appsLink": "应用链接",
-      "chromeTabLink": "Chrome标签",
+      "chromeTabLink": "默认标签页",
       "enableBar": "书签栏",
       "enableQuick": "快速链接",
       "favicons": "网站图示",
@@ -245,7 +245,7 @@
       "links": {
         "apps": "应用",
         "bookmarksManager": "书签管理员",
-        "chromeTab": "Chrome标签",
+        "chromeTab": "默认标签页",
         "history": "历史",
         "mostVisited": "访问最多的站点"
       }

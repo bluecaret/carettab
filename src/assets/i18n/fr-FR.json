@@ -12,7 +12,7 @@
   "options": {
     "bookmarks": {
       "appsLink": "Lien Apps",
-      "chromeTabLink": "Onglet Chrome",
+      "chromeTabLink": "Onglet par défaut",
       "enableBar": "Barre des favoris",
       "enableQuick": "Liens rapides",
       "favicons": "Favicons",
@@ -245,7 +245,7 @@
       "links": {
         "apps": "applications",
         "bookmarksManager": "Gestionnaire de favoris",
-        "chromeTab": "Onglet Chrome",
+        "chromeTab": "Onglet par défaut",
         "history": "L'histoire",
         "mostVisited": "Le plus visité"
       }

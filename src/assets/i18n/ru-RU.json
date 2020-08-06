@@ -12,7 +12,7 @@
   "options": {
     "bookmarks": {
       "appsLink": "Ссылка на приложения",
-      "chromeTabLink": "Chrome Tab",
+      "chromeTabLink": "Вкладка по умолчанию",
       "enableBar": "Панель закладок",
       "enableQuick": "Быстрые ссылки",
       "favicons": "Favicons",
@@ -245,7 +245,7 @@
       "links": {
         "apps": "Программы",
         "bookmarksManager": "Диспетчер закладок",
-        "chromeTab": "Chrome Tab",
+        "chromeTab": "Вкладка по умолчанию",
         "history": "история",
         "mostVisited": "Самый посещаемый"
       }

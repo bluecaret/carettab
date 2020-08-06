@@ -12,7 +12,7 @@
   "options": {
     "bookmarks": {
       "appsLink": "קישור לאפליקציות",
-      "chromeTabLink": "הכרטיסייה Chrome",
+      "chromeTabLink": "כרטיסיית ברירת מחדל",
       "enableBar": "סרגל מועדפים",
       "enableQuick": "קישורים מהירים",
       "favicons": "פופיקונים",
@@ -245,7 +245,7 @@
       "links": {
         "apps": "אפליקציות",
         "bookmarksManager": "מנהל סימניות",
-        "chromeTab": "הכרטיסייה Chrome",
+        "chromeTab": "כרטיסיית ברירת מחדל",
         "history": "הסטוריה",
         "mostVisited": "הכי ביקר"
       }

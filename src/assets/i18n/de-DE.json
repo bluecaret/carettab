@@ -12,7 +12,7 @@
   "options": {
     "bookmarks": {
       "appsLink": "Apps-Link",
-      "chromeTabLink": "Chrome Tab",
+      "chromeTabLink": "Standard-Tab",
       "enableBar": "Lesezeichenleiste",
       "enableQuick": "SCHNELLE LINKS",
       "favicons": "Favicons",
@@ -245,7 +245,7 @@
       "links": {
         "apps": "Apps",
         "bookmarksManager": "Lesezeichen-Manager",
-        "chromeTab": "Chrome Tab",
+        "chromeTab": "Standard-Tab",
         "history": "Geschichte",
         "mostVisited": "Meist besuchte"
       }

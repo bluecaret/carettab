@@ -222,6 +222,7 @@
     "skip": "Skip",
     "updatedTo": "CaretTab has been updated to",
     "v3": {
+      "importLinks": "Attempt to import Quick Links",
       "important": "Important:",
       "l1": "CaretTab has been recreated from scratch to improve performance and stability!",
       "l2": "Clocks now have full customization! You can now set all settings on all clocks, give it a try!",
@@ -232,8 +233,9 @@
       "l7": "Display your browser's bookmarks bar on the new tab page.",
       "l8": "Lots more! take a look around and try things out.",
       "p1": "Let's go over some important information and what's new.",
-      "p2": "This update changes the way settings are saved as well as changes a lot of features. Unfortunately due to these differences and to save on development time, this means your settings cannot be saved. You will need to apply your settings again. I apologize for the inconvenience this causes but I promise the update will be worth it!",
+      "p2": "This update changes the way settings are saved as well as changes a lot of features. Unfortunately due to these differences and to save on development time, not all settings can be saved. You will need to apply your settings again. I apologize for the inconvenience this causes but I promise the update will be worth it! To help with the transition, your Quick Links can be imported using the button below. Please copy the list of links shown as a backup in case import fails.",
       "p3": "The next screen will bring you through some basic options to get started.",
+      "recovered": "Quick Links from previous version",
       "title": "The biggest update yet!"
     },
     "yes": "Yes"

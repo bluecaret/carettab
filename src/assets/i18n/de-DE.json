@@ -222,6 +222,7 @@
     "skip": "Überspringen",
     "updatedTo": "CaretTab wurde auf aktualisiert",
     "v3": {
+      "importLinks": "Versuchen Sie, Quick Links zu importieren",
       "important": "WICHTIG:",
       "l1": "CaretTab wurde von Grund auf neu erstellt, um Leistung und Stabilität zu verbessern!",
       "l2": "Die Uhren können jetzt vollständig angepasst werden! Sie können jetzt alle Einstellungen für alle Uhren vornehmen, probieren Sie es aus!",
@@ -232,8 +233,9 @@
       "l7": "Zeigen Sie die Lesezeichenleiste Ihres Browsers auf der neuen Registerkarte an.",
       "l8": "Viel mehr! Schauen Sie sich um und probieren Sie es aus.",
       "p1": "Lassen Sie uns einige wichtige Informationen und Neuigkeiten durchgehen.",
-      "p2": "Dieses Update ändert die Art und Weise, wie Einstellungen gespeichert werden, sowie viele Funktionen. Aufgrund dieser Unterschiede und um Entwicklungszeit zu sparen, können Ihre Einstellungen leider nicht gespeichert werden. Sie müssen Ihre Einstellungen erneut anwenden. Ich entschuldige mich für die dadurch verursachten Unannehmlichkeiten, aber ich verspreche, dass sich das Update lohnt!",
+      "p2": "Dieses Update ändert die Art und Weise, wie Einstellungen gespeichert werden, sowie viele Funktionen. Leider können aufgrund dieser Unterschiede und um Entwicklungszeit zu sparen, nicht alle Einstellungen gespeichert werden. Sie müssen Ihre Einstellungen erneut anwenden. Ich entschuldige mich für die dadurch verursachten Unannehmlichkeiten, aber ich verspreche, dass sich das Update lohnt! Um den Übergang zu erleichtern, können Ihre Quick Links über die Schaltfläche unten importiert werden. Bitte kopieren Sie die Liste der Links, die als Backup angezeigt werden, falls der Import fehlschlägt.",
       "p3": "Der nächste Bildschirm führt Sie durch einige grundlegende Optionen, um loszulegen.",
+      "recovered": "Quick Links aus der Vorgängerversion",
       "title": "Das bisher größte Update!"
     },
     "yes": "Ja"

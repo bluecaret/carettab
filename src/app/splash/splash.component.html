@@ -22,6 +22,22 @@
     <p>{{'splash.v3.p1' | translate}}</p>
     <h3>{{'splash.v3.important' | translate}}</h3>
     <p>{{'splash.v3.p2' | translate}}</p>
+    <form novalidate>
+      <fieldset class="mt-2">
+        <div class="grid cols-6">
+          <div class="field span-4" style="grid-template: 25px 50px / 1fr;">
+            <label title="{{'splash.v3.recovered' | translate}}">{{'splash.v3.recovered' | translate}}</label>
+            <textarea name="recoveredLinks" id="recoveredLinks" readonly="readonly">{{printRecoveredQuickLinks}}</textarea>
+          </div>
+          <div class="field span-2">
+            <div>
+              <button id="recoverLinksBtn" type="button" class="btn mt1" (click)="recoverLinks()" [disabled]="importStatus != ''">{{'splash.v3.importLinks' | translate}}</button>
+              <div class="mt1" style="color: green">{{importStatus}}</div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
     <p>{{'splash.v3.p3' | translate}}</p>
     <h3>{{'splash.new' | translate}}</h3>
     <ul>

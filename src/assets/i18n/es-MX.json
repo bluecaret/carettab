@@ -222,6 +222,7 @@
     "skip": "Omitir",
     "updatedTo": "CaretTab se ha actualizado a",
     "v3": {
+      "importLinks": "Intentar importar enlaces rápidos",
       "important": "IMPORTANTE:",
       "l1": "¡CaretTab ha sido recreado desde cero para mejorar el rendimiento y la estabilidad!",
       "l2": "¡Los relojes ahora tienen personalización completa! Ahora puede configurar todos los ajustes en todos los relojes, ¡pruébelo!",
@@ -232,8 +233,9 @@
       "l7": "Muestra la barra de marcadores de tu navegador en la nueva pestaña.",
       "l8": "¡Mucho más! Echa un vistazo y prueba cosas.",
       "p1": "Repasemos información importante y las novedades.",
-      "p2": "Esta actualización cambia la forma en que se guardan las configuraciones, así como también cambia muchas características. Desafortunadamente, debido a estas diferencias y para ahorrar tiempo de desarrollo, esto significa que su configuración no se puede guardar. Deberá volver a aplicar su configuración. Pido disculpas por las molestias que esto causa, pero prometo que la actualización valdrá la pena.",
+      "p2": "Esta actualización cambia la forma en que se guardan las configuraciones, así como también cambia muchas características. Desafortunadamente, debido a estas diferencias y para ahorrar tiempo de desarrollo, no se pueden guardar todas las configuraciones. Deberá volver a aplicar su configuración. Pido disculpas por las molestias que esto causa, pero prometo que la actualización valdrá la pena. Para ayudar con la transición, sus enlaces rápidos se pueden importar usando el botón a continuación. Copie la lista de enlaces que se muestra como copia de seguridad en caso de que falle la importación.",
       "p3": "La siguiente pantalla lo llevará a través de algunas opciones básicas para comenzar.",
+      "recovered": "Enlaces rápidos de la versión anterior",
       "title": "¡La mayor actualización hasta ahora!"
     },
     "yes": "Sí"

@@ -222,6 +222,7 @@
     "skip": "Sauter",
     "updatedTo": "CaretTab a été mis à jour pour",
     "v3": {
+      "importLinks": "Tentative d'importation de liens rapides",
       "important": "IMPORTANT:",
       "l1": "CaretTab a été recréé à partir de zéro pour améliorer les performances et la stabilité!",
       "l2": "Les horloges ont maintenant une personnalisation complète! Vous pouvez maintenant définir tous les paramètres sur toutes les horloges, essayez-le!",
@@ -232,8 +233,9 @@
       "l7": "Affichez la barre de favoris de votre navigateur sur la nouvelle page à onglet.",
       "l8": "Beaucoup plus! jetez un œil et essayez les choses.",
       "p1": "Passons en revue certaines informations importantes et les nouveautés.",
-      "p2": "Cette mise à jour modifie la façon dont les paramètres sont enregistrés ainsi que de nombreuses fonctionnalités. Malheureusement, en raison de ces différences et pour gagner du temps de développement, cela signifie que vos paramètres ne peuvent pas être enregistrés. Vous devrez à nouveau appliquer vos paramètres. Je m'excuse pour la gêne occasionnée mais je promets que la mise à jour en vaudra la peine!",
+      "p2": "Cette mise à jour modifie la façon dont les paramètres sont enregistrés ainsi que de nombreuses fonctionnalités. Malheureusement, en raison de ces différences et pour gagner du temps de développement, tous les paramètres ne peuvent pas être enregistrés. Vous devrez à nouveau appliquer vos paramètres. Je m'excuse pour la gêne occasionnée mais je promets que la mise à jour en vaudra la peine! Pour faciliter la transition, vos liens rapides peuvent être importés à l'aide du bouton ci-dessous. Veuillez copier la liste des liens affichés comme sauvegarde en cas d'échec de l'importation.",
       "p3": "L'écran suivant vous présentera quelques options de base pour commencer.",
+      "recovered": "Liens rapides de la version précédente",
       "title": "La plus grande mise à jour à ce jour!"
     },
     "yes": "Oui"

@@ -24,6 +24,9 @@ export class SplashComponent implements OnInit {
   colors = colors;
   languages = languages;
   newLang: string;
+  recoveredQuickLinks = [];
+  printRecoveredQuickLinks: any;
+  importStatus = '';
 
   constructor(
     public shared: SharedService,
@@ -35,6 +38,28 @@ export class SplashComponent implements OnInit {
   ngOnInit() {
     if (this.shared.status === 'updated') {
       this.step = 900;
+
+      chrome.storage.sync.get((a) => {
+        this.printRecoveredQuickLinks = '';
+        if (a.links && a.links.length > 0) {
+          for (let i = 0; i < a.links.length; i++) {
+            this.printRecoveredQuickLinks += a.links[i].label + ' <' + a.links[i].url + '>\n'  ;
+            this.recoveredQuickLinks.push({id: this.shared.createID('LINK'), label: a.links[i].label, url: a.links[i].url});
+          }
+        } else {
+          this.printRecoveredQuickLinks = 'No Quick Links found.';
+        }
+      });
+    }
+  }
+
+  recoverLinks() {
+    if (this.recoveredQuickLinks.length > 0) {
+      this.settings.config.bookmarks.links = this.recoveredQuickLinks;
+      this.importStatus = 'Import completed.';
+      console.log('Imported Quick Links: ', this.recoveredQuickLinks);
+    } else {
+      this.importStatus = 'No Quick Links found to import.';
     }
   }
 

@@ -232,7 +232,7 @@
       "l7": "Affichez la barre de favoris de votre navigateur sur la nouvelle page à onglet.",
       "l8": "Beaucoup plus! jetez un œil et essayez les choses.",
       "p1": "Passons en revue certaines informations importantes et les nouveautés.",
-      "p2": "Cette mise à jour modifie la façon dont les paramètres sont enregistrés ainsi que de nombreuses fonctionnalités. Malheureusement, cela signifie que vos paramètres ne peuvent pas être enregistrés. Vous devrez à nouveau appliquer vos paramètres. Je m'excuse pour la gêne occasionnée, mais je promets que la mise à jour en vaudra la peine!",
+      "p2": "Cette mise à jour modifie la façon dont les paramètres sont enregistrés ainsi que de nombreuses fonctionnalités. Malheureusement, en raison de ces différences et pour gagner du temps de développement, cela signifie que vos paramètres ne peuvent pas être enregistrés. Vous devrez à nouveau appliquer vos paramètres. Je m'excuse pour la gêne occasionnée mais je promets que la mise à jour en vaudra la peine!",
       "p3": "L'écran suivant vous présentera quelques options de base pour commencer.",
       "title": "La plus grande mise à jour à ce jour!"
     },

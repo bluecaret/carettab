@@ -232,7 +232,7 @@
       "l7": "Muestra la barra de marcadores de tu navegador en la nueva pestaña.",
       "l8": "¡Mucho más! Echa un vistazo y prueba cosas.",
       "p1": "Repasemos información importante y las novedades.",
-      "p2": "Esta actualización cambia la forma en que se guardan las configuraciones, así como también muchas características. Desafortunadamente, esto significa que su configuración no se puede guardar. Deberá volver a aplicar su configuración. Pido disculpas por la molestia que esto causa, ¡pero prometo que la actualización valdrá la pena!",
+      "p2": "Esta actualización cambia la forma en que se guardan las configuraciones, así como también cambia muchas características. Desafortunadamente, debido a estas diferencias y para ahorrar tiempo de desarrollo, esto significa que su configuración no se puede guardar. Deberá volver a aplicar su configuración. Pido disculpas por las molestias que esto causa, pero prometo que la actualización valdrá la pena.",
       "p3": "La siguiente pantalla lo llevará a través de algunas opciones básicas para comenzar.",
       "title": "¡La mayor actualización hasta ahora!"
     },

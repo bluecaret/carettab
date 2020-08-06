@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
- 
+
   "name": "__MSG_appName__",
   "short_name": "CaretTab",
   "description": "__MSG_appDesc__",
-  "version": "3.0.0.beta",
+  "version": "3.0.0",
   "default_locale": "en",
 
   "icons": { "16": "assets/img/icon16.png",
@@ -14,14 +14,19 @@
   "chrome_url_overrides" : {
     "newtab": "index.html"
   },
-  
+
   "background": {
     "scripts": ["js/update.js"]
   },
 
   "permissions": [
-    "storage"
+    "storage",
+    "bookmarks",
+    "chrome://favicon/",
+    "topSites"
   ],
+
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
 
   "applications": {
     "gecko": {
@@ -29,5 +34,5 @@
       "strict_min_version": "57.0"
     }
   }
-  
+
 }

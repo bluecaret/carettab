@@ -4,5 +4,9 @@
 node_modules
 npm-debug.log
 
+artifacts/
 dist/
+dist-chrome/
+dist-ff/
+dist-edge/
 packages/

@@ -71,7 +71,6 @@ export class Settings {
         {
           id: 'CLOCK_QEXA4RAH17',
           timezone: 'Automatic',
-          order: 3,
           scaling: 10,
           span: 40,
           padding: 10,
@@ -133,7 +132,6 @@ export class Settings {
       enabled: true,
       scaling: 6,
       offset: 0,
-      order: 4,
       timezone: 'Automatic',
       format: 20,
       short: {
@@ -169,7 +167,6 @@ export class Settings {
       enabled: false,
       scaling: 6,
       offset: 0,
-      order: 2,
       width: 13,
       engine: 10,
       autocomplete: true
@@ -179,7 +176,6 @@ export class Settings {
       enabled: false,
       scaling: 8,
       offset: 0,
-      order: 1,
       text: 'Hello world!'
     },
     title: {

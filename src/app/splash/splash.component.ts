@@ -84,8 +84,12 @@ export class SplashComponent implements OnInit {
 
   enableTime(enable: boolean) {
     if (enable) {
+      this.shared.toggleOrder(this.settings.config.time.clocks[0].id, false);
       this.settings.config.time.clocks = [];
+      let newId = this.shared.createID('CLOCK');
+      this.shared.toggleOrder(newId, true);
       this.settings.config.time.clocks.push({
+        id: newId,
         timezone: 'Automatic',
         scaling: 10,
         span: 40,
@@ -142,16 +146,21 @@ export class SplashComponent implements OnInit {
         }
       });
     } else {
+      this.shared.toggleOrder(this.settings.config.time.clocks[0].id, false);
       this.settings.config.time.clocks = [];
     }
     this.step = 4;
   }
 
   enableDate(enable: boolean) {
+    let dateId = this.settings.config.date.id;
     if (enable) {
+      this.shared.toggleOrder(dateId, false);
       this.settings.config.date.enabled = true;
+      this.shared.toggleOrder(dateId, true);
     } else {
       this.settings.config.date.enabled = false;
+      this.shared.toggleOrder(dateId, false);
     }
     this.step = 5;
   }

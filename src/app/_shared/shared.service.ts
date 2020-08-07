@@ -10,8 +10,6 @@ export class SharedService {
   private _time: string;
   private _date: string;
   private _title: string = 'New Tab';
-  private _orderMin: number;
-  private _orderMax: number;
   private _bg: string;
   private _status: string;
 
@@ -39,20 +37,6 @@ export class SharedService {
   }
   set zoneGuess(value: string) {
     this._zoneGuess = value;
-  }
-
-  get orderMin(): number {
-    return this._orderMin;
-  }
-  set orderMin(value: number) {
-    this._orderMin = value;
-  }
-
-  get orderMax(): number {
-    return this._orderMax;
-  }
-  set orderMax(value: number) {
-    this._orderMax = value;
   }
 
   get title(): string {
@@ -134,22 +118,38 @@ export class SharedService {
   }
 
   public toggleOrder(id: string, enabled: boolean) {
-    if (!enabled) {
-      let elIndex = this.settings.config.order.findIndex(e => e.id === id);
-      this.settings.config.order.splice(elIndex, 1);
-
-      let sorted = this.settings.config.order.sort((a, b) => a.order - b.order);
-      sorted.forEach((e, index) => {
-        e.order = index + 1;
-      });
-    } else {
-      let sorted = this.settings.config.order.sort((a, b) => a.order - b.order);
-      let newOrderNumber = (sorted[sorted.length - 1].order) + 1;
-      this.settings.config.order.push({
-        id: id,
-        order: newOrderNumber
-      });
-    }
+      if (!enabled) {
+        console.log('toggleOrder Disabled');
+        let elIndex = this.settings.config.order.findIndex(e => e.id === id);
+        console.log('got elIndex');
+        this.settings.config.order.splice(elIndex, 1);
+        console.log('spliced order');
+        let sorted = this.settings.config.order;
+        if (this.settings.config.order.length > 1) {
+          sorted = this.settings.config.order.sort((a, b) => a.order - b.order);
+        }
+        console.log('elements sorted');
+        sorted.forEach((e, index) => {
+          e.order = index + 1;
+        });
+        console.log('elements re-numbered');
+      } else {
+        console.log('toggleOrder Enabled');
+        let sorted = this.settings.config.order;
+        if (this.settings.config.order.length > 1) {
+          sorted = this.settings.config.order.sort((a, b) => a.order - b.order);
+        }
+        console.log('elements sorted');
+        let newOrderNumber = 1;
+        if (this.settings.config.order.length > 0) {
+          newOrderNumber = (sorted[sorted.length - 1].order) + 1;
+        }
+        this.settings.config.order.push({
+          id: id,
+          order: newOrderNumber
+        });
+        console.log('new element pushed');
+      }
   }
 
   public changeOrder(id: string, up: boolean) {

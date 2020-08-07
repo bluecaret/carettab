@@ -3,6 +3,7 @@ import { transition, trigger, style, state, animate } from '@angular/animations'
 import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from './_shared/shared.service';
 import { Storage } from './_storage/storage.service';
+import { patterns } from './_shared/lists/lists';
 import { tab } from './_shared/animations';
 import * as moment from 'moment';
 
@@ -37,6 +38,7 @@ import * as moment from 'moment';
 })
 export class AppComponent implements OnInit {
   status: string;
+  patterns = patterns;
 
   constructor(
     public shared: SharedService,
@@ -46,9 +48,19 @@ export class AppComponent implements OnInit {
   ) {
     console.log('Thank you for using CaretTab!');
     this.translate.setDefaultLang('en-US');
+
+    // Set background image
     let savedImg = localStorage.getItem('bgImg');
-    if (savedImg) {
+    if (savedImg != null || savedImg != undefined) {
       this.shared.bg = savedImg;
+    } else {
+      let patternId = this.settings.config.design.patternId;
+      let img = '0.png';
+      if (patternId !== 0) {
+        img = patterns.find(p => p.id === patternId).pattern;
+      }
+      let bg = './assets/patterns/' + img;
+      this.shared.bg = bg;
     }
   }
 

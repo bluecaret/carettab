@@ -21,6 +21,7 @@ export class OptionsExtraComponent {
   reset() {
     if (confirm('Are you sure you want to reset all settings to default?')) {
       this.settings.clear();
+      localStorage.removeItem('bgImg');
       location.reload();
     } else {
       return;

@@ -64,10 +64,13 @@ export class OptionsDesignComponent implements OnInit {
 
   setPattern(p: {id: number, pattern: string}) {
     let bg = './assets/patterns/' + p.pattern;
-    localStorage.setItem('bgImg', bg);
-    this.shared.bg = bg;
     this.settings.config.design.patternId = p.id;
     this.settings.config.design.imageSize = 10;
+    if (p.id === 0) {
+      localStorage.removeItem('bgImg');
+      bg = './assets/patterns/0.png';
+    }
+    this.shared.bg = bg;
   }
 
   encodeImage(e, input) {
@@ -90,7 +93,7 @@ export class OptionsDesignComponent implements OnInit {
       try {
         localStorage.setItem('bgImg', uploadSrc);
         this.shared.bg = uploadSrc;
-        this.settings.config.design.patternId = -1;
+        this.settings.config.design.patternId = 900;
         this.settings.config.design.imageSize = 20;
       } catch (e) {
         if (this.isQuotaExceeded(e)) {

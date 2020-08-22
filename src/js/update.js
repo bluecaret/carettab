@@ -14,4 +14,4 @@ if(typeof chrome.runtime.onInstalled  !== 'undefined')
 }
 
 // Send user to uninstall page
-// chrome.runtime.setUninstallURL('https://carettab.com/uninstall');
+chrome.runtime.setUninstallURL('https://carettab.com/thank-you');

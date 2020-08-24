@@ -25,8 +25,11 @@
 
   "permissions": [
     "storage",
+    "chrome://favicon/"
+  ],
+
+  "optional_permissions": [
     "bookmarks",
-    "chrome://favicon/",
     "topSites"
   ],
 

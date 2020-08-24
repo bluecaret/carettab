@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng build --watch",
-    "start:firefox": "web-ext run --source-dir=dist -t firefox-desktop",
+    "start:firefox": "web-ext run --source-dir=dist-ff -t firefox-desktop",
     "start:chrome": "web-ext run --source-dir=dist -t chromium",
     "build": "ng build --prod",
     "build:ext": "web-ext build --source-dir=dist --artifacts-dir=.",

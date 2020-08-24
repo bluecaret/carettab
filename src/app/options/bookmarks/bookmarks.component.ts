@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { fade } from '../../_shared/animations';
 import { SharedService } from '../../_shared/shared.service';
@@ -8,11 +8,74 @@ import { SharedService } from '../../_shared/shared.service';
   templateUrl: 'bookmarks.component.html',
   animations: [fade]
 })
-export class OptionsBookmarksComponent {
+export class OptionsBookmarksComponent implements OnInit {
   editMode: boolean[] = [];
   isInvalid = false;
+  hasBookmarkPermission: boolean;
+  hasTopSitesPermission: boolean;
 
-  constructor(public settings: Storage, public shared: SharedService) {
+  constructor (
+    public settings: Storage,
+    public shared: SharedService,
+    private zone: NgZone
+  ) {
+  }
+
+  ngOnInit() {
+    this.checkBookmarkPermission();
+    this.checkTopSitesPermission();
+  }
+
+  checkBookmarkPermission() {
+    const that = this;
+    chrome.permissions.contains({permissions: ['bookmarks']}, function(result) {
+      that.zone.run(() => {
+        that.allowBookmarks(result);
+      });
+    });
+  }
+
+  setBookmarkPermission() {
+    const that = this;
+    chrome.permissions.request({permissions: ['bookmarks']}, function(granted) {
+      that.zone.run(() => {
+        that.allowBookmarks(granted);
+      });
+    });
+  }
+
+  allowBookmarks(granted: boolean) {
+    if (granted) {
+      this.hasBookmarkPermission = true;
+    } else {
+      this.hasBookmarkPermission = false;
+    }
+  }
+
+  checkTopSitesPermission() {
+    const that = this;
+    chrome.permissions.contains({permissions: ['topSites']}, function(result) {
+      that.zone.run(() => {
+        that.allowTopSites(result);
+      });
+    });
+  }
+
+  setTopSitesPermission() {
+    const that = this;
+    chrome.permissions.request({permissions: ['topSites']}, function(granted) {
+      that.zone.run(() => {
+        that.allowTopSites(granted);
+      });
+    });
+  }
+
+  allowTopSites(granted: boolean) {
+    if (granted) {
+      this.hasTopSitesPermission = true;
+    } else {
+      this.hasTopSitesPermission = false;
+    }
   }
 
   resetEdit() {

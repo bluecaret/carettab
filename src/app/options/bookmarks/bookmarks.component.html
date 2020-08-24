@@ -2,8 +2,9 @@
   <fieldset>
     <legend>{{'options.bookmarks.headingBar' | translate}}</legend>
     <div class="grid cols-5">
-      <div class="field span-1">
-        <options-toggle name="toggleBookmarks" [(ngModel)]="settings.config.bookmarks.bookmarksBar.enabled"></options-toggle>
+      <div class="field" [ngClass]="hasBookmarkPermission ? 'span-1' : 'span-5'">
+        <button class="btn" *ngIf="!hasBookmarkPermission" (click)="setBookmarkPermission()">Allow extension to access Bookmarks</button>
+        <options-toggle *ngIf="hasBookmarkPermission" name="toggleBookmarks" [(ngModel)]="settings.config.bookmarks.bookmarksBar.enabled"></options-toggle>
         <label>{{'options.bookmarks.enableBar' | translate}}</label>
       </div>
       <div class="field span-1">
@@ -27,8 +28,9 @@
           <options-toggle name="bookmarksManagerBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.bookmarksManager"></options-toggle>
           <label>{{'options.bookmarks.managerLink' | translate}}</label>
         </div>
-        <div class="field span-1">
-          <options-toggle name="mostVisitedBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.mostVisited"></options-toggle>
+        <div class="field" [ngClass]="hasTopSitesPermission ? 'span-1' : 'span-5'">
+          <button class="btn" *ngIf="!hasTopSitesPermission" (click)="setTopSitesPermission()">Allow extension to access Top Sites</button>
+          <options-toggle *ngIf="hasTopSitesPermission" name="mostVisitedBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.mostVisited"></options-toggle>
           <label>{{'options.bookmarks.mostVisited' | translate}}</label>
         </div>
       </div>
@@ -69,8 +71,9 @@
           <options-toggle name="bookmarksManagerQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.bookmarksManager"></options-toggle>
           <label>{{'options.bookmarks.managerLink' | translate}}</label>
         </div>
-        <div class="field span-1">
-          <options-toggle name="mostVisitedQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.mostVisited"></options-toggle>
+        <div class="field" [ngClass]="hasTopSitesPermission ? 'span-1' : 'span-5'">
+          <button class="btn" *ngIf="!hasTopSitesPermission" (click)="setTopSitesPermission()">Allow extension to access Top Sites</button>
+          <options-toggle *ngIf="hasTopSitesPermission" name="mostVisitedQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.mostVisited"></options-toggle>
           <label>{{'options.bookmarks.mostVisited' | translate}}</label>
         </div>
       </div>

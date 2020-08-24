@@ -7,7 +7,7 @@
         <options-toggle *ngIf="hasBookmarkPermission" name="toggleBookmarks" [(ngModel)]="settings.config.bookmarks.bookmarksBar.enabled"></options-toggle>
         <label>{{'options.bookmarks.enableBar' | translate}}</label>
       </div>
-      <div class="field span-1">
+      <div class="field span-1" *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
         <options-toggle name="bookmarksBarIcons" [(ngModel)]="settings.config.bookmarks.bookmarksBar.icons"></options-toggle>
         <label>{{'options.bookmarks.favicons' | translate}}</label>
       </div>
@@ -46,7 +46,7 @@
         </div>
         <label>{{'options.bookmarks.enableQuick' | translate}}</label>
       </div>
-      <div class="field span-1">
+      <div class="field span-1" *ngIf="settings.config.bookmarks.quickLinks.enabled">
         <options-toggle name="quickLinksIcons" [(ngModel)]="settings.config.bookmarks.quickLinks.icons"></options-toggle>
         <label>{{'options.bookmarks.favicons' | translate}}</label>
       </div>

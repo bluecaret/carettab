@@ -36,8 +36,8 @@ You can install CaretTab through the browser web stores
 **Firefox:**
 [https://addons.mozilla.org/en-US/firefox/addon/carettab/](https://addons.mozilla.org/en-US/firefox/addon/carettab/)
 
-**Edge**
-Coming soon.
+**Edge:**
+[https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe](https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe)
 
 ## Build
 Run `npm start` for a dev server.

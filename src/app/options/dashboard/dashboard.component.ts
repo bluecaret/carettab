@@ -19,9 +19,9 @@ export class OptionsDashboardComponent {
 
   getReviewLink(encode: boolean): string {
     let url: string;
-    // if (this.browser === 'Microsoft Edge') {
-      // url = '';
-    // } else
+    if (this.browser === 'Microsoft Edge') {
+      url = 'https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe';
+    } else
     if (this.browser === 'Firefox') {
       url = 'https://addons.mozilla.org/en-US/firefox/addon/carettab/';
     } else {

@@ -52,19 +52,12 @@ app-tab {
 }
 
 .unselectable{
-  -webkit-user-select: none; /* Safari */        
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
-}
-
-.undragable{
-  user-drag: none; 
-  user-select: none;
+  -webkit-user-select: none;  
+  -webkit-user-drag: none;  
   -moz-user-select: none;
-  -webkit-user-drag: none;
-  -webkit-user-select: none;
   -ms-user-select: none;
+  user-select: none;
+  user-drag: none; 
 }
 
 @import "/toggle";

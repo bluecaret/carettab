@@ -1,26 +1,26 @@
 {
   "list": {
     "title": {
-      "custom": "自定义文字",
+      "custom": "自定义标题",
       "date": "日期",
-      "dateTime": "日期，然后是时间",
+      "dateTime": "日期在前，时间在后",
       "newTab": "“新标签页”",
       "time": "时间",
-      "timeDate": "时间，然后是日期"
+      "timeDate": "时间在前，日期在后"
     }
   },
   "options": {
     "bookmarks": {
-      "appsLink": "应用链接",
+      "appsLink": "应用",
       "chromeTabLink": "默认标签页",
-      "enableBar": "书签栏",
-      "enableQuick": "快速链接",
-      "favicons": "网站图标",
+      "enableBar": "启用书签栏",
+      "enableQuick": "启用快捷链接",
+      "favicons": "网址图标",
       "headingBar": "书签",
-      "headingQuick": "快速链接",
-      "historyLink": "历史链接",
+      "headingQuick": "快捷链接",
+      "historyLink": "历史",
       "labelValidation": "链接必须要有一个标签。",
-      "linkValidation": "链接必须要有一个 URL（网站地址）。",
+      "linkValidation": "链接必须要有一个 URL（网址）。",
       "managerLink": "书签管理器",
       "mostVisited": "访问最多的站点",
       "save": "保存新的链接",
@@ -30,9 +30,9 @@
       "delimiter": "分隔符",
       "format": "格式",
       "label": "标签",
-      "moveDown": "移动到其他元素之下",
-      "moveUp": "移动到其他元素之上",
-      "offset": "偏移",
+      "moveDown": "向下移动",
+      "moveUp": "向上移动",
+      "offset": "上下偏移",
       "order": "顺序",
       "placement": "位置",
       "size": "尺寸",
@@ -50,13 +50,13 @@
       "supportDev": "您可以帮助支持和改善 CaretTab"
     },
     "date": {
-      "abbr": "缩写",
+      "abbr": "缩写/小写",
       "automatic": "自动",
       "date": "日期",
-      "day": "天",
-      "dayOfWk": "星期",
+      "day": "日",
+      "dayOfWk": "周",
       "enableDay": "启用日期",
-      "enableDayOfWk": "启用星期",
+      "enableDayOfWk": "启用周",
       "enableMonth": "启用月份",
       "enableShortDate": "启用短日期",
       "enableWeekNum": "启用周数",
@@ -76,20 +76,20 @@
       "customFontName": "自定义字体名称",
       "customFontUsage": "要使用自定义字体，必须准确地输入字体名称。必须在您的计算机上本地安装自定义字体。您可以从| Google 字体|或者| 1001 个免费字体|中获取更多字体。",
       "customWallpaper": "自定义壁纸",
-      "design": "设计",
+      "design": "主题",
       "dontSync": "自定义图片不会跨计算机同步。",
       "dynScale": "动态缩放",
       "dynScaleDesc": "动态缩放允许您根据浏览器的宽度来改变元素的大小。无论您的浏览器尺寸如何，禁用以保持相同的大小。",
       "fg": "自定义前景色",
       "fill": "填充",
-      "filter": "过滤器",
+      "filter": "筛选",
       "font": "字体",
       "fontWeight": "自定义字体粗细",
       "fontWeightDesc": "选择自定义字体的粗细程度。一些字体不支持所有的粗细。",
       "getMorePatterns": "从 |Transparent Textures| 或者 |Toptal| 中获得更多图案。",
       "globalSize": "整体尺寸",
       "globalSizeDesc": "调整所有元素的大小。",
-      "hardToSee": "图片太难看了？尝试更改过滤器。",
+      "hardToSee": "图片太难看了？尝试重新选择。",
       "wallpaper": "壁纸"
     },
     "extra": {
@@ -108,7 +108,7 @@
     },
     "message": {
       "customMsg": "自定义的消息",
-      "msg": "信息",
+      "msg": "消息",
       "msgText": "消息文本",
       "msgTextDesc": "输入自定义消息的文本。"
     },
@@ -152,11 +152,11 @@
       "labelEnable": "启用标签",
       "labelOffset": "向上或向下调整标签的位置",
       "labelSize": "调整标签相对于时钟的大小",
-      "meridiem": "十二小时制标识",
-      "meridiemDim": "半透明的十二小时制标识",
-      "meridiemEnable": "启用十二小时制标识",
-      "meridiemOffset": "向上或向下调整十二小时制标识的位置",
-      "meridiemSize": "调整十二小时制标识相对于时钟的大小",
+      "meridiem": "12 小时制标识",
+      "meridiemDim": "半透明的 12 小时制标识",
+      "meridiemEnable": "启用 12 小时制标识",
+      "meridiemOffset": "向上或向下调整 12 小时制时制标识的位置",
+      "meridiemSize": "调整 12 小时制标识的大小",
       "moveDown": "向下移动时钟顺序",
       "moveUp": "向上移动时钟顺序",
       "note": "注意：",
@@ -185,7 +185,7 @@
       "time": "时间",
       "timezoneDesc": "选择时钟的时区（默认为您的本地时区）。",
       "twentyFour": "24 小时制",
-      "twentyFourDesc": "以 24 小时格式而不是 12 小时格式显示时钟（将禁用十二小时制标识）。"
+      "twentyFourDesc": "以 24 小时格式而不是 12 小时制格式显示时钟（将禁用 12 小时制标识）。"
     }
   },
   "splash": {

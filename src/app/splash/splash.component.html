@@ -136,12 +136,13 @@
 </div>
 
 <!-- STEP 5 -->
+<!-- Enable bookmark bar -->
 <div id="step5" class="splash-steps" *ngIf="step === 5">
   <div class="splash-options">
     <h3>{{'splash.s5.title' | translate}}</h3>
     <div style="display: flex; justify-content: space-between;">
       <button type="button" class="btn btn--splash" (click)="enableBookmarks(false)">{{'splash.no' | translate}}</button>
-      <button type="button" class="btn btn--splash" (click)="enableBookmarks(true)">{{'splash.yes' | translate}}</button>
+      <button type="button" class="btn btn--splash" (click)="setBookmarkPermission()">{{'splash.yes' | translate}}</button>
     </div>
   </div>
   <div class="splash-nav">

@@ -27,11 +27,13 @@ export class SplashComponent implements OnInit {
   recoveredQuickLinks = [];
   printRecoveredQuickLinks: any;
   importStatus = '';
+  hasBookmarkPermission: boolean;
 
   constructor(
     public shared: SharedService,
     public settings: Storage,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private zone: NgZone
   ) {
   }
 
@@ -51,6 +53,7 @@ export class SplashComponent implements OnInit {
         }
       });
     }
+    this.checkBookmarkPermission();
   }
 
   recoverLinks() {
@@ -163,6 +166,32 @@ export class SplashComponent implements OnInit {
       this.shared.toggleOrder(dateId, false);
     }
     this.step = 5;
+  }
+
+  checkBookmarkPermission() {
+    const that = this;
+    chrome.permissions.contains({permissions: ['bookmarks']}, function(result) {
+      that.zone.run(() => {
+        if (result) {
+          this.hasBookmarkPermission = true;
+        } else {
+          this.hasBookmarkPermission = false;
+        }
+      });
+    });
+  }
+
+  setBookmarkPermission() {
+    if (this.hasBookmarkPermission) {
+      this.enableBookmarks(true);
+    } else {
+      const that = this;
+      chrome.permissions.request({permissions: ['bookmarks']}, function(granted) {
+        that.zone.run(() => {
+          that.enableBookmarks(true);
+        });
+      });
+    }
   }
 
   enableBookmarks(enable: boolean) {

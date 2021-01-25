@@ -238,6 +238,13 @@
       "recovered": "Quick Links aus der Vorgängerversion",
       "title": "Das bisher größte Update!"
     },
+    "v310": {
+      "l1": "Aktualisiert | Skript für genauere Zeiten in verschiedenen Zeitzonen.",
+      "l2": "Der Standardhintergrund wurde basierend auf dem Webbrowser-Thema behoben, um helles Flackern beim Laden der Seite zu vermeiden.",
+      "l3": "Ermöglichen Sie die Wiederherstellung alter Quick Links aus Version 2 jederzeit über die Einstellungen für Quick Links (wenn in dieser Version keine Quick Links gefunden wurden, wird nichts angezeigt).",
+      "l4": "Behebung eines Problems, durch das verhindert wurde, dass Version 3 der Erweiterung in Firefox veröffentlicht wurde.",
+      "l5": "Jetzt auf Microsoft Edge verfügbar!"
+    },
     "yes": "Ja"
   },
   "tab": {

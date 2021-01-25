@@ -39,19 +39,25 @@ export class SplashComponent implements OnInit {
 
   ngOnInit() {
     if (this.shared.status === 'updated') {
-      this.step = 900;
+      let oldVersion = localStorage.getItem('prevVersion');
+      let newVersion = localStorage.getItem('newVersion');
 
-      chrome.storage.sync.get((a) => {
-        this.printRecoveredQuickLinks = '';
-        if (a.links && a.links.length > 0) {
-          for (let i = 0; i < a.links.length; i++) {
-            this.printRecoveredQuickLinks += a.links[i].label + ' <' + a.links[i].url + '>\n'  ;
-            this.recoveredQuickLinks.push({id: this.shared.createID('LINK'), label: a.links[i].label, url: a.links[i].url});
+      if (oldVersion === '3.0.0' || oldVersion === '3.0.1') {
+        this.step = 900;
+      } else {
+        this.step = 800;
+        chrome.storage.sync.get((a) => {
+          this.printRecoveredQuickLinks = '';
+          if (a.links && a.links.length > 0) {
+            for (let i = 0; i < a.links.length; i++) {
+              this.printRecoveredQuickLinks += a.links[i].label + ' <' + a.links[i].url + '>\n'  ;
+              this.recoveredQuickLinks.push({id: this.shared.createID('LINK'), label: a.links[i].label, url: a.links[i].url});
+            }
+          } else {
+            this.printRecoveredQuickLinks = 'No Quick Links found.';
           }
-        } else {
-          this.printRecoveredQuickLinks = 'No Quick Links found.';
-        }
-      });
+        });
+      }
     }
     this.checkBookmarkPermission();
   }

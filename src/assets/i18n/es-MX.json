@@ -238,6 +238,13 @@
       "recovered": "Enlaces rápidos de la versión anterior",
       "title": "¡La mayor actualización hasta ahora!"
     },
+    "v310": {
+      "l1": "Actualizado | script para tiempos más precisos en varias zonas horarias.",
+      "l2": "Se corrigió el fondo predeterminado para que se basara en el tema del navegador web para evitar parpadeos brillantes a medida que se carga la página.",
+      "l3": "Permita la restauración de enlaces rápidos antiguos de la versión 2 en cualquier momento a través de la configuración de enlaces rápidos (si no se encontraron enlaces rápidos de esa versión, no se mostrará nada).",
+      "l4": "Solucione el problema que impedía que la versión 3 de la extensión se publicara en Firefox.",
+      "l5": "¡Ahora disponible en Microsoft Edge!"
+    },
     "yes": "Sí"
   },
   "tab": {

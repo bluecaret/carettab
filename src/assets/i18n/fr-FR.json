@@ -238,6 +238,13 @@
       "recovered": "Liens rapides de la version précédente",
       "title": "La plus grande mise à jour à ce jour!"
     },
+    "v310": {
+      "l1": "Mis à jour | script pour des heures plus précises dans différents fuseaux horaires.",
+      "l2": "Correction de l'arrière-plan par défaut basé sur le thème du navigateur Web pour éviter les scintillements lumineux lors du chargement de la page.",
+      "l3": "Autorisez la restauration des anciens liens rapides de la v2 à tout moment via les paramètres des liens rapides (si aucun lien rapide n'a été trouvé à partir de cette version, rien ne s'affichera).",
+      "l4": "Correction d'un problème qui empêchait la publication de la version 3 de l'extension sur Firefox.",
+      "l5": "Maintenant disponible sur Microsoft Edge!"
+    },
     "yes": "Oui"
   },
   "tab": {

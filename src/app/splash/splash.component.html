@@ -1,6 +1,38 @@
-<!-- UPDATED: -->
+<!-- UPDATED / PREVIOUSLY ON v3: -->
 
 <div class="updated" *ngIf="step === 900">
+  <h1>
+    <svg x="0px" y="0px" width="128px" height="128px" viewBox="0 0 128 128" enable-background="new 0 0 128 128" xml:space="preserve">
+      <g>
+        <g>
+          <rect x="24" y="80" fill="#0071BC" width="16" height="16"/>
+          <rect x="40" y="64" fill="#0071BC" width="16" height="16"/>
+          <rect x="56" y="48" fill="#0071BC" width="16" height="16"/>
+          <rect x="72" y="64" fill="#0071BC" width="16" height="16"/>
+          <rect x="88" y="80" fill="#0071BC" width="16" height="16"/>
+        </g>
+        <path fill="#4D4D4D" d="M123,20V0H88v20h-9V0H44v20h-9V10V0H25H10H0v10v10v10v20v78h128V20H123z M118,118H10V10h15v20h19h35h9h30
+          V118z"/>
+      </g>
+    </svg>
+    <div>{{'splash.updatedTo' | translate}} v3.1.0!</div>
+  </h1>
+  <div class="splash-options">
+    <h3>{{'splash.new' | translate}}</h3>
+    <ul>
+      <li>{{'splash.v310.l1' | translate | translateCut:0}}moment.js{{'splash.v310.l1' | translate | translateCut:1}}</li>
+      <li>{{'splash.v310.l2' | translate}}</li>
+      <li>{{'splash.v310.l3' | translate}}</li>
+      <li>{{'splash.v310.l4' | translate}}</li>
+      <li>{{'splash.v310.l5' | translate}}</li>
+    </ul>
+  </div>
+  <button type="button" class="btn btn--splash btn--start" (click)="removeIntro()">{{'splash.getStarted' | translate}}</button>
+</div>
+
+<!-- UPDATED / NEW TO v3: -->
+
+<div class="updated" *ngIf="step === 800">
   <h1>
     <svg x="0px" y="0px" width="128px" height="128px" viewBox="0 0 128 128" enable-background="new 0 0 128 128" xml:space="preserve">
       <g>

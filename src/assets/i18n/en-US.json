@@ -238,6 +238,13 @@
       "recovered": "Quick Links from previous version",
       "title": "The biggest update yet!"
     },
+    "v310": {
+      "l1": "Updated | script for more accurate times in various time zones.",
+      "l2": "Fixed default background to be based on web browser theme to avoid bright flickers as page loads.",
+      "l3": "Allow restoring of old Quick Links from v2 at any time via the Quick Links settings (if no quick links were found from that version, nothing will display).",
+      "l4": "Fix issue that prevented v3 of extension from being published to Firefox.",
+      "l5": "Now available on Microsoft Edge!"
+    },
     "yes": "Yes"
   },
   "tab": {

@@ -14,6 +14,12 @@ export class OptionsBookmarksComponent implements OnInit {
   hasBookmarkPermission: boolean;
   hasTopSitesPermission: boolean;
 
+  // Old link recovery
+  foundOldQuickLinks = false;
+  recoveredQuickLinks = [];
+  printRecoveredQuickLinks: any;
+  importStatus = '';
+
   constructor (
     public settings: Storage,
     public shared: SharedService,
@@ -24,7 +30,24 @@ export class OptionsBookmarksComponent implements OnInit {
   ngOnInit() {
     this.checkBookmarkPermission();
     this.checkTopSitesPermission();
+
+    chrome.storage.sync.get((a) => {
+      this.printRecoveredQuickLinks = '';
+      if (a.links && a.links.length > 0) {
+        for (let i = 0; i < a.links.length; i++) {
+          this.printRecoveredQuickLinks += a.links[i].label + ' <' + a.links[i].url + '>\n'  ;
+          this.recoveredQuickLinks.push({id: this.shared.createID('LINK'), label: a.links[i].label, url: a.links[i].url});
+        }
+        this.foundOldQuickLinks = true;
+      } else {
+        this.printRecoveredQuickLinks = 'No Quick Links found.';
+        this.foundOldQuickLinks = false;
+      }
+    });
   }
+
+  // Add fake old quick links for testing:
+  // chrome.storage.sync.set({links: [{label: "Test", url: "http://test.com"},{label: "Lorem", url: "http://lorem.com"}]})
 
   checkBookmarkPermission() {
     const that = this;
@@ -137,5 +160,39 @@ export class OptionsBookmarksComponent implements OnInit {
 
   trackByFn(index: any, item: any) {
     return index;
+  }
+
+  recoverLinks() {
+    if (this.recoveredQuickLinks.length > 0) {
+      this.recoveredQuickLinks.forEach((l) => {
+        this.addRecoveredLink(l.label, l.url);
+      });
+      this.importStatus = 'Import completed.';
+      console.log('Imported Quick Links: ', this.recoveredQuickLinks);
+    } else {
+      this.importStatus = 'No Quick Links found to import.';
+    }
+  }
+
+  addRecoveredLink(label: string, url: string) {
+    let id = this.shared.createID('LINK');
+    this.settings.config.bookmarks.links.push({
+      id: id,
+      label: label,
+      url: url,
+    });
+  }
+
+  clearOldLinks() {
+    let c = confirm(
+      // tslint:disable-next-line:max-line-length
+      'ARE YOU SURE YOU WANT TO DELETE YOUR OLD LINKS?\nThis cannot be reversed.'
+    );
+    if (c === true) {
+      chrome.storage.sync.remove('links');
+      this.importStatus = 'Old links cleared.';
+    } else {
+      this.importStatus = 'Action cancelled.';
+    }
   }
 }

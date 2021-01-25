@@ -1,5 +1,16 @@
 $btnActiveShadow: inset 0 0 0 2px #000, inset 0 0 0 4px $optionsBg;
 
+.link {
+  display: inline;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .btn {
   display: inline-flex;
   min-width: 44px;

@@ -36,6 +36,8 @@ export class TabBookmarksComponent implements OnInit {
   toggleMostVisited = false;
   mostVisited = {title: 'Most Visited'};
   toggleMvMenu = false;
+  isChrome = false;
+  iconTemp = {};
 
   @ViewChild('barList', { static: false }) barList: ElementRef;
 
@@ -61,6 +63,8 @@ export class TabBookmarksComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
+    this.isChrome = !!window.chrome;
+
     if (this.settings.config.bookmarks.bookmarksBar.enabled) {
       this.getBookmarks();
     }
@@ -79,6 +83,16 @@ export class TabBookmarksComponent implements OnInit {
         this.allMostVisited = site;
       });
     });
+  }
+
+  getQuickLinksIcon(url){
+    if(!this.iconTemp[url]){
+      const hostname = new URL(url).hostname;
+      this.iconTemp[url] = this.isChrome
+                            ? this.sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/size/16@2x/' + url)
+                            : this.sanitizer.bypassSecurityTrustResourceUrl('https://icons.duckduckgo.com/ip3/'+ hostname +'.ico' );
+    }
+    return this.iconTemp[url];
   }
 
   getBookmarks() {

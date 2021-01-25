@@ -119,27 +119,20 @@ export class SharedService {
 
   public toggleOrder(id: string, enabled: boolean) {
       if (!enabled) {
-        console.log('toggleOrder Disabled');
         let elIndex = this.settings.config.order.findIndex(e => e.id === id);
-        console.log('got elIndex');
         this.settings.config.order.splice(elIndex, 1);
-        console.log('spliced order');
         let sorted = this.settings.config.order;
         if (this.settings.config.order.length > 1) {
           sorted = this.settings.config.order.sort((a, b) => a.order - b.order);
         }
-        console.log('elements sorted');
         sorted.forEach((e, index) => {
           e.order = index + 1;
         });
-        console.log('elements re-numbered');
       } else {
-        console.log('toggleOrder Enabled');
         let sorted = this.settings.config.order;
         if (this.settings.config.order.length > 1) {
           sorted = this.settings.config.order.sort((a, b) => a.order - b.order);
         }
-        console.log('elements sorted');
         let newOrderNumber = 1;
         if (this.settings.config.order.length > 0) {
           newOrderNumber = (sorted[sorted.length - 1].order) + 1;
@@ -148,7 +141,6 @@ export class SharedService {
           id: id,
           order: newOrderNumber
         });
-        console.log('new element pushed');
       }
   }
 

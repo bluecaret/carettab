@@ -7,30 +7,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <style type="text/css">
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #000;
+        color: #bbb;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      body {
+        background: #fff;
+        color: #555;
+      }
+    }
+
     #splashScreen {
       opacity: 1;
       transition: opacity .3s ease-in-out;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       position: fixed;
       height: 100vh;
       width: 100vw;
       top: 0;
       left: 0;
-      background: #fff; 
-      color: #555; 
-      font-family: sans-serif;
-      font-size: 36px;
-      font-weight: 700;
-      text-align: center;
       z-index: 99999;
-    }
-    #splashScreen span {
-      display: block;
-      color: #aaaaaa; 
-      font-size: 18px; 
-      margin-top: 20px;
     }
     #splashScreen.loaded {
       opacity: 0;
@@ -41,6 +40,6 @@
 
   <app-root></app-root>
   <div id="splashScreen"></div>
-  
+
 </body>
 </html>

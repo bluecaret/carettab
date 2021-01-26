@@ -3,6 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Storage } from '../../_storage/storage.service';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { SharedService } from '../../_shared/shared.service';
+import * as Bowser from 'bowser';
 
 @Component({
   selector: 'tab-bookmarks',
@@ -38,6 +39,9 @@ export class TabBookmarksComponent implements OnInit {
   toggleMvMenu = false;
   isChrome = false;
   iconTemp = {};
+
+  // Get browser for favicons
+  browser = Bowser.getParser(window.navigator.userAgent).getBrowserName();
 
   @ViewChild('barList', { static: false }) barList: ElementRef;
 
@@ -85,12 +89,16 @@ export class TabBookmarksComponent implements OnInit {
     });
   }
 
-  getQuickLinksIcon(url){
-    if(!this.iconTemp[url]){
+  // Use DuckDuckGo favicon service if firefox or no window.chrome
+  // otherwise use the chrome service.
+  getQuickLinksIcon(url) {
+    if (!this.iconTemp[url]) {
       const hostname = new URL(url).hostname;
-      this.iconTemp[url] = this.isChrome
-                            ? this.sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/size/16@2x/' + url)
-                            : this.sanitizer.bypassSecurityTrustResourceUrl('https://icons.duckduckgo.com/ip3/'+ hostname +'.ico' );
+      if (this.browser === 'Firefox' || !this.isChrome) {
+        this.iconTemp[url] = this.sanitizer.bypassSecurityTrustResourceUrl('https://icons.duckduckgo.com/ip3/' + hostname + '.ico' );
+      } else {
+        this.iconTemp[url] = this.sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/size/16@2x/' + url);
+      }
     }
     return this.iconTemp[url];
   }

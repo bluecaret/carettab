@@ -59,7 +59,7 @@
             title="{{item.title}}
 {{item.url}}"
             class="barLink">
-            <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/size/16@2x/' + item.url)" class="barIcon">
+            <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" [src]="getQuickLinksIcon(item.url)" class="barIcon">
             <div class="barLabel">{{item.title}}</div>
           </a>
         </ng-container>
@@ -116,7 +116,7 @@
           title="{{item.title}}
 {{item.url}}"
           class="barLink">
-          <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/size/16@2x/' + item.url)" class="barIcon">
+          <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" [src]="getQuickLinksIcon(item.url)" class="barIcon">
           <div class="barLabel">{{item.title}}</div>
         </a>
       </ng-container>
@@ -187,14 +187,14 @@
           title="{{mv.title}}
 {{mv.url}}"
           *ngFor="let mv of allMostVisited">
-          <img *ngIf="settings.config.bookmarks.quickLinks.icons" [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/size/16@2x/' + mv.url)">
+          <img *ngIf="settings.config.bookmarks.quickLinks.icons" [src]="getQuickLinksIcon(mv.url)">
           <div>{{mv.title}}</div>
         </a>
       </div>
     </li>
     <li *ngFor="let item of settings.config.bookmarks.links; let i = index">
       <a href="{{item.url}}" class="link">
-        <img *ngIf="settings.config.bookmarks.quickLinks.icons" [src]="sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/size/16@2x/' + item.url)" class="quickLinksIcon">
+        <img *ngIf="settings.config.bookmarks.quickLinks.icons" [src]="getQuickLinksIcon(item.url)" class="quickLinksIcon">
         <div class="quickLinksLabel">{{item.label}}</div>
       </a>
     </li>

@@ -3,6 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Storage } from '../../_storage/storage.service';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { SharedService } from '../../_shared/shared.service';
+import * as Bowser from 'bowser';
 
 @Component({
   selector: 'tab-bookmarks',
@@ -36,6 +37,11 @@ export class TabBookmarksComponent implements OnInit {
   toggleMostVisited = false;
   mostVisited = {title: 'Most Visited'};
   toggleMvMenu = false;
+  isChrome = false;
+  iconTemp = {};
+
+  // Get browser for favicons
+  browser = Bowser.getParser(window.navigator.userAgent).getBrowserName();
 
   @ViewChild('barList', { static: false }) barList: ElementRef;
 
@@ -61,6 +67,8 @@ export class TabBookmarksComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
+    this.isChrome = !!window.chrome;
+
     if (this.settings.config.bookmarks.bookmarksBar.enabled) {
       this.getBookmarks();
     }
@@ -79,6 +87,20 @@ export class TabBookmarksComponent implements OnInit {
         this.allMostVisited = site;
       });
     });
+  }
+
+  // Use DuckDuckGo favicon service if firefox or no window.chrome
+  // otherwise use the chrome service.
+  getQuickLinksIcon(url) {
+    if (!this.iconTemp[url]) {
+      const hostname = new URL(url).hostname;
+      if (this.browser === 'Firefox' || !this.isChrome) {
+        this.iconTemp[url] = this.sanitizer.bypassSecurityTrustResourceUrl('https://icons.duckduckgo.com/ip3/' + hostname + '.ico' );
+      } else {
+        this.iconTemp[url] = this.sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/size/16@2x/' + url);
+      }
+    }
+    return this.iconTemp[url];
   }
 
   getBookmarks() {

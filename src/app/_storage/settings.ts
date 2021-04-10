@@ -164,11 +164,11 @@ export class Settings {
     },
     search: {
       id: 'SEARCH_1QUHAEPMFGX',
-      enabled: false,
+      enabled: true,
       scaling: 6,
       offset: 0,
       width: 13,
-      engine: 10,
+      engine: 40,
       autocomplete: true
     },
     message: {

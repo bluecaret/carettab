@@ -47,7 +47,7 @@ export class OptionsBookmarksComponent implements OnInit {
   }
 
   // Add fake old quick links for testing:
-  // chrome.storage.sync.set({links: [{label: "Test", url: "http://test.com"},{label: "Lorem", url: "http://lorem.com"}]})
+  // chrome.storage.sync.set({links: [{label: "Test", url: "https://test.com"},{label: "Lorem", url: "https://lorem.com"}]})
 
   checkBookmarkPermission() {
     const that = this;
@@ -153,7 +153,7 @@ export class OptionsBookmarksComponent implements OnInit {
 
   checkLink(value) {
     if (value !== undefined) {
-      value = (value.indexOf('//') === -1) ? 'http://' + value : value;
+      value = (value.indexOf('//') === -1) ? 'https://' + value : value;
     }
     return value;
   }

@@ -51,11 +51,11 @@ app-tab {
   grid-template-columns: repeat(2, 1fr);
 }
 
-@import "/toggle";
-@import "/feature/bookmarks";
-@import "/feature/quicklinks";
-@import "/feature/time";
-@import "/feature/analog";
-@import "/feature/date";
-@import "/feature/message";
-@import "/feature/search";
+@import "toggle";
+@import "feature/bookmarks";
+@import "feature/quicklinks";
+@import "feature/time";
+@import "feature/analog";
+@import "feature/date";
+@import "feature/message";
+@import "feature/search";

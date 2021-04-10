@@ -115,6 +115,7 @@
     "search": {
       "autocomplete": "자동 완성",
       "autocompleteDesc": "검색 창에서 브라우저의 자동 완성 기능을 비활성화하려면 끄십시오.",
+      "label": "상표",
       "search": "수색",
       "searchBox": "검색 창",
       "searchEngine": "검색 엔진"

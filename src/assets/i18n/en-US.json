@@ -115,6 +115,7 @@
     "search": {
       "autocomplete": "Autocomplete",
       "autocompleteDesc": "Turn off to disable the browser's autocomplete feature on the search box.",
+      "label": "Label",
       "search": "Search",
       "searchBox": "Search box",
       "searchEngine": "Search engine"

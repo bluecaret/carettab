@@ -115,6 +115,7 @@
     "search": {
       "autocomplete": "Autovervollständigen",
       "autocompleteDesc": "Deaktivieren Sie diese Option, um die automatische Vervollständigung des Browsers im Suchfeld zu deaktivieren.",
+      "label": "Etikette",
       "search": "Suche",
       "searchBox": "Suchbox",
       "searchEngine": "Suchmaschine"

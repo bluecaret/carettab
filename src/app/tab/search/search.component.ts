@@ -9,7 +9,6 @@ import { searchEngines } from '../../_shared/lists/lists';
 })
 export class TabSearchComponent implements OnInit {
   engines = searchEngines;
-  label: string;
   url: string;
   param: string;
 
@@ -29,7 +28,6 @@ export class TabSearchComponent implements OnInit {
 
   setEngine() {
     let engine = this.engines.find(e => e.id === this.settings.config.search.engine);
-    this.label = engine.label;
     this.url = engine.url;
     this.param = engine.param;
   }

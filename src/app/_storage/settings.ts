@@ -5,18 +5,22 @@ export class Settings {
   data = {
     order: [
       {
-        id: 'CLOCK_QEXA4RAH17',
+        id: 'SEARCH_1QUHAEPMFGX',
         order: 1
       },
       {
-        id: 'DATE_183AQFVON78',
+        id: 'CLOCK_QEXA4RAH17',
         order: 2
+      },
+      {
+        id: 'DATE_183AQFVON78',
+        order: 3
       }
     ],
     lang: 'en-US',
     design: {
-      scalingMethod: true,
-      scaling: 10,
+      scalingMethod: false,
+      scaling: 14,
       font: 91,
       customFont: 'Comic Sans MS',
       customFontWeight: 40,
@@ -165,11 +169,12 @@ export class Settings {
     search: {
       id: 'SEARCH_1QUHAEPMFGX',
       enabled: true,
-      scaling: 6,
+      scaling: 4,
       offset: 0,
-      width: 13,
+      width: 21,
       engine: 40,
-      autocomplete: true
+      autocomplete: true,
+      label: 'Search the web...'
     },
     message: {
       id: 'MESSAGE_1CUETHV7L63',

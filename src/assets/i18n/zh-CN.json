@@ -115,6 +115,7 @@
     "search": {
       "autocomplete": "自动完成",
       "autocompleteDesc": "关闭以在搜索框中禁用浏览器的自动完成功能。",
+      "label": "标签",
       "search": "搜索",
       "searchBox": "搜索框",
       "searchEngine": "搜索引擎"

@@ -115,6 +115,7 @@
     "search": {
       "autocomplete": "オートコンプリート",
       "autocompleteDesc": "検索ボックスでブラウザのオートコンプリート機能を無効にするには、オフにします。",
+      "label": "ラベル",
       "search": "サーチ",
       "searchBox": "検索ボックス",
       "searchEngine": "検索エンジン"

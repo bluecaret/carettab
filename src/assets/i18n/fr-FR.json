@@ -115,6 +115,7 @@
     "search": {
       "autocomplete": "Autocomplete",
       "autocompleteDesc": "Désactivez cette option pour désactiver la fonctionnalité de saisie semi-automatique du navigateur dans le champ de recherche.",
+      "label": "Étiquette",
       "search": "Chercher",
       "searchBox": "Barre de recherche",
       "searchEngine": "Moteur de recherche"

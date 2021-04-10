@@ -115,6 +115,7 @@
     "search": {
       "autocomplete": "השלמה אוטומטית",
       "autocompleteDesc": "כבה כדי להשבית את תכונת ההשלמה האוטומטית של הדפדפן בתיבת החיפוש.",
+      "label": "תווית",
       "search": "לחפש",
       "searchBox": "תיבת חיפוש",
       "searchEngine": "מנוע חיפוש"

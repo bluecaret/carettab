@@ -6,15 +6,21 @@
         <options-toggle name="searchBox" id="searchBox" [(ngModel)]="settings.config.search.enabled" (ngModelChange)="shared.toggleOrder(settings.config.search.id, $event)"></options-toggle>
         <label>{{'options.search.searchBox' | translate}}</label>
       </div>
+      <div class="field span-2">
+        <options-toggle name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete"></options-toggle>
+        <label title="{{'options.search.autocompleteDesc' | translate}}">{{'options.search.autocomplete' | translate}}</label>
+      </div>
+    </div>
+    <div class="grid cols-6">
       <div class="field span-3">
         <select name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine">
           <option *ngFor="let e of engines" [ngValue]="e.id">{{e.label}}</option>
         </select>
         <label>{{'options.search.searchEngine' | translate}}</label>
       </div>
-      <div class="field span-2">
-        <options-toggle name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete"></options-toggle>
-        <label title="{{'options.search.autocompleteDesc' | translate}}">{{'options.search.autocomplete' | translate}}</label>
+      <div class="field span-3">
+        <input type="text" name="searchLabel" id="searchLabel" [(ngModel)]="settings.config.search.label">
+        <label>{{'options.search.label' | translate}}</label>
       </div>
       <div class="span-6 box mt1">
         <h4 class="boxHeading">{{'options.common.placement' | translate}}</h4>

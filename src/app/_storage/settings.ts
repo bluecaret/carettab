@@ -166,6 +166,7 @@ export class Settings {
         label: 'Week',
         scaling: 10,
         offset: 0,
+        iso: false
       },
     },
     search: {

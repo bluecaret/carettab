@@ -170,7 +170,8 @@ export class TabDateComponent implements OnInit {
 
   getWeekNumber() {
     moment.locale(this.settings.config.lang);
-    return moment(this.currentDate).tz(this.getZone(this.settings.config.date.timezone)).format('w');
+    let format = this.settings.config.date.week.iso ? 'W' : 'w';
+    return moment(this.currentDate).tz(this.getZone(this.settings.config.date.timezone)).format(format);
   }
 
   getZone(zone: string) {

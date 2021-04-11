@@ -155,6 +155,10 @@
                 <label>{{'options.common.offset' | translate}}</label>
               </div>
             </div>
+            <div class="field span-2">
+              <options-toggle name="weekIso" [(ngModel)]="settings.config.date.week.iso"></options-toggle>
+              <label title="{{'options.date.weekIsoDesc' | translate}}">{{'options.date.weekIso' | translate}}</label>
+            </div>
           </div>
         </div>
       </div>

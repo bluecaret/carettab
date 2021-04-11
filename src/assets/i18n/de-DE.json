@@ -64,6 +64,8 @@
       "month": "Monat",
       "shortDate": "Kurzes Date",
       "twoDigit": "Zweistellig",
+      "weekIso": "",
+      "weekIsoDesc": "Verwenden Sie das ISO-Wochendatumsystem nach ISO 8601 Datums- und Zeitstandard.",
       "weekNum": "Wochennummer",
       "year": "Jahr"
     },

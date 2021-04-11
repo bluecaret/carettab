@@ -64,6 +64,8 @@
       "month": "달",
       "shortDate": "짧은 날짜",
       "twoDigit": "두 자리",
+      "weekIso": "",
+      "weekIsoDesc": "ISO 8601 날짜 및 시간 표준의 ISO 주 날짜 시스템을 사용합니다.",
       "weekNum": "주 번호",
       "year": "년"
     },

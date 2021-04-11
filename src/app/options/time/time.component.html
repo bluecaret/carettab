@@ -33,6 +33,11 @@
         <div class="field noLabel span-7">
           <select [name]="'timezone'+i" [(ngModel)]="clock.timezone">
             <option value="Automatic">{{'options.time.automatic' | translate}} ({{tz.timezoneFormat(tzGuess)}})</option>
+            <optgroup label="GMT">
+              <ng-template let-g ngFor [ngForOf]="gmt">
+                <option [value]="g.value">{{g.label}}</option>
+              </ng-template>
+            </optgroup>
             <ng-template let-c ngFor [ngForOf]="allTimezones">
               <optgroup *ngIf="c.zones.length > 1" [label]="c.iso | iso2CountryPipe">
                 <option *ngFor="let t of c.zones" [value]="t">{{tz.timezoneFormat(t)}}

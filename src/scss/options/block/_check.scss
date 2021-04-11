@@ -125,7 +125,10 @@
     border-radius: 10px;
     box-shadow: none;
   }
-  input + label:hover:after {
+  input:checked:disabled + label:after {
+    background: $lightBlue;
+  }
+  input:not(:disabled) + label:hover:after {
     background: $lightBlue;
   }
 }

@@ -34,6 +34,10 @@
   <legend>{{'options.extra.advanced' | translate}}</legend>
   <div class="grid cols-3">
     <div class="field span-1">
+      <options-toggle name="hideMenu" id="hideMenu" [(ngModel)]="settings.config.design.hideMenu"></options-toggle>
+      <label title="{{'options.extra.hideMenuDesc' | translate}}">{{'options.extra.hideMenu' | translate}}</label>
+    </div>
+    <div class="field span-1">
       <button id="reset" type="button" class="btn" (click)="reset()">{{'options.extra.reset' | translate}}</button>
       <label for="reset" title="{{'options.extra.resetDesc' | translate}}">{{'options.extra.resetToDefault' | translate}}</label>
     </div>

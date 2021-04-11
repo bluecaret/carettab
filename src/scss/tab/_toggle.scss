@@ -21,8 +21,13 @@ $optionsToggleHeight: ($optionsToggleSize + ($optionsTogglePadding * 2));
   opacity: .5;
   &:hover,
   &:focus {
-    outline: 0;
     opacity: 1;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 
+      inset 0 0 0 3px black,
+      inset 0 0 0 6px white;
   }
   span {
     display: block;
@@ -49,6 +54,13 @@ $optionsToggleHeight: ($optionsToggleSize + ($optionsTogglePadding * 2));
     height: 100vh;
     span {
       opacity: 0;
+    }
+  }
+  &.hide:not(.open) {
+    opacity: 0;
+    &:focus,
+    &:hover {
+      opacity: 1;
     }
   }
 }

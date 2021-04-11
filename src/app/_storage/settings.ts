@@ -30,7 +30,8 @@ export class Settings {
       patternId: 0,
       imageSize: 10,
       imageBlend: 10,
-      brightness: 10
+      brightness: 10,
+      hideMenu: false
     },
     bookmarks: {
       bookmarksBar: {

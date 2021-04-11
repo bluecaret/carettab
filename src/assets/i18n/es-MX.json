@@ -95,6 +95,8 @@
     "extra": {
       "advanced": "Avanzado",
       "extra": "Extra",
+      "hideMenu": "Ocultar botón de configuración",
+      "hideMenuDesc": "Cuando está habilitado, el botón de menú se mostrará cuando pase el cursor sobre la esquina inferior derecha.",
       "lang": "idioma",
       "reset": "Reiniciar",
       "resetDesc": "Si desea restablecer todas las configuraciones a sus valores predeterminados, puede hacer clic en este botón y luego actualizar la página. Esto eliminará todas tus configuraciones.",

@@ -95,6 +95,8 @@
     "extra": {
       "advanced": "Erweitert",
       "extra": "Extra",
+      "hideMenu": "Schaltfläche Einstellungen einblenden",
+      "hideMenuDesc": "Wenn diese Option aktiviert ist, wird die Menüschaltfläche angezeigt, wenn Sie den Mauszeiger über die untere rechte Ecke bewegen.",
       "lang": "Sprache",
       "reset": "Zurücksetzen",
       "resetDesc": "Wenn Sie alle Einstellungen auf die Standardeinstellungen zurücksetzen möchten, können Sie auf diese Schaltfläche klicken und die Seite anschließend aktualisieren. Dadurch werden alle Ihre Einstellungen entfernt.",

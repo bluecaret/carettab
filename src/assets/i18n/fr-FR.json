@@ -95,6 +95,8 @@
     "extra": {
       "advanced": "Avancée",
       "extra": "Supplémentaire",
+      "hideMenu": "Bouton Masquer les paramètres",
+      "hideMenuDesc": "Lorsqu'il est activé, le bouton de menu s'affiche lorsque vous survolez le coin inférieur droit.",
       "lang": "La langue",
       "reset": "Réinitialiser",
       "resetDesc": "Si vous souhaitez rétablir tous les paramètres par défaut, vous pouvez cliquer sur ce bouton, puis actualiser la page. Cela supprimera tous vos paramètres.",

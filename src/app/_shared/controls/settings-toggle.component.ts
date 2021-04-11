@@ -8,7 +8,7 @@ import { Storage } from '../../_storage/storage.service';
     <button
       (click)="toggleOptions()"
       class="openOptions"
-      [ngClass]="{'open': shared.optionsToggle}"
+      [ngClass]="{'open': shared.optionsToggle, 'hide': settings.config.design.hideMenu}"
       [title]="(shared.optionsToggle ? 'toggleSettings.close' : 'toggleSettings.open') | translate">
       <span></span><span></span><span></span><span></span>
     </button>

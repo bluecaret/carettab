@@ -95,6 +95,8 @@
     "extra": {
       "advanced": "Advanced",
       "extra": "Extra",
+      "hideMenu": "Hide settings button",
+      "hideMenuDesc": "When enabled the menu button will display when you hover over the bottom right corner.",
       "lang": "Language",
       "reset": "Reset",
       "resetDesc": "If you would like to reset all settings back to the default, you can click this button and then refresh the page. This will remove all of your settings.",

@@ -189,8 +189,8 @@
       "timezoneDesc": "時計のタイムゾーンを選択します（デフォルトは現地のタイムゾーンです）。",
       "twentyFour": "24時間",
       "twentyFourDesc": "時計を12時間表示ではなく24時間表示にします（meridiemは無効になります）。",
-      "zeroPadding": "ゼロパディング",
-      "zeroPaddingDesc": "時間を常に2桁で表示します。"
+      "twoDigit": "2桁",
+      "twoDigitDesc": "時間を常に2桁で表示します。"
     }
   },
   "splash": {

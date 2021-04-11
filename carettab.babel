@@ -8304,7 +8304,7 @@
                                 </translations>
                             </concept_node>
                             <concept_node>
-                                <name>zeroPadding</name>
+                                <name>twoDigit</name>
                                 <definition_loaded>false</definition_loaded>
                                 <description></description>
                                 <comment></comment>
@@ -8353,7 +8353,7 @@
                                 </translations>
                             </concept_node>
                             <concept_node>
-                                <name>zeroPaddingDesc</name>
+                                <name>twoDigitDesc</name>
                                 <definition_loaded>false</definition_loaded>
                                 <description></description>
                                 <comment></comment>

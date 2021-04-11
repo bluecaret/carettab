@@ -81,7 +81,7 @@ export class Settings {
           padding: 10,
           offset: 0,
           twentyFour: false,
-          zeroPadding: false,
+          twoDigit: false,
           label: {
             text: 'Main clock',
             enabled: false,

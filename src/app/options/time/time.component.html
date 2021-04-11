@@ -80,8 +80,8 @@
                   <label title="{{'options.time.twentyFourDesc' | translate}}">{{'options.time.twentyFour' | translate}}</label>
                 </div>
                 <div class="field span-1">
-                  <options-toggle [name]="'clockZeroPadding'+i" [id]="'clockZeroPadding'+i" [(ngModel)]="clock.zeroPadding"></options-toggle>
-                  <label title="{{'options.time.zeroPaddingDesc' | translate}}">{{'options.time.zeroPadding' | translate}}</label>
+                  <options-toggle [name]="'clockTwoDigit'+i" [id]="'clockTwoDigit'+i" [(ngModel)]="clock.twoDigit"></options-toggle>
+                  <label title="{{'options.time.twoDigitDesc' | translate}}">{{'options.time.twoDigit' | translate}}</label>
                 </div>
                 <div class="field span-3">
                   <options-range [name]="'clockPadding'+i" [id]="'clockPadding'+i" min="1" max="20" [(ngModel)]="clock.padding"></options-range>

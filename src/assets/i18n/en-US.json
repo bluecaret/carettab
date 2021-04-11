@@ -189,8 +189,8 @@
       "timezoneDesc": "Choose a timezone for the clock (the default is your local timezone).",
       "twentyFour": "24 hour",
       "twentyFourDesc": "Display clock in 24-hour format instead of 12-hour (will disable meridiem).",
-      "zeroPadding": "Zero Padding",
-      "zeroPaddingDesc": "Always show the hour in two digits."
+      "twoDigit": "Two-digit",
+      "twoDigitDesc": "Always show the hour in two digits."
     }
   },
   "splash": {

@@ -189,8 +189,8 @@
       "timezoneDesc": "시계의 시간대를 선택하십시오 (기본값은 현지 시간대).",
       "twentyFour": "24 시간",
       "twentyFourDesc": "12 시간 대신 24 시간 형식으로 시계를 표시합니다 (자체가 비활성화 됨).",
-      "zeroPadding": "제로 패딩",
-      "zeroPaddingDesc": "항상 두 자리 숫자로 시간을 표시하십시오."
+      "twoDigit": "두 자리",
+      "twoDigitDesc": "항상 두 자리 숫자로 시간을 표시하십시오."
     }
   },
   "splash": {

@@ -10,7 +10,7 @@ export class Clock {
     public padding: number = 10,
     public offset: number = 0,
     public twentyFour: boolean = false,
-    public zeroPadding: boolean = false,
+    public twoDigit: boolean = false,
     public relativeTime: RelativeTime = new RelativeTime(),
     public seconds: Seconds = new Seconds(),
     public meridiem: Meridiem = new Meridiem(),

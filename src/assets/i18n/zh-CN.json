@@ -189,8 +189,8 @@
       "timezoneDesc": "选择时钟的时区（默认为您的本地时区）。",
       "twentyFour": "24 小时制",
       "twentyFourDesc": "以 24 小时格式而不是 12 小时制格式显示时钟（将禁用 12 小时制标识）。",
-      "zeroPadding": "零填充",
-      "zeroPaddingDesc": "始终以两位数字显示小时。"
+      "twoDigit": "两位数",
+      "twoDigitDesc": "始终以两位数字显示小时。"
     }
   },
   "splash": {

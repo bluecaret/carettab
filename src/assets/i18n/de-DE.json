@@ -189,8 +189,8 @@
       "timezoneDesc": "Wählen Sie eine Zeitzone für die Uhr aus (die Standardeinstellung ist Ihre lokale Zeitzone).",
       "twentyFour": "24 Stunden",
       "twentyFourDesc": "Anzeige der Uhr im 24-Stunden-Format anstelle von 12 Stunden (deaktiviert meridiem).",
-      "zeroPadding": "Keine Polsterung",
-      "zeroPaddingDesc": "Zeigen Sie die Stunde immer zweistellig an."
+      "twoDigit": "Zweistellig",
+      "twoDigitDesc": "Zeigen Sie die Stunde immer zweistellig an."
     }
   },
   "splash": {

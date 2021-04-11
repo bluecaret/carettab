@@ -186,7 +186,9 @@
       "time": "Temps",
       "timezoneDesc": "Choisissez un fuseau horaire pour l'horloge (la valeur par défaut est votre fuseau horaire local).",
       "twentyFour": "24 heures",
-      "twentyFourDesc": "Afficher l'horloge au format 24 heures au lieu de 12 heures (désactive Meridiem)."
+      "twentyFourDesc": "Afficher l'horloge au format 24 heures au lieu de 12 heures (désactive Meridiem).",
+      "zeroPadding": "Zéro rembourrage",
+      "zeroPaddingDesc": "Affichez toujours l'heure sur deux chiffres."
     }
   },
   "splash": {

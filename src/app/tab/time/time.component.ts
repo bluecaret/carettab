@@ -51,8 +51,8 @@ export class TabTimeComponent implements OnInit {
     let index = this.settings.config.title.clockUsed - 1;
     let clock = this.settings.config.time.clocks[index];
     if (clock) {
-      let hour1 = this.getHour(clock.timezone, clock.twentyFour, 1);
-      let getHour2 = this.getHour(clock.timezone, clock.twentyFour, 2);
+      let hour1 = this.getHour(clock.timezone, clock.twentyFour, clock.zeroPadding, 1);
+      let getHour2 = this.getHour(clock.timezone, clock.twentyFour, clock.zeroPadding, 2);
       let hour2 = getHour2 ? getHour2 : '';
       let min1 = this.getMinute(clock.timezone, 1);
       let min2 = this.getMinute(clock.timezone, 2);
@@ -68,11 +68,18 @@ export class TabTimeComponent implements OnInit {
     return '';
   }
 
-  getHour(zone: string, twentyFour: boolean, digit: 1|2): string {
+  getHour(zone: string, twentyFour: boolean, zeroPadding: boolean, digit: 1|2): string {
     moment.locale(this.settings.config.lang);
     zone = this.getZone(zone);
     let format: string;
     twentyFour ? format = 'HH' : format = 'h';
+    if (twentyFour) {
+      format = 'HH';
+    } else if (zeroPadding) {
+      format = 'hh';
+    } else {
+      format = 'h';
+    }
     let time = moment(this.currentTime).tz(zone).format(format);
     return this.splitDigits(time, digit);
   }

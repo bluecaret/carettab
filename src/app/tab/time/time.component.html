@@ -10,8 +10,8 @@
 <div class="clockContent">
   <div class="time" *ngIf="!clock.analog.enabled">
     <div class="timeDigit hour">
-      <span [style.width]="getWidth(clock.padding)">{{getHour(clock.timezone, clock.twentyFour, 1)}}</span>
-      <span [style.width]="getWidth(clock.padding)" *ngIf="getHour(clock.timezone, clock.twentyFour, 2)">{{getHour(clock.timezone, clock.twentyFour, 2)}}</span>
+      <span [style.width]="getWidth(clock.padding)">{{getHour(clock.timezone, clock.twentyFour, clock.zeroPadding, 1)}}</span>
+      <span [style.width]="getWidth(clock.padding)" *ngIf="getHour(clock.timezone, clock.twentyFour, clock.zeroPadding, 2)">{{getHour(clock.timezone, clock.twentyFour, clock.zeroPadding, 2)}}</span>
     </div>
     <div
       *ngIf="clock.delimiter.enabled"

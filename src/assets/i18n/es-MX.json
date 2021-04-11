@@ -186,7 +186,9 @@
       "time": "hora",
       "timezoneDesc": "Elija una zona horaria para el reloj (el valor predeterminado es su zona horaria local).",
       "twentyFour": "24 horas",
-      "twentyFourDesc": "Mostrar el reloj en formato de 24 horas en lugar de 12 horas (deshabilitará el meridiem)."
+      "twentyFourDesc": "Mostrar el reloj en formato de 24 horas en lugar de 12 horas (deshabilitará el meridiem).",
+      "zeroPadding": "Relleno cero",
+      "zeroPaddingDesc": "Muestra siempre la hora con dos dígitos."
     }
   },
   "splash": {

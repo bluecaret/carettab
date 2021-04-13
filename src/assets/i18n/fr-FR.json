@@ -252,6 +252,17 @@
       "l4": "Correction d'un problème qui empêchait la publication de la version 3 de l'extension sur Firefox.",
       "l5": "Maintenant disponible sur Microsoft Edge!"
     },
+    "v320": {
+      "l1": "Ajout des fuseaux horaires de décalage GMT",
+      "l2": "Ajout de la possibilité d'utiliser la norme ISO pour les numéros de semaine",
+      "l3": "Ajout d'une option pour toujours afficher l'heure sur deux chiffres",
+      "l4": "Ajout de la possibilité de masquer le bouton des paramètres",
+      "l5": "Ajout d'une option pour changer l'étiquette de la barre de recherche",
+      "l6": "Changement de la recherche par défaut dans CaretTab vers Yahoo.",
+      "l7": "Mise à l'échelle dynamique désactivée par défaut",
+      "l8": "Données de fuseau horaire mises à jour",
+      "l9": "Corrections de bogues"
+    },
     "yes": "Oui"
   },
   "tab": {

@@ -252,6 +252,17 @@
       "l4": "Solucione el problema que impedía que la versión 3 de la extensión se publicara en Firefox.",
       "l5": "¡Ahora disponible en Microsoft Edge!"
     },
+    "v320": {
+      "l1": "Se agregaron zonas horarias de compensación GMT",
+      "l2": "Se agregó la capacidad de usar el estándar ISO para los números de semana.",
+      "l3": "Opción agregada para mostrar siempre la hora en dos dígitos",
+      "l4": "Capacidad agregada para ocultar el botón de configuración",
+      "l5": "Opción agregada para cambiar la etiqueta de la barra de búsqueda",
+      "l6": "Se cambió la búsqueda predeterminada dentro de CaretTab a Yahoo.",
+      "l7": "Escalado dinámico deshabilitado de forma predeterminada",
+      "l8": "Datos de zona horaria actualizados",
+      "l9": "Corrección de errores"
+    },
     "yes": "Sí"
   },
   "tab": {

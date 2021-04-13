@@ -252,6 +252,17 @@
       "l4": "Behebung eines Problems, durch das verhindert wurde, dass Version 3 der Erweiterung in Firefox veröffentlicht wurde.",
       "l5": "Jetzt auf Microsoft Edge verfügbar!"
     },
+    "v320": {
+      "l1": "GMT-Offset-Zeitzonen hinzugefügt",
+      "l2": "Möglichkeit zur Verwendung des ISO-Standards für Wochennummern hinzugefügt",
+      "l3": "Option hinzugefügt, um die Stunde immer zweistellig anzuzeigen",
+      "l4": "Möglichkeit hinzugefügt, die Einstellungsschaltfläche auszublenden",
+      "l5": "Option zum Ändern der Beschriftung der Suchleiste hinzugefügt",
+      "l6": "Die Standardsuche in CaretTab wurde in Yahoo geändert.",
+      "l7": "Die dynamische Skalierung ist standardmäßig deaktiviert",
+      "l8": "Zeitzonendaten aktualisiert",
+      "l9": "Fehlerbehebung"
+    },
     "yes": "Ja"
   },
   "tab": {

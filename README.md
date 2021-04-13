@@ -1,7 +1,7 @@
 # CaretTab
 A New Tab page extension with all the options for displaying time, date, search, favorite links, and more!
 
-For more information visit the [CaretTab project page](http://bluecaret.com/project/carettab)
+For more information visit the website for [CaretTab](http://www.carettab.com)
 
 ## Features
 - Display time and date on new tab page.
@@ -39,13 +39,21 @@ You can install CaretTab through the browser web stores
 **Edge:**
 [https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe](https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe)
 
+## Contribute
+
+Submit a Pull Request in GitHub if you would like to contribute. Always welcome help with translations especially :)
+
 ## Build
-Run `npm start` for a dev server.
+Run `npm start` for a dev build. You can then run `npm run start:chrome` to start an instance of the dev build in Chrome.
+
+You can run in FireFox by running `npm run compile:firefox` followed by `npm run start:firefox`.
+
+### For a production ready build
 
 Run `npm run compile:all` to build the project and package for all browsers. The build artifacts will be stored in the `artifacts/` directory.
 
 ## Credit
 CaretTab was designed and developed by BlueCaret (John W Hancock)
-[http://carettab.com](http://carettab.com)
-[http://bluecaret.com](http://bluecaret.com)
-[http://johnwhancock.com](http://johnwhancock.com)
+[http://www.carettab.com](http://www.carettab.com)
+[http://www.bluecaret.com](http://www.bluecaret.com)
+[http://www.johnwhancock.com](http://www.johnwhancock.com)

@@ -252,6 +252,17 @@
       "l4": "Fix issue that prevented v3 of extension from being published to Firefox.",
       "l5": "Now available on Microsoft Edge!"
     },
+    "v320": {
+      "l1": "Added GMT offset timezones",
+      "l2": "Added ability to use ISO standard for week numbers",
+      "l3": "Added option to always display hour in two digits",
+      "l4": "Added ability to hide the settings button",
+      "l5": "Added option to change the search bar's label",
+      "l6": "Changed default search within CaretTab to Yahoo.",
+      "l7": "Disabled dynamic scaling by default",
+      "l8": "Updated timezone data",
+      "l9": "Bug fixes"
+    },
     "yes": "Yes"
   },
   "tab": {

@@ -42,7 +42,7 @@ export class SplashComponent implements OnInit {
       let oldVersion = localStorage.getItem('prevVersion');
       let newVersion = localStorage.getItem('newVersion');
 
-      if (oldVersion === '3.0.0' || oldVersion === '3.0.1') {
+      if (oldVersion === '3.0.0' || oldVersion === '3.0.1' || oldVersion === '3.1.0') {
         this.step = 900;
       } else {
         this.step = 800;

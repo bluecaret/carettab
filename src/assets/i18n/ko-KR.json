@@ -97,6 +97,7 @@
     "extra": {
       "advanced": "많은",
       "extra": "특별한",
+      "hideLogo": "로고 숨기기",
       "hideMenu": "설정 숨기기 버튼",
       "hideMenuDesc": "활성화되면 오른쪽 하단 모서리 위로 마우스를 가져 가면 메뉴 버튼이 표시됩니다.",
       "lang": "언어",

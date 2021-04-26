@@ -51,6 +51,7 @@ app-tab {
   grid-template-columns: repeat(2, 1fr);
 }
 
+@import "logo";
 @import "toggle";
 @import "feature/bookmarks";
 @import "feature/quicklinks";

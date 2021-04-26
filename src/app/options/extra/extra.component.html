@@ -38,6 +38,10 @@
       <label title="{{'options.extra.hideMenuDesc' | translate}}">{{'options.extra.hideMenu' | translate}}</label>
     </div>
     <div class="field span-1">
+      <options-toggle name="hideLogo" id="hideLogo" [(ngModel)]="settings.config.design.hideLogo"></options-toggle>
+      <label title="{{'options.extra.hideLogo' | translate}}">{{'options.extra.hideLogo' | translate}}</label>
+    </div>
+    <div class="field span-1">
       <button id="reset" type="button" class="btn" (click)="reset()">{{'options.extra.reset' | translate}}</button>
       <label for="reset" title="{{'options.extra.resetDesc' | translate}}">{{'options.extra.resetToDefault' | translate}}</label>
     </div>

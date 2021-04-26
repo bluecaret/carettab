@@ -97,6 +97,7 @@
     "extra": {
       "advanced": "Advanced",
       "extra": "Extra",
+      "hideLogo": "Hide logo",
       "hideMenu": "Hide settings button",
       "hideMenuDesc": "When enabled the menu button will display when you hover over the bottom right corner.",
       "lang": "Language",

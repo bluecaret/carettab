@@ -97,6 +97,7 @@
     "extra": {
       "advanced": "高度な",
       "extra": "追加",
+      "hideLogo": "ロゴを隠す",
       "hideMenu": "設定ボタンを隠す",
       "hideMenuDesc": "有効にすると、右下隅にカーソルを合わせるとメニューボタンが表示されます。",
       "lang": "言語",

@@ -14,6 +14,7 @@ import { SharedService, TranslateCut } from './_shared/shared.service';
 import { ToggleComponent } from './_shared/controls/toggle.component';
 import { RangeComponent } from './_shared/controls/range.component';
 import { SettingsToggleComponent } from './_shared/controls/settings-toggle.component';
+import { LogoComponent } from './_shared/controls/logo.component';
 import * as moment from 'moment-timezone';
 
 // Intro Imports
@@ -47,6 +48,7 @@ import { TabSearchComponent } from './tab/search/search.component';
     ToggleComponent,
     RangeComponent,
     SettingsToggleComponent,
+    LogoComponent,
     TranslateCut,
 
     SplashComponent,

@@ -97,6 +97,7 @@
     "extra": {
       "advanced": "高级",
       "extra": "额外",
+      "hideLogo": "隐藏徽标",
       "hideMenu": "隐藏设置按钮",
       "hideMenuDesc": "启用后，将鼠标悬停在右下角时，将显示菜单按钮。",
       "lang": "语言",

@@ -97,6 +97,7 @@
     "extra": {
       "advanced": "Erweitert",
       "extra": "Extra",
+      "hideLogo": "Logo ausblenden",
       "hideMenu": "Schaltfläche Einstellungen einblenden",
       "hideMenuDesc": "Wenn diese Option aktiviert ist, wird die Menüschaltfläche angezeigt, wenn Sie den Mauszeiger über die untere rechte Ecke bewegen.",
       "lang": "Sprache",

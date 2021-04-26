@@ -97,6 +97,7 @@
     "extra": {
       "advanced": "Avanzado",
       "extra": "Extra",
+      "hideLogo": "Ocultar logo",
       "hideMenu": "Ocultar botón de configuración",
       "hideMenuDesc": "Cuando está habilitado, el botón de menú se mostrará cuando pase el cursor sobre la esquina inferior derecha.",
       "lang": "idioma",

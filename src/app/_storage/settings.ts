@@ -31,7 +31,8 @@ export class Settings {
       imageSize: 10,
       imageBlend: 10,
       brightness: 10,
-      hideMenu: false
+      hideMenu: false,
+      hideLogo: false
     },
     bookmarks: {
       bookmarksBar: {

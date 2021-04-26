@@ -97,6 +97,7 @@
     "extra": {
       "advanced": "Avancée",
       "extra": "Supplémentaire",
+      "hideLogo": "Masquer le logo",
       "hideMenu": "Bouton Masquer les paramètres",
       "hideMenuDesc": "Lorsqu'il est activé, le bouton de menu s'affiche lorsque vous survolez le coin inférieur droit.",
       "lang": "La langue",

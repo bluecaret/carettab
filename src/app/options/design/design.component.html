@@ -103,11 +103,12 @@
             <div class="icon" style="cursor: help; font-size: 1em;">help</div>
           </label>
         </div>
-        <div class="span-1 wallpaperPreview"
+        <button (click)="setPattern(noPattern)" class="span-1 wallpaperPreview"
           [style.backgroundImage]="'url('+ shared.bg +')'"
           [style.backgroundSize]="getBgSize()"
           [style.backgroundRepeat]="settings.config.design.imageSize === 10 ? 'repeat' : 'no-repeat'">
-        </div>
+          <div class="icon">block</div>
+        </button>
         <div class="span-4" *ngIf="settings.config.design.patternId === -1">
           <div class="icon" style="font-size: 1em;">warning</div> {{'options.design.dontSync' | translate}}
         </div>

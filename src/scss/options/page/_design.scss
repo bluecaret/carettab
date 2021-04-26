@@ -43,9 +43,29 @@
 }
 
 .wallpaperPreview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
   background-size: contain;
   background-repeat: repeat;
   background-position: center;
+  .icon {
+    font-size: 32px;
+    line-height: 1;
+    color: white;
+    text-shadow: 0 0 5px black;
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  &:focus,
+  &:hover {
+    cursor: pointer;
+    .icon {
+      opacity: 1;
+    }
+  }
 }

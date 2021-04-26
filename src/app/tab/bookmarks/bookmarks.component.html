@@ -193,7 +193,11 @@
       </div>
     </li>
     <li *ngFor="let item of settings.config.bookmarks.links; let i = index">
-      <a href="{{item.url}}" class="link">
+      <a 
+        href="{{item.url}}" 
+        class="link" 
+        title="{{getShortcut(i)}}" 
+        attr.accesskey="{{i <= 9 ? i + 1 : null}}">
         <img *ngIf="settings.config.bookmarks.quickLinks.icons" [src]="getQuickLinksIcon(item.url)" class="quickLinksIcon">
         <div class="quickLinksLabel">{{item.label}}</div>
       </a>

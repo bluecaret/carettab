@@ -42,6 +42,7 @@ export class TabBookmarksComponent implements OnInit {
 
   // Get browser for favicons
   browser = Bowser.getParser(window.navigator.userAgent).getBrowserName();
+  os = Bowser.getParser(window.navigator.userAgent).getOSName();
 
   @ViewChild('barList', { static: false }) barList: ElementRef;
 
@@ -167,6 +168,22 @@ export class TabBookmarksComponent implements OnInit {
 
   chromeTab() {
     chrome.tabs.update({ url: 'chrome-search://local-ntp/local-ntp.html' });
+  }
+
+  getShortcut(index: number): string {
+    let i: number;
+
+    if (index > 9) return null;
+    if (index === 9) i = 0;
+    if (index < 9) i = index + 1;
+    
+    if (this.os === 'macOS') {
+      return `Shortcut: [control]+[alt]+${i}`;
+    }
+    if (this.browser === 'Firefox') {
+      return `Shortcut: [alt]+[shift]+${i}`;
+    }
+    return `Shortcut: [alt]+${i}`;
   }
 
 }

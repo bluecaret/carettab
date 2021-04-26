@@ -264,6 +264,11 @@
       "l8": "Datos de zona horaria actualizados",
       "l9": "Corrección de errores"
     },
+    "v330": {
+      "l1": "Se agregaron atajos de teclado a los enlaces rápidos. Ahora puede cargar rápidamente los primeros 10 enlaces rápidos usando un atajo de teclado. Coloca el cursor sobre un enlace rápido para ver cuál es el acceso directo. Primero debe salir de la barra de direcciones para que la página de nueva pestaña esté enfocada.",
+      "l2": "Al hacer clic en la vista previa del fondo personalizado, ahora se eliminará el fondo.",
+      "l3": "Se agregó el logotipo de CaretTab en la esquina inferior. Esto se puede desactivar en el menú de configuración adicional."
+    },
     "yes": "Sí"
   },
   "tab": {

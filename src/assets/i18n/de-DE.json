@@ -264,6 +264,11 @@
       "l8": "Zeitzonendaten aktualisiert",
       "l9": "Fehlerbehebung"
     },
+    "v330": {
+      "l1": "Tastaturkürzel zu Quick Links hinzugefügt. Jetzt können Sie die ersten 10 Quicklinks schnell über eine Tastenkombination laden. Bewegen Sie den Mauszeiger über einen Schnelllink, um die Verknüpfung anzuzeigen. Sie müssen zuerst die Adressleiste verlassen, damit die neue Registerkarte im Fokus steht.",
+      "l2": "Durch Klicken auf die benutzerdefinierte Hintergrundvorschau wird nun der Hintergrund entfernt.",
+      "l3": "CaretTab-Logo in der unteren Ecke hinzugefügt. Dies kann im Menü für zusätzliche Einstellungen deaktiviert werden."
+    },
     "yes": "Ja"
   },
   "tab": {

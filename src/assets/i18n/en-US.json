@@ -264,6 +264,11 @@
       "l8": "Updated timezone data",
       "l9": "Bug fixes"
     },
+    "v330": {
+      "l1": "Added keyboard shortcuts to Quick Links. Now you can quickly load the first 10 quick links using a keyboard shortcut. Hover over a quick link to see what the shortcut is. You must tab out of the address bar first so the new tab page is in focus.",
+      "l2": "Clicking the custom background preview will now remove the background.",
+      "l3": "Added CaretTab logo to bottom corner. This can be turned off within the extra settings menu."
+    },
     "yes": "Yes"
   },
   "tab": {

@@ -264,6 +264,11 @@
       "l8": "Données de fuseau horaire mises à jour",
       "l9": "Corrections de bogues"
     },
+    "v330": {
+      "l1": "Ajout de raccourcis clavier aux liens rapides. Vous pouvez désormais charger rapidement les 10 premiers liens rapides à l'aide d'un raccourci clavier. Passez la souris sur un lien rapide pour voir ce qu'est le raccourci. Vous devez d'abord sortir de la barre d'adresse pour que la nouvelle page à onglet soit active.",
+      "l2": "Cliquer sur l'aperçu d'arrière-plan personnalisé supprimera désormais l'arrière-plan.",
+      "l3": "Ajout du logo CaretTab dans le coin inférieur. Cela peut être désactivé dans le menu des paramètres supplémentaires."
+    },
     "yes": "Oui"
   },
   "tab": {

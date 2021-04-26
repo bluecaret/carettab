@@ -281,6 +281,7 @@
   },
   "toggleSettings": {
     "close": "Enregistrer et fermer les paramètres",
-    "open": "Paramètres ouverts"
+    "open": "Paramètres ouverts",
+    "updated": "L'extension a été mise à jour! Cliquez ici pour ouvrir les paramètres et voir les nouveautés."
   }
 }

@@ -6,6 +6,7 @@ import { Storage } from './_storage/storage.service';
 import { patterns } from './_shared/lists/lists';
 import { tab } from './_shared/animations';
 import * as moment from 'moment';
+import { compare } from 'compare-versions';
 
 @Component({
   selector: 'app-root',
@@ -37,7 +38,6 @@ import * as moment from 'moment';
   ]
 })
 export class AppComponent implements OnInit {
-  status: string;
   patterns = patterns;
 
   constructor(
@@ -65,10 +65,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    chrome.storage.sync.get('caretTabStatus', (data) => this.zone.run(() => {
-      this.shared.status = data['caretTabStatus'];
-      // console.log('CaretTab status: ' + this.shared.status);
-    }));
+    this.handleVersionNumbers();
+    
     this.settings.onChange().subscribe((data) => {
       if (
         this.settings.config.title.type === 20 ||
@@ -79,6 +77,21 @@ export class AppComponent implements OnInit {
       }
     });
     this.shared.zoneGuess = moment.tz.guess();
+  }
+
+  handleVersionNumbers() {
+    let prevVer: string = localStorage.getItem("caretTabPrevVersion");
+    let newVer: string = localStorage.getItem("caretTabNewVersion");
+    this.shared.status = localStorage.getItem("caretTabStatus");
+
+    // Display major update splash screen for version 3.0.0
+    if (compare(prevVer, '3.0.0', '<')) {
+      this.shared.updateType = "major";
+    } else {
+      this.shared.updateType = "quiet"
+    }
+
+    localStorage.setItem('caretTabUpdateType', this.shared.updateType);
   }
 
 }

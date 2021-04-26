@@ -39,12 +39,9 @@ export class SplashComponent implements OnInit {
 
   ngOnInit() {
     if (this.shared.status === 'updated') {
-      let oldVersion = localStorage.getItem('prevVersion');
-      let newVersion = localStorage.getItem('newVersion');
-
-      if (oldVersion === '3.0.0' || oldVersion === '3.0.1' || oldVersion === '3.1.0') {
+      if (this.shared.updateType === "minor") {
         this.step = 900;
-      } else {
+      } else if (this.shared.updateType === "major") {
         this.step = 800;
         chrome.storage.sync.get((a) => {
           this.printRecoveredQuickLinks = '';
@@ -73,11 +70,7 @@ export class SplashComponent implements OnInit {
   }
 
   removeIntro() {
-    chrome.storage.sync.set({'caretTabStatus': 'existing'}, function() {
-      if (chrome.runtime.lastError) {
-        console.log('Error: ', chrome.runtime.lastError);
-      }
-    });
+    localStorage.setItem('caretTabStatus', 'existing');
     this.shared.status = 'existing';
   }
 

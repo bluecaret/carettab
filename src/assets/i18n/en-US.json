@@ -281,6 +281,7 @@
   },
   "toggleSettings": {
     "close": "Save and close settings",
-    "open": "Open settings"
+    "open": "Open settings",
+    "updated": "Extension has been updated! Click here to open settings and see what's new."
   }
 }

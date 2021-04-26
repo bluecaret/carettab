@@ -281,6 +281,7 @@
   },
   "toggleSettings": {
     "close": "Guardar y cerrar ajustes",
-    "open": "Configuración abierta"
+    "open": "Configuración abierta",
+    "updated": "¡La extensión ha sido actualizada! Haga clic aquí para abrir la configuración y ver las novedades."
   }
 }

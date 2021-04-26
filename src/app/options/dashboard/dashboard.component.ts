@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as Bowser from 'bowser';
 import { SharedService } from '../../_shared/shared.service';
 
@@ -6,11 +6,23 @@ import { SharedService } from '../../_shared/shared.service';
   selector: 'options-dashboard',
   templateUrl: 'dashboard.component.html'
 })
-export class OptionsDashboardComponent {
+export class OptionsDashboardComponent implements OnInit {
+  status: string;
   browser = Bowser.getParser(window.navigator.userAgent).getBrowserName();
   shareMenu = false;
 
   constructor(public shared: SharedService) {
+  }
+
+  ngOnInit(): void {
+    console.log('options status', this.shared.status);
+    this.status = this.shared.status;
+
+    // Clear updated status
+    if (this.shared.status === 'updated') {
+      localStorage.setItem('caretTabStatus', 'existing');
+      this.shared.status = 'existing';
+    }
   }
 
   goToPage(page: string) {

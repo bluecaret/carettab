@@ -281,6 +281,7 @@
   },
   "toggleSettings": {
     "close": "Einstellungen speichern und schließen",
-    "open": "Einstellungen öffnen"
+    "open": "Einstellungen öffnen",
+    "updated": "Erweiterung wurde aktualisiert! Klicken Sie hier, um die Einstellungen zu öffnen und zu sehen, was es Neues gibt."
   }
 }

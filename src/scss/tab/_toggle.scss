@@ -3,6 +3,8 @@ $optionsToggleSize: 16px;
 $optionsToggleSpacing: 3px;
 $optionsTogglePadding: 30px;
 $optionsToggleHeight: ($optionsToggleSize + ($optionsTogglePadding * 2));
+$optionsToggleUpdateNoticeSize: 24px;
+$optionsToggleUpdateNoticeOffset: 16px;
 
 .openOptions {
   position: fixed;
@@ -18,11 +20,6 @@ $optionsToggleHeight: ($optionsToggleSize + ($optionsTogglePadding * 2));
   transition: all .3s;
   cursor: pointer;
   overflow: hidden;
-  opacity: .5;
-  &:hover,
-  &:focus {
-    opacity: 1;
-  }
   &:focus {
     outline: none;
     box-shadow: 
@@ -30,23 +27,29 @@ $optionsToggleHeight: ($optionsToggleSize + ($optionsTogglePadding * 2));
       inset 0 0 0 6px white;
   }
   span {
+    opacity: .5;
     display: block;
     position: absolute;
     height: 2px;
     width: $optionsToggleSize;
     background: currentColor;
     border-radius: 2px;
-    opacity: 1;
     right: $optionsTogglePadding;
     transition: opacity .5s;
     &:nth-of-type(1) {
       bottom: ($optionsToggleSpacing + $optionsTogglePadding);
     }
-    &:nth-of-type(2), &:nth-of-type(3) {
+    &:nth-of-type(2) {
       bottom: ((($optionsToggleSize - $optionsToggleLine) / 2) + $optionsTogglePadding);
     }
-    &:nth-of-type(4) {
+    &:nth-of-type(3) {
       bottom: ($optionsToggleSize - $optionsToggleLine - $optionsToggleSpacing + $optionsTogglePadding);
+    }
+  }
+  &:hover,
+  &:focus {
+    span {
+      opacity: 1;
     }
   }
   &.open {
@@ -57,10 +60,26 @@ $optionsToggleHeight: ($optionsToggleSize + ($optionsTogglePadding * 2));
     }
   }
   &.hide:not(.open) {
-    opacity: 0;
+    span {
+      opacity: 0;
+    }
     &:focus,
     &:hover {
-      opacity: 1;
+      span {
+        opacity: 1;
+      }
     }
+  }
+  .quietUpdateNotice {
+    position: absolute;
+    bottom: $optionsToggleUpdateNoticeOffset;
+    right: $optionsToggleUpdateNoticeOffset;
+    svg {
+      width: $optionsToggleUpdateNoticeSize;
+      height: $optionsToggleUpdateNoticeSize;
+    }
+  }
+  &.open .quietUpdateNotice {
+    opacity: 0;
   }
 }

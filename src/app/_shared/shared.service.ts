@@ -12,6 +12,7 @@ export class SharedService {
   private _title: string = 'New Tab';
   private _bg: string;
   private _status: string;
+  private _updateType: "major" | "minor" | "quiet" | "hidden";
 
   constructor(
     public settings: Storage
@@ -72,6 +73,13 @@ export class SharedService {
   }
   set status(value: string) {
     this._status = value;
+  }
+
+  get updateType(): "major" | "minor" | "quiet" | "hidden" {
+    return this._updateType;
+  }
+  set updateType(value: "major" | "minor" | "quiet" | "hidden") {
+    this._updateType = value;
   }
 
   public createID(prefix: string) {

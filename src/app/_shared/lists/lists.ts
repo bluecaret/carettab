@@ -7,7 +7,7 @@ export const languages = [
   { id: 'zh-cn', label: '中文', name: 'Chinese (S)' },
   { id: 'uk-UA', label: 'Українська', name: 'Ukrainian (Ukraine)' },
   { id: 'ja-JP', label: '日本語', name: 'Japanese (Japan)' },
-  { id: 'de-DE', label: 'Deutsche', name: 'German (Germany)' },
+  { id: 'de-DE', label: 'Deutsch', name: 'German (Germany)' },
   { id: 'ru-RU', label: 'Pусский', name: 'Russian (Russia)' }
 ];
 

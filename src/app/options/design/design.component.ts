@@ -93,7 +93,7 @@ export class OptionsDesignComponent implements OnInit {
       try {
         localStorage.setItem('bgImg', uploadSrc);
         this.shared.bg = uploadSrc;
-        this.settings.config.design.patternId = 900;
+        this.settings.config.design.patternId = 99999;
         this.settings.config.design.imageSize = 20;
       } catch (e) {
         if (this.isQuotaExceeded(e)) {

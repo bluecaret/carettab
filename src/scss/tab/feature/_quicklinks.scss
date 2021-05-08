@@ -1,4 +1,3 @@
-$qlBg: $optionsBg;
 $qlBorderColor: #1f2020;
 $qlBorder: 1px solid $qlBorderColor;
 $qlRadius: 8px;
@@ -70,7 +69,7 @@ $qlRadius: 8px;
   padding: 0;
   min-width: 10em;
   max-width: 20em;
-  background-color: $qlBg;
+  background-color: var(--optBg);
   border: $qlBorder;
   border-radius: $qlRadius;
   box-shadow: none;

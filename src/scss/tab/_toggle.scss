@@ -23,8 +23,7 @@ $optionsToggleUpdateNoticeOffset: 16px;
   &:focus {
     outline: none;
     box-shadow: 
-      inset 0 0 0 3px black,
-      inset 0 0 0 6px white;
+      inset 0 0 0 3px currentColor;
   }
   span {
     opacity: .5;
@@ -53,7 +52,7 @@ $optionsToggleUpdateNoticeOffset: 16px;
     }
   }
   &.open {
-    width: 100vw;
+    width: calc(100vw - 800px);
     height: 100vh;
     span {
       opacity: 0;

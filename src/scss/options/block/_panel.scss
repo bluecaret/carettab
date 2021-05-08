@@ -3,35 +3,26 @@
   z-index: z('optionsPanel');
   top: 0;
   right: 0;
+  display: flex;
   width: $optionsWidth;
   height: 100vh;
+  font-size: 16px;
+  background: transparent;
+  color: var(--optText);
+  box-shadow: 0 0 20px 5px var(--optShadow);
   transform-origin: center right;
-  svg.panelBg {
-    position: absolute;
-    top: 0;
-    right: -10px;
-    z-index: +1;
-    width: calc(100% + 20px);
-    height: calc(100% + 20px);
-    overflow: hidden;
-    filter: drop-shadow( -5px -5px 10px rgba(0,0,0,.2) );
-    polyline:nth-child(1) {
-      fill: rgba(255,255,255,.9);
-    }
-    polyline:nth-child(2) {
-      fill: rgba(255,255,255,.75);
+
+  h1, h2, h3, h4, h5, h6, p, .input {
+    margin: 0;
+    * + & {
+      margin-top: 1.5em;
     }
   }
-}
-.panelContent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  padding: 0 0 0 0;
-  z-index: z('optionsPage');
-  display: grid;
-  grid-template: 57px 1fr / 1fr;
+  h1, h2, h3, h4, h5, h6 {
+    @extend %optFontHeading;
+  }
+  p, a, label, input, select, output, button {
+    @extend %optFontBody;
+    font-size: 16px;
+  }
 }

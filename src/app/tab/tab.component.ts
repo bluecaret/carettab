@@ -5,11 +5,15 @@ import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from '../_shared/shared.service';
 import { Storage } from '../_storage/storage.service';
 import { span, bgSize, bgBlend } from '../_shared/lists/lists';
+import { tab } from '../_shared/animations';
 
 @Component({
   selector: 'app-tab',
   templateUrl: 'tab.component.html',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  animations: [
+    tab
+  ]
 })
 export class TabComponent implements OnInit {
   NEW_TAB_TEXT = 'New Tab';

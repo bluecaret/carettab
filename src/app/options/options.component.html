@@ -1,6 +1,6 @@
 <section class="panel" [@options] *ngIf="shared.optionsToggle">
-  <div class="panelContent">
-    <nav *ngIf="shared.optionsToggle"></nav>
+  <nav *ngIf="shared.optionsToggle"></nav>
+  <div class="pageWrap">
     <options-dashboard @fadeIn *ngIf="shared.optionsPage === 'Dashboard'" class="page" [ngClass]="{'open': shared.optionsPage === 'Dashboard'}"></options-dashboard>
     <options-design @fadeIn *ngIf="shared.optionsPage === 'Design'" class="page" [ngClass]="{'open': shared.optionsPage === 'Design'}"></options-design>
     <options-time @fadeIn *ngIf="shared.optionsPage === 'Time'" class="page" [ngClass]="{'open': shared.optionsPage === 'Time'}"></options-time>

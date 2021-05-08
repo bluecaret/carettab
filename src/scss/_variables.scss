@@ -4,6 +4,32 @@ $green: rgb(35, 148, 82);
 $lightGreen: rgb(147, 209, 147);
 $gray: #778888;
 $lightGray: #fafafa;
+
+:root {
+  --optAccent: rgb(63, 169, 245);
+  --optText: rgb(40,40,20);
+  --optBgBase: 245,245,240;
+  --optBg: rgb(var(--optBgBase));
+  --optBgHover: rgba(0,0,0,.05);
+  --optBg70: rgba(var(--optBgBase),.70);
+  --optBg85: rgba(var(--optBgBase),.85);
+  --optBg95: rgba(var(--optBgBase),.95);
+  --optShadow: rgba(0,0,0,.2);
+  --optNavBorder: rgba(0,0,0,.1);
+  @media (prefers-color-scheme: dark) {
+    --optAccent: rgb(105,125,175);
+    --optText: rgb(195,195,225);
+    --optBgBase: 0,10,18;
+    --optBg: rgb(var(--optBgBase));
+    --optBgHover: rgba(255,255,255,.05);
+    --optBg70: rgba(var(--optBgBase),.70);
+    --optBg85: rgba(var(--optBgBase),.85);
+    --optBg95: rgba(var(--optBgBase),.95);
+    --optShadow: rgba(255,255,255,.2);
+    --optNavBorder: rgba(255,255,255,.1);
+  }
+}
+
 $focus: 0 0 0 3px rgba(0, 0, 0, 0.12);
 $transition: all .3s;
 
@@ -17,9 +43,6 @@ $lg: 1200px;
 
 // Z-index
 $z-indexes: (
-  'optionsPanel',
-  'optionsPage',
-  'optionsNav',
   'tabUI',
   'tabClock',
   'tabDate',
@@ -27,9 +50,12 @@ $z-indexes: (
   'tabQuickLinks',
   'tabQuickLinksMostVisited',
   'tabToggle',
+  'optionsPanel',
+  'optionsPage',
+  'optionsNav',
   'tooltip',
   'splash'
 );
 
-$optionsBg: #f5f7fa;
-$optionsWidth: 600px;
+// $optionsBg: $optBgDark;
+$optionsWidth: 800px;

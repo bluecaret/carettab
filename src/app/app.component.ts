@@ -56,7 +56,9 @@ export class AppComponent implements OnInit {
     } else {
       let patternId = this.settings.config.design.patternId;
       let img = '0.png';
-      if (patternId !== 0) {
+
+      // Check for "900" is for backwards compatibility with an old bug
+      if (patternId !== 0 && patternId !== 99999 && patternId !== 900) {
         img = patterns.find(p => p.id === patternId).pattern;
       }
       let bg = './assets/patterns/' + img;

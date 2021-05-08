@@ -1,5 +1,19 @@
 $font-src: "../assets/fonts";
 
+$optFontBody: 'Open Sans', sans-serif;
+$optFontHeading: 'Open Sans', sans-serif;
+
+%optFontBody {
+  font-family: $optFontBody;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+%optFontHeading {
+  font-family: $optFontHeading;
+  font-weight: 300;
+}
+
 //
 // Material Icon font
 //

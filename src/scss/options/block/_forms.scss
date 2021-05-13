@@ -1,252 +1,248 @@
-fieldset {
-  display: block;
-  border: 0;
-  padding: 0;
-  margin: 0 0 30px 0;
-  legend {
-    font-size: 22px;
-    font-weight: 300;
-    margin: 0 0 15px 0;
-  }
-}
-
-::placeholder {
-  color: inherit;
-  opacity: 1;
-}
-
-.customControl {
-  display: block;
-  width: 100%;
-}
-
-.fieldGroup {
-  display: flex;
-  margin: 0 -5px;
-  min-height: $fieldHeight;
-  place-items: center left;
-  > * {
-    margin: 0 5px;
-    flex: 1 1 auto;
-  }
-  > label {
-    width: 30%;
-    flex: 0 0 auto;
+.input {
+  .helpText {
     font-size: 14px;
-    line-height: 1.3;
-    color: #555;
-    small {
-      display: block;
-      margin-top: 2px;
-      opacity: .8;
-      font-size: 12px;
-      line-height: 1.3;
-    }
-    &[title] {
-      cursor: help;
-    }
+    opacity: .7;
+    margin-bottom: 10px;
   }
-  > input,
-  > select,
-  > textarea,
-  .inputColor,
-  .inputColor__preview,
-  .inputColor__code {
+  display: block;
+  label {
+    display: block;
+    margin-bottom: 6px;
+  }
+  input[type="text"],
+  select {
     display: block;
     width: 100%;
-    height: $fieldHeight;
-    padding: 0 10px;
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 1.4;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 7px;
-    background: #fff;
-    color: #202020;
+    background: transparent;
+    border: 2px solid var(--optAccent);
+    color: currentColor;
+    line-height: 2.5;
+    height: 44px;
+    padding: 0 14px;
+    border-radius: 6px;
     &:focus {
-      outline: 0;
-      box-shadow: $focus;
-    }
-    &:disabled {
-      background: $optionsBg;
-      color: #353535;
+      outline: none;
+      box-shadow: 0 0 0 2px var(--optAccent);
     }
   }
-
-  > select {
-    padding: 0 6px;
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image:
+      linear-gradient(45deg, transparent 50%, var(--optAccent) 50%),
+      linear-gradient(135deg, var(--optAccent) 50%, transparent 50%),
+      linear-gradient(to right, var(--optAccent), var(--optAccent));
+    background-position:
+      calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px),
+      calc(100% - 2.5em) 0.5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1px 1.5em;
+    background-repeat: no-repeat;
+    padding-right: 40px;
+    option {
+      background: var(--optBgHighlight);
+      border: 2px solid white;
+      color: currentColor;
+      line-height: 2.5;
+    }
   }
-  .inputColor {
-    padding: 0;
-    input[type="color"] {
+  .toggle {
+    position: relative;
+    input {
+      position: absolute;
       opacity: 0;
-      cursor: pointer;
-      height: 100%;
-      width: 100%;
     }
-  }
-  &.fieldGroup--break {
-    flex-wrap: wrap;
-    > label {
-      width: 100%;
-      margin-bottom: 5px;
-    }
-  }
-  .labelIcon {
-    width: 28px;
-  }
-  .fieldMd {
-    width: 75%;
-    flex: 0 0 auto;
-  }
-  .fieldSm {
-    width: 50%;
-    flex: 0 0 auto;
-  }
-  .fieldXs {
-    width: 25%;
-    flex: 0 0 auto;
-  }
-}
-
-.fieldInfo {
-  font-size: 13px;
-  line-height: 1.4;
-  color: #555;
-}
-
-.field {
-  display: grid;
-  grid-template: 25px #{$fieldHeight} / 1fr;
-  grid-gap: 0;
-  margin: 0;
-  place-items: center left;
-  > label {
-    font-size: 11px;
-    text-transform: uppercase;
-    color: #555;
-    padding-left: 1px;
-  }
-  > input,
-  > select,
-  > textarea,
-  > .inputColor {
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 0 10px;
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 1.4;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 7px;
-    background: #fff;
-    color: #202020;
-    &:focus {
-      outline: 0;
-      box-shadow: $focus;
-    }
-    &:disabled {
-      background: $optionsBg;
-      color: #353535;
-    }
-  }
-  > select {
-    padding: 0 6px;
-  }
-  .inputColor {
-    padding: 0;
-    input[type="color"] {
-      opacity: 0;
-      cursor: pointer;
-      height: 100%;
-      width: 100%;
-    }
-  }
-  > * {
-    grid-row: 2 / 3;
-  }
-  > label {
-    grid-row: 1 / 2;
-  }
-  > .valMsg {
-    grid-row: auto;
-  }
-  &.noLabel {
-    grid-template: #{$fieldHeight} / auto;
-    grid-auto-flow: column;
-    > * {
-      grid-row: 1 / 2;
-      grid-column: 1 / 2;
-    }
-    > .valMsg {
-      grid-row: auto;
-    }
-  }
-  &.btns {
-    display: flex;
-  }
-  &.compact {
-    grid-template: #{$fieldHeight} / auto 1fr;
-    grid-auto-flow: column;
-    > * {
-      grid-row: 1 / 2;
-      grid-column: 2 / 3;
-    }
-    > label {
-      grid-row: 1 / 2;
-      grid-column: 1 / 2;
+    input + label {
       display: grid;
-      place-items: center center;
-    }
-    > .valMsg {
-      grid-column: 2 / 3;
-      grid-row: 2 / 3;
-    }
-  }
-  &.compactIcon {
-    grid-template: #{$fieldHeight} / 31px 1fr;
-    > * {
-      grid-row: 1 / 2;
-      grid-column: 2 / 3;
-    }
-    > label {
-      grid-row: 1 / 2;
-      grid-column: 1 / 2;
-      display: grid;
-      place-items: center center;
-      .icon {
+      grid-template: 1fr / 60px 1fr;
+      grid-gap: 12px;
+      align-items: center;
+      height: 44px;
+      width: fit-content;
+      cursor: pointer;
+      transition: all .25s ease;
+      &:before {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        content: "";
+        display: block;
+        height: 30px;
+        border: 2px solid var(--optAccent);
+        border-radius: 16px;
+      }
+      &:after {
+        position: relative;
+        z-index: +1;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        content: "";
+        display: block;
+        height: 24px;
         width: 24px;
-        text-align: center;
-        margin-right: 7px;
+        background: transparent;
+        box-shadow: inset 0 0 0 2px var(--optAccent);
+        border-radius: 50%;
+        transform: translateX(5px);
+        transition: .35s;
+      }
+      span {
+        &:before {
+          content: attr(data-off);
+        }
       }
     }
-    > .valMsg {
-      grid-column: 2 / 3;
-      grid-row: 2 / 3;
+    input:checked + label {
+      &:after {
+        background-color: var(--optAccent);
+        transform: translateX(31px);
+      }
+      span {
+        &:before {
+          content: attr(data-on);
+        }
+      }
+    }
+    input:focus + label {
+      &:before {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--optAccent);
+      }
+    }
+    input:disabled + label {
+      cursor: not-allowed;
+      &:before {
+        box-shadow: none;
+        border-color: var(--optAccentDisabled);
+      }
+      &:after {
+        box-shadow: inset 0 0 0 2px var(--optAccentDisabled);
+      }
+    }
+    input:checked:disabled + label {
+      &:after {
+        background-color: var(--optAccentDisabled);
+      }
     }
   }
-  &.reverse {
-    > * {
-      grid-row: 1 / 2;
+  .range {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    grid-gap: 12px;
+    align-items: center;
+    height: 44px;
+    @mixin range-thumb {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      height: 34px;
+      width: 34px;
+      border-radius: 50%;
+      background: var(--optBg);
+      cursor: pointer;
+      margin-top: -10px;
+      border: 2px solid var(--optAccent);
     }
-    > label {
-      grid-row: 2 / 3;
+    @mixin range-thumb-hover {
+      background: var(--optBg);
+    }
+    @mixin range-thumb-focus {
+      box-shadow: 0 0 0 2px var(--optAccent);
+    }
+    @mixin range-track {
+      width: 100%;
+      height: 14px;
+      cursor: pointer;
+      border-radius: 7px;
+      background: transparent;
+      border: 0;
+      box-shadow: 0 0 0 0 var(--optAccent), inset 0 0 0 2px var(--optAccent);
+      padding: 0 0px;
+    }
+    @mixin range-track-focus {
+      box-shadow: 0 0 0 2px var(--optAccent), inset 0 0 0 2px var(--optAccent);
+    }
+    input[type="range"] {
+      -webkit-appearance: none;
+      background: transparent;
+      border-color: transparent;
+      padding: 0;
+      border: 0;
+      min-width: 0;
+      box-sizing: border-box;
+      box-shadow: none;
+      cursor: pointer;
+      &:focus {
+        outline: none;
+      }
+      &::-moz-focus-outer {
+        border: 0;
+      }
+      &::-webkit-slider-thumb {
+        @include range-thumb;
+      }
+      &::-webkit-slider-runnable-track {
+        @include range-track;
+      }
+      &::-moz-range-thumb {
+        @include range-thumb;
+      }
+      &::-moz-range-track {
+        @include range-track;
+      }
+      &:hover {
+        &::-webkit-slider-thumb {
+          @include range-thumb-hover;
+        }
+        &::-moz-range-thumb {
+          @include range-thumb-hover;
+        }
+      }
+      &:focus {
+        outline: 0;
+        box-shadow: none;
+        &::-webkit-slider-runnable-track {
+          @include range-track-focus;
+        }
+        &::-moz-range-track {
+          @include range-track-focus;
+        }
+        &::-webkit-slider-thumb {
+          @include range-thumb-focus;
+        }
+        &::-moz-range-thumb {
+          @include range-thumb-focus;
+        }
+      }
+    }
+    $outputHeight: 30px;
+    $outputArrowWidth: 6px;
+    output {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--optAccent);
+      color: var(--optAccent);
+      height: $outputHeight;
+      text-align: center;
+      // font-size: 20px;
+      font-weight: 600;
+      position: relative;
+      cursor: default;
+      border-radius: 6px;
+      &::before {
+        position: absolute;
+        top: 50%;
+        right: -($outputArrowWidth);
+        transform: translateY(-50%);
+        content: '';
+        width: 0;
+        height: 0;
+        border-top: $outputArrowWidth solid transparent;
+        border-bottom: $outputArrowWidth solid transparent;
+        border-left: $outputArrowWidth solid var(--optAccent);
+      }
     }
   }
-  &.reverse.compact,
-  &.reverse.compactIcon {
-    > * {
-      grid-row: 1 / 2;
-      grid-column: 1 / 2;
-    }
-    > label {
-      grid-row: 1 / 2;
-      grid-column: 2 / 3;
-    }
-  }
-}
-
-input[type='file'] {
-  display: none;
 }

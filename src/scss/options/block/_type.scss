@@ -1,20 +1,40 @@
-h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0;
-  font-weight: 400;
-}
-h1 {
-  font-size: 30px;
-}
-h2 {
-  font-size: 20px;
-}
-h3 {
+// h1, h2, h3, h4, h5, h6 {
+//   margin: 20px 0;
+//   font-weight: 400;
+// }
+// small {
+//   display: block;
+//   font-size: 12px;
+// }
+
+app-options {
   font-size: 16px;
-}
-h4 {
-  font-size: 14px;
-}
-small {
-  display: block;
-  font-size: 12px;
+  // h1, h2, h3, h4, h5, h6, p, .input {
+  //   margin: 0;
+  // }
+  // * + h1, * + h2, * + h3, * + h4, * + h5, * + h6, * + p, * + .input {
+  //   margin-top: 1.5em;
+  // }
+  h1, h2, h3, h4, h5, h6 {
+    @extend %optFontHeading;
+  }
+  p, a, label, input, select, output, button {
+    @extend %optFontBody;
+    font-size: 16px;
+  }
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 32px;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  h4 {
+    font-size: 18px;
+  }
 }

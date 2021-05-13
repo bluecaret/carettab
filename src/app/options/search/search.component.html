@@ -1,65 +1,56 @@
+<h2>{{'options.search.search' | translate}}</h2>
 <form #searchOptions="ngForm" novalidate>
-  <fieldset class="mb0">
-    <legend>{{'options.search.search' | translate}}</legend>
-    <div class="grid cols-6">
-      <div class="field span-1">
-        <options-toggle name="searchBox" id="searchBox" [(ngModel)]="settings.config.search.enabled" (ngModelChange)="shared.toggleOrder(settings.config.search.id, $event)"></options-toggle>
-        <label>{{'options.search.searchBox' | translate}}</label>
-      </div>
-      <div class="field span-2">
-        <options-toggle name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete"></options-toggle>
-        <label title="{{'options.search.autocompleteDesc' | translate}}">{{'options.search.autocomplete' | translate}}</label>
-      </div>
+  <div class="input">
+    <label>{{'options.search.searchBox' | translate}}</label>
+    <options-toggle name="searchBox" id="searchBox" [(ngModel)]="settings.config.search.enabled" (ngModelChange)="shared.toggleOrder(settings.config.search.id, $event)"></options-toggle>
+  </div>
+  <div class="input">
+    <label>{{'options.search.searchEngine' | translate}}</label>
+    <select name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine">
+      <option *ngFor="let e of engines" [ngValue]="e.id">{{e.label}}</option>
+    </select>
+  </div>
+  <div class="input">
+    <label>{{'options.search.label' | translate}}</label>
+    <input type="text" name="searchLabel" id="searchLabel" [(ngModel)]="settings.config.search.label">
+  </div>
+  <div class="input">
+    <label>{{'options.search.autocomplete' | translate}}</label>
+    <div class="helpText">{{'options.search.autocompleteDesc' | translate}}</div>
+    <options-toggle name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete"></options-toggle>
+  </div>
+  <h3>{{'options.common.placement' | translate}}</h3>
+  <div class="input">
+    <label>{{'options.common.order' | translate}}</label>
+    <div class="orderBtns">
+      <button
+        type="button"
+        title="{{'options.common.moveUp' | translate}}"
+        class="btn"
+        [disabled]="!settings.config.search.enabled || shared.isFirst(settings.config.search.id)"
+        (click)="shared.changeOrder(settings.config.search.id, true)">
+        <div class="icon" aria-hidden="true">expand_less</div>Up
+      </button>
+      <button
+        type="button"
+        title="{{'options.common.moveDown' | translate}}"
+        class="btn"
+        [disabled]="!settings.config.search.enabled || shared.isLast(settings.config.search.id)"
+        (click)="shared.changeOrder(settings.config.search.id, false)">
+        <div class="icon" aria-hidden="true">expand_more</div>Down
+      </button>
     </div>
-    <div class="grid cols-6">
-      <div class="field span-3">
-        <select name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine">
-          <option *ngFor="let e of engines" [ngValue]="e.id">{{e.label}}</option>
-        </select>
-        <label>{{'options.search.searchEngine' | translate}}</label>
-      </div>
-      <div class="field span-3">
-        <input type="text" name="searchLabel" id="searchLabel" [(ngModel)]="settings.config.search.label">
-        <label>{{'options.search.label' | translate}}</label>
-      </div>
-      <div class="span-6 box mt1">
-        <h4 class="boxHeading">{{'options.common.placement' | translate}}</h4>
-        <div class="grid cols-6">
-          <div class="field span-2">
-            <div class="orderBtns">
-              <button
-                type="button"
-                title="{{'options.common.moveUp' | translate}}"
-                class="btn"
-                [disabled]="!settings.config.search.enabled || shared.isFirst(settings.config.search.id)"
-                (click)="shared.changeOrder(settings.config.search.id, true)">
-                <div class="icon">arrow_drop_up</div>
-              </button>
-              <button
-                type="button"
-                title="{{'options.common.moveDown' | translate}}"
-                class="btn"
-                [disabled]="!settings.config.search.enabled || shared.isLast(settings.config.search.id)"
-                (click)="shared.changeOrder(settings.config.search.id, false)">
-                <div class="icon">arrow_drop_down</div>
-              </button>
-            </div>
-            <label>{{'options.common.order' | translate}}</label>
-          </div>
-          <div class="field span-2">
-            <options-range name="searchSize" id="searchSize" min="1" max="20" [(ngModel)]="settings.config.search.scaling"></options-range>
-            <label>{{'options.common.size' | translate}}</label>
-          </div>
-          <div class="field span-2">
-            <options-range name="searchOffset" min="-20" max="20" [(ngModel)]="settings.config.search.offset"></options-range>
-            <label>{{'options.common.offset' | translate}}</label>
-          </div>
-          <div class="field span-4">
-            <options-range name="searchWidth" min="5" max="30" [(ngModel)]="settings.config.search.width"></options-range>
-            <label>{{'options.common.width' | translate}}</label>
-          </div>
-        </div>
-      </div>
-    </div>
-  </fieldset>
+  </div>
+  <div class="input">
+    <label>{{'options.common.size' | translate}}</label>
+    <options-range name="searchSize" id="searchSize" min="1" max="20" [(ngModel)]="settings.config.search.scaling"></options-range>
+  </div>
+  <div class="input">
+    <label>{{'options.common.offset' | translate}}</label>
+    <options-range name="searchOffset" min="-20" max="20" [(ngModel)]="settings.config.search.offset"></options-range>
+  </div>
+  <div class="input">
+    <label>{{'options.common.width' | translate}}</label>
+    <options-range name="searchWidth" min="5" max="30" [(ngModel)]="settings.config.search.width"></options-range>
+  </div>
 </form>

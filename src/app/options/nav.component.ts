@@ -20,57 +20,50 @@ import { Storage } from '../_storage/storage.service';
     </h1>
     <ul>
       <li>
-        <button title="Dashboard" type="button" (click)="goToPage('Dashboard')" [ngClass]="{'active': shared.optionsPage === 'Dashboard'}">
-          <div class="icon">info</div>Dashboard
+        <button type="button" (click)="goToPage('Dashboard')" [ngClass]="{'active': shared.optionsPage === 'Dashboard'}">
+          <div class="icon" aria-hidden="true">info</div>Dashboard
         </button>
       </li>
       <li>
         <button
-          title="{{'options.design.design' | translate}}"
           type="button" (click)="goToPage('Design')" [ngClass]="{'active': shared.optionsPage === 'Design'}">
-          <div class="icon">format_paint</div>{{'options.design.design' | translate}}
+          <div class="icon" aria-hidden="true">format_paint</div>{{'options.design.design' | translate}}
         </button>
       </li>
       <li>
         <button
-          title="{{'options.time.time' | translate}}"
           type="button" (click)="goToPage('Time')" [ngClass]="{'active': shared.optionsPage === 'Time'}">
-          <div class="icon">access_time</div>{{'options.time.time' | translate}}
+          <div class="icon" aria-hidden="true">access_time</div>{{'options.time.time' | translate}}
         </button>
       </li>
       <li>
         <button
-          title="{{'options.date.date' | translate}}"
           type="button" (click)="goToPage('Date')" [ngClass]="{'active': shared.optionsPage === 'Date'}">
-          <div class="icon">insert_invitation</div>{{'options.date.date' | translate}}
+          <div class="icon" aria-hidden="true">insert_invitation</div>{{'options.date.date' | translate}}
         </button>
       </li>
       <li>
         <button
-          title="{{'options.bookmarks.headingBar' | translate}}"
           type="button" (click)="goToPage('Bookmarks')" [ngClass]="{'active': shared.optionsPage === 'Bookmarks'}">
-          <div class="icon">star</div>{{'options.bookmarks.headingBar' | translate}}
+          <div class="icon" aria-hidden="true">star</div>{{'options.bookmarks.headingBar' | translate}}
         </button>
       </li>
       <li>
         <button
-          title="{{'options.search.search' | translate}}"
           type="button" (click)="goToPage('Search')" [ngClass]="{'active': shared.optionsPage === 'Search'}">
-          <div class="icon">search</div>{{'options.search.search' | translate}}
+          <div class="icon" aria-hidden="true">search</div>{{'options.search.search' | translate}}
         </button>
       </li>
       <li>
         <button
-          title="{{'options.message.customMsg' | translate}}"
           type="button" (click)="goToPage('Message')" [ngClass]="{'active': shared.optionsPage === 'Message'}">
-          <div class="icon">textsms</div>{{'options.message.customMsg' | translate}}
+          <div class="icon" aria-hidden="true">textsms</div>{{'options.message.customMsg' | translate}}
         </button>
       </li>
       <li>
         <button
-          title="Extra"
           type="button" (click)="goToPage('Extra')" [ngClass]="{'active': shared.optionsPage === 'Extra'}">
-          <div class="icon">settings</div>Extra
+          <div class="icon" aria-hidden="true">settings</div>Extra
         </button>
       </li>
     </ul>

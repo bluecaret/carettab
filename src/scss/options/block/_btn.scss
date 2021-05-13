@@ -1,64 +1,35 @@
-$btnActiveShadow: inset 0 0 0 2px #000, inset 0 0 0 4px $optionsBg;
-
-.link {
-  display: inline;
-  border: 0;
-  background-color: transparent;
-  padding: 0;
-  margin: 0;
-  color: blue;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .btn {
   display: inline-flex;
-  min-width: 44px;
-  padding: 0 10px;
-  font-size: 13px;
   align-items: center;
-  justify-content: center;
-  line-height: $fieldHeight;
-  vertical-align: middle;
-  background: $lightBlue;
+  height: 44px;
+  border-radius: 22px;
+  background-color: var(--optAccent);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
   border: 0;
-  border-radius: ($fieldHeight / 2);
+  padding: 0 16px;
+  margin: 0;
   color: black;
+  vertical-align: middle;
   cursor: pointer;
-  transition: $transition;
-  text-decoration: none;
-  &:focus {
-    outline: none;
-    box-shadow: $focus;
+  transition: background-color .2s;
+  &.btnIcon {
+    padding: 0 10px;
   }
   &:hover {
-    background: $blue;
+    background-color: var(--optAccentLight);
   }
-  &.active {
-    box-shadow: $btnActiveShadow;
+  &:active {
+    background-color: var(--optAccentDark);
   }
-  &.active:focus {
-    box-shadow: $focus, $btnActiveShadow;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--optAccent), inset 0 0 0 2px var(--optBg);
   }
   &:disabled {
-    background: #dcdcdc;
-    color: #666;
+    background-color: var(--optAccentDisabled);
+    box-shadow: none;
     cursor: not-allowed;
   }
-  .icon.space {
-    margin-right: 5px;
-  }
-  .icon {
-    line-height: $fieldHeight;
-  }
-}
-
-.btnCircle {
-  padding: 0;
-  min-width: 30px;
-}
-
-.btnBlock {
-  display: block;
-  width: 100%;
 }

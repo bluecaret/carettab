@@ -16,6 +16,23 @@
   border-radius: 10px;
 }
 
+app-options {
+  h1, h2, h3, h4, h5, h6, p, .input, form {
+    margin: 0;
+  }
+  * + h1, 
+  * + h2, 
+  * + h3, 
+  * + h4, 
+  * + h5, 
+  * + h6, 
+  * + p, 
+  * + .input,
+  * + form {
+    margin-top: 1.5em;
+  }
+}
+
 @import "block/box";
 @import "block/btn";
 @import "block/forms";

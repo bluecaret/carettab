@@ -29,7 +29,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
         [(ngModel)]="toggle"
         [disabled]="disabled"
         [required]="required">
-      <label [for]="value? name+'-'+value : name+'-id'"></label>
+      <label [for]="value? name+'-'+value : name+'-id'"><span *ngIf="type === 'toggle'" data-on="On" data-off="Off"></span></label>
     </div>
   `,
   host: {'class': 'customControl'}

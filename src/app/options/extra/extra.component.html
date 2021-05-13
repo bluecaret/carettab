@@ -1,49 +1,43 @@
-<fieldset>
-  <legend>{{'options.extra.lang' | translate}}</legend>
-  <div class="grid cols-2">
-    <div class="field span-1">
-      <select name="lang" id="lang" [(ngModel)]="settings.config.lang" (ngModelChange)="useLanguage($event)">
-        <option *ngFor="let lang of languages" [ngValue]="lang.id">{{lang.label}}</option>
-      </select>
-      <label for="lang">{{'options.extra.lang' | translate}}</label>
-    </div>
-  </div>
-</fieldset>
-<fieldset>
-  <legend>{{'options.extra.tabTitle' | translate}}</legend>
-  <div class="grid cols-4">
-    <div class="field span-2">
-      <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.title.type">
-        <option *ngFor="let type of titleOptions" [ngValue]="type.id">{{type.label}}</option>
-      </select>
-      <label for="tabTitle" title="{{'options.extra.tabTitleDesc' | translate}}">{{'options.extra.tabTitle' | translate}}</label>
-    </div>
-    <div class="field span-2" *ngIf="settings.config.title.type === 60">
-      <input type="text" name="tabTitleCustom" id="tabTitleCustom" [(ngModel)]="settings.config.title.text">
-      <label for="tabTitleCustom" title="{{'options.extra.tabCustomTextDesc' | translate}}">{{'options.extra.tabCustomText' | translate}}</label>
-    </div>
-    <div class="field span-1" *ngIf="settings.config.title.type === 20 || settings.config.title.type === 40 || settings.config.title.type === 50">
-      <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.title.clockUsed">
-        <option *ngFor="let clock of settings.config.time.clocks; let i = index" [ngValue]="i+1">Clock #{{i + 1}}</option>
-      </select>
-      <label for="tabTitle" title="{{'options.extra.tabClockDesc' | translate}}">{{'options.extra.tabClock' | translate}}</label>
-    </div>
-  </div>
-</fieldset>
-<fieldset class="mb0">
-  <legend>{{'options.extra.advanced' | translate}}</legend>
-  <div class="grid cols-3">
-    <div class="field span-1">
-      <options-toggle name="hideMenu" id="hideMenu" [(ngModel)]="settings.config.design.hideMenu"></options-toggle>
-      <label title="{{'options.extra.hideMenuDesc' | translate}}">{{'options.extra.hideMenu' | translate}}</label>
-    </div>
-    <div class="field span-1">
-      <options-toggle name="hideLogo" id="hideLogo" [(ngModel)]="settings.config.design.hideLogo"></options-toggle>
-      <label title="{{'options.extra.hideLogo' | translate}}">{{'options.extra.hideLogo' | translate}}</label>
-    </div>
-    <div class="field span-1">
-      <button id="reset" type="button" class="btn" (click)="reset()">{{'options.extra.reset' | translate}}</button>
-      <label for="reset" title="{{'options.extra.resetDesc' | translate}}">{{'options.extra.resetToDefault' | translate}}</label>
-    </div>
-  </div>
-</fieldset>
+<h2>Extra</h2>
+<h3>{{'options.extra.lang' | translate}}</h3>
+<div class="input">
+  <label for="lang">{{'options.extra.lang' | translate}}</label>
+  <select name="lang" id="lang" [(ngModel)]="settings.config.lang" (ngModelChange)="useLanguage($event)">
+    <option *ngFor="let lang of languages" [ngValue]="lang.id">{{lang.label}}</option>
+  </select>
+</div>
+<h3>{{'options.extra.tabTitle' | translate}}</h3>
+<div class="input">
+  <label for="tabTitle">{{'options.extra.tabTitle' | translate}}</label>
+  <div class="helpText">{{'options.extra.tabTitleDesc' | translate}}</div>
+  <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.title.type">
+    <option *ngFor="let type of titleOptions" [ngValue]="type.id">{{type.label}}</option>
+  </select>
+</div>
+<div class="input" *ngIf="settings.config.title.type === 60">
+  <label for="tabTitleCustom">{{'options.extra.tabCustomText' | translate}}</label>
+  <div class="helpText">{{'options.extra.tabCustomTextDesc' | translate}}</div>
+  <input type="text" name="tabTitleCustom" id="tabTitleCustom" [(ngModel)]="settings.config.title.text">
+</div>
+<div class="input" *ngIf="settings.config.title.type === 20 || settings.config.title.type === 40 || settings.config.title.type === 50">
+  <label for="tabTitle">{{'options.extra.tabClock' | translate}}</label>
+  <div class="helpText">{{'options.extra.tabClockDesc' | translate}}</div>
+  <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.title.clockUsed">
+    <option *ngFor="let clock of settings.config.time.clocks; let i = index" [ngValue]="i+1">Clock #{{i + 1}}</option>
+  </select>
+</div>
+<h3>{{'options.extra.advanced' | translate}}</h3>
+<div class="input">
+  <label>{{'options.extra.hideMenu' | translate}}</label>
+  <div class="helpText">{{'options.extra.hideMenuDesc' | translate}}</div>
+  <options-toggle name="hideMenu" id="hideMenu" [(ngModel)]="settings.config.design.hideMenu"></options-toggle>
+</div>
+<div class="input">
+  <label>{{'options.extra.hideLogo' | translate}}</label>
+  <options-toggle name="hideLogo" id="hideLogo" [(ngModel)]="settings.config.design.hideLogo"></options-toggle>
+</div>
+<div class="input">
+  <label for="reset">{{'options.extra.resetToDefault' | translate}}</label>
+  <div class="helpText">{{'options.extra.resetDesc' | translate}}</div>
+  <button id="reset" type="button" class="btn" (click)="reset()">{{'options.extra.reset' | translate}}</button>
+</div>

@@ -6,23 +6,8 @@
   display: flex;
   width: $optionsWidth;
   height: 100vh;
-  font-size: 16px;
   background: transparent;
   color: var(--optText);
   box-shadow: 0 0 20px 5px var(--optShadow);
   transform-origin: center right;
-
-  h1, h2, h3, h4, h5, h6, p, .input {
-    margin: 0;
-    * + & {
-      margin-top: 1.5em;
-    }
-  }
-  h1, h2, h3, h4, h5, h6 {
-    @extend %optFontHeading;
-  }
-  p, a, label, input, select, output, button {
-    @extend %optFontBody;
-    font-size: 16px;
-  }
 }

@@ -1,12 +1,12 @@
-<div class="tabBackground"
-  [style.backgroundColor]="settings.config.design.background"
-  [style.backgroundImage]="'url('+ shared.bg +')'"
-  [style.filter]="getBrightness()"
-  [style.backgroundSize]="getBgSize()"
-  [style.backgroundBlendMode]="getBgBlend()"
-  [style.backgroundRepeat]="settings.config.design.imageSize === 10 ? 'repeat' : 'no-repeat'">
-</div>
 <div class="tabWrap" [@tab]="shared.optionsToggle">
+  <div class="tabBackground"
+    [style.backgroundColor]="settings.config.design.background"
+    [style.backgroundImage]="'url('+ shared.bg +')'"
+    [style.filter]="getBrightness()"
+    [style.backgroundSize]="getBgSize()"
+    [style.backgroundBlendMode]="getBgBlend()"
+    [style.backgroundRepeat]="settings.config.design.imageSize === 10 ? 'repeat' : 'no-repeat'">
+  </div>
   <section
     class="w100"
     [style.fontFamily]="shared.getFont(settings.config.design.font, settings.config.design.customFont)"

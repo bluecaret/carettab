@@ -1,49 +1,41 @@
+<h2>{{'options.message.customMsg' | translate}}</h2>
 <form #messageOptions="ngForm" novalidate>
-  <fieldset class="mb0">
-    <legend>{{'options.message.customMsg' | translate}}</legend>
-    <div class="grid cols-6">
-      <div class="field span-1">
-        <options-toggle name="message" id="message" [(ngModel)]="settings.config.message.enabled" (ngModelChange)="shared.toggleOrder(settings.config.message.id, $event)"></options-toggle>
-        <label>{{'options.message.msg' | translate}}</label>
-      </div>
-      <div class="field span-3">
-        <input type="text" name="messageText" id="messageText" [(ngModel)]="settings.config.message.text" autocomplete="off">
-        <label title="{{'options.message.msgTextDesc' | translate}}">{{'options.message.msgText' | translate}}</label>
-      </div>
-      <div class="span-6 box mt1">
-        <h4 class="boxHeading">{{'options.common.placement' | translate}}</h4>
-        <div class="grid cols-6">
-          <div class="field span-2">
-            <div class="orderBtns">
-              <button
-                type="button"
-                title="{{'options.common.moveUp' | translate}}"
-                class="btn"
-                [disabled]="!settings.config.message.enabled || shared.isFirst(settings.config.message.id)"
-                (click)="shared.changeOrder(settings.config.message.id, true)">
-                <div class="icon">arrow_drop_up</div>
-              </button>
-              <button
-                type="button"
-                title="{{'options.common.moveDown' | translate}}"
-                class="btn"
-                [disabled]="!settings.config.message.enabled || shared.isLast(settings.config.message.id)"
-                (click)="shared.changeOrder(settings.config.message.id, false)">
-                <div class="icon">arrow_drop_down</div>
-              </button>
-            </div>
-            <label>{{'options.common.order' | translate}}</label>
-          </div>
-          <div class="field span-2">
-            <options-range name="messageSize" id="messageSize" min="1" max="20" [(ngModel)]="settings.config.message.scaling"></options-range>
-            <label>{{'options.common.size' | translate}}</label>
-          </div>
-          <div class="field span-2">
-            <options-range name="messageOffset" min="-20" max="20" [(ngModel)]="settings.config.message.offset"></options-range>
-            <label>{{'options.common.offset' | translate}}</label>
-          </div>
-        </div>
-      </div>
+  <div class="input">
+    <label>{{'options.message.msg' | translate}}</label>
+    <options-toggle name="message" id="message" [(ngModel)]="settings.config.message.enabled" (ngModelChange)="shared.toggleOrder(settings.config.message.id, $event)"></options-toggle>
+  </div>
+  <div class="input">
+    <label>{{'options.message.msgText' | translate}}</label>
+    <input type="text" name="messageText" id="messageText" [(ngModel)]="settings.config.message.text" autocomplete="off">
+  </div>
+  <h3>{{'options.common.placement' | translate}}</h3>
+  <div class="input">
+    <label>{{'options.common.order' | translate}}</label>
+    <div class="orderBtns">
+      <button
+        type="button"
+        title="{{'options.common.moveUp' | translate}}"
+        class="btn"
+        [disabled]="!settings.config.message.enabled || shared.isFirst(settings.config.message.id)"
+        (click)="shared.changeOrder(settings.config.message.id, true)">
+        <div class="icon" aria-hidden="true">expand_lesss</div>Up
+      </button>
+      <button
+        type="button"
+        title="{{'options.common.moveDown' | translate}}"
+        class="btn"
+        [disabled]="!settings.config.message.enabled || shared.isLast(settings.config.message.id)"
+        (click)="shared.changeOrder(settings.config.message.id, false)">
+        <div class="icon" aria-hidden="true">expand_mores</div>Down
+      </button>
     </div>
-  </fieldset>
+  </div>
+  <div class="input">
+    <label>{{'options.common.size' | translate}}</label>
+    <options-range name="messageSize" id="messageSize" min="1" max="20" [(ngModel)]="settings.config.message.scaling"></options-range>
+  </div>
+  <div class="input">
+    <label>{{'options.common.offset' | translate}}</label>
+    <options-range name="messageOffset" min="-20" max="20" [(ngModel)]="settings.config.message.offset"></options-range>
+  </div>
 </form>

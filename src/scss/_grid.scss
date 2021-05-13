@@ -1,6 +1,6 @@
 .grid {
   display: grid;
-  grid-gap: 15px;
+  grid-gap: 1.5em 15px;
   grid-auto-flow: row;
   @for $i from 1 through 24 {
     &.cols-#{$i} {

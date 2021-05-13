@@ -13,13 +13,15 @@ $logoHeight: ($logoSize + ($logoPadding * 2));
   background: transparent;
   color: inherit;
   border: 0;
-  padding: 0;
-  width: $logoHeight;
+  padding: 24px;
+  width: auto;
   height: $logoHeight;
   transition: all .3s;
   cursor: pointer;
   overflow: hidden;
   opacity: .5;
+  font-size: 20px;
+  text-decoration: none;
   transition: opacity .5s;
   &:focus {
     outline: none;
@@ -45,5 +47,8 @@ $logoHeight: ($logoSize + ($logoPadding * 2));
     path {
       fill: currentColor;
     }
+  }
+  span {
+    margin-left: 10px;
   }
 }

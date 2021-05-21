@@ -1,13 +1,13 @@
 <section class="panel" [@options] *ngIf="shared.optionsToggle">
   <nav *ngIf="shared.optionsToggle"></nav>
   <div class="pageWrap">
-    <options-dashboard @fadeIn *ngIf="shared.optionsPage === 'Dashboard'" class="page" [ngClass]="{'open': shared.optionsPage === 'Dashboard'}"></options-dashboard>
-    <options-design @fadeIn *ngIf="shared.optionsPage === 'Design'" class="page" [ngClass]="{'open': shared.optionsPage === 'Design'}"></options-design>
-    <options-time @fadeIn *ngIf="shared.optionsPage === 'Time'" class="page" [ngClass]="{'open': shared.optionsPage === 'Time'}"></options-time>
-    <options-date @fadeIn *ngIf="shared.optionsPage === 'Date'" class="page" [ngClass]="{'open': shared.optionsPage === 'Date'}"></options-date>
-    <options-bookmarks @fadeIn *ngIf="shared.optionsPage === 'Bookmarks'" class="page" [ngClass]="{'open': shared.optionsPage === 'Bookmarks'}"></options-bookmarks>
-    <options-search @fadeIn *ngIf="shared.optionsPage === 'Search'" class="page" [ngClass]="{'open': shared.optionsPage === 'Search'}"></options-search>
-    <options-message @fadeIn *ngIf="shared.optionsPage === 'Message'" class="page" [ngClass]="{'open': shared.optionsPage === 'Message'}"></options-message>
-    <options-extra @fadeIn *ngIf="shared.optionsPage === 'Extra'" class="page" [ngClass]="{'open': shared.optionsPage === 'Extra'}"></options-extra>
+    <options-dashboard *ngIf="shared.optionsPage === 'Dashboard'" class="page" [ngClass]="{'open': shared.optionsPage === 'Dashboard'}"></options-dashboard>
+    <options-design *ngIf="shared.optionsPage === 'Design'" class="page" [ngClass]="{'open': shared.optionsPage === 'Design'}"></options-design>
+    <options-time *ngIf="shared.optionsPage === 'Time'" class="page" [ngClass]="{'open': shared.optionsPage === 'Time'}"></options-time>
+    <options-date *ngIf="shared.optionsPage === 'Date'" class="page" [ngClass]="{'open': shared.optionsPage === 'Date'}"></options-date>
+    <options-bookmarks *ngIf="shared.optionsPage === 'Bookmarks'" class="page" [ngClass]="{'open': shared.optionsPage === 'Bookmarks'}"></options-bookmarks>
+    <options-search *ngIf="shared.optionsPage === 'Search'" class="page" [ngClass]="{'open': shared.optionsPage === 'Search'}"></options-search>
+    <options-message *ngIf="shared.optionsPage === 'Message'" class="page" [ngClass]="{'open': shared.optionsPage === 'Message'}"></options-message>
+    <options-extra *ngIf="shared.optionsPage === 'Extra'" class="page" [ngClass]="{'open': shared.optionsPage === 'Extra'}"></options-extra>
   </div>
 </section>

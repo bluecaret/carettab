@@ -21,7 +21,7 @@ import { Storage } from '../_storage/storage.service';
     <ul>
       <li>
         <button type="button" (click)="goToPage('Dashboard')" [ngClass]="{'active': shared.optionsPage === 'Dashboard'}">
-          <div class="icon" aria-hidden="true">info</div>Dashboard
+          <div class="icon" aria-hidden="true">info</div>{{'options.dashboard.whatsNew' | translate}}
         </button>
       </li>
       <li>
@@ -63,7 +63,7 @@ import { Storage } from '../_storage/storage.service';
       <li>
         <button
           type="button" (click)="goToPage('Extra')" [ngClass]="{'active': shared.optionsPage === 'Extra'}">
-          <div class="icon" aria-hidden="true">settings</div>Extra
+          <div class="icon" aria-hidden="true">settings</div>{{'options.extra.extra' | translate}}
         </button>
       </li>
     </ul>

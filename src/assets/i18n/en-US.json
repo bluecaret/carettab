@@ -27,16 +27,21 @@
       "url": "URL"
     },
     "common": {
+      "add": "Add",
       "delimiter": "Delimiter",
+      "down": "Down",
       "format": "Format",
       "label": "Label",
       "moveDown": "Move below other elements",
       "moveUp": "Move above other elements",
+      "off": "Off",
       "offset": "Offset",
+      "on": "On",
       "order": "Order",
       "placement": "Placement",
       "size": "Size",
       "timezone": "Timezone",
+      "up": "Up",
       "width": "Width"
     },
     "dashboard": {
@@ -47,7 +52,9 @@
       "new": "What's new?",
       "review": "Leave review",
       "share": "Share",
-      "supportDev": "You can help support and improve CaretTab"
+      "supportDev": "You can help support and improve CaretTab",
+      "updated": "Updated",
+      "whatsNew": "What's new?"
     },
     "date": {
       "abbr": "Abbreviated",
@@ -92,6 +99,8 @@
       "globalSize": "Global size",
       "globalSizeDesc": "Adjust the size of all elements.",
       "hardToSee": "Image too hard to see? Try changing the filter.",
+      "removeWallpaper": "Click to remove selected wallpaper",
+      "selectedWallpaper": "Selected wallpaper",
       "wallpaper": "Wallpaper"
     },
     "extra": {
@@ -126,9 +135,11 @@
       "searchEngine": "Search engine"
     },
     "time": {
+      "actions": "Actions",
       "addNewClock": "Add New Clock",
       "analog": "Analog",
-      "analogEnable": "Displays the clock in an analog style instead of digital.",
+      "analogEnable": "Enable analog clock",
+      "analogEnableDesc": "Displays the clock in an analog style instead of digital.",
       "analogStyle": "Analog style",
       "analogStyleDesc": "Choose the style of analog clock",
       "automatic": "Automatic",
@@ -143,6 +154,7 @@
       "bracketsRight": "Right",
       "bracketsRightDesc": "Enter the symbol to represent the right-side bracket",
       "bracketsSize": "Adjusts the size of the brackets relative to the clock",
+      "clock": "Clock",
       "deleteClock": "Delete clock",
       "delimiter": "Delimiter",
       "delimiterBlink": "Blink delimiter",
@@ -182,7 +194,7 @@
       "secondsSize": "Adjusts the size of the seconds relative to the clock",
       "showOptions": "Show more options",
       "sizeDesc": "Change the size of the clock.",
-      "span": "Span",
+      "span": "Width",
       "spanDesc": "Changes how much space the clock uses.",
       "symbol": "Symbol",
       "symbolAm": "Enter the symbol to represent \"A.M.\"",
@@ -191,8 +203,8 @@
       "time": "Time",
       "timezoneDesc": "Choose a timezone for the clock (the default is your local timezone).",
       "twentyFour": "24 hour",
-      "twentyFourDesc": "Display clock in 24-hour format instead of 12-hour (will disable meridiem).",
-      "twoDigit": "Two-digit",
+      "twentyFourDesc": "Display clock in 24-hour format instead of 12-hour.",
+      "twoDigit": "Two-digit hour",
       "twoDigitDesc": "Always show the hour in two digits."
     }
   },

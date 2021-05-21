@@ -27,16 +27,21 @@
       "url": "Url"
     },
     "common": {
+      "add": "Hinzufügen",
       "delimiter": "Trennzeichen",
+      "down": "Nieder",
       "format": "Format",
       "label": "Etikette",
       "moveDown": "Bewegen Sie sich unter andere Elemente",
       "moveUp": "Bewegen Sie sich über andere Elemente",
+      "off": "aus",
       "offset": "Versatz",
+      "on": "auf",
       "order": "Auftrag",
       "placement": "Platzierung",
       "size": "Größe",
       "timezone": "Zeitzone",
+      "up": "Oben",
       "width": "Breite"
     },
     "dashboard": {
@@ -47,7 +52,9 @@
       "new": "Was gibt's neues?",
       "review": "Eine Rezension hinterlassen",
       "share": "Aktie",
-      "supportDev": "Sie können CaretTab unterstützen und verbessern"
+      "supportDev": "Sie können CaretTab unterstützen und verbessern",
+      "updated": "Aktualisierte",
+      "whatsNew": "Was gibt's neues?"
     },
     "date": {
       "abbr": "Abgekürzt",
@@ -92,6 +99,8 @@
       "globalSize": "Globale Größe",
       "globalSizeDesc": "Passen Sie die Größe aller Elemente an.",
       "hardToSee": "Bild zu schwer zu sehen? Versuchen Sie, den Filter zu wechseln.",
+      "removeWallpaper": "Klicken Sie hier, um das ausgewählte Hintergrundbild zu entfernen",
+      "selectedWallpaper": "Ausgewähltes Hintergrundbild",
       "wallpaper": "Tapete"
     },
     "extra": {
@@ -126,9 +135,11 @@
       "searchEngine": "Suchmaschine"
     },
     "time": {
+      "actions": "Aktionen",
       "addNewClock": "Neue Uhr hinzufügen",
       "analog": "Analog",
-      "analogEnable": "Zeigt die Uhr nicht digital, sondern analog an.",
+      "analogEnable": "Aktivieren Sie die analoge Uhr",
+      "analogEnableDesc": "Zeigt die Uhr nicht digital, sondern analog an.",
       "analogStyle": "Analoger Stil",
       "analogStyleDesc": "Wählen Sie den Stil der Analoguhr",
       "automatic": "Automatik",
@@ -143,6 +154,7 @@
       "bracketsRight": "Recht",
       "bracketsRightDesc": "Geben Sie das Symbol für die rechte Klammer ein",
       "bracketsSize": "Passt die Größe der Klammern relativ zur Uhr an",
+      "clock": "Uhr",
       "deleteClock": "Uhr löschen",
       "delimiter": "Trennzeichen",
       "delimiterBlink": "Begrenzer blinken",
@@ -182,7 +194,7 @@
       "secondsSize": "Passt die Größe der Sekunden relativ zur Uhr an",
       "showOptions": "Mehr Optionen anzeigen",
       "sizeDesc": "Ändern Sie die Größe der Uhr.",
-      "span": "Spanne",
+      "span": "Breite",
       "spanDesc": "Ändert den Platzbedarf der Uhr.",
       "symbol": "Symbol",
       "symbolAm": "Geben Sie das Symbol für \"AM\" ein.",
@@ -191,8 +203,8 @@
       "time": "Zeit",
       "timezoneDesc": "Wählen Sie eine Zeitzone für die Uhr aus (die Standardeinstellung ist Ihre lokale Zeitzone).",
       "twentyFour": "24 Stunden",
-      "twentyFourDesc": "Anzeige der Uhr im 24-Stunden-Format anstelle von 12 Stunden (deaktiviert meridiem).",
-      "twoDigit": "Zweistellig",
+      "twentyFourDesc": "Anzeige der Uhr im 24-Stunden-Format anstelle von 12 Stunden.",
+      "twoDigit": "Zweistellige Stunde",
       "twoDigitDesc": "Zeigen Sie die Stunde immer zweistellig an."
     }
   },

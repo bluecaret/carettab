@@ -27,16 +27,21 @@
       "url": "URL"
     },
     "common": {
+      "add": "Ajouter",
       "delimiter": "Délimiteur",
+      "down": "VERS LE BAS",
       "format": "Format",
       "label": "Étiquette",
       "moveDown": "Déplacer en dessous d'autres éléments",
       "moveUp": "Dépasser les autres éléments",
+      "off": "De",
       "offset": "Décalage",
+      "on": "sur",
       "order": "ordre",
       "placement": "Placement",
       "size": "Taille",
       "timezone": "Fuseau horaire",
+      "up": "UP",
       "width": "Largeur"
     },
     "dashboard": {
@@ -47,7 +52,9 @@
       "new": "Quoi de neuf?",
       "review": "Laisser un avis",
       "share": "Partager",
-      "supportDev": "Vous pouvez aider à soutenir et à améliorer CaretTab"
+      "supportDev": "Vous pouvez aider à soutenir et à améliorer CaretTab",
+      "updated": "mis à jour",
+      "whatsNew": "Quoi de neuf?"
     },
     "date": {
       "abbr": "Abrégé",
@@ -92,6 +99,8 @@
       "globalSize": "Taille globale",
       "globalSizeDesc": "Ajustez la taille de tous les éléments.",
       "hardToSee": "Image trop difficile à voir? Essayez de changer le filtre.",
+      "removeWallpaper": "Cliquez pour supprimer le papier peint sélectionné",
+      "selectedWallpaper": "Papier peint sélectionné",
       "wallpaper": "Fond d'écran"
     },
     "extra": {
@@ -126,9 +135,11 @@
       "searchEngine": "Moteur de recherche"
     },
     "time": {
+      "actions": "actes",
       "addNewClock": "Ajouter une nouvelle horloge",
       "analog": "Analogique",
-      "analogEnable": "Affiche l'horloge dans un style analogique au lieu de numérique.",
+      "analogEnable": "Activer l'horloge analogique",
+      "analogEnableDesc": "Affiche l'horloge dans un style analogique au lieu de numérique.",
       "analogStyle": "Style analogique",
       "analogStyleDesc": "Choisissez le style d'horloge analogique",
       "automatic": "Automatique",
@@ -143,6 +154,7 @@
       "bracketsRight": "Droite",
       "bracketsRightDesc": "Entrez le symbole pour représenter le crochet de droite",
       "bracketsSize": "Ajuste la taille des crochets par rapport à l'horloge",
+      "clock": "L'horloge",
       "deleteClock": "Supprimer l'horloge",
       "delimiter": "Délimiteur",
       "delimiterBlink": "Délimiteur de clignotement",
@@ -182,7 +194,7 @@
       "secondsSize": "Ajuste la taille des secondes par rapport à l'horloge",
       "showOptions": "Afficher plus d'options",
       "sizeDesc": "Changer la taille de l'horloge.",
-      "span": "Envergure",
+      "span": "largeur",
       "spanDesc": "Modifie la quantité d'espace utilisée par l'horloge.",
       "symbol": "symbole",
       "symbolAm": "Entrez le symbole pour représenter \"A.M.\"",
@@ -191,8 +203,8 @@
       "time": "Temps",
       "timezoneDesc": "Choisissez un fuseau horaire pour l'horloge (la valeur par défaut est votre fuseau horaire local).",
       "twentyFour": "24 heures",
-      "twentyFourDesc": "Afficher l'horloge au format 24 heures au lieu de 12 heures (désactive Meridiem).",
-      "twoDigit": "Deux chiffres",
+      "twentyFourDesc": "Afficher l'horloge au format 24 heures au lieu de 12 heures.",
+      "twoDigit": "Heure à deux chiffres",
       "twoDigitDesc": "Affichez toujours l'heure sur deux chiffres."
     }
   },

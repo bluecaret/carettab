@@ -27,16 +27,21 @@
       "url": "URL"
     },
     "common": {
+      "add": "더하다",
       "delimiter": "구분자",
+      "down": "내려가는",
       "format": "체재",
       "label": "상표",
       "moveDown": "다른 요소 아래로 이동",
       "moveUp": "다른 요소 위로 이동",
+      "off": "떨어져서",
       "offset": "오프셋",
+      "on": "에",
       "order": "주문",
       "placement": "놓기",
       "size": "크기",
       "timezone": "시간대",
+      "up": "쪽으로",
       "width": "폭"
     },
     "dashboard": {
@@ -47,7 +52,9 @@
       "new": "새로운 소식",
       "review": "리뷰를 남겨주세요",
       "share": "몫",
-      "supportDev": "CaretTab을 지원하고 개선 할 수 있습니다"
+      "supportDev": "CaretTab을 지원하고 개선 할 수 있습니다",
+      "updated": "업데이트",
+      "whatsNew": "새로운 소식"
     },
     "date": {
       "abbr": "축약",
@@ -92,6 +99,8 @@
       "globalSize": "세계적인 크기",
       "globalSizeDesc": "모든 요소의 크기를 조정하십시오.",
       "hardToSee": "이미지가 너무보기 힘들습니까? 필터를 교체해보십시오.",
+      "removeWallpaper": "선택한 배경 화면을 제거하려면 클릭하세요.",
+      "selectedWallpaper": "선택한 배경 화면",
       "wallpaper": "벽지"
     },
     "extra": {
@@ -126,9 +135,11 @@
       "searchEngine": "검색 엔진"
     },
     "time": {
+      "actions": "행위",
       "addNewClock": "새 시계 추가",
       "analog": "비슷한 물건",
-      "analogEnable": "시계를 디지털 대신 아날로그 스타일로 표시합니다.",
+      "analogEnable": "아날로그 시계 활성화",
+      "analogEnableDesc": "시계를 디지털 대신 아날로그 스타일로 표시합니다.",
       "analogStyle": "아날로그 스타일",
       "analogStyleDesc": "아날로그 시계 스타일 선택",
       "automatic": "오토매틱",
@@ -143,6 +154,7 @@
       "bracketsRight": "권리",
       "bracketsRightDesc": "오른쪽 괄호를 나타내는 기호를 입력하십시오",
       "bracketsSize": "시계를 기준으로 괄호의 크기를 조정합니다",
+      "clock": "시계",
       "deleteClock": "시계 삭제",
       "delimiter": "구분자",
       "delimiterBlink": "깜박임 구분 기호",
@@ -182,7 +194,7 @@
       "secondsSize": "시계를 기준으로 초 크기를 조정합니다",
       "showOptions": "더 많은 옵션 표시",
       "sizeDesc": "시계 크기를 변경하십시오.",
-      "span": "스팬",
+      "span": "폭",
       "spanDesc": "시계가 사용하는 공간을 변경합니다.",
       "symbol": "상징",
       "symbolAm": "\"A.M.\"을 나타내는 기호를 입력하십시오",
@@ -191,8 +203,8 @@
       "time": "시각",
       "timezoneDesc": "시계의 시간대를 선택하십시오 (기본값은 현지 시간대).",
       "twentyFour": "24 시간",
-      "twentyFourDesc": "12 시간 대신 24 시간 형식으로 시계를 표시합니다 (자체가 비활성화 됨).",
-      "twoDigit": "두 자리",
+      "twentyFourDesc": "12 시간 대신 24 시간 형식으로 시계를 표시합니다.",
+      "twoDigit": "두 자리 시간",
       "twoDigitDesc": "항상 두 자리 숫자로 시간을 표시하십시오."
     }
   },

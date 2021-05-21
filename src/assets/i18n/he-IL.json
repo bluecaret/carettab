@@ -27,16 +27,21 @@
       "url": "URL"
     },
     "common": {
+      "add": "הוסף",
       "delimiter": "תוחם",
+      "down": "מטה",
       "format": "תבנית",
       "label": "תווית",
       "moveDown": "העבר מתחת לאלמנטים אחרים",
       "moveUp": "זז מעל אלמנטים אחרים",
+      "off": "כבוי",
       "offset": "קיזוז",
+      "on": "מופעל",
       "order": "להזמין",
       "placement": "מיקום",
       "size": "גודל",
       "timezone": "אזור זמן",
+      "up": "למעלה",
       "width": "רוחב"
     },
     "dashboard": {
@@ -47,7 +52,9 @@
       "new": "מה חדש?",
       "review": "השאר ביקורת",
       "share": "שתף",
-      "supportDev": "אתה יכול לעזור לתמוך ולשפר את CaretTab"
+      "supportDev": "אתה יכול לעזור לתמוך ולשפר את CaretTab",
+      "updated": "עודכן",
+      "whatsNew": "מה חדש?"
     },
     "date": {
       "abbr": "מְקוּצָר",
@@ -92,6 +99,8 @@
       "globalSize": "גודל גלובלי",
       "globalSizeDesc": "התאם את הגודל של כל האלמנטים.",
       "hardToSee": "תמונה קשה מכדי לראות? נסה לשנות את המסנן.",
+      "removeWallpaper": "לחץ כדי להסיר את הטפט שנבחר",
+      "selectedWallpaper": "טפט נבחר",
       "wallpaper": "טפט"
     },
     "extra": {
@@ -126,9 +135,11 @@
       "searchEngine": "מנוע חיפוש"
     },
     "time": {
+      "actions": "פעולות",
       "addNewClock": "הוסף שעון חדש",
       "analog": "אנלוגי",
-      "analogEnable": "מציג את השעון בסגנון אנלוגי במקום דיגיטלי.",
+      "analogEnable": "אפשר שעון אנלוגי",
+      "analogEnableDesc": "מציג את השעון בסגנון אנלוגי במקום דיגיטלי.",
       "analogStyle": "סגנון אנלוגי",
       "analogStyleDesc": "בחר את סגנון השעון האנלוגי",
       "automatic": "אוֹטוֹמָטִי",
@@ -143,6 +154,7 @@
       "bracketsRight": "ימין",
       "bracketsRightDesc": "הזן את הסמל כדי לייצג את הסוגר בצד ימין",
       "bracketsSize": "מתאים את גודל הסוגריים ביחס לשעון",
+      "clock": "שעון",
       "deleteClock": "מחק שעון",
       "delimiter": "תוחם",
       "delimiterBlink": "תמצית מהבהב",
@@ -182,7 +194,7 @@
       "secondsSize": "מתאים את גודל השניות ביחס לשעון",
       "showOptions": "הצג אפשרויות נוספות",
       "sizeDesc": "שנה את גודל השעון.",
-      "span": "לְהַקִיף",
+      "span": "רוחב",
       "spanDesc": "משנה כמה שטח השעון משתמש.",
       "symbol": "סמל",
       "symbolAm": "הזן את הסמל שייצג את \"A.M.\"",
@@ -191,8 +203,8 @@
       "time": "זמן",
       "timezoneDesc": "בחר אזור זמן לשעון (ברירת המחדל היא אזור הזמן המקומי שלך).",
       "twentyFour": "24 שעות",
-      "twentyFourDesc": "הצג שעון בפורמט של 24 שעות במקום 12 שעות (יבטל את המרידיאם).",
-      "twoDigit": "דו ספרתי",
+      "twentyFourDesc": "הצג שעון בפורמט של 24 שעות במקום 12 שעות.",
+      "twoDigit": "שעה דו ספרתית",
       "twoDigitDesc": "הראה תמיד את השעה בשתי ספרות."
     }
   },

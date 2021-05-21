@@ -27,16 +27,21 @@
       "url": "网址"
     },
     "common": {
+      "add": "加",
       "delimiter": "分隔符",
+      "down": "下",
       "format": "格式",
       "label": "标签",
       "moveDown": "向下移动",
       "moveUp": "向上移动",
+      "off": "离",
       "offset": "上下偏移",
+      "on": "上",
       "order": "顺序",
       "placement": "位置",
       "size": "尺寸",
       "timezone": "时区",
+      "up": "向上",
       "width": "宽度"
     },
     "dashboard": {
@@ -47,7 +52,9 @@
       "new": "有什么新的变化？",
       "review": "留下评论",
       "share": "分享",
-      "supportDev": "您可以帮助支持和改善 CaretTab"
+      "supportDev": "您可以帮助支持和改善 CaretTab",
+      "updated": "更新",
+      "whatsNew": "什么是新的？"
     },
     "date": {
       "abbr": "缩写/小写",
@@ -92,6 +99,8 @@
       "globalSize": "整体尺寸",
       "globalSizeDesc": "调整所有元素的大小。",
       "hardToSee": "图片太难看了？尝试重新选择。",
+      "removeWallpaper": "单击以删除选定的墙纸",
+      "selectedWallpaper": "精选壁纸",
       "wallpaper": "壁纸"
     },
     "extra": {
@@ -126,9 +135,11 @@
       "searchEngine": "搜索引擎"
     },
     "time": {
+      "actions": "操作",
       "addNewClock": "添加新时钟",
       "analog": "模拟时钟",
-      "analogEnable": "显示模拟时钟而不是数字时钟。",
+      "analogEnable": "启用模拟时钟",
+      "analogEnableDesc": "显示模拟时钟而不是数字时钟。",
       "analogStyle": "模拟时钟的风格",
       "analogStyleDesc": "选择模拟时钟的风格",
       "automatic": "自动",
@@ -143,6 +154,7 @@
       "bracketsRight": "右",
       "bracketsRightDesc": "输入符号以表示右侧括号",
       "bracketsSize": "调整括号相对于时钟的大小",
+      "clock": "时钟",
       "deleteClock": "删除时钟",
       "delimiter": "分隔符",
       "delimiterBlink": "闪烁的分隔符",
@@ -191,8 +203,8 @@
       "time": "时间",
       "timezoneDesc": "选择时钟的时区（默认为您的本地时区）。",
       "twentyFour": "24 小时制",
-      "twentyFourDesc": "以 24 小时格式而不是 12 小时制格式显示时钟（将禁用 12 小时制标识）。",
-      "twoDigit": "两位数",
+      "twentyFourDesc": "以 24 小时格式而不是 12 小时制格式显示时钟。",
+      "twoDigit": "两位数小时",
       "twoDigitDesc": "始终以两位数字显示小时。"
     }
   },

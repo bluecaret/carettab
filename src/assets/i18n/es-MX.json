@@ -27,16 +27,21 @@
       "url": "Url"
     },
     "common": {
+      "add": "Añadir",
       "delimiter": "Delimitador",
+      "down": "ABAJO",
       "format": "Formato",
       "label": "Etiqueta",
       "moveDown": "Mover debajo de otros elementos",
       "moveUp": "Mover por encima de otros elementos",
+      "off": "Apagado",
       "offset": "Compensar",
+      "on": "en",
       "order": "Orden",
       "placement": "Colocación",
       "size": "Tamaño",
       "timezone": "Zona horaria",
+      "up": "Arriba",
       "width": "Anchura"
     },
     "dashboard": {
@@ -47,7 +52,9 @@
       "new": "¿Qué hay de nuevo?",
       "review": "Deje opinión",
       "share": "Compartir",
-      "supportDev": "Puedes ayudar a apoyar y mejorar CaretTab"
+      "supportDev": "Puedes ayudar a apoyar y mejorar CaretTab",
+      "updated": "Actualizado",
+      "whatsNew": "¿Qué hay de nuevo?"
     },
     "date": {
       "abbr": "Abreviado",
@@ -92,6 +99,8 @@
       "globalSize": "Tamaño global",
       "globalSizeDesc": "Ajustar el tamaño de todos los elementos.",
       "hardToSee": "Imagen demasiado difícil de ver? Intenta cambiar el filtro.",
+      "removeWallpaper": "Haga clic para eliminar el fondo de pantalla seleccionado",
+      "selectedWallpaper": "Fondo de pantalla seleccionado",
       "wallpaper": "Papel pintado"
     },
     "extra": {
@@ -126,9 +135,11 @@
       "searchEngine": "Buscador"
     },
     "time": {
+      "actions": "Comportamiento",
       "addNewClock": "Agregar nuevo reloj",
       "analog": "Término análogo",
-      "analogEnable": "Muestra el reloj en un estilo analógico en lugar de digital.",
+      "analogEnable": "Habilitar reloj analógico",
+      "analogEnableDesc": "Muestra el reloj en un estilo analógico en lugar de digital.",
       "analogStyle": "Estilo analógico",
       "analogStyleDesc": "Elige el estilo de reloj analógico.",
       "automatic": "Automático",
@@ -143,6 +154,7 @@
       "bracketsRight": "Derecha",
       "bracketsRightDesc": "Introduzca el símbolo para representar el corchete del lado derecho",
       "bracketsSize": "Ajusta el tamaño de los corchetes en relación con el reloj.",
+      "clock": "RELOJ",
       "deleteClock": "Borrar reloj",
       "delimiter": "Delimitador",
       "delimiterBlink": "Delimitador de parpadeo",
@@ -182,7 +194,7 @@
       "secondsSize": "Ajusta el tamaño de los segundos relativos al reloj.",
       "showOptions": "Mostrar más opciones",
       "sizeDesc": "Cambia el tamaño del reloj.",
-      "span": "Lapso",
+      "span": "anchura",
       "spanDesc": "Cambia la cantidad de espacio que usa el reloj.",
       "symbol": "Símbolo",
       "symbolAm": "Introduzca el símbolo para representar \"A.M.\"",
@@ -191,8 +203,8 @@
       "time": "hora",
       "timezoneDesc": "Elija una zona horaria para el reloj (el valor predeterminado es su zona horaria local).",
       "twentyFour": "24 horas",
-      "twentyFourDesc": "Mostrar el reloj en formato de 24 horas en lugar de 12 horas (deshabilitará el meridiem).",
-      "twoDigit": "Dos dígitos",
+      "twentyFourDesc": "Mostrar el reloj en formato de 24 horas en lugar de 12 horas.",
+      "twoDigit": "Hora de dos dígitos",
       "twoDigitDesc": "Muestra siempre la hora con dos dígitos."
     }
   },

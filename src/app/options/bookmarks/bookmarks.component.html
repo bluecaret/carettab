@@ -100,21 +100,27 @@
             required>
           <div class="valMsg" *ngIf="quickLinksList.invalid && quickLinksList.submitted">{{'options.bookmarks.linkValidation' | translate}}</div>
         </div>
-        <div class="input mt0 span-5 orderBtnsCompact">
-          <button
-            type="button"
-            class="btn btnIcon"
-            [disabled]="isFirst"
-            (click)="swap(settings.config.bookmarks.links, i, (i - 1))">
-            <div class="icon" aria-hidden="true">expand_less</div>
-          </button>
-          <button
-            type="button"
-            class="btn btnIcon"
-            [disabled]="isLast"
-            (click)="swap(settings.config.bookmarks.links, i, (i + 1))">
-            <div class="icon" aria-hidden="true">expand_more</div>
-          </button>
+        <div class="span-5 compactBtnList">
+          <div class="orderBtns">
+            <button
+              type="button"
+              class="btn btnIcon"
+              [disabled]="isFirst"
+              attr.aria-label="{{'options.common.moveUp' | translate}}"
+              title="{{'options.common.moveUp' | translate}}"
+              (click)="swap(settings.config.bookmarks.links, i, (i - 1))">
+              <div class="icon" aria-hidden="true">expand_less</div>
+            </button>
+            <button
+              type="button"
+              class="btn btnIcon"
+              [disabled]="isLast"
+              attr.aria-label="{{'options.common.moveDown' | translate}}"
+              title="{{'options.common.moveDown' | translate}}"
+              (click)="swap(settings.config.bookmarks.links, i, (i + 1))">
+              <div class="icon" aria-hidden="true">expand_more</div>
+            </button>
+          </div>
           <button
             type="button"
             class="btn btnIcon"
@@ -150,7 +156,7 @@
         <div class="valMsg" *ngIf="newUrl.invalid && newLink.submitted">{{'options.bookmarks.linkValidation' | translate}}</div>
       </div>
       <div class="input mt0 span-4">
-        <button type="submit" class="btn" title="{{'options.bookmarks.save' | translate}}"><div class="icon" aria-hidden="true">save</div></button>
+        <button type="submit" class="btn" title="{{'options.bookmarks.save' | translate}}"><div class="icon" aria-hidden="true">add</div>{{'options.common.add' | translate}}</button>
       </div>
     </div>
   </form>

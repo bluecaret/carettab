@@ -49,9 +49,10 @@
   border: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-  background-size: contain;
-  background-repeat: repeat;
+  height: 44px;
+  border-radius: 6px;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
   .icon {
     font-size: 32px;
@@ -67,5 +68,43 @@
     .icon {
       opacity: 1;
     }
+  }
+}
+
+.designGrid {
+  grid-gap: 5px;
+}
+
+.colorsBtn,
+.patternBtn {
+  // display: block;
+  text-align: center;
+  // width: 100%;
+  box-shadow: none;
+  &.active {
+    box-shadow: 0 0 0 2px var(--optText), inset 0 0 0 2px var(--optBgHighlight);
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--optText), inset 0 0 0 2px var(--optText);
+  }
+  &.colorsBtnSelected,
+  &.patternBtnSelected {
+    box-shadow: inset 0 0 0 2px var(--optAccent);
+    &.active {
+      box-shadow: 0 0 0 2px var(--optText), inset 0 0 0 2px var(--optBgHighlight);
+    }
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--optAccent), inset 0 0 0 2px var(--optAccent);
+    }
+  }
+}
+
+.patternBtn {
+  height: 70px;
+  &:not(.active) {
+    background-color: rgb(134, 134, 134);
+    color: black;
   }
 }

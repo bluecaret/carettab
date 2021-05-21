@@ -53,23 +53,6 @@ app-tab {
   align-items: center;
 }
 
-.orderBtns {
-  display: flex;
-  > * + * {
-    margin-left: 1em;
-  }
-}
-
-.orderBtnsCompact {
-  display: flex;
-  > * + * {
-    margin-left: .3em;
-  }
-  .btnIcon {
-    padding: 0 6px;
-  }
-}
-
 @import "logo";
 @import "toggle";
 @import "feature/bookmarks";

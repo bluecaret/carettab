@@ -10,12 +10,22 @@
   border: 0;
   padding: 0 16px;
   margin: 0;
-  color: black;
+  color: white;
+  @media (prefers-color-scheme: dark) {
+    color: black;
+  }
   vertical-align: middle;
   cursor: pointer;
   transition: background-color .2s;
+  text-decoration: none;
   &.btnIcon {
     padding: 0 10px;
+  }
+  &.btnBlock {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
   &:hover {
     background-color: var(--optAccentLight);
@@ -31,5 +41,28 @@
     background-color: var(--optAccentDisabled);
     box-shadow: none;
     cursor: not-allowed;
+  }
+}
+
+.orderBtns {
+  display: flex;
+  .btn:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .btn:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: 4px;
+  }
+}
+
+.compactBtnList {
+  display: flex;
+  > * + * {
+    margin-left: .5em;
+  }
+  .btnIcon {
+    padding: 0 6px;
   }
 }

@@ -12,7 +12,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
   template: `
     <div class="range">
-      <output [value]="range"></output>
       <input
         type="range"
         [id]="name+'Id'"
@@ -22,6 +21,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
         [(ngModel)]="range"
         [disabled]="disabled"
         [required]="required">
+      <output [value]="range"></output>
     </div>
   `,
   host: {'class': 'customControl'}

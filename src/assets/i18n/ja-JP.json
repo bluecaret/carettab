@@ -27,16 +27,21 @@
       "url": "URL"
     },
     "common": {
+      "add": "追加",
       "delimiter": "デリミタ",
+      "down": "タウン",
       "format": "フォーマット",
       "label": "ラベル",
       "moveDown": "他の要素の下に移動",
       "moveUp": "他の要素の上に移動",
+      "off": "オフ",
       "offset": "オフセット",
+      "on": "に",
       "order": "注文",
       "placement": "配置",
       "size": "サイズ",
       "timezone": "タイムゾーン",
+      "up": "アップ",
       "width": "幅"
     },
     "dashboard": {
@@ -47,7 +52,9 @@
       "new": "新着情報？",
       "review": "レビューを残す",
       "share": "シェア",
-      "supportDev": "CaretTabのサポートと改善にご協力ください"
+      "supportDev": "CaretTabのサポートと改善にご協力ください",
+      "updated": "更新しました",
+      "whatsNew": "新着情報？"
     },
     "date": {
       "abbr": "省略形",
@@ -92,6 +99,8 @@
       "globalSize": "グローバルサイズ",
       "globalSizeDesc": "すべての要素のサイズを調整してください。",
       "hardToSee": "画像が見づらいですか？フィルターを交換してみてください。",
+      "removeWallpaper": "クリックして選択した壁紙を削除します",
+      "selectedWallpaper": "選択した壁紙",
       "wallpaper": "壁紙"
     },
     "extra": {
@@ -126,9 +135,11 @@
       "searchEngine": "検索エンジン"
     },
     "time": {
+      "actions": "行動",
       "addNewClock": "新しい時計を追加",
       "analog": "アナログ",
-      "analogEnable": "デジタルではなくアナログ形式で時計を表示します。",
+      "analogEnable": "アナログ時計を有効にする",
+      "analogEnableDesc": "デジタルではなくアナログ形式で時計を表示します。",
       "analogStyle": "アナログスタイル",
       "analogStyleDesc": "アナログ時計のスタイルを選ぶ",
       "automatic": "自動",
@@ -143,6 +154,7 @@
       "bracketsRight": "右",
       "bracketsRightDesc": "右側の括弧を表す記号を入力してください",
       "bracketsSize": "時計に対してブラケットのサイズを調整します",
+      "clock": "時計",
       "deleteClock": "時計を削除",
       "delimiter": "デリミタ",
       "delimiterBlink": "点滅区切り文字",
@@ -182,7 +194,7 @@
       "secondsSize": "時計を基準にして秒のサイズを調整します",
       "showOptions": "その他のオプションを表示",
       "sizeDesc": "時計のサイズを変更してください。",
-      "span": "スパン",
+      "span": "幅",
       "spanDesc": "時計が使用するスペースの量を変更します。",
       "symbol": "シンボル",
       "symbolAm": "「AM」を表す記号を入力してください",
@@ -191,8 +203,8 @@
       "time": "時間",
       "timezoneDesc": "時計のタイムゾーンを選択します（デフォルトは現地のタイムゾーンです）。",
       "twentyFour": "24時間",
-      "twentyFourDesc": "時計を12時間表示ではなく24時間表示にします（meridiemは無効になります）。",
-      "twoDigit": "2桁",
+      "twentyFourDesc": "時計を12時間表示ではなく24時間表示にします。",
+      "twoDigit": "2桁の時間",
       "twoDigitDesc": "時間を常に2桁で表示します。"
     }
   },

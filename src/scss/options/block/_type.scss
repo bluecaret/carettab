@@ -1,20 +1,5 @@
-// h1, h2, h3, h4, h5, h6 {
-//   margin: 20px 0;
-//   font-weight: 400;
-// }
-// small {
-//   display: block;
-//   font-size: 12px;
-// }
-
 app-options {
   font-size: 16px;
-  // h1, h2, h3, h4, h5, h6, p, .input {
-  //   margin: 0;
-  // }
-  // * + h1, * + h2, * + h3, * + h4, * + h5, * + h6, * + p, * + .input {
-  //   margin-top: 1.5em;
-  // }
   h1, h2, h3, h4, h5, h6 {
     @extend %optFontHeading;
   }
@@ -33,8 +18,16 @@ app-options {
     font-size: 20px;
     font-weight: 700;
     text-transform: uppercase;
+    border-top: 1px solid var(--optShadow);
+    padding-top: .5em;
   }
   h4 {
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  a {
+    color: var(--optAccent);
+    text-decoration: underline;
   }
 }

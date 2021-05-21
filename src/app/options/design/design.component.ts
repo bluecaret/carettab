@@ -18,6 +18,8 @@ export class OptionsDesignComponent implements OnInit {
   currentFont: string;
   currentWeight: number;
   imageSrc: SafeResourceUrl;
+  toggleColors = false;
+  togglePatterns = false;
   noPattern = {
     id: 0,
     pattern: '0.png'
@@ -33,6 +35,18 @@ export class OptionsDesignComponent implements OnInit {
 
   ngOnInit() {
     this.getFont();
+    console.log('bg: ', this.shared.bg);
+  }
+
+  toggleDesign(type: 'colors' | 'patterns') {
+    console.log('type', type);
+    if (type === 'colors') {
+      this.toggleColors ? this.toggleColors = false : this.toggleColors = true;
+      this.togglePatterns = false;
+    } else if (type === 'patterns') {
+      this.toggleColors = false;
+      this.togglePatterns ? this.togglePatterns = false : this.togglePatterns = true;
+    }
   }
 
   getFont() {
@@ -66,8 +80,8 @@ export class OptionsDesignComponent implements OnInit {
     let bg = './assets/patterns/' + p.pattern;
     this.settings.config.design.patternId = p.id;
     this.settings.config.design.imageSize = 10;
+    localStorage.removeItem('bgImg');
     if (p.id === 0) {
-      localStorage.removeItem('bgImg');
       bg = './assets/patterns/0.png';
     }
     this.shared.bg = bg;

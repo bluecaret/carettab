@@ -1,18 +1,5 @@
-// .box {
-//   border: 1px solid darken($lightGray, 10%);
-//   border-radius: 10px;
-//   padding: 10px;
-// }
-// .boxHeading {
-//   margin: 0 0 10px 0;
-// }
-
-// .sub {
-//   border: 0 solid darken($lightGray, 10%);
-//   border-left-width: 5px;
-//   padding: 10px 0 10px 10px;
-//   margin-left: 5px;
-// }
-// .subHeading {
-//   margin-top: 0;
-// }
+.box {
+  border: 1px solid var(--optShadow);
+  border-radius: 10px;
+  padding: .7em;
+}

@@ -3,7 +3,7 @@ export const languages = [
   { id: 'zh-CN', label: '简体中文）', name: 'Chinese (Simplified)' },
   { id: 'zh-TW', label: '中文（台灣）', name: 'Chinese (Taiwan)' },
   { id: 'fr-FR', label: 'Français', name: 'French (France)' },
-  { id: 'de-DE', label: 'Deutsche', name: 'German (Germany)' },
+  { id: 'de-DE', label: 'Deutsch', name: 'German (Germany)' },
   { id: 'he-IL', label: 'עברית', name: 'Hebrew (Israel)' },
   { id: 'it-IT', label: 'Italiano (Italia)', name: 'Italian (Italy)' },
   { id: 'ja-JP', label: '日本語', name: 'Japanese (Japan)' },

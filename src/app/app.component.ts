@@ -89,8 +89,10 @@ export class AppComponent implements OnInit {
     // Display major update splash screen for version 3.0.0
     if (compare(prevVer, '3.0.0', '<')) {
       this.shared.updateType = "major";
-    } else {
+    } else if (compare(prevVer, '3.3.0', '<')) {
       this.shared.updateType = "quiet"
+    } else {
+      this.shared.updateType = "hidden"
     }
 
     localStorage.setItem('caretTabUpdateType', this.shared.updateType);

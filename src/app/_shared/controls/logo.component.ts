@@ -19,6 +19,7 @@ import { Storage } from '../../_storage/storage.service';
         <rect x="88" y="80" width="16" height="16" />
         <path d="M123 20V0H88v20h-9V0H44v20h-9V10 0H25 10 0v10 10 10 20 78h128V20H123zM118 118H10V10h15v20h19 35 9 30V118z" />
       </svg>
+      <span>CaretTab</span>
     </a>
   `
 })

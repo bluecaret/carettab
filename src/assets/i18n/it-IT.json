@@ -1,0 +1,305 @@
+{
+  "list": {
+    "title": {
+      "custom": "Testo personalizzato",
+      "date": "Data",
+      "dateTime": "Data, poi ora",
+      "newTab": "\"Nuova scheda\"",
+      "time": "tempo",
+      "timeDate": "Ora, poi data"
+    }
+  },
+  "options": {
+    "bookmarks": {
+      "appsLink": "Collegamento alle app",
+      "chromeTabLink": "Scheda predefinita",
+      "enableBar": "Barra dei segnalibri",
+      "enableQuick": "Link veloci",
+      "favicons": "favicon",
+      "headingBar": "segnalibri",
+      "headingQuick": "Link veloci",
+      "historyLink": "Link alla storia",
+      "labelValidation": "Il link deve avere un'etichetta.",
+      "linkValidation": "Il collegamento deve avere un URL (indirizzo del sito web).",
+      "managerLink": "Gestione segnalibri",
+      "mostVisited": "Più visitato",
+      "save": "Salva nuovo collegamento",
+      "url": "URL"
+    },
+    "common": {
+      "add": "Inserisci",
+      "delimiter": "delimitatore",
+      "down": "Giu",
+      "format": "Formato",
+      "label": "Etichetta",
+      "moveDown": "Spostati sotto gli altri elementi",
+      "moveUp": "Spostati sopra gli altri elementi",
+      "off": "via",
+      "offset": "Compensare",
+      "on": "sopra",
+      "order": "ordine",
+      "placement": "posizionamento",
+      "size": "Taglia",
+      "timezone": "Fuso orario",
+      "up": "su",
+      "width": "larghezza"
+    },
+    "dashboard": {
+      "contribute": "Contribuisci al codice",
+      "credit": "CaretTab | è progettato e codificato da | BlueCaret | ed è concesso in licenza con | Licenza MIT |.",
+      "donate": "DONA CON PAYPAL",
+      "needHelp": "Se hai bisogno di aiuto o hai un suggerimento puoi contattare lo sviluppatore, | BlueCaret | su Twitter | @BlueCaret | o visualizza CaretTab su | GitHub |.",
+      "new": "Cosa c'è di nuovo?",
+      "review": "Lascia la recensione",
+      "share": "Condividere",
+      "supportDev": "Puoi aiutare a supportare e migliorare CaretTab",
+      "updated": "aggiornato",
+      "whatsNew": "Cosa c'è di nuovo?"
+    },
+    "date": {
+      "abbr": "Abbreviato",
+      "automatic": "automatico",
+      "date": "Data",
+      "day": "Giorno",
+      "dayOfWk": "Giorno della settimana",
+      "enableDay": "Abilita il giorno",
+      "enableDayOfWk": "Abilita giorno della settimana",
+      "enableMonth": "Abilita mese",
+      "enableShortDate": "Abilita appuntamento breve",
+      "enableWeekNum": "Abilita il numero della settimana",
+      "enableYear": "Abilita anno",
+      "month": "Mese",
+      "shortDate": "Data breve",
+      "twoDigit": "Due cifre",
+      "weekIso": "Numero della settimana ISO",
+      "weekIsoDesc": "Utilizzare il sistema di data della settimana ISO dallo standard di data e ora ISO 8601.",
+      "weekNum": "Numero della settimana",
+      "year": "Anno"
+    },
+    "design": {
+      "bg": "Sfondo personalizzato",
+      "brightness": "luminosità",
+      "browseForImg": "Cerca immagine ...",
+      "colors": "Colori",
+      "customFontDesc": "Immettere il nome di un carattere installato localmente. È necessario installare il carattere sul computer affinché funzioni.",
+      "customFontName": "Nome del carattere personalizzato",
+      "customFontUsage": "Per utilizzare un carattere personalizzato, è necessario digitare esattamente il nome del carattere. I caratteri personalizzati devono essere | installati localmente sul computer |. Puoi ottenere più caratteri da | Google Fonts | o da | 1001 caratteri gratuiti |.",
+      "customWallpaper": "Sfondo personalizzato",
+      "design": "Design",
+      "dontSync": "Le immagini personalizzate non vengono sincronizzate tra i computer.",
+      "dynScale": "Scalabilità dinamica",
+      "dynScaleDesc": "Il ridimensionamento dinamico consente di modificare la dimensione degli elementi in base alla larghezza del browser. Disabilita per mantenere le stesse dimensioni indipendentemente dalle dimensioni del tuo browser.",
+      "fg": "Primo piano personalizzato",
+      "fill": "Riempire",
+      "filter": "Filtro",
+      "font": "font",
+      "fontWeight": "Peso del carattere personalizzato",
+      "fontWeightDesc": "Seleziona uno spessore del carattere per il tuo carattere personalizzato. Alcuni caratteri non supportano tutti i pesi.",
+      "getMorePatterns": "Ottieni più modelli su | Texture trasparenti | o | Toptal |.",
+      "globalSize": "Dimensione globale",
+      "globalSizeDesc": "Regola la dimensione di tutti gli elementi.",
+      "hardToSee": "L'immagine è troppo difficile da vedere? Prova a cambiare il filtro.",
+      "removeWallpaper": "Fare clic per rimuovere lo sfondo selezionato",
+      "selectedWallpaper": "Sfondo selezionato",
+      "wallpaper": "sfondo"
+    },
+    "extra": {
+      "advanced": "Avanzate",
+      "extra": "Extra",
+      "hideLogo": "Nascondi logo",
+      "hideMenu": "Nascondi pulsante impostazioni",
+      "hideMenuDesc": "Quando è abilitato, il pulsante del menu verrà visualizzato quando si passa con il mouse sull'angolo in basso a destra.",
+      "lang": "linguaggio",
+      "reset": "Reset",
+      "resetDesc": "Se desideri ripristinare tutte le impostazioni ai valori predefiniti, puoi fare clic su questo pulsante e quindi aggiornare la pagina. Questo rimuoverà tutte le tue impostazioni.",
+      "resetToDefault": "Riportare alle condizioni originali",
+      "tabClock": "Orologio per il titolo",
+      "tabClockDesc": "Scegli cosa visualizzare nel titolo Nuova scheda (viene visualizzato nella scheda stessa e nella barra del titolo del browser).",
+      "tabCustomText": "Testo personalizzato per il titolo della scheda",
+      "tabCustomTextDesc": "Immettere il testo per il titolo della scheda personalizzata. Si applica solo se \"Testo personalizzato\" è selezionato per Titolo scheda.",
+      "tabTitle": "Titolo della scheda",
+      "tabTitleDesc": "Scegli cosa visualizzare nel titolo Nuova scheda (viene visualizzato nella scheda stessa e nella barra del titolo del browser)."
+    },
+    "message": {
+      "customMsg": "messaggio personalizzato",
+      "msg": "Messaggio",
+      "msgText": "Messaggio di testo",
+      "msgTextDesc": "Immettere il testo per il messaggio personalizzato."
+    },
+    "search": {
+      "autocomplete": "Completamento automatico",
+      "autocompleteDesc": "Disattiva per disabilitare la funzione di completamento automatico del browser nella casella di ricerca.",
+      "label": "Etichetta",
+      "search": "ricerca",
+      "searchBox": "Casella di ricerca",
+      "searchEngine": "Motore di ricerca"
+    },
+    "time": {
+      "actions": "azioni",
+      "addNewClock": "Aggiungi nuovo orologio",
+      "analog": "Analogico",
+      "analogEnable": "Abilita orologio analogico",
+      "analogEnableDesc": "Visualizza l'orologio in uno stile analogico invece che digitale.",
+      "analogStyle": "Stile analogico",
+      "analogStyleDesc": "Scegli lo stile dell'orologio analogico",
+      "automatic": "automatico",
+      "brackets": "Parentesi",
+      "bracketsDim": "Staffe dim",
+      "bracketsEnable": "Abilita parentesi",
+      "bracketsLeft": "Sinistra",
+      "bracketsLeftDesc": "Immettere il simbolo per rappresentare la parentesi di sinistra",
+      "bracketsOffset": "Regola la posizione delle staffe verso l'alto o verso il basso",
+      "bracketsPadding": "Imbottitura",
+      "bracketsPaddingDesc": "Regola il riempimento tra le parentesi e l'ora",
+      "bracketsRight": "Destra",
+      "bracketsRightDesc": "Immettere il simbolo per rappresentare la parentesi quadra destra",
+      "bracketsSize": "Regola la dimensione delle parentesi rispetto all'orologio",
+      "clock": "Orologio",
+      "deleteClock": "Elimina orologio",
+      "delimiter": "delimitatore",
+      "delimiterBlink": "Delimitatore lampeggiante",
+      "delimiterOffset": "Regola la posizione del delimitatore in alto o in basso",
+      "delimiterSize": "Regola la dimensione del delimitatore rispetto all'orologio",
+      "dimDelimiter": "Delimitatore attenuato",
+      "enableDelimiter": "Abilita delimitatore",
+      "generalSettings": "Impostazioni generali dell'orologio",
+      "hideOptions": "Nascondi opzioni aggiuntive",
+      "label": "Etichetta",
+      "labelDesc": "Visualizza un'etichetta accanto all'orologio. Lascia vuoto per nessuna etichetta.",
+      "labelDim": "Etichetta dim",
+      "labelEnable": "Abilita etichetta",
+      "labelOffset": "Regolare la posizione dell'etichetta verso l'alto o verso il basso",
+      "labelSize": "Regola la dimensione dell'etichetta rispetto all'orologio",
+      "meridiem": "Meridiem",
+      "meridiemDim": "Dim meridiem",
+      "meridiemEnable": "Abilita meridiem",
+      "meridiemOffset": "Regola la posizione del meridiano verso l'alto o verso il basso",
+      "meridiemSize": "Regola la dimensione del meridiano rispetto all'orologio",
+      "moveDown": "Sposta l'ordine dell'orologio verso il basso",
+      "moveUp": "Sposta l'ordine dell'orologio verso l'alto",
+      "note": "Nota:",
+      "noteText": "l'ora è un'ipotesi plausibile basata sull'ora e sul fuso orario su cui è impostato il computer e potrebbe non riflettere l'ora effettiva. CaretTab sta ipotizzando che il tuo fuso orario attuale sia:",
+      "offsetDesc": "Regola la posizione dell'orologio verso l'alto o verso il basso.",
+      "padding": "Imbottitura",
+      "paddingDesc": "Modificare la spaziatura interna tra le cifre dell'orologio.",
+      "relativeDim": "Dim tempo relativo",
+      "relativeEnable": "Abilita la visualizzazione dell'ora relativa all'ora locale.",
+      "relativeOffset": "Regola la posizione dell'etichetta del tempo relativo verso l'alto o verso il basso",
+      "relativeSize": "Regola la dimensione dell'etichetta dell'ora relativa rispetto all'orologio",
+      "relativeTime": "Tempo relativo",
+      "seconds": "secondi",
+      "secondsDim": "Secondi fiochi",
+      "secondsEnable": "Attiva i secondi",
+      "secondsOffset": "Regola la posizione dei secondi verso l'alto o verso il basso",
+      "secondsSize": "Regola la dimensione dei secondi rispetto all'orologio",
+      "showOptions": "Mostra più opzioni",
+      "sizeDesc": "Modifica le dimensioni dell'orologio.",
+      "span": "larghezza",
+      "spanDesc": "Modifica lo spazio utilizzato dall'orologio.",
+      "symbol": "Simbolo",
+      "symbolAm": "Immettere il simbolo per rappresentare \"A.M.\"",
+      "symbolDesc": "Immettere il simbolo per rappresentare il delimitatore",
+      "symbolPm": "Immettere il simbolo per rappresentare \"P.M.\"",
+      "time": "tempo",
+      "timezoneDesc": "Scegli un fuso orario per l'orologio (l'impostazione predefinita è il fuso orario locale).",
+      "twentyFour": "24 ore",
+      "twentyFourDesc": "Visualizza l'orologio nel formato a 24 ore invece che a 12 ore.",
+      "twoDigit": "Ora a due cifre",
+      "twoDigitDesc": "Mostra sempre l'ora in due cifre."
+    }
+  },
+  "splash": {
+    "back": "indietro",
+    "getStarted": "Iniziare!",
+    "letsGo": "Andiamo!",
+    "new": "Cosa c'è di nuovo?",
+    "next": "Il prossimo",
+    "no": "No",
+    "s1": {
+      "p1": "Esaminiamo alcune impostazioni di base per iniziare ...",
+      "welcome": "Benvenuto in CaretTab | La tua | nuova | pagina Nuova scheda!"
+    },
+    "s2": {
+      "title": "scegli una lingua"
+    },
+    "s3": {
+      "title": "Vuoi visualizzare un orologio?"
+    },
+    "s4": {
+      "title": "Vuoi mostrare la data?"
+    },
+    "s5": {
+      "title": "Mostrare una barra dei preferiti?"
+    },
+    "s6": {
+      "title": "Scegli i tuoi colori preferiti"
+    },
+    "s7": {
+      "p1": "CaretTab può essere completamente personalizzato! Troverai molte altre opzioni nel menu delle impostazioni.",
+      "p2": "Per aprire il menu delle impostazioni, fare clic sull'icona nell'angolo in basso a destra.",
+      "title": "Questa è solo la punta dell'iceberg!"
+    },
+    "skip": "Salta",
+    "updatedTo": "CaretTab è stato aggiornato a",
+    "v3": {
+      "importLinks": "Tenta di importare collegamenti rapidi",
+      "important": "Importante:",
+      "l1": "CaretTab è stato ricreato da zero per migliorare le prestazioni e la stabilità!",
+      "l2": "Gli orologi ora hanno una personalizzazione completa! Ora puoi impostare tutte le impostazioni su tutti gli orologi, provalo!",
+      "l3": "Modifica l'ordine degli orologi e dei collegamenti rapidi.",
+      "l4": "Altre opzioni di dimensioni. Ora la maggior parte degli elementi può essere ridimensionata individualmente.",
+      "l5": "Opzioni di sfondo! Usa alcune trame fornite o la tua immagine personalizzata.",
+      "l6": "Usa qualsiasi tipo di carattere installato sulla tua macchina!",
+      "l7": "Visualizza la barra dei segnalibri del browser nella pagina della nuova scheda.",
+      "l8": "Molto di più! dai un'occhiata in giro e prova le cose.",
+      "p1": "Esaminiamo alcune informazioni importanti e le novità.",
+      "p2": "Questo aggiornamento cambia il modo in cui vengono salvate le impostazioni e cambia molte funzionalità. Sfortunatamente a causa di queste differenze e per risparmiare tempo di sviluppo, non tutte le impostazioni possono essere salvate. Dovrai applicare nuovamente le tue impostazioni. Mi scuso per i disagi causati ma prometto che ne varrà la pena! Per facilitare la transizione, i tuoi collegamenti rapidi possono essere importati utilizzando il pulsante in basso. Copiare l'elenco dei collegamenti visualizzati come backup nel caso in cui l'importazione non riesca.",
+      "p3": "La schermata successiva ti mostrerà alcune opzioni di base per iniziare.",
+      "recovered": "Collegamenti rapidi dalla versione precedente",
+      "title": "Il più grande aggiornamento finora!"
+    },
+    "v310": {
+      "l1": "Aggiornato | script per orari più precisi in vari fusi orari.",
+      "l2": "Risolto il problema con lo sfondo predefinito basato sul tema del browser Web per evitare sfarfallio luminoso durante il caricamento della pagina.",
+      "l3": "Consenti il ripristino dei vecchi collegamenti rapidi dalla v2 in qualsiasi momento tramite le impostazioni dei collegamenti rapidi (se non sono stati trovati collegamenti rapidi da quella versione, non verrà visualizzato nulla).",
+      "l4": "Risolto il problema che impediva la pubblicazione della v3 dell'estensione su Firefox.",
+      "l5": "Ora disponibile su Microsoft Edge!"
+    },
+    "v320": {
+      "l1": "Aggiunti fusi orari di offset GMT",
+      "l2": "Aggiunta la possibilità di utilizzare lo standard ISO per i numeri delle settimane",
+      "l3": "Aggiunta opzione per visualizzare sempre l'ora in due cifre",
+      "l4": "Aggiunta la possibilità di nascondere il pulsante delle impostazioni",
+      "l5": "Aggiunta opzione per modificare l'etichetta della barra di ricerca",
+      "l6": "Ricerca predefinita modificata in CaretTab in Yahoo.",
+      "l7": "Ridimensionamento dinamico disabilitato per impostazione predefinita",
+      "l8": "Dati aggiornati sul fuso orario",
+      "l9": "Correzioni di bug"
+    },
+    "v330": {
+      "l1": "Aggiunte scorciatoie da tastiera ai collegamenti rapidi. Ora puoi caricare rapidamente i primi 10 collegamenti rapidi utilizzando una scorciatoia da tastiera. Passa il mouse su un collegamento rapido per vedere qual è il collegamento. È necessario prima tabulare fuori dalla barra degli indirizzi in modo che la nuova pagina della scheda sia a fuoco.",
+      "l2": "Fare clic sull'anteprima dello sfondo personalizzato ora rimuoverà lo sfondo.",
+      "l3": "Aggiunto logo CaretTab nell'angolo inferiore. Questo può essere disattivato nel menu delle impostazioni extra."
+    },
+    "yes": "sì"
+  },
+  "tab": {
+    "bookmarks": {
+      "links": {
+        "apps": "Applicazioni",
+        "bookmarksManager": "Gestione segnalibri",
+        "chromeTab": "Scheda predefinita",
+        "history": "storia",
+        "mostVisited": "Più visitato"
+      }
+    }
+  },
+  "title": {
+    "newTab": "Nuova scheda"
+  },
+  "toggleSettings": {
+    "close": "Salva e chiudi le impostazioni",
+    "open": "Apri Impostazioni",
+    "updated": "L'estensione è stata aggiornata! Fare clic qui per aprire le impostazioni e vedere le novità."
+  }
+}

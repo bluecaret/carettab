@@ -71,7 +71,7 @@
       "month": "חודש",
       "shortDate": "תאריך קצר",
       "twoDigit": "דו ספרתי",
-      "weekIso": "",
+      "weekIso": "מספר שבוע ISO",
       "weekIsoDesc": "השתמש במערכת תאריכי שבוע ISO מתוך תקן תאריך ושעה ISO 8601.",
       "weekNum": "מספר השבוע",
       "year": "שנה"

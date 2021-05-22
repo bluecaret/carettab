@@ -71,7 +71,7 @@
       "month": "Mes",
       "shortDate": "Cita corta",
       "twoDigit": "Dos dígitos",
-      "weekIso": "",
+      "weekIso": "Número de semana ISO",
       "weekIsoDesc": "Utilice el sistema de fecha de la semana ISO del estándar de fecha y hora ISO 8601.",
       "weekNum": "Número de la semana",
       "year": "año"

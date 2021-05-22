@@ -71,7 +71,7 @@
       "month": "月",
       "shortDate": "短い日",
       "twoDigit": "2桁",
-      "weekIso": "",
+      "weekIso": "ISO週番号",
       "weekIsoDesc": "ISO8601日付および時刻標準のISO週日付システムを使用します。",
       "weekNum": "週番号",
       "year": "年"

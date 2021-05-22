@@ -1,14 +1,20 @@
 export const languages = [
   { id: 'en-US', label: 'English', name: 'English (United States)' },
-  { id: 'ko-KR', label: '한국어', name: 'Korean (Korea)' },
-  { id: 'he-IL', label: 'עברית', name: 'Hebrew (Israel)' },
-  { id: 'es-MX', label: 'Español', name: 'Spanish (Mexico)' },
+  { id: 'zh-CN', label: '简体中文）', name: 'Chinese (Simplified)' },
+  { id: 'zh-TW', label: '中文（台灣）', name: 'Chinese (Taiwan)' },
   { id: 'fr-FR', label: 'Français', name: 'French (France)' },
-  { id: 'zh-cn', label: '中文', name: 'Chinese (S)' },
-  { id: 'uk-UA', label: 'Українська', name: 'Ukrainian (Ukraine)' },
-  { id: 'ja-JP', label: '日本語', name: 'Japanese (Japan)' },
   { id: 'de-DE', label: 'Deutsche', name: 'German (Germany)' },
-  { id: 'ru-RU', label: 'Pусский', name: 'Russian (Russia)' }
+  { id: 'he-IL', label: 'עברית', name: 'Hebrew (Israel)' },
+  { id: 'it-IT', label: 'Italiano (Italia)', name: 'Italian (Italy)' },
+  { id: 'ja-JP', label: '日本語', name: 'Japanese (Japan)' },
+  { id: 'ko-KR', label: '한국어', name: 'Korean (Korea)' },
+  { id: 'pt-BR', label: 'Portugues (brasil)', name: 'Portuguese (Brazil)' },
+  { id: 'pt-PT', label: 'Portugues (portugal)', name: 'Portuguese (Portugal)' },
+  { id: 'ru-RU', label: 'Pусский', name: 'Russian (Russia)' },
+  { id: 'es-MX', label: 'Español', name: 'Spanish (Mexico)' },
+  { id: 'sv-SE', label: 'Svenska (Sverige)', name: 'Swedish (Sweden)' },
+  { id: 'uk-UA', label: 'Українська', name: 'Ukrainian (Ukraine)' },
+  { id: 'ur-PK', label: 'اردو (پاکستان)', name: 'Urdu (Pakistan)' }
 ];
 
 export const span = [

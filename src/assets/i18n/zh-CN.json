@@ -71,7 +71,7 @@
       "month": "月",
       "shortDate": "短日期",
       "twoDigit": "两位数",
-      "weekIso": "",
+      "weekIso": "ISO周数",
       "weekIsoDesc": "使用ISO 8601日期和时间标准中的ISO周日期系统。",
       "weekNum": "周数",
       "year": "年"

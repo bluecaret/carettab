@@ -37,7 +37,7 @@ export class TabComponent implements OnInit {
     this.translate.get('title.newTab').subscribe(value => {
       this.NEW_TAB_TEXT = value;
     });
-    // console.log('CaretTab current language: ', this.translate.currentLang);
+    console.log('Current language: ', this.translate.currentLang);
     this.setTitle();
     this.setTitleOnInterval();
     this.settings.onChange().subscribe((data) => {

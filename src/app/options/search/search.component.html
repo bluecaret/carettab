@@ -1,11 +1,11 @@
 <h2>{{'options.search.search' | translate}}</h2>
 <form #searchOptions="ngForm" novalidate>
-  <div class="input">
+  <div class="input inputInline">
     <label>{{'options.search.searchBox' | translate}}</label>
     <options-toggle name="searchBox" id="searchBox" [(ngModel)]="settings.config.search.enabled" (ngModelChange)="shared.toggleOrder(settings.config.search.id, $event)"></options-toggle>
   </div>
   <ng-container *ngIf="settings.config.search.enabled">
-    <div class="input">
+    <div class="input inputInline">
       <label data-tooltip>{{'options.search.searchEngine' | translate}}</label>
       <select name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine">
         <option *ngFor="let e of engines" [ngValue]="e.id">{{e.label}}</option>
@@ -30,7 +30,7 @@
           class="btn"
           [disabled]="!settings.config.search.enabled || shared.isFirst(settings.config.search.id)"
           (click)="shared.changeOrder(settings.config.search.id, true)">
-          <div class="icon" aria-hidden="true">expand_less</div>{{'options.common.up' | translate}}
+          <div class="icon" aria-hidden="true">expand_less</div>
         </button>
         <button
           type="button"
@@ -39,7 +39,7 @@
           class="btn"
           [disabled]="!settings.config.search.enabled || shared.isLast(settings.config.search.id)"
           (click)="shared.changeOrder(settings.config.search.id, false)">
-          <div class="icon" aria-hidden="true">expand_more</div>{{'options.common.down' | translate}}
+          <div class="icon" aria-hidden="true">expand_more</div>
         </button>
       </div>
     </div>

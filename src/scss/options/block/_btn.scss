@@ -1,8 +1,8 @@
 .btn {
   display: inline-flex;
   align-items: center;
-  height: 44px;
-  border-radius: 22px;
+  height: $fieldHeight;
+  border-radius: $btnRadius;
   background-color: var(--optAccent);
   font-size: 14px;
   font-weight: 700;
@@ -45,7 +45,14 @@
 }
 
 .orderBtns {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  .btn {
+    justify-content: center;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
   .btn:first-child {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;

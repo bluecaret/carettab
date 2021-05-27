@@ -20,7 +20,7 @@
           class="btn"
           [disabled]="!settings.config.message.enabled || shared.isFirst(settings.config.message.id)"
           (click)="shared.changeOrder(settings.config.message.id, true)">
-          <div class="icon" aria-hidden="true">expand_less</div>{{'options.common.up' | translate}}
+          <div class="icon" aria-hidden="true">expand_less</div>
         </button>
         <button
           type="button"
@@ -29,7 +29,7 @@
           class="btn"
           [disabled]="!settings.config.message.enabled || shared.isLast(settings.config.message.id)"
           (click)="shared.changeOrder(settings.config.message.id, false)">
-          <div class="icon" aria-hidden="true">expand_more</div>{{'options.common.down' | translate}}
+          <div class="icon" aria-hidden="true">expand_more</div>
         </button>
       </div>
     </div>

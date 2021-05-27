@@ -43,37 +43,35 @@
   </div>
   <!-- Colors -->
   <h3>{{'options.design.colors' | translate}}</h3>
-  <div class="grid cols-2 mt">
-    <div class="input">
-      <label id="set-foreground-label" for="set-foreground">{{'options.design.fg' | translate}}</label>
-      <div class="grid cols-3">
-        <div class="span-1">
-          <input type="color" id="set-foreground" name="fg-color" 
-            [(ngModel)]="settings.config.design.foreground" 
-            (ngModelChange)="settings.config.design.colorsId = 0"
-            [style.backgroundColor]="settings.config.design.foreground"
-          >
-        </div>
-        <div class="span-2">
-          <input type="text" aria-labelledby="set-foreground-label" name="fg-code" [(ngModel)]="settings.config.design.foreground" (ngModelChange)="settings.config.design.colorsId = 0" autocomplete="off">
-        </div>
+  <div class="input">
+    <label id="set-foreground-label" for="set-foreground">{{'options.design.fg' | translate}}</label>
+    <div class="grid cols-3">
+      <div class="span-1">
+        <input type="color" id="set-foreground" name="fg-color" 
+          [(ngModel)]="settings.config.design.foreground" 
+          (ngModelChange)="settings.config.design.colorsId = 0"
+          [style.backgroundColor]="settings.config.design.foreground"
+        >
+      </div>
+      <div class="span-2">
+        <input type="text" aria-labelledby="set-foreground-label" name="fg-code" [(ngModel)]="settings.config.design.foreground" (ngModelChange)="settings.config.design.colorsId = 0" autocomplete="off">
       </div>
     </div>
-    <div class="input">
-      <label id="set-background-label" for="set-background">{{'options.design.bg' | translate}}</label>
-      <div class="grid cols-3">
-        <div class="span-1">
-          <input type="color" id="set-background" name="bg-color" 
-            [(ngModel)]="settings.config.design.background"
-            (ngModelChange)="settings.config.design.colorsId = 0"
-            [style.backgroundColor]="settings.config.design.background"
-          >
-        </div>
-        <div class="span-2">
-          <input type="text" aria-labelledby="set-background-label" name="bg-code" [(ngModel)]="settings.config.design.background"
-            (ngModelChange)="settings.config.design.colorsId = 0"
-            autocomplete="off">
-        </div>
+  </div>
+  <div class="input">
+    <label id="set-background-label" for="set-background">{{'options.design.bg' | translate}}</label>
+    <div class="grid cols-3">
+      <div class="span-1">
+        <input type="color" id="set-background" name="bg-color" 
+          [(ngModel)]="settings.config.design.background"
+          (ngModelChange)="settings.config.design.colorsId = 0"
+          [style.backgroundColor]="settings.config.design.background"
+        >
+      </div>
+      <div class="span-2">
+        <input type="text" aria-labelledby="set-background-label" name="bg-code" [(ngModel)]="settings.config.design.background"
+          (ngModelChange)="settings.config.design.colorsId = 0"
+          autocomplete="off">
       </div>
     </div>
   </div>
@@ -92,29 +90,28 @@
   </div>
   <!-- Wallpaper -->
   <h3>{{'options.design.wallpaper' | translate}}</h3>
-  <div class="grid cols-2 mt">
-    <div class="input">
-      <label for="bgImgFile">
-        {{'options.design.customWallpaper' | translate}}
-        <tooltip text="{{'options.design.dontSync' | translate}}"></tooltip>
-      </label>
-      <input id="bgImgFile" #bgImgFile name="imageUrl" type="file" class="btn" accept="image/*" (change)="encodeImage($event, bgImgFile)" />
-      <button class="btn btnBlock" type="button" (click)="bgImgFile.click()">{{'options.design.browseForImg' | translate}}</button>
-    </div>
-    <div class="input">
-      <label for="wallpaperPreview">{{'options.design.selectedWallpaper' | translate}}</label>
-      <button
-        *ngIf="shared.bg && shared.bg !== './assets/patterns/0.png'" 
-        id="wallpaperPreview"
-        (click)="setPattern(noPattern)" 
-        class="wallpaperPreview"
-        [style.backgroundImage]="'url('+ shared.bg +')'"
-        [style.backgroundSize]="getBgSize()"
-        [style.backgroundRepeat]="settings.config.design.imageSize === 10 ? 'repeat' : 'no-repeat'"
-        [attr.aria-label]="'options.design.removeWallpaper' | translate">
-        <div class="icon" aria-hidden="true">block</div>
-      </button>
-    </div>
+  <div class="input">
+    <label for="bgImgFile">
+      {{'options.design.customWallpaper' | translate}}
+      <tooltip text="{{'options.design.dontSync' | translate}}"></tooltip>
+    </label>
+    <input id="bgImgFile" #bgImgFile name="imageUrl" type="file" class="btn" accept="image/*" (change)="encodeImage($event, bgImgFile)" />
+    <button class="btn btnBlock" type="button" (click)="bgImgFile.click()">{{'options.design.browseForImg' | translate}}</button>
+  </div>
+  <div class="input" *ngIf="shared.bg && shared.bg !== './assets/patterns/0.png'" >
+    <label for="wallpaperPreview">{{'options.design.selectedWallpaper' | translate}}</label>
+    <button
+      id="wallpaperPreview"
+      (click)="setPattern(noPattern)" 
+      class="wallpaperPreview"
+      [style.backgroundSize]="getBgSize()"
+      [style.backgroundRepeat]="settings.config.design.imageSize === 10 ? 'repeat' : 'no-repeat'"
+      [style.backgroundColor]="settings.config.design.background"
+      [style.backgroundBlendMode]="getBgBlend()"
+      [style.backgroundImage]="'url('+ shared.bg +')'"
+      [attr.aria-label]="'options.design.removeWallpaper' | translate">
+      <div class="icon" aria-hidden="true">block</div>
+    </button>
   </div>
   <div class="mt warning" *ngIf="settings.config.design.patternId === -1 || settings.config.design.patternId === 99999">
     <div class="icon">warning</div>{{'options.design.dontSync' | translate}}
@@ -123,29 +120,27 @@
     <label for="brightness">{{'options.design.brightness' | translate}}</label>
     <options-range name="brightness" id="brightness" min="0" max="20" [(ngModel)]="settings.config.design.brightness"></options-range>
   </div>
-  <div class="grid cols-2 mt">
-    <div class="input">
-      <label for="fill">{{'options.design.fill' | translate}}</label>
-      <select name="fill" id="fill"
-        [(ngModel)]="settings.config.design.imageSize">
-        <option
-          [ngValue]="s.id"
-          *ngFor="let s of bgSize;">
-          {{s.label}}
-        </option>
-      </select>
-    </div>
-    <div class="input">
-      <label for="blend">{{'options.design.filter' | translate}}</label>
-      <select name="blend" id="blend"
-        [(ngModel)]="settings.config.design.imageBlend">
-        <option
-          [ngValue]="b.id"
-          *ngFor="let b of bgBlend;">
-          {{b.label}}
-        </option>
-      </select>
-    </div>
+  <div class="input">
+    <label for="fill">{{'options.design.fill' | translate}}</label>
+    <select name="fill" id="fill"
+      [(ngModel)]="settings.config.design.imageSize">
+      <option
+        [ngValue]="s.id"
+        *ngFor="let s of bgSize;">
+        {{s.label}}
+      </option>
+    </select>
+  </div>
+  <div class="input">
+    <label for="blend">{{'options.design.filter' | translate}}</label>
+    <select name="blend" id="blend"
+      [(ngModel)]="settings.config.design.imageBlend">
+      <option
+        [ngValue]="b.id"
+        *ngFor="let b of bgBlend;">
+        {{b.label}}
+      </option>
+    </select>
   </div>
   <div class="grid cols-4 mt designGrid">
     <button
@@ -159,6 +154,9 @@
       *ngFor="let p of patterns;"
       class="patternBtn btn btnBlock"
       [ngClass]="{'active': settings.config.design.patternId === p.id}"
+      [style.background-image]="sanitizer.bypassSecurityTrustStyle('url(./assets/patterns/' + p.pattern + ')')"
+      [style.backgroundColor]="settings.config.design.background"
+      [style.backgroundBlendMode]="getBgBlend()"
       [style.background-image]="sanitizer.bypassSecurityTrustStyle('url(./assets/patterns/' + p.pattern + ')')"
       (click)="setPattern(p)"
       [attr.aria-label]="'Select pattern ' + p.id"

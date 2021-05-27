@@ -10,7 +10,7 @@
 .helpText {
   font-size: 13px;
   opacity: .8;
-  margin-top: 5px;
+  margin-top: 3px;
   line-height: 1.38;
 }
 
@@ -18,11 +18,24 @@
 .label {
   position: relative;
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 3px;
 }
 
 .input {
-  display: block;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 1fr;
+  grid-gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+  &.inputStacked {
+    display: block;
+  }
+  > .btn {
+    justify-content: center;
+  }
+}
+app-options {
   input[type="text"],
   input[type="color"],
   select {
@@ -31,10 +44,10 @@
     background: transparent;
     border: 2px solid var(--optAccent);
     color: currentColor;
-    line-height: 2.5;
-    height: 44px;
-    padding: 0 14px;
-    border-radius: 6px;
+    line-height: 1.3;
+    height: $fieldHeight;
+    padding: 0 10px;
+    border-radius: $fieldRadius;
     &:focus {
       outline: none;
       box-shadow: 0 0 0 2px var(--optAccent);
@@ -48,27 +61,28 @@
       linear-gradient(135deg, var(--optAccent) 50%, transparent 50%),
       linear-gradient(to right, var(--optAccent), var(--optAccent));
     background-position:
-      calc(100% - 20px) calc(1em + 2px),
-      calc(100% - 15px) calc(1em + 2px),
-      calc(100% - 2.5em) 0.5em;
+      calc(100% - 11px) calc(.5em + 2px),
+      calc(100% - 6px) calc(.5em + 2px),
+      calc(100% - 23px) 0.25em;
     background-size:
       5px 5px,
       5px 5px,
-      1px 1.5em;
+      1px 1.1em;
     background-repeat: no-repeat;
-    padding-right: 40px;
+    padding-right: 25px;
     option,
     optgroup {
       background: var(--optBgHighlight);
       border: 2px solid white;
       color: currentColor;
-      line-height: 2.5;
+      line-height: 1.5;
     }
   }
   input[type="color"] {
     -webkit-appearance: none;
     padding: 0;
     border: 2px solid var(--optText);
+    border-radius: $btnRadius;
     box-shadow: 0;
     cursor: pointer;
     &:focus {
@@ -78,11 +92,11 @@
   }
   input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 0;
-    border-radius: 6px;
+    border-radius: $btnRadius;
   }
   input[type="color"]::-webkit-color-swatch {
     border: none;
-    border-radius: 6px;
+    border-radius: $btnRadius;
   }
 }
 
@@ -94,31 +108,33 @@
   }
   input + label {
     display: grid;
-    grid-template: 1fr / 60px 1fr;
-    grid-gap: 12px;
+    grid-template: 1fr / 1fr 60px;
+    grid-gap: 8px;
     align-items: center;
-    height: 44px;
+    height: $fieldHeight;
     width: fit-content;
     cursor: pointer;
     transition: all .25s ease;
+    margin-bottom: 0;
+    margin-left: auto;
     &:before {
-      grid-column: 1 / 2;
+      grid-column: 2 / 3;
       grid-row: 1 / 2;
       content: "";
       display: block;
-      height: 30px;
+      height: ($fieldHeight - 4px);
       border: 2px solid var(--optAccent);
-      border-radius: 16px;
+      border-radius: $btnRadius;
     }
     &:after {
       position: relative;
       z-index: z('form');
-      grid-column: 1 / 2;
+      grid-column: 2 / 3;
       grid-row: 1 / 2;
       content: "";
       display: block;
-      height: 24px;
-      width: 24px;
+      height: ($fieldHeight - 8px);
+      width: ($fieldHeight - 8px);
       background: transparent;
       box-shadow: inset 0 0 0 2px var(--optAccent);
       border-radius: 50%;
@@ -128,17 +144,20 @@
     span {
       &:before {
         content: attr(data-off);
+        font-size: 14px;
       }
     }
   }
   input:checked + label {
     &:after {
       background-color: var(--optAccent);
-      transform: translateX(31px);
+      transform: translateX(33px);
     }
     span {
       &:before {
         content: attr(data-on);
+        font-weight: 700;
+        color: var(--optAccent);
       }
     }
   }
@@ -167,19 +186,19 @@
 
 .range {
   display: grid;
-  grid-template-columns: 1fr 45px;
+  grid-template-columns: 45px 1fr;
   grid-gap: 12px;
   align-items: center;
-  height: 44px;
+  height: $fieldHeight;
   @mixin range-thumb {
     -webkit-appearance: none;
     -moz-appearance: none;
-    height: 34px;
-    width: 34px;
+    height: ($fieldHeight - 4px);
+    width: ($fieldHeight - 4px);
     border-radius: 50%;
     background: var(--optBg);
     cursor: pointer;
-    margin-top: -10px;
+    margin-top: -6px;
     border: 2px solid var(--optAccent);
   }
   @mixin range-thumb-hover {
@@ -273,14 +292,14 @@
     &::before {
       position: absolute;
       top: 50%;
-      left: -($outputArrowWidth);
+      right: -($outputArrowWidth);
       transform: translateY(-50%);
       content: '';
       width: 0;
       height: 0;
       border-top: $outputArrowWidth solid transparent;
       border-bottom: $outputArrowWidth solid transparent;
-      border-right: $outputArrowWidth solid var(--optBgHover);
+      border-left: $outputArrowWidth solid var(--optBgHover);
     }
   }
 }

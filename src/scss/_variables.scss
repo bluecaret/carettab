@@ -10,6 +10,8 @@ $transition: all .3s;
 
 $settingsFont: 'Open Sans', sans-serif;
 $fieldHeight: 30px;
+$fieldRadius: 6px;
+$btnRadius: 15px;
 
 // Breakpoints
 $sm: 768px;
@@ -54,12 +56,13 @@ $optionsWidth: 800px;
   --optBg95: rgba(var(--optBgBase),.95);
   --optShadow: rgba(0,0,0,.2);
   --optNavBorder: rgba(0,0,0,.1);
+  --optNavActive: rgba(0,0,0,.1);
   @media (prefers-color-scheme: dark) {
     --optAccent: rgb(105,125,175);
     --optAccentLight: rgb(131, 151, 201);
     --optAccentDark: rgb(80, 100, 150);
     --optAccentDisabled: rgb(47, 61, 95);
-    --optText: rgb(195,195,225);
+    --optText: rgb(185,185,215);
     --optBgBase: 0,10,18;
     --optNavBase: 0,10,18;
     --optNavBg: rgb(var(--optNavBase));
@@ -71,5 +74,6 @@ $optionsWidth: 800px;
     --optBg95: rgba(var(--optBgBase),.95);
     --optShadow: rgba(255,255,255,.2);
     --optNavBorder: rgba(255,255,255,.15);
+    --optNavActive: rgba(255,255,255,.1);
   }
 }

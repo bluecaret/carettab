@@ -35,11 +35,9 @@ export class OptionsDesignComponent implements OnInit {
 
   ngOnInit() {
     this.getFont();
-    console.log('bg: ', this.shared.bg);
   }
 
   toggleDesign(type: 'colors' | 'patterns') {
-    console.log('type', type);
     if (type === 'colors') {
       this.toggleColors ? this.toggleColors = false : this.toggleColors = true;
       this.togglePatterns = false;
@@ -109,12 +107,16 @@ export class OptionsDesignComponent implements OnInit {
         this.shared.bg = uploadSrc;
         this.settings.config.design.patternId = 99999;
         this.settings.config.design.imageSize = 20;
+        this.shared.echo('Background image set', uploadSrc.substr(0,20))
       } catch (e) {
         if (this.isQuotaExceeded(e)) {
           let msg = 'Sorry, the file size of your image is too big.';
           msg += ' Try a smaller image or resize your image at';
           msg += ' https://www.reduceimages.com/';
           alert(msg);
+          this.shared.echo('Background image failed, image file too large', uploadSrc.substr(0,20), null, 'error')
+        } else {
+          this.shared.echo('Background image failed for unknown reason', uploadSrc.substr(0,20), null, 'error')
         }
       }
     }, 100);

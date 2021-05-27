@@ -82,6 +82,36 @@ export class SharedService {
     this._updateType = value;
   }
 
+  public echo(msg: string, str?: any, obj?: any, type?: 'warning' | 'error') {
+    let strStyle = 'display:inline-block;background:#444;color:white;padding:5px;margin:0 0 0 5px;border-radius:5px;';
+    let style = 'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;';
+    if (type === 'warning') {
+      style = 'display:inline-block;background:#ffe000;color:black;padding:5px;border-radius:5px;';
+    } else if (type === 'error') {
+      style = 'display:inline-block;background:#c52525;color:white;padding:5px;border-radius:5px;';
+    }
+    if (str) {
+      console.log(
+        `%c${msg}%c${str}`, 
+        style, 
+        strStyle
+      );
+    }
+    if (obj) {
+      console.log(
+        `%c${msg}`, 
+        style, 
+        obj
+      );
+    }
+    if (!str && !obj) {
+      console.log(
+        `%c${msg}`, 
+        style
+      );
+    }
+  }
+
   public createID(prefix: string) {
     return prefix + '_' + (
       Number(String(Math.random()).slice(2)) +

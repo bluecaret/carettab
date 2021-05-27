@@ -37,7 +37,9 @@ export class TabComponent implements OnInit {
     this.translate.get('title.newTab').subscribe(value => {
       this.NEW_TAB_TEXT = value;
     });
-    console.log('Current language: ', this.translate.currentLang);
+    this.shared.echo(`Loaded with language set to:`, this.translate.currentLang);
+
+
     this.setTitle();
     this.setTitleOnInterval();
     this.settings.onChange().subscribe((data) => {
@@ -50,15 +52,6 @@ export class TabComponent implements OnInit {
         this.setTitleOnInterval();
       }
     });
-  }
-
-  toggleOptions() {
-    if (this.shared.optionsToggle === true) {
-      this.settings.setAll(this.settings.config); // Save
-      this.shared.optionsToggle = false;
-    } else {
-      this.shared.optionsToggle = true;
-    }
   }
 
   setTitleOnInterval() {

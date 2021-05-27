@@ -46,13 +46,14 @@ export class AppComponent implements OnInit {
     private zone: NgZone,
     private translate: TranslateService
   ) {
-    console.log('Thank you for using CaretTab!');
+    this.shared.echo('Thank you for using CaretTab!');
     this.translate.setDefaultLang('en-US');
 
     // Set background image
     let savedImg = localStorage.getItem('bgImg');
     if (savedImg != null || savedImg != undefined) {
       this.shared.bg = savedImg;
+      this.shared.echo('Background image found in storage', savedImg.substr(0,20))
     } else {
       let patternId = this.settings.config.design.patternId;
       let img = '0.png';
@@ -60,6 +61,9 @@ export class AppComponent implements OnInit {
       // Check for "900" is for backwards compatibility with an old bug
       if (patternId !== 0 && patternId !== 99999 && patternId !== 900) {
         img = patterns.find(p => p.id === patternId).pattern;
+        this.shared.echo('No background, use selected pattern:', patternId)
+      } else {
+        this.shared.echo('No background or pattern set', patternId)
       }
       let bg = './assets/patterns/' + img;
       this.shared.bg = bg;
@@ -79,12 +83,15 @@ export class AppComponent implements OnInit {
       }
     });
     this.shared.zoneGuess = moment.tz.guess();
+    this.shared.echo('Timezone guess:', this.shared.zoneGuess);
   }
 
   handleVersionNumbers() {
     let prevVer: string = localStorage.getItem("caretTabPrevVersion");
     let newVer: string = localStorage.getItem("caretTabNewVersion");
     this.shared.status = localStorage.getItem("caretTabStatus");
+
+    this.shared.echo('Extension status:', this.shared.status);
 
     // Display major update splash screen for version 3.0.0
     if (compare(prevVer, '3.0.0', '<')) {
@@ -96,6 +103,8 @@ export class AppComponent implements OnInit {
     }
 
     localStorage.setItem('caretTabUpdateType', this.shared.updateType);
+
+    this.shared.echo(`Version check:`, `Prev: ${prevVer} | Old: ${newVer} | Type: ${this.shared.updateType}`);
   }
 
 }

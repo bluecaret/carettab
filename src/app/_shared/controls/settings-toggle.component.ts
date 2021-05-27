@@ -30,10 +30,12 @@ export class SettingsToggleComponent {
     if (this.shared.optionsToggle === true) {
       this.settings.setAll(this.settings.config); // Save
       this.shared.optionsToggle = false;
+      this.shared.echo('Settings saved and panel closed');
     } else {
       // Updated status is set within options/dashboard/dashboard.component.ts when settings opens
 
       this.shared.optionsToggle = true;
+      this.shared.echo('Settings panel opened');
     }
   }
 }

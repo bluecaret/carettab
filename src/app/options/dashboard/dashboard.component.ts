@@ -15,13 +15,13 @@ export class OptionsDashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('options status', this.shared.status);
     this.status = this.shared.status;
 
     // Clear updated status
     if (this.shared.status === 'updated') {
       localStorage.setItem('caretTabStatus', 'existing');
       this.shared.status = 'existing';
+      this.shared.echo('Extension status reset to existing after update since user opened dashboard');
     }
   }
 

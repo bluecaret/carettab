@@ -3,69 +3,69 @@
   <div class="input">
     <label>{{'options.bookmarks.enableBar' | translate}}</label>
     <button class="btn" *ngIf="!hasBookmarkPermission" (click)="setBookmarkPermission()">Allow extension to access Bookmarks</button>
-    <options-toggle *ngIf="hasBookmarkPermission" name="toggleBookmarks" [(ngModel)]="settings.config.bookmarks.bookmarksBar.enabled"></options-toggle>
+    <options-toggle *ngIf="hasBookmarkPermission" name="toggleBookmarks" [(ngModel)]="settings.config.bookmark.enabled"></options-toggle>
   </div>
-  <div class="input" *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
+  <div class="input" *ngIf="settings.config.bookmark.enabled">
     <label>{{'options.bookmarks.favicons' | translate}}</label>
-    <options-toggle name="bookmarksBarIcons" [(ngModel)]="settings.config.bookmarks.bookmarksBar.icons"></options-toggle>
+    <options-toggle name="bookmarksBarIcons" [(ngModel)]="settings.config.bookmark.icons"></options-toggle>
   </div>
-  <div class="input" *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
+  <div class="input" *ngIf="settings.config.bookmark.enabled">
     <label>{{'options.bookmarks.appsLink' | translate}}</label>
-    <options-toggle name="appsBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.apps"></options-toggle>
+    <options-toggle name="appsBookmarksBar" [(ngModel)]="settings.config.bookmark.apps"></options-toggle>
   </div>
-  <div class="input" *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
+  <div class="input" *ngIf="settings.config.bookmark.enabled">
     <label>{{'options.bookmarks.chromeTabLink' | translate}}</label>
-    <options-toggle name="chromeTabBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.chromeTab"></options-toggle>
+    <options-toggle name="chromeTabBookmarksBar" [(ngModel)]="settings.config.bookmark.chromeTab"></options-toggle>
   </div>
-  <div class="input" *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
+  <div class="input" *ngIf="settings.config.bookmark.enabled">
     <label>{{'options.bookmarks.historyLink' | translate}}</label>
-    <options-toggle name="historyBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.history"></options-toggle>
+    <options-toggle name="historyBookmarksBar" [(ngModel)]="settings.config.bookmark.history"></options-toggle>
   </div>
-  <div class="input" *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
+  <div class="input" *ngIf="settings.config.bookmark.enabled">
     <label>{{'options.bookmarks.managerLink' | translate}}</label>
-    <options-toggle name="bookmarksManagerBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.bookmarksManager"></options-toggle>
+    <options-toggle name="bookmarksManagerBookmarksBar" [(ngModel)]="settings.config.bookmark.bookmarksManager"></options-toggle>
   </div>
-  <div class="input" *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
+  <div class="input" *ngIf="settings.config.bookmark.enabled">
     <label>{{'options.bookmarks.mostVisited' | translate}}</label>
     <button class="btn" *ngIf="!hasTopSitesPermission" (click)="setTopSitesPermission()">Allow extension to access Top Sites</button>
-    <options-toggle *ngIf="hasTopSitesPermission" name="mostVisitedBookmarksBar" [(ngModel)]="settings.config.bookmarks.bookmarksBar.mostVisited"></options-toggle>
+    <options-toggle *ngIf="hasTopSitesPermission" name="mostVisitedBookmarksBar" [(ngModel)]="settings.config.bookmark.mostVisited"></options-toggle>
   </div>
   <h2>{{'options.bookmarks.headingQuick' | translate}}</h2>
   <div class="input">
     <label>{{'options.bookmarks.enableQuick' | translate}}</label>
-    <options-toggle name="toggleQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.enabled"></options-toggle>
+    <options-toggle name="toggleQuickLinks" [(ngModel)]="settings.config.quickLink.enabled"></options-toggle>
   </div>
-  <div class="input" *ngIf="settings.config.bookmarks.quickLinks.enabled">
+  <div class="input" *ngIf="settings.config.quickLink.enabled">
     <label for="quickLinksSize">{{'options.common.size' | translate}}</label>
-    <options-range name="quickLinksSize" id="quickLinksSize" min="1" max="20" [(ngModel)]="settings.config.bookmarks.quickLinks.scaling"></options-range>
+    <options-range name="quickLinksSize" id="quickLinksSize" min="1" max="20" [(ngModel)]="settings.config.quickLink.scaling"></options-range>
   </div>
-  <div class="input" *ngIf="settings.config.bookmarks.quickLinks.enabled">
+  <div class="input" *ngIf="settings.config.quickLink.enabled">
     <label>{{'options.bookmarks.favicons' | translate}}</label>
-    <options-toggle name="quickLinksIcons" [(ngModel)]="settings.config.bookmarks.quickLinks.icons"></options-toggle>
+    <options-toggle name="quickLinksIcons" [(ngModel)]="settings.config.quickLink.icons"></options-toggle>
   </div>
-  <div class="input" *ngIf="settings.config.bookmarks.quickLinks.enabled">
+  <div class="input" *ngIf="settings.config.quickLink.enabled">
     <label>{{'options.bookmarks.appsLink' | translate}}</label>
-    <options-toggle name="appsQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.apps"></options-toggle>
+    <options-toggle name="appsQuickLinks" [(ngModel)]="settings.config.quickLink.apps"></options-toggle>
   </div>
-  <div class="input" *ngIf="settings.config.bookmarks.quickLinks.enabled">
+  <div class="input" *ngIf="settings.config.quickLink.enabled">
     <label>{{'options.bookmarks.chromeTabLink' | translate}}</label>
-    <options-toggle name="chromeTabQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.chromeTab"></options-toggle>
+    <options-toggle name="chromeTabQuickLinks" [(ngModel)]="settings.config.quickLink.chromeTab"></options-toggle>
   </div>
-  <div class="input" *ngIf="settings.config.bookmarks.quickLinks.enabled">
+  <div class="input" *ngIf="settings.config.quickLink.enabled">
     <label>{{'options.bookmarks.historyLink' | translate}}</label>
-    <options-toggle name="historyQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.history"></options-toggle>
+    <options-toggle name="historyQuickLinks" [(ngModel)]="settings.config.quickLink.history"></options-toggle>
   </div>
-  <div class="input" *ngIf="settings.config.bookmarks.quickLinks.enabled">
+  <div class="input" *ngIf="settings.config.quickLink.enabled">
     <label>{{'options.bookmarks.managerLink' | translate}}</label>
-    <options-toggle name="bookmarksManagerQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.bookmarksManager"></options-toggle>
+    <options-toggle name="bookmarksManagerQuickLinks" [(ngModel)]="settings.config.quickLink.bookmarksManager"></options-toggle>
   </div>
-  <div class="input" *ngIf="settings.config.bookmarks.quickLinks.enabled">
+  <div class="input" *ngIf="settings.config.quickLink.enabled">
     <label>{{'options.bookmarks.mostVisited' | translate}}</label>
     <button class="btn" *ngIf="!hasTopSitesPermission" (click)="setTopSitesPermission()">Allow extension to access Top Sites</button>
-    <options-toggle *ngIf="hasTopSitesPermission" name="mostVisitedQuickLinks" [(ngModel)]="settings.config.bookmarks.quickLinks.mostVisited"></options-toggle>
+    <options-toggle *ngIf="hasTopSitesPermission" name="mostVisitedQuickLinks" [(ngModel)]="settings.config.quickLink.mostVisited"></options-toggle>
   </div>
 </form>
-<ng-container *ngIf="settings.config.bookmarks.quickLinks.enabled">
+<ng-container *ngIf="settings.config.quickLink.enabled">
   <h3>Links</h3>
   <form #quickLinksList="ngForm" novalidate>
     <div class="grid cols-19 mb15">
@@ -77,7 +77,7 @@
       </div>
     </div>
     <div class="grid cols-19 mb15">
-      <ng-container *ngFor="let link of settings.config.bookmarks.links; let i = index; trackBy:trackByFn; let isFirst = first; let isLast = last">
+      <ng-container *ngFor="let link of settings.config.quickLink.links; let i = index; trackBy:trackByFn; let isFirst = first; let isLast = last">
         <div class="span-6">
           <input
             type="text"
@@ -104,7 +104,7 @@
               [disabled]="isFirst"
               attr.aria-label="{{'options.common.moveUp' | translate}}"
               title="{{'options.common.moveUp' | translate}}"
-              (click)="swap(settings.config.bookmarks.links, i, (i - 1))">
+              (click)="swap(settings.config.quickLink.links, i, (i - 1))">
               <div class="icon" aria-hidden="true">expand_less</div>
             </button>
             <button
@@ -113,7 +113,7 @@
               [disabled]="isLast"
               attr.aria-label="{{'options.common.moveDown' | translate}}"
               title="{{'options.common.moveDown' | translate}}"
-              (click)="swap(settings.config.bookmarks.links, i, (i + 1))">
+              (click)="swap(settings.config.quickLink.links, i, (i + 1))">
               <div class="icon" aria-hidden="true">expand_more</div>
             </button>
           </div>

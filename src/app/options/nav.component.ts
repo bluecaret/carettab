@@ -82,7 +82,7 @@ export class NavComponent {
   }
 
   saveAndClose() {
-    this.settings.setAll(this.settings.config);
+    this.shared.saveAll();
     this.shared.optionsToggle = false;
   }
 

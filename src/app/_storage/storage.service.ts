@@ -6,25 +6,90 @@
  * Modified by BlueCaret (John Hancock) <john0404@gmail.com>
  */
 import { Injectable, NgZone, Optional } from '@angular/core';
-import { Settings } from './settings';
+import { 
+  Settings, 
+  BookmarkSettings,
+  DateSettings,
+  DesignSettings,
+  I18nSettings,
+  MessageSettings,
+  MiscSettings,
+  OrderSettings,
+  QuickLinkSettings,
+  SearchSettings,
+  TimeSettings
+} from './settings';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable()
 export class Storage {
-  storeKey = ''; // chrome storage key
-  config: any;     // holds settings
+  storeKey = 'carettab'; // chrome storage key
+  config: Settings; // holds settings
+
   constructor(private zone: NgZone, @Optional() _settings: Settings) {
     let usethisSettings = (_settings) ? _settings : new Settings();
-    this.config = usethisSettings.data;
-    this.storeKey = usethisSettings.storeKey;
+    this.config = usethisSettings;
+    this.config.bookmark = new BookmarkSettings();
+    this.config.date = new DateSettings();
+    this.config.design = new DesignSettings();
+    this.config.i18n = new I18nSettings();
+    this.config.message = new MessageSettings();
+    this.config.misc = new MiscSettings();
+    this.config.order = new OrderSettings();
+    this.config.quickLink = new QuickLinkSettings();
+    this.config.search = new SearchSettings();
+    this.config.time = new TimeSettings();
   }
 
   // to be used inside a resolver
   load() {
-    return this.getChrome(this.storeKey, this.config).then((data: any) => {
-      this.config = data;
-      return data;
+    // Old load code before splitting to different keys
+    // return this.getChrome(this.storeKey, this.config).then((data: any) => {
+    //   this.config = data;
+    //   return data;
+    // });
+
+    this.getChrome('ct-bookmark', this.config.bookmark).then((data: any) => {
+      this.config.bookmark = data;
     });
+
+    this.getChrome('ct-date', this.config.date).then((data: any) => {
+      this.config.date = data;
+    });
+
+    this.getChrome('ct-design', this.config.design).then((data: any) => {
+      this.config.design = data;
+    });
+
+    this.getChrome('ct-i18n', this.config.i18n).then((data: any) => {
+      this.config.i18n = data;
+    });
+
+    this.getChrome('ct-message', this.config.message).then((data: any) => {
+      this.config.message = data;
+    });
+
+    this.getChrome('ct-misc', this.config.misc).then((data: any) => {
+      this.config.misc = data;
+    });
+
+    this.getChrome('ct-order', this.config.order).then((data: any) => {
+      this.config.order = data;
+    });
+
+    this.getChrome('ct-quick-link', this.config.quickLink).then((data: any) => {
+      this.config.quickLink = data;
+    });
+
+    this.getChrome('ct-search', this.config.search).then((data: any) => {
+      this.config.search = data;
+    });
+
+    this.getChrome('ct-time', this.config.time).then((data: any) => {
+      this.config.time = data;
+    });
+
+    return this.config;
   }
 
   // save an object

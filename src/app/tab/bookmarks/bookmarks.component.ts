@@ -54,12 +54,12 @@ export class TabBookmarksComponent implements OnInit {
     private zone: NgZone
   ) {
     this.settings.onChange().subscribe((data) => {
-      if (data.bookmarks.bookmarksBar.enabled === true) {
+      if (data.bookmark.enabled === true) {
         this.getBookmarks();
       }
       if (
-        data.bookmarks.bookmarksBar.mostVisited === true ||
-        data.bookmarks.quickLinks.mostVisited === true
+        data.bookmark.mostVisited === true ||
+        data.quickLink.mostVisited === true
       ) {
         this.getMostVisited();
       }
@@ -70,12 +70,12 @@ export class TabBookmarksComponent implements OnInit {
     this.isLoading = true;
     this.isChrome = !!window.chrome;
 
-    if (this.settings.config.bookmarks.bookmarksBar.enabled) {
+    if (this.settings.config.bookmark.enabled) {
       this.getBookmarks();
     }
     if (
-      this.settings.config.bookmarks.bookmarksBar.mostVisited === true ||
-      this.settings.config.bookmarks.quickLinks.mostVisited === true
+      this.settings.config.bookmark.mostVisited === true ||
+      this.settings.config.quickLink.mostVisited === true
     ) {
       this.getMostVisited();
     }

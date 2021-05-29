@@ -47,6 +47,7 @@ export class AppComponent implements OnInit {
     private translate: TranslateService
   ) {
     this.shared.echo('Thank you for using CaretTab!');
+    this.shared.echo('Loaded settings:', '', this.settings.config);
     this.translate.setDefaultLang('en-US');
 
     // Set background image
@@ -75,9 +76,9 @@ export class AppComponent implements OnInit {
     
     this.settings.onChange().subscribe((data) => {
       if (
-        this.settings.config.title.type === 20 ||
-        this.settings.config.title.type === 40 ||
-        this.settings.config.title.type === 50
+        this.settings.config.misc.title.type === 20 ||
+        this.settings.config.misc.title.type === 40 ||
+        this.settings.config.misc.title.type === 50
       ) {
         // TODO: What was I doing here???
       }

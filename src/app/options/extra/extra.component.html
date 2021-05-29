@@ -1,23 +1,23 @@
 <h2>{{'options.extra.extra' | translate}}</h2>
 <div class="input">
   <label for="lang">{{'options.extra.lang' | translate}}</label>
-  <select name="lang" id="lang" [(ngModel)]="settings.config.lang" (ngModelChange)="useLanguage($event)">
+  <select name="lang" id="lang" [(ngModel)]="settings.config.i18n.lang" (ngModelChange)="useLanguage($event)">
     <option *ngFor="let lang of languages" [ngValue]="lang.id">{{lang.label}}</option>
   </select>
 </div>
 <div class="input">
   <label for="tabTitle">{{'options.extra.tabTitle' | translate}}<tooltip text="{{'options.extra.tabTitleDesc' | translate}}"></tooltip></label>
-  <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.title.type">
+  <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.misc.title.type">
     <option *ngFor="let type of titleOptions" [ngValue]="type.id">{{type.label}}</option>
   </select>
 </div>
-<div class="input" *ngIf="settings.config.title.type === 60">
+<div class="input" *ngIf="settings.config.misc.title.type === 60">
   <label for="tabTitleCustom">{{'options.extra.tabCustomText' | translate}}<tooltip text="{{'options.extra.tabCustomTextDesc' | translate}}"></tooltip></label>
-  <input type="text" name="tabTitleCustom" id="tabTitleCustom" [(ngModel)]="settings.config.title.text">
+  <input type="text" name="tabTitleCustom" id="tabTitleCustom" [(ngModel)]="settings.config.misc.title.text">
 </div>
-<div class="input" *ngIf="settings.config.title.type === 20 || settings.config.title.type === 40 || settings.config.title.type === 50">
+<div class="input" *ngIf="settings.config.misc.title.type === 20 || settings.config.misc.title.type === 40 || settings.config.misc.title.type === 50">
   <label for="tabTitle">{{'options.extra.tabClock' | translate}}<tooltip text="{{'options.extra.tabClockDesc' | translate}}"></tooltip></label>
-  <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.title.clockUsed">
+  <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.misc.title.clockUsed">
     <option *ngFor="let clock of settings.config.time.clocks; let i = index" [ngValue]="i+1">Clock #{{i + 1}}</option>
   </select>
 </div>

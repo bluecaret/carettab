@@ -33,7 +33,7 @@ export class TabComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.translate.use(this.settings.config.lang);
+    this.translate.use(this.settings.config.i18n.lang);
     this.translate.get('title.newTab').subscribe(value => {
       this.NEW_TAB_TEXT = value;
     });
@@ -44,9 +44,9 @@ export class TabComponent implements OnInit {
     this.setTitleOnInterval();
     this.settings.onChange().subscribe((data) => {
       if (
-        this.settings.config.title.type === 20 ||
-        this.settings.config.title.type === 40 ||
-        this.settings.config.title.type === 50
+        this.settings.config.misc.title.type === 20 ||
+        this.settings.config.misc.title.type === 40 ||
+        this.settings.config.misc.title.type === 50
       ) {
         this.setTitle();
         this.setTitleOnInterval();
@@ -57,17 +57,17 @@ export class TabComponent implements OnInit {
   setTitleOnInterval() {
     if (
       this.settings.config.time.clocks.length > 0 &&
-      this.settings.config.title.type === 20 ||
-      this.settings.config.title.type === 40 ||
-      this.settings.config.title.type === 50
+      this.settings.config.misc.title.type === 20 ||
+      this.settings.config.misc.title.type === 40 ||
+      this.settings.config.misc.title.type === 50
     ) {
       setInterval(() => {
         this.setTitle();
       }, 500);
     } else if (
-      this.settings.config.title.type === 30 ||
-      this.settings.config.title.type === 40 ||
-      this.settings.config.title.type === 50
+      this.settings.config.misc.title.type === 30 ||
+      this.settings.config.misc.title.type === 40 ||
+      this.settings.config.misc.title.type === 50
     ) {
       setInterval(() => {
         this.setTitle();
@@ -76,24 +76,24 @@ export class TabComponent implements OnInit {
   }
 
   setTitle() {
-    if (this.settings.config.title.type === 20) {
+    if (this.settings.config.misc.title.type === 20) {
       if (this.shared.time) {
         this.titleService.setTitle( this.shared.time );
       }
-    } else if (this.settings.config.title.type === 30) {
+    } else if (this.settings.config.misc.title.type === 30) {
       if (this.shared.date) {
         this.titleService.setTitle( this.shared.date );
       }
-    } else if (this.settings.config.title.type === 40) {
+    } else if (this.settings.config.misc.title.type === 40) {
       if (this.shared.time && this.shared.date) {
         this.titleService.setTitle( this.shared.time + ' | ' + this.shared.date );
       }
-    } else if (this.settings.config.title.type === 50) {
+    } else if (this.settings.config.misc.title.type === 50) {
       if (this.shared.time && this.shared.date) {
         this.titleService.setTitle( this.shared.date + ' | ' + this.shared.time );
       }
-    } else if (this.settings.config.title.type === 60) {
-      this.titleService.setTitle( this.settings.config.title.text );
+    } else if (this.settings.config.misc.title.type === 60) {
+      this.titleService.setTitle( this.settings.config.misc.title.text );
     } else {
       this.titleService.setTitle( this.NEW_TAB_TEXT );
     }

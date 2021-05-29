@@ -28,7 +28,7 @@ export class SettingsToggleComponent {
 
   toggleOptions() {
     if (this.shared.optionsToggle === true) {
-      this.settings.setAll(this.settings.config); // Save
+      this.shared.saveAll(); // Save
       this.shared.optionsToggle = false;
       this.shared.echo('Settings saved and panel closed');
     } else {

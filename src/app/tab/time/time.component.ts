@@ -39,16 +39,16 @@ export class TabTimeComponent implements OnInit {
 
   setTitleTime() {
     if (
-      this.settings.config.title.type === 20 ||
-      this.settings.config.title.type === 40 ||
-      this.settings.config.title.type === 50
+      this.settings.config.misc.title.type === 20 ||
+      this.settings.config.misc.title.type === 40 ||
+      this.settings.config.misc.title.type === 50
     ) {
       this.shared.time = this.constructTitleTime();
     }
   }
 
   constructTitleTime(): string {
-    let index = this.settings.config.title.clockUsed - 1;
+    let index = this.settings.config.misc.title.clockUsed - 1;
     let clock = this.settings.config.time.clocks[index];
     if (clock) {
       let hour1 = this.getHour(clock.timezone, clock.twentyFour, clock.twoDigit, 1);
@@ -69,7 +69,7 @@ export class TabTimeComponent implements OnInit {
   }
 
   getHour(zone: string, twentyFour: boolean, twoDigit: boolean, digit: 1|2): string {
-    moment.locale(this.settings.config.lang);
+    moment.locale(this.settings.config.i18n.lang);
     zone = this.getZone(zone);
     let format: string;
     twentyFour ? format = 'HH' : format = 'h';
@@ -85,14 +85,14 @@ export class TabTimeComponent implements OnInit {
   }
 
   getMinute(zone: string, digit: 1|2): string {
-    moment.locale(this.settings.config.lang);
+    moment.locale(this.settings.config.i18n.lang);
     zone = this.getZone(zone);
     let time = moment(this.currentTime).tz(zone).format('mm');
     return this.splitDigits(time, digit);
   }
 
   getSecond(zone: string, digit: 1|2): string {
-    moment.locale(this.settings.config.lang);
+    moment.locale(this.settings.config.i18n.lang);
     zone = this.getZone(zone);
     let time = moment(this.currentTime).tz(zone).format('ss');
     return this.splitDigits(time, digit);
@@ -111,7 +111,7 @@ export class TabTimeComponent implements OnInit {
   }
 
   getRelative(zone: string) {
-    moment.locale(this.settings.config.lang);
+    moment.locale(this.settings.config.i18n.lang);
     zone = this.getZone(zone);
     let here = moment(this.currentTime);
     let hereOffset = here.utcOffset();

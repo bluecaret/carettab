@@ -1,8 +1,8 @@
 <!-- Bookmarks Bar-->
 <div
   class="bookmarksBar"
-  [style.fontSize]="getBookmarkSize(settings.config.bookmarks.bookmarksBar.scaling)"
-  *ngIf="settings.config.bookmarks.bookmarksBar.enabled">
+  [style.fontSize]="getBookmarkSize(settings.config.bookmark.scaling)"
+  *ngIf="settings.config.bookmark.enabled">
 
   <div class="bar">
     <!-- Scroll left button -->
@@ -14,36 +14,36 @@
     </button>
     <!-- Bar list -->
     <ul class="barList" #barList>
-      <li class="barNode" *ngIf="settings.config.bookmarks.bookmarksBar.apps">
+      <li class="barNode" *ngIf="settings.config.bookmark.apps">
         <button title="{{'tab.bookmarks.links.apps' | translate}}" class="barFolder" (click)="apps()">
-          <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" src="/assets/img/apps.png" class="barIcon">
+          <img *ngIf="settings.config.bookmark.icons" src="/assets/img/apps.png" class="barIcon">
           <div class="barLabel">{{'tab.bookmarks.links.apps' | translate}}</div>
         </button>
       </li>
-      <li class="barNode" *ngIf="settings.config.bookmarks.bookmarksBar.chromeTab">
+      <li class="barNode" *ngIf="settings.config.bookmark.chromeTab">
         <button title="{{'tab.bookmarks.links.chromeTab' | translate}}" class="barFolder" (click)="chromeTab()">
-          <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" src="/assets/img/tab.png" class="barIcon">
+          <img *ngIf="settings.config.bookmark.icons" src="/assets/img/tab.png" class="barIcon">
           <div class="barLabel">{{'tab.bookmarks.links.chromeTab' | translate}}</div>
         </button>
       </li>
-      <li class="barNode" *ngIf="settings.config.bookmarks.bookmarksBar.history">
+      <li class="barNode" *ngIf="settings.config.bookmark.history">
         <button title="{{'tab.bookmarks.links.history' | translate}}" class="barFolder" (click)="history()">
-          <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" src="/assets/img/history.png" class="barIcon">
+          <img *ngIf="settings.config.bookmark.icons" src="/assets/img/history.png" class="barIcon">
           <div class="barLabel">{{'tab.bookmarks.links.history' | translate}}</div>
         </button>
       </li>
-      <li class="barNode" *ngIf="settings.config.bookmarks.bookmarksBar.bookmarksManager">
+      <li class="barNode" *ngIf="settings.config.bookmark.bookmarksManager">
         <button title="{{'tab.bookmarks.links.bookmarksManager' | translate}}" class="barFolder" (click)="bookmarksManager()">
-          <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" src="/assets/img/bookmarks.png" class="barIcon">
+          <img *ngIf="settings.config.bookmark.icons" src="/assets/img/bookmarks.png" class="barIcon">
           <div class="barLabel">{{'tab.bookmarks.links.bookmarksManager' | translate}}</div>
         </button>
       </li>
-      <li class="barNode" *ngIf="settings.config.bookmarks.bookmarksBar.mostVisited">
+      <li class="barNode" *ngIf="settings.config.bookmark.mostVisited">
         <button
           class="barFolder"
           title="{{'tab.bookmarks.links.mostVisited' | translate}}"
           (click)="toggleMostVisited = !toggleMostVisited">
-          <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" src="/assets/img/folder.png" class="barIcon">
+          <img *ngIf="settings.config.bookmark.icons" src="/assets/img/folder.png" class="barIcon">
           <div class="barLabel">{{'tab.bookmarks.links.mostVisited' | translate}}</div>
         </button>
         <div class="bar" *ngIf="toggleMostVisited" @slideDown>
@@ -59,7 +59,7 @@
             title="{{item.title}}
 {{item.url}}"
             class="barLink">
-            <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" [src]="getQuickLinksIcon(item.url)" class="barIcon">
+            <img *ngIf="settings.config.bookmark.icons" [src]="getQuickLinksIcon(item.url)" class="barIcon">
             <div class="barLabel">{{item.title}}</div>
           </a>
         </ng-container>
@@ -68,7 +68,7 @@
             class="barFolder"
             title="{{item.title}}"
             (click)="toggle[i] = !toggle[i];">
-            <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" src="/assets/img/folder.png" class="barIcon">
+            <img *ngIf="settings.config.bookmark.icons" src="/assets/img/folder.png" class="barIcon">
             <div class="barLabel">{{item.title}}</div>
           </button>
         </ng-template>
@@ -116,7 +116,7 @@
           title="{{item.title}}
 {{item.url}}"
           class="barLink">
-          <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" [src]="getQuickLinksIcon(item.url)" class="barIcon">
+          <img *ngIf="settings.config.bookmark.icons" [src]="getQuickLinksIcon(item.url)" class="barIcon">
           <div class="barLabel">{{item.title}}</div>
         </a>
       </ng-container>
@@ -125,7 +125,7 @@
           class="barFolder"
           title="{{item.title}}"
           (click)="toggle[idx + '.' + n] = !toggle[idx + '.' + n]">
-          <img *ngIf="settings.config.bookmarks.bookmarksBar.icons" src="/assets/img/folder.png" class="barIcon">
+          <img *ngIf="settings.config.bookmark.icons" src="/assets/img/folder.png" class="barIcon">
           <div class="barLabel">{{item.title}}</div>
         </button>
       </ng-template>
@@ -149,36 +149,36 @@
 <!-- Quick Links -->
 <div
   class="quickLinksBar"
-  [style.fontSize]="shared.getFontSize(settings.config.bookmarks.quickLinks.scaling)"
-  *ngIf="settings.config.bookmarks.quickLinks.enabled">
+  [style.fontSize]="shared.getFontSize(settings.config.quickLink.scaling)"
+  *ngIf="settings.config.quickLink.enabled">
   <ul>
-    <li *ngIf="settings.config.bookmarks.quickLinks.apps">
+    <li *ngIf="settings.config.quickLink.apps">
       <button title="{{'tab.bookmarks.links.apps' | translate}}" class="link" (click)="apps()">
-        <img *ngIf="settings.config.bookmarks.quickLinks.icons" src="/assets/img/apps.png" class="quickLinksIcon">
+        <img *ngIf="settings.config.quickLink.icons" src="/assets/img/apps.png" class="quickLinksIcon">
         <div class="quickLinksLabel">{{'tab.bookmarks.links.apps' | translate}}</div>
       </button>
     </li>
-    <li *ngIf="settings.config.bookmarks.quickLinks.chromeTab">
+    <li *ngIf="settings.config.quickLink.chromeTab">
       <button title="{{'tab.bookmarks.links.chromeTab' | translate}}" class="link" (click)="chromeTab()">
-        <img *ngIf="settings.config.bookmarks.quickLinks.icons" src="/assets/img/tab.png" class="quickLinksIcon">
+        <img *ngIf="settings.config.quickLink.icons" src="/assets/img/tab.png" class="quickLinksIcon">
         <div class="quickLinksLabel">{{'tab.bookmarks.links.chromeTab' | translate}}</div>
       </button>
     </li>
-    <li *ngIf="settings.config.bookmarks.quickLinks.history">
+    <li *ngIf="settings.config.quickLink.history">
       <button title="{{'tab.bookmarks.links.history' | translate}}" class="link" (click)="history()">
-        <img *ngIf="settings.config.bookmarks.quickLinks.icons" src="/assets/img/history.png" class="quickLinksIcon">
+        <img *ngIf="settings.config.quickLink.icons" src="/assets/img/history.png" class="quickLinksIcon">
         <div class="quickLinksLabel">{{'tab.bookmarks.links.history' | translate}}</div>
       </button>
     </li>
-    <li *ngIf="settings.config.bookmarks.quickLinks.bookmarksManager">
+    <li *ngIf="settings.config.quickLink.bookmarksManager">
       <button title="{{'tab.bookmarks.links.bookmarksManager' | translate}}" class="link" (click)="bookmarksManager()">
-        <img *ngIf="settings.config.bookmarks.quickLinks.icons" src="/assets/img/bookmarks.png" class="quickLinksIcon">
+        <img *ngIf="settings.config.quickLink.icons" src="/assets/img/bookmarks.png" class="quickLinksIcon">
         <div class="quickLinksLabel">{{'tab.bookmarks.links.bookmarksManager' | translate}}</div>
       </button>
     </li>
-    <li class="mostVisitedLink" *ngIf="settings.config.bookmarks.quickLinks.mostVisited">
+    <li class="mostVisitedLink" *ngIf="settings.config.quickLink.mostVisited">
       <button title="{{'tab.bookmarks.links.mostVisited' | translate}}" class="link" (click)="toggleMvMenu = !toggleMvMenu">
-        <img *ngIf="settings.config.bookmarks.quickLinks.icons" src="/assets/img/folder.png" class="quickLinksIcon">
+        <img *ngIf="settings.config.quickLink.icons" src="/assets/img/folder.png" class="quickLinksIcon">
         <div class="quickLinksLabel">{{'tab.bookmarks.links.mostVisited' | translate}}</div>
       </button>
       <div class="mostVisitedMenu" *ngIf="toggleMvMenu">
@@ -187,18 +187,18 @@
           title="{{mv.title}}
 {{mv.url}}"
           *ngFor="let mv of allMostVisited">
-          <img *ngIf="settings.config.bookmarks.quickLinks.icons" [src]="getQuickLinksIcon(mv.url)">
+          <img *ngIf="settings.config.quickLink.icons" [src]="getQuickLinksIcon(mv.url)">
           <div>{{mv.title}}</div>
         </a>
       </div>
     </li>
-    <li *ngFor="let item of settings.config.bookmarks.links; let i = index">
+    <li *ngFor="let item of settings.config.quickLink.links; let i = index">
       <a 
         href="{{item.url}}" 
         class="link" 
         title="{{getShortcut(i)}}" 
         attr.accesskey="{{i <= 9 ? i + 1 : null}}">
-        <img *ngIf="settings.config.bookmarks.quickLinks.icons" [src]="getQuickLinksIcon(item.url)" class="quickLinksIcon">
+        <img *ngIf="settings.config.quickLink.icons" [src]="getQuickLinksIcon(item.url)" class="quickLinksIcon">
         <div class="quickLinksLabel">{{item.label}}</div>
       </a>
     </li>

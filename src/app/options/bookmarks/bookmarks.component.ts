@@ -102,7 +102,7 @@ export class OptionsBookmarksComponent implements OnInit {
   }
 
   resetEdit() {
-    let lng = this.settings.config.bookmarks.length;
+    let lng = this.settings.config.quickLink.links.length;
     this.editMode = new Array(lng);
     this.editMode.fill(false);
   }
@@ -113,7 +113,7 @@ export class OptionsBookmarksComponent implements OnInit {
       let id = this.shared.createID('LINK');
       let label = model.value.label;
       let url = this.checkLink(model.value.url);
-      this.settings.config.bookmarks.links.push({
+      this.settings.config.quickLink.links.push({
         id: id,
         label: label,
         url: url,
@@ -127,8 +127,8 @@ export class OptionsBookmarksComponent implements OnInit {
 
   updateLink(label: string, url: string, index: number, isValid: boolean) {
     if (isValid) {
-      this.settings.config.bookmarks.links[index].label = label;
-      this.settings.config.bookmarks.links[index].url = this.checkLink(url);
+      this.settings.config.quickLink.links[index].label = label;
+      this.settings.config.quickLink.links[index].url = this.checkLink(url);
       this.resetEdit();
     }
   }
@@ -147,7 +147,7 @@ export class OptionsBookmarksComponent implements OnInit {
   }
 
   deleteLink(link: any[], index: number) {
-    this.settings.config.bookmarks.links.splice(index, 1);
+    this.settings.config.quickLink.links.splice(index, 1);
     this.resetEdit();
   }
 
@@ -176,7 +176,7 @@ export class OptionsBookmarksComponent implements OnInit {
 
   addRecoveredLink(label: string, url: string) {
     let id = this.shared.createID('LINK');
-    this.settings.config.bookmarks.links.push({
+    this.settings.config.quickLink.links.push({
       id: id,
       label: label,
       url: url,

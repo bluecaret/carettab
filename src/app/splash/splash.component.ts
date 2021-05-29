@@ -61,7 +61,7 @@ export class SplashComponent implements OnInit {
 
   recoverLinks() {
     if (this.recoveredQuickLinks.length > 0) {
-      this.settings.config.bookmarks.links = this.recoveredQuickLinks;
+      this.settings.config.quickLink.links = this.recoveredQuickLinks;
       this.importStatus = 'Import completed.';
       console.log('Imported Quick Links: ', this.recoveredQuickLinks);
     } else {
@@ -75,12 +75,12 @@ export class SplashComponent implements OnInit {
   }
 
   skipIntro() {
-    this.settings.setAll(this.settings.config); // Save
+    this.shared.saveAll(); // Save
     this.removeIntro();
   }
 
   chooseLang(lang: string) {
-    this.settings.config.lang = lang;
+    this.settings.config.i18n.lang = lang;
     this.translate.use(lang);
   }
 
@@ -196,9 +196,9 @@ export class SplashComponent implements OnInit {
 
   enableBookmarks(enable: boolean) {
     if (enable) {
-      this.settings.config.bookmarks.bookmarksBar.enabled = true;
+      this.settings.config.bookmark.enabled = true;
     } else {
-      this.settings.config.bookmarks.bookmarksBar.enabled = false;
+      this.settings.config.bookmark.enabled = false;
     }
     this.step = 6;
   }
@@ -210,7 +210,7 @@ export class SplashComponent implements OnInit {
   }
 
   finishIntro() {
-    this.settings.setAll(this.settings.config); // Save
+    this.shared.saveAll(); // Save
     this.removeIntro();
     this.shared.optionsToggle = true;
   }

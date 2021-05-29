@@ -28,16 +28,16 @@ export class TabDateComponent implements OnInit {
 
   setTitleDate() {
     if (
-      this.settings.config.title.type === 20 ||
-      this.settings.config.title.type === 40 ||
-      this.settings.config.title.type === 50
+      this.settings.config.misc.title.type === 20 ||
+      this.settings.config.misc.title.type === 40 ||
+      this.settings.config.misc.title.type === 50
     ) {
       this.shared.date = this.getDate();
     }
   }
 
   getDate(): string {
-    moment.locale(this.settings.config.lang);
+    moment.locale(this.settings.config.i18n.lang);
     let current = this.currentDate;
     let c = this.settings.config.date;
     let zone = this.getZone(c.timezone);
@@ -169,7 +169,7 @@ export class TabDateComponent implements OnInit {
   }
 
   getWeekNumber() {
-    moment.locale(this.settings.config.lang);
+    moment.locale(this.settings.config.i18n.lang);
     let format = this.settings.config.date.week.iso ? 'W' : 'w';
     return moment(this.currentDate).tz(this.getZone(this.settings.config.date.timezone)).format(format);
   }

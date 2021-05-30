@@ -94,6 +94,7 @@ app-options {
     padding: 0;
     border-radius: $btnRadius;
   }
+  input[type="color"]::-moz-color-swatch,
   input[type="color"]::-webkit-color-swatch {
     border: none;
     border-radius: $btnRadius;

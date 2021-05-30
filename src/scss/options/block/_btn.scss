@@ -1,7 +1,7 @@
 .btn {
   display: inline-flex;
   align-items: center;
-  height: $fieldHeight;
+  min-height: $fieldHeight;
   border-radius: $btnRadius;
   background-color: var(--optAccent);
   font-size: 14px;

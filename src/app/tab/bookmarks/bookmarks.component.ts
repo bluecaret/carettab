@@ -53,7 +53,7 @@ export class TabBookmarksComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private zone: NgZone
   ) {
-    this.settings.onChange().subscribe((data) => {
+    this.settings.onChange('ct-bookmark').subscribe((data) => {
       if (data.bookmark.enabled === true) {
         this.getBookmarks();
       }

@@ -15,7 +15,7 @@ export class TabSearchComponent implements OnInit {
   constructor(
     public settings: Storage
   ) {
-    this.settings.onChange().subscribe((data) => {
+    this.settings.onChange('ct-search').subscribe((data) => {
       if (data.search.enabled === true) {
         this.setEngine();
       }

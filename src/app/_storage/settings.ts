@@ -194,6 +194,7 @@ export class SearchSettings {
 }
 
 export class MiscSettings {
+  schema = '1.0';
   title = {
     type: 10,
     text: 'Hello world!',

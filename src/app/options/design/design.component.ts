@@ -72,6 +72,12 @@ export class OptionsDesignComponent implements OnInit {
     this.settings.config.design.background = c.bg;
     this.settings.config.design.foreground = c.fg;
     this.settings.config.design.colorsId = c.id;
+    this.setLocalBg(c.bg);
+  }
+
+  setLocalBg(bg = this.shared.bgColor) {
+    this.shared.bgColor = bg;
+    localStorage.setItem('ct-background', bg);
   }
 
   setPattern(p: {id: number, pattern: string}) {

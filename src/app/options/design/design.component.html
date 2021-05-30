@@ -64,13 +64,13 @@
       <div class="span-1">
         <input type="color" id="set-background" name="bg-color" 
           [(ngModel)]="settings.config.design.background"
-          (ngModelChange)="settings.config.design.colorsId = 0"
+          (ngModelChange)="settings.config.design.colorsId = 0; setLocalBg(settings.config.design.background);"
           [style.backgroundColor]="settings.config.design.background"
         >
       </div>
       <div class="span-2">
         <input type="text" aria-labelledby="set-background-label" name="bg-code" [(ngModel)]="settings.config.design.background"
-          (ngModelChange)="settings.config.design.colorsId = 0"
+          (ngModelChange)="settings.config.design.colorsId = 0; setLocalBg(settings.config.design.background);"
           autocomplete="off">
       </div>
     </div>

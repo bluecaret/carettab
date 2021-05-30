@@ -23,6 +23,8 @@ import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable()
 export class Storage {
+  private _loadTracker = 0;
+
   storeKey = 'carettab'; // chrome storage key
   config: Settings; // holds settings
 
@@ -41,6 +43,13 @@ export class Storage {
     this.config.time = new TimeSettings();
   }
 
+  get loadTracker(): number {
+    return this._loadTracker;
+  }
+  set loadTracker(value: number) {
+    this._loadTracker = value;
+  }
+
   // to be used inside a resolver
   load() {
     // Old load code before splitting to different keys
@@ -51,49 +60,59 @@ export class Storage {
 
     this.getChrome('ct-bookmark', this.config.bookmark).then((data: any) => {
       this.config.bookmark = data;
+      this.loadTracker++;
     });
 
     this.getChrome('ct-date', this.config.date).then((data: any) => {
       this.config.date = data;
+      this.loadTracker++;
     });
 
     this.getChrome('ct-design', this.config.design).then((data: any) => {
       this.config.design = data;
+      this.loadTracker++;
     });
 
     this.getChrome('ct-i18n', this.config.i18n).then((data: any) => {
       this.config.i18n = data;
+      this.loadTracker++;
     });
 
     this.getChrome('ct-message', this.config.message).then((data: any) => {
       this.config.message = data;
+      this.loadTracker++;
     });
 
     this.getChrome('ct-misc', this.config.misc).then((data: any) => {
       this.config.misc = data;
+      this.loadTracker++;
     });
 
     this.getChrome('ct-order', this.config.order).then((data: any) => {
       this.config.order = data;
+      this.loadTracker++;
     });
 
     this.getChrome('ct-quick-link', this.config.quickLink).then((data: any) => {
       this.config.quickLink = data;
+      this.loadTracker++;
     });
 
     this.getChrome('ct-search', this.config.search).then((data: any) => {
       this.config.search = data;
+      this.loadTracker++;
     });
 
     this.getChrome('ct-time', this.config.time).then((data: any) => {
       this.config.time = data;
+      this.loadTracker++;
     });
 
     return this.config;
   }
 
   // save an object
-  setAll(settings: Object, key = this.storeKey): Promise<boolean> {
+  setAll(settings: Object, key: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
       if (chrome !== undefined && chrome.storage !== undefined) {
         let saveObj = {};
@@ -155,7 +174,7 @@ export class Storage {
   }
 
   //  change detection
-  onChange(key = this.storeKey): Observable<any> {
+  onChange(key?: string): Observable<any> {
     return Observable.create(observer => {
       if (chrome !== undefined && chrome.storage !== undefined) {
         chrome.storage.onChanged.addListener((changes, namespace) => this.zone.run(() => {

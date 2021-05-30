@@ -1,6 +1,6 @@
 <div class="tabWrap" [@tab]="shared.optionsToggle">
   <div class="tabBackground"
-    [style.backgroundColor]="settings.config.design.background"
+    [style.backgroundColor]="shared.bgColor"
     [style.backgroundImage]="'url('+ shared.bg +')'"
     [style.filter]="getBrightness()"
     [style.backgroundSize]="getBgSize()"
@@ -17,15 +17,17 @@
     <tab-bookmarks></tab-bookmarks>
   
     <div class="tabCenter">
-      <tab-time
-        *ngFor="let clock of settings.config.time.clocks; let i = index;"
-        [index]="i"
-        [clock]="clock"
-        [style.fontSize]="shared.getFontSize(clock.scaling, 1.7)"
-        [style.width]="getClockSpan(clock.span)"
-        [style.order]="shared.getOrder(clock.id)"
-        [style.transform]="shared.getOffset(clock.offset)">
-      </tab-time>
+      <ng-container *ngIf="settings.config.time.clocks.length > 0">
+        <tab-time
+          *ngFor="let clock of settings.config.time.clocks; let i = index;"
+          [index]="i"
+          [clock]="clock"
+          [style.fontSize]="shared.getFontSize(clock.scaling, 1.7)"
+          [style.width]="getClockSpan(clock.span)"
+          [style.order]="shared.getOrder(clock.id)"
+          [style.transform]="shared.getOffset(clock.offset)">
+        </tab-time>
+      </ng-container>
       <tab-date
         class="w100"
         *ngIf="settings.config.date.enabled"

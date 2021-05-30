@@ -11,6 +11,7 @@ export class SharedService {
   private _date: string;
   private _title: string = 'New Tab';
   private _bg: string;
+  private _bgColor: string;
   private _status: string;
   private _updateType: "major" | "minor" | "quiet" | "hidden";
 
@@ -68,6 +69,13 @@ export class SharedService {
     this._bg = value;
   }
 
+  get bgColor(): string {
+    return this._bgColor;
+  }
+  set bgColor(value: string) {
+    this._bgColor = value;
+  }
+
   get status(): string {
     return this._status;
   }
@@ -82,13 +90,15 @@ export class SharedService {
     this._updateType = value;
   }
 
-  public echo(msg: string, str?: any, obj?: any, type?: 'warning' | 'error') {
+  public echo(msg: string, str?: any, obj?: any, type?: 'warning' | 'error' | 'success') {
     let strStyle = 'display:inline-block;background:#444;color:white;padding:5px;margin:0 0 0 5px;border-radius:5px;';
     let style = 'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;';
     if (type === 'warning') {
       style = 'display:inline-block;background:#ffe000;color:black;padding:5px;border-radius:5px;';
     } else if (type === 'error') {
       style = 'display:inline-block;background:#c52525;color:white;padding:5px;border-radius:5px;';
+    } else if (type === 'success') {
+      style = 'display:inline-block;background:#7aa76b;color:white;padding:5px;border-radius:5px;';
     }
     if (str) {
       console.log(
@@ -231,6 +241,8 @@ export class SharedService {
   }
 
   public saveAll() {
+    this.echo('Saving all data', '', this.settings.config, "success");
+
     this.settings.setAll(this.settings.config.bookmark, 'ct-bookmark');
     this.settings.setAll(this.settings.config.date, 'ct-date');
     this.settings.setAll(this.settings.config.design, 'ct-design');
@@ -241,6 +253,8 @@ export class SharedService {
     this.settings.setAll(this.settings.config.quickLink, 'ct-quick-link');
     this.settings.setAll(this.settings.config.search, 'ct-search');
     this.settings.setAll(this.settings.config.time, 'ct-time');
+
+    this.echo('All settings saved', '', this.settings.config, "success");
   }
 
 }

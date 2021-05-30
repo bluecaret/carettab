@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { SharedService } from '../_shared/shared.service';
 import { Storage } from '../_storage/storage.service';
 
@@ -20,7 +20,7 @@ import { Storage } from '../_storage/storage.service';
     </h1>
     <ul>
       <li>
-        <button type="button" (click)="goToPage('Dashboard')" [ngClass]="{'active': shared.optionsPage === 'Dashboard'}">
+        <button #dashboardLink type="button" (click)="goToPage('Dashboard')" [ngClass]="{'active': shared.optionsPage === 'Dashboard'}">
           <div class="icon" aria-hidden="true">info</div>{{'options.dashboard.whatsNew' | translate}}
         </button>
       </li>
@@ -57,7 +57,7 @@ import { Storage } from '../_storage/storage.service';
       <li>
         <button
           type="button" (click)="goToPage('Message')" [ngClass]="{'active': shared.optionsPage === 'Message'}">
-          <div class="icon" aria-hidden="true">textsms</div>{{'options.message.customMsg' | translate}}
+          <div class="icon" aria-hidden="true">textsms</div>{{'options.message.msg' | translate}}
         </button>
       </li>
       <li>
@@ -69,12 +69,20 @@ import { Storage } from '../_storage/storage.service';
     </ul>
   `,
 })
-export class NavComponent {
+export class NavComponent implements AfterViewInit {
+  @ViewChild('dashboardLink', {static: false}) dashboardLink: ElementRef;
 
   constructor(
     public shared: SharedService,
     public settings: Storage
   ) {
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      // Set focus on dashboard nav when settings opens
+      this.dashboardLink.nativeElement.focus()
+    }, 0);
   }
 
   goToPage(page: string) {

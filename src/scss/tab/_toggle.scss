@@ -17,7 +17,6 @@ $optionsToggleUpdateNoticeOffset: 16px;
   padding: 0;
   width: $optionsToggleHeight;
   height: $optionsToggleHeight;
-  transition: all .3s;
   cursor: pointer;
   overflow: hidden;
   &:focus {
@@ -52,7 +51,7 @@ $optionsToggleUpdateNoticeOffset: 16px;
     }
   }
   &.open {
-    width: calc(100vw - 800px);
+    width: 100vw;
     height: 100vh;
     span {
       opacity: 0;

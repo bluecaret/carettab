@@ -1,13 +1,15 @@
 .panel {
   position: fixed;
   z-index: z('optionsPanel');
-  top: 0;
-  right: 0;
+  right: 15px;
+  bottom: 15px;
   display: flex;
   width: $optionsWidth;
-  height: 100vh;
+  height: 90vh;
+  max-height: 800px;
   background: transparent;
   color: var(--optText);
   box-shadow: 0 0 20px 5px var(--optShadow);
-  transform-origin: center right;
+  transform-origin: bottom right;
+  border-radius: 10px;
 }

@@ -1,4 +1,4 @@
-<div class="tabWrap" [@tab]="shared.optionsToggle">
+<div class="tabWrap">
   <div class="tabBackground"
     [style.backgroundColor]="shared.bgColor"
     [style.backgroundImage]="'url('+ shared.bg +')'"
@@ -50,7 +50,7 @@
   </section>
   
   <!-- Options toggle / nav -->
-  <app-settings-toggle></app-settings-toggle>
+  <app-settings-toggle #settingsToggle></app-settings-toggle>
   
   <app-logo></app-logo>
 </div>

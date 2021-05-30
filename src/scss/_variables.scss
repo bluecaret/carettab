@@ -37,7 +37,7 @@ $z-indexes: (
 );
 
 // $optionsBg: $optBgDark;
-$optionsWidth: 800px;
+$optionsWidth: 700px;
 
 :root {
   --optAccent: rgb(0, 106, 183);
@@ -46,7 +46,7 @@ $optionsWidth: 800px;
   --optAccentDisabled: rgb(181 204 220);
   --optText: rgb(40,40,20);
   --optNavBase: 245,245,240;
-  --optNavBg: rgb(var(--optNavBase));
+  --optNavBg: rgba(var(--optNavBase), 1);
   --optBgBase: 245,245,240;
   --optBg: rgb(var(--optBgBase));
   --optBgHighlight: rgb(220, 220, 215);
@@ -65,7 +65,7 @@ $optionsWidth: 800px;
     --optText: rgb(185,185,215);
     --optBgBase: 0,10,18;
     --optNavBase: 0,10,18;
-    --optNavBg: rgb(var(--optNavBase));
+    --optNavBg: rgba(var(--optNavBase), 1);
     --optBg: rgb(var(--optBgBase));
     --optBgHighlight: rgb(26, 36, 44);
     --optBgHover: rgba(255,255,255,.05);

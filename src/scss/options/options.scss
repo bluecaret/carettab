@@ -2,12 +2,13 @@
    ========================================================================== */
 
 ::-webkit-scrollbar {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--optNavBorder);
   border: solid 4px transparent;
+  border-radius: 0 10px 10px 0;
 }
 ::-webkit-scrollbar-thumb {
   // background: $gray;

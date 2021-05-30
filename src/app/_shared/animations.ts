@@ -37,11 +37,11 @@ export const fadeIn = trigger('fadeIn', [
 
 export const options = trigger('options', [
   transition(':enter', [
-    style({transform: 'translateX(100%)'}),
-    animate('400ms ease-in-out', style({transform: 'translateX(0%)'}))
+    style({transform: 'translateX(100%) translateY(100%)'}),
+    animate('300ms ease-out', style({transform: 'translateX(0%) translateY(0%)'}))
   ]),
   transition(':leave', [
-    animate('400ms ease-in-out', style({transform: 'translateX(100%)'}))
+    animate('300ms ease-out', style({transform: 'translateX(100%) translateY(100%)'}))
   ])
 ]);
 
@@ -52,6 +52,6 @@ export const tab = trigger('tab', [
   state('true', style({
     width: 'calc(100vw - 800px)'
   })),
-  transition('false => true', animate('400ms ease-in-out')),
-  transition('true => false', animate('400ms ease-in-out'))
+  transition('false => true', animate('400ms ease-in')),
+  transition('true => false', animate('400ms ease-in'))
 ]);

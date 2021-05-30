@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone, AfterViewInit } from '@angular/core';
 import { transition, trigger, style, state, animate } from '@angular/animations';
 import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from './_shared/shared.service';
@@ -37,7 +37,7 @@ import { compare } from 'compare-versions';
     ])
   ]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   patterns = patterns;
 
   constructor(
@@ -47,47 +47,42 @@ export class AppComponent implements OnInit {
     private translate: TranslateService
   ) {
     this.shared.echo('Thank you for using CaretTab!');
-    this.shared.echo('Loaded settings:', '', this.settings.config);
-    this.translate.setDefaultLang('en-US');
-
-    // Set background image
-    let savedImg = localStorage.getItem('bgImg');
-    if (savedImg != null || savedImg != undefined) {
-      this.shared.bg = savedImg;
-      this.shared.echo('Background image found in storage', savedImg.substr(0,20))
-    } else {
-      let patternId = this.settings.config.design.patternId;
-      let img = '0.png';
-
-      // Check for "900" is for backwards compatibility with an old bug
-      if (patternId !== 0 && patternId !== 99999 && patternId !== 900) {
-        img = patterns.find(p => p.id === patternId).pattern;
-        this.shared.echo('No background, use selected pattern:', patternId)
-      } else {
-        this.shared.echo('No background or pattern set', patternId)
-      }
-      let bg = './assets/patterns/' + img;
-      this.shared.bg = bg;
-    }
   }
 
   ngOnInit() {
     this.handleVersionNumbers();
+    this.shared.echo('Loaded settings:', '', this.settings.config);
+    this.translate.setDefaultLang('en-US');
     
-    this.settings.onChange().subscribe((data) => {
-      if (
-        this.settings.config.misc.title.type === 20 ||
-        this.settings.config.misc.title.type === 40 ||
-        this.settings.config.misc.title.type === 50
-      ) {
-        // TODO: What was I doing here???
-      }
-    });
     this.shared.zoneGuess = moment.tz.guess();
     this.shared.echo('Timezone guess:', this.shared.zoneGuess);
 
     // Run storage migration
     this.migrateSettings();
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      // Set background image
+      let savedImg = localStorage.getItem('bgImg');
+      if (savedImg != null || savedImg != undefined) {
+        this.shared.bg = savedImg;
+        this.shared.echo('Background image found in storage', savedImg.substr(0,20))
+      } else {
+        let patternId = this.settings.config.design.patternId;
+        let img = '0.png';
+
+        // Check for "900" is for backwards compatibility with an old bug
+        if (patternId !== 0 && patternId !== 99999 && patternId !== 900) {
+          img = patterns.find(p => p.id === patternId).pattern;
+          this.shared.echo('No background, use selected pattern:', patternId)
+        } else {
+          this.shared.echo('No background or pattern set', patternId)
+        }
+        let bg = './assets/patterns/' + img;
+        this.shared.bg = bg;
+      }
+    }, 0);
   }
 
   migrateSettings() {

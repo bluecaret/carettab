@@ -72,6 +72,7 @@ export class OptionsDesignComponent implements OnInit {
     this.settings.config.design.background = c.bg;
     this.settings.config.design.foreground = c.fg;
     this.settings.config.design.colorsId = c.id;
+    this.shared.echo('Color theme selected', null, c);
     this.setLocalBg(c.bg);
   }
 
@@ -85,10 +86,12 @@ export class OptionsDesignComponent implements OnInit {
     this.settings.config.design.patternId = p.id;
     this.settings.config.design.imageSize = 10;
     localStorage.removeItem('bgImg');
+    this.shared.echo('Background removed from localStorage', null, null, 'save');
     if (p.id === 0) {
       bg = './assets/patterns/0.png';
     }
     this.shared.bg = bg;
+    this.shared.echo('Pattern changed', bg);
   }
 
   encodeImage(e, input) {
@@ -113,7 +116,7 @@ export class OptionsDesignComponent implements OnInit {
         this.shared.bg = uploadSrc;
         this.settings.config.design.patternId = 99999;
         this.settings.config.design.imageSize = 20;
-        this.shared.echo('Background image set', uploadSrc.substr(0,20))
+        this.shared.echo('Background saved to localStorage', uploadSrc.substr(0,20), null, 'save');
       } catch (e) {
         if (this.isQuotaExceeded(e)) {
           let msg = 'Sorry, the file size of your image is too big.';

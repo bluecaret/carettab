@@ -156,14 +156,4 @@
       </div>
     </div>
   </form>
-  <div class="mt15" *ngIf="foundOldQuickLinks">
-    <p class="mt0">
-      You have Quick Links from CaretTab version 2 that have been found.
-    </p>
-    <textarea style="width: 100%;" name="recoveredLinks" id="recoveredLinks" readonly="readonly">{{printRecoveredQuickLinks}}</textarea>
-    <p>
-      <button type="button" class="link" (click)="recoverLinks()">Recover old Quick Links</button> | <button type="button" class="link" (click)="clearOldLinks()">Clear old links</button>
-    </p>
-    <div style="color: green">{{importStatus}}</div>
-  </div>
 </ng-container>

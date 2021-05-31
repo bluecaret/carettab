@@ -87,11 +87,7 @@ export class NavComponent implements AfterViewInit {
 
   goToPage(page: string) {
     this.shared.optionsPage = page;
-  }
-
-  saveAndClose() {
-    this.shared.saveAll();
-    this.shared.optionsToggle = false;
+    this.shared.echo('Opened settings page:', page);
   }
 
 }

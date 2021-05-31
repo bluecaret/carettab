@@ -51,7 +51,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.handleVersionNumbers();
-    this.shared.echo('Loaded settings:', '', this.settings.config);
+    this.shared.echo('Settings from load:', '', this.settings.config);
     this.translate.setDefaultLang('en-US');
     
     this.shared.zoneGuess = moment.tz.guess();

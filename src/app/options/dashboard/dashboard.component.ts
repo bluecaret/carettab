@@ -21,12 +21,8 @@ export class OptionsDashboardComponent implements OnInit {
     if (this.shared.status === 'updated') {
       localStorage.setItem('caretTabStatus', 'existing');
       this.shared.status = 'existing';
-      this.shared.echo('Extension status reset to existing after update since user opened dashboard');
+      this.shared.echo('Extension status reset to "existing" after update since user opened dashboard');
     }
-  }
-
-  goToPage(page: string) {
-    this.shared.optionsPage = page;
   }
 
   getReviewLink(encode: boolean): string {

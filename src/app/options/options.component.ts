@@ -21,8 +21,4 @@ export class OptionsComponent {
     this.shared.optionsPage = 'Dashboard';
   }
 
-  goToPage(page: string) {
-    this.shared.optionsPage = page;
-  }
-
 }

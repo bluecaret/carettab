@@ -53,15 +53,17 @@ export class TabBookmarksComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private zone: NgZone
   ) {
-    this.settings.onChange('ct-bookmark').subscribe((data) => {
-      if (data.bookmark.enabled === true) {
-        this.getBookmarks();
-      }
-      if (
-        data.bookmark.mostVisited === true ||
-        data.quickLink.mostVisited === true
-      ) {
-        this.getMostVisited();
+    this.settings.onChange().subscribe((data) => {
+      if (data) {
+        if (data.bookmark && data.bookmark.enabled === true) {
+          this.getBookmarks();
+        }
+        if (
+          (data.bookmark && data.bookmark.mostVisited === true) ||
+          (data.quickLink && data.quickLink.mostVisited === true)
+        ) {
+          this.getMostVisited();
+        }
       }
     });
   }

@@ -1,36 +1,40 @@
 <h2>{{'options.extra.extra' | translate}}</h2>
 <div class="input">
   <label for="lang">{{'options.extra.lang' | translate}}</label>
-  <select name="lang" id="lang" [(ngModel)]="settings.config.i18n.lang" (ngModelChange)="useLanguage($event)">
+  <select name="lang" id="lang" [(ngModel)]="settings.config.i18n.lang" (ngModelChange)="useLanguage($event); ga.field('i18n.lang', settings.config.i18n.lang)">
     <option *ngFor="let lang of languages" [ngValue]="lang.id">{{lang.label}}</option>
   </select>
 </div>
 <div class="input">
   <label for="tabTitle">{{'options.extra.tabTitle' | translate}}<tooltip text="{{'options.extra.tabTitleDesc' | translate}}"></tooltip></label>
-  <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.misc.title.type">
+  <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.misc.title.type" (ngModelChange)="ga.field('misc.title.type', settings.config.misc.title.type)">
     <option *ngFor="let type of titleOptions" [ngValue]="type.id">{{type.label}}</option>
   </select>
 </div>
 <div class="input" *ngIf="settings.config.misc.title.type === 60">
   <label for="tabTitleCustom">{{'options.extra.tabCustomText' | translate}}<tooltip text="{{'options.extra.tabCustomTextDesc' | translate}}"></tooltip></label>
-  <input type="text" name="tabTitleCustom" id="tabTitleCustom" [(ngModel)]="settings.config.misc.title.text">
+  <input type="text" name="tabTitleCustom" id="tabTitleCustom" [(ngModel)]="settings.config.misc.title.text" (ngModelChange)="ga.field('misc.title.text', settings.config.misc.title.text)">
 </div>
 <div class="input" *ngIf="settings.config.misc.title.type === 20 || settings.config.misc.title.type === 40 || settings.config.misc.title.type === 50">
   <label for="tabTitle">{{'options.extra.tabClock' | translate}}<tooltip text="{{'options.extra.tabClockDesc' | translate}}"></tooltip></label>
-  <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.misc.title.clockUsed">
+  <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.misc.title.clockUsed" (ngModelChange)="ga.field('misc.title.clockUsed', settings.config.misc.title.clockUsed)">
     <option *ngFor="let clock of settings.config.time.clocks; let i = index" [ngValue]="i+1">Clock #{{i + 1}}</option>
   </select>
 </div>
 <h3>{{'options.extra.advanced' | translate}}</h3>
 <div class="input">
   <label>{{'options.extra.hideMenu' | translate}}<tooltip text="{{'options.extra.hideMenuDesc' | translate}}"></tooltip></label>
-  <options-toggle name="hideMenu" id="hideMenu" [(ngModel)]="settings.config.design.hideMenu"></options-toggle>
+  <options-toggle name="hideMenu" id="hideMenu" [(ngModel)]="settings.config.design.hideMenu" (ngModelChange)="ga.field('design.hideMenu', settings.config.design.hideMenu)"></options-toggle>
 </div>
 <div class="input">
   <label>{{'options.extra.hideLogo' | translate}}</label>
-  <options-toggle name="hideLogo" id="hideLogo" [(ngModel)]="settings.config.design.hideLogo"></options-toggle>
+  <options-toggle name="hideLogo" id="hideLogo" [(ngModel)]="settings.config.design.hideLogo" (ngModelChange)="ga.field('design.hideLogo', settings.config.design.hideLogo)"></options-toggle>
+</div>
+<div class="input">
+  <label>{{'options.extra.enableAnalytics' | translate}}<tooltip text="{{'options.extra.enableAnalyticsDesc' | translate}}"></tooltip></label>
+  <options-toggle name="enableAnalytics" id="enableAnalytics" [(ngModel)]="settings.config.misc.enableAnalytics"></options-toggle>
 </div>
 <div class="input">
   <label for="reset">{{'options.extra.resetToDefault' | translate}}<tooltip text="{{'options.extra.resetDesc' | translate}}"></tooltip></label>
-  <button id="reset" type="button" class="btn" (click)="reset()">{{'options.extra.reset' | translate}}</button>
+  <button id="reset" type="button" class="btn" (click)="reset(); ga.field('button.reset', 'true');">{{'options.extra.reset' | translate}}</button>
 </div>

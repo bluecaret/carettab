@@ -105,6 +105,8 @@
     },
     "extra": {
       "advanced": "Avanzado",
+      "enableAnalytics": "Habilitar datos analíticos",
+      "enableAnalyticsDesc": "A CaretTab le gustaría informar su uso de la extensión a la analítica. Esto nos ayuda a mejorar la extensión aprendiendo cómo se usa. Esto rastrea datos como cuando se abre el menú de configuración y cuando se modifican las configuraciones. Esto no rastrea ninguna información de identificación personal. Puede optar por participar o no participar en cualquier momento.",
       "extra": "Extra",
       "hideLogo": "Ocultar logo",
       "hideMenu": "Ocultar botón de configuración",

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { searchEngines } from '../../_shared/lists/lists';
+import { GoogleAnalyticsService } from '../../_shared/ga.service';
 
 @Component({
   selector: 'tab-search',
@@ -13,7 +14,8 @@ export class TabSearchComponent implements OnInit {
   param: string;
 
   constructor(
-    public settings: Storage
+    public settings: Storage,
+    public ga: GoogleAnalyticsService
   ) {
     this.settings.onChange().subscribe((data) => {
       if (data && data.search && data.search.enabled === true) {

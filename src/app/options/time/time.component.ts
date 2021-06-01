@@ -5,6 +5,7 @@ import { TimezoneService, Timezone } from './timezone.service';
 import { SharedService } from '../../_shared/shared.service';
 import { analogStyles, span } from '../../_shared/lists/lists';
 import * as moment from 'moment-timezone';
+import { GoogleAnalyticsService } from '../../_shared/ga.service';
 
 @Component({
   selector: 'options-time',
@@ -52,7 +53,8 @@ export class OptionsTimeComponent {
   constructor(
     public shared: SharedService,
     public settings: Storage,
-    public tz: TimezoneService
+    public tz: TimezoneService,
+    public ga: GoogleAnalyticsService
   ) {
     this.allTimezones = tz.getZones();
     this.tzGuess = this.shared.zoneGuess;

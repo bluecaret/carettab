@@ -3,6 +3,7 @@ import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
 import { fontList, colors, customFontWeight, patterns, bgSize, bgBlend } from '../../_shared/lists/lists';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { GoogleAnalyticsService } from '../../_shared/ga.service';
 
 @Component({
   selector: 'options-design',
@@ -28,7 +29,8 @@ export class OptionsDesignComponent implements OnInit {
   constructor(
     public sanitizer: DomSanitizer,
     public settings: Storage,
-    public shared: SharedService
+    public shared: SharedService,
+    public ga: GoogleAnalyticsService
   ) {
     this.imageSrc = '';
   }

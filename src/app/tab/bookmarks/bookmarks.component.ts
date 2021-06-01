@@ -4,6 +4,7 @@ import { Storage } from '../../_storage/storage.service';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { SharedService } from '../../_shared/shared.service';
 import * as Bowser from 'bowser';
+import { GoogleAnalyticsService } from '../../_shared/ga.service';
 
 @Component({
   selector: 'tab-bookmarks',
@@ -51,7 +52,8 @@ export class TabBookmarksComponent implements OnInit {
     public settings: Storage,
     private cdRef: ChangeDetectorRef,
     private sanitizer: DomSanitizer,
-    private zone: NgZone
+    private zone: NgZone,
+    public ga: GoogleAnalyticsService
   ) {
     this.settings.onChange().subscribe((data) => {
       if (data) {

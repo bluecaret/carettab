@@ -105,6 +105,8 @@
     },
     "extra": {
       "advanced": "Avancée",
+      "enableAnalytics": "Activer les données analytiques",
+      "enableAnalyticsDesc": "CaretTab souhaite signaler votre utilisation de l'extension à Analytics. Cela nous aide à améliorer l'extension en apprenant comment elle est utilisée. Cela suit les données telles que lorsque le menu des paramètres est ouvert et lorsque les paramètres sont modifiés. Cela ne suit aucune information d'identification personnelle. Vous pouvez vous inscrire ou vous désinscrire à tout moment.",
       "extra": "Supplémentaire",
       "hideLogo": "Masquer le logo",
       "hideMenu": "Bouton Masquer les paramètres",

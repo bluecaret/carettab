@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Bowser from 'bowser';
+import { GoogleAnalyticsService } from '../../_shared/ga.service';
 import { SharedService } from '../../_shared/shared.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class OptionsDashboardComponent implements OnInit {
   browser = Bowser.getParser(window.navigator.userAgent).getBrowserName();
   shareMenu = false;
 
-  constructor(public shared: SharedService) {
+  constructor(public shared: SharedService, public ga: GoogleAnalyticsService) {
   }
 
   ngOnInit(): void {

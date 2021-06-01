@@ -3,6 +3,7 @@ import { Storage } from '../../_storage/storage.service';
 import { TimezoneService, Timezone } from '../time/timezone.service';
 import { SharedService } from '../../_shared/shared.service';
 import { dateFormat } from '../../_shared/lists/lists';
+import { GoogleAnalyticsService } from '../../_shared/ga.service';
 
 @Component({
   selector: 'options-date',
@@ -16,7 +17,8 @@ export class OptionsDateComponent {
   constructor(
     public shared: SharedService,
     public settings: Storage,
-    public tz: TimezoneService
+    public tz: TimezoneService,
+    public ga: GoogleAnalyticsService
   ) {
     this.allTimezones = tz.getZones();
     this.tzGuess = this.shared.zoneGuess;

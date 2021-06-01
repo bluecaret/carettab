@@ -2,22 +2,22 @@
 <form #searchOptions="ngForm" novalidate>
   <div class="input inputInline">
     <label>{{'options.search.searchBox' | translate}}</label>
-    <options-toggle name="searchBox" id="searchBox" [(ngModel)]="settings.config.search.enabled" (ngModelChange)="shared.toggleOrder(settings.config.search.id, $event)"></options-toggle>
+    <options-toggle name="searchBox" id="searchBox" [(ngModel)]="settings.config.search.enabled" (ngModelChange)="shared.toggleOrder(settings.config.search.id, $event); ga.field('search.enabled', settings.config.search.enabled)"></options-toggle>
   </div>
   <ng-container *ngIf="settings.config.search.enabled">
     <div class="input inputInline">
       <label data-tooltip>{{'options.search.searchEngine' | translate}}</label>
-      <select name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine">
+      <select name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine" (ngModelChange)="ga.field('search.engine', settings.config.search.engine)">
         <option *ngFor="let e of engines" [ngValue]="e.id">{{e.label}}</option>
       </select>
     </div>
     <div class="input">
       <label>{{'options.search.label' | translate}}</label>
-      <input type="text" name="searchLabel" id="searchLabel" [(ngModel)]="settings.config.search.label">
+      <input type="text" name="searchLabel" id="searchLabel" [(ngModel)]="settings.config.search.label" (ngModelChange)="ga.field('search.label', settings.config.search.label)">
     </div>
     <div class="input">
       <label>{{'options.search.autocomplete' | translate}}<tooltip text="{{'options.search.autocompleteDesc' | translate}}"></tooltip></label>
-      <options-toggle name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete"></options-toggle>
+      <options-toggle name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete" (ngModelChange)="ga.field('search.autocomplete', settings.config.search.autocomplete)"></options-toggle>
     </div>
     <h3>{{'options.common.placement' | translate}}</h3>
     <div class="input">
@@ -29,7 +29,7 @@
           title="{{'options.common.moveUp' | translate}}"
           class="btn"
           [disabled]="!settings.config.search.enabled || shared.isFirst(settings.config.search.id)"
-          (click)="shared.changeOrder(settings.config.search.id, true)">
+          (click)="shared.changeOrder(settings.config.search.id, true); ga.field('button.searchMoveUp', 'true')">
           <div class="icon" aria-hidden="true">expand_less</div>
         </button>
         <button
@@ -38,22 +38,22 @@
           title="{{'options.common.moveDown' | translate}}"
           class="btn"
           [disabled]="!settings.config.search.enabled || shared.isLast(settings.config.search.id)"
-          (click)="shared.changeOrder(settings.config.search.id, false)">
+          (click)="shared.changeOrder(settings.config.search.id, false); ga.field('button.searchMoveDown', 'true')">
           <div class="icon" aria-hidden="true">expand_more</div>
         </button>
       </div>
     </div>
     <div class="input">
       <label>{{'options.common.size' | translate}}</label>
-      <options-range name="searchSize" id="searchSize" min="1" max="20" [(ngModel)]="settings.config.search.scaling"></options-range>
+      <options-range name="searchSize" id="searchSize" min="1" max="20" [(ngModel)]="settings.config.search.scaling" (ngModelChange)="ga.field('search.autocomplete', settings.config.search.autocomplete)"></options-range>
     </div>
     <div class="input">
       <label>{{'options.common.offset' | translate}}</label>
-      <options-range name="searchOffset" min="-20" max="20" [(ngModel)]="settings.config.search.offset"></options-range>
+      <options-range name="searchOffset" min="-20" max="20" [(ngModel)]="settings.config.search.offset" (ngModelChange)="ga.field('search.offset', settings.config.search.offset)"></options-range>
     </div>
     <div class="input">
       <label>{{'options.common.width' | translate}}</label>
-      <options-range name="searchWidth" min="5" max="30" [(ngModel)]="settings.config.search.width"></options-range>
+      <options-range name="searchWidth" min="5" max="30" [(ngModel)]="settings.config.search.width" (ngModelChange)="ga.field('search.width', settings.config.search.width)"></options-range>
     </div>
   </ng-container>
 </form>

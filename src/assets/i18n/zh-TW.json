@@ -105,6 +105,8 @@
     },
     "extra": {
       "advanced": "高級",
+      "enableAnalytics": "啟用分析數據",
+      "enableAnalyticsDesc": "CaretTab希望向分析報告您對擴展的使用。這有助於我們通過了解擴展名的使用方式來改進擴展名。這會跟踪數據，例如打開設置菜單和更改設置的時間。這不會跟踪任何個人識別信息。您可以隨時選擇加入或退出。",
       "extra": "額外",
       "hideLogo": "隱藏徽標",
       "hideMenu": "隱藏設置按鈕",

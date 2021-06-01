@@ -154,6 +154,25 @@
   </div>
 </div>
 
+<!-- STEP 3.1 -->
+<div id="step3.1" class="splash-steps" *ngIf="step === 3.1">
+  <div class="splash-options">
+    <h3>{{'options.extra.enableAnalytics' | translate}}</h3>
+    <p>{{'options.extra.enableAnalyticsDesc' | translate}}</p>
+    <p><a href="https://www.bluecaret.com/terms" target="_blank">Privacy Policy and Terms of Use</a></p>
+    <div style="display: flex; justify-content: space-between;">
+      <button type="button" class="btn btn--splash" (click)="enableAnalytics(false)">{{'splash.no' | translate}}</button>
+      <button type="button" class="btn btn--splash" (click)="enableAnalytics(true)">{{'splash.yes' | translate}}</button>
+    </div>
+  </div>
+  <div class="splash-nav">
+    <div class="splash-nav_misc">
+      <button type="button" class="btn btn--splash btn--skip" (click)="skipIntro()">{{'splash.skip' | translate}}</button>&nbsp;
+      <button type="button" class="btn btn--splash btn--back" (click)="step = 3">&larr; {{'splash.back' | translate}}</button>
+    </div>
+  </div>
+</div>
+
 <!-- STEP 4 -->
 <div id="step4" class="splash-steps" *ngIf="step === 4">
   <div class="splash-options">
@@ -166,7 +185,7 @@
   <div class="splash-nav">
     <div class="splash-nav_misc">
       <button type="button" class="btn btn--splash btn--skip" (click)="skipIntro()">{{'splash.skip' | translate}}</button>&nbsp;
-      <button type="button" class="btn btn--splash btn--back" (click)="step = 3">&larr; {{'splash.back' | translate}}</button>
+      <button type="button" class="btn btn--splash btn--back" (click)="step = 3.1">&larr; {{'splash.back' | translate}}</button>
     </div>
   </div>
 </div>

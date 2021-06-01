@@ -105,6 +105,8 @@
     },
     "extra": {
       "advanced": "Avançado",
+      "enableAnalytics": "Ativar dados analíticos",
+      "enableAnalyticsDesc": "CaretTab gostaria de relatar seu uso da extensão para análises. Isso nos ajuda a melhorar a extensão, aprendendo como ela é usada. Isso rastreia dados como quando o menu de configurações é aberto e quando as configurações são alteradas. Isso não rastreia nenhuma informação de identificação pessoal. Você pode ativar ou desativar a qualquer momento.",
       "extra": "Extra",
       "hideLogo": "Esconder logo",
       "hideMenu": "Ocultar botão de configurações",

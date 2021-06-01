@@ -4,7 +4,7 @@
     <label for="font">{{'options.design.font' | translate}}</label>
     <select name="font" id="font"
       [(ngModel)]="settings.config.design.font"
-      (ngModelChange)="getFont();"
+      (ngModelChange)="getFont(); ga.field('design.font', settings.config.design.font);"
       [style.fontFamily]="currentFont"
       [style.fontWeight]="currentWeight"
       style="font-size: 1em; font-weight: 400;">
@@ -19,27 +19,28 @@
   </div>
   <div class="input" *ngIf="settings.config.design.font === 0">
     <label for="customFont">{{'options.design.customFontName' | translate}}<tooltip text="{{'options.design.customFontDesc' | translate}}"></tooltip></label>
-    <input type="text" id="customFont" name="customFont" [(ngModel)]="settings.config.design.customFont" autocomplete="off">
+    <input type="text" id="customFont" name="customFont" [(ngModel)]="settings.config.design.customFont" autocomplete="off" (change)="ga.field('design.customFont', settings.config.design.customFont);">
   </div>
   <div class="input" *ngIf="settings.config.design.font === 0">
     <label for="customFontWeight">{{'options.design.fontWeight' | translate}}<tooltip text="{{'options.design.fontWeightDesc' | translate}}"></tooltip></label>
     <select name="customFontWeight" id="customFontWeight"
-      [(ngModel)]="settings.config.design.customFontWeight">
+      [(ngModel)]="settings.config.design.customFontWeight"
+      (ngModelChange)="ga.field('design.customFontWeight', settings.config.design.customFontWeight);">
       <option [ngValue]="w.id" *ngFor="let w of fontWeights;">
         {{w.label}}
       </option>
     </select>
   </div>
   <div *ngIf="settings.config.design.font === 0">
-    {{'options.design.customFontUsage' | translate | translateCut:0}}<a href="https://www.adobe.com/products/type/install-instructions.html">{{'options.design.customFontUsage' | translate | translateCut:1}}</a>{{'options.design.customFontUsage' | translate | translateCut:2}}<a href="https://fonts.google.com">{{'options.design.customFontUsage' | translate | translateCut:3}}</a>{{'options.design.customFontUsage' | translate | translateCut:4}}<a href="https://www.1001freefonts.com/">{{'options.design.customFontUsage' | translate | translateCut:5}}</a>{{'options.design.customFontUsage' | translate | translateCut:6}}
+    {{'options.design.customFontUsage' | translate | translateCut:0}}<a href="https://www.adobe.com/products/type/install-instructions.html" (click)="ga.event('design', 'externalLink', 'fontInstallInstructions');">{{'options.design.customFontUsage' | translate | translateCut:1}}</a>{{'options.design.customFontUsage' | translate | translateCut:2}}<a href="https://fonts.google.com" (click)="ga.event('design', 'externalLink', 'googleFonts');">{{'options.design.customFontUsage' | translate | translateCut:3}}</a>{{'options.design.customFontUsage' | translate | translateCut:4}}<a href="https://www.1001freefonts.com/" (click)="ga.event('design', 'externalLink', '1001freefonts');">{{'options.design.customFontUsage' | translate | translateCut:5}}</a>{{'options.design.customFontUsage' | translate | translateCut:6}}
   </div>
   <div class="input">
     <label for="globalSize">{{'options.design.globalSize' | translate}}<tooltip text="{{'options.design.globalSizeDesc' | translate}}"></tooltip></label>
-    <options-range name="globalSize" id="globalSize" min="1" max="20" [(ngModel)]="settings.config.design.scaling"></options-range>
+    <options-range name="globalSize" id="globalSize" min="1" max="20" [(ngModel)]="settings.config.design.scaling" (change)="ga.field('design.scaling', settings.config.design.scaling);"></options-range>
   </div>
   <div class="input">
     <label for="scalingMethod">{{'options.design.dynScale' | translate}}<tooltip text="{{'options.design.dynScaleDesc' | translate}}"></tooltip></label>
-    <options-toggle id="scalingMethod" name="scalingMethod" [(ngModel)]="settings.config.design.scalingMethod"></options-toggle>
+    <options-toggle id="scalingMethod" name="scalingMethod" [(ngModel)]="settings.config.design.scalingMethod" (ngModelChange)="ga.field('design.scalingMethod', settings.config.design.scalingMethod);"></options-toggle>
   </div>
   <!-- Colors -->
   <h3>{{'options.design.colors' | translate}}</h3>
@@ -49,12 +50,12 @@
       <div class="span-1">
         <input type="color" id="set-foreground" name="fg-color" 
           [(ngModel)]="settings.config.design.foreground" 
-          (ngModelChange)="settings.config.design.colorsId = 0"
+          (ngModelChange)="settings.config.design.colorsId = 0; ga.field('design.foreground', settings.config.design.foreground);"
           [style.backgroundColor]="settings.config.design.foreground"
         >
       </div>
       <div class="span-2">
-        <input type="text" aria-labelledby="set-foreground-label" name="fg-code" [(ngModel)]="settings.config.design.foreground" (ngModelChange)="settings.config.design.colorsId = 0" autocomplete="off">
+        <input type="text" aria-labelledby="set-foreground-label" name="fg-code" [(ngModel)]="settings.config.design.foreground" (ngModelChange)="settings.config.design.colorsId = 0; " autocomplete="off">
       </div>
     </div>
   </div>
@@ -64,7 +65,7 @@
       <div class="span-1">
         <input type="color" id="set-background" name="bg-color" 
           [(ngModel)]="settings.config.design.background"
-          (ngModelChange)="settings.config.design.colorsId = 0; setLocalBg(settings.config.design.background);"
+          (ngModelChange)="settings.config.design.colorsId = 0; setLocalBg(settings.config.design.background); ga.field('design.background', settings.config.design.background);"
           [style.backgroundColor]="settings.config.design.background"
         >
       </div>
@@ -82,7 +83,7 @@
       [ngClass]="{'active': settings.config.design.colorsId === color.id}"
       [style.backgroundColor]="color.bg"
       [style.color]="color.fg"
-      (click)="setColors(color)"
+      (click)="setColors(color); ga.field('design.colorsId', color.id);"
       [attr.aria-label]="'Select color ' + color.id"
     >
       abc 123
@@ -96,13 +97,13 @@
       <tooltip text="{{'options.design.dontSync' | translate}}"></tooltip>
     </label>
     <input id="bgImgFile" #bgImgFile name="imageUrl" type="file" class="btn" accept="image/*" (change)="encodeImage($event, bgImgFile)" />
-    <button class="btn btnBlock" type="button" (click)="bgImgFile.click()">{{'options.design.browseForImg' | translate}}</button>
+    <button class="btn btnBlock" type="button" (click)="bgImgFile.click(); ga.field('button.customWallpaper', 'true');">{{'options.design.browseForImg' | translate}}</button>
   </div>
   <div class="input" *ngIf="shared.bg && shared.bg !== './assets/patterns/0.png'" >
     <label for="wallpaperPreview">{{'options.design.selectedWallpaper' | translate}}</label>
     <button
       id="wallpaperPreview"
-      (click)="setPattern(noPattern)" 
+      (click)="setPattern(noPattern); ga.field('button.wallpaperPreviewRemove', 'true');" 
       class="wallpaperPreview"
       [style.backgroundSize]="getBgSize()"
       [style.backgroundRepeat]="settings.config.design.imageSize === 10 ? 'repeat' : 'no-repeat'"
@@ -118,12 +119,12 @@
   </div>
   <div class="input">
     <label for="brightness">{{'options.design.brightness' | translate}}</label>
-    <options-range name="brightness" id="brightness" min="0" max="20" [(ngModel)]="settings.config.design.brightness"></options-range>
+    <options-range name="brightness" id="brightness" min="0" max="20" [(ngModel)]="settings.config.design.brightness" (ngModelChange)="ga.field('design.brightness', settings.config.design.brightness);"></options-range>
   </div>
   <div class="input">
     <label for="fill">{{'options.design.fill' | translate}}</label>
     <select name="fill" id="fill"
-      [(ngModel)]="settings.config.design.imageSize">
+      [(ngModel)]="settings.config.design.imageSize" (ngModelChange)="ga.field('design.imageSize', settings.config.design.imageSize);">
       <option
         [ngValue]="s.id"
         *ngFor="let s of bgSize;">
@@ -134,7 +135,7 @@
   <div class="input">
     <label for="blend">{{'options.design.filter' | translate}}</label>
     <select name="blend" id="blend"
-      [(ngModel)]="settings.config.design.imageBlend">
+      [(ngModel)]="settings.config.design.imageBlend" (ngModelChange)="ga.field('design.imageBlend', settings.config.design.imageBlend);">
       <option
         [ngValue]="b.id"
         *ngFor="let b of bgBlend;">
@@ -147,7 +148,7 @@
       class="patternBtn btn btnBlock"
       [ngClass]="{'active': settings.config.design.patternId === 0}"
       [attr.aria-label]="'options.design.removeWallpaper' | translate"
-      (click)="setPattern(noPattern)">
+      (click)="setPattern(noPattern); ga.field('button.setPattern', 'noPattern');">
       <div class="icon" aria-hidden="true" style="font-size: 1em;">remove</div>
     </button>
     <button
@@ -158,14 +159,14 @@
       [style.backgroundColor]="settings.config.design.background"
       [style.backgroundBlendMode]="getBgBlend()"
       [style.background-image]="sanitizer.bypassSecurityTrustStyle('url(./assets/patterns/' + p.pattern + ')')"
-      (click)="setPattern(p)"
+      (click)="setPattern(p); ga.field('button.setPattern', p.id);"
       [attr.aria-label]="'Select pattern ' + p.id"
     >
       &nbsp;
     </button>
   </div>
   <div class="mt warning">
-    <div class="icon" aria-hidden="true">info</div>{{'options.design.getMorePatterns' | translate | translateCut:0}}&nbsp;<a href="https://www.transparenttextures.com/">{{'options.design.getMorePatterns' | translate | translateCut:1}}</a>&nbsp;{{'options.design.getMorePatterns' | translate | translateCut:2}}&nbsp;<a href="https://www.toptal.com/designers/subtlepatterns/">{{'options.design.getMorePatterns' | translate | translateCut:3}}</a>&nbsp;{{'options.design.getMorePatterns' | translate | translateCut:4}}
+    <div class="icon" aria-hidden="true">info</div>{{'options.design.getMorePatterns' | translate | translateCut:0}}&nbsp;<a href="https://www.transparenttextures.com/" (click)="ga.event('design', 'externalLink', 'transparenttextures');">{{'options.design.getMorePatterns' | translate | translateCut:1}}</a>&nbsp;{{'options.design.getMorePatterns' | translate | translateCut:2}}&nbsp;<a href="https://www.toptal.com/designers/subtlepatterns/" (click)="ga.event('design', 'externalLink', 'subtlepatterns');">{{'options.design.getMorePatterns' | translate | translateCut:3}}</a>&nbsp;{{'options.design.getMorePatterns' | translate | translateCut:4}}
   </div>
   <div class="warning">
     <div class="icon" aria-hidden="true">info</div>{{'options.design.hardToSee' | translate}}

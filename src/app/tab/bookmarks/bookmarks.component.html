@@ -15,25 +15,25 @@
     <!-- Bar list -->
     <ul class="barList" #barList>
       <li class="barNode" *ngIf="settings.config.bookmark.apps">
-        <button title="{{'tab.bookmarks.links.apps' | translate}}" class="barFolder" (click)="apps()">
+        <button title="{{'tab.bookmarks.links.apps' | translate}}" class="barFolder" (click)="apps(); ga.field('tab.bookmarksBar.apps', 'true')">
           <img *ngIf="settings.config.bookmark.icons" src="/assets/img/apps.png" class="barIcon">
           <div class="barLabel">{{'tab.bookmarks.links.apps' | translate}}</div>
         </button>
       </li>
       <li class="barNode" *ngIf="settings.config.bookmark.chromeTab">
-        <button title="{{'tab.bookmarks.links.chromeTab' | translate}}" class="barFolder" (click)="chromeTab()">
+        <button title="{{'tab.bookmarks.links.chromeTab' | translate}}" class="barFolder" (click)="chromeTab(); ga.field('tab.bookmarksBar.defaultTab', 'true')">
           <img *ngIf="settings.config.bookmark.icons" src="/assets/img/tab.png" class="barIcon">
           <div class="barLabel">{{'tab.bookmarks.links.chromeTab' | translate}}</div>
         </button>
       </li>
       <li class="barNode" *ngIf="settings.config.bookmark.history">
-        <button title="{{'tab.bookmarks.links.history' | translate}}" class="barFolder" (click)="history()">
+        <button title="{{'tab.bookmarks.links.history' | translate}}" class="barFolder" (click)="history(); ga.field('tab.bookmarksBar.history', 'true')">
           <img *ngIf="settings.config.bookmark.icons" src="/assets/img/history.png" class="barIcon">
           <div class="barLabel">{{'tab.bookmarks.links.history' | translate}}</div>
         </button>
       </li>
       <li class="barNode" *ngIf="settings.config.bookmark.bookmarksManager">
-        <button title="{{'tab.bookmarks.links.bookmarksManager' | translate}}" class="barFolder" (click)="bookmarksManager()">
+        <button title="{{'tab.bookmarks.links.bookmarksManager' | translate}}" class="barFolder" (click)="bookmarksManager(); ga.field('tab.bookmarksBar.manager', 'true')">
           <img *ngIf="settings.config.bookmark.icons" src="/assets/img/bookmarks.png" class="barIcon">
           <div class="barLabel">{{'tab.bookmarks.links.bookmarksManager' | translate}}</div>
         </button>
@@ -42,7 +42,7 @@
         <button
           class="barFolder"
           title="{{'tab.bookmarks.links.mostVisited' | translate}}"
-          (click)="toggleMostVisited = !toggleMostVisited">
+          (click)="toggleMostVisited = !toggleMostVisited; ga.field('tab.bookmarksBar.topSites', 'true')">
           <img *ngIf="settings.config.bookmark.icons" src="/assets/img/folder.png" class="barIcon">
           <div class="barLabel">{{'tab.bookmarks.links.mostVisited' | translate}}</div>
         </button>
@@ -56,6 +56,7 @@
         <ng-container *ngIf="item.url; else bookmarkFolder">
           <a
             href="{{item.url}}"
+            (click)="ga.field('tab.bookmarksBar.link', 'true')"
             title="{{item.title}}
 {{item.url}}"
             class="barLink">
@@ -113,6 +114,7 @@
       <ng-container *ngIf="item.url; else bookmarkFolder">
         <a
           href="{{item.url}}"
+          (click)="ga.field('tab.bookmarksBar.link', 'true')"
           title="{{item.title}}
 {{item.url}}"
           class="barLink">
@@ -153,37 +155,38 @@
   *ngIf="settings.config.quickLink.enabled">
   <ul>
     <li *ngIf="settings.config.quickLink.apps">
-      <button title="{{'tab.bookmarks.links.apps' | translate}}" class="link" (click)="apps()">
+      <button title="{{'tab.bookmarks.links.apps' | translate}}" class="link" (click)="apps(); ga.field('tab.quickLinks.apps', 'true')">
         <img *ngIf="settings.config.quickLink.icons" src="/assets/img/apps.png" class="quickLinksIcon">
         <div class="quickLinksLabel">{{'tab.bookmarks.links.apps' | translate}}</div>
       </button>
     </li>
     <li *ngIf="settings.config.quickLink.chromeTab">
-      <button title="{{'tab.bookmarks.links.chromeTab' | translate}}" class="link" (click)="chromeTab()">
+      <button title="{{'tab.bookmarks.links.chromeTab' | translate}}" class="link" (click)="chromeTab(); ga.field('tab.quickLinks.defaultTab', 'true')">
         <img *ngIf="settings.config.quickLink.icons" src="/assets/img/tab.png" class="quickLinksIcon">
         <div class="quickLinksLabel">{{'tab.bookmarks.links.chromeTab' | translate}}</div>
       </button>
     </li>
     <li *ngIf="settings.config.quickLink.history">
-      <button title="{{'tab.bookmarks.links.history' | translate}}" class="link" (click)="history()">
+      <button title="{{'tab.bookmarks.links.history' | translate}}" class="link" (click)="history(); ga.field('tab.quickLinks.history', 'true')">
         <img *ngIf="settings.config.quickLink.icons" src="/assets/img/history.png" class="quickLinksIcon">
         <div class="quickLinksLabel">{{'tab.bookmarks.links.history' | translate}}</div>
       </button>
     </li>
     <li *ngIf="settings.config.quickLink.bookmarksManager">
-      <button title="{{'tab.bookmarks.links.bookmarksManager' | translate}}" class="link" (click)="bookmarksManager()">
+      <button title="{{'tab.bookmarks.links.bookmarksManager' | translate}}" class="link" (click)="bookmarksManager(); ga.field('tab.quickLinks.manager', 'true')">
         <img *ngIf="settings.config.quickLink.icons" src="/assets/img/bookmarks.png" class="quickLinksIcon">
         <div class="quickLinksLabel">{{'tab.bookmarks.links.bookmarksManager' | translate}}</div>
       </button>
     </li>
     <li class="mostVisitedLink" *ngIf="settings.config.quickLink.mostVisited">
-      <button title="{{'tab.bookmarks.links.mostVisited' | translate}}" class="link" (click)="toggleMvMenu = !toggleMvMenu">
+      <button title="{{'tab.bookmarks.links.mostVisited' | translate}}" class="link" (click)="toggleMvMenu = !toggleMvMenu; ga.field('tab.quickLinks.topSites', 'true')">
         <img *ngIf="settings.config.quickLink.icons" src="/assets/img/folder.png" class="quickLinksIcon">
         <div class="quickLinksLabel">{{'tab.bookmarks.links.mostVisited' | translate}}</div>
       </button>
       <div class="mostVisitedMenu" *ngIf="toggleMvMenu">
         <a
           href="{{mv.url}}"
+          (click)="ga.field('tab.quickLinks.link', 'true')"
           title="{{mv.title}}
 {{mv.url}}"
           *ngFor="let mv of allMostVisited">
@@ -196,6 +199,7 @@
       <li *ngFor="let item of settings.config.quickLink.links; let i = index">
         <a 
           href="{{item.url}}" 
+          (click)="ga.field('tab.quickLinks.link', 'true')"
           class="link" 
           title="{{getShortcut(i)}}" 
           attr.accesskey="{{i <= 9 ? i + 1 : null}}">

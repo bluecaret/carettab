@@ -152,6 +152,13 @@ export class SplashComponent implements OnInit {
       this.shared.toggleOrder(this.settings.config.time.clocks[0].id, false);
       this.settings.config.time.clocks = [];
     }
+    this.step = 3.1;
+  }
+
+  enableAnalytics(enable: boolean) {
+    this.settings.config.misc.enableAnalytics = true;
+    enable === true ?
+      localStorage.setItem('ct-enableAnalytics', 'true') : localStorage.setItem('ct-enableAnalytics', 'false');
     this.step = 4;
   }
 

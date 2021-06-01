@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { GoogleAnalyticsService } from '../_shared/ga.service';
 import { SharedService } from '../_shared/shared.service';
 import { Storage } from '../_storage/storage.service';
 
@@ -74,7 +75,8 @@ export class NavComponent implements AfterViewInit {
 
   constructor(
     public shared: SharedService,
-    public settings: Storage
+    public settings: Storage,
+    public ga: GoogleAnalyticsService
   ) {
   }
 
@@ -88,6 +90,8 @@ export class NavComponent implements AfterViewInit {
   goToPage(page: string) {
     this.shared.optionsPage = page;
     this.shared.echo('Opened settings page:', page);
+    let path = encodeURI(page).toLowerCase();
+    this.ga.pageView(page, path);
   }
 
 }

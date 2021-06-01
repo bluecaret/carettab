@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { SharedService } from '../shared.service';
 import { Storage } from '../../_storage/storage.service';
+import { GoogleAnalyticsService } from '../ga.service';
 
 @Component({
   selector: 'app-logo',
@@ -8,6 +8,7 @@ import { Storage } from '../../_storage/storage.service';
     <a
       href="https://www.carettab.com"
       class="logoWatermark"
+      (click)="ga.field('tab.carettabLogoButton', 'true')"
       [ngClass]="{'hide': settings.config.design.hideLogo}"
       title="CaretTab"
       tabindex="-1">
@@ -27,8 +28,8 @@ import { Storage } from '../../_storage/storage.service';
 export class LogoComponent {
 
   constructor(
-    public shared: SharedService,
-    public settings: Storage
+    public settings: Storage,
+    public ga: GoogleAnalyticsService
   ) {
   }
 }

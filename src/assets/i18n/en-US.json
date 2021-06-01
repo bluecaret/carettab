@@ -105,6 +105,8 @@
     },
     "extra": {
       "advanced": "Advanced",
+      "enableAnalytics": "Enable analytics data",
+      "enableAnalyticsDesc": "CaretTab would like to report your usage of the extension to analytics. This helps us improve the extension by learning how it is used. This tracks data such as when the settings menu is opened and when settings are altered. This does not track any personal identifying information. You can opt-in or opt-out at any time.",
       "extra": "Extra",
       "hideLogo": "Hide logo",
       "hideMenu": "Hide settings button",

@@ -105,6 +105,8 @@
     },
     "extra": {
       "advanced": "Avancerad",
+      "enableAnalytics": "Aktivera analysdata",
+      "enableAnalyticsDesc": "CaretTab vill rapportera din användning av tillägget till analys. Detta hjälper oss att förbättra tillägget genom att lära oss hur det används. Detta spårar data som när inställningsmenyn öppnas och när inställningarna ändras. Detta spårar inte någon personlig identifierande information. Du kan när som helst välja eller välja bort.",
       "extra": "Extra",
       "hideLogo": "Dölj logotyp",
       "hideMenu": "Dölj inställningsknappen",

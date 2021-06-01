@@ -59,6 +59,10 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     // Run storage migration
     this.migrateSettings();
+
+    this.settings.onChange().subscribe((data) => {
+      this.enableAnalytics(this.settings.config.misc.enableAnalytics);
+    });
   }
 
   ngAfterViewInit(): void {
@@ -83,6 +87,11 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.shared.bg = bg;
       }
     }, 0);
+  }
+
+  enableAnalytics(enable: boolean) {
+    enable === true ?
+      localStorage.setItem('ct-enableAnalytics', 'true') : localStorage.setItem('ct-enableAnalytics', 'false');
   }
 
   migrateSettings() {

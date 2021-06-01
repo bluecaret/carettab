@@ -105,6 +105,8 @@
     },
     "extra": {
       "advanced": "Avanzate",
+      "enableAnalytics": "Abilita i dati di analisi",
+      "enableAnalyticsDesc": "CaretTab vorrebbe segnalare il tuo utilizzo dell'estensione all'analisi. Questo ci aiuta a migliorare l'estensione imparando come viene utilizzata. Tiene traccia dei dati come quando viene aperto il menu delle impostazioni e quando le impostazioni vengono modificate. Questo non tiene traccia delle informazioni di identificazione personale. Puoi accettare o rifiutare in qualsiasi momento.",
       "extra": "Extra",
       "hideLogo": "Nascondi logo",
       "hideMenu": "Nascondi pulsante impostazioni",

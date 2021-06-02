@@ -5,6 +5,7 @@ nav {
   padding: 24px 0;
   box-shadow: inset -1px 0px 0 0px var(--optNavBorder);
   border-radius: 10px 0 0 10px;
+  overflow-y: auto;
   h1 {
     padding-left: 24px;
     padding-right: 24px;

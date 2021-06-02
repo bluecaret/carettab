@@ -27,7 +27,9 @@
       "url": "URL"
     },
     "common": {
+      "aboutLink": "Handla om",
       "add": "Lägg till",
+      "contactLink": "Kontakta",
       "delimiter": "avgränsare",
       "down": "Ner",
       "format": "Formatera",
@@ -39,7 +41,9 @@
       "on": "På",
       "order": "Ordning",
       "placement": "Placering",
+      "privacyPolicy": "Sekretesspolicy och användarvillkor",
       "size": "Storlek",
+      "supportLink": "Stöd",
       "timezone": "tidszon",
       "up": "Upp",
       "width": "bredd"
@@ -243,30 +247,6 @@
     },
     "skip": "Hoppa",
     "updatedTo": "CaretTab har uppdaterats till",
-    "v3": {
-      "importLinks": "Försök att importera snabblänkar",
-      "important": "Viktig:",
-      "l1": "CaretTab har återskapats från grunden för att förbättra prestanda och stabilitet!",
-      "l2": "Klockor har nu full anpassning! Du kan nu ställa in alla inställningar på alla klockor, prova!",
-      "l3": "Ändra ordningen på klockor och snabblänkar.",
-      "l4": "Fler storlekar. Nu kan de flesta element ändras individuellt.",
-      "l5": "Bakgrundsval! Använd några tillhandahållna texturer eller din egen anpassade bild.",
-      "l6": "Använd alla teckensnitt som är installerade på din maskin!",
-      "l7": "Visa din webbläsares bokmärkesfält på den nya fliksidan.",
-      "l8": "Mycket mer! ta en titt runt och prova saker.",
-      "p1": "Låt oss gå igenom viktig information och vad som är nytt.",
-      "p2": "Denna uppdatering ändrar hur inställningar sparas och ändrar många funktioner. Tyvärr på grund av dessa skillnader och för att spara på utvecklingstid kan inte alla inställningar sparas. Du måste tillämpa dina inställningar igen. Jag ber om ursäkt för besväret detta orsakar men jag lovar att uppdateringen kommer att vara värt det! För att hjälpa till med övergången kan dina snabblänkar importeras med knappen nedan. Kopiera listan över länkar som visas som säkerhetskopia om import misslyckas.",
-      "p3": "Nästa skärm tar dig igenom några grundläggande alternativ för att komma igång.",
-      "recovered": "Snabblänkar från tidigare version",
-      "title": "Den största uppdateringen hittills!"
-    },
-    "v310": {
-      "l1": "Uppdaterad | skript för mer exakta tider i olika tidszoner.",
-      "l2": "Fast standardbakgrund som ska baseras på webbläsartema för att undvika ljusa flimmer när sidan laddas.",
-      "l3": "Tillåt återställning av gamla Quick Links från v2 när som helst via Quick Links-inställningarna (om inga snabblänkar hittades från den versionen visas ingenting).",
-      "l4": "Åtgärda problem som förhindrade att tillägg v3 publicerades till Firefox.",
-      "l5": "Nu tillgängligt på Microsoft Edge!"
-    },
     "v320": {
       "l1": "Lade till GMT förskjutna tidszoner",
       "l2": "Lagt till möjligheten att använda ISO-standard för veckonummer",
@@ -282,6 +262,15 @@
       "l1": "Lade tangentbordsgenvägar till snabblänkar. Nu kan du snabbt ladda de första 10 snabblänkarna med en kortkommando. Håll muspekaren över en snabblänk för att se vad genvägen är. Du måste fliken ur adressfältet först så att den nya fliksidan är i fokus.",
       "l2": "Om du klickar på den anpassade förhandsgranskningen tas bakgrunden bort.",
       "l3": "CaretTab-logotypen har lagts till i nedre hörnet. Detta kan stängas av i menyn för extra inställningar."
+    },
+    "v340": {
+      "h2": "Hjälp till att förbättra CaretTab genom att aktivera analysdata",
+      "l1": "Uppdaterad inställningsmeny! Inställningsmenyn har blivit renare, enklare och lättare att använda.",
+      "l2": "Mörkt läge! Inställningspanelen visas nu i ett mörkt läge baserat på dina inställningar i ditt operativsystem.",
+      "l3": "Fler översättningar! Nu tillgängligt på italienska, portugisiska, svenska, urdu och kinesiska (traditionellt)",
+      "l4": "Omstrukturerad lagring för inställningar för att undvika lagringsgränser (detta bör fixa vissa \"vita skärm\" -fel som vissa användare har upplevt). Dina tidigare inställningar migreras automatiskt till den nya strukturen.",
+      "l5": "Förbättrade \"white flash\" -felet när du läser in en ny flik. Blixten bör vara mycket mindre uppenbar särskilt i mörkt läge.",
+      "l6": "Lagt till analys för att förbättra CaretTab. Du kan när som helst välja eller välja bort detta."
     },
     "yes": "Ja"
   },

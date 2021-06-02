@@ -47,16 +47,8 @@ app-splash {
   }
 
   .btn--splash {
-    // border: .2rem solid $lightBlue;
-    // background: transparent;
     font-size: 2rem;
     padding: .5rem 2rem;
-    // color: white;
-    // &:focus,
-    &:hover {
-      // background: $lightBlue;
-      // color: black;
-    }
   }
   .btn--start {
     font-size: 3rem;
@@ -118,9 +110,6 @@ app-splash {
   text-align: left;
   max-height: 80vh;
   overflow-y: auto;
-  .btn--splash {
-    // color: black;
-  }
   h3 {
     font-size: 2rem;
     line-height: 1.5;
@@ -141,7 +130,7 @@ app-splash {
 }
 .updated .splash-options {
   max-width: 90rem;
-  max-height: 50vh;
+  max-height: 60vh;
 }
 
 .splash-nav {
@@ -157,12 +146,10 @@ app-splash {
 
 .splash-settings-toggle {
   .openOptions {
-    // box-shadow: 0 0 0rem 8rem #3FA9F5, 0 0 0rem 10rem black;
     background: var(--optBg);
     box-shadow: 0 0 0 0 var(--optBg), 0 0 0 0 var(--optAccent);
     border-radius: 50%;
     animation: splash-settings-toggle 1s 2s ease-in-out forwards;
-    // transition: .7s ease-in-out box-shadow;
   }
 }
 
@@ -191,5 +178,14 @@ app-splash {
   100% {
     opacity: 1;
     box-shadow: 0 0 0 7rem var(--optBg), 0 0 0 7.5rem var(--optAccent), 0 0 40rem 20rem var(--optAccent);
+  }
+}
+
+.splash-input.input {
+  margin: 20px 0 0;
+  display: flex;
+  justify-content: flex-start;
+  .toggle input + label {
+    margin-left: 0;
   }
 }

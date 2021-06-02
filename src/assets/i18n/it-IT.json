@@ -27,7 +27,9 @@
       "url": "URL"
     },
     "common": {
+      "aboutLink": "Di",
       "add": "Inserisci",
+      "contactLink": "Contatto",
       "delimiter": "delimitatore",
       "down": "Giu",
       "format": "Formato",
@@ -39,7 +41,9 @@
       "on": "sopra",
       "order": "ordine",
       "placement": "posizionamento",
+      "privacyPolicy": "Norme sulla privacy e condizioni d'uso",
       "size": "Taglia",
+      "supportLink": "Supporto",
       "timezone": "Fuso orario",
       "up": "su",
       "width": "larghezza"
@@ -243,30 +247,6 @@
     },
     "skip": "Salta",
     "updatedTo": "CaretTab è stato aggiornato a",
-    "v3": {
-      "importLinks": "Tenta di importare collegamenti rapidi",
-      "important": "Importante:",
-      "l1": "CaretTab è stato ricreato da zero per migliorare le prestazioni e la stabilità!",
-      "l2": "Gli orologi ora hanno una personalizzazione completa! Ora puoi impostare tutte le impostazioni su tutti gli orologi, provalo!",
-      "l3": "Modifica l'ordine degli orologi e dei collegamenti rapidi.",
-      "l4": "Altre opzioni di dimensioni. Ora la maggior parte degli elementi può essere ridimensionata individualmente.",
-      "l5": "Opzioni di sfondo! Usa alcune trame fornite o la tua immagine personalizzata.",
-      "l6": "Usa qualsiasi tipo di carattere installato sulla tua macchina!",
-      "l7": "Visualizza la barra dei segnalibri del browser nella pagina della nuova scheda.",
-      "l8": "Molto di più! dai un'occhiata in giro e prova le cose.",
-      "p1": "Esaminiamo alcune informazioni importanti e le novità.",
-      "p2": "Questo aggiornamento cambia il modo in cui vengono salvate le impostazioni e cambia molte funzionalità. Sfortunatamente a causa di queste differenze e per risparmiare tempo di sviluppo, non tutte le impostazioni possono essere salvate. Dovrai applicare nuovamente le tue impostazioni. Mi scuso per i disagi causati ma prometto che ne varrà la pena! Per facilitare la transizione, i tuoi collegamenti rapidi possono essere importati utilizzando il pulsante in basso. Copiare l'elenco dei collegamenti visualizzati come backup nel caso in cui l'importazione non riesca.",
-      "p3": "La schermata successiva ti mostrerà alcune opzioni di base per iniziare.",
-      "recovered": "Collegamenti rapidi dalla versione precedente",
-      "title": "Il più grande aggiornamento finora!"
-    },
-    "v310": {
-      "l1": "Aggiornato | script per orari più precisi in vari fusi orari.",
-      "l2": "Risolto il problema con lo sfondo predefinito basato sul tema del browser Web per evitare sfarfallio luminoso durante il caricamento della pagina.",
-      "l3": "Consenti il ripristino dei vecchi collegamenti rapidi dalla v2 in qualsiasi momento tramite le impostazioni dei collegamenti rapidi (se non sono stati trovati collegamenti rapidi da quella versione, non verrà visualizzato nulla).",
-      "l4": "Risolto il problema che impediva la pubblicazione della v3 dell'estensione su Firefox.",
-      "l5": "Ora disponibile su Microsoft Edge!"
-    },
     "v320": {
       "l1": "Aggiunti fusi orari di offset GMT",
       "l2": "Aggiunta la possibilità di utilizzare lo standard ISO per i numeri delle settimane",
@@ -282,6 +262,15 @@
       "l1": "Aggiunte scorciatoie da tastiera ai collegamenti rapidi. Ora puoi caricare rapidamente i primi 10 collegamenti rapidi utilizzando una scorciatoia da tastiera. Passa il mouse su un collegamento rapido per vedere qual è il collegamento. È necessario prima tabulare fuori dalla barra degli indirizzi in modo che la nuova pagina della scheda sia a fuoco.",
       "l2": "Fare clic sull'anteprima dello sfondo personalizzato ora rimuoverà lo sfondo.",
       "l3": "Aggiunto logo CaretTab nell'angolo inferiore. Questo può essere disattivato nel menu delle impostazioni extra."
+    },
+    "v340": {
+      "h2": "Contribuisci a migliorare CaretTab abilitando i dati analitici",
+      "l1": "Menu delle impostazioni aggiornato! Il menu delle impostazioni è stato rivisto per essere più pulito, più semplice e più facile da usare.",
+      "l2": "Modalità scura! Il pannello delle impostazioni verrà ora visualizzato in modalità oscura in base alle preferenze impostate nel sistema operativo.",
+      "l3": "Altre traduzioni! Ora disponibile in italiano, portoghese, svedese, urdu e cinese (tradizionale)",
+      "l4": "Archiviazione ristrutturata per le impostazioni per evitare limiti di archiviazione (questo dovrebbe correggere alcuni bug \"schermo bianco\" riscontrati da alcuni utenti). Le tue impostazioni precedenti verranno migrate automaticamente nella nuova struttura.",
+      "l5": "Migliorato il bug \"flash bianco\" durante il caricamento di una nuova scheda. Il flash dovrebbe essere molto meno evidente soprattutto in modalità scura.",
+      "l6": "Aggiunte analisi per aiutare a migliorare CaretTab. Puoi attivare o disattivare questa opzione in qualsiasi momento."
     },
     "yes": "sì"
   },

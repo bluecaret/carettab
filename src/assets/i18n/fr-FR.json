@@ -27,7 +27,9 @@
       "url": "URL"
     },
     "common": {
+      "aboutLink": "sur",
       "add": "Ajouter",
+      "contactLink": "Contact",
       "delimiter": "Délimiteur",
       "down": "VERS LE BAS",
       "format": "Format",
@@ -39,7 +41,9 @@
       "on": "sur",
       "order": "ordre",
       "placement": "Placement",
+      "privacyPolicy": "POLITIQUE DE CONFIDENTIALITÉ ET CONDITIONS D'UTILISATION",
       "size": "Taille",
+      "supportLink": "Soutien",
       "timezone": "Fuseau horaire",
       "up": "UP",
       "width": "Largeur"
@@ -243,30 +247,6 @@
     },
     "skip": "Sauter",
     "updatedTo": "CaretTab a été mis à jour pour",
-    "v3": {
-      "importLinks": "Tentative d'importation de liens rapides",
-      "important": "IMPORTANT:",
-      "l1": "CaretTab a été recréé à partir de zéro pour améliorer les performances et la stabilité!",
-      "l2": "Les horloges ont maintenant une personnalisation complète! Vous pouvez maintenant définir tous les paramètres sur toutes les horloges, essayez-le!",
-      "l3": "Modifiez l'ordre des horloges et des liens rapides.",
-      "l4": "Plus d'options de taille. Maintenant, la plupart des éléments peuvent être redimensionnés individuellement.",
-      "l5": "Options de papier peint! Utilisez certaines textures fournies ou votre propre image personnalisée.",
-      "l6": "Utilisez n'importe quelle police installée sur votre machine!",
-      "l7": "Affichez la barre de favoris de votre navigateur sur la nouvelle page à onglet.",
-      "l8": "Beaucoup plus! jetez un œil et essayez les choses.",
-      "p1": "Passons en revue certaines informations importantes et les nouveautés.",
-      "p2": "Cette mise à jour modifie la façon dont les paramètres sont enregistrés ainsi que de nombreuses fonctionnalités. Malheureusement, en raison de ces différences et pour gagner du temps de développement, tous les paramètres ne peuvent pas être enregistrés. Vous devrez à nouveau appliquer vos paramètres. Je m'excuse pour la gêne occasionnée mais je promets que la mise à jour en vaudra la peine! Pour faciliter la transition, vos liens rapides peuvent être importés à l'aide du bouton ci-dessous. Veuillez copier la liste des liens affichés comme sauvegarde en cas d'échec de l'importation.",
-      "p3": "L'écran suivant vous présentera quelques options de base pour commencer.",
-      "recovered": "Liens rapides de la version précédente",
-      "title": "La plus grande mise à jour à ce jour!"
-    },
-    "v310": {
-      "l1": "Mis à jour | script pour des heures plus précises dans différents fuseaux horaires.",
-      "l2": "Correction de l'arrière-plan par défaut basé sur le thème du navigateur Web pour éviter les scintillements lumineux lors du chargement de la page.",
-      "l3": "Autorisez la restauration des anciens liens rapides de la v2 à tout moment via les paramètres des liens rapides (si aucun lien rapide n'a été trouvé à partir de cette version, rien ne s'affichera).",
-      "l4": "Correction d'un problème qui empêchait la publication de la version 3 de l'extension sur Firefox.",
-      "l5": "Maintenant disponible sur Microsoft Edge!"
-    },
     "v320": {
       "l1": "Ajout des fuseaux horaires de décalage GMT",
       "l2": "Ajout de la possibilité d'utiliser la norme ISO pour les numéros de semaine",
@@ -282,6 +262,15 @@
       "l1": "Ajout de raccourcis clavier aux liens rapides. Vous pouvez désormais charger rapidement les 10 premiers liens rapides à l'aide d'un raccourci clavier. Passez la souris sur un lien rapide pour voir ce qu'est le raccourci. Vous devez d'abord sortir de la barre d'adresse pour que la nouvelle page à onglet soit active.",
       "l2": "Cliquer sur l'aperçu d'arrière-plan personnalisé supprimera désormais l'arrière-plan.",
       "l3": "Ajout du logo CaretTab dans le coin inférieur. Cela peut être désactivé dans le menu des paramètres supplémentaires."
+    },
+    "v340": {
+      "h2": "Aidez à améliorer CaretTab en activant les données d'analyse",
+      "l1": "Menu des paramètres mis à jour ! Le menu des paramètres a été remanié pour être plus propre, plus simple et plus facile à utiliser.",
+      "l2": "Mode sombre ! Le panneau des paramètres s'affichera désormais en mode sombre en fonction de vos préférences définies dans votre système d'exploitation.",
+      "l3": "Plus de traductions ! Maintenant disponible en italien, portugais, suédois, ourdou et chinois (traditionnel)",
+      "l4": "Stockage restructuré pour les paramètres afin d'éviter les limites de stockage (cela devrait corriger certains bogues \"d'écran blanc\" que certains utilisateurs ont rencontrés). Vos paramètres précédents seront automatiquement migrés vers la nouvelle structure.",
+      "l5": "Amélioration du bug \"flash blanc\" lors du chargement d'un nouvel onglet. Le flash devrait être beaucoup moins évident surtout en mode sombre.",
+      "l6": "Ajout d'analyses pour aider à améliorer CaretTab. Vous pouvez vous inscrire ou vous désinscrire à tout moment."
     },
     "yes": "Oui"
   },

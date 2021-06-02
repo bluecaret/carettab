@@ -51,43 +51,29 @@
           V118z"/>
       </g>
     </svg>
-    <div>{{'splash.updatedTo' | translate}} v3.1.0!</div>
+    <div>{{'splash.updatedTo' | translate}} v3.4.0!</div>
   </h1>
   <div class="splash-options">
-    <h3>{{'splash.v3.title' | translate}}</h3>
-    <p>{{'splash.v3.p1' | translate}}</p>
-    <h3>{{'splash.v3.important' | translate}}</h3>
-    <p>{{'splash.v3.p2' | translate}}</p>
-    <form novalidate>
-      <fieldset class="mt-2">
-        <div class="grid cols-6">
-          <div class="field span-4" style="grid-template: 25px 50px / 1fr;">
-            <label title="{{'splash.v3.recovered' | translate}}">{{'splash.v3.recovered' | translate}}</label>
-            <textarea name="recoveredLinks" id="recoveredLinks" readonly="readonly">{{printRecoveredQuickLinks}}</textarea>
-          </div>
-          <div class="field span-2">
-            <div>
-              <button id="recoverLinksBtn" type="button" class="btn mt1" (click)="recoverLinks()" [disabled]="importStatus != ''">{{'splash.v3.importLinks' | translate}}</button>
-              <div class="mt1" style="color: green">{{importStatus}}</div>
-            </div>
-          </div>
-        </div>
-      </fieldset>
-    </form>
-    <p>{{'splash.v3.p3' | translate}}</p>
     <h3>{{'splash.new' | translate}}</h3>
     <ul>
-      <li>{{'splash.v3.l1' | translate}}</li>
-      <li>{{'splash.v3.l2' | translate}}</li>
-      <li>{{'splash.v3.l3' | translate}}</li>
-      <li>{{'splash.v3.l4' | translate}}</li>
-      <li>{{'splash.v3.l5' | translate}}</li>
-      <li>{{'splash.v3.l6' | translate}}</li>
-      <li>{{'splash.v3.l7' | translate}}</li>
-      <li>{{'splash.v3.l8' | translate}}</li>
+      <li>{{'splash.v340.l1' | translate}}</li>
+      <li>{{'splash.v340.l2' | translate}}</li>
+      <li>{{'splash.v340.l3' | translate}}</li>
+      <li>{{'splash.v340.l4' | translate}}</li>
+      <li>{{'splash.v340.l5' | translate}}</li>
+      <li>{{'splash.v340.l6' | translate}}</li>
     </ul>
+    <form novalidate>
+      <h3 style="margin-top: 40px;">{{'splash.v340.h2' | translate}}</h3>
+      <p>{{'options.extra.enableAnalyticsDesc' | translate}}</p>
+      <div class="splash-input input">
+        <label>{{'options.extra.enableAnalytics' | translate}}</label>
+        <options-toggle name="enableAnalytics" id="enableAnalytics" [(ngModel)]="settings.config.misc.enableAnalytics"></options-toggle>
+      </div>
+      <p><a href="https://www.bluecaret.com/terms" target="_blank">{{'options.common.privacyPolicy' | translate}}</a></p>
+    </form>
   </div>
-  <button type="button" class="btn btn--splash btn--start" (click)="step = 2">{{'splash.getStarted' | translate}}</button>
+  <button type="button" class="btn btn--splash btn--start" (click)="removeIntro()">{{'splash.getStarted' | translate}}</button>
 </div>
 
 <!-- INSTALLED: -->
@@ -159,7 +145,7 @@
   <div class="splash-options">
     <h3>{{'options.extra.enableAnalytics' | translate}}</h3>
     <p>{{'options.extra.enableAnalyticsDesc' | translate}}</p>
-    <p><a href="https://www.bluecaret.com/terms" target="_blank">Privacy Policy and Terms of Use</a></p>
+    <p><a href="https://www.bluecaret.com/terms" target="_blank">{{'options.common.privacyPolicy' | translate}}</a></p>
     <div style="display: flex; justify-content: space-between;">
       <button type="button" class="btn btn--splash" (click)="enableAnalytics(false)">{{'splash.no' | translate}}</button>
       <button type="button" class="btn btn--splash" (click)="enableAnalytics(true)">{{'splash.yes' | translate}}</button>

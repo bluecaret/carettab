@@ -197,7 +197,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     // Display major update splash screen for version 3.0.0
     if (prevVer) {
-      if (compare(prevVer, '3.0.0', '<')) {
+      if (compare(prevVer, '3.4.0', '<')) {
         this.shared.updateType = "major";
       } else if (compare(prevVer, '3.3.0', '<')) {
         this.shared.updateType = "quiet"
@@ -208,7 +208,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     localStorage.setItem('caretTabUpdateType', this.shared.updateType);
 
-    this.shared.echo(`Version check:`, `Prev: ${prevVer} | Old: ${newVer} | Type: ${this.shared.updateType}`);
+    this.shared.echo(`Version check:`, `Prev: ${prevVer} | New: ${newVer} | Type: ${this.shared.updateType}`);
   }
 
 }

@@ -2,23 +2,14 @@
   <svg *ngIf="status === 'updated' && shared.updateType !== 'hidden'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8zm1 13h-2v-6h2v6zm0-8h-2V7h2v2z" fill="limegreen" /><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#000000"/></svg>
   {{'options.dashboard.new' | translate}}
 </h2>
-<p>{{'options.dashboard.updated' | translate}} April 26, 2021</p>
+<p>{{'options.dashboard.updated' | translate}} June 1, 2021</p>
 <ul class="changelog">
-  <li>{{'splash.v330.l1' | translate}}</li>
-  <li>{{'splash.v330.l2' | translate}}</li>
-  <li>{{'splash.v330.l3' | translate}}</li>
-</ul>
-<p>{{'options.dashboard.updated' | translate}} April 12, 2021</p>
-<ul class="changelog">
-  <li>{{'splash.v320.l1' | translate}}</li>
-  <li>{{'splash.v320.l2' | translate}}</li>
-  <li>{{'splash.v320.l3' | translate}}</li>
-  <li>{{'splash.v320.l4' | translate}}</li>
-  <li>{{'splash.v320.l5' | translate}}</li>
-  <li>{{'splash.v320.l6' | translate}}</li>
-  <li>{{'splash.v320.l7' | translate}}</li>
-  <li>{{'splash.v320.l8' | translate}}</li>
-  <li>{{'splash.v320.l9' | translate}}</li>
+  <li>{{'splash.v340.l1' | translate}}</li>
+  <li>{{'splash.v340.l2' | translate}}</li>
+  <li>{{'splash.v340.l3' | translate}}</li>
+  <li>{{'splash.v340.l4' | translate}}</li>
+  <li>{{'splash.v340.l5' | translate}}</li>
+  <li>{{'splash.v340.l6' | translate}}</li>
 </ul>
 <div class="donate">
   <div class="donate-intro">
@@ -63,10 +54,10 @@
   <a href="https://www.carettab.com/" (click)="ga.event('dashboard', 'externalLink', 'creditsCaretTabSite');">{{'options.dashboard.credit' | translate | translateCut:0 }}</a>{{'options.dashboard.credit' | translate | translateCut:1 }}<a href="https://www.bluecaret.com" (click)="ga.event('dashboard', 'externalLink', 'creditsBlueCaret');">{{'options.dashboard.credit' | translate | translateCut:2 }}</a>{{'options.dashboard.credit' | translate | translateCut:3 }}<a href="https://opensource.org/licenses/MIT" (click)="ga.event('dashboard', 'externalLink', 'creditsMitLicense');">{{'options.dashboard.credit' | translate | translateCut:4 }}</a>{{'options.dashboard.credit' | translate | translateCut:5 }}
 </p>
 <p>
-  <a href="https://github.com/bluecaret/carettab" (click)="ga.event('dashboard', 'externalLink', 'dashNavSupport');">Support</a> | 
-  <a href="https://www.bluecaret.com/about" (click)="ga.event('dashboard', 'externalLink', 'dashNavAbout');">About</a> | 
-  <a href="https://www.bluecaret.com/contact" (click)="ga.event('dashboard', 'externalLink', 'dashNavContact');">Contact</a> | 
-  <a href="https://www.bluecaret.com/terms" (click)="ga.event('dashboard', 'externalLink', 'dashNavPolicy');">Privacy Policy and Terms of Use</a>
+  <a href="https://github.com/bluecaret/carettab" (click)="ga.event('dashboard', 'externalLink', 'dashNavSupport');">{{'options.common.supportLink' | translate}}</a> | 
+  <a href="https://www.bluecaret.com/about" (click)="ga.event('dashboard', 'externalLink', 'dashNavAbout');">{{'options.common.aboutLink' | translate}}</a> | 
+  <a href="https://www.bluecaret.com/contact" (click)="ga.event('dashboard', 'externalLink', 'dashNavContact');">{{'options.common.contactLink' | translate}}</a> | 
+  <a href="https://www.bluecaret.com/terms" (click)="ga.event('dashboard', 'externalLink', 'dashNavPolicy');">{{'options.common.privacyPolicy' | translate}}</a>
 </p>
 
 

@@ -27,7 +27,9 @@
       "url": "URL"
     },
     "common": {
+      "aboutLink": "Sobre",
       "add": "Adicionar",
+      "contactLink": "Contato",
       "delimiter": "Delimitador",
       "down": "BAIXA",
       "format": "Formato",
@@ -39,7 +41,9 @@
       "on": "em",
       "order": "Ordem",
       "placement": "Canal",
+      "privacyPolicy": "POLÍTICA DE PRIVACIDADE E TERMOS DE USO",
       "size": "Tamanho",
+      "supportLink": "Apoio, suporte",
       "timezone": "Fuso horário",
       "up": "acima",
       "width": "Largura"
@@ -243,30 +247,6 @@
     },
     "skip": "Pular",
     "updatedTo": "CaretTab foi atualizado para",
-    "v3": {
-      "importLinks": "Tentativa de importar links rápidos",
-      "important": "Importante:",
-      "l1": "CaretTab foi recriado do zero para melhorar o desempenho e a estabilidade!",
-      "l2": "Os relógios agora têm personalização total! Agora você pode definir todas as configurações em todos os relógios, experimente!",
-      "l3": "Altere a ordem dos relógios e links rápidos.",
-      "l4": "Mais opções de tamanho. Agora, a maioria dos elementos pode ser redimensionada individualmente.",
-      "l5": "Opções de papel de parede! Use algumas texturas fornecidas ou sua própria imagem personalizada.",
-      "l6": "Use qualquer fonte instalada em sua máquina!",
-      "l7": "Exiba a barra de favoritos do seu navegador na página nova guia.",
-      "l8": "Muito mais! dê uma olhada e experimente coisas.",
-      "p1": "Vamos examinar algumas informações importantes e o que há de novo.",
-      "p2": "Esta atualização muda a forma como as configurações são salvas, bem como altera muitos recursos. Infelizmente, devido a essas diferenças e para economizar tempo de desenvolvimento, nem todas as configurações podem ser salvas. Você precisará aplicar suas configurações novamente. Peço desculpas pelo transtorno que isso causa, mas prometo que a atualização valerá a pena! Para ajudar na transição, seus Links rápidos podem ser importados usando o botão abaixo. Copie a lista de links mostrada como backup caso a importação falhe.",
-      "p3": "A próxima tela mostrará algumas opções básicas para começar.",
-      "recovered": "Links rápidos da versão anterior",
-      "title": "A maior atualização até agora!"
-    },
-    "v310": {
-      "l1": "Atualizado | script para horários mais precisos em vários fusos horários.",
-      "l2": "O plano de fundo padrão foi corrigido para ser baseado no tema do navegador da web para evitar tremulações brilhantes conforme a página carrega.",
-      "l3": "Permitir a restauração de Links rápidos antigos da v2 a qualquer momento por meio das configurações de Links rápidos (se nenhum link rápido for encontrado nessa versão, nada será exibido).",
-      "l4": "Corrija o problema que impedia a publicação da v3 da extensão no Firefox.",
-      "l5": "Agora disponível no Microsoft Edge!"
-    },
     "v320": {
       "l1": "Adicionados fusos horários GMT",
       "l2": "Adicionada a capacidade de usar o padrão ISO para números de semanas",
@@ -282,6 +262,15 @@
       "l1": "Adicionados atalhos de teclado para Links rápidos. Agora você pode carregar rapidamente os primeiros 10 links rápidos usando um atalho de teclado. Passe o mouse sobre um link rápido para ver o que é o atalho. Você deve sair da barra de endereço pela guia primeiro, para que a página da nova guia fique em foco.",
       "l2": "Clicar na visualização do plano de fundo personalizado agora removerá o plano de fundo.",
       "l3": "Adicionado o logotipo CaretTab ao canto inferior. Isso pode ser desativado no menu de configurações extras."
+    },
+    "v340": {
+      "h2": "Ajude a melhorar o CaretTab habilitando dados analíticos",
+      "l1": "Menu de configurações atualizado! O menu de configurações foi reformulado para ficar mais limpo, simples e fácil de usar.",
+      "l2": "Modo escuro! O painel de configurações agora será exibido em um modo escuro com base nas preferências definidas em seu sistema operacional.",
+      "l3": "Mais traduções! Agora disponível em italiano, português, sueco, urdu e chinês (tradicional)",
+      "l4": "Armazenamento reestruturado para configurações para evitar limites de armazenamento (isso deve corrigir alguns bugs de \"tela branca\" que alguns usuários experimentaram). Suas configurações anteriores serão migradas para a nova estrutura automaticamente.",
+      "l5": "Aprimorado o bug \"flash branco\" ao carregar uma nova guia. O flash deve ser muito menos óbvio, especialmente no modo escuro.",
+      "l6": "Adicionadas análises para ajudar a melhorar o CaretTab. Você pode ativar ou desativar a qualquer momento."
     },
     "yes": "sim"
   },

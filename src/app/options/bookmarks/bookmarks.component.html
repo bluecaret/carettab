@@ -138,7 +138,7 @@
           placeholder="Add new link"
           #newLabel="ngModel"
           [(ngModel)]="label"
-          (change)="ga.field('quickLink.links.link.newLabel', 'true');"
+          (change)="ga.field('quickLink.links.link.newLabel', 'userData');"
           autocomplete="off"
           required>
         <div class="valMsg" *ngIf="newLabel.invalid && newLink.submitted">{{'options.bookmarks.labelValidation' | translate}}</div>
@@ -150,7 +150,7 @@
           placeholder="https://"
           #newUrl="ngModel"
           [(ngModel)]="url"
-          (change)="ga.field('quickLink.links.link.newUrl', 'true');"
+          (change)="ga.field('quickLink.links.link.newUrl', 'userData');"
           autocomplete="off"
           required>
         <div class="valMsg" *ngIf="newUrl.invalid && newLink.submitted">{{'options.bookmarks.linkValidation' | translate}}</div>

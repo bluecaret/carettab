@@ -7,7 +7,7 @@
   <ng-container *ngIf="settings.config.message.enabled">
     <div class="input">
       <label>{{'options.message.msgText' | translate}}</label>
-      <input type="text" name="messageText" id="messageText" [(ngModel)]="settings.config.message.text" (ngModelChange)="ga.field('message.text', settings.config.message.text);" autocomplete="off">
+      <input type="text" name="messageText" id="messageText" [(ngModel)]="settings.config.message.text" (ngModelChange)="ga.field('message.text', 'userData');" autocomplete="off">
     </div>
     <h3>{{'options.common.placement' | translate}}</h3>
     <div class="input">

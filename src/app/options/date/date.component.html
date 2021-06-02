@@ -115,7 +115,7 @@
     </div>
     <div class="input" *ngIf="settings.config.date.week.enabled">
       <label for="weekLabel">{{'options.common.label' | translate}}</label>
-      <input type="text" id="weekLabel" name="weekLabel" [(ngModel)]="settings.config.date.week.label" autocomplete="off" (change)="ga.field('date.week.label', settings.config.date.week.label);">
+      <input type="text" id="weekLabel" name="weekLabel" [(ngModel)]="settings.config.date.week.label" autocomplete="off" (change)="ga.field('date.week.label', 'userData');">
     </div>
     <div class="input" *ngIf="settings.config.date.week.enabled">
       <label>{{'options.common.size' | translate}}</label>

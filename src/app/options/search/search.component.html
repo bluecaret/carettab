@@ -13,7 +13,7 @@
     </div>
     <div class="input">
       <label>{{'options.search.label' | translate}}</label>
-      <input type="text" name="searchLabel" id="searchLabel" [(ngModel)]="settings.config.search.label" (ngModelChange)="ga.field('search.label', settings.config.search.label)">
+      <input type="text" name="searchLabel" id="searchLabel" [(ngModel)]="settings.config.search.label" (ngModelChange)="ga.field('search.label', 'userData')">
     </div>
     <div class="input">
       <label>{{'options.search.autocomplete' | translate}}<tooltip text="{{'options.search.autocompleteDesc' | translate}}"></tooltip></label>

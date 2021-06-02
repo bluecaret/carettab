@@ -13,7 +13,7 @@
 </div>
 <div class="input" *ngIf="settings.config.misc.title.type === 60">
   <label for="tabTitleCustom">{{'options.extra.tabCustomText' | translate}}<tooltip text="{{'options.extra.tabCustomTextDesc' | translate}}"></tooltip></label>
-  <input type="text" name="tabTitleCustom" id="tabTitleCustom" [(ngModel)]="settings.config.misc.title.text" (ngModelChange)="ga.field('misc.title.text', settings.config.misc.title.text)">
+  <input type="text" name="tabTitleCustom" id="tabTitleCustom" [(ngModel)]="settings.config.misc.title.text" (ngModelChange)="ga.field('misc.title.text', 'userData')">
 </div>
 <div class="input" *ngIf="settings.config.misc.title.type === 20 || settings.config.misc.title.type === 40 || settings.config.misc.title.type === 50">
   <label for="tabTitle">{{'options.extra.tabClock' | translate}}<tooltip text="{{'options.extra.tabClockDesc' | translate}}"></tooltip></label>

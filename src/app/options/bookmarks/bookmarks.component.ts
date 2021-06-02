@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { fade } from '../../_shared/animations';
 import { SharedService } from '../../_shared/shared.service';
+import { GoogleAnalyticsService } from '../../_shared/ga.service';
 
 @Component({
   selector: 'options-bookmarks',
@@ -23,7 +24,8 @@ export class OptionsBookmarksComponent implements OnInit {
   constructor (
     public settings: Storage,
     public shared: SharedService,
-    private zone: NgZone
+    private zone: NgZone,
+    public ga: GoogleAnalyticsService
   ) {
   }
 
@@ -53,6 +55,10 @@ export class OptionsBookmarksComponent implements OnInit {
     const that = this;
     chrome.permissions.contains({permissions: ['bookmarks']}, function(result) {
       that.zone.run(() => {
+        if (chrome.runtime.lastError) {
+          that.shared.echo('Error checking Bookmark permission', chrome.runtime.lastError, '', 'error');
+        }
+        that.shared.echo('Permission check: Bookmark allowed?', result);
         that.allowBookmarks(result);
       });
     });
@@ -62,6 +68,10 @@ export class OptionsBookmarksComponent implements OnInit {
     const that = this;
     chrome.permissions.request({permissions: ['bookmarks']}, function(granted) {
       that.zone.run(() => {
+        if (chrome.runtime.lastError) {
+          that.shared.echo('Error setting Bookmark permission', chrome.runtime.lastError, '', 'error');
+        }
+        that.shared.echo('Set Permission: Bookmark', granted);
         that.allowBookmarks(granted);
       });
     });
@@ -79,6 +89,10 @@ export class OptionsBookmarksComponent implements OnInit {
     const that = this;
     chrome.permissions.contains({permissions: ['topSites']}, function(result) {
       that.zone.run(() => {
+        if (chrome.runtime.lastError) {
+          that.shared.echo('Error checking TopSites permission', chrome.runtime.lastError, '', 'error');
+        }
+        that.shared.echo('Permission check: TopSites allowed?', result);
         that.allowTopSites(result);
       });
     });
@@ -88,6 +102,10 @@ export class OptionsBookmarksComponent implements OnInit {
     const that = this;
     chrome.permissions.request({permissions: ['topSites']}, function(granted) {
       that.zone.run(() => {
+        if (chrome.runtime.lastError) {
+          that.shared.echo('Error setting TopSites permission', chrome.runtime.lastError, '', 'error');
+        }
+        that.shared.echo('Set Permission: TopSites', granted);
         that.allowTopSites(granted);
       });
     });
@@ -102,7 +120,7 @@ export class OptionsBookmarksComponent implements OnInit {
   }
 
   resetEdit() {
-    let lng = this.settings.config.bookmarks.length;
+    let lng = this.settings.config.quickLink.links.length;
     this.editMode = new Array(lng);
     this.editMode.fill(false);
   }
@@ -113,7 +131,12 @@ export class OptionsBookmarksComponent implements OnInit {
       let id = this.shared.createID('LINK');
       let label = model.value.label;
       let url = this.checkLink(model.value.url);
-      this.settings.config.bookmarks.links.push({
+      this.settings.config.quickLink.links.push({
+        id: id,
+        label: label,
+        url: url,
+      });
+      this.shared.echo('New link added', '', {
         id: id,
         label: label,
         url: url,
@@ -127,8 +150,12 @@ export class OptionsBookmarksComponent implements OnInit {
 
   updateLink(label: string, url: string, index: number, isValid: boolean) {
     if (isValid) {
-      this.settings.config.bookmarks.links[index].label = label;
-      this.settings.config.bookmarks.links[index].url = this.checkLink(url);
+      this.settings.config.quickLink.links[index].label = label;
+      this.settings.config.quickLink.links[index].url = this.checkLink(url);
+      this.shared.echo('Link edited', '', {
+        label: label,
+        url: url,
+      });
       this.resetEdit();
     }
   }
@@ -147,7 +174,8 @@ export class OptionsBookmarksComponent implements OnInit {
   }
 
   deleteLink(link: any[], index: number) {
-    this.settings.config.bookmarks.links.splice(index, 1);
+    this.settings.config.quickLink.links.splice(index, 1);
+    this.shared.echo('Link deleted', '', link);
     this.resetEdit();
   }
 
@@ -160,39 +188,5 @@ export class OptionsBookmarksComponent implements OnInit {
 
   trackByFn(index: any, item: any) {
     return index;
-  }
-
-  recoverLinks() {
-    if (this.recoveredQuickLinks.length > 0) {
-      this.recoveredQuickLinks.forEach((l) => {
-        this.addRecoveredLink(l.label, l.url);
-      });
-      this.importStatus = 'Import completed.';
-      console.log('Imported Quick Links: ', this.recoveredQuickLinks);
-    } else {
-      this.importStatus = 'No Quick Links found to import.';
-    }
-  }
-
-  addRecoveredLink(label: string, url: string) {
-    let id = this.shared.createID('LINK');
-    this.settings.config.bookmarks.links.push({
-      id: id,
-      label: label,
-      url: url,
-    });
-  }
-
-  clearOldLinks() {
-    let c = confirm(
-      // tslint:disable-next-line:max-line-length
-      'ARE YOU SURE YOU WANT TO DELETE YOUR OLD LINKS?\nThis cannot be reversed.'
-    );
-    if (c === true) {
-      chrome.storage.sync.remove('links');
-      this.importStatus = 'Old links cleared.';
-    } else {
-      this.importStatus = 'Action cancelled.';
-    }
   }
 }

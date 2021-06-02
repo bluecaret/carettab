@@ -17,14 +17,12 @@ $optionsToggleUpdateNoticeOffset: 16px;
   padding: 0;
   width: $optionsToggleHeight;
   height: $optionsToggleHeight;
-  transition: all .3s;
   cursor: pointer;
   overflow: hidden;
   &:focus {
     outline: none;
     box-shadow: 
-      inset 0 0 0 3px black,
-      inset 0 0 0 6px white;
+      inset 0 0 0 3px currentColor;
   }
   span {
     opacity: .5;

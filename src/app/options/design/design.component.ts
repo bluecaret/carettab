@@ -3,6 +3,7 @@ import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
 import { fontList, colors, customFontWeight, patterns, bgSize, bgBlend } from '../../_shared/lists/lists';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { GoogleAnalyticsService } from '../../_shared/ga.service';
 
 @Component({
   selector: 'options-design',
@@ -18,6 +19,8 @@ export class OptionsDesignComponent implements OnInit {
   currentFont: string;
   currentWeight: number;
   imageSrc: SafeResourceUrl;
+  toggleColors = false;
+  togglePatterns = false;
   noPattern = {
     id: 0,
     pattern: '0.png'
@@ -26,13 +29,24 @@ export class OptionsDesignComponent implements OnInit {
   constructor(
     public sanitizer: DomSanitizer,
     public settings: Storage,
-    public shared: SharedService
+    public shared: SharedService,
+    public ga: GoogleAnalyticsService
   ) {
     this.imageSrc = '';
   }
 
   ngOnInit() {
     this.getFont();
+  }
+
+  toggleDesign(type: 'colors' | 'patterns') {
+    if (type === 'colors') {
+      this.toggleColors ? this.toggleColors = false : this.toggleColors = true;
+      this.togglePatterns = false;
+    } else if (type === 'patterns') {
+      this.toggleColors = false;
+      this.togglePatterns ? this.togglePatterns = false : this.togglePatterns = true;
+    }
   }
 
   getFont() {
@@ -60,17 +74,26 @@ export class OptionsDesignComponent implements OnInit {
     this.settings.config.design.background = c.bg;
     this.settings.config.design.foreground = c.fg;
     this.settings.config.design.colorsId = c.id;
+    this.shared.echo('Color theme selected', null, c);
+    this.setLocalBg(c.bg);
+  }
+
+  setLocalBg(bg = this.shared.bgColor) {
+    this.shared.bgColor = bg;
+    localStorage.setItem('ct-background', bg);
   }
 
   setPattern(p: {id: number, pattern: string}) {
     let bg = './assets/patterns/' + p.pattern;
     this.settings.config.design.patternId = p.id;
     this.settings.config.design.imageSize = 10;
+    localStorage.removeItem('bgImg');
+    this.shared.echo('Background removed from localStorage', null, null, 'save');
     if (p.id === 0) {
-      localStorage.removeItem('bgImg');
       bg = './assets/patterns/0.png';
     }
     this.shared.bg = bg;
+    this.shared.echo('Pattern changed', bg);
   }
 
   encodeImage(e, input) {
@@ -93,14 +116,18 @@ export class OptionsDesignComponent implements OnInit {
       try {
         localStorage.setItem('bgImg', uploadSrc);
         this.shared.bg = uploadSrc;
-        this.settings.config.design.patternId = 900;
+        this.settings.config.design.patternId = 99999;
         this.settings.config.design.imageSize = 20;
+        this.shared.echo('Background saved to localStorage', uploadSrc.substr(0,20), null, 'save');
       } catch (e) {
         if (this.isQuotaExceeded(e)) {
           let msg = 'Sorry, the file size of your image is too big.';
           msg += ' Try a smaller image or resize your image at';
           msg += ' https://www.reduceimages.com/';
           alert(msg);
+          this.shared.echo('Background image failed, image file too large', uploadSrc.substr(0,20), null, 'error')
+        } else {
+          this.shared.echo('Background image failed for unknown reason', uploadSrc.substr(0,20), null, 'error')
         }
       }
     }, 100);

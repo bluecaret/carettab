@@ -1,7 +1,23 @@
+.pageWrap {
+  display: block;
+  width: 100%;
+  flex: 1 1 100%;
+  position: relative;
+  background: var(--optBg);
+  border-radius: 0 10px 10px 0;
+}
+
 .page {
-  margin: 0px 0 0 0;
-  padding: 30px 20px 20px 20px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 24px 24px 0;
   overflow-x: visible;
   overflow-y: scroll;
   position: relative;
+  scrollbar-color: var(--optNavBorder);
+  scrollbar-width: 20px;
+  & > *:last-child {
+    margin-bottom: 40px;
+  }
 }

@@ -27,16 +27,25 @@
       "url": "URL"
     },
     "common": {
+      "aboutLink": "About",
+      "add": "Add",
+      "contactLink": "Contact",
       "delimiter": "Delimiter",
+      "down": "Down",
       "format": "Format",
       "label": "Label",
       "moveDown": "Move below other elements",
       "moveUp": "Move above other elements",
+      "off": "Off",
       "offset": "Offset",
+      "on": "On",
       "order": "Order",
       "placement": "Placement",
+      "privacyPolicy": "Privacy Policy and Terms of Use",
       "size": "Size",
+      "supportLink": "Support",
       "timezone": "Timezone",
+      "up": "Up",
       "width": "Width"
     },
     "dashboard": {
@@ -47,7 +56,9 @@
       "new": "What's new?",
       "review": "Leave review",
       "share": "Share",
-      "supportDev": "You can help support and improve CaretTab"
+      "supportDev": "You can help support and improve CaretTab",
+      "updated": "Updated",
+      "whatsNew": "What's new?"
     },
     "date": {
       "abbr": "Abbreviated",
@@ -92,10 +103,14 @@
       "globalSize": "Global size",
       "globalSizeDesc": "Adjust the size of all elements.",
       "hardToSee": "Image too hard to see? Try changing the filter.",
+      "removeWallpaper": "Click to remove selected wallpaper",
+      "selectedWallpaper": "Selected wallpaper",
       "wallpaper": "Wallpaper"
     },
     "extra": {
       "advanced": "Advanced",
+      "enableAnalytics": "Enable analytics data",
+      "enableAnalyticsDesc": "CaretTab would like to report your usage of the extension to analytics. This helps us improve the extension by learning how it is used. This tracks data such as when the settings menu is opened and when settings are altered. This does not track any personal identifying information. You can opt-in or opt-out at any time.",
       "extra": "Extra",
       "hideLogo": "Hide logo",
       "hideMenu": "Hide settings button",
@@ -126,9 +141,11 @@
       "searchEngine": "Search engine"
     },
     "time": {
+      "actions": "Actions",
       "addNewClock": "Add New Clock",
       "analog": "Analog",
-      "analogEnable": "Displays the clock in an analog style instead of digital.",
+      "analogEnable": "Enable analog clock",
+      "analogEnableDesc": "Displays the clock in an analog style instead of digital.",
       "analogStyle": "Analog style",
       "analogStyleDesc": "Choose the style of analog clock",
       "automatic": "Automatic",
@@ -143,6 +160,7 @@
       "bracketsRight": "Right",
       "bracketsRightDesc": "Enter the symbol to represent the right-side bracket",
       "bracketsSize": "Adjusts the size of the brackets relative to the clock",
+      "clock": "Clock",
       "deleteClock": "Delete clock",
       "delimiter": "Delimiter",
       "delimiterBlink": "Blink delimiter",
@@ -182,7 +200,7 @@
       "secondsSize": "Adjusts the size of the seconds relative to the clock",
       "showOptions": "Show more options",
       "sizeDesc": "Change the size of the clock.",
-      "span": "Span",
+      "span": "Width",
       "spanDesc": "Changes how much space the clock uses.",
       "symbol": "Symbol",
       "symbolAm": "Enter the symbol to represent \"A.M.\"",
@@ -191,8 +209,8 @@
       "time": "Time",
       "timezoneDesc": "Choose a timezone for the clock (the default is your local timezone).",
       "twentyFour": "24 hour",
-      "twentyFourDesc": "Display clock in 24-hour format instead of 12-hour (will disable meridiem).",
-      "twoDigit": "Two-digit",
+      "twentyFourDesc": "Display clock in 24-hour format instead of 12-hour.",
+      "twoDigit": "Two-digit hour",
       "twoDigitDesc": "Always show the hour in two digits."
     }
   },
@@ -229,30 +247,6 @@
     },
     "skip": "Skip",
     "updatedTo": "CaretTab has been updated to",
-    "v3": {
-      "importLinks": "Attempt to import Quick Links",
-      "important": "Important:",
-      "l1": "CaretTab has been recreated from scratch to improve performance and stability!",
-      "l2": "Clocks now have full customization! You can now set all settings on all clocks, give it a try!",
-      "l3": "Change the order of clocks and quick links.",
-      "l4": "More size options. Now most elements can be resized individually.",
-      "l5": "Wallpaper options! Use some provided textures or your own custom image.",
-      "l6": "Use any font installed on your machine!",
-      "l7": "Display your browser's bookmarks bar on the new tab page.",
-      "l8": "Lots more! take a look around and try things out.",
-      "p1": "Let's go over some important information and what's new.",
-      "p2": "This update changes the way settings are saved as well as changes a lot of features. Unfortunately due to these differences and to save on development time, not all settings can be saved. You will need to apply your settings again. I apologize for the inconvenience this causes but I promise the update will be worth it! To help with the transition, your Quick Links can be imported using the button below. Please copy the list of links shown as a backup in case import fails.",
-      "p3": "The next screen will bring you through some basic options to get started.",
-      "recovered": "Quick Links from previous version",
-      "title": "The biggest update yet!"
-    },
-    "v310": {
-      "l1": "Updated | script for more accurate times in various time zones.",
-      "l2": "Fixed default background to be based on web browser theme to avoid bright flickers as page loads.",
-      "l3": "Allow restoring of old Quick Links from v2 at any time via the Quick Links settings (if no quick links were found from that version, nothing will display).",
-      "l4": "Fix issue that prevented v3 of extension from being published to Firefox.",
-      "l5": "Now available on Microsoft Edge!"
-    },
     "v320": {
       "l1": "Added GMT offset timezones",
       "l2": "Added ability to use ISO standard for week numbers",
@@ -268,6 +262,15 @@
       "l1": "Added keyboard shortcuts to Quick Links. Now you can quickly load the first 10 quick links using a keyboard shortcut. Hover over a quick link to see what the shortcut is. You must tab out of the address bar first so the new tab page is in focus.",
       "l2": "Clicking the custom background preview will now remove the background.",
       "l3": "Added CaretTab logo to bottom corner. This can be turned off within the extra settings menu."
+    },
+    "v340": {
+      "h2": "Help improve CaretTab by enabling analytics data",
+      "l1": "Updated settings menu! The settings menu has been overhauled to be cleaner, simpler, and easier to use.",
+      "l2": "Dark mode! The settings panel will now display in a dark mode based on your preference set in your operating system.",
+      "l3": "More translations! Now available in Italian, Portuguese, Swedish, Urdu, and Chinese (traditional)",
+      "l4": "Restructured storage for settings to avoid storage limits (this should fix some \"white screen\" bugs some users have experienced). Your previous settings will be migrated to the new structure automatically.",
+      "l5": "Improved the \"white flash\" bug when loading a new tab. The flash should be much less obvious especially in dark mode.",
+      "l6": "Added analytics to help improve CaretTab. You can opt-in or opt-out of this at any time."
     },
     "yes": "Yes"
   },

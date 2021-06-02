@@ -5,6 +5,7 @@ import { TimezoneService, Timezone } from './timezone.service';
 import { SharedService } from '../../_shared/shared.service';
 import { analogStyles, span } from '../../_shared/lists/lists';
 import * as moment from 'moment-timezone';
+import { GoogleAnalyticsService } from '../../_shared/ga.service';
 
 @Component({
   selector: 'options-time',
@@ -52,7 +53,8 @@ export class OptionsTimeComponent {
   constructor(
     public shared: SharedService,
     public settings: Storage,
-    public tz: TimezoneService
+    public tz: TimezoneService,
+    public ga: GoogleAnalyticsService
   ) {
     this.allTimezones = tz.getZones();
     this.tzGuess = this.shared.zoneGuess;
@@ -67,8 +69,10 @@ export class OptionsTimeComponent {
   setSelected(i) {
     if (this.selected !== i) {
       this.selected = i;
+      this.shared.echo('Selected clock:', `${i}`);
     } else {
       this.selected = null;
+      this.shared.echo('Unselected clock:', `${i}`);
     }
   }
 
@@ -78,12 +82,14 @@ export class OptionsTimeComponent {
     let i = (this.settings.config.time.clocks.length - 1);
     this.shared.toggleOrder(this.settings.config.time.clocks[i].id, true);
     this.selected = i;
+    this.shared.echo('New clock added');
   }
 
   /** Deletes clock */
   delete(index: number) {
     if (confirm('Are you sure you want to delete this clock?')) {
       this.shared.toggleOrder(this.settings.config.time.clocks[index].id, false);
+      this.shared.echo('Clock removed', null, this.settings.config.time.clocks[index]);
       this.settings.config.time.clocks.splice(index, 1);
     } else {
       return;

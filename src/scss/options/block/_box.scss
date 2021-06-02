@@ -1,18 +1,23 @@
 .box {
-  border: 1px solid darken($lightGray, 10%);
+  border: 1px solid var(--optShadow);
   border-radius: 10px;
-  padding: 10px;
-}
-.boxHeading {
-  margin: 0 0 10px 0;
+  padding: .7em;
+  &.boxStacked {
+    border-radius: 0;
+    border-bottom: 0;
+    &:first-child {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    &:last-child {
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      border-bottom: 1px solid var(--optShadow);
+    }
+  }
 }
 
-.sub {
-  border: 0 solid darken($lightGray, 10%);
-  border-left-width: 5px;
-  padding: 10px 0 10px 10px;
-  margin-left: 5px;
-}
-.subHeading {
-  margin-top: 0;
+.indent {
+  margin-top: 1.5em;
+  padding-left: 1em;
 }

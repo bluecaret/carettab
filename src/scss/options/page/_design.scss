@@ -49,10 +49,12 @@
   border: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-  background-size: contain;
-  background-repeat: repeat;
+  height: ($fieldHeight * 3);
+  border-radius: 6px;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
+  box-shadow: inset 0 0 0 2px var(--optAccent);
   .icon {
     font-size: 32px;
     line-height: 1;
@@ -67,5 +69,35 @@
     .icon {
       opacity: 1;
     }
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--optAccent), inset 0 0 0 2px var(--optBg);
+  }
+}
+
+.designGrid {
+  grid-gap: 8px;
+}
+
+.patternBtn {
+  height: 70px;
+  box-shadow: inset 0 0 0 2px var(--optAccent);
+  border-radius: 35px;
+}
+
+.colorsBtn {
+  box-shadow: none;
+}
+
+.colorsBtn,
+.patternBtn {
+  text-align: center;
+  &.active {
+    box-shadow: 0 0 0 4px var(--optText), inset 0 0 0 2px var(--optBg);
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--optAccent), inset 0 0 0 2px var(--optBg);
   }
 }

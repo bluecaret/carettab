@@ -1,0 +1,296 @@
+{
+  "list": {
+    "title": {
+      "custom": "自訂文字",
+      "date": "日期",
+      "dateTime": "日期，然後是時間",
+      "newTab": "“新標籤”",
+      "time": "時間",
+      "timeDate": "時間，然後是日期"
+    }
+  },
+  "options": {
+    "bookmarks": {
+      "appsLink": "應用程式連結",
+      "chromeTabLink": "默認標籤頁",
+      "enableBar": "書籤欄",
+      "enableQuick": "快速鏈接",
+      "favicons": "網站圖示",
+      "headingBar": "書籤",
+      "headingQuick": "快速鏈接",
+      "historyLink": "歷史鏈接",
+      "labelValidation": "鏈接必須具有標籤。",
+      "linkValidation": "鏈接必須具有URL（網站地址）。",
+      "managerLink": "書籤管理器",
+      "mostVisited": "訪問最多的站點",
+      "save": "保存新鏈接",
+      "url": "網址"
+    },
+    "common": {
+      "aboutLink": "關於",
+      "add": "加",
+      "contactLink": "聯繫",
+      "delimiter": "定界符",
+      "down": "下",
+      "format": "格式",
+      "label": "標籤",
+      "moveDown": "移至其他元素下方",
+      "moveUp": "移至其他元素之上",
+      "off": "關閉",
+      "offset": "偏移量",
+      "on": "上",
+      "order": "訂購",
+      "placement": "放置",
+      "privacyPolicy": "隱私政策和使用條款",
+      "size": "尺寸",
+      "supportLink": "支持",
+      "timezone": "時區",
+      "up": "向上",
+      "width": "寬度"
+    },
+    "dashboard": {
+      "contribute": "貢獻代碼",
+      "credit": "CaretTab |由| BlueCaret |設計和編碼並根據| MIT許可證|獲得許可。",
+      "donate": "與貝寶捐款",
+      "needHelp": "如果您需要幫助或有建議，可以聯繫開發人員，| BlueCaret |。在推特上| @BlueCaret |或在| GitHub |上查看CaretTab。",
+      "new": "什麼是新的？",
+      "review": "留下評論",
+      "share": "分享",
+      "supportDev": "您可以幫助支持和改善CaretTab",
+      "updated": "更新",
+      "whatsNew": "什麼是新的？"
+    },
+    "date": {
+      "abbr": "簡寫",
+      "automatic": "自動",
+      "date": "日期",
+      "day": "天",
+      "dayOfWk": "星期幾",
+      "enableDay": "啟用日期",
+      "enableDayOfWk": "啟用星期幾",
+      "enableMonth": "啟用月份",
+      "enableShortDate": "啟用短日期",
+      "enableWeekNum": "啟用星期數",
+      "enableYear": "啟用年份",
+      "month": "月",
+      "shortDate": "短期約會",
+      "twoDigit": "兩位數",
+      "weekIso": "ISO週數",
+      "weekIsoDesc": "使用ISO 8601日期和時間標準中的ISO週日期系統。",
+      "weekNum": "週數",
+      "year": "年"
+    },
+    "design": {
+      "bg": "自訂背景",
+      "brightness": "亮度",
+      "browseForImg": "瀏覽圖片...",
+      "colors": "顏色",
+      "customFontDesc": "輸入本地安裝的字體的名稱。您必須在計算機上安裝該字體，字體才能正常工作。",
+      "customFontName": "自定義字體名稱",
+      "customFontUsage": "要使用自定義字體，您必須準確鍵入字體名稱。自定義字體必須|本地安裝在您的計算機上|。您可以從| Google字體|獲得更多字體。或| 1001免費字體|。",
+      "customWallpaper": "定制牆紙",
+      "design": "設計",
+      "dontSync": "自定義圖像無法在計算機之間同步。",
+      "dynScale": "動態縮放",
+      "dynScaleDesc": "動態縮放允許您根據瀏覽器的寬度來更改元素的大小。無論您的瀏覽器大小如何，都請保持大小不變。",
+      "fg": "自定義前景",
+      "fill": "填",
+      "filter": "過濾",
+      "font": "字形",
+      "fontWeight": "自定義字體粗細",
+      "fontWeightDesc": "選擇自定義字體的字體粗細。某些字體不支持所有粗細。",
+      "getMorePatterns": "在|透明紋理|上獲得更多圖案或| Toptal |。",
+      "globalSize": "全球規模",
+      "globalSizeDesc": "調整所有元素的大小。",
+      "hardToSee": "圖像太難看了嗎？嘗試更換過濾器。",
+      "removeWallpaper": "單擊以刪除選定的牆紙",
+      "selectedWallpaper": "精選壁紙",
+      "wallpaper": "牆紙"
+    },
+    "extra": {
+      "advanced": "高級",
+      "enableAnalytics": "啟用分析數據",
+      "enableAnalyticsDesc": "CaretTab希望向分析報告您對擴展的使用。這有助於我們通過了解擴展名的使用方式來改進擴展名。這會跟踪數據，例如打開設置菜單和更改設置的時間。這不會跟踪任何個人識別信息。您可以隨時選擇加入或退出。",
+      "extra": "額外",
+      "hideLogo": "隱藏徽標",
+      "hideMenu": "隱藏設置按鈕",
+      "hideMenuDesc": "啟用後，將鼠標懸停在右下角時，將顯示菜單按鈕。",
+      "lang": "語言",
+      "reset": "重啟",
+      "resetDesc": "如果要將所有設置重置為默認設置，可以單擊此按鈕，然後刷新頁面。這將刪除所有設置。",
+      "resetToDefault": "重置為默認",
+      "tabClock": "標題時鐘",
+      "tabClockDesc": "選擇在“新標籤”標題中顯示的內容（顯示在標籤本身以及瀏覽器的標題欄中）。",
+      "tabCustomText": "標籤標題的自定義文本",
+      "tabCustomTextDesc": "輸入自定義標籤標題的文本。僅在為“選項卡標題”選擇“自定義文本”時適用。",
+      "tabTitle": "標籤標題",
+      "tabTitleDesc": "選擇在“新標籤”標題中顯示的內容（顯示在標籤本身以及瀏覽器的標題欄中）。"
+    },
+    "message": {
+      "customMsg": "自訂訊息",
+      "msg": "信息",
+      "msgText": "訊息文字",
+      "msgTextDesc": "輸入自定義消息的文本。"
+    },
+    "search": {
+      "autocomplete": "自動完成",
+      "autocompleteDesc": "關閉此功能可在搜索框上禁用瀏覽器的自動完成功能。",
+      "label": "標籤",
+      "search": "搜索",
+      "searchBox": "搜索框",
+      "searchEngine": "搜索引擎"
+    },
+    "time": {
+      "actions": "動作",
+      "addNewClock": "添加新時鐘",
+      "analog": "模擬量",
+      "analogEnable": "啟用模擬時鐘",
+      "analogEnableDesc": "以模擬方式而不是數字方式顯示時鐘。",
+      "analogStyle": "模擬風格",
+      "analogStyleDesc": "選擇模擬時鐘的樣式",
+      "automatic": "自動",
+      "brackets": "括號",
+      "bracketsDim": "暗括號",
+      "bracketsEnable": "啟用方括號",
+      "bracketsLeft": "剩下",
+      "bracketsLeftDesc": "輸入代表左括號的符號",
+      "bracketsOffset": "向上或向下調整支架的位置",
+      "bracketsPadding": "填充",
+      "bracketsPaddingDesc": "調整括號和時間之間的間隔",
+      "bracketsRight": "對",
+      "bracketsRightDesc": "輸入代表右方括號的符號",
+      "bracketsSize": "調整支架相對於時鐘的大小",
+      "clock": "鐘",
+      "deleteClock": "刪除時鐘",
+      "delimiter": "定界符",
+      "delimiterBlink": "閃爍定界符",
+      "delimiterOffset": "上下調整定界符的位置",
+      "delimiterSize": "相對於時鐘調整定界符的大小",
+      "dimDelimiter": "昏暗定界符",
+      "enableDelimiter": "啟用定界符",
+      "generalSettings": "常規時鐘設置",
+      "hideOptions": "隱藏其他選項",
+      "label": "標籤",
+      "labelDesc": "在時鐘旁邊顯示標籤。留空不留標籤。",
+      "labelDim": "暗淡標籤",
+      "labelEnable": "啟用標籤",
+      "labelOffset": "上下調整標籤的位置",
+      "labelSize": "調整標籤相對於時鐘的大小",
+      "meridiem": "子午線",
+      "meridiemDim": "暗淡的子午線",
+      "meridiemEnable": "啟用子午線",
+      "meridiemOffset": "向上或向下調整子午線的位置",
+      "meridiemSize": "相對於時鐘調整子午線的大小",
+      "moveDown": "下移時鐘順序",
+      "moveUp": "向上移動時鐘順序",
+      "note": "筆記：",
+      "noteText": "時間是根據您的計算機設置的時間和時區進行的有根據的猜測，可能無法反映您的實際時間。 CaretTab猜測您當前的時區為：",
+      "offsetDesc": "上下調整時鐘的位置。",
+      "padding": "填充",
+      "paddingDesc": "更改時鐘數字之間的填充。",
+      "relativeDim": "相對時間暗淡",
+      "relativeEnable": "啟用相對於您當地時間的時間顯示。",
+      "relativeOffset": "向上或向下調整相對時間標籤的位置",
+      "relativeSize": "調整相對於時鐘的相對時間標籤的大小",
+      "relativeTime": "相對時間",
+      "seconds": "秒",
+      "secondsDim": "昏暗秒",
+      "secondsEnable": "啟用秒",
+      "secondsOffset": "上下調整秒數的位置",
+      "secondsSize": "調整相對於時鐘的秒數",
+      "showOptions": "顯示更多選項",
+      "sizeDesc": "更改時鐘的大小。",
+      "span": "寬度",
+      "spanDesc": "更改時鐘使用的空間。",
+      "symbol": "符號",
+      "symbolAm": "輸入代表“ A.M.”的符號",
+      "symbolDesc": "輸入符號代表定界符",
+      "symbolPm": "輸入代表“下午”的符號",
+      "time": "時間",
+      "timezoneDesc": "選擇時鐘的時區（默認為您的本地時區）。",
+      "twentyFour": "24小時",
+      "twentyFourDesc": "以24小時格式而非12小時格式顯示時鐘。",
+      "twoDigit": "兩位數小時",
+      "twoDigitDesc": "始終以兩位數字顯示小時。"
+    }
+  },
+  "splash": {
+    "back": "背部",
+    "getStarted": "開始吧！",
+    "letsGo": "我們走吧！",
+    "new": "什麼是新的？",
+    "next": "下一個",
+    "no": "沒有",
+    "s1": {
+      "p1": "讓我們來看一些基本設置以開始使用...",
+      "welcome": "歡迎來到CaretTab |您的|新|新標籤頁！"
+    },
+    "s2": {
+      "title": "選擇一種語言"
+    },
+    "s3": {
+      "title": "您要顯示時鐘嗎？"
+    },
+    "s4": {
+      "title": "您要顯示日期嗎？"
+    },
+    "s5": {
+      "title": "顯示書籤欄？"
+    },
+    "s6": {
+      "title": "選擇您喜歡的顏色"
+    },
+    "s7": {
+      "p1": "CaretTab可以完全定制！您會在設置菜單中找到更多選項。",
+      "p2": "要打開設置菜單，請單擊右下角的圖標。",
+      "title": "這只是冰山一角！"
+    },
+    "skip": "跳躍",
+    "updatedTo": "CaretTab已更新至",
+    "v320": {
+      "l1": "添加了GMT偏移時區",
+      "l2": "增加了將ISO標準用於週號的功能",
+      "l3": "添加了始終以兩位數顯示小時的選項",
+      "l4": "新增了隱藏設置按鈕的功能",
+      "l5": "添加了更改搜索欄標籤的選項",
+      "l6": "將CaretTab中的默認搜索更改為Yahoo。",
+      "l7": "默認情況下禁用動態縮放",
+      "l8": "更新的時區數據",
+      "l9": "Bug修復"
+    },
+    "v330": {
+      "l1": "在快速鏈接中添加了鍵盤快捷鍵。現在，您可以使用鍵盤快捷鍵快速加載前10個快速鏈接。將鼠標懸停在快速鏈接上可以查看快捷方式是什麼。您必須先從地址欄跳出標籤，這樣才能使新標籤頁成為焦點。",
+      "l2": "單擊自定義背景預覽現在將刪除背景。",
+      "l3": "在底角添加了CaretTab徽標。可以在附加設置菜單中將其關閉。"
+    },
+    "v340": {
+      "h2": "通過啟用分析數據幫助改進 CaretTab",
+      "l1": "更新了設置菜單！設置菜單已經過大修，變得更乾淨、更簡單、更易於使用。",
+      "l2": "黑暗模式！設置面板現在將根據您在操作系統中設置的首選項以暗模式顯示。",
+      "l3": "更多翻譯！現在提供意大利語、葡萄牙語、瑞典語、烏爾都語和中文（繁體）",
+      "l4": "為設置重組存儲以避免存儲限制（這應該修復一些用戶遇到的一些“白屏”錯誤）。您之前的設置將自動遷移到新結構。",
+      "l5": "改進了加載新標籤時的“白色閃光”錯誤。閃光燈應該不那麼明顯，尤其是在黑暗模式下。",
+      "l6": "添加了分析以幫助改進 CaretTab。您可以隨時選擇加入或退出。"
+    },
+    "yes": "是"
+  },
+  "tab": {
+    "bookmarks": {
+      "links": {
+        "apps": "應用",
+        "bookmarksManager": "書籤管理器",
+        "chromeTab": "默認標籤頁",
+        "history": "歷史",
+        "mostVisited": "訪問最多的站點"
+      }
+    }
+  },
+  "title": {
+    "newTab": "新標籤"
+  },
+  "toggleSettings": {
+    "close": "保存並關閉設置",
+    "open": "打開設置",
+    "updated": "擴展程序已更新！單擊此處打開設置，然後查看新功能。"
+  }
+}

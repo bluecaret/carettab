@@ -4,8 +4,8 @@
   "name": "__MSG_appName__",
   "short_name": "CaretTab",
   "description": "__MSG_appDesc__",
-  "version": "3.3.1",
-  "version_name": "3.3.1",
+  "version": "3.4.0",
+  "version_name": "3.4.0",
   "default_locale": "en",
 
   "icons": { "16": "assets/img/icon16.png",
@@ -33,6 +33,6 @@
     "topSites"
   ],
 
-  "content_security_policy": "script-src 'self'; object-src 'self'"
+  "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'"
 
 }

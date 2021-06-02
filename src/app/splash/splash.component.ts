@@ -43,17 +43,6 @@ export class SplashComponent implements OnInit {
         this.step = 900;
       } else if (this.shared.updateType === "major") {
         this.step = 800;
-        chrome.storage.sync.get((a) => {
-          this.printRecoveredQuickLinks = '';
-          if (a.links && a.links.length > 0) {
-            for (let i = 0; i < a.links.length; i++) {
-              this.printRecoveredQuickLinks += a.links[i].label + ' <' + a.links[i].url + '>\n'  ;
-              this.recoveredQuickLinks.push({id: this.shared.createID('LINK'), label: a.links[i].label, url: a.links[i].url});
-            }
-          } else {
-            this.printRecoveredQuickLinks = 'No Quick Links found.';
-          }
-        });
       }
     }
     this.checkBookmarkPermission();
@@ -61,7 +50,7 @@ export class SplashComponent implements OnInit {
 
   recoverLinks() {
     if (this.recoveredQuickLinks.length > 0) {
-      this.settings.config.bookmarks.links = this.recoveredQuickLinks;
+      this.settings.config.quickLink.links = this.recoveredQuickLinks;
       this.importStatus = 'Import completed.';
       console.log('Imported Quick Links: ', this.recoveredQuickLinks);
     } else {
@@ -75,12 +64,12 @@ export class SplashComponent implements OnInit {
   }
 
   skipIntro() {
-    this.settings.setAll(this.settings.config); // Save
+    this.shared.saveAll(); // Save
     this.removeIntro();
   }
 
   chooseLang(lang: string) {
-    this.settings.config.lang = lang;
+    this.settings.config.i18n.lang = lang;
     this.translate.use(lang);
   }
 
@@ -152,6 +141,13 @@ export class SplashComponent implements OnInit {
       this.shared.toggleOrder(this.settings.config.time.clocks[0].id, false);
       this.settings.config.time.clocks = [];
     }
+    this.step = 3.1;
+  }
+
+  enableAnalytics(enable: boolean) {
+    this.settings.config.misc.enableAnalytics = true;
+    enable === true ?
+      localStorage.setItem('ct-enableAnalytics', 'true') : localStorage.setItem('ct-enableAnalytics', 'false');
     this.step = 4;
   }
 
@@ -196,9 +192,9 @@ export class SplashComponent implements OnInit {
 
   enableBookmarks(enable: boolean) {
     if (enable) {
-      this.settings.config.bookmarks.bookmarksBar.enabled = true;
+      this.settings.config.bookmark.enabled = true;
     } else {
-      this.settings.config.bookmarks.bookmarksBar.enabled = false;
+      this.settings.config.bookmark.enabled = false;
     }
     this.step = 6;
   }
@@ -207,10 +203,12 @@ export class SplashComponent implements OnInit {
     this.settings.config.design.background = c.bg;
     this.settings.config.design.foreground = c.fg;
     this.settings.config.design.colorsId = c.id;
+    this.shared.bgColor = c.bg;
+    localStorage.setItem('ct-background', c.bg);
   }
 
   finishIntro() {
-    this.settings.setAll(this.settings.config); // Save
+    this.shared.saveAll(); // Save
     this.removeIntro();
     this.shared.optionsToggle = true;
   }

@@ -11,6 +11,8 @@ export class SharedService {
   private _date: string;
   private _title: string = 'New Tab';
   private _bg: string;
+  private _bgColor: string;
+  private _browser: string;
   private _status: string;
   private _updateType: "major" | "minor" | "quiet" | "hidden";
 
@@ -68,6 +70,20 @@ export class SharedService {
     this._bg = value;
   }
 
+  get bgColor(): string {
+    return this._bgColor;
+  }
+  set bgColor(value: string) {
+    this._bgColor = value;
+  }
+
+  get browser(): string {
+    return this._browser;
+  }
+  set browser(value: string) {
+    this._browser = value;
+  }
+
   get status(): string {
     return this._status;
   }
@@ -80,6 +96,40 @@ export class SharedService {
   }
   set updateType(value: "major" | "minor" | "quiet" | "hidden") {
     this._updateType = value;
+  }
+
+  public echo(msg: string, str?: any, obj?: any, type?: 'warning' | 'error' | 'success' | 'save') {
+    let strStyle = 'display:inline-block;background:#f1f3f7;color:black;padding:5px;margin:0 0 0 5px;border-radius:5px;';
+    let style = 'display:inline-block;background:#ccd0da;color:black;padding:5px;border-radius:5px;';
+    if (type === 'warning') {
+      style = 'display:inline-block;background:#ffe000;color:black;padding:5px;border-radius:5px;';
+    } else if (type === 'error') {
+      style = 'display:inline-block;background:#c52525;color:white;padding:5px;border-radius:5px;';
+    } else if (type === 'success') {
+      style = 'display:inline-block;background:#7aa76b;color:white;padding:5px;border-radius:5px;';
+    } else if (type === 'save') {
+      style = 'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;';
+    }
+    if (str) {
+      console.log(
+        `%c${msg}%c${str}`, 
+        style, 
+        strStyle
+      );
+    }
+    if (obj) {
+      console.log(
+        `%c${msg}`, 
+        style, 
+        obj
+      );
+    }
+    if (!str && !obj) {
+      console.log(
+        `%c${msg}`, 
+        style
+      );
+    }
   }
 
   public createID(prefix: string) {
@@ -127,25 +177,25 @@ export class SharedService {
 
   public toggleOrder(id: string, enabled: boolean) {
       if (!enabled) {
-        let elIndex = this.settings.config.order.findIndex(e => e.id === id);
-        this.settings.config.order.splice(elIndex, 1);
-        let sorted = this.settings.config.order;
-        if (this.settings.config.order.length > 1) {
-          sorted = this.settings.config.order.sort((a, b) => a.order - b.order);
+        let elIndex = this.settings.config.order.items.findIndex(e => e.id === id);
+        this.settings.config.order.items.splice(elIndex, 1);
+        let sorted = this.settings.config.order.items;
+        if (this.settings.config.order.items.length > 1) {
+          sorted = this.settings.config.order.items.sort((a, b) => a.order - b.order);
         }
         sorted.forEach((e, index) => {
           e.order = index + 1;
         });
       } else {
-        let sorted = this.settings.config.order;
-        if (this.settings.config.order.length > 1) {
-          sorted = this.settings.config.order.sort((a, b) => a.order - b.order);
+        let sorted = this.settings.config.order.items;
+        if (this.settings.config.order.items.length > 1) {
+          sorted = this.settings.config.order.items.sort((a, b) => a.order - b.order);
         }
         let newOrderNumber = 1;
-        if (this.settings.config.order.length > 0) {
+        if (this.settings.config.order.items.length > 0) {
           newOrderNumber = (sorted[sorted.length - 1].order) + 1;
         }
-        this.settings.config.order.push({
+        this.settings.config.order.items.push({
           id: id,
           order: newOrderNumber
         });
@@ -154,16 +204,16 @@ export class SharedService {
 
   public changeOrder(id: string, up: boolean) {
     let sibling: any;
-    let el = this.settings.config.order.find(e => e.id === id);
+    let el = this.settings.config.order.items.find(e => e.id === id);
 
     if (up) {
-      sibling = this.settings.config.order.find(e => e.order === el.order - 1);
+      sibling = this.settings.config.order.items.find(e => e.order === el.order - 1);
       if (sibling) {
         sibling.order += 1;
         el.order -= 1;
       }
     } else {
-      sibling = this.settings.config.order.find(e => e.order === el.order + 1);
+      sibling = this.settings.config.order.items.find(e => e.order === el.order + 1);
       if (sibling) {
         sibling.order -= 1;
         el.order += 1;
@@ -172,7 +222,7 @@ export class SharedService {
   }
 
   public getOrder(id: string) {
-    let el = this.settings.config.order.find(e => e.id === id);
+    let el = this.settings.config.order.items.find(e => e.id === id);
     if (el) {
       return el.order;
     } else {
@@ -181,7 +231,7 @@ export class SharedService {
   }
 
   public isFirst(id: string): boolean {
-    let el = this.settings.config.order.find(e => e.id === id);
+    let el = this.settings.config.order.items.find(e => e.id === id);
     if (el) {
       return el.order === 1;
     } else {
@@ -190,14 +240,29 @@ export class SharedService {
   }
 
   public isLast(id: string): boolean {
-    let el = this.settings.config.order.find(e => e.id === id);
+    let el = this.settings.config.order.items.find(e => e.id === id);
     if (el) {
-      let sorted = this.settings.config.order.sort((a, b) => a.order - b.order);
+      let sorted = this.settings.config.order.items.sort((a, b) => a.order - b.order);
       let last = sorted[sorted.length - 1].order;
       return el.order === last;
     } else {
       return false;
     }
+  }
+
+  public saveAll() {
+    this.echo('Saving all data', '', this.settings.config, "save");
+
+    this.settings.setAll(this.settings.config.bookmark, 'ct-bookmark');
+    this.settings.setAll(this.settings.config.date, 'ct-date');
+    this.settings.setAll(this.settings.config.design, 'ct-design');
+    this.settings.setAll(this.settings.config.i18n, 'ct-i18n');
+    this.settings.setAll(this.settings.config.message, 'ct-message');
+    this.settings.setAll(this.settings.config.misc, 'ct-misc');
+    this.settings.setAll(this.settings.config.order, 'ct-order');
+    this.settings.setAll(this.settings.config.quickLink, 'ct-quick-link');
+    this.settings.setAll(this.settings.config.search, 'ct-search');
+    this.settings.setAll(this.settings.config.time, 'ct-time');
   }
 
 }

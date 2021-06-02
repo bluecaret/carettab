@@ -6,38 +6,130 @@
  * Modified by BlueCaret (John Hancock) <john0404@gmail.com>
  */
 import { Injectable, NgZone, Optional } from '@angular/core';
-import { Settings } from './settings';
+import { 
+  Settings, 
+  BookmarkSettings,
+  DateSettings,
+  DesignSettings,
+  I18nSettings,
+  MessageSettings,
+  MiscSettings,
+  OrderSettings,
+  QuickLinkSettings,
+  SearchSettings,
+  TimeSettings
+} from './settings';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable()
 export class Storage {
-  storeKey = ''; // chrome storage key
-  config: any;     // holds settings
+  private _loadTracker = 0;
+
+  storeKey = 'carettab'; // chrome storage key
+  config: Settings; // holds settings
+
   constructor(private zone: NgZone, @Optional() _settings: Settings) {
     let usethisSettings = (_settings) ? _settings : new Settings();
-    this.config = usethisSettings.data;
-    this.storeKey = usethisSettings.storeKey;
+    this.config = usethisSettings;
+    this.config.bookmark = new BookmarkSettings();
+    this.config.date = new DateSettings();
+    this.config.design = new DesignSettings();
+    this.config.i18n = new I18nSettings();
+    this.config.message = new MessageSettings();
+    this.config.misc = new MiscSettings();
+    this.config.order = new OrderSettings();
+    this.config.quickLink = new QuickLinkSettings();
+    this.config.search = new SearchSettings();
+    this.config.time = new TimeSettings();
+  }
+
+  get loadTracker(): number {
+    return this._loadTracker;
+  }
+  set loadTracker(value: number) {
+    this._loadTracker = value;
   }
 
   // to be used inside a resolver
   load() {
-    return this.getChrome(this.storeKey, this.config).then((data: any) => {
-      this.config = data;
-      return data;
+    // Old load code before splitting to different keys
+    // return this.getChrome(this.storeKey, this.config).then((data: any) => {
+    //   this.config = data;
+    //   return data;
+    // });
+
+    console.log('%cLoading data from storage.sync on page load.','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;');
+
+    this.getChrome('ct-bookmark', this.config.bookmark).then((data: any) => {
+      this.config.bookmark = data;
+      this.loadTracker++;
     });
+
+    this.getChrome('ct-date', this.config.date).then((data: any) => {
+      this.config.date = data;
+      this.loadTracker++;
+    });
+
+    this.getChrome('ct-design', this.config.design).then((data: any) => {
+      this.config.design = data;
+      this.loadTracker++;
+    });
+
+    this.getChrome('ct-i18n', this.config.i18n).then((data: any) => {
+      this.config.i18n = data;
+      this.loadTracker++;
+    });
+
+    this.getChrome('ct-message', this.config.message).then((data: any) => {
+      this.config.message = data;
+      this.loadTracker++;
+    });
+
+    this.getChrome('ct-misc', this.config.misc).then((data: any) => {
+      this.config.misc = data;
+      this.loadTracker++;
+    });
+
+    this.getChrome('ct-order', this.config.order).then((data: any) => {
+      this.config.order = data;
+      this.loadTracker++;
+    });
+
+    this.getChrome('ct-quick-link', this.config.quickLink).then((data: any) => {
+      this.config.quickLink = data;
+      this.loadTracker++;
+    });
+
+    this.getChrome('ct-search', this.config.search).then((data: any) => {
+      this.config.search = data;
+      this.loadTracker++;
+    });
+
+    this.getChrome('ct-time', this.config.time).then((data: any) => {
+      this.config.time = data;
+      this.loadTracker++;
+    });
+
+    return this.config;
   }
 
   // save an object
-  setAll(settings: Object, key = this.storeKey): Promise<boolean> {
+  setAll(settings: Object, key: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
       if (chrome !== undefined && chrome.storage !== undefined) {
         let saveObj = {};
         saveObj[key] = settings;
         chrome.storage.sync.set(/* String or Array */saveObj, () => this.zone.run(() => {
+          if (chrome.runtime.lastError) {
+            console.log('%cERROR saving to storage.sync','display:inline-block;background:#c52525;color:white;padding:5px;border-radius:5px;', chrome.runtime.lastError, saveObj);
+            reject(chrome.runtime.lastError);
+          }
+          console.log('%cSaving to storage.sync','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;', saveObj);
           resolve(true);
         }));
       } else {
         // Put the object into storage
+        console.log('%cSaving to localStorage','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;', key, settings);
         localStorage.setItem(key, JSON.stringify(settings));
         // hack to resolve storage change event on the same window
         window.dispatchEvent( new Event('storage') );
@@ -51,9 +143,15 @@ export class Storage {
     return new Promise((resolve, reject) => {
       if (chrome !== undefined && chrome.storage !== undefined) {
         chrome.storage.sync.remove(/* String or Array */key, () => this.zone.run(() => {
+          if (chrome.runtime.lastError) {
+            console.log('%cERROR removing key from storage.sync','display:inline-block;background:#c52525;color:white;padding:5px;border-radius:5px;', chrome.runtime.lastError, key);
+            reject(chrome.runtime.lastError);
+          }
+          console.log('%cRemoving key from storage.sync','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;', key);
           resolve(true);
         }));
       } else {
+        console.log('%cRemoving key from localStorage','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;', key);
         localStorage.removeItem(key);
         resolve(true);
       }
@@ -65,9 +163,15 @@ export class Storage {
     return new Promise((resolve, reject) => {
       if (chrome !== undefined && chrome.storage !== undefined) {
         chrome.storage.sync.clear(() => this.zone.run(() => {
+          if (chrome.runtime.lastError) {
+            console.log('%cERROR clearing storage.sync','display:inline-block;background:#c52525;color:white;padding:5px;border-radius:5px;', chrome.runtime.lastError);
+            reject(chrome.runtime.lastError);
+          }
+          console.log('%cClearing all keys from storage.sync','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;');
           resolve(true);
         }));
       } else {
+        console.log('%cClearing all keys from localStorage','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;');
         localStorage.clear();
         resolve(true);
       }
@@ -80,9 +184,15 @@ export class Storage {
         let saveObj = {};
         saveObj[key] = defaults;
         chrome.storage.sync.get(/* String or Array */saveObj, (data) => this.zone.run(() => {
-         resolve(data[key]);
+          if (chrome.runtime.lastError) {
+            console.log('%cERROR loading from storage.sync','display:inline-block;background:#c52525;color:white;padding:5px;border-radius:5px;', chrome.runtime.lastError, data);
+            reject(chrome.runtime.lastError);
+          }
+          console.log('%cLoad from storage.sync','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;', data);
+          resolve(data[key]);
         }));
       } else {
+        console.log('%cLoad from localStorage','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;', key);
         let object =  (localStorage.getItem(key) === null) ? defaults : JSON.parse(localStorage.getItem(key));
         resolve(object);
       }
@@ -90,7 +200,7 @@ export class Storage {
   }
 
   //  change detection
-  onChange(key = this.storeKey): Observable<any> {
+  onChange(key?: string): Observable<any> {
     return Observable.create(observer => {
       if (chrome !== undefined && chrome.storage !== undefined) {
         chrome.storage.onChanged.addListener((changes, namespace) => this.zone.run(() => {

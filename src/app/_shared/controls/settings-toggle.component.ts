@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SharedService } from '../shared.service';
 import { Storage } from '../../_storage/storage.service';
+import { GoogleAnalyticsService } from '../../_shared/ga.service';
 
 @Component({
   selector: 'app-settings-toggle',
@@ -22,18 +23,25 @@ export class SettingsToggleComponent {
 
   constructor(
     public shared: SharedService,
-    public settings: Storage
+    public settings: Storage,
+    public ga: GoogleAnalyticsService
   ) {
   }
 
   toggleOptions() {
     if (this.shared.optionsToggle === true) {
-      this.settings.setAll(this.settings.config); // Save
+      this.shared.saveAll(); // Save
       this.shared.optionsToggle = false;
+      this.shared.echo('Settings panel closed and saving data');
+      this.ga.field("button.settingsMenuToggle", "closed");
+      this.ga.pageView("New tab", "/tab");
     } else {
       // Updated status is set within options/dashboard/dashboard.component.ts when settings opens
 
       this.shared.optionsToggle = true;
+      this.shared.echo('Settings panel opened');
+      this.ga.field("button.settingsMenuToggle", "open");
+      this.ga.pageView("Settings panel", "/settings");
     }
   }
 }

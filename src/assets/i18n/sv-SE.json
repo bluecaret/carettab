@@ -1,0 +1,296 @@
+{
+  "list": {
+    "title": {
+      "custom": "Anpassad text",
+      "date": "Datum",
+      "dateTime": "Datum, sedan tid",
+      "newTab": "\"Ny flik\"",
+      "time": "Tid",
+      "timeDate": "Tid, sedan datum"
+    }
+  },
+  "options": {
+    "bookmarks": {
+      "appsLink": "Applänk",
+      "chromeTabLink": "Standardflik",
+      "enableBar": "Bokmärkesfält",
+      "enableQuick": "Snabblänkar",
+      "favicons": "Favicons",
+      "headingBar": "bokmärken",
+      "headingQuick": "Snabblänkar",
+      "historyLink": "Historiklänk",
+      "labelValidation": "Länken måste ha en etikett.",
+      "linkValidation": "Länken måste ha en URL (webbplatsadress).",
+      "managerLink": "Bokmärkeschef",
+      "mostVisited": "Mest besökta",
+      "save": "Spara ny länk",
+      "url": "URL"
+    },
+    "common": {
+      "aboutLink": "Handla om",
+      "add": "Lägg till",
+      "contactLink": "Kontakta",
+      "delimiter": "avgränsare",
+      "down": "Ner",
+      "format": "Formatera",
+      "label": "Märka",
+      "moveDown": "Flytta under andra element",
+      "moveUp": "Flytta dig över andra element",
+      "off": "av",
+      "offset": "Offset",
+      "on": "På",
+      "order": "Ordning",
+      "placement": "Placering",
+      "privacyPolicy": "Sekretesspolicy och användarvillkor",
+      "size": "Storlek",
+      "supportLink": "Stöd",
+      "timezone": "tidszon",
+      "up": "Upp",
+      "width": "bredd"
+    },
+    "dashboard": {
+      "contribute": "Bidra med kod",
+      "credit": "CaretTab | är designad och kodad av | BlueCaret | och är licensierad under | MIT-licensen |.",
+      "donate": "Donera med PayPal",
+      "needHelp": "Om du behöver hjälp eller har ett förslag kan du kontakta utvecklaren | BlueCaret | på Twitter | @BlueCaret | eller visa CaretTab på | GitHub |.",
+      "new": "Vad är nytt?",
+      "review": "Lämna recension",
+      "share": "Dela med sig",
+      "supportDev": "Du kan hjälpa till att stödja och förbättra CaretTab",
+      "updated": "Uppdaterad",
+      "whatsNew": "Vad är nytt?"
+    },
+    "date": {
+      "abbr": "Förkortad",
+      "automatic": "automatisk",
+      "date": "Datum",
+      "day": "Dag",
+      "dayOfWk": "Dag i veckan",
+      "enableDay": "Aktivera dag",
+      "enableDayOfWk": "Aktivera veckodag",
+      "enableMonth": "Aktivera månad",
+      "enableShortDate": "Aktivera kort datum",
+      "enableWeekNum": "Aktivera veckonummer",
+      "enableYear": "Aktivera år",
+      "month": "Månad",
+      "shortDate": "Kort datum",
+      "twoDigit": "Tvåsiffrigt",
+      "weekIso": "ISO-veckonummer",
+      "weekIsoDesc": "Använd ISO-veckodatussystemet från ISO 8601-datum och tidsstandard.",
+      "weekNum": "Veckans nummer",
+      "year": "År"
+    },
+    "design": {
+      "bg": "Egen bakgrund",
+      "brightness": "ljusstyrka",
+      "browseForImg": "Bläddra efter bild ...",
+      "colors": "Färger",
+      "customFontDesc": "Ange namnet på ett lokalt installerat typsnitt. Du måste installera teckensnittet på din dator för att det ska fungera.",
+      "customFontName": "Anpassat typsnittsnamn",
+      "customFontUsage": "För att använda ett anpassat teckensnitt måste du ange teckensnittsnamnet exakt. Anpassade teckensnitt måste | installeras lokalt på din dator |. Du kan få fler teckensnitt från | Google-teckensnitt | eller från | 1001 teckensnitt |",
+      "customWallpaper": "Anpassad tapet",
+      "design": "Design",
+      "dontSync": "Anpassade bilder synkroniseras inte över datorer.",
+      "dynScale": "Dynamisk skalning",
+      "dynScaleDesc": "Med dynamisk skalning kan du ändra storlek på element baserat på din webbläsares bredd. Inaktivera för att hålla storleken densamma oavsett storleken på din webbläsare.",
+      "fg": "Anpassad förgrund",
+      "fill": "Fylla",
+      "filter": "Filtrera",
+      "font": "font",
+      "fontWeight": "Anpassad teckensnittsvikt",
+      "fontWeightDesc": "Välj en teckensnittsvikt för ditt anpassade teckensnitt. Vissa teckensnitt stöder inte alla vikter.",
+      "getMorePatterns": "Få fler mönster på | Transparent Textures | eller | Toptal |.",
+      "globalSize": "Global storlek",
+      "globalSizeDesc": "Justera storleken på alla element.",
+      "hardToSee": "Bild för svår att se? Prova att byta filter.",
+      "removeWallpaper": "Klicka för att ta bort den valda bakgrunden",
+      "selectedWallpaper": "Vald tapet",
+      "wallpaper": "Tapet"
+    },
+    "extra": {
+      "advanced": "Avancerad",
+      "enableAnalytics": "Aktivera analysdata",
+      "enableAnalyticsDesc": "CaretTab vill rapportera din användning av tillägget till analys. Detta hjälper oss att förbättra tillägget genom att lära oss hur det används. Detta spårar data som när inställningsmenyn öppnas och när inställningarna ändras. Detta spårar inte någon personlig identifierande information. Du kan när som helst välja eller välja bort.",
+      "extra": "Extra",
+      "hideLogo": "Dölj logotyp",
+      "hideMenu": "Dölj inställningsknappen",
+      "hideMenuDesc": "När den är aktiverad visas menyknappen när du svävar över det nedre högra hörnet.",
+      "lang": "Språk",
+      "reset": "Återställa",
+      "resetDesc": "Om du vill återställa alla inställningar till standard, kan du klicka på den här knappen och sedan uppdatera sidan. Detta tar bort alla dina inställningar.",
+      "resetToDefault": "Återställ till standard",
+      "tabClock": "Klocka för titel",
+      "tabClockDesc": "Välj vad som ska visas i rubriken Ny flik (visas på själva fliken och i webbläsarens namnlist).",
+      "tabCustomText": "Anpassad text för flikens titel",
+      "tabCustomTextDesc": "Ange text för den anpassade flikens titel. Gäller endast om \"Anpassad text\" har valts för flikens titel.",
+      "tabTitle": "Flikens titel",
+      "tabTitleDesc": "Välj vad som ska visas i rubriken Ny flik (visas på själva fliken och i webbläsarens namnlist)."
+    },
+    "message": {
+      "customMsg": "anpassat meddelande",
+      "msg": "Meddelande",
+      "msgText": "Meddelandetext",
+      "msgTextDesc": "Ange text för det anpassade meddelandet."
+    },
+    "search": {
+      "autocomplete": "Komplettera automatiskt",
+      "autocompleteDesc": "Stäng av för att inaktivera webbläsarens autofullständiga funktion i sökrutan.",
+      "label": "Märka",
+      "search": "Sök",
+      "searchBox": "Sökruta",
+      "searchEngine": "Sökmotor"
+    },
+    "time": {
+      "actions": "Åtgärder",
+      "addNewClock": "Lägg till ny klocka",
+      "analog": "Analog",
+      "analogEnable": "Aktivera analog klocka",
+      "analogEnableDesc": "Visar klockan i analog stil istället för digital.",
+      "analogStyle": "Analog stil",
+      "analogStyleDesc": "Välj stil för den analoga klockan",
+      "automatic": "automatisk",
+      "brackets": "Fästen",
+      "bracketsDim": "Dimma fästen",
+      "bracketsEnable": "Aktivera parenteser",
+      "bracketsLeft": "vänster",
+      "bracketsLeftDesc": "Ange symbolen för att representera vänster sidofäste",
+      "bracketsOffset": "Justera fästets läge uppåt eller nedåt",
+      "bracketsPadding": "Stoppning",
+      "bracketsPaddingDesc": "Justera stoppningen mellan fästena och tiden",
+      "bracketsRight": "höger",
+      "bracketsRightDesc": "Ange symbolen för att representera höger sidofäste",
+      "bracketsSize": "Justerar parentesernas storlek i förhållande till klockan",
+      "clock": "Klocka",
+      "deleteClock": "Radera klockan",
+      "delimiter": "avgränsare",
+      "delimiterBlink": "Blink avgränsare",
+      "delimiterOffset": "Justera avgränsarens position uppåt eller nedåt",
+      "delimiterSize": "Justerar avgränsarens storlek i förhållande till klockan",
+      "dimDelimiter": "Dim avgränsare",
+      "enableDelimiter": "Aktivera avgränsare",
+      "generalSettings": "Allmänna klockinställningar",
+      "hideOptions": "Dölj ytterligare alternativ",
+      "label": "Märka",
+      "labelDesc": "Visar en etikett bredvid klockan. Lämna tomt utan etikett.",
+      "labelDim": "Dim etikett",
+      "labelEnable": "Aktivera etikett",
+      "labelOffset": "Justera etikettens position uppåt eller nedåt",
+      "labelSize": "Justerar etikettens storlek i förhållande till klockan",
+      "meridiem": "Meridiem",
+      "meridiemDim": "Dim meridiem",
+      "meridiemEnable": "Aktivera meridiem",
+      "meridiemOffset": "Justera meridiemens position uppåt eller nedåt",
+      "meridiemSize": "Justerar meridiemens storlek i förhållande till klockan",
+      "moveDown": "Flytta ordningen på klockan nedåt",
+      "moveUp": "Flytta ordningen på klockan uppåt",
+      "note": "Notera:",
+      "noteText": "tiden är en utbildad gissning baserat på tid och tidszon din dator är inställd på och kanske inte återspeglar din faktiska tid. CaretTab gissar att din nuvarande tidszon ska vara:",
+      "offsetDesc": "Justera klockans läge uppåt eller nedåt.",
+      "padding": "Stoppning",
+      "paddingDesc": "Byt stoppning mellan klockans siffror.",
+      "relativeDim": "Dim relativ tid",
+      "relativeEnable": "Aktivera visning av tid i förhållande till din lokala tid.",
+      "relativeOffset": "Justera positionen för den relativa tidsetiketten uppåt eller nedåt",
+      "relativeSize": "Justerar storleken på den relativa tidsetiketten i förhållande till klockan",
+      "relativeTime": "Relativ tid",
+      "seconds": "sekunder",
+      "secondsDim": "Svaga sekunder",
+      "secondsEnable": "Aktivera sekunder",
+      "secondsOffset": "Justera positionen för sekunderna uppåt eller nedåt",
+      "secondsSize": "Justerar storleken på sekunderna i förhållande till klockan",
+      "showOptions": "Visa fler alternativ",
+      "sizeDesc": "Ändra storleken på klockan.",
+      "span": "bredd",
+      "spanDesc": "Ändrar hur mycket utrymme klockan använder.",
+      "symbol": "Symbol",
+      "symbolAm": "Ange symbolen för att representera \"A.M.\"",
+      "symbolDesc": "Ange symbolen för att representera avgränsaren",
+      "symbolPm": "Ange symbolen för att representera \"P.M.\"",
+      "time": "Tid",
+      "timezoneDesc": "Välj en tidszon för klockan (standard är din lokala tidszon).",
+      "twentyFour": "24 timmar",
+      "twentyFourDesc": "Visa klocka i 24-timmarsformat istället för 12-timmars.",
+      "twoDigit": "Tvåsiffrig timme",
+      "twoDigitDesc": "Visa alltid timmen med två siffror."
+    }
+  },
+  "splash": {
+    "back": "Tillbaka",
+    "getStarted": "Komma igång!",
+    "letsGo": "Nu går vi!",
+    "new": "Vad är nytt?",
+    "next": "Nästa",
+    "no": "Nej",
+    "s1": {
+      "p1": "Låt oss gå igenom några grundläggande inställningar för att komma igång ...",
+      "welcome": "Välkommen till CaretTab | Din | nya | Sidan Ny flik!"
+    },
+    "s2": {
+      "title": "Välj språk"
+    },
+    "s3": {
+      "title": "Vill du visa en klocka?"
+    },
+    "s4": {
+      "title": "Vill du visa datumet?"
+    },
+    "s5": {
+      "title": "Visa ett bokmärkesfält?"
+    },
+    "s6": {
+      "title": "Välj dina favoritfärger"
+    },
+    "s7": {
+      "p1": "CaretTab kan anpassas helt! Du hittar många fler alternativ i inställningsmenyn.",
+      "p2": "Klicka på ikonen längst ned till höger för att öppna inställningsmenyn.",
+      "title": "Detta är bara toppen av isberget!"
+    },
+    "skip": "Hoppa",
+    "updatedTo": "CaretTab har uppdaterats till",
+    "v320": {
+      "l1": "Lade till GMT förskjutna tidszoner",
+      "l2": "Lagt till möjligheten att använda ISO-standard för veckonummer",
+      "l3": "Tillagt alternativ för att alltid visa timme i två siffror",
+      "l4": "Lagt till möjligheten att dölja inställningsknappen",
+      "l5": "Lagt till alternativ för att ändra sökfältets etikett",
+      "l6": "Ändrad standardsökning inom CaretTab till Yahoo.",
+      "l7": "Inaktiverad dynamisk skalning som standard",
+      "l8": "Uppdaterad tidszondata",
+      "l9": "Bug fixar"
+    },
+    "v330": {
+      "l1": "Lade tangentbordsgenvägar till snabblänkar. Nu kan du snabbt ladda de första 10 snabblänkarna med en kortkommando. Håll muspekaren över en snabblänk för att se vad genvägen är. Du måste fliken ur adressfältet först så att den nya fliksidan är i fokus.",
+      "l2": "Om du klickar på den anpassade förhandsgranskningen tas bakgrunden bort.",
+      "l3": "CaretTab-logotypen har lagts till i nedre hörnet. Detta kan stängas av i menyn för extra inställningar."
+    },
+    "v340": {
+      "h2": "Hjälp till att förbättra CaretTab genom att aktivera analysdata",
+      "l1": "Uppdaterad inställningsmeny! Inställningsmenyn har blivit renare, enklare och lättare att använda.",
+      "l2": "Mörkt läge! Inställningspanelen visas nu i ett mörkt läge baserat på dina inställningar i ditt operativsystem.",
+      "l3": "Fler översättningar! Nu tillgängligt på italienska, portugisiska, svenska, urdu och kinesiska (traditionellt)",
+      "l4": "Omstrukturerad lagring för inställningar för att undvika lagringsgränser (detta bör fixa vissa \"vita skärm\" -fel som vissa användare har upplevt). Dina tidigare inställningar migreras automatiskt till den nya strukturen.",
+      "l5": "Förbättrade \"white flash\" -felet när du läser in en ny flik. Blixten bör vara mycket mindre uppenbar särskilt i mörkt läge.",
+      "l6": "Lagt till analys för att förbättra CaretTab. Du kan när som helst välja eller välja bort detta."
+    },
+    "yes": "Ja"
+  },
+  "tab": {
+    "bookmarks": {
+      "links": {
+        "apps": "Apps",
+        "bookmarksManager": "Bokmärkeschef",
+        "chromeTab": "Standardflik",
+        "history": "Historia",
+        "mostVisited": "Mest besökta"
+      }
+    }
+  },
+  "title": {
+    "newTab": "Ny flik"
+  },
+  "toggleSettings": {
+    "close": "Spara och stäng inställningar",
+    "open": "Öppna inställningar",
+    "updated": "Tillägget har uppdaterats! Klicka här för att öppna inställningarna och se vad som är nytt."
+  }
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as Bowser from 'bowser';
+import { GoogleAnalyticsService } from '../../_shared/ga.service';
 import { SharedService } from '../../_shared/shared.service';
 
 @Component({
@@ -8,33 +8,28 @@ import { SharedService } from '../../_shared/shared.service';
 })
 export class OptionsDashboardComponent implements OnInit {
   status: string;
-  browser = Bowser.getParser(window.navigator.userAgent).getBrowserName();
   shareMenu = false;
 
-  constructor(public shared: SharedService) {
+  constructor(public shared: SharedService, public ga: GoogleAnalyticsService) {
   }
 
   ngOnInit(): void {
-    console.log('options status', this.shared.status);
     this.status = this.shared.status;
 
     // Clear updated status
     if (this.shared.status === 'updated') {
       localStorage.setItem('caretTabStatus', 'existing');
       this.shared.status = 'existing';
+      this.shared.echo('Extension status reset to "existing" after update since user opened dashboard');
     }
-  }
-
-  goToPage(page: string) {
-    this.shared.optionsPage = page;
   }
 
   getReviewLink(encode: boolean): string {
     let url: string;
-    if (this.browser === 'Microsoft Edge') {
+    if (this.shared.browser === 'edge') {
       url = 'https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe';
     } else
-    if (this.browser === 'Firefox') {
+    if (this.shared.browser === 'firefox') {
       url = 'https://addons.mozilla.org/en-US/firefox/addon/carettab/';
     } else {
       url = 'https://chrome.google.com/webstore/detail/carettab-new-tab-clock-an/cojpndognjdcakkimaloeealehpkljna';

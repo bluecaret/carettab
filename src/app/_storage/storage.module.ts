@@ -15,8 +15,9 @@ import { Settings } from './settings';
     CommonModule
   ],
   providers: [
-  Storage,
-  { provide: APP_INITIALIZER, useFactory: (config: Storage) => () => config.load(), deps: [Storage], multi: true }  ]
+    Storage,
+    { provide: APP_INITIALIZER, useFactory: (config: Storage) => () => config.load(), deps: [Storage], multi: true }
+  ]
 })
 export class Ng2ChromeStorageModule {
 

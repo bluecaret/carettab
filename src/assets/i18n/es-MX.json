@@ -27,16 +27,25 @@
       "url": "Url"
     },
     "common": {
+      "aboutLink": "Acerca de",
+      "add": "Añadir",
+      "contactLink": "Contacto",
       "delimiter": "Delimitador",
+      "down": "ABAJO",
       "format": "Formato",
       "label": "Etiqueta",
       "moveDown": "Mover debajo de otros elementos",
       "moveUp": "Mover por encima de otros elementos",
+      "off": "Apagado",
       "offset": "Compensar",
+      "on": "en",
       "order": "Orden",
       "placement": "Colocación",
+      "privacyPolicy": "Política de privacidad y condiciones de uso",
       "size": "Tamaño",
+      "supportLink": "Apoyo",
       "timezone": "Zona horaria",
+      "up": "Arriba",
       "width": "Anchura"
     },
     "dashboard": {
@@ -47,7 +56,9 @@
       "new": "¿Qué hay de nuevo?",
       "review": "Deje opinión",
       "share": "Compartir",
-      "supportDev": "Puedes ayudar a apoyar y mejorar CaretTab"
+      "supportDev": "Puedes ayudar a apoyar y mejorar CaretTab",
+      "updated": "Actualizado",
+      "whatsNew": "¿Qué hay de nuevo?"
     },
     "date": {
       "abbr": "Abreviado",
@@ -64,7 +75,7 @@
       "month": "Mes",
       "shortDate": "Cita corta",
       "twoDigit": "Dos dígitos",
-      "weekIso": "",
+      "weekIso": "Número de semana ISO",
       "weekIsoDesc": "Utilice el sistema de fecha de la semana ISO del estándar de fecha y hora ISO 8601.",
       "weekNum": "Número de la semana",
       "year": "año"
@@ -92,10 +103,14 @@
       "globalSize": "Tamaño global",
       "globalSizeDesc": "Ajustar el tamaño de todos los elementos.",
       "hardToSee": "Imagen demasiado difícil de ver? Intenta cambiar el filtro.",
+      "removeWallpaper": "Haga clic para eliminar el fondo de pantalla seleccionado",
+      "selectedWallpaper": "Fondo de pantalla seleccionado",
       "wallpaper": "Papel pintado"
     },
     "extra": {
       "advanced": "Avanzado",
+      "enableAnalytics": "Habilitar datos analíticos",
+      "enableAnalyticsDesc": "A CaretTab le gustaría informar su uso de la extensión a la analítica. Esto nos ayuda a mejorar la extensión aprendiendo cómo se usa. Esto rastrea datos como cuando se abre el menú de configuración y cuando se modifican las configuraciones. Esto no rastrea ninguna información de identificación personal. Puede optar por participar o no participar en cualquier momento.",
       "extra": "Extra",
       "hideLogo": "Ocultar logo",
       "hideMenu": "Ocultar botón de configuración",
@@ -126,9 +141,11 @@
       "searchEngine": "Buscador"
     },
     "time": {
+      "actions": "Comportamiento",
       "addNewClock": "Agregar nuevo reloj",
       "analog": "Término análogo",
-      "analogEnable": "Muestra el reloj en un estilo analógico en lugar de digital.",
+      "analogEnable": "Habilitar reloj analógico",
+      "analogEnableDesc": "Muestra el reloj en un estilo analógico en lugar de digital.",
       "analogStyle": "Estilo analógico",
       "analogStyleDesc": "Elige el estilo de reloj analógico.",
       "automatic": "Automático",
@@ -143,6 +160,7 @@
       "bracketsRight": "Derecha",
       "bracketsRightDesc": "Introduzca el símbolo para representar el corchete del lado derecho",
       "bracketsSize": "Ajusta el tamaño de los corchetes en relación con el reloj.",
+      "clock": "RELOJ",
       "deleteClock": "Borrar reloj",
       "delimiter": "Delimitador",
       "delimiterBlink": "Delimitador de parpadeo",
@@ -182,7 +200,7 @@
       "secondsSize": "Ajusta el tamaño de los segundos relativos al reloj.",
       "showOptions": "Mostrar más opciones",
       "sizeDesc": "Cambia el tamaño del reloj.",
-      "span": "Lapso",
+      "span": "anchura",
       "spanDesc": "Cambia la cantidad de espacio que usa el reloj.",
       "symbol": "Símbolo",
       "symbolAm": "Introduzca el símbolo para representar \"A.M.\"",
@@ -191,8 +209,8 @@
       "time": "hora",
       "timezoneDesc": "Elija una zona horaria para el reloj (el valor predeterminado es su zona horaria local).",
       "twentyFour": "24 horas",
-      "twentyFourDesc": "Mostrar el reloj en formato de 24 horas en lugar de 12 horas (deshabilitará el meridiem).",
-      "twoDigit": "Dos dígitos",
+      "twentyFourDesc": "Mostrar el reloj en formato de 24 horas en lugar de 12 horas.",
+      "twoDigit": "Hora de dos dígitos",
       "twoDigitDesc": "Muestra siempre la hora con dos dígitos."
     }
   },
@@ -229,30 +247,6 @@
     },
     "skip": "Omitir",
     "updatedTo": "CaretTab se ha actualizado a",
-    "v3": {
-      "importLinks": "Intentar importar enlaces rápidos",
-      "important": "IMPORTANTE:",
-      "l1": "¡CaretTab ha sido recreado desde cero para mejorar el rendimiento y la estabilidad!",
-      "l2": "¡Los relojes ahora tienen personalización completa! Ahora puede configurar todos los ajustes en todos los relojes, ¡pruébelo!",
-      "l3": "Cambiar el orden de los relojes y enlaces rápidos.",
-      "l4": "Más opciones de tamaño. Ahora la mayoría de los elementos pueden redimensionarse individualmente.",
-      "l5": "Opciones de fondo de pantalla! Use algunas texturas proporcionadas o su propia imagen personalizada.",
-      "l6": "¡Use cualquier fuente instalada en su máquina!",
-      "l7": "Muestra la barra de marcadores de tu navegador en la nueva pestaña.",
-      "l8": "¡Mucho más! Echa un vistazo y prueba cosas.",
-      "p1": "Repasemos información importante y las novedades.",
-      "p2": "Esta actualización cambia la forma en que se guardan las configuraciones, así como también cambia muchas características. Desafortunadamente, debido a estas diferencias y para ahorrar tiempo de desarrollo, no se pueden guardar todas las configuraciones. Deberá volver a aplicar su configuración. Pido disculpas por las molestias que esto causa, pero prometo que la actualización valdrá la pena. Para ayudar con la transición, sus enlaces rápidos se pueden importar usando el botón a continuación. Copie la lista de enlaces que se muestra como copia de seguridad en caso de que falle la importación.",
-      "p3": "La siguiente pantalla lo llevará a través de algunas opciones básicas para comenzar.",
-      "recovered": "Enlaces rápidos de la versión anterior",
-      "title": "¡La mayor actualización hasta ahora!"
-    },
-    "v310": {
-      "l1": "Actualizado | script para tiempos más precisos en varias zonas horarias.",
-      "l2": "Se corrigió el fondo predeterminado para que se basara en el tema del navegador web para evitar parpadeos brillantes a medida que se carga la página.",
-      "l3": "Permita la restauración de enlaces rápidos antiguos de la versión 2 en cualquier momento a través de la configuración de enlaces rápidos (si no se encontraron enlaces rápidos de esa versión, no se mostrará nada).",
-      "l4": "Solucione el problema que impedía que la versión 3 de la extensión se publicara en Firefox.",
-      "l5": "¡Ahora disponible en Microsoft Edge!"
-    },
     "v320": {
       "l1": "Se agregaron zonas horarias de compensación GMT",
       "l2": "Se agregó la capacidad de usar el estándar ISO para los números de semana.",
@@ -268,6 +262,15 @@
       "l1": "Se agregaron atajos de teclado a los enlaces rápidos. Ahora puede cargar rápidamente los primeros 10 enlaces rápidos usando un atajo de teclado. Coloca el cursor sobre un enlace rápido para ver cuál es el acceso directo. Primero debe salir de la barra de direcciones para que la página de nueva pestaña esté enfocada.",
       "l2": "Al hacer clic en la vista previa del fondo personalizado, ahora se eliminará el fondo.",
       "l3": "Se agregó el logotipo de CaretTab en la esquina inferior. Esto se puede desactivar en el menú de configuración adicional."
+    },
+    "v340": {
+      "h2": "Ayude a mejorar CaretTab habilitando datos analíticos",
+      "l1": "¡Menú de configuración actualizado! El menú de configuración se ha revisado para que sea más limpio, más simple y más fácil de usar.",
+      "l2": "¡Modo oscuro! El panel de configuración ahora se mostrará en un modo oscuro según su preferencia establecida en su sistema operativo.",
+      "l3": "¡Más traducciones! Ahora disponible en italiano, portugués, sueco, urdu y chino (tradicional)",
+      "l4": "Almacenamiento reestructurado para configuraciones para evitar límites de almacenamiento (esto debería corregir algunos errores de \"pantalla blanca\" que han experimentado algunos usuarios). Su configuración anterior se migrará a la nueva estructura automáticamente.",
+      "l5": "Se mejoró el error de \"flash blanco\" al cargar una nueva pestaña. El flash debería ser mucho menos obvio, especialmente en el modo oscuro.",
+      "l6": "Se agregaron análisis para ayudar a mejorar CaretTab. Puede optar por participar o no participar en esto en cualquier momento."
     },
     "yes": "Sí"
   },

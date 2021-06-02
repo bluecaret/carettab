@@ -4,6 +4,7 @@ import { Storage } from '../../_storage/storage.service';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { SharedService } from '../../_shared/shared.service';
 import * as Bowser from 'bowser';
+import { GoogleAnalyticsService } from '../../_shared/ga.service';
 
 @Component({
   selector: 'tab-bookmarks',
@@ -51,17 +52,20 @@ export class TabBookmarksComponent implements OnInit {
     public settings: Storage,
     private cdRef: ChangeDetectorRef,
     private sanitizer: DomSanitizer,
-    private zone: NgZone
+    private zone: NgZone,
+    public ga: GoogleAnalyticsService
   ) {
     this.settings.onChange().subscribe((data) => {
-      if (data.bookmarks.bookmarksBar.enabled === true) {
-        this.getBookmarks();
-      }
-      if (
-        data.bookmarks.bookmarksBar.mostVisited === true ||
-        data.bookmarks.quickLinks.mostVisited === true
-      ) {
-        this.getMostVisited();
+      if (data) {
+        if (data.bookmark && data.bookmark.enabled === true) {
+          this.getBookmarks();
+        }
+        if (
+          (data.bookmark && data.bookmark.mostVisited === true) ||
+          (data.quickLink && data.quickLink.mostVisited === true)
+        ) {
+          this.getMostVisited();
+        }
       }
     });
   }
@@ -70,12 +74,12 @@ export class TabBookmarksComponent implements OnInit {
     this.isLoading = true;
     this.isChrome = !!window.chrome;
 
-    if (this.settings.config.bookmarks.bookmarksBar.enabled) {
+    if (this.settings.config.bookmark.enabled) {
       this.getBookmarks();
     }
     if (
-      this.settings.config.bookmarks.bookmarksBar.mostVisited === true ||
-      this.settings.config.bookmarks.quickLinks.mostVisited === true
+      this.settings.config.bookmark.mostVisited === true ||
+      this.settings.config.quickLink.mostVisited === true
     ) {
       this.getMostVisited();
     }

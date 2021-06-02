@@ -4,11 +4,14 @@ $green: rgb(35, 148, 82);
 $lightGreen: rgb(147, 209, 147);
 $gray: #778888;
 $lightGray: #fafafa;
+
 $focus: 0 0 0 3px rgba(0, 0, 0, 0.12);
 $transition: all .3s;
 
 $settingsFont: 'Open Sans', sans-serif;
 $fieldHeight: 30px;
+$fieldRadius: 6px;
+$btnRadius: 15px;
 
 // Breakpoints
 $sm: 768px;
@@ -17,19 +20,60 @@ $lg: 1200px;
 
 // Z-index
 $z-indexes: (
-  'optionsPanel',
-  'optionsPage',
-  'optionsNav',
   'tabUI',
   'tabClock',
   'tabDate',
+  'tabSearch',
   'tabBookmarks',
   'tabQuickLinks',
   'tabQuickLinksMostVisited',
   'tabToggle',
-  'tooltip',
-  'splash'
+  'optionsPanel',
+  'optionsPage',
+  'optionsNav',
+  'form',
+  'splash',
+  'tooltip'
 );
 
-$optionsBg: #f5f7fa;
-$optionsWidth: 600px;
+// $optionsBg: $optBgDark;
+$optionsWidth: 700px;
+
+:root {
+  --optAccent: rgb(0, 106, 183);
+  --optAccentLight: rgb(11, 134, 221);
+  --optAccentDark: rgb(0, 80, 138);
+  --optAccentDisabled: rgb(220, 220, 215);
+  --optText: rgb(40,40,20);
+  --optNavBase: 245,245,240;
+  --optNavBg: rgba(var(--optNavBase), 1);
+  --optBgBase: 245,245,240;
+  --optBg: rgb(var(--optBgBase));
+  --optBgHighlight: rgb(220, 220, 215);
+  --optBgHover: rgba(0,0,0,.05);
+  --optBg70: rgba(var(--optBgBase),.70);
+  --optBg85: rgba(var(--optBgBase),.85);
+  --optBg95: rgba(var(--optBgBase),.95);
+  --optShadow: rgba(0,0,0,.2);
+  --optNavBorder: rgba(0,0,0,.1);
+  --optNavActive: rgba(0,0,0,.1);
+  @media (prefers-color-scheme: dark) {
+    --optAccent: rgb(105,125,175);
+    --optAccentLight: rgb(131, 151, 201);
+    --optAccentDark: rgb(80, 100, 150);
+    --optAccentDisabled: rgb(47, 61, 95);
+    --optText: rgb(185,185,215);
+    --optBgBase: 0,10,18;
+    --optNavBase: 0,10,18;
+    --optNavBg: rgba(var(--optNavBase), 1);
+    --optBg: rgb(var(--optBgBase));
+    --optBgHighlight: rgb(26, 36, 44);
+    --optBgHover: rgba(255,255,255,.05);
+    --optBg70: rgba(var(--optBgBase),.70);
+    --optBg85: rgba(var(--optBgBase),.85);
+    --optBg95: rgba(var(--optBgBase),.95);
+    --optShadow: rgba(255,255,255,.2);
+    --optNavBorder: rgba(255,255,255,.15);
+    --optNavActive: rgba(255,255,255,.1);
+  }
+}

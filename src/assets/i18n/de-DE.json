@@ -27,16 +27,25 @@
       "url": "Url"
     },
     "common": {
+      "aboutLink": "Über",
+      "add": "Hinzufügen",
+      "contactLink": "Kontakt",
       "delimiter": "Trennzeichen",
+      "down": "Nieder",
       "format": "Format",
       "label": "Etikette",
       "moveDown": "Bewegen Sie sich unter andere Elemente",
       "moveUp": "Bewegen Sie sich über andere Elemente",
+      "off": "aus",
       "offset": "Versatz",
+      "on": "auf",
       "order": "Auftrag",
       "placement": "Platzierung",
+      "privacyPolicy": "Datenschutzerklärung und Nutzungsbedingungen",
       "size": "Größe",
+      "supportLink": "Unterstützung",
       "timezone": "Zeitzone",
+      "up": "Oben",
       "width": "Breite"
     },
     "dashboard": {
@@ -47,7 +56,9 @@
       "new": "Was gibt's neues?",
       "review": "Eine Rezension hinterlassen",
       "share": "Aktie",
-      "supportDev": "Sie können CaretTab unterstützen und verbessern"
+      "supportDev": "Sie können CaretTab unterstützen und verbessern",
+      "updated": "Aktualisierte",
+      "whatsNew": "Was gibt's neues?"
     },
     "date": {
       "abbr": "Abgekürzt",
@@ -64,7 +75,7 @@
       "month": "Monat",
       "shortDate": "Kurzes Date",
       "twoDigit": "Zweistellig",
-      "weekIso": "",
+      "weekIso": "ISO-Wochennummer",
       "weekIsoDesc": "Verwenden Sie das ISO-Wochendatumsystem nach ISO 8601 Datums- und Zeitstandard.",
       "weekNum": "Wochennummer",
       "year": "Jahr"
@@ -92,10 +103,14 @@
       "globalSize": "Globale Größe",
       "globalSizeDesc": "Passen Sie die Größe aller Elemente an.",
       "hardToSee": "Bild zu schwer zu sehen? Versuchen Sie, den Filter zu wechseln.",
+      "removeWallpaper": "Klicken Sie hier, um das ausgewählte Hintergrundbild zu entfernen",
+      "selectedWallpaper": "Ausgewähltes Hintergrundbild",
       "wallpaper": "Tapete"
     },
     "extra": {
       "advanced": "Erweitert",
+      "enableAnalytics": "Analysedaten aktivieren",
+      "enableAnalyticsDesc": "CaretTab möchte Ihre Verwendung der Erweiterung an Analytics melden. Dies hilft uns, die Erweiterung zu verbessern, indem wir lernen, wie sie verwendet wird. Dies verfolgt Daten, z. B. wann das Einstellungsmenü geöffnet wird und wann Einstellungen geändert werden. Hiermit werden keine persönlichen Identifikationsdaten erfasst. Sie können sich jederzeit anmelden oder abmelden.",
       "extra": "Extra",
       "hideLogo": "Logo ausblenden",
       "hideMenu": "Schaltfläche Einstellungen einblenden",
@@ -126,9 +141,11 @@
       "searchEngine": "Suchmaschine"
     },
     "time": {
+      "actions": "Aktionen",
       "addNewClock": "Neue Uhr hinzufügen",
       "analog": "Analog",
-      "analogEnable": "Zeigt die Uhr nicht digital, sondern analog an.",
+      "analogEnable": "Aktivieren Sie die analoge Uhr",
+      "analogEnableDesc": "Zeigt die Uhr nicht digital, sondern analog an.",
       "analogStyle": "Analoger Stil",
       "analogStyleDesc": "Wählen Sie den Stil der Analoguhr",
       "automatic": "Automatik",
@@ -143,6 +160,7 @@
       "bracketsRight": "Recht",
       "bracketsRightDesc": "Geben Sie das Symbol für die rechte Klammer ein",
       "bracketsSize": "Passt die Größe der Klammern relativ zur Uhr an",
+      "clock": "Uhr",
       "deleteClock": "Uhr löschen",
       "delimiter": "Trennzeichen",
       "delimiterBlink": "Begrenzer blinken",
@@ -182,7 +200,7 @@
       "secondsSize": "Passt die Größe der Sekunden relativ zur Uhr an",
       "showOptions": "Mehr Optionen anzeigen",
       "sizeDesc": "Ändern Sie die Größe der Uhr.",
-      "span": "Spanne",
+      "span": "Breite",
       "spanDesc": "Ändert den Platzbedarf der Uhr.",
       "symbol": "Symbol",
       "symbolAm": "Geben Sie das Symbol für \"AM\" ein.",
@@ -191,8 +209,8 @@
       "time": "Zeit",
       "timezoneDesc": "Wählen Sie eine Zeitzone für die Uhr aus (die Standardeinstellung ist Ihre lokale Zeitzone).",
       "twentyFour": "24 Stunden",
-      "twentyFourDesc": "Anzeige der Uhr im 24-Stunden-Format anstelle von 12 Stunden (deaktiviert meridiem).",
-      "twoDigit": "Zweistellig",
+      "twentyFourDesc": "Anzeige der Uhr im 24-Stunden-Format anstelle von 12 Stunden.",
+      "twoDigit": "Zweistellige Stunde",
       "twoDigitDesc": "Zeigen Sie die Stunde immer zweistellig an."
     }
   },
@@ -229,30 +247,6 @@
     },
     "skip": "Überspringen",
     "updatedTo": "CaretTab wurde auf aktualisiert",
-    "v3": {
-      "importLinks": "Versuchen Sie, Quick Links zu importieren",
-      "important": "WICHTIG:",
-      "l1": "CaretTab wurde von Grund auf neu erstellt, um Leistung und Stabilität zu verbessern!",
-      "l2": "Die Uhren können jetzt vollständig angepasst werden! Sie können jetzt alle Einstellungen für alle Uhren vornehmen, probieren Sie es aus!",
-      "l3": "Ändern Sie die Reihenfolge der Uhren und Quicklinks.",
-      "l4": "Weitere Größenoptionen. Jetzt können die meisten Elemente einzeln in der Größe geändert werden.",
-      "l5": "Hintergrundbildoptionen! Verwenden Sie einige bereitgestellte Texturen oder Ihr eigenes benutzerdefiniertes Bild.",
-      "l6": "Verwenden Sie eine beliebige auf Ihrem Computer installierte Schriftart!",
-      "l7": "Zeigen Sie die Lesezeichenleiste Ihres Browsers auf der neuen Registerkarte an.",
-      "l8": "Viel mehr! Schauen Sie sich um und probieren Sie es aus.",
-      "p1": "Lassen Sie uns einige wichtige Informationen und Neuigkeiten durchgehen.",
-      "p2": "Dieses Update ändert die Art und Weise, wie Einstellungen gespeichert werden, sowie viele Funktionen. Leider können aufgrund dieser Unterschiede und um Entwicklungszeit zu sparen, nicht alle Einstellungen gespeichert werden. Sie müssen Ihre Einstellungen erneut anwenden. Ich entschuldige mich für die dadurch verursachten Unannehmlichkeiten, aber ich verspreche, dass sich das Update lohnt! Um den Übergang zu erleichtern, können Ihre Quick Links über die Schaltfläche unten importiert werden. Bitte kopieren Sie die Liste der Links, die als Backup angezeigt werden, falls der Import fehlschlägt.",
-      "p3": "Der nächste Bildschirm führt Sie durch einige grundlegende Optionen, um loszulegen.",
-      "recovered": "Quick Links aus der Vorgängerversion",
-      "title": "Das bisher größte Update!"
-    },
-    "v310": {
-      "l1": "Aktualisiert | Skript für genauere Zeiten in verschiedenen Zeitzonen.",
-      "l2": "Der Standardhintergrund wurde basierend auf dem Webbrowser-Thema behoben, um helles Flackern beim Laden der Seite zu vermeiden.",
-      "l3": "Ermöglichen Sie die Wiederherstellung alter Quick Links aus Version 2 jederzeit über die Einstellungen für Quick Links (wenn in dieser Version keine Quick Links gefunden wurden, wird nichts angezeigt).",
-      "l4": "Behebung eines Problems, durch das verhindert wurde, dass Version 3 der Erweiterung in Firefox veröffentlicht wurde.",
-      "l5": "Jetzt auf Microsoft Edge verfügbar!"
-    },
     "v320": {
       "l1": "GMT-Offset-Zeitzonen hinzugefügt",
       "l2": "Möglichkeit zur Verwendung des ISO-Standards für Wochennummern hinzugefügt",
@@ -268,6 +262,15 @@
       "l1": "Tastaturkürzel zu Quick Links hinzugefügt. Jetzt können Sie die ersten 10 Quicklinks schnell über eine Tastenkombination laden. Bewegen Sie den Mauszeiger über einen Schnelllink, um die Verknüpfung anzuzeigen. Sie müssen zuerst die Adressleiste verlassen, damit die neue Registerkarte im Fokus steht.",
       "l2": "Durch Klicken auf die benutzerdefinierte Hintergrundvorschau wird nun der Hintergrund entfernt.",
       "l3": "CaretTab-Logo in der unteren Ecke hinzugefügt. Dies kann im Menü für zusätzliche Einstellungen deaktiviert werden."
+    },
+    "v340": {
+      "h2": "Helfen Sie CaretTab zu verbessern, indem Sie Analysedaten aktivieren",
+      "l1": "Aktualisiertes Einstellungsmenü! Das Einstellungsmenü wurde überarbeitet, um sauberer, einfacher und benutzerfreundlicher zu sein.",
+      "l2": "Dunkler Modus! Das Einstellungsfenster wird jetzt in einem dunklen Modus angezeigt, basierend auf Ihren Einstellungen in Ihrem Betriebssystem.",
+      "l3": "Mehr Übersetzungen! Jetzt verfügbar auf Italienisch, Portugiesisch, Schwedisch, Urdu und Chinesisch (traditionell)",
+      "l4": "Restrukturierter Speicher für Einstellungen, um Speicherbeschränkungen zu vermeiden (dies sollte einige \"weiße Bildschirm\"-Fehler beheben, die bei einigen Benutzern aufgetreten sind). Ihre bisherigen Einstellungen werden automatisch in die neue Struktur migriert.",
+      "l5": "Der \"weiße Blitz\"-Fehler beim Laden eines neuen Tabs wurde verbessert. Der Blitz sollte vor allem im Dunkelmodus viel weniger auffällig sein.",
+      "l6": "Analyse hinzugefügt, um CaretTab zu verbessern. Sie können dies jederzeit an- oder abmelden."
     },
     "yes": "Ja"
   },

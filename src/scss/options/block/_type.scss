@@ -26,8 +26,10 @@ app-options {
     font-weight: 700;
     text-transform: uppercase;
   }
-  a {
-    color: var(--optAccent);
-    text-decoration: underline;
-  }
+}
+
+app-options a,
+app-splash a {
+  color: var(--optAccent);
+  text-decoration: underline;
 }

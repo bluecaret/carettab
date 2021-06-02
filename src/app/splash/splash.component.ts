@@ -43,17 +43,6 @@ export class SplashComponent implements OnInit {
         this.step = 900;
       } else if (this.shared.updateType === "major") {
         this.step = 800;
-        chrome.storage.sync.get((a) => {
-          this.printRecoveredQuickLinks = '';
-          if (a.links && a.links.length > 0) {
-            for (let i = 0; i < a.links.length; i++) {
-              this.printRecoveredQuickLinks += a.links[i].label + ' <' + a.links[i].url + '>\n'  ;
-              this.recoveredQuickLinks.push({id: this.shared.createID('LINK'), label: a.links[i].label, url: a.links[i].url});
-            }
-          } else {
-            this.printRecoveredQuickLinks = 'No Quick Links found.';
-          }
-        });
       }
     }
     this.checkBookmarkPermission();

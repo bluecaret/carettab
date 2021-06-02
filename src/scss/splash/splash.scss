@@ -1,7 +1,7 @@
 app-splash {
   display: grid;
   place-content: center;
-  background: $blue;
+  background: var(--optBg);
   position: fixed;
   top: 0;
   left: 0;
@@ -15,6 +15,7 @@ app-splash {
     font-weight: 400;
     line-height: 1.3;
     margin-bottom: 3rem;
+    color: var(--optText);
     strong {
       display: block;
       font-weight: 700;
@@ -22,6 +23,12 @@ app-splash {
   }
   .updated h1 {
     font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.6rem;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--optText);
   }
 
   svg {
@@ -31,7 +38,7 @@ app-splash {
     margin-bottom: 3rem;
     path,
     rect {
-      fill: white;
+      fill: var(--optText);
     }
   }
   .updated svg {
@@ -40,15 +47,15 @@ app-splash {
   }
 
   .btn--splash {
-    border: .2rem solid $lightBlue;
-    background: transparent;
+    // border: .2rem solid $lightBlue;
+    // background: transparent;
     font-size: 2rem;
     padding: .5rem 2rem;
-    color: white;
-    &:focus,
+    // color: white;
+    // &:focus,
     &:hover {
-      background: $lightBlue;
-      color: black;
+      // background: $lightBlue;
+      // color: black;
     }
   }
   .btn--start {
@@ -102,17 +109,17 @@ app-splash {
 }
 
 .splash-options {
-  max-width: 40rem;
+  max-width: 50rem;
   width: 95vw;
   padding: 3rem;
   margin: 0 0 2rem 0;
-  background-color: $lightGray;
+  background-color: var(--optBgHighlight);
   border-radius: .5rem;
   text-align: left;
   max-height: 80vh;
   overflow-y: auto;
   .btn--splash {
-    color: black;
+    // color: black;
   }
   h3 {
     font-size: 2rem;
@@ -138,18 +145,11 @@ app-splash {
 }
 
 .splash-nav {
-  max-width: 40rem;
+  max-width: 50rem;
   width: 95vw;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  .btn {
-    &[disabled] {
-      background: transparent;
-      color: darken($lightBlue, 10%);
-      border-color: darken($lightBlue, 10%);
-    }
-  }
 }
 .updated .splash-nav {
   max-width: 60rem;
@@ -158,8 +158,8 @@ app-splash {
 .splash-settings-toggle {
   .openOptions {
     // box-shadow: 0 0 0rem 8rem #3FA9F5, 0 0 0rem 10rem black;
-    background: $blue;
-    box-shadow: 0 0 0 0 $blue, 0 0 0 0 $lightBlue;
+    background: var(--optBg);
+    box-shadow: 0 0 0 0 var(--optBg), 0 0 0 0 var(--optAccent);
     border-radius: 50%;
     animation: splash-settings-toggle 1s 2s ease-in-out forwards;
     // transition: .7s ease-in-out box-shadow;
@@ -178,7 +178,7 @@ app-splash {
   0% {
     display: none;
     opacity: 0;
-    box-shadow: 0 0 0 0 $blue, 0 0 0 0 $lightBlue, 0 0 0 0 $lightBlue;
+    box-shadow: 0 0 0 0 var(--optBg), 0 0 0 0 var(--optAccent), 0 0 0 0 var(--optAccent);
   }
   1% {
     display: block;
@@ -186,10 +186,10 @@ app-splash {
   }
   50% {
     opacity: 1;
-    box-shadow: 0 0 0 25rem $blue, 0 0 0 35rem $lightBlue, 0 0 100rem 30rem $lightBlue;
+    box-shadow: 0 0 0 25rem var(--optBg), 0 0 0 35rem var(--optAccent), 0 0 100rem 30rem var(--optAccent);
   }
   100% {
     opacity: 1;
-    box-shadow: 0 0 0 7rem $blue, 0 0 0 7.5rem $lightBlue, 0 0 40rem 20rem $lightBlue;
+    box-shadow: 0 0 0 7rem var(--optBg), 0 0 0 7.5rem var(--optAccent), 0 0 40rem 20rem var(--optAccent);
   }
 }

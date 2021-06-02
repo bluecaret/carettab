@@ -31,7 +31,7 @@ $z-indexes: (
   'optionsPanel',
   'optionsPage',
   'optionsNav',
-  'form'
+  'form',
   'splash',
   'tooltip'
 );
@@ -43,7 +43,7 @@ $optionsWidth: 700px;
   --optAccent: rgb(0, 106, 183);
   --optAccentLight: rgb(11, 134, 221);
   --optAccentDark: rgb(0, 80, 138);
-  --optAccentDisabled: rgb(181 204 220);
+  --optAccentDisabled: rgb(220, 220, 215);
   --optText: rgb(40,40,20);
   --optNavBase: 245,245,240;
   --optNavBg: rgba(var(--optNavBase), 1);

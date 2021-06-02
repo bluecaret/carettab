@@ -1,8 +1,9 @@
-<form ngNoForm method="get" action="{{url}}" (ngSubmit)="ga.field('tab.search.submit', 'true')">
+<form novalidate #userlogin="ngForm" (ngSubmit)="performSearch(); ga.field('tab.search.submit', 'true');">
   <input
     type="text"
     id="search-box"
     name="{{param}}"
+    [(ngModel)]="searchText"
     placeholder="{{settings.config.search.label}}"
     [autocomplete]="settings.config.search.autocomplete ? 'on' : 'off'"
     [style.width]="settings.config.search.width + 'em'">

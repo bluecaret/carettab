@@ -56,13 +56,13 @@ export class TabBookmarksComponent implements OnInit {
     public ga: GoogleAnalyticsService
   ) {
     this.settings.onChange().subscribe((data) => {
-      if (data) {
-        if (data.bookmark && data.bookmark.enabled === true) {
+      if (this.settings.config) {
+        if (this.settings.config.bookmark && this.settings.config.bookmark.enabled === true) {
           this.getBookmarks();
         }
         if (
-          (data.bookmark && data.bookmark.mostVisited === true) ||
-          (data.quickLink && data.quickLink.mostVisited === true)
+          (this.settings.config.bookmark && this.settings.config.bookmark.mostVisited === true) ||
+          (this.settings.config.quickLink && this.settings.config.quickLink.mostVisited === true)
         ) {
           this.getMostVisited();
         }

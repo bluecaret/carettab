@@ -13,6 +13,7 @@ export class TabSearchComponent implements OnInit {
   engines = searchEngines;
   url: string;
   param: string;
+  searchText: string;
 
   constructor(
     public shared: SharedService,
@@ -20,7 +21,7 @@ export class TabSearchComponent implements OnInit {
     public ga: GoogleAnalyticsService
   ) {
     this.settings.onChange().subscribe((data) => {
-      if (data && data.search && data.search.enabled === true) {
+      if (data['ct-search'] && data['ct-search'].newValue.enabled === true) {
         this.setEngine();
       }
     });
@@ -45,6 +46,17 @@ export class TabSearchComponent implements OnInit {
       this.url = engine.url;
       this.param = engine.param;
     }
+  }
+
+  performSearch() {
+    let searchUrl;
+    let engine = this.engines.find(e => e.id === this.settings.config.search.engine);
+    if (engine.id === 40 && (this.shared.browser === 'chrome' || this.shared.browser === 'firefox' || this.shared.browser === 'edge')) {
+      searchUrl = `${this.url}&q=${this.searchText}`
+    } else {
+      searchUrl = `${this.url}?${this.param}=${this.searchText}`
+    }
+    location.replace(searchUrl);
   }
 
 }

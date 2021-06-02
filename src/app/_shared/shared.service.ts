@@ -12,6 +12,7 @@ export class SharedService {
   private _title: string = 'New Tab';
   private _bg: string;
   private _bgColor: string;
+  private _browser: string;
   private _status: string;
   private _updateType: "major" | "minor" | "quiet" | "hidden";
 
@@ -74,6 +75,13 @@ export class SharedService {
   }
   set bgColor(value: string) {
     this._bgColor = value;
+  }
+
+  get browser(): string {
+    return this._browser;
+  }
+  set browser(value: string) {
+    this._browser = value;
   }
 
   get status(): string {

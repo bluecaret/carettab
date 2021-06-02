@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { searchEngines } from '../../_shared/lists/lists';
 import { GoogleAnalyticsService } from '../../_shared/ga.service';
+import { SharedService } from '../../_shared/shared.service';
 
 @Component({
   selector: 'tab-search',
@@ -14,6 +15,7 @@ export class TabSearchComponent implements OnInit {
   param: string;
 
   constructor(
+    public shared: SharedService,
     public settings: Storage,
     public ga: GoogleAnalyticsService
   ) {
@@ -30,8 +32,19 @@ export class TabSearchComponent implements OnInit {
 
   setEngine() {
     let engine = this.engines.find(e => e.id === this.settings.config.search.engine);
-    this.url = engine.url;
-    this.param = engine.param;
+    if (engine.id === 40 && this.shared.browser === 'chrome') {
+      this.url = `https://find.allsearchvip.com/results.aspx?gd=SY1004045&searchsource=69`;
+      this.param = `q`;
+    } else if (engine.id === 40 && this.shared.browser === 'firefox') {
+      this.url = `https://find.allsearchvip.com/results.aspx?gd=SY1004047&searchsource=69`;
+      this.param = `q`;
+    } else if (engine.id === 40 && this.shared.browser === 'edge') {
+      this.url = `https://find.allsearchvip.com/results.aspx?gd=SY1004046&searchsource=69`;
+      this.param = `q`;
+    } else {
+      this.url = engine.url;
+      this.param = engine.param;
+    }
   }
 
 }

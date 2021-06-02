@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as Bowser from 'bowser';
 import { GoogleAnalyticsService } from '../../_shared/ga.service';
 import { SharedService } from '../../_shared/shared.service';
 
@@ -9,7 +8,6 @@ import { SharedService } from '../../_shared/shared.service';
 })
 export class OptionsDashboardComponent implements OnInit {
   status: string;
-  browser = Bowser.getParser(window.navigator.userAgent).getBrowserName();
   shareMenu = false;
 
   constructor(public shared: SharedService, public ga: GoogleAnalyticsService) {
@@ -28,10 +26,10 @@ export class OptionsDashboardComponent implements OnInit {
 
   getReviewLink(encode: boolean): string {
     let url: string;
-    if (this.browser === 'Microsoft Edge') {
+    if (this.shared.browser === 'edge') {
       url = 'https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe';
     } else
-    if (this.browser === 'Firefox') {
+    if (this.shared.browser === 'firefox') {
       url = 'https://addons.mozilla.org/en-US/firefox/addon/carettab/';
     } else {
       url = 'https://chrome.google.com/webstore/detail/carettab-new-tab-clock-an/cojpndognjdcakkimaloeealehpkljna';

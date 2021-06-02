@@ -7,6 +7,7 @@ import { patterns } from './_shared/lists/lists';
 import { tab } from './_shared/animations';
 import * as moment from 'moment';
 import { compare } from 'compare-versions';
+import * as Bowser from 'bowser';
 
 @Component({
   selector: 'app-root',
@@ -59,6 +60,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     // Run storage migration
     this.migrateSettings();
+
+    this.findBrowser();
 
     this.settings.onChange().subscribe((data) => {
       this.enableAnalytics(this.settings.config.misc.enableAnalytics);
@@ -185,6 +188,17 @@ export class AppComponent implements OnInit, AfterViewInit {
       }).catch((data: any) => {
         this.shared.echo('Error retrieving old data', '', data, "error");
       });
+    }
+  }
+
+  findBrowser() {
+    let b = Bowser.getParser(window.navigator.userAgent).getBrowserName();
+    if (b === 'Microsoft Edge') {
+      this.shared.browser = "edge";
+    } else if (b === 'Firefox') {
+      this.shared.browser = "firefox";
+    } else if (b === 'Chrome') {
+      this.shared.browser = "chrome";
     }
   }
 

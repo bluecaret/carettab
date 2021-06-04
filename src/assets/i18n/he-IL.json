@@ -78,7 +78,8 @@
       "weekIso": "מספר שבוע ISO",
       "weekIsoDesc": "השתמש במערכת תאריכי שבוע ISO מתוך תקן תאריך ושעה ISO 8601.",
       "weekNum": "מספר השבוע",
-      "year": "שנה"
+      "year": "שנה",
+      "dimDateDelimiter": "דים תוחם"
     },
     "design": {
       "bg": "רקע מותאם אישית",

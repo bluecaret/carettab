@@ -65,6 +65,10 @@
       <options-toggle type="toggle" name="short" [(ngModel)]="settings.config.date.short.enabled" (ngModelChange)="ga.field('date.short.enabled', settings.config.date.short.enabled);"></options-toggle>
     </div>
     <div class="input" *ngIf="settings.config.date.short.enabled">
+        <label [for]="'delimiterDim'+i">{{'options.date.dimDateDelimiter' | translate}}</label>
+        <options-toggle type="toggle" [name]="'delimiterDim'+i" [id]="'labelDim'+i" [(ngModel)]="settings.config.date.dimDelimiter" (ngModelChange)="ga.field('date.dimDelimiter',settings.config.date.dimDelimiter)"></options-toggle>
+    </div>
+    <div class="input" *ngIf="settings.config.date.short.enabled">
       <label for="shortDelimiter">{{'options.common.delimiter' | translate}}</label>
       <input type="text" maxlength="1" id="shortDelimiter" name="shortDelimiter" [(ngModel)]="settings.config.date.short.delimiter" (change)="ga.field('date.short.delimiter', settings.config.date.short.delimiter);" autocomplete="off">
     </div>

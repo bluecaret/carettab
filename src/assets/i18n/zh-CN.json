@@ -78,7 +78,8 @@
       "weekIso": "ISO周数",
       "weekIsoDesc": "使用ISO 8601日期和时间标准中的ISO周日期系统。",
       "weekNum": "周数",
-      "year": "年"
+      "year": "年",
+      "dimDateDelimiter": "半透明的分隔符"
     },
     "design": {
       "bg": "自定义背景色",

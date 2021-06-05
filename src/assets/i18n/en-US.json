@@ -109,7 +109,6 @@
       "wallpaper": "Wallpaper"
     },
     "extra": {
-      "advanced": "Advanced",
       "disableSelect": "Disable text selection",
       "disableSelectDesc": "This will prevent you from selecting text on the new tab page resulting in a cleaner look in case of accidental clicks.",
       "enableAnalytics": "Enable analytics data",
@@ -143,8 +142,7 @@
     "message": {
       "customMsg": "Custom message",
       "msg": "Message",
-      "msgText": "Message text",
-      "msgTextDesc": "Enter text for the custom message."
+      "msgText": "Message text"
     },
     "search": {
       "autocomplete": "Autocomplete",
@@ -195,8 +193,6 @@
       "meridiemEnable": "Enable meridiem",
       "meridiemOffset": "Adjust the position of the meridiem up or down",
       "meridiemSize": "Adjusts the size of the meridiem relative to the clock",
-      "moveDown": "Move order of clock down",
-      "moveUp": "Move order of clock up",
       "note": "Note:",
       "noteText": "the time is an educated guess based on the time and timezone your computer is set to and may not reflect your actual time. CaretTab is guessing your current timezone to be:",
       "offsetDesc": "Adjust the position of the clock up or down.",
@@ -271,11 +267,6 @@
       "l7": "Disabled dynamic scaling by default",
       "l8": "Updated timezone data",
       "l9": "Bug fixes"
-    },
-    "v330": {
-      "l1": "Added keyboard shortcuts to Quick Links. Now you can quickly load the first 10 quick links using a keyboard shortcut. Hover over a quick link to see what the shortcut is. You must tab out of the address bar first so the new tab page is in focus.",
-      "l2": "Clicking the custom background preview will now remove the background.",
-      "l3": "Added CaretTab logo to bottom corner. This can be turned off within the extra settings menu."
     },
     "v340": {
       "h2": "Help improve CaretTab by enabling analytics data",

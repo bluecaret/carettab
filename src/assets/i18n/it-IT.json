@@ -109,7 +109,6 @@
       "wallpaper": "sfondo"
     },
     "extra": {
-      "advanced": "Avanzate",
       "disableSelect": "Disabilita la selezione del testo",
       "disableSelectDesc": "Ciò ti impedirà di selezionare il testo nella pagina Nuova scheda risultando in un aspetto più pulito in caso di clic accidentali.",
       "enableAnalytics": "Abilita i dati di analisi",
@@ -143,8 +142,7 @@
     "message": {
       "customMsg": "messaggio personalizzato",
       "msg": "Messaggio",
-      "msgText": "Messaggio di testo",
-      "msgTextDesc": "Immettere il testo per il messaggio personalizzato."
+      "msgText": "Messaggio di testo"
     },
     "search": {
       "autocomplete": "Completamento automatico",
@@ -195,8 +193,6 @@
       "meridiemEnable": "Abilita meridiem",
       "meridiemOffset": "Regola la posizione del meridiano verso l'alto o verso il basso",
       "meridiemSize": "Regola la dimensione del meridiano rispetto all'orologio",
-      "moveDown": "Sposta l'ordine dell'orologio verso il basso",
-      "moveUp": "Sposta l'ordine dell'orologio verso l'alto",
       "note": "Nota:",
       "noteText": "l'ora è un'ipotesi plausibile basata sull'ora e sul fuso orario su cui è impostato il computer e potrebbe non riflettere l'ora effettiva. CaretTab sta ipotizzando che il tuo fuso orario attuale sia:",
       "offsetDesc": "Regola la posizione dell'orologio verso l'alto o verso il basso.",
@@ -271,11 +267,6 @@
       "l7": "Ridimensionamento dinamico disabilitato per impostazione predefinita",
       "l8": "Dati aggiornati sul fuso orario",
       "l9": "Correzioni di bug"
-    },
-    "v330": {
-      "l1": "Aggiunte scorciatoie da tastiera ai collegamenti rapidi. Ora puoi caricare rapidamente i primi 10 collegamenti rapidi utilizzando una scorciatoia da tastiera. Passa il mouse su un collegamento rapido per vedere qual è il collegamento. È necessario prima tabulare fuori dalla barra degli indirizzi in modo che la nuova pagina della scheda sia a fuoco.",
-      "l2": "Fare clic sull'anteprima dello sfondo personalizzato ora rimuoverà lo sfondo.",
-      "l3": "Aggiunto logo CaretTab nell'angolo inferiore. Questo può essere disattivato nel menu delle impostazioni extra."
     },
     "v340": {
       "h2": "Contribuisci a migliorare CaretTab abilitando i dati analitici",

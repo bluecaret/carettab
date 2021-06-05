@@ -109,7 +109,6 @@
       "wallpaper": "Fond d'écran"
     },
     "extra": {
-      "advanced": "Avancée",
       "disableSelect": "Désactiver la sélection de texte",
       "disableSelectDesc": "Cela vous empêchera de sélectionner du texte sur la nouvelle page à onglet, ce qui donnera un aspect plus net en cas de clics accidentels.",
       "enableAnalytics": "Activer les données analytiques",
@@ -143,8 +142,7 @@
     "message": {
       "customMsg": "message personnalisé",
       "msg": "Message",
-      "msgText": "Texte du message",
-      "msgTextDesc": "Entrez le texte du message personnalisé."
+      "msgText": "Texte du message"
     },
     "search": {
       "autocomplete": "Autocomplete",
@@ -195,8 +193,6 @@
       "meridiemEnable": "Activer meridiem",
       "meridiemOffset": "Ajuste la position du meridiem haut ou bas",
       "meridiemSize": "Ajuste la taille du meridiem par rapport à l'horloge",
-      "moveDown": "Décalage de l'horloge",
-      "moveUp": "Déplacer l'ordre de l'horloge vers le haut",
       "note": "Remarque:",
       "noteText": "l'heure est une supposition éclairée basée sur l'heure et le fuseau horaire de votre ordinateur et peut ne pas correspondre à l'heure réelle. CaretTab suppose que votre fuseau horaire actuel est:",
       "offsetDesc": "Ajustez la position de l'horloge en haut ou en bas",
@@ -271,11 +267,6 @@
       "l7": "Mise à l'échelle dynamique désactivée par défaut",
       "l8": "Données de fuseau horaire mises à jour",
       "l9": "Corrections de bogues"
-    },
-    "v330": {
-      "l1": "Ajout de raccourcis clavier aux liens rapides. Vous pouvez désormais charger rapidement les 10 premiers liens rapides à l'aide d'un raccourci clavier. Passez la souris sur un lien rapide pour voir ce qu'est le raccourci. Vous devez d'abord sortir de la barre d'adresse pour que la nouvelle page à onglet soit active.",
-      "l2": "Cliquer sur l'aperçu d'arrière-plan personnalisé supprimera désormais l'arrière-plan.",
-      "l3": "Ajout du logo CaretTab dans le coin inférieur. Cela peut être désactivé dans le menu des paramètres supplémentaires."
     },
     "v340": {
       "h2": "Aidez à améliorer CaretTab en activant les données d'analyse",

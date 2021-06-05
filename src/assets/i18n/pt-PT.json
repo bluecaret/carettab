@@ -109,7 +109,6 @@
       "wallpaper": "Papel de parede"
     },
     "extra": {
-      "advanced": "Avançado",
       "disableSelect": "Desativar seleção de texto",
       "disableSelectDesc": "Isso impedirá que você selecione texto na página da nova guia, resultando em uma aparência mais limpa em caso de cliques acidentais.",
       "enableAnalytics": "Ativar dados analíticos",
@@ -143,8 +142,7 @@
     "message": {
       "customMsg": "mensagem personalizada",
       "msg": "mensagem",
-      "msgText": "Mensagem de texto",
-      "msgTextDesc": "Insira o texto da mensagem personalizada."
+      "msgText": "Mensagem de texto"
     },
     "search": {
       "autocomplete": "autocompletar",
@@ -195,8 +193,6 @@
       "meridiemEnable": "Habilitar meridiem",
       "meridiemOffset": "Ajuste a posição do meridiem para cima ou para baixo",
       "meridiemSize": "Ajusta o tamanho do meridiem em relação ao relógio",
-      "moveDown": "Mova a ordem do relógio para baixo",
-      "moveUp": "Mova a ordem do relógio para cima",
       "note": "Nota:",
       "noteText": "a hora é uma estimativa baseada na hora e no fuso horário que o seu computador está definido e pode não refletir a sua hora real. CaretTab está supondo que seu fuso horário atual seja:",
       "offsetDesc": "Ajuste a posição do relógio para cima ou para baixo.",
@@ -271,11 +267,6 @@
       "l7": "Escala dinâmica desativada por padrão",
       "l8": "Dados atualizados de fuso horário",
       "l9": "Correções de bugs"
-    },
-    "v330": {
-      "l1": "Adicionados atalhos de teclado para Links rápidos. Agora você pode carregar rapidamente os primeiros 10 links rápidos usando um atalho de teclado. Passe o mouse sobre um link rápido para ver o que é o atalho. Você deve sair da barra de endereço pela guia primeiro, para que a página da nova guia fique em foco.",
-      "l2": "Clicar na visualização do plano de fundo personalizado agora removerá o plano de fundo.",
-      "l3": "Adicionado o logotipo CaretTab ao canto inferior. Isso pode ser desativado no menu de configurações extras."
     },
     "v340": {
       "h2": "Ajude a melhorar o CaretTab habilitando dados analíticos",

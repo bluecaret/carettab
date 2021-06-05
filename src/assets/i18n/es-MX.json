@@ -109,7 +109,6 @@
       "wallpaper": "Papel pintado"
     },
     "extra": {
-      "advanced": "Avanzado",
       "disableSelect": "Deshabilitar la selección de texto",
       "disableSelectDesc": "Esto evitará que seleccione texto en la página de nueva pestaña, lo que dará como resultado un aspecto más limpio en caso de clics accidentales.",
       "enableAnalytics": "Habilitar datos analíticos",
@@ -143,8 +142,7 @@
     "message": {
       "customMsg": "mensaje personalizado",
       "msg": "Mensaje",
-      "msgText": "Mensaje de texto",
-      "msgTextDesc": "Introduzca texto para el mensaje personalizado."
+      "msgText": "Mensaje de texto"
     },
     "search": {
       "autocomplete": "Autocompletar",
@@ -195,8 +193,6 @@
       "meridiemEnable": "Habilitar meridiem",
       "meridiemOffset": "Ajusta la posición del meridiem hacia arriba o hacia abajo.",
       "meridiemSize": "Ajusta el tamaño del meridiem en relación con el reloj.",
-      "moveDown": "Mover orden de reloj hacia abajo",
-      "moveUp": "Mover orden de reloj arriba",
       "note": "Nota:",
       "noteText": "la hora es una conjetura basada en la hora y la zona horaria en la que está configurada su computadora y puede no reflejar su hora real. CaretTab está adivinando que su zona horaria actual es:",
       "offsetDesc": "Ajusta la posición del reloj hacia arriba o hacia abajo.",
@@ -271,11 +267,6 @@
       "l7": "Escalado dinámico deshabilitado de forma predeterminada",
       "l8": "Datos de zona horaria actualizados",
       "l9": "Corrección de errores"
-    },
-    "v330": {
-      "l1": "Se agregaron atajos de teclado a los enlaces rápidos. Ahora puede cargar rápidamente los primeros 10 enlaces rápidos usando un atajo de teclado. Coloca el cursor sobre un enlace rápido para ver cuál es el acceso directo. Primero debe salir de la barra de direcciones para que la página de nueva pestaña esté enfocada.",
-      "l2": "Al hacer clic en la vista previa del fondo personalizado, ahora se eliminará el fondo.",
-      "l3": "Se agregó el logotipo de CaretTab en la esquina inferior. Esto se puede desactivar en el menú de configuración adicional."
     },
     "v340": {
       "h2": "Ayude a mejorar CaretTab habilitando datos analíticos",

@@ -109,7 +109,6 @@
       "wallpaper": "Tapete"
     },
     "extra": {
-      "advanced": "Erweitert",
       "disableSelect": "Deaktivieren Sie die Textauswahl",
       "disableSelectDesc": "Dadurch wird verhindert, dass Sie Text auf der neuen Registerkarte auswählen, was bei versehentlichen Klicks zu einem saubereren Aussehen führt.",
       "enableAnalytics": "Analysedaten aktivieren",
@@ -143,8 +142,7 @@
     "message": {
       "customMsg": "benutzerdefinierte Nachricht",
       "msg": "Botschaft",
-      "msgText": "Nachrichtentext",
-      "msgTextDesc": "Geben Sie einen Text für die benutzerdefinierte Nachricht ein."
+      "msgText": "Nachrichtentext"
     },
     "search": {
       "autocomplete": "Autovervollständigen",
@@ -195,8 +193,6 @@
       "meridiemEnable": "Aktivieren Sie Meridiem",
       "meridiemOffset": "Passen Sie die Position des Meridiems nach oben oder unten an",
       "meridiemSize": "Passt die Größe des Meridiems relativ zur Uhr an",
-      "moveDown": "Verschieben Sie die Uhrreihenfolge nach unten",
-      "moveUp": "Verschieben Sie die Reihenfolge der Uhr nach oben",
       "note": "Hinweis:",
       "noteText": "Die Zeit ist eine fundierte Schätzung, die auf der Zeit und der Zeitzone basiert, auf die Ihr Computer eingestellt ist, und die möglicherweise nicht Ihre tatsächliche Zeit widerspiegelt. CaretTab schätzt Ihre aktuelle Zeitzone auf:",
       "offsetDesc": "Passen Sie die Position der Uhr nach oben oder unten an.",
@@ -271,11 +267,6 @@
       "l7": "Die dynamische Skalierung ist standardmäßig deaktiviert",
       "l8": "Zeitzonendaten aktualisiert",
       "l9": "Fehlerbehebung"
-    },
-    "v330": {
-      "l1": "Tastaturkürzel zu Quick Links hinzugefügt. Jetzt können Sie die ersten 10 Quicklinks schnell über eine Tastenkombination laden. Bewegen Sie den Mauszeiger über einen Schnelllink, um die Verknüpfung anzuzeigen. Sie müssen zuerst die Adressleiste verlassen, damit die neue Registerkarte im Fokus steht.",
-      "l2": "Durch Klicken auf die benutzerdefinierte Hintergrundvorschau wird nun der Hintergrund entfernt.",
-      "l3": "CaretTab-Logo in der unteren Ecke hinzugefügt. Dies kann im Menü für zusätzliche Einstellungen deaktiviert werden."
     },
     "v340": {
       "h2": "Helfen Sie CaretTab zu verbessern, indem Sie Analysedaten aktivieren",

@@ -10,11 +10,11 @@
     {{ getWeekday() }}
     <span *ngSwitchCase="10"><!-- dd/MM/YYYY -->
       {{ getDay() }}
-      <span [ngClass]="{ dim: settings.config.date.dimDelimiter }">
+      <span   *ngIf='settings.config.date.day.enabled && settings.config.date.month.enabled' [ngClass]="{ dim: settings.config.date.dimDelimiter }">
         {{ getDelimiter() }}
       </span>
       {{ getMonth() }}
-      <span [ngClass]="{ dim: settings.config.date.dimDelimiter }">
+      <span  *ngIf='(settings.config.date.month.enabled && settings.config.date.year.enabled)|| (settings.config.date.day.enabled && settings.config.date.year.enabled)' [ngClass]="{ dim: settings.config.date.dimDelimiter }">
         {{ getDelimiter() }}
       </span>
       {{ getYear() }} 
@@ -22,23 +22,23 @@
 
     <span *ngSwitchCase="20"><!-- MM/dd/YYYY -->
       {{ getMonth() }}
-      <span [ngClass]="{ dim: settings.config.date.dimDelimiter }">
+      <span   *ngIf='settings.config.date.month.enabled && settings.config.date.day.enabled' [ngClass]="{ dim: settings.config.date.dimDelimiter }">
         {{ getDelimiter() }}
       </span>
       {{ getDay() }}
-      <span [ngClass]="{ dim: settings.config.date.dimDelimiter }">
-        {{ getDelimiter() }}
+      <span  *ngIf='(settings.config.date.day.enabled && settings.config.date.year.enabled)|| (settings.config.date.month.enabled && settings.config.date.year.enabled)' [ngClass]="{ dim: settings.config.date.dimDelimiter }">
+          {{ getDelimiter() }}
       </span>
       {{ getYear() }} 
     </span>
 
     <span *ngSwitchCase="30"><!-- YYYY/MM/dd -->
       {{ getYear() }}
-      <span [ngClass]="{ dim: settings.config.date.dimDelimiter }">
+      <span   *ngIf='settings.config.date.year.enabled && settings.config.date.month.enabled' [ngClass]="{ dim: settings.config.date.dimDelimiter }">
         {{ getDelimiter() }}
       </span>
       {{ getMonth() }}
-      <span [ngClass]="{ dim: settings.config.date.dimDelimiter }">
+      <span  *ngIf='(settings.config.date.month.enabled && settings.config.date.day.enabled)|| (settings.config.date.year.enabled && settings.config.date.date.enabled)' [ngClass]="{ dim: settings.config.date.dimDelimiter }">
         {{ getDelimiter() }}
       </span>
       {{ getDay() }} 

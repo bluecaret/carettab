@@ -78,7 +78,8 @@
       "weekIso": "ISO week number",
       "weekIsoDesc": "Use the ISO week date system from ISO 8601 date and time standard.",
       "weekNum": "Week number",
-      "year": "Year"
+      "year": "Year",
+      "dimDateDelimiter": "Dim Delimiter"
     },
     "design": {
       "bg": "Custom background",

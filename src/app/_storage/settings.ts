@@ -151,6 +151,7 @@ export class DateSettings {
   scaling = 6;
   offset = 0;
   timezone = 'Automatic';
+  dimDelimiter = false;
   format = 20;
   short = {
     enabled: false,

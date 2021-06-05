@@ -1,6 +1,49 @@
-<div class="dateContent"
+<div
+  class="dateContent"
   [style.fontSize]="shared.getFontSize(settings.config.date.scaling, 3)">
-  {{getDate()}}
+  <div *ngIf="!settings.config.date.short.enabled">
+    {{ getDate() }}
+  </div>
+
+  <div  *ngIf="settings.config.date.short.enabled" 
+        [ngSwitch]="settings.config.date.format">
+    {{ getWeekday() }}
+    <span *ngSwitchCase="10"><!-- dd/MM/YYYY -->
+      {{ getDay() }}
+      <span   *ngIf='settings.config.date.day.enabled && settings.config.date.month.enabled' [ngClass]="{ dim: settings.config.date.dimDelimiter }">
+        {{ getDelimiter() }}
+      </span>
+      {{ getMonth() }}
+      <span  *ngIf='(settings.config.date.month.enabled && settings.config.date.year.enabled)|| (settings.config.date.day.enabled && settings.config.date.year.enabled)' [ngClass]="{ dim: settings.config.date.dimDelimiter }">
+        {{ getDelimiter() }}
+      </span>
+      {{ getYear() }} 
+    </span>
+
+    <span *ngSwitchCase="20"><!-- MM/dd/YYYY -->
+      {{ getMonth() }}
+      <span   *ngIf='settings.config.date.month.enabled && settings.config.date.day.enabled' [ngClass]="{ dim: settings.config.date.dimDelimiter }">
+        {{ getDelimiter() }}
+      </span>
+      {{ getDay() }}
+      <span  *ngIf='(settings.config.date.day.enabled && settings.config.date.year.enabled)|| (settings.config.date.month.enabled && settings.config.date.year.enabled)' [ngClass]="{ dim: settings.config.date.dimDelimiter }">
+          {{ getDelimiter() }}
+      </span>
+      {{ getYear() }} 
+    </span>
+
+    <span *ngSwitchCase="30"><!-- YYYY/MM/dd -->
+      {{ getYear() }}
+      <span   *ngIf='settings.config.date.year.enabled && settings.config.date.month.enabled' [ngClass]="{ dim: settings.config.date.dimDelimiter }">
+        {{ getDelimiter() }}
+      </span>
+      {{ getMonth() }}
+      <span  *ngIf='(settings.config.date.month.enabled && settings.config.date.day.enabled)|| (settings.config.date.year.enabled && settings.config.date.date.enabled)' [ngClass]="{ dim: settings.config.date.dimDelimiter }">
+        {{ getDelimiter() }}
+      </span>
+      {{ getDay() }} 
+    </span>
+  </div>
 </div>
 <div class="weekLabel"
   *ngIf="settings.config.date.week.enabled"

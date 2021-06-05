@@ -1,7 +1,7 @@
 export const languages = [
   { id: 'en-US', label: 'English', name: 'English (United States)' },
-  { id: 'zh-CN', label: '简体中文）', name: 'Chinese (Simplified)' },
-  { id: 'zh-TW', label: '中文（台灣）', name: 'Chinese (Taiwan)' },
+  { id: 'zh-CN', label: '简体中文（中国大陆）', name: 'Simplified Chinese (China Mainland)' },
+  { id: 'zh-TW', label: '繁体中文（台湾）', name: 'Traditional Chinese (Taiwan)' },
   { id: 'fr-FR', label: 'Français', name: 'French (France)' },
   { id: 'de-DE', label: 'Deutsch', name: 'German (Germany)' },
   { id: 'he-IL', label: 'עברית', name: 'Hebrew (Israel)' },

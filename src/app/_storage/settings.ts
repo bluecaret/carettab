@@ -29,7 +29,7 @@ export class DesignSettings {
   imageBlend = 10;
   brightness = 10;
   hideMenu = false;
-  hideLogo = false;
+  hideLogo = true;
 }
 
 export class MessageSettings {

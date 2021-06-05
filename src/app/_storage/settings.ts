@@ -29,7 +29,7 @@ export class DesignSettings {
   imageBlend = 10;
   brightness = 10;
   hideMenu = false;
-  hideLogo = false;
+  hideLogo = true;
 }
 
 export class MessageSettings {
@@ -151,6 +151,7 @@ export class DateSettings {
   scaling = 6;
   offset = 0;
   timezone = 'Automatic';
+  dimDelimiter = false;
   format = 20;
   short = {
     enabled: false,

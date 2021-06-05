@@ -57,6 +57,9 @@ $optionsWidth: 700px;
   --optShadow: rgba(0,0,0,.2);
   --optNavBorder: rgba(0,0,0,.1);
   --optNavActive: rgba(0,0,0,.1);
+  --optValSuccess: #397b36;
+  --optValError: #de1a00;
+  --optValText: white;
   @media (prefers-color-scheme: dark) {
     --optAccent: rgb(105,125,175);
     --optAccentLight: rgb(131, 151, 201);
@@ -75,5 +78,8 @@ $optionsWidth: 700px;
     --optShadow: rgba(255,255,255,.2);
     --optNavBorder: rgba(255,255,255,.15);
     --optNavActive: rgba(255,255,255,.1);
+    --optValSuccess: #397b36;
+    --optValError: #de1a00;
+    --optValText: white;
   }
 }

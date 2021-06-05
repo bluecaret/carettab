@@ -6,7 +6,7 @@ import * as moment from 'moment';
 @Component({
   selector: 'tab-date',
   templateUrl: 'date.component.html',
-  host: {'class': 'date'}
+  host: { 'class': 'date' }
 })
 export class TabDateComponent implements OnInit {
   currentDate: Date;
@@ -14,7 +14,7 @@ export class TabDateComponent implements OnInit {
   constructor(
     public shared: SharedService,
     public settings: Storage
-  ) {}
+  ) { }
 
   ngOnInit() {
     if (this.settings.config.date.enabled) {
@@ -189,4 +189,69 @@ export class TabDateComponent implements OnInit {
     return (size * .1) + 'em';
   }
 
+  getDelimiter() {
+    return this.settings.config.date.short.delimiter;
+  }
+
+  getWeekday(): string {
+    moment.locale(this.settings.config.i18n.lang);
+    let current = this.currentDate;
+    let c = this.settings.config.date;
+    let zone = this.getZone(c.timezone);
+    let date = moment(current).tz(zone);
+    let weekDay: string;
+    if (c.dayOfWeek.enabled) {
+      weekDay = c.dayOfWeek.abbr ? date.format('ddd') + ', ' : date.format('dddd') + ', ';
+    } else {
+      weekDay = '';
+    }
+    return weekDay;
+  }
+
+  getDay(): string {
+    moment.locale(this.settings.config.i18n.lang);
+    let current = this.currentDate;
+    let c = this.settings.config.date;
+    let zone = this.getZone(c.timezone);
+    let date = moment(current).tz(zone);
+    let day = c.day.twoDigit ? date.format('DD') : date.format('D');
+    if (c.short.enabled) {
+      if (c.day.enabled) {
+        return day;
+      }
+    }
+    return '';
+  }
+
+  getMonth(): string {
+    moment.locale(this.settings.config.i18n.lang);
+    let current = this.currentDate;
+    let c = this.settings.config.date;
+    let zone = this.getZone(c.timezone);
+    let date = moment(current).tz(zone);
+    let month = c.month.abbr ? date.format('MMM') : date.format('MMMM');
+
+    month = c.month.twoDigit ? date.format('MM') : date.format('M');
+    if (c.short.enabled) {
+      if (c.month.enabled) {
+        return month;
+      }
+    }
+    return '';
+  }
+
+  getYear(): string {
+    moment.locale(this.settings.config.i18n.lang);
+    let current = this.currentDate;
+    let c = this.settings.config.date;
+    let zone = this.getZone(c.timezone);
+    let date = moment(current).tz(zone);
+    let year = c.year.twoDigit ? date.format('YY') : date.format('YYYY');
+    if (c.short.enabled) {
+      if (c.year.enabled) {
+        return year;
+      }
+    }
+    return '';
+  }
 }

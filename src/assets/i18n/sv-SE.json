@@ -173,6 +173,7 @@
       "bracketsRightDesc": "Ange symbolen för att representera höger sidofäste",
       "bracketsSize": "Justerar parentesernas storlek i förhållande till klockan",
       "clock": "Klocka",
+      "copyClock": "Kopiera klockan",
       "deleteClock": "Radera klockan",
       "delimiter": "avgränsare",
       "delimiterBlink": "Blink avgränsare",

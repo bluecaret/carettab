@@ -173,6 +173,7 @@
       "bracketsRightDesc": "Введите символ для обозначения правой боковой скобки",
       "bracketsSize": "Регулирует размер скобок относительно часов",
       "clock": "Часы",
+      "copyClock": "Копировать часы",
       "deleteClock": "Удалить часы",
       "delimiter": "Разделитель",
       "delimiterBlink": "Blink Delimiter",

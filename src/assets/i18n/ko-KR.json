@@ -173,6 +173,7 @@
       "bracketsRightDesc": "오른쪽 괄호를 나타내는 기호를 입력하십시오",
       "bracketsSize": "시계를 기준으로 괄호의 크기를 조정합니다",
       "clock": "시계",
+      "copyClock": "시계 복사",
       "deleteClock": "시계 삭제",
       "delimiter": "구분자",
       "delimiterBlink": "깜박임 구분 기호",

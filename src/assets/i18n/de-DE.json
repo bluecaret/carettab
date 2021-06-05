@@ -173,6 +173,7 @@
       "bracketsRightDesc": "Geben Sie das Symbol für die rechte Klammer ein",
       "bracketsSize": "Passt die Größe der Klammern relativ zur Uhr an",
       "clock": "Uhr",
+      "copyClock": "Uhr kopieren",
       "deleteClock": "Uhr löschen",
       "delimiter": "Trennzeichen",
       "delimiterBlink": "Begrenzer blinken",

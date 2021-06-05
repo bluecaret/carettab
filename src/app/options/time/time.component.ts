@@ -82,7 +82,7 @@ export class OptionsTimeComponent {
     let i = (this.settings.config.time.clocks.length - 1);
     this.shared.toggleOrder(this.settings.config.time.clocks[i].id, true);
     this.selected = i;
-    this.shared.echo('New clock added');
+    this.shared.echo('New clock added', null, this.settings.config.time.clocks[i]);
   }
 
   /** Deletes clock */
@@ -94,6 +94,16 @@ export class OptionsTimeComponent {
     } else {
       return;
     }
+  }
+
+  copy(index: number) {
+    let newClock: Clock = {...this.settings.config.time.clocks[index]};
+    newClock.id = this.shared.createID('CLOCK');
+    this.settings.config.time.clocks.push(newClock);
+    let i = (this.settings.config.time.clocks.length - 1);
+    this.shared.toggleOrder(this.settings.config.time.clocks[i].id, true);
+    this.selected = null;
+    this.shared.echo('Clock copied', null, newClock);
   }
 
 }

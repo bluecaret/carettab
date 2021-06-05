@@ -173,6 +173,7 @@
       "bracketsRightDesc": "Entrez le symbole pour représenter le crochet de droite",
       "bracketsSize": "Ajuste la taille des crochets par rapport à l'horloge",
       "clock": "L'horloge",
+      "copyClock": "Copier l'horloge",
       "deleteClock": "Supprimer l'horloge",
       "delimiter": "Délimiteur",
       "delimiterBlink": "Délimiteur de clignotement",

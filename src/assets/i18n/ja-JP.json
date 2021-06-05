@@ -173,6 +173,7 @@
       "bracketsRightDesc": "右側の括弧を表す記号を入力してください",
       "bracketsSize": "時計に対してブラケットのサイズを調整します",
       "clock": "時計",
+      "copyClock": "時計をコピー",
       "deleteClock": "時計を削除",
       "delimiter": "デリミタ",
       "delimiterBlink": "点滅区切り文字",

@@ -173,6 +173,7 @@
       "bracketsRightDesc": "Introduzca el símbolo para representar el corchete del lado derecho",
       "bracketsSize": "Ajusta el tamaño de los corchetes en relación con el reloj.",
       "clock": "RELOJ",
+      "copyClock": "Copiar reloj",
       "deleteClock": "Borrar reloj",
       "delimiter": "Delimitador",
       "delimiterBlink": "Delimitador de parpadeo",

@@ -173,6 +173,7 @@
       "bracketsRightDesc": "Insira o símbolo para representar o colchete do lado direito",
       "bracketsSize": "Ajusta o tamanho dos colchetes em relação ao relógio",
       "clock": "Relógio",
+      "copyClock": "Copiar relógio",
       "deleteClock": "Apagar relógio",
       "delimiter": "Delimitador",
       "delimiterBlink": "Delimitador intermitente",

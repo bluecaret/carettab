@@ -173,6 +173,7 @@
       "bracketsRightDesc": "输入右括号",
       "bracketsSize": "调整括号相对于时钟的大小",
       "clock": "时钟",
+      "copyClock": "复制时钟",
       "deleteClock": "删除时钟",
       "delimiter": "分隔符",
       "delimiterBlink": "分隔符闪烁",

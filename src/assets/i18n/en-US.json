@@ -173,6 +173,7 @@
       "bracketsRightDesc": "Enter the symbol to represent the right-side bracket",
       "bracketsSize": "Adjusts the size of the brackets relative to the clock",
       "clock": "Clock",
+      "copyClock": "Copy clock",
       "deleteClock": "Delete clock",
       "delimiter": "Delimiter",
       "delimiterBlink": "Blink delimiter",

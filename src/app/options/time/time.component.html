@@ -2,8 +2,8 @@
 <form #clockList="ngForm" novalidate>
   <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index; trackBy:trackByFn; let isFirst = first; let isLast = last">
     <h3>{{'options.time.clock' | translate}} #{{i + 1}}</h3>
-    <div class="grid cols-10 mt">
-      <div class="input inputStacked span-6">
+    <div class="grid cols-2 mt">
+      <div class="input inputStacked">
         <label [for]="'timezone'+i" title="{{'options.time.timezoneDesc' | translate}}">{{'options.common.timezone' | translate}}</label>
         <select [name]="'timezone'+i" [id]="'timezone'+i" [(ngModel)]="clock.timezone" (ngModelChange)="ga.field('time.clocks.timezone', clock.timezone)">
           <option value="Automatic">{{'options.time.automatic' | translate}} ({{tz.timezoneFormat(tzGuess)}})</option>
@@ -24,7 +24,7 @@
           </ng-template>
         </select>
       </div>
-      <div class="input inputStacked span-4">
+      <div class="input inputStacked">
         <label [for]="'actions'+i">{{'options.time.actions' | translate}}</label>
         <div [id]="'actions'+i" class="compactBtnList">
           <button
@@ -56,6 +56,13 @@
               <div class="icon" aria-hidden="true">expand_more</div>
             </button>
           </div>
+          <button
+            type="button"
+            title="{{'options.time.copyClock' | translate}}"
+            class="btn btnIcon btnIconSmall"
+            (click)="copy(i); ga.field('button.clockCopy', 'true')">
+            <div class="icon" aria-hidden="true">content_copy</div>
+          </button>
           <button
             type="button"
             title="{{'options.time.deleteClock' | translate}}"

@@ -173,6 +173,7 @@
       "bracketsRightDesc": "輸入代表右方括號的符號",
       "bracketsSize": "調整支架相對於時鐘的大小",
       "clock": "鐘",
+      "copyClock": "複製時鐘",
       "deleteClock": "刪除時鐘",
       "delimiter": "定界符",
       "delimiterBlink": "閃爍定界符",

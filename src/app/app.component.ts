@@ -80,7 +80,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         let img = '0.png';
 
         // Check for "900" is for backwards compatibility with an old bug
-        if (patternId !== 0 && patternId !== 99999 && patternId !== 900) {
+        if (patternId !== null && patternId !== undefined && patternId !== 0 && patternId !== 99999 && patternId !== 900) {
           img = patterns.find(p => p.id === patternId).pattern;
           this.shared.echo('No background, use selected pattern:', patternId)
         } else {

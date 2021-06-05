@@ -200,8 +200,9 @@ export class TabDateComponent implements OnInit {
     let zone = this.getZone(c.timezone);
     let date = moment(current).tz(zone);
     let weekDay: string;
+    let comma = this.settings.config.date.year.enabled || this.settings.config.date.month.enabled || this.settings.config.date.day.enabled ? ', ' : '';
     if (c.dayOfWeek.enabled) {
-      weekDay = c.dayOfWeek.abbr ? date.format('ddd') + ', ' : date.format('dddd') + ', ';
+      weekDay = c.dayOfWeek.abbr ? date.format('ddd') + comma : date.format('dddd') + comma;
     } else {
       weekDay = '';
     }

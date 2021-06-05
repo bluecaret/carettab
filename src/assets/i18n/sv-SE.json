@@ -66,6 +66,7 @@
       "date": "Datum",
       "day": "Dag",
       "dayOfWk": "Dag i veckan",
+      "dimDateDelimiter": "Dim avgränsare",
       "enableDay": "Aktivera dag",
       "enableDayOfWk": "Aktivera veckodag",
       "enableMonth": "Aktivera månad",
@@ -78,8 +79,7 @@
       "weekIso": "ISO-veckonummer",
       "weekIsoDesc": "Använd ISO-veckodatussystemet från ISO 8601-datum och tidsstandard.",
       "weekNum": "Veckans nummer",
-      "year": "År",
-      "dimDateDelimiter": "Dim avgränsare"
+      "year": "År"
     },
     "design": {
       "bg": "Egen bakgrund",
@@ -110,6 +110,8 @@
     },
     "extra": {
       "advanced": "Avancerad",
+      "disableSelect": "Inaktivera textval",
+      "disableSelectDesc": "Detta kommer att hindra dig från att välja text på den nya fliksidan, vilket ger ett renare utseende vid oavsiktliga klick.",
       "enableAnalytics": "Aktivera analysdata",
       "enableAnalyticsDesc": "CaretTab vill rapportera din användning av tillägget till analys. Detta hjälper oss att förbättra tillägget genom att lära oss hur det används. Detta spårar data som när inställningsmenyn öppnas och när inställningarna ändras. Detta spårar inte någon personlig identifierande information. Du kan när som helst välja eller välja bort.",
       "export": "Exportera",

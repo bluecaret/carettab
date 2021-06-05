@@ -66,6 +66,7 @@
       "date": "Datum",
       "day": "Tag",
       "dayOfWk": "Wochentag",
+      "dimDateDelimiter": "Dim Delimiter",
       "enableDay": "Tag aktivieren",
       "enableDayOfWk": "Wochentag aktivieren",
       "enableMonth": "Monat aktivieren",
@@ -78,8 +79,7 @@
       "weekIso": "ISO-Wochennummer",
       "weekIsoDesc": "Verwenden Sie das ISO-Wochendatumsystem nach ISO 8601 Datums- und Zeitstandard.",
       "weekNum": "Wochennummer",
-      "year": "Jahr",
-      "dimDateDelimiter":"Dim Delimiter"
+      "year": "Jahr"
     },
     "design": {
       "bg": "Benutzerdefinierter Hintergrund",
@@ -110,6 +110,8 @@
     },
     "extra": {
       "advanced": "Erweitert",
+      "disableSelect": "Deaktivieren Sie die Textauswahl",
+      "disableSelectDesc": "Dadurch wird verhindert, dass Sie Text auf der neuen Registerkarte auswählen, was bei versehentlichen Klicks zu einem saubereren Aussehen führt.",
       "enableAnalytics": "Analysedaten aktivieren",
       "enableAnalyticsDesc": "CaretTab möchte Ihre Verwendung der Erweiterung an Analytics melden. Dies hilft uns, die Erweiterung zu verbessern, indem wir lernen, wie sie verwendet wird. Dies verfolgt Daten, z. B. wann das Einstellungsmenü geöffnet wird und wann Einstellungen geändert werden. Hiermit werden keine persönlichen Identifikationsdaten erfasst. Sie können sich jederzeit anmelden oder abmelden.",
       "export": "Export",

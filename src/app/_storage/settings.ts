@@ -197,6 +197,7 @@ export class SearchSettings {
 export class MiscSettings {
   schema = '1.0';
   enableAnalytics = true;
+  disableSelect = true;
   title = {
     type: 10,
     text: 'Hello world!',

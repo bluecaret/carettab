@@ -66,6 +66,7 @@
       "date": "Data",
       "day": "Giorno",
       "dayOfWk": "Giorno della settimana",
+      "dimDateDelimiter": "Delimitatore attenuato",
       "enableDay": "Abilita il giorno",
       "enableDayOfWk": "Abilita giorno della settimana",
       "enableMonth": "Abilita mese",
@@ -78,8 +79,7 @@
       "weekIso": "Numero della settimana ISO",
       "weekIsoDesc": "Utilizzare il sistema di data della settimana ISO dallo standard di data e ora ISO 8601.",
       "weekNum": "Numero della settimana",
-      "year": "Anno",
-      "dimDateDelimiter": "Delimitatore attenuato"
+      "year": "Anno"
     },
     "design": {
       "bg": "Sfondo personalizzato",
@@ -110,6 +110,8 @@
     },
     "extra": {
       "advanced": "Avanzate",
+      "disableSelect": "Disabilita la selezione del testo",
+      "disableSelectDesc": "Ciò ti impedirà di selezionare il testo nella pagina Nuova scheda risultando in un aspetto più pulito in caso di clic accidentali.",
       "enableAnalytics": "Abilita i dati di analisi",
       "enableAnalyticsDesc": "CaretTab vorrebbe segnalare il tuo utilizzo dell'estensione all'analisi. Questo ci aiuta a migliorare l'estensione imparando come viene utilizzata. Tiene traccia dei dati come quando viene aperto il menu delle impostazioni e quando le impostazioni vengono modificate. Questo non tiene traccia delle informazioni di identificazione personale. Puoi accettare o rifiutare in qualsiasi momento.",
       "export": "Esportare",

@@ -66,6 +66,7 @@
       "date": "Date",
       "day": "Day",
       "dayOfWk": "Day of week",
+      "dimDateDelimiter": "Dim Delimiter",
       "enableDay": "Enable day",
       "enableDayOfWk": "Enable day of week",
       "enableMonth": "Enable month",
@@ -78,8 +79,7 @@
       "weekIso": "ISO week number",
       "weekIsoDesc": "Use the ISO week date system from ISO 8601 date and time standard.",
       "weekNum": "Week number",
-      "year": "Year",
-      "dimDateDelimiter": "Dim Delimiter"
+      "year": "Year"
     },
     "design": {
       "bg": "Custom background",
@@ -110,6 +110,8 @@
     },
     "extra": {
       "advanced": "Advanced",
+      "disableSelect": "Disable text selection",
+      "disableSelectDesc": "This will prevent you from selecting text on the new tab page resulting in a cleaner look in case of accidental clicks.",
       "enableAnalytics": "Enable analytics data",
       "enableAnalyticsDesc": "CaretTab would like to report your usage of the extension to analytics. This helps us improve the extension by learning how it is used. This tracks data such as when the settings menu is opened and when settings are altered. This does not track any personal identifying information. You can opt-in or opt-out at any time.",
       "export": "Export",

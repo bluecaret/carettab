@@ -22,6 +22,10 @@
   </select>
 </div>
 <div class="input">
+  <label for="disableSelect">{{'options.extra.disableSelect' | translate}}<tooltip text="{{'options.extra.disableSelectDesc' | translate}}"></tooltip></label>
+  <options-toggle name="disableSelect" id="disableSelect" [(ngModel)]="settings.config.misc.disableSelect" (ngModelChange)="ga.field('misc.disableSelect', settings.config.misc.disableSelect)"></options-toggle>
+</div>
+<div class="input">
   <label>{{'options.extra.hideMenu' | translate}}<tooltip text="{{'options.extra.hideMenuDesc' | translate}}"></tooltip></label>
   <options-toggle name="hideMenu" id="hideMenu" [(ngModel)]="settings.config.design.hideMenu" (ngModelChange)="ga.field('design.hideMenu', settings.config.design.hideMenu)"></options-toggle>
 </div>

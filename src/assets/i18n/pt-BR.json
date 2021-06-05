@@ -66,6 +66,7 @@
       "date": "Encontro",
       "day": "Dia",
       "dayOfWk": "Dia da semana",
+      "dimDateDelimiter": "Dim Delimitador",
       "enableDay": "Habilitar dia",
       "enableDayOfWk": "Habilitar dia da semana",
       "enableMonth": "Habilitar mês",
@@ -78,8 +79,7 @@
       "weekIso": "Número da semana ISO",
       "weekIsoDesc": "Use o sistema de data da semana ISO do padrão de data e hora ISO 8601.",
       "weekNum": "número da semana",
-      "year": "ano",
-      "dimDateDelimiter": "Dim Delimitador"
+      "year": "ano"
     },
     "design": {
       "bg": "Fundo Personalizado",
@@ -110,6 +110,8 @@
     },
     "extra": {
       "advanced": "Avançado",
+      "disableSelect": "Desativar seleção de texto",
+      "disableSelectDesc": "Isso impedirá que você selecione texto na página da nova guia, resultando em uma aparência mais limpa em caso de cliques acidentais.",
       "enableAnalytics": "Ativar dados analíticos",
       "enableAnalyticsDesc": "CaretTab gostaria de relatar seu uso da extensão para análises. Isso nos ajuda a melhorar a extensão, aprendendo como ela é usada. Isso rastreia dados como quando o menu de configurações é aberto e quando as configurações são alteradas. Isso não rastreia nenhuma informação de identificação pessoal. Você pode ativar ou desativar a qualquer momento.",
       "export": "Exportar",

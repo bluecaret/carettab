@@ -66,6 +66,7 @@
       "date": "日期",
       "day": "日",
       "dayOfWk": "周",
+      "dimDateDelimiter": "半透明的分隔符",
       "enableDay": "启用日期",
       "enableDayOfWk": "启用周",
       "enableMonth": "启用月份",
@@ -78,8 +79,7 @@
       "weekIso": "ISO周数",
       "weekIsoDesc": "使用ISO 8601日期和时间标准中的ISO周日期系统。",
       "weekNum": "周数",
-      "year": "年",
-      "dimDateDelimiter": "半透明的分隔符"
+      "year": "年"
     },
     "design": {
       "bg": "自定义背景色",
@@ -110,6 +110,8 @@
     },
     "extra": {
       "advanced": "高级",
+      "disableSelect": "禁用文字选择",
+      "disableSelectDesc": "这将阻止您在新标签页上选择文本，从而在意外点击的情况下使外观更清晰。",
       "enableAnalytics": "启用统计数据",
       "enableAnalyticsDesc": "CaretTab希望向分析报告您对扩展的使用。这有助于我们通过了解扩展名的使用方式来改进扩展名。这会跟踪数据，例如打开设置菜单和更改设置的时间。这不会跟踪任何个人识别信息。您可以随时选择加入或退出。",
       "export": "出口",

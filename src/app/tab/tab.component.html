@@ -9,6 +9,7 @@
   </div>
   <section
     class="w100"
+    [ngClass]="{'noHighlight' : settings.config.misc.disableSelect}"
     [style.fontFamily]="shared.getFont(settings.config.design.font, settings.config.design.customFont)"
     [style.fontWeight]="shared.getFontWeight(settings.config.design.font, settings.config.design.customFontWeight)"
     [style.fontSize]="shared.getFontSize(settings.config.design.scaling)"
@@ -50,7 +51,7 @@
   </section>
   
   <!-- Options toggle / nav -->
-  <app-settings-toggle #settingsToggle></app-settings-toggle>
+  <app-settings-toggle [ngClass]="{'noHighlight' : settings.config.misc.disableSelect}" #settingsToggle></app-settings-toggle>
   
-  <app-logo></app-logo>
+  <app-logo [ngClass]="{'noHighlight' : settings.config.misc.disableSelect}"></app-logo>
 </div>

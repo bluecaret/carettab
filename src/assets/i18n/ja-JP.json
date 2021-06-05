@@ -66,6 +66,7 @@
       "date": "日付",
       "day": "日",
       "dayOfWk": "曜日",
+      "dimDateDelimiter": "薄暗い区切り文字",
       "enableDay": "日を有効にする",
       "enableDayOfWk": "曜日を有効にする",
       "enableMonth": "月を有効にする",
@@ -78,8 +79,7 @@
       "weekIso": "ISO週番号",
       "weekIsoDesc": "ISO8601日付および時刻標準のISO週日付システムを使用します。",
       "weekNum": "週番号",
-      "year": "年",
-      "dimDateDelimiter": "薄暗い区切り文字"
+      "year": "年"
     },
     "design": {
       "bg": "カスタム背景",
@@ -110,6 +110,8 @@
     },
     "extra": {
       "advanced": "高度な",
+      "disableSelect": "テキスト選択を無効にする",
+      "disableSelectDesc": "これにより、新しいタブ ページでテキストを選択できなくなり、誤ってクリックしてしまった場合でも見やすくなります。",
       "enableAnalytics": "分析データを有効にする",
       "enableAnalyticsDesc": "CaretTabは、拡張機能の使用状況を分析に報告したいと考えています。これは、拡張機能の使用方法を学習することで、拡張機能を改善するのに役立ちます。設定メニューを開いたときや設定を変更したときなどのデータを追跡します。これは、個人識別情報を追跡しません。オプトインまたはオプトアウトはいつでも可能です。",
       "export": "輸出する",

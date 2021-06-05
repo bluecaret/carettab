@@ -1,6 +1,17 @@
 .valMsg {
-  font-size: 12px;
-  color: rgb(255, 90, 68);
+  font-size: 13px;
+  background-color: var(--optValError);
+  color: var(--optValText);
+  padding: 4px 10px;
+  border-radius: 7px;
   font-weight: 400;
+  line-height: 1.35;
   margin: 3px 0 0 0;
+  &.valMsg--wide {
+    grid-column: span 2;
+  }
+  &.valMsg--success {
+    background-color: var(--optValSuccess);
+  }
 }
+

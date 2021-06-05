@@ -143,6 +143,11 @@
     "time": {
       "actions": "Actions",
       "addNewClock": "Add New Clock",
+      "binary": "Binary",
+      "binaryEnable": "Enable binary clock",
+      "binaryEnableDesc": "Displays the clock in a binary format.",    
+      "binaryDim": "Dim",
+      "binaryDimDesc": "Dim the back ground of the binary clock.",    
       "analog": "Analog",
       "analogEnable": "Enable analog clock",
       "analogEnableDesc": "Displays the clock in an analog style instead of digital.",

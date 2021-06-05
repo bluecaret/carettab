@@ -135,6 +135,10 @@ export class SplashComponent implements OnInit {
         analog: {
           enabled: false,
           style: 10
+        },
+        binary: {
+          enabled: false,
+          dim:false
         }
       });
     } else {

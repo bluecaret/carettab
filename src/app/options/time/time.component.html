@@ -262,6 +262,17 @@
           </select>
         </div>
       </div>
+      <h4 class="span-2">{{'options.time.binary' | translate}}</h4>
+      <div class="indent">
+        <div class="input">
+          <label [for]="'binaryEnable'+i">{{'options.time.binaryEnable' | translate}}<tooltip text="{{'options.time.binaryEnableDesc' | translate}}"></tooltip></label>
+          <options-toggle type="toggle" [name]="'binaryEnable'+i" [id]="'analogEnable'+i" [(ngModel)]="clock.binary.enabled" (ngModelChange)="ga.field('time.clocks.binary.enabled', clock.binary.enabled)"></options-toggle>
+        </div>
+        <div class="input" *ngIf="clock.binary.enabled === true">
+          <label [for]="'binarydim'+i">{{'options.time.binaryDim' | translate}}<tooltip text="{{'options.time.binaryDimDesc' | translate}}"></tooltip></label>
+          <options-toggle type="toggle" [name]="'binarydim'+i" [id]="'binarydim'+i" [(ngModel)]="clock.binary.dim" (ngModelChange)="ga.field('time.clocks.binary.dim', clock.binary.dim)"></options-toggle>          
+        </div>
+      </div>
     </div>
   </ng-container>
 </form>

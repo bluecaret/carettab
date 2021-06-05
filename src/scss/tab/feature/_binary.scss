@@ -1,0 +1,41 @@
+.binary {
+  display: flex;
+  justify-content: center;
+  .binaryContainer {
+    display: flex;
+    justify-content: space-around;
+    
+    #seconds,
+    #minutes,
+    #hours {
+      display: flex;
+      flex-direction: row;
+      font-size: small;
+      color: white;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      width: 60px;
+      div {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .defaultbadge {
+    display: flex;
+    background-color: var(--optText);
+    width: 20px;
+    margin: 5px;
+    border-radius: 50px;
+    justify-content: center;
+  }
+  .bluebadge {
+    display: flex;
+    background-color:var(--optAccentDark);;
+    width: 20px;
+    margin: 5px;
+    border-radius: 50px;
+    justify-content: center;
+  }
+}

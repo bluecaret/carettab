@@ -29,19 +29,22 @@ export class SettingsToggleComponent {
   }
 
   toggleOptions() {
+    // Closing settings
     if (this.shared.optionsToggle === true) {
       this.shared.saveAll(); // Save
       this.shared.optionsToggle = false;
       this.shared.echo('Settings panel closed and saving data');
       this.ga.field("button.settingsMenuToggle", "closed");
       this.ga.pageView("New tab", "/tab");
-    } else {
-      // Updated status is set within options/dashboard/dashboard.component.ts when settings opens
 
+    // Opening settings
+    } else {
       this.shared.optionsToggle = true;
       this.shared.echo('Settings panel opened');
       this.ga.field("button.settingsMenuToggle", "open");
       this.ga.pageView("Settings panel", "/settings");
+      
+      // Updated status is set within options/dashboard/dashboard.component.ts when settings opens
     }
   }
 }

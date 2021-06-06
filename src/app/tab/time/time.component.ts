@@ -1,4 +1,4 @@
-import { Component, NgZone, Renderer2, ElementRef, ViewChild, Input, OnInit } from '@angular/core';
+import { Component, NgZone, Renderer2, ElementRef, ViewChild, ViewChildren, Input, OnInit, QueryList } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { Clock } from '../../_shared/models/clock';
 import { SharedService } from '../../_shared/shared.service';
@@ -16,7 +16,12 @@ export class TabTimeComponent implements OnInit {
 
   @Input() index: number;
   @Input() clock: Clock;
-  @ViewChild('hours') hoursList; 
+  @ViewChild('hours', { static: false })
+  public hoursList: ElementRef;
+  @ViewChild('minutes', { static: false })
+  public minutesList: ElementRef;
+  @ViewChild('seconds', { static: false })
+  public secondsList: ElementRef;
   @ViewChild('time', { static: false })
   public displayTime: ElementRef;
 
@@ -47,69 +52,72 @@ export class TabTimeComponent implements OnInit {
     }
     if (this.clock.binary.enabled) {
 
-      var secondsList = document.getElementById("seconds").children;
-      var minuteList = document.getElementById("minutes").children;
-      
       var hourList = this.hoursList.nativeElement.children;
+      var minuteList = this.minutesList.nativeElement.children;
+      var secondsList = this.secondsList.nativeElement.children;
+
       var seconds = parseInt(this.getSecond(this.clock.timezone, 1) + this.getSecond(this.clock.timezone, 2));
       var minutes = parseInt(this.getMinute(this.clock.timezone, 1) + this.getMinute(this.clock.timezone, 2));
-      var hours =  parseInt(this.getHour(this.clock.timezone, this.clock.twentyFour, this.clock.twoDigit, 1) + this.getHour(this.clock.timezone, this.clock.twentyFour, this.clock.twoDigit, 2));
-      console.log(seconds);
+      var hours = parseInt(this.getHour(this.clock.timezone, this.clock.twentyFour, this.clock.twoDigit, 1) + this.getHour(this.clock.timezone, this.clock.twentyFour, this.clock.twoDigit, 2));
+
       if (seconds == 0) {
-        this.resetChildren2(secondsList);
-        if (minutes > 59) {
-          this.resetChildren2(minuteList);
+        this.resetdabs(secondsList);
+        if (minutes == 0) {
+          this.resetdabs(minuteList);
           if (hours > 23) {
-            this.resetChildren2(hourList);
+            this.resetdabs(hourList);
           }
         }
       }
-      this.UpdateBinary2(hourList, hours);
-      this.UpdateBinary2(minuteList, minutes);
-      this.UpdateBinary2(secondsList, seconds);
+      this.UpdateBinaryClock(hourList, hours);
+      this.UpdateBinaryClock(minuteList, minutes);
+      this.UpdateBinaryClock(secondsList, seconds);
     }
   }
-  toBinary(v) {
-    return (v >>> 0).toString(2);
-  }
 
-  UpdateBinary(childrenList, v) {
+  setActiveDabs(childrenList, v) {
     var val = this.toBinary(parseInt(v))
     this.resetChildren(childrenList);
     for (var i = 0; i <= val.length - 1; i++) {
       if (parseInt(val[(val.length - 1) - i]) > 0) {
-        childrenList[(childrenList.length - 1) - i].className = ''
-        childrenList[(childrenList.length - 1) - i].classList.add('bluebadge');
-        if(this.clock.binary.dim){
+        childrenList[(childrenList.length - 1) - i].style.opacity ='100%';
+        if (this.clock.binary.dim) {
+          childrenList[(childrenList.length - 1) - i].style.opacity ='60%';
           childrenList[(childrenList.length - 1) - i].classList.add('dim')
         }
       }
     }
   }
 
-  UpdateBinary2(childrenList, v) {
-    this.resetChildren2(childrenList);
+  UpdateBinaryClock(childrenList, v) {
+    this.resetdabs(childrenList);
     for (var s = 0; s <= v.toString().length - 1; s++) {
       var childrensList = childrenList[(childrenList.length - 1) - s].children;
-      this.UpdateBinary(childrensList, parseInt(v.toString()[(v.toString().length - 1) - s]))
+      this.setActiveDabs(childrensList, parseInt(v.toString()[(v.toString().length - 1) - s]))
     }
   }
 
-  resetChildren2 = (childrenList) => {
+  resetdabs = (childrenList) => {
     for (var c = 0; c <= childrenList.length - 1; c++) {
       this.resetChildren(childrenList[(childrenList.length - 1) - c].children);
     }
   }
-  
+
   resetChildren(childrenList) {
     for (var i = childrenList.length - 1; i >= 0; i--) {
-      childrenList[i].className = "";
-      childrenList[i].classList.add('defaultbadge')
-      if(this.clock.binary.dim){
+      childrenList[(childrenList.length - 1) - i].style.opacity ='50%';
+      childrenList[(childrenList.length - 1) - i].style.backgroundColor =this.settings.config.design.foreground;
+      if (this.clock.binary.dim) {
+        childrenList[(childrenList.length - 1) - i].style.opacity ='20%';
         childrenList[i].classList.add('dim')
       }
     }
   }
+  
+  toBinary(v) {
+    return (v >>> 0).toString(2);
+  }
+
   constructTitleTime(): string {
     let index = this.settings.config.misc.title.clockUsed - 1;
     let clock = this.settings.config.time.clocks[index];

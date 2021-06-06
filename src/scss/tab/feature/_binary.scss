@@ -21,18 +21,9 @@
       }
     }
   }
-
-  .defaultbadge {
+  .dab {
     display: flex;
-    background-color: var(--optText);
-    width: 20px;
-    margin: 5px;
-    border-radius: 50px;
-    justify-content: center;
-  }
-  .bluebadge {
-    display: flex;
-    background-color:var(--optAccentDark);;
+    opacity: 50%;
     width: 20px;
     margin: 5px;
     border-radius: 50px;

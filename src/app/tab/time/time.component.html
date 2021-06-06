@@ -182,47 +182,78 @@
       ></div>
     </div>
   </div>
-  <div class="binary" *ngIf="clock.binary.enabled"
-  [style.fontSize]="shared.getFontSize(clock.delimiter.scaling, 1.2)">
+  <div
+    class="binary"
+    *ngIf="clock.binary.enabled"
+    [style.fontSize]="shared.getFontSize(clock.delimiter.scaling, 1.2)"
+  >
     <div class="binaryContainer">
-      <div  #hours id="hours"> 
+      <div #hours id="hours">
         <div>
-          <span  [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
+          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
+          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
         </div>
         <div>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
-        </div>
-      </div>
-
-      <div id="minutes">
-        <div>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
-        </div>
-        <div>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
+          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
+          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
+          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
+          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
         </div>
       </div>
 
-      <div id="seconds" *ngIf="clock.seconds.enabled">
+      <div #minutes id="minutes">
         <div>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
+          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
+          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
+          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
         </div>
         <div>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
-          <span [ngClass]="{ dim: clock.binary.dim }" class="defaultbadge">&nbsp;</span>
+          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
+          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
+          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
+          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
+        </div>
+      </div>
+
+      <div #seconds id="seconds" *ngIf="clock.seconds.enabled">
+        <div>
+          <span
+            class="dab"
+            [ngClass]="{ dim: clock.seconds.dim || clock.binary.dim }"
+            >&nbsp;</span
+          >
+          <span
+            class="dab"
+            [ngClass]="{ dim: clock.seconds.dim || clock.binary.dim }"
+            >&nbsp;</span
+          >
+          <span
+            class="dab"
+            [ngClass]="{ dim: clock.seconds.dim || clock.binary.dim }"
+            >&nbsp;</span
+          >
+        </div>
+        <div>
+          <span
+            class="dab"
+            [ngClass]="{ dim: clock.seconds.dim || clock.binary.dim }"
+            >&nbsp;</span
+          >
+          <span
+            class="dab"
+            [ngClass]="{ dim: clock.seconds.dim || clock.binary.dim }"
+            >&nbsp;</span
+          >
+          <span
+            class="dab"
+            [ngClass]="{ dim: clock.seconds.dim || clock.binary.dim }"
+            >&nbsp;</span
+          >
+          <span
+            class="dab"
+            [ngClass]="{ dim: clock.seconds.dim || clock.binary.dim }"
+            >&nbsp;</span
+          >
         </div>
       </div>
     </div>

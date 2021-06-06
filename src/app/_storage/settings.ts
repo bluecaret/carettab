@@ -29,7 +29,7 @@ export class DesignSettings {
   imageBlend = 10;
   brightness = 10;
   hideMenu = false;
-  hideLogo = false;
+  hideLogo = true;
 }
 
 export class MessageSettings {
@@ -155,6 +155,7 @@ export class DateSettings {
   scaling = 6;
   offset = 0;
   timezone = 'Automatic';
+  dimDelimiter = false;
   format = 20;
   short = {
     enabled: false,
@@ -200,6 +201,7 @@ export class SearchSettings {
 export class MiscSettings {
   schema = '1.0';
   enableAnalytics = true;
+  disableSelect = true;
   title = {
     type: 10,
     text: 'Hello world!',

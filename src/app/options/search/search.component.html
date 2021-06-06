@@ -7,7 +7,7 @@
   <ng-container *ngIf="settings.config.search.enabled">
     <div class="input inputInline">
       <label data-tooltip>{{'options.search.searchEngine' | translate}}</label>
-      <select name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine" (ngModelChange)="ga.field('search.engine', settings.config.search.engine)">
+      <select name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine" (ngModelChange)="ga.field('search.engine', findEngine(settings.config.search.engine).label)">
         <option *ngFor="let e of engines" [ngValue]="e.id">{{e.label}}</option>
       </select>
     </div>

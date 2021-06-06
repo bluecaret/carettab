@@ -66,6 +66,7 @@
       "date": "Data",
       "day": "Giorno",
       "dayOfWk": "Giorno della settimana",
+      "dimDateDelimiter": "Delimitatore attenuato",
       "enableDay": "Abilita il giorno",
       "enableDayOfWk": "Abilita giorno della settimana",
       "enableMonth": "Abilita mese",
@@ -108,13 +109,25 @@
       "wallpaper": "sfondo"
     },
     "extra": {
-      "advanced": "Avanzate",
+      "disableSelect": "Disabilita la selezione del testo",
+      "disableSelectDesc": "Ciò ti impedirà di selezionare il testo nella pagina Nuova scheda risultando in un aspetto più pulito in caso di clic accidentali.",
       "enableAnalytics": "Abilita i dati di analisi",
       "enableAnalyticsDesc": "CaretTab vorrebbe segnalare il tuo utilizzo dell'estensione all'analisi. Questo ci aiuta a migliorare l'estensione imparando come viene utilizzata. Tiene traccia dei dati come quando viene aperto il menu delle impostazioni e quando le impostazioni vengono modificate. Questo non tiene traccia delle informazioni di identificazione personale. Puoi accettare o rifiutare in qualsiasi momento.",
+      "export": "Esportare",
+      "exportImport": "Esportazione importazione",
+      "exportSettings": "Impostazioni di esportazione",
+      "exportSettingsDesc": "Esporta tutte le impostazioni di CaretTab in un file. Facendo clic sul pulsante verrà scaricato un file sul computer. Non modificare questo file per evitare errori durante la reimportazione.",
       "extra": "Extra",
       "hideLogo": "Nascondi logo",
       "hideMenu": "Nascondi pulsante impostazioni",
       "hideMenuDesc": "Quando è abilitato, il pulsante del menu verrà visualizzato quando si passa con il mouse sull'angolo in basso a destra.",
+      "import": "Importare",
+      "importFailed": "IMPOSTAZIONI IMPOSSIBILE IMPORTARE",
+      "importFailedDesc": "Le impostazioni che stai tentando di importare provengono da una versione non supportata di CaretTab o non sono nel formato corretto.",
+      "importSettings": "Impostazioni di importazione",
+      "importSettingsDesc": "Importa le impostazioni di CaretTab da un file. Assicurati di utilizzare il file \"carettab-settings.json\" che è stato scaricato quando hai fatto clic su Esporta.",
+      "importedSuccessfully": "IMPOSTAZIONI IMPORTATE CON SUCCESSO",
+      "importedSuccessfullyDesc": "Per salvare questa importazione, chiudi il pannello delle impostazioni. Se desideri annullare l'importazione, aggiorna la scheda senza chiudere il pannello delle impostazioni.",
       "lang": "linguaggio",
       "reset": "Reset",
       "resetDesc": "Se desideri ripristinare tutte le impostazioni ai valori predefiniti, puoi fare clic su questo pulsante e quindi aggiornare la pagina. Questo rimuoverà tutte le tue impostazioni.",
@@ -129,8 +142,7 @@
     "message": {
       "customMsg": "messaggio personalizzato",
       "msg": "Messaggio",
-      "msgText": "Messaggio di testo",
-      "msgTextDesc": "Immettere il testo per il messaggio personalizzato."
+      "msgText": "Messaggio di testo"
     },
     "search": {
       "autocomplete": "Completamento automatico",
@@ -161,6 +173,7 @@
       "bracketsRightDesc": "Immettere il simbolo per rappresentare la parentesi quadra destra",
       "bracketsSize": "Regola la dimensione delle parentesi rispetto all'orologio",
       "clock": "Orologio",
+      "copyClock": "Copia orologio",
       "deleteClock": "Elimina orologio",
       "delimiter": "delimitatore",
       "delimiterBlink": "Delimitatore lampeggiante",
@@ -181,8 +194,6 @@
       "meridiemEnable": "Abilita meridiem",
       "meridiemOffset": "Regola la posizione del meridiano verso l'alto o verso il basso",
       "meridiemSize": "Regola la dimensione del meridiano rispetto all'orologio",
-      "moveDown": "Sposta l'ordine dell'orologio verso il basso",
-      "moveUp": "Sposta l'ordine dell'orologio verso l'alto",
       "note": "Nota:",
       "noteText": "l'ora è un'ipotesi plausibile basata sull'ora e sul fuso orario su cui è impostato il computer e potrebbe non riflettere l'ora effettiva. CaretTab sta ipotizzando che il tuo fuso orario attuale sia:",
       "offsetDesc": "Regola la posizione dell'orologio verso l'alto o verso il basso.",
@@ -257,11 +268,6 @@
       "l7": "Ridimensionamento dinamico disabilitato per impostazione predefinita",
       "l8": "Dati aggiornati sul fuso orario",
       "l9": "Correzioni di bug"
-    },
-    "v330": {
-      "l1": "Aggiunte scorciatoie da tastiera ai collegamenti rapidi. Ora puoi caricare rapidamente i primi 10 collegamenti rapidi utilizzando una scorciatoia da tastiera. Passa il mouse su un collegamento rapido per vedere qual è il collegamento. È necessario prima tabulare fuori dalla barra degli indirizzi in modo che la nuova pagina della scheda sia a fuoco.",
-      "l2": "Fare clic sull'anteprima dello sfondo personalizzato ora rimuoverà lo sfondo.",
-      "l3": "Aggiunto logo CaretTab nell'angolo inferiore. Questo può essere disattivato nel menu delle impostazioni extra."
     },
     "v340": {
       "h2": "Contribuisci a migliorare CaretTab abilitando i dati analitici",

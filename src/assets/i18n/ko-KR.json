@@ -66,6 +66,7 @@
       "date": "날짜",
       "day": "일",
       "dayOfWk": "요일",
+      "dimDateDelimiter": "딤 구분자",
       "enableDay": "요일 활성화",
       "enableDayOfWk": "요일 활성화",
       "enableMonth": "월 활성화",
@@ -108,13 +109,25 @@
       "wallpaper": "벽지"
     },
     "extra": {
-      "advanced": "많은",
+      "disableSelect": "텍스트 선택 비활성화",
+      "disableSelectDesc": "이렇게하면 새 탭 페이지에서 텍스트를 선택하지 못해 실수로 클릭 한 경우 더 깔끔하게 보입니다.",
       "enableAnalytics": "분석 데이터 활성화",
       "enableAnalyticsDesc": "CaretTab은 분석에 대한 확장 사용을보고하려고합니다. 이는 사용 방법을 학습하여 확장 기능을 개선하는 데 도움이됩니다. 설정 메뉴가 열리거나 설정이 변경 될 때와 같은 데이터를 추적합니다. 이것은 개인 식별 정보를 추적하지 않습니다. 언제든지 옵트 인 또는 옵트 아웃 할 수 있습니다.",
+      "export": "수출",
+      "exportImport": "수출 수입",
+      "exportSettings": "내보내기 설정",
+      "exportSettingsDesc": "모든 CaretTab 설정을 파일로 내 보냅니다. 버튼을 클릭하면 파일이 컴퓨터로 다운로드됩니다. 다시 가져올 때 오류가 발생하지 않도록이 파일을 편집하지 마십시오.",
       "extra": "특별한",
       "hideLogo": "로고 숨기기",
       "hideMenu": "설정 숨기기 버튼",
       "hideMenuDesc": "활성화되면 오른쪽 하단 모서리 위로 마우스를 가져 가면 메뉴 버튼이 표시됩니다.",
+      "import": "수입",
+      "importFailed": "가져 오기에 실패한 설정",
+      "importFailedDesc": "가져 오려는 설정이 지원되지 않는 CaretTab 버전에서 가져 왔거나 올바른 형식이 아닙니다.",
+      "importSettings": "가져 오기 설정",
+      "importSettingsDesc": "파일에서 CaretTab 설정을 가져옵니다. 내보내기를 클릭 할 때 다운로드 한 'carettab-settings.json'파일을 사용해야합니다.",
+      "importedSuccessfully": "성공적으로 가져온 설정",
+      "importedSuccessfullyDesc": "이 가져 오기를 저장하려면 설정 패널을 닫으십시오. 가져 오기를 취소하려면 설정 패널을 닫지 않고 탭을 새로 고치십시오.",
       "lang": "언어",
       "reset": "다시 놓기",
       "resetDesc": "모든 설정을 기본값으로 다시 설정하려면이 버튼을 클릭 한 다음 페이지를 새로 고칠 수 있습니다. 모든 설정이 제거됩니다.",
@@ -129,8 +142,7 @@
     "message": {
       "customMsg": "맞춤 메시지",
       "msg": "메시지",
-      "msgText": "메시지 텍스트",
-      "msgTextDesc": "사용자 정의 메시지의 텍스트를 입력하십시오."
+      "msgText": "메시지 텍스트"
     },
     "search": {
       "autocomplete": "자동 완성",
@@ -161,6 +173,7 @@
       "bracketsRightDesc": "오른쪽 괄호를 나타내는 기호를 입력하십시오",
       "bracketsSize": "시계를 기준으로 괄호의 크기를 조정합니다",
       "clock": "시계",
+      "copyClock": "시계 복사",
       "deleteClock": "시계 삭제",
       "delimiter": "구분자",
       "delimiterBlink": "깜박임 구분 기호",
@@ -181,8 +194,6 @@
       "meridiemEnable": "메리 디엄 사용",
       "meridiemOffset": "메리디언의 위치를 위 또는 아래로 조정",
       "meridiemSize": "시계를 기준으로 메리 디엄의 크기를 조정합니다",
-      "moveDown": "시계 순서를 아래로 이동",
-      "moveUp": "시계 순서를 위로 이동",
       "note": "노트 :",
       "noteText": "시간은 컴퓨터가 설정되어있는 시간과 시간대를 기준으로 한 정확한 추측으로 실제 시간을 반영하지 않을 수 있습니다. CaretTab은 현재 시간대를 다음과 같이 추측합니다.",
       "offsetDesc": "시계의 위치를 위 또는 아래로 조정하십시오.",
@@ -257,11 +268,6 @@
       "l7": "기본적으로 비활성화 된 동적 확장",
       "l8": "업데이트 된 시간대 데이터",
       "l9": "버그 수정"
-    },
-    "v330": {
-      "l1": "빠른 링크에 키보드 단축키를 추가했습니다. 이제 키보드 단축키를 사용하여 처음 10 개의 빠른 링크를 빠르게로드 할 수 있습니다. 단축키가 무엇인지 보려면 빠른 링크 위로 마우스를 가져갑니다. 새 탭 페이지에 초점을 맞추려면 먼저 주소 표시 줄에서 탭해야합니다.",
-      "l2": "이제 사용자 정의 배경 미리보기를 클릭하면 배경이 제거됩니다.",
-      "l3": "하단 모서리에 CaretTab 로고를 추가했습니다. 이는 추가 설정 메뉴에서 끌 수 있습니다."
     },
     "v340": {
       "h2": "분석 데이터를 활성화하여 CaretTab 개선에 도움",

@@ -66,6 +66,7 @@
       "date": "Encontro",
       "day": "Dia",
       "dayOfWk": "Dia da semana",
+      "dimDateDelimiter": "Dim Delimitador",
       "enableDay": "Habilitar dia",
       "enableDayOfWk": "Habilitar dia da semana",
       "enableMonth": "Habilitar mês",
@@ -108,13 +109,25 @@
       "wallpaper": "Papel de parede"
     },
     "extra": {
-      "advanced": "Avançado",
+      "disableSelect": "Desativar seleção de texto",
+      "disableSelectDesc": "Isso impedirá que você selecione texto na página da nova guia, resultando em uma aparência mais limpa em caso de cliques acidentais.",
       "enableAnalytics": "Ativar dados analíticos",
       "enableAnalyticsDesc": "CaretTab gostaria de relatar seu uso da extensão para análises. Isso nos ajuda a melhorar a extensão, aprendendo como ela é usada. Isso rastreia dados como quando o menu de configurações é aberto e quando as configurações são alteradas. Isso não rastreia nenhuma informação de identificação pessoal. Você pode ativar ou desativar a qualquer momento.",
+      "export": "Exportar",
+      "exportImport": "Exportar importar",
+      "exportSettings": "Exportar configurações",
+      "exportSettingsDesc": "Exporte todas as configurações do CaretTab para um arquivo. Clicar no botão fará o download de um arquivo para o seu computador. Não edite este arquivo para garantir que não haja erros ao importá-lo novamente.",
       "extra": "Extra",
       "hideLogo": "Esconder logo",
       "hideMenu": "Ocultar botão de configurações",
       "hideMenuDesc": "Quando ativado, o botão do menu será exibido quando você passar o mouse sobre o canto inferior direito.",
+      "import": "Importar",
+      "importFailed": "FALHA NA IMPORTAÇÃO DAS CONFIGURAÇÕES",
+      "importFailedDesc": "As configurações que você está tentando importar são de uma versão não suportada do CaretTab ou não estão no formato correto.",
+      "importSettings": "Configurações de Importação",
+      "importSettingsDesc": "Importar configurações do CaretTab de um arquivo. Certifique-se de usar o arquivo 'carettab-settings.json' que foi baixado quando você clicou em exportar.",
+      "importedSuccessfully": "DEFINIÇÕES IMPORTADAS COM SUCESSO",
+      "importedSuccessfullyDesc": "Para salvar esta importação, feche o painel de configurações. Se desejar cancelar a importação, atualize a guia sem fechar o painel de configurações.",
       "lang": "Língua",
       "reset": "Restabelecer",
       "resetDesc": "Se desejar redefinir todas as configurações de volta ao padrão, você pode clicar neste botão e atualizar a página. Isso removerá todas as suas configurações.",
@@ -129,8 +142,7 @@
     "message": {
       "customMsg": "mensagem personalizada",
       "msg": "mensagem",
-      "msgText": "Mensagem de texto",
-      "msgTextDesc": "Insira o texto da mensagem personalizada."
+      "msgText": "Mensagem de texto"
     },
     "search": {
       "autocomplete": "autocompletar",
@@ -161,6 +173,7 @@
       "bracketsRightDesc": "Insira o símbolo para representar o colchete do lado direito",
       "bracketsSize": "Ajusta o tamanho dos colchetes em relação ao relógio",
       "clock": "Relógio",
+      "copyClock": "Copiar relógio",
       "deleteClock": "Apagar relógio",
       "delimiter": "Delimitador",
       "delimiterBlink": "Delimitador intermitente",
@@ -181,8 +194,6 @@
       "meridiemEnable": "Habilitar meridiem",
       "meridiemOffset": "Ajuste a posição do meridiem para cima ou para baixo",
       "meridiemSize": "Ajusta o tamanho do meridiem em relação ao relógio",
-      "moveDown": "Mova a ordem do relógio para baixo",
-      "moveUp": "Mova a ordem do relógio para cima",
       "note": "Nota:",
       "noteText": "a hora é uma estimativa baseada na hora e no fuso horário que o seu computador está definido e pode não refletir a sua hora real. CaretTab está supondo que seu fuso horário atual seja:",
       "offsetDesc": "Ajuste a posição do relógio para cima ou para baixo.",
@@ -257,11 +268,6 @@
       "l7": "Escala dinâmica desativada por padrão",
       "l8": "Dados atualizados de fuso horário",
       "l9": "Correções de bugs"
-    },
-    "v330": {
-      "l1": "Adicionados atalhos de teclado para Links rápidos. Agora você pode carregar rapidamente os primeiros 10 links rápidos usando um atalho de teclado. Passe o mouse sobre um link rápido para ver o que é o atalho. Você deve sair da barra de endereço pela guia primeiro, para que a página da nova guia fique em foco.",
-      "l2": "Clicar na visualização do plano de fundo personalizado agora removerá o plano de fundo.",
-      "l3": "Adicionado o logotipo CaretTab ao canto inferior. Isso pode ser desativado no menu de configurações extras."
     },
     "v340": {
       "h2": "Ajude a melhorar o CaretTab habilitando dados analíticos",

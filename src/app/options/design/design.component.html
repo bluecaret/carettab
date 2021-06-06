@@ -4,7 +4,7 @@
     <label for="font">{{'options.design.font' | translate}}</label>
     <select name="font" id="font"
       [(ngModel)]="settings.config.design.font"
-      (ngModelChange)="getFont(); ga.field('design.font', settings.config.design.font);"
+      (ngModelChange)="getFont(); ga.field('design.font', findFont(settings.config.design.font));"
       [style.fontFamily]="currentFont"
       [style.fontWeight]="currentWeight"
       style="font-size: 1em; font-weight: 400;">
@@ -83,7 +83,7 @@
       [ngClass]="{'active': settings.config.design.colorsId === color.id}"
       [style.backgroundColor]="color.bg"
       [style.color]="color.fg"
-      (click)="setColors(color); ga.field('design.colorsId', color.id);"
+      (click)="setColors(color); ga.field('design.colorsId', (color.id + ' / ' + color.bg + ' / ' + color.fg));"
       [attr.aria-label]="'Select color ' + color.id"
     >
       abc 123
@@ -124,7 +124,7 @@
   <div class="input">
     <label for="fill">{{'options.design.fill' | translate}}</label>
     <select name="fill" id="fill"
-      [(ngModel)]="settings.config.design.imageSize" (ngModelChange)="ga.field('design.imageSize', settings.config.design.imageSize);">
+      [(ngModel)]="settings.config.design.imageSize" (ngModelChange)="ga.field('design.imageSize', findBgSize(settings.config.design.imageSize).label);">
       <option
         [ngValue]="s.id"
         *ngFor="let s of bgSize;">
@@ -135,7 +135,7 @@
   <div class="input">
     <label for="blend">{{'options.design.filter' | translate}}</label>
     <select name="blend" id="blend"
-      [(ngModel)]="settings.config.design.imageBlend" (ngModelChange)="ga.field('design.imageBlend', settings.config.design.imageBlend);">
+      [(ngModel)]="settings.config.design.imageBlend" (ngModelChange)="ga.field('design.imageBlend', findBgBlend(settings.config.design.imageBlend).label);">
       <option
         [ngValue]="b.id"
         *ngFor="let b of bgBlend;">
@@ -159,7 +159,7 @@
       [style.backgroundColor]="settings.config.design.background"
       [style.backgroundBlendMode]="getBgBlend()"
       [style.background-image]="sanitizer.bypassSecurityTrustStyle('url(./assets/patterns/' + p.pattern + ')')"
-      (click)="setPattern(p); ga.field('button.setPattern', p.id);"
+      (click)="setPattern(p); ga.field('button.setPattern', p.pattern);"
       [attr.aria-label]="'Select pattern ' + p.id"
     >
       &nbsp;

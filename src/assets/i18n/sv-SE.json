@@ -66,6 +66,7 @@
       "date": "Datum",
       "day": "Dag",
       "dayOfWk": "Dag i veckan",
+      "dimDateDelimiter": "Dim avgränsare",
       "enableDay": "Aktivera dag",
       "enableDayOfWk": "Aktivera veckodag",
       "enableMonth": "Aktivera månad",
@@ -108,13 +109,25 @@
       "wallpaper": "Tapet"
     },
     "extra": {
-      "advanced": "Avancerad",
+      "disableSelect": "Inaktivera textval",
+      "disableSelectDesc": "Detta kommer att hindra dig från att välja text på den nya fliksidan, vilket ger ett renare utseende vid oavsiktliga klick.",
       "enableAnalytics": "Aktivera analysdata",
       "enableAnalyticsDesc": "CaretTab vill rapportera din användning av tillägget till analys. Detta hjälper oss att förbättra tillägget genom att lära oss hur det används. Detta spårar data som när inställningsmenyn öppnas och när inställningarna ändras. Detta spårar inte någon personlig identifierande information. Du kan när som helst välja eller välja bort.",
+      "export": "Exportera",
+      "exportImport": "Export Import",
+      "exportSettings": "Exportera inställningar",
+      "exportSettingsDesc": "Exportera alla CaretTab-inställningar till en fil. Klicka på knappen för att ladda ner en fil till din dator. Redigera inte den här filen för att säkerställa inga fel när du importerar om.",
       "extra": "Extra",
       "hideLogo": "Dölj logotyp",
       "hideMenu": "Dölj inställningsknappen",
       "hideMenuDesc": "När den är aktiverad visas menyknappen när du svävar över det nedre högra hörnet.",
+      "import": "Importera",
+      "importFailed": "INSTÄLLNINGAR KAN INTE IMPORTERAS",
+      "importFailedDesc": "Inställningarna du försöker importera kommer från en version som inte stöds av CaretTab eller är inte i rätt format.",
+      "importSettings": "Importera inställningar",
+      "importSettingsDesc": "Importera CaretTab-inställningar från en fil. Se till att du använder filen 'carettab-settings.json' som laddades ner när du klickade på export.",
+      "importedSuccessfully": "INSTÄLLNINGAR IMPORTERAT FRAMGÅNGT",
+      "importedSuccessfullyDesc": "För att spara denna import, stäng inställningspanelen. Om du vill avbryta importen, uppdatera fliken utan att stänga inställningspanelen.",
       "lang": "Språk",
       "reset": "Återställa",
       "resetDesc": "Om du vill återställa alla inställningar till standard, kan du klicka på den här knappen och sedan uppdatera sidan. Detta tar bort alla dina inställningar.",
@@ -129,8 +142,7 @@
     "message": {
       "customMsg": "anpassat meddelande",
       "msg": "Meddelande",
-      "msgText": "Meddelandetext",
-      "msgTextDesc": "Ange text för det anpassade meddelandet."
+      "msgText": "Meddelandetext"
     },
     "search": {
       "autocomplete": "Komplettera automatiskt",
@@ -161,6 +173,7 @@
       "bracketsRightDesc": "Ange symbolen för att representera höger sidofäste",
       "bracketsSize": "Justerar parentesernas storlek i förhållande till klockan",
       "clock": "Klocka",
+      "copyClock": "Kopiera klockan",
       "deleteClock": "Radera klockan",
       "delimiter": "avgränsare",
       "delimiterBlink": "Blink avgränsare",
@@ -181,8 +194,6 @@
       "meridiemEnable": "Aktivera meridiem",
       "meridiemOffset": "Justera meridiemens position uppåt eller nedåt",
       "meridiemSize": "Justerar meridiemens storlek i förhållande till klockan",
-      "moveDown": "Flytta ordningen på klockan nedåt",
-      "moveUp": "Flytta ordningen på klockan uppåt",
       "note": "Notera:",
       "noteText": "tiden är en utbildad gissning baserat på tid och tidszon din dator är inställd på och kanske inte återspeglar din faktiska tid. CaretTab gissar att din nuvarande tidszon ska vara:",
       "offsetDesc": "Justera klockans läge uppåt eller nedåt.",
@@ -257,11 +268,6 @@
       "l7": "Inaktiverad dynamisk skalning som standard",
       "l8": "Uppdaterad tidszondata",
       "l9": "Bug fixar"
-    },
-    "v330": {
-      "l1": "Lade tangentbordsgenvägar till snabblänkar. Nu kan du snabbt ladda de första 10 snabblänkarna med en kortkommando. Håll muspekaren över en snabblänk för att se vad genvägen är. Du måste fliken ur adressfältet först så att den nya fliksidan är i fokus.",
-      "l2": "Om du klickar på den anpassade förhandsgranskningen tas bakgrunden bort.",
-      "l3": "CaretTab-logotypen har lagts till i nedre hörnet. Detta kan stängas av i menyn för extra inställningar."
     },
     "v340": {
       "h2": "Hjälp till att förbättra CaretTab genom att aktivera analysdata",

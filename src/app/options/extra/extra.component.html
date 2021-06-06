@@ -7,7 +7,7 @@
 </div>
 <div class="input">
   <label for="tabTitle">{{'options.extra.tabTitle' | translate}}<tooltip text="{{'options.extra.tabTitleDesc' | translate}}"></tooltip></label>
-  <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.misc.title.type" (ngModelChange)="ga.field('misc.title.type', settings.config.misc.title.type)">
+  <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.misc.title.type" (ngModelChange)="ga.field('misc.title.type', findTitleType(settings.config.misc.title.type).label)">
     <option *ngFor="let type of titleOptions" [ngValue]="type.id">{{type.label}}</option>
   </select>
 </div>
@@ -21,7 +21,10 @@
     <option *ngFor="let clock of settings.config.time.clocks; let i = index" [ngValue]="i+1">Clock #{{i + 1}}</option>
   </select>
 </div>
-<h3>{{'options.extra.advanced' | translate}}</h3>
+<div class="input">
+  <label for="disableSelect">{{'options.extra.disableSelect' | translate}}<tooltip text="{{'options.extra.disableSelectDesc' | translate}}"></tooltip></label>
+  <options-toggle name="disableSelect" id="disableSelect" [(ngModel)]="settings.config.misc.disableSelect" (ngModelChange)="ga.field('misc.disableSelect', settings.config.misc.disableSelect)"></options-toggle>
+</div>
 <div class="input">
   <label>{{'options.extra.hideMenu' | translate}}<tooltip text="{{'options.extra.hideMenuDesc' | translate}}"></tooltip></label>
   <options-toggle name="hideMenu" id="hideMenu" [(ngModel)]="settings.config.design.hideMenu" (ngModelChange)="ga.field('design.hideMenu', settings.config.design.hideMenu)"></options-toggle>
@@ -34,6 +37,25 @@
   <label>{{'options.extra.enableAnalytics' | translate}}<tooltip text="{{'options.extra.enableAnalyticsDesc' | translate}}"></tooltip></label>
   <options-toggle name="enableAnalytics" id="enableAnalytics" [(ngModel)]="settings.config.misc.enableAnalytics"></options-toggle>
 </div>
+<h3>{{'options.extra.exportImport' | translate}}</h3>
+<div class="input">
+  <label for="export">
+    {{'options.extra.exportSettings' | translate}}
+    <tooltip text="{{'options.extra.exportSettingsDesc' | translate}}"></tooltip>
+  </label>
+  <button id="export" type="button" class="btn" (click)="export();">{{'options.extra.export' | translate}}</button>
+</div>
+<div class="input">
+  <label for="importSettings">
+    {{'options.extra.importSettings' | translate}}
+    <tooltip text="{{'options.extra.importSettingsDesc' | translate}}"></tooltip>
+  </label>
+  <input id="importSettings" #importSettings name="importSettings" type="file" class="btn" accept="image/*" (change)="import($event, importSettings)" accept=".json" />
+  <button class="btn btnBlock" type="button" (click)="importSettings.click();">{{'options.extra.import' | translate}}</button>
+  <div class="valMsg valMsg--wide valMsg--success" *ngIf="importStatus === 'success'"><strong>{{'options.extra.importedSuccessfully' | translate}}</strong> - {{'options.extra.importedSuccessfullyDesc' | translate}}</div>
+  <div class="valMsg valMsg--wide" *ngIf="importStatus === 'error'"><strong>{{'options.extra.importFailed' | translate}}</strong> - {{'options.extra.importFailedDesc' | translate}}</div>
+</div>
+<h3>{{'options.extra.reset' | translate}}</h3>
 <div class="input">
   <label for="reset">{{'options.extra.resetToDefault' | translate}}<tooltip text="{{'options.extra.resetDesc' | translate}}"></tooltip></label>
   <button id="reset" type="button" class="btn" (click)="reset(); ga.field('button.reset', 'true');">{{'options.extra.reset' | translate}}</button>

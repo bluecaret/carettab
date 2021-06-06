@@ -66,6 +66,7 @@
       "date": "Fecha",
       "day": "Día",
       "dayOfWk": "Día de la semana",
+      "dimDateDelimiter": "Delimitador tenue",
       "enableDay": "Habilitar el día",
       "enableDayOfWk": "Habilitar el día de la semana",
       "enableMonth": "Habilitar mes",
@@ -108,13 +109,25 @@
       "wallpaper": "Papel pintado"
     },
     "extra": {
-      "advanced": "Avanzado",
+      "disableSelect": "Deshabilitar la selección de texto",
+      "disableSelectDesc": "Esto evitará que seleccione texto en la página de nueva pestaña, lo que dará como resultado un aspecto más limpio en caso de clics accidentales.",
       "enableAnalytics": "Habilitar datos analíticos",
       "enableAnalyticsDesc": "A CaretTab le gustaría informar su uso de la extensión a la analítica. Esto nos ayuda a mejorar la extensión aprendiendo cómo se usa. Esto rastrea datos como cuando se abre el menú de configuración y cuando se modifican las configuraciones. Esto no rastrea ninguna información de identificación personal. Puede optar por participar o no participar en cualquier momento.",
+      "export": "Exportar",
+      "exportImport": "Exportar importar",
+      "exportSettings": "Configuración de exportación",
+      "exportSettingsDesc": "Exporte todas las configuraciones de CaretTab a un archivo. Al hacer clic en el botón, se descargará un archivo a su computadora. No edite este archivo para asegurarse de que no haya errores cuando lo vuelva a importar.",
       "extra": "Extra",
       "hideLogo": "Ocultar logo",
       "hideMenu": "Ocultar botón de configuración",
       "hideMenuDesc": "Cuando está habilitado, el botón de menú se mostrará cuando pase el cursor sobre la esquina inferior derecha.",
+      "import": "Importar",
+      "importFailed": "AJUSTES NO SE PUEDEN IMPORTAR",
+      "importFailedDesc": "La configuración que está intentando importar es de una versión no compatible de CaretTab o no tiene el formato correcto.",
+      "importSettings": "Importar ajustes",
+      "importSettingsDesc": "Importe la configuración de CaretTab desde un archivo. Asegúrese de utilizar el archivo 'carettab-settings.json' que se descargó cuando hizo clic en exportar.",
+      "importedSuccessfully": "AJUSTES IMPORTADOS EXITOSAMENTE",
+      "importedSuccessfullyDesc": "Para guardar esta importación, cierre el panel de configuración. Si desea cancelar la importación, actualice la pestaña sin cerrar el panel de configuración.",
       "lang": "idioma",
       "reset": "Reiniciar",
       "resetDesc": "Si desea restablecer todas las configuraciones a sus valores predeterminados, puede hacer clic en este botón y luego actualizar la página. Esto eliminará todas tus configuraciones.",
@@ -129,8 +142,7 @@
     "message": {
       "customMsg": "mensaje personalizado",
       "msg": "Mensaje",
-      "msgText": "Mensaje de texto",
-      "msgTextDesc": "Introduzca texto para el mensaje personalizado."
+      "msgText": "Mensaje de texto"
     },
     "search": {
       "autocomplete": "Autocompletar",
@@ -161,6 +173,7 @@
       "bracketsRightDesc": "Introduzca el símbolo para representar el corchete del lado derecho",
       "bracketsSize": "Ajusta el tamaño de los corchetes en relación con el reloj.",
       "clock": "RELOJ",
+      "copyClock": "Copiar reloj",
       "deleteClock": "Borrar reloj",
       "delimiter": "Delimitador",
       "delimiterBlink": "Delimitador de parpadeo",
@@ -181,8 +194,6 @@
       "meridiemEnable": "Habilitar meridiem",
       "meridiemOffset": "Ajusta la posición del meridiem hacia arriba o hacia abajo.",
       "meridiemSize": "Ajusta el tamaño del meridiem en relación con el reloj.",
-      "moveDown": "Mover orden de reloj hacia abajo",
-      "moveUp": "Mover orden de reloj arriba",
       "note": "Nota:",
       "noteText": "la hora es una conjetura basada en la hora y la zona horaria en la que está configurada su computadora y puede no reflejar su hora real. CaretTab está adivinando que su zona horaria actual es:",
       "offsetDesc": "Ajusta la posición del reloj hacia arriba o hacia abajo.",
@@ -257,11 +268,6 @@
       "l7": "Escalado dinámico deshabilitado de forma predeterminada",
       "l8": "Datos de zona horaria actualizados",
       "l9": "Corrección de errores"
-    },
-    "v330": {
-      "l1": "Se agregaron atajos de teclado a los enlaces rápidos. Ahora puede cargar rápidamente los primeros 10 enlaces rápidos usando un atajo de teclado. Coloca el cursor sobre un enlace rápido para ver cuál es el acceso directo. Primero debe salir de la barra de direcciones para que la página de nueva pestaña esté enfocada.",
-      "l2": "Al hacer clic en la vista previa del fondo personalizado, ahora se eliminará el fondo.",
-      "l3": "Se agregó el logotipo de CaretTab en la esquina inferior. Esto se puede desactivar en el menú de configuración adicional."
     },
     "v340": {
       "h2": "Ayude a mejorar CaretTab habilitando datos analíticos",

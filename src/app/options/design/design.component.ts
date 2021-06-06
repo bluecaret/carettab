@@ -50,20 +50,32 @@ export class OptionsDesignComponent implements OnInit {
   }
 
   getFont() {
-    let f = this.fonts.find(x => x.id === this.settings.config.design.font).family;
+    let f = this.findFont(this.settings.config.design.font);
     let w = this.fonts.find(x => x.id === this.settings.config.design.font).weight;
     this.currentFont = '"' + f + '"';
     this.currentWeight = w;
   }
 
+  findFont(font) {
+    return this.fonts.find(x => x.id === font).family
+  }
+
   getBgSize() {
-    let s = this.bgSize.find(x => x.id === this.settings.config.design.imageSize).size;
+    let s = this.findBgSize(this.settings.config.design.imageSize).size;
     return s;
   }
 
+  findBgSize(size) {
+    return this.bgSize.find(x => x.id === size)
+  }
+
   getBgBlend() {
-    let m = this.bgBlend.find(x => x.id === this.settings.config.design.imageBlend).mode;
+    let m = this.findBgBlend(this.settings.config.design.imageBlend).mode;
     return m;
+  }
+
+  findBgBlend(blend) {
+    return this.bgBlend.find(x => x.id === blend)
   }
 
   setFont(font: string) {

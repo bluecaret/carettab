@@ -66,6 +66,7 @@
       "date": "Datum",
       "day": "Tag",
       "dayOfWk": "Wochentag",
+      "dimDateDelimiter": "Dim Delimiter",
       "enableDay": "Tag aktivieren",
       "enableDayOfWk": "Wochentag aktivieren",
       "enableMonth": "Monat aktivieren",
@@ -108,13 +109,25 @@
       "wallpaper": "Tapete"
     },
     "extra": {
-      "advanced": "Erweitert",
+      "disableSelect": "Deaktivieren Sie die Textauswahl",
+      "disableSelectDesc": "Dadurch wird verhindert, dass Sie Text auf der neuen Registerkarte auswählen, was bei versehentlichen Klicks zu einem saubereren Aussehen führt.",
       "enableAnalytics": "Analysedaten aktivieren",
       "enableAnalyticsDesc": "CaretTab möchte Ihre Verwendung der Erweiterung an Analytics melden. Dies hilft uns, die Erweiterung zu verbessern, indem wir lernen, wie sie verwendet wird. Dies verfolgt Daten, z. B. wann das Einstellungsmenü geöffnet wird und wann Einstellungen geändert werden. Hiermit werden keine persönlichen Identifikationsdaten erfasst. Sie können sich jederzeit anmelden oder abmelden.",
+      "export": "Export",
+      "exportImport": "Export Import",
+      "exportSettings": "Exporteinstellungen",
+      "exportSettingsDesc": "Exportieren Sie alle CaretTab-Einstellungen in eine Datei. Wenn Sie auf die Schaltfläche klicken, wird eine Datei auf Ihren Computer heruntergeladen. Bearbeiten Sie diese Datei nicht, um sicherzustellen, dass beim erneuten Importieren keine Fehler auftreten.",
       "extra": "Extra",
       "hideLogo": "Logo ausblenden",
       "hideMenu": "Schaltfläche Einstellungen einblenden",
       "hideMenuDesc": "Wenn diese Option aktiviert ist, wird die Menüschaltfläche angezeigt, wenn Sie den Mauszeiger über die untere rechte Ecke bewegen.",
+      "import": "Einführen",
+      "importFailed": "EINSTELLUNGEN IMPORTIEREN FEHLGESCHLAGEN",
+      "importFailedDesc": "Die Einstellungen, die Sie importieren möchten, stammen aus einer nicht unterstützten Version von CaretTab oder haben nicht das richtige Format.",
+      "importSettings": "Importeinstellungen",
+      "importSettingsDesc": "Importieren Sie CaretTab-Einstellungen aus einer Datei. Stellen Sie sicher, dass Sie die Datei „carettab-settings.json“ verwenden, die heruntergeladen wurde, als Sie auf „Exportieren“ geklickt haben.",
+      "importedSuccessfully": "EINSTELLUNGEN ERFOLGREICH IMPORTIERT",
+      "importedSuccessfullyDesc": "Um diesen Import zu speichern, schließen Sie das Einstellungsfenster. Wenn Sie den Import abbrechen möchten, aktualisieren Sie die Registerkarte, ohne das Einstellungsfenster zu schließen.",
       "lang": "Sprache",
       "reset": "Zurücksetzen",
       "resetDesc": "Wenn Sie alle Einstellungen auf die Standardeinstellungen zurücksetzen möchten, können Sie auf diese Schaltfläche klicken und die Seite anschließend aktualisieren. Dadurch werden alle Ihre Einstellungen entfernt.",
@@ -129,8 +142,7 @@
     "message": {
       "customMsg": "benutzerdefinierte Nachricht",
       "msg": "Botschaft",
-      "msgText": "Nachrichtentext",
-      "msgTextDesc": "Geben Sie einen Text für die benutzerdefinierte Nachricht ein."
+      "msgText": "Nachrichtentext"
     },
     "search": {
       "autocomplete": "Autovervollständigen",
@@ -161,6 +173,7 @@
       "bracketsRightDesc": "Geben Sie das Symbol für die rechte Klammer ein",
       "bracketsSize": "Passt die Größe der Klammern relativ zur Uhr an",
       "clock": "Uhr",
+      "copyClock": "Uhr kopieren",
       "deleteClock": "Uhr löschen",
       "delimiter": "Trennzeichen",
       "delimiterBlink": "Begrenzer blinken",
@@ -181,8 +194,6 @@
       "meridiemEnable": "Aktivieren Sie Meridiem",
       "meridiemOffset": "Passen Sie die Position des Meridiems nach oben oder unten an",
       "meridiemSize": "Passt die Größe des Meridiems relativ zur Uhr an",
-      "moveDown": "Verschieben Sie die Uhrreihenfolge nach unten",
-      "moveUp": "Verschieben Sie die Reihenfolge der Uhr nach oben",
       "note": "Hinweis:",
       "noteText": "Die Zeit ist eine fundierte Schätzung, die auf der Zeit und der Zeitzone basiert, auf die Ihr Computer eingestellt ist, und die möglicherweise nicht Ihre tatsächliche Zeit widerspiegelt. CaretTab schätzt Ihre aktuelle Zeitzone auf:",
       "offsetDesc": "Passen Sie die Position der Uhr nach oben oder unten an.",
@@ -257,11 +268,6 @@
       "l7": "Die dynamische Skalierung ist standardmäßig deaktiviert",
       "l8": "Zeitzonendaten aktualisiert",
       "l9": "Fehlerbehebung"
-    },
-    "v330": {
-      "l1": "Tastaturkürzel zu Quick Links hinzugefügt. Jetzt können Sie die ersten 10 Quicklinks schnell über eine Tastenkombination laden. Bewegen Sie den Mauszeiger über einen Schnelllink, um die Verknüpfung anzuzeigen. Sie müssen zuerst die Adressleiste verlassen, damit die neue Registerkarte im Fokus steht.",
-      "l2": "Durch Klicken auf die benutzerdefinierte Hintergrundvorschau wird nun der Hintergrund entfernt.",
-      "l3": "CaretTab-Logo in der unteren Ecke hinzugefügt. Dies kann im Menü für zusätzliche Einstellungen deaktiviert werden."
     },
     "v340": {
       "h2": "Helfen Sie CaretTab zu verbessern, indem Sie Analysedaten aktivieren",

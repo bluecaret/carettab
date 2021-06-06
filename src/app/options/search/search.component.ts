@@ -18,4 +18,8 @@ export class OptionsSearchComponent {
   ) {
   }
 
+  findEngine(engine) {
+    return this.engines.find(x => x.id === engine)
+  }
+
 }

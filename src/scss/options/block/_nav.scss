@@ -1,14 +1,22 @@
 nav {
+  display: flex;
+  flex-direction: column;
   width: 170px;
   flex: 0 0 auto;
   background: var(--optNavBg);
-  padding: 24px 0;
+  padding: 24px 0 0;
   box-shadow: inset -1px 0px 0 0px var(--optNavBorder);
   border-radius: 10px 0 0 10px;
   overflow-y: auto;
   h1 {
     padding-left: 24px;
     padding-right: 24px;
+  }
+  .version {
+    font-size: 12px;
+    margin-top: auto;
+    padding: 24px 0 14px 24px;
+    opacity: .3;
   }
   ul {
     list-style: none;

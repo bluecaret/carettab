@@ -40,6 +40,10 @@ export class OptionsExtraComponent {
     this.translate.use(language);
   }
 
+  findTitleType(type) {
+    return this.titleOptions.find(x => x.id === type);
+  }
+
   enableAnalytics(enable: boolean) {
     console.log('enable', enable);
     enable === true ?

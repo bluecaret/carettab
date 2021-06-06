@@ -106,4 +106,8 @@ export class OptionsTimeComponent {
     this.shared.echo('Clock copied', null, newClock);
   }
 
+  findSpan(s): string {
+    return span.find(item => item.id === s).label;
+  }
+
 }

@@ -7,7 +7,7 @@
 </div>
 <div class="input">
   <label for="tabTitle">{{'options.extra.tabTitle' | translate}}<tooltip text="{{'options.extra.tabTitleDesc' | translate}}"></tooltip></label>
-  <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.misc.title.type" (ngModelChange)="ga.field('misc.title.type', settings.config.misc.title.type)">
+  <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.misc.title.type" (ngModelChange)="ga.field('misc.title.type', findTitleType(settings.config.misc.title.type).label)">
     <option *ngFor="let type of titleOptions" [ngValue]="type.id">{{type.label}}</option>
   </select>
 </div>

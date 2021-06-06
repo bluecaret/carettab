@@ -94,7 +94,7 @@
         </div>
         <div class="input">
           <label [for]="'clockSpan'+i">{{'options.time.span' | translate}}<tooltip text="{{'options.time.spanDesc' | translate}}"></tooltip></label>
-          <select [name]="'clockSpan'+i" [id]="'clockSpan'+i" [(ngModel)]="clock.span" (ngModelChange)="ga.field('time.clocks.span', clock.span)">
+          <select [name]="'clockSpan'+i" [id]="'clockSpan'+i" [(ngModel)]="clock.span" (ngModelChange)="ga.field('time.clocks.span', findSpan(clock.span))">
             <option *ngFor="let s of span" [ngValue]="s.id">{{s.label}}</option>
           </select>
         </div>

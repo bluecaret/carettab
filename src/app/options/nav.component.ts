@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { GoogleAnalyticsService } from '../_shared/ga.service';
 import { SharedService } from '../_shared/shared.service';
 import { Storage } from '../_storage/storage.service';
+import * as manifest from '../../manifest.json';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -68,10 +69,15 @@ import { Storage } from '../_storage/storage.service';
         </button>
       </li>
     </ul>
+    <div class="version">
+      Version {{ver}}
+    </div>
   `,
 })
 export class NavComponent implements AfterViewInit {
   @ViewChild('dashboardLink', {static: false}) dashboardLink: ElementRef;
+
+  ver = manifest.version;
 
   constructor(
     public shared: SharedService,

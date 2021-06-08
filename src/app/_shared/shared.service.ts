@@ -112,21 +112,21 @@ export class SharedService {
     }
     if (str) {
       console.log(
-        `%c${msg}%c${str}`, 
-        style, 
+        `%c${msg}%c${str}`,
+        style,
         strStyle
       );
     }
     if (obj) {
       console.log(
-        `%c${msg}`, 
-        style, 
+        `%c${msg}`,
+        style,
         obj
       );
     }
     if (!str && !obj) {
       console.log(
-        `%c${msg}`, 
+        `%c${msg}`,
         style
       );
     }
@@ -176,30 +176,30 @@ export class SharedService {
   }
 
   public toggleOrder(id: string, enabled: boolean) {
-      if (!enabled) {
-        let elIndex = this.settings.config.order.items.findIndex(e => e.id === id);
-        this.settings.config.order.items.splice(elIndex, 1);
-        let sorted = this.settings.config.order.items;
-        if (this.settings.config.order.items.length > 1) {
-          sorted = this.settings.config.order.items.sort((a, b) => a.order - b.order);
-        }
-        sorted.forEach((e, index) => {
-          e.order = index + 1;
-        });
-      } else {
-        let sorted = this.settings.config.order.items;
-        if (this.settings.config.order.items.length > 1) {
-          sorted = this.settings.config.order.items.sort((a, b) => a.order - b.order);
-        }
-        let newOrderNumber = 1;
-        if (this.settings.config.order.items.length > 0) {
-          newOrderNumber = (sorted[sorted.length - 1].order) + 1;
-        }
-        this.settings.config.order.items.push({
-          id: id,
-          order: newOrderNumber
-        });
+    if (!enabled) {
+      let elIndex = this.settings.config.order.items.findIndex(e => e.id === id);
+      this.settings.config.order.items.splice(elIndex, 1);
+      let sorted = this.settings.config.order.items;
+      if (this.settings.config.order.items.length > 1) {
+        sorted = this.settings.config.order.items.sort((a, b) => a.order - b.order);
       }
+      sorted.forEach((e, index) => {
+        e.order = index + 1;
+      });
+    } else {
+      let sorted = this.settings.config.order.items;
+      if (this.settings.config.order.items.length > 1) {
+        sorted = this.settings.config.order.items.sort((a, b) => a.order - b.order);
+      }
+      let newOrderNumber = 1;
+      if (this.settings.config.order.items.length > 0) {
+        newOrderNumber = (sorted[sorted.length - 1].order) + 1;
+      }
+      this.settings.config.order.items.push({
+        id: id,
+        order: newOrderNumber
+      });
+    }
   }
 
   public changeOrder(id: string, up: boolean) {
@@ -265,6 +265,11 @@ export class SharedService {
     this.settings.setAll(this.settings.config.time, 'ct-time');
   }
 
+  public getRandomNumber(): number {
+    var min = 0;
+    var max = this.settings.config.message.texts.length;
+    return Math.floor(Math.random() * (max - min)) + min;
+  };
 }
 
 @Pipe({ name: 'translateCut' })

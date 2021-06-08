@@ -38,6 +38,7 @@ export class MessageSettings {
   scaling = 8;
   offset = 0;
   text = 'Hello world!';
+  texts = [];
 }
 
 export class I18nSettings {

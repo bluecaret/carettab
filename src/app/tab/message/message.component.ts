@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SharedService } from '../../_shared/shared.service';
 import { Storage } from '../../_storage/storage.service';
 
 @Component({
@@ -9,8 +10,12 @@ import { Storage } from '../../_storage/storage.service';
 export class TabMessageComponent {
 
   constructor(
+    public shared:SharedService,
     public settings: Storage
   ) {
+    if(this.settings.config.message.texts.length>0){
+      this.settings.config.message.text =this.settings.config.message.texts[this.shared.getRandomNumber()];
+    }
   }
 
 }

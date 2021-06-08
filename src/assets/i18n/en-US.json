@@ -152,6 +152,11 @@
       "searchBox": "Search box",
       "searchEngine": "Search engine"
     },
+    "covid":{
+      "caption":"Covid19",
+      "enable":"Enable",
+      "country":"Country"
+    },
     "time": {
       "actions": "Actions",
       "addNewClock": "Add New Clock",

@@ -8,6 +8,7 @@
     <options-bookmarks *ngIf="shared.optionsPage === 'Bookmarks'" class="page" [ngClass]="{'open': shared.optionsPage === 'Bookmarks'}"></options-bookmarks>
     <options-search *ngIf="shared.optionsPage === 'Search'" class="page" [ngClass]="{'open': shared.optionsPage === 'Search'}"></options-search>
     <options-message *ngIf="shared.optionsPage === 'Message'" class="page" [ngClass]="{'open': shared.optionsPage === 'Message'}"></options-message>
+    <options-covid *ngIf="shared.optionsPage === 'Covid'" class='page'  [ngClass]="{'open': shared.optionsPage === 'Covid'}"></options-covid>
     <options-extra *ngIf="shared.optionsPage === 'Extra'" class="page" [ngClass]="{'open': shared.optionsPage === 'Extra'}"></options-extra>
   </div>
 </section>

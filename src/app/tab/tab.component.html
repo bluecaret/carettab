@@ -16,7 +16,7 @@
     >
   
     <tab-bookmarks></tab-bookmarks>
-  
+
     <div class="tabCenter">
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <tab-time
@@ -28,6 +28,9 @@
           [style.order]="shared.getOrder(clock.id)"
           [style.transform]="shared.getOffset(clock.offset)">
         </tab-time>
+      </ng-container>
+      <ng-container *ngIf="settings.config.covid.countries.length > 0">
+        <tab-covid *ngFor="let c of settings.config.covid.countries; let i = index;" [country]="c"></tab-covid>
       </ng-container>
       <tab-date
         class="w100"

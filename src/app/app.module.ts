@@ -33,6 +33,7 @@ import { OptionsExtraComponent } from './options/extra/extra.component';
 import { OptionsMessageComponent } from './options/message/message.component';
 import { OptionsSearchComponent } from './options/search/search.component';
 import { OptionsTimeComponent } from './options/time/time.component';
+import { OptionsCovidComponent } from './options/covid/covid.component';
 import { TimezonePipe } from './options/time/timezone.pipe';
 import { TimezoneService } from './options/time/timezone.service';
 
@@ -43,6 +44,7 @@ import { TabTimeComponent } from './tab/time/time.component';
 import { TabDateComponent } from './tab/date/date.component';
 import { TabMessageComponent } from './tab/message/message.component';
 import { TabSearchComponent } from './tab/search/search.component';
+import { TabCovidComponent } from './tab/covid/covid.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,7 @@ import { TabSearchComponent } from './tab/search/search.component';
     OptionsMessageComponent,
     OptionsSearchComponent,
     OptionsTimeComponent,
+    OptionsCovidComponent,
     TimezonePipe,
 
     TabComponent,
@@ -73,7 +76,8 @@ import { TabSearchComponent } from './tab/search/search.component';
     TabTimeComponent,
     TabDateComponent,
     TabMessageComponent,
-    TabSearchComponent
+    TabSearchComponent,
+    TabCovidComponent
   ],
   imports: [
     BrowserModule,

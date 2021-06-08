@@ -17,7 +17,8 @@ import {
   OrderSettings,
   QuickLinkSettings,
   SearchSettings,
-  TimeSettings
+  TimeSettings,
+  CovidSettings as CovidSettings
 } from './settings';
 import { Observable } from 'rxjs/internal/Observable';
 
@@ -35,6 +36,7 @@ export class Storage {
     this.config.date = new DateSettings();
     this.config.design = new DesignSettings();
     this.config.i18n = new I18nSettings();
+    this.config.covid = new CovidSettings();
     this.config.message = new MessageSettings();
     this.config.misc = new MiscSettings();
     this.config.order = new OrderSettings();

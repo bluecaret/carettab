@@ -1,0 +1,27 @@
+<h2>{{ "options.covid.caption" | translate }}</h2>
+<form #covid="ngForm" novalidate>
+  <div class="input">
+    <label>{{ "options.covid.enable" | translate }}</label>
+    <options-toggle
+      name="enabled"
+      [(ngModel)]="settings.config.covid.enabled"
+      (ngModelChange)="shared.toggleOrder(settings.config.covid.id, $event)"
+      (ngModelChange)="ga.field('date.enabled', settings.config.date.enabled)"
+    ></options-toggle>
+  </div>
+  <ng-container *ngIf="settings.config.covid.enabled">
+    <div class="input">
+      <label>{{ "options.covid.country" | translate }}</label>
+      <select
+        name="country"
+        [(ngModel)]="settings.config.covid.country"
+        (ngModelChange)="ga.field('covid.country', settings.config.covid.country)"
+      >
+        <option *ngFor="let f of countryList" [ngValue]="f.id" >
+          {{ f.label }}
+        </option>
+      </select>
+      <div class="btn" (click)="settings.config.covid.countries.push(settings.config.covid.country)">add</div>
+    </div>
+  </ng-container>
+</form>

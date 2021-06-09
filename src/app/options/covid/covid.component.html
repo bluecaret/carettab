@@ -5,8 +5,7 @@
     <options-toggle
       name="enabled"
       [(ngModel)]="settings.config.covid.enabled"
-      (ngModelChange)="shared.toggleOrder(settings.config.covid.id, $event)"
-      (ngModelChange)="ga.field('date.enabled', settings.config.date.enabled)"
+      (ngModelChange)="loadData($event)"
     ></options-toggle>
   </div>
   <ng-container *ngIf="settings.config.covid.enabled">
@@ -14,14 +13,35 @@
       <label>{{ "options.covid.country" | translate }}</label>
       <select
         name="country"
-        [(ngModel)]="settings.config.covid.country"
-        (ngModelChange)="ga.field('covid.country', settings.config.covid.country)"
+        [(ngModel)]="selectedCountry"
+        (ngModelChange)="
+          ga.field('covid.country', settings.config.covid.countries)
+        "
       >
-        <option *ngFor="let f of countryList" [ngValue]="f.id" >
-          {{ f.label }}
+        <option *ngFor="let item of countryList" [ngValue]="item">
+          {{ item.label }}
         </option>
       </select>
-      <div class="btn" (click)="settings.config.covid.countries.push(settings.config.covid.country)">add</div>
+      <div
+        class="btn"
+        (click)="settings.config.covid.countries.push(selectedCountry)"
+      >
+        add
+      </div>
+    </div>
+    <div>
+      <h3>{{ "options.covid.monitor" | translate }}</h3>
+    </div>
+
+    <div class="grid cols-4 mt designGrid">
+      <button
+        *ngFor="let c of settings.config.covid.countries; let i = index"
+        class="country"
+        [attr.aria-label]="'options.design.removeWallpaper' | translate"
+        (click)="removeCountry(i)"
+      >{{c.label}}
+        <div class="icon" aria-hidden="true" style="font-size: 1em">remove</div>
+      </button>
     </div>
   </ng-container>
 </form>

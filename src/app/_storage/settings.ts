@@ -83,11 +83,8 @@ export class QuickLinkSettings {
 }
 export class CovidSettings{
   enabled=false;
-  id= 'COVID_COVA9RAH2R';
-  country='za';
-  countries=[
-   "za"
-  ]
+  id= 'COVID_COVA9RAH2R';  
+  countries=[]
 }
 export class TimeSettings {
   clocks = [

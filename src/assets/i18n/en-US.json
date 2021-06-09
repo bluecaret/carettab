@@ -154,6 +154,7 @@
     },
     "covid":{
       "caption":"Covid19",
+      "monitor":"Monitored countries",
       "enable":"Enable",
       "country":"Country"
     },

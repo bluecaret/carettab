@@ -9,19 +9,27 @@ import { Storage } from '../../_storage/storage.service';
 })
 export class TabCovidComponent implements OnInit {
 
-  @Input() country: string;
+  @Input() countryCode: string;
   @Input() index: number;
-  public countryData = {};
+  public countryData = new CovidData();
   constructor(
     public settings: Storage,
     private http: HttpClient
   ) {
   }
   ngOnInit(): void {
-    this.http.get('https://corona.lmao.ninja/v2/countries/' + this.country).subscribe(data => {
-      debugger;
+    this.http.get('https://corona.lmao.ninja/v2/countries/' + this.countryCode).subscribe((data: CovidData) => {
       this.countryData = data;
     });
   }
 
+}
+
+export class CovidData {
+  todayCases: string = '';
+  deaths: string= '';
+  active: string= '';
+  countryInfo: {
+    flag: string;
+  }
 }

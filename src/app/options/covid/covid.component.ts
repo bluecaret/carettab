@@ -11,20 +11,27 @@ import { map, catchError } from 'rxjs/operators';
   selector: 'options-covid',
   templateUrl: 'covid.component.html'
 })
-export class OptionsCovidComponent implements OnInit {
+export class OptionsCovidComponent {
   status: string;
   shareMenu = false;
+  public selectedCountry = {};
   public countryList = [];
   constructor(public shared: SharedService, public settings: Storage, public ga: GoogleAnalyticsService, private http: HttpClient) {
   }
 
-  ngOnInit() {
+  loadData(e) {
+    this.shared.toggleOrder(this.settings.config.covid.id, e);
+    this.ga.field('covid.enabled', this.settings.config.covid.enabled)
     this.countryLists();
+  }
+
+  removeCountry(i) {
+    this.settings.config.covid.countries.splice(i, 1);
   }
 
   countryLists() {
     this.http.get('https://covid19.mathdro.id/api/countries').subscribe(data => {
-      this.countryList = data.countries.map(x =>{ return  { label: x.name ,id:x.iso2};});
-    }) 
+      this.countryList = data['countries'].map(x => { return { label: x.name, id: x.iso2 }; });
+    })
   }
 }

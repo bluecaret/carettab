@@ -155,6 +155,7 @@
     },
     "covidData":{
       "actions":"Options",
+      "addCountry" : "Add Country",
       "caption":"Covid Data",
       "country":"Country",
       "countryDesc": "Country to monitor",

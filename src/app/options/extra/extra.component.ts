@@ -23,6 +23,7 @@ export class OptionsExtraComponent {
     public ga: GoogleAnalyticsService,
     private http: HttpClient
   ) {
+    this.countryLists();
   }
   trackByFn(index: any, item: any) {
     return index;
@@ -107,7 +108,6 @@ export class OptionsExtraComponent {
   addCountry() {
     let elementId = this.shared.createID("covid");
     this.settings.config.covidData.countries.push({id:elementId, code: 'AF',flagSize:165,textScaling:20,offset:0,padding:1 })
-    debugger;
     this.shared.toggleOrder(elementId, true);
   }
 

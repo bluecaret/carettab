@@ -17,8 +17,8 @@
 <div class="input">
   <label for="tabTitle">
     {{ "options.extra.tabTitle" | translate }}
-    <tooltip text="{{ 'options.extra.tabTitleDesc' | translate }}"></tooltip
-  ></label>
+    <tooltip text="{{ 'options.extra.tabTitleDesc' | translate }}"></tooltip>
+  </label>
   <select
     name="tabTitle"
     id="tabTitle"
@@ -57,10 +57,10 @@
     settings.config.misc.title.type === 50
   "
 >
-  <label for="tabTitle"
-    >{{ "options.extra.tabClock" | translate
-    }}<tooltip text="{{ 'options.extra.tabClockDesc' | translate }}"></tooltip
-  ></label>
+  <label for="tabTitle">
+    {{ "options.extra.tabClock" | translate }}
+    <tooltip text="{{ 'options.extra.tabClockDesc' | translate }}"></tooltip>
+  </label>
   <select
     name="tabTitle"
     id="tabTitle"
@@ -119,32 +119,36 @@
   ></options-toggle>
 </div>
 <div class="input">
-  <label
-    >{{ "options.extra.enableAnalytics" | translate
-    }}<tooltip
+  <label>
+    {{ "options.extra.enableAnalytics" | translate }}
+    <tooltip
       text="{{ 'options.extra.enableAnalyticsDesc' | translate }}"
-    ></tooltip
-  ></label>
+    ></tooltip>
+  </label>
   <options-toggle
     name="enableAnalytics"
     id="enableAnalytics"
     [(ngModel)]="settings.config.misc.enableAnalytics"
-  ></options-toggle>
+  >
+  </options-toggle>
 </div>
 <h3>{{ "options.covidData.caption" | translate }}</h3>
 <form #covid="ngForm" novalidate>
-  <div [innerHTML]='"options.covidData.disclaimer" | translate'></div>
+  <div [innerHTML]="'options.covidData.disclaimer' | translate"></div>
   <div class="input">
     <label>{{ "options.covidData.enable" | translate }}</label>
     <options-toggle
       name="enabled"
       [(ngModel)]="settings.config.covidData.enabled"
       (ngModelChange)="loadData($event)"
-    ></options-toggle>
+    >
+    </options-toggle>
   </div>
-  
+
   <ng-container *ngIf="settings.config.covidData.enabled">
-    <div class="btn" (click)="addCountry()">add</div>
+    <div class="btn" (click)="addCountry()">
+      {{ "options.covidData.addCountry" | translate }}
+    </div>
     <ng-container
       *ngFor="
         let country of settings.config.covidData.countries;
@@ -165,8 +169,8 @@
             [(ngModel)]="country.code"
           >
             <option
-              *ngFor="let country of countryList; let i = index"
-              [value]="country.code"
+              *ngFor="let country of countryList"
+              [ngValue]="country.code"
             >
               {{ country.label }}
             </option>
@@ -295,12 +299,40 @@
           ></options-range>
         </div>
         <div class="input">
-          <label [for]="'covidDataOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.common.offsetDesc' | translate}}"></tooltip></label>
-          <options-range [name]="'covidDataOffset'+i" [id]="'covidDataOffset'+i" min="-20" max="20" [(ngModel)]="country.offset" (ngModelChange)="ga.field('covidData.countries.offset', country.offset)"></options-range>
+          <label [for]="'covidDataOffset' + i"
+            >{{ "options.common.offset" | translate
+            }}<tooltip
+              text="{{ 'options.common.offsetDesc' | translate }}"
+            ></tooltip
+          ></label>
+          <options-range
+            [name]="'covidDataOffset' + i"
+            [id]="'covidDataOffset' + i"
+            min="-20"
+            max="20"
+            [(ngModel)]="country.offset"
+            (ngModelChange)="
+              ga.field('covidData.countries.offset', country.offset)
+            "
+          ></options-range>
         </div>
         <div class="input">
-          <label [for]="'covidDataPadding'+i">{{'options.covidData.padding' | translate}}<tooltip text="{{'options.covidData.paddingDesc' | translate}}"></tooltip></label>
-          <options-range [name]="'covidDataPadding'+i" [id]="'covidDataPadding'+i" min="1" max="20" [(ngModel)]="country.padding" (ngModelChange)="ga.field('covidData.countries.padding', country.padding)"></options-range>
+          <label [for]="'covidDataPadding' + i"
+            >{{ "options.covidData.padding" | translate
+            }}<tooltip
+              text="{{ 'options.covidData.paddingDesc' | translate }}"
+            ></tooltip
+          ></label>
+          <options-range
+            [name]="'covidDataPadding' + i"
+            [id]="'covidDataPadding' + i"
+            min="1"
+            max="20"
+            [(ngModel)]="country.padding"
+            (ngModelChange)="
+              ga.field('covidData.countries.padding', country.padding)
+            "
+          ></options-range>
         </div>
       </div>
     </ng-container>
@@ -342,7 +374,7 @@
     class="valMsg valMsg--wide valMsg--success"
     *ngIf="importStatus === 'success'"
   >
-    <strong>{{ "options.extra.importedSuccessfully" | translate }}</strong> -
+    <strong> {{ "options.extra.importedSuccessfully" | translate }}</strong> -
     {{ "options.extra.importedSuccessfullyDesc" | translate }}
   </div>
   <div class="valMsg valMsg--wide" *ngIf="importStatus === 'error'">
@@ -352,9 +384,9 @@
 </div>
 <h3>{{ "options.extra.reset" | translate }}</h3>
 <div class="input">
-  <label for="reset"
-    >{{ "options.extra.resetToDefault" | translate
-    }}<tooltip text="{{ 'options.extra.resetDesc' | translate }}"></tooltip
+  <label for="reset">
+    {{ "options.extra.resetToDefault" | translate }}
+    <tooltip text="{{ 'options.extra.resetDesc' | translate }}"></tooltip
   ></label>
   <button
     id="reset"

@@ -36,7 +36,7 @@ export class Storage {
     this.config.date = new DateSettings();
     this.config.design = new DesignSettings();
     this.config.i18n = new I18nSettings();
-    this.config.covid = new CovidSettings();
+    this.config.covidData = new CovidSettings();
     this.config.message = new MessageSettings();
     this.config.misc = new MiscSettings();
     this.config.order = new OrderSettings();

@@ -33,7 +33,6 @@ import { OptionsExtraComponent } from './options/extra/extra.component';
 import { OptionsMessageComponent } from './options/message/message.component';
 import { OptionsSearchComponent } from './options/search/search.component';
 import { OptionsTimeComponent } from './options/time/time.component';
-import { OptionsCovidComponent } from './options/covid/covid.component';
 import { TimezonePipe } from './options/time/timezone.pipe';
 import { TimezoneService } from './options/time/timezone.service';
 
@@ -67,7 +66,6 @@ import { TabCovidComponent } from './tab/covid/covid.component';
     OptionsMessageComponent,
     OptionsSearchComponent,
     OptionsTimeComponent,
-    OptionsCovidComponent,
     TimezonePipe,
 
     TabComponent,

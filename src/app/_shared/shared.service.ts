@@ -165,6 +165,11 @@ export class SharedService {
     return (size / emBase) + 'em';
   }
 
+  public getImageSize(size: number, baseSize?: number) {
+    let base = baseSize ? baseSize : 165;
+    return ((size / base)*100) + 'px';
+  }
+
   public getOffset(size: number) {
     let offset = ((size * 5) * -1);
     return 'translateY(' + offset + '%)';

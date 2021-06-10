@@ -4,6 +4,7 @@ import { Storage } from '../../_storage/storage.service';
 import { title, languages } from '../../_shared/lists/lists';
 import { SharedService } from '../../_shared/shared.service';
 import { GoogleAnalyticsService } from '../../_shared/ga.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'options-extra',
@@ -12,16 +13,20 @@ import { GoogleAnalyticsService } from '../../_shared/ga.service';
 export class OptionsExtraComponent {
   titleOptions = title;
   languages = languages;
+  selected = '';
   importStatus: string;
-
+  public countryList = [];
   constructor(
     public settings: Storage,
     private translate: TranslateService,
     public shared: SharedService,
-    public ga: GoogleAnalyticsService
+    public ga: GoogleAnalyticsService,
+    private http: HttpClient
   ) {
   }
-
+  trackByFn(index: any, item: any) {
+    return index;
+  }
   // Reset settings
   reset() {
     if (confirm('Are you sure you want to reset all settings to default?')) {
@@ -54,12 +59,12 @@ export class OptionsExtraComponent {
     let _settings = JSON.stringify(this.settings.config, null, 4); //indentation in json format, human readable
 
     let link = document.createElement('a'),
-        blob = new Blob([_settings], {type: "text/json"}),
-        name = 'carettab-settings.json',
-        url = window.URL.createObjectURL(blob);
+      blob = new Blob([_settings], { type: "text/json" }),
+      name = 'carettab-settings.json',
+      url = window.URL.createObjectURL(blob);
 
     link.setAttribute('href', url);
-    link.setAttribute('download', name );
+    link.setAttribute('download', name);
     link.click();
 
     this.ga.field('button.export', 'true');
@@ -93,5 +98,35 @@ export class OptionsExtraComponent {
 
     reader.readAsText(files[0]);
     input.value = '';
+  }
+
+  loadData(e) {
+    this.countryLists();
+  }
+
+  addCountry() {
+    let elementId = this.shared.createID("covid");
+    this.settings.config.covidData.countries.push({id:elementId, code: 'AF',flagSize:165,textScaling:20,offset:0,padding:1 })
+    debugger;
+    this.shared.toggleOrder(elementId, true);
+  }
+
+  removeCountry(i) {
+    this.settings.config.covidData.countries.splice(i, 1);
+  }
+
+  /** Sets item as selected */
+  setSelected(i) {
+    if (this.selected !== i) {
+      this.selected = i;
+    } else {
+      this.selected = null;
+    }
+  }
+
+  countryLists() {
+    this.http.get('https://covid19.mathdro.id/api/countries').subscribe(data => {
+      this.countryList = data['countries'].map(x => { return { label: x.name, code: x.iso2 }; });
+    })
   }
 }

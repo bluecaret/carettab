@@ -81,11 +81,13 @@ export class QuickLinkSettings {
     }
   ];
 }
-export class CovidSettings{
-  enabled=false;
-  id= 'COVID_COVA9RAH2R';  
-  countries=[]
+
+export class CovidSettings {
+  enabled = false;
+  countries = [
+  ]
 }
+
 export class TimeSettings {
   clocks = [
     {
@@ -217,7 +219,7 @@ export class Settings {
   bookmark = new BookmarkSettings();
   quickLink = new QuickLinkSettings();
   time = new TimeSettings();
-  covid = new CovidSettings();
+  covidData = new CovidSettings();
   date = new DateSettings();
   search = new SearchSettings();
   misc = new MiscSettings();

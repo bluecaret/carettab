@@ -1,62 +1,367 @@
-<h2>{{'options.extra.extra' | translate}}</h2>
+<h2>{{ "options.extra.extra" | translate }}</h2>
 <div class="input">
-  <label for="lang">{{'options.extra.lang' | translate}}</label>
-  <select name="lang" id="lang" [(ngModel)]="settings.config.i18n.lang" (ngModelChange)="useLanguage($event); ga.field('i18n.lang', settings.config.i18n.lang)">
-    <option *ngFor="let lang of languages" [ngValue]="lang.id">{{lang.label}}</option>
+  <label for="lang">{{ "options.extra.lang" | translate }}</label>
+  <select
+    name="lang"
+    id="lang"
+    [(ngModel)]="settings.config.i18n.lang"
+    (ngModelChange)="
+      useLanguage($event); ga.field('i18n.lang', settings.config.i18n.lang)
+    "
+  >
+    <option *ngFor="let lang of languages" [ngValue]="lang.id">
+      {{ lang.label }}
+    </option>
   </select>
 </div>
 <div class="input">
-  <label for="tabTitle">{{'options.extra.tabTitle' | translate}}<tooltip text="{{'options.extra.tabTitleDesc' | translate}}"></tooltip></label>
-  <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.misc.title.type" (ngModelChange)="ga.field('misc.title.type', findTitleType(settings.config.misc.title.type).label)">
-    <option *ngFor="let type of titleOptions" [ngValue]="type.id">{{type.label}}</option>
+  <label for="tabTitle">
+    {{ "options.extra.tabTitle" | translate }}
+    <tooltip text="{{ 'options.extra.tabTitleDesc' | translate }}"></tooltip
+  ></label>
+  <select
+    name="tabTitle"
+    id="tabTitle"
+    [(ngModel)]="settings.config.misc.title.type"
+    (ngModelChange)="
+      ga.field(
+        'misc.title.type',
+        findTitleType(settings.config.misc.title.type).label
+      )
+    "
+  >
+    <option *ngFor="let type of titleOptions" [ngValue]="type.id">
+      {{ type.label }}
+    </option>
   </select>
 </div>
 <div class="input" *ngIf="settings.config.misc.title.type === 60">
-  <label for="tabTitleCustom">{{'options.extra.tabCustomText' | translate}}<tooltip text="{{'options.extra.tabCustomTextDesc' | translate}}"></tooltip></label>
-  <input type="text" name="tabTitleCustom" id="tabTitleCustom" [(ngModel)]="settings.config.misc.title.text" (ngModelChange)="ga.field('misc.title.text', 'userData')">
+  <label for="tabTitleCustom">
+    {{ "options.extra.tabCustomText" | translate }}
+    <tooltip text="{{ 'options.extra.tabCustomTextDesc' | translate }}">
+    </tooltip>
+  </label>
+  <input
+    type="text"
+    name="tabTitleCustom"
+    id="tabTitleCustom"
+    [(ngModel)]="settings.config.misc.title.text"
+    (ngModelChange)="ga.field('misc.title.text', 'userData')"
+  />
 </div>
-<div class="input" *ngIf="settings.config.misc.title.type === 20 || settings.config.misc.title.type === 40 || settings.config.misc.title.type === 50">
-  <label for="tabTitle">{{'options.extra.tabClock' | translate}}<tooltip text="{{'options.extra.tabClockDesc' | translate}}"></tooltip></label>
-  <select name="tabTitle" id="tabTitle" [(ngModel)]="settings.config.misc.title.clockUsed" (ngModelChange)="ga.field('misc.title.clockUsed', settings.config.misc.title.clockUsed)">
-    <option *ngFor="let clock of settings.config.time.clocks; let i = index" [ngValue]="i+1">Clock #{{i + 1}}</option>
+<div
+  class="input"
+  *ngIf="
+    settings.config.misc.title.type === 20 ||
+    settings.config.misc.title.type === 40 ||
+    settings.config.misc.title.type === 50
+  "
+>
+  <label for="tabTitle"
+    >{{ "options.extra.tabClock" | translate
+    }}<tooltip text="{{ 'options.extra.tabClockDesc' | translate }}"></tooltip
+  ></label>
+  <select
+    name="tabTitle"
+    id="tabTitle"
+    [(ngModel)]="settings.config.misc.title.clockUsed"
+    (ngModelChange)="
+      ga.field('misc.title.clockUsed', settings.config.misc.title.clockUsed)
+    "
+  >
+    <option
+      *ngFor="let clock of settings.config.time.clocks; let i = index"
+      [ngValue]="i + 1"
+    >
+      Clock #{{ i + 1 }}
+    </option>
   </select>
 </div>
 <div class="input">
-  <label for="disableSelect">{{'options.extra.disableSelect' | translate}}<tooltip text="{{'options.extra.disableSelectDesc' | translate}}"></tooltip></label>
-  <options-toggle name="disableSelect" id="disableSelect" [(ngModel)]="settings.config.misc.disableSelect" (ngModelChange)="ga.field('misc.disableSelect', settings.config.misc.disableSelect)"></options-toggle>
+  <label for="disableSelect"
+    >{{ "options.extra.disableSelect" | translate
+    }}<tooltip
+      text="{{ 'options.extra.disableSelectDesc' | translate }}"
+    ></tooltip
+  ></label>
+  <options-toggle
+    name="disableSelect"
+    id="disableSelect"
+    [(ngModel)]="settings.config.misc.disableSelect"
+    (ngModelChange)="
+      ga.field('misc.disableSelect', settings.config.misc.disableSelect)
+    "
+  ></options-toggle>
 </div>
 <div class="input">
-  <label>{{'options.extra.hideMenu' | translate}}<tooltip text="{{'options.extra.hideMenuDesc' | translate}}"></tooltip></label>
-  <options-toggle name="hideMenu" id="hideMenu" [(ngModel)]="settings.config.design.hideMenu" (ngModelChange)="ga.field('design.hideMenu', settings.config.design.hideMenu)"></options-toggle>
+  <label
+    >{{ "options.extra.hideMenu" | translate
+    }}<tooltip text="{{ 'options.extra.hideMenuDesc' | translate }}"></tooltip
+  ></label>
+  <options-toggle
+    name="hideMenu"
+    id="hideMenu"
+    [(ngModel)]="settings.config.design.hideMenu"
+    (ngModelChange)="
+      ga.field('design.hideMenu', settings.config.design.hideMenu)
+    "
+  ></options-toggle>
 </div>
 <div class="input">
-  <label>{{'options.extra.hideLogo' | translate}}</label>
-  <options-toggle name="hideLogo" id="hideLogo" [(ngModel)]="settings.config.design.hideLogo" (ngModelChange)="ga.field('design.hideLogo', settings.config.design.hideLogo)"></options-toggle>
+  <label>{{ "options.extra.hideLogo" | translate }}</label>
+  <options-toggle
+    name="hideLogo"
+    id="hideLogo"
+    [(ngModel)]="settings.config.design.hideLogo"
+    (ngModelChange)="
+      ga.field('design.hideLogo', settings.config.design.hideLogo)
+    "
+  ></options-toggle>
 </div>
 <div class="input">
-  <label>{{'options.extra.enableAnalytics' | translate}}<tooltip text="{{'options.extra.enableAnalyticsDesc' | translate}}"></tooltip></label>
-  <options-toggle name="enableAnalytics" id="enableAnalytics" [(ngModel)]="settings.config.misc.enableAnalytics"></options-toggle>
+  <label
+    >{{ "options.extra.enableAnalytics" | translate
+    }}<tooltip
+      text="{{ 'options.extra.enableAnalyticsDesc' | translate }}"
+    ></tooltip
+  ></label>
+  <options-toggle
+    name="enableAnalytics"
+    id="enableAnalytics"
+    [(ngModel)]="settings.config.misc.enableAnalytics"
+  ></options-toggle>
 </div>
-<h3>{{'options.extra.exportImport' | translate}}</h3>
+<h3>{{ "options.covidData.caption" | translate }}</h3>
+<form #covid="ngForm" novalidate>
+  <div [innerHTML]='"options.covidData.disclaimer" | translate'></div>
+  <div class="input">
+    <label>{{ "options.covidData.enable" | translate }}</label>
+    <options-toggle
+      name="enabled"
+      [(ngModel)]="settings.config.covidData.enabled"
+      (ngModelChange)="loadData($event)"
+    ></options-toggle>
+  </div>
+  
+  <ng-container *ngIf="settings.config.covidData.enabled">
+    <div class="btn" (click)="addCountry()">add</div>
+    <ng-container
+      *ngFor="
+        let country of settings.config.covidData.countries;
+        let i = index;
+        trackBy: trackByFn
+      "
+    >
+      <div class="grid cols-2 mt">
+        <div class="input inputStacked">
+          <label
+            [for]="'country' + i"
+            title="{{ 'options.covidData.countryDesc' | translate }}"
+            >{{ "options.covidData.country" | translate }}</label
+          >
+          <select
+            [name]="'country' + i"
+            [id]="'country' + i"
+            [(ngModel)]="country.code"
+          >
+            <option
+              *ngFor="let country of countryList; let i = index"
+              [value]="country.code"
+            >
+              {{ country.label }}
+            </option>
+          </select>
+        </div>
+        <div class="input inputStacked">
+          <label [for]="'actions' + i">{{
+            "options.covidData.actions" | translate
+          }}</label>
+          <div [id]="'actions' + i" class="compactBtnList">
+            <button
+              type="button"
+              class="btn btnIcon"
+              title="{{
+                (selected === i
+                  ? 'options.covidData.hideOptions'
+                  : 'options.covidData.showOptions'
+                ) | translate
+              }}"
+              [ngClass]="{ active: selected === i }"
+              (click)="setSelected(i); ga.field('button.covidSelect', 'true')"
+            >
+              <div class="icon" aria-hidden="true" *ngIf="selected !== i">
+                more_horiz
+              </div>
+              <div class="icon" aria-hidden="true" *ngIf="selected === i">
+                close
+              </div>
+            </button>
+            <div class="orderBtns">
+              <button
+                type="button"
+                class="btn btnIcon"
+                [disabled]="shared.isFirst(country.id)"
+                attr.aria-label="{{ 'options.common.moveUp' | translate }}"
+                title="{{ 'options.common.moveUp' | translate }}"
+                (click)="
+                  shared.changeOrder(country.id, true);
+                  ga.field('button.covidMoveUp', 'true')
+                "
+              >
+                <div class="icon" aria-hidden="true">expand_less</div>
+              </button>
+              <button
+                type="button"
+                class="btn btnIcon"
+                [disabled]="shared.isLast(country.id)"
+                attr.aria-label="{{ 'options.common.moveDown' | translate }}"
+                title="{{ 'options.common.moveDown' | translate }}"
+                (click)="
+                  shared.changeOrder(country.id, false);
+                  ga.field('button.covidMoveDown', 'true')
+                "
+              >
+                <div class="icon" aria-hidden="true">expand_more</div>
+              </button>
+            </div>
+            <button
+              type="button"
+              title="{{ 'options.covidData.deleteCountry' | translate }}"
+              class="btn btnIcon"
+              (click)="removeCountry(i); ga.field('button.covidDelete', 'true')"
+            >
+              <div class="icon" aria-hidden="true">delete</div>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="selected === i" class="mt">
+        <div class="input">
+          <label [for]="'covidShowFlag' + i"
+            >{{ "options.covidData.showFlag" | translate
+            }}<tooltip
+              text="{{ 'options.covidData.showFlagDesc' | translate }}"
+            ></tooltip
+          ></label>
+          <options-toggle
+            [name]="'covidShowFlag' + i"
+            [id]="'covidShowFlag' + i"
+            [(ngModel)]="country.enableFlag"
+            (ngModelChange)="
+              ga.field('covid.country.showFlag', country.showFlag)
+            "
+          ></options-toggle>
+        </div>
+        <div
+          class="input"
+          *ngIf="settings.config.covidData.countries[i].enableFlag"
+        >
+          <label [for]="'covidDataFlagSize' + i"
+            >{{ "options.covidData.flagSize" | translate
+            }}<tooltip
+              text="{{ 'options.covidData.flagSizeDesc' | translate }}"
+            ></tooltip
+          ></label>
+          <options-range
+            [name]="'covidDataFlagSize' + i"
+            [id]="'covidDataFlagSize' + i"
+            min="1"
+            max="165"
+            [(ngModel)]="country.flagSize"
+            (ngModelChange)="
+              ga.field('covidData.flagSize', settings.config.covidData.flagSize)
+            "
+          ></options-range>
+        </div>
+        <div class="input">
+          <label [for]="'covidDataScaling' + i"
+            >{{ "options.covidData.textScaling" | translate
+            }}<tooltip
+              text="{{ 'options.covidData.textScalingDesc' | translate }}"
+            ></tooltip
+          ></label>
+          <options-range
+            [name]="'covidDataScaling' + i"
+            [id]="'covidDataScaling' + i"
+            min="1"
+            max="40"
+            [(ngModel)]="country.textScaling"
+            (ngModelChange)="
+              ga.field(
+                'covidData.textScaling',
+                settings.config.covidData.textScaling
+              )
+            "
+          ></options-range>
+        </div>
+        <div class="input">
+          <label [for]="'covidDataOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.common.offsetDesc' | translate}}"></tooltip></label>
+          <options-range [name]="'covidDataOffset'+i" [id]="'covidDataOffset'+i" min="-20" max="20" [(ngModel)]="country.offset" (ngModelChange)="ga.field('covidData.countries.offset', country.offset)"></options-range>
+        </div>
+        <div class="input">
+          <label [for]="'covidDataPadding'+i">{{'options.covidData.padding' | translate}}<tooltip text="{{'options.covidData.paddingDesc' | translate}}"></tooltip></label>
+          <options-range [name]="'covidDataPadding'+i" [id]="'covidDataPadding'+i" min="1" max="20" [(ngModel)]="country.padding" (ngModelChange)="ga.field('covidData.countries.padding', country.padding)"></options-range>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</form>
+<h3>{{ "options.extra.exportImport" | translate }}</h3>
 <div class="input">
   <label for="export">
-    {{'options.extra.exportSettings' | translate}}
-    <tooltip text="{{'options.extra.exportSettingsDesc' | translate}}"></tooltip>
+    {{ "options.extra.exportSettings" | translate }}
+    <tooltip
+      text="{{ 'options.extra.exportSettingsDesc' | translate }}"
+    ></tooltip>
   </label>
-  <button id="export" type="button" class="btn" (click)="export();">{{'options.extra.export' | translate}}</button>
+  <button id="export" type="button" class="btn" (click)="export()">
+    {{ "options.extra.export" | translate }}
+  </button>
 </div>
 <div class="input">
   <label for="importSettings">
-    {{'options.extra.importSettings' | translate}}
-    <tooltip text="{{'options.extra.importSettingsDesc' | translate}}"></tooltip>
+    {{ "options.extra.importSettings" | translate }}
+    <tooltip
+      text="{{ 'options.extra.importSettingsDesc' | translate }}"
+    ></tooltip>
   </label>
-  <input id="importSettings" #importSettings name="importSettings" type="file" class="btn" accept="image/*" (change)="import($event, importSettings)" accept=".json" />
-  <button class="btn btnBlock" type="button" (click)="importSettings.click();">{{'options.extra.import' | translate}}</button>
-  <div class="valMsg valMsg--wide valMsg--success" *ngIf="importStatus === 'success'"><strong>{{'options.extra.importedSuccessfully' | translate}}</strong> - {{'options.extra.importedSuccessfullyDesc' | translate}}</div>
-  <div class="valMsg valMsg--wide" *ngIf="importStatus === 'error'"><strong>{{'options.extra.importFailed' | translate}}</strong> - {{'options.extra.importFailedDesc' | translate}}</div>
+  <input
+    id="importSettings"
+    #importSettings
+    name="importSettings"
+    type="file"
+    class="btn"
+    accept="image/*"
+    (change)="import($event, importSettings)"
+    accept=".json"
+  />
+  <button class="btn btnBlock" type="button" (click)="importSettings.click()">
+    {{ "options.extra.import" | translate }}
+  </button>
+  <div
+    class="valMsg valMsg--wide valMsg--success"
+    *ngIf="importStatus === 'success'"
+  >
+    <strong>{{ "options.extra.importedSuccessfully" | translate }}</strong> -
+    {{ "options.extra.importedSuccessfullyDesc" | translate }}
+  </div>
+  <div class="valMsg valMsg--wide" *ngIf="importStatus === 'error'">
+    <strong>{{ "options.extra.importFailed" | translate }}</strong> -
+    {{ "options.extra.importFailedDesc" | translate }}
+  </div>
 </div>
-<h3>{{'options.extra.reset' | translate}}</h3>
+<h3>{{ "options.extra.reset" | translate }}</h3>
 <div class="input">
-  <label for="reset">{{'options.extra.resetToDefault' | translate}}<tooltip text="{{'options.extra.resetDesc' | translate}}"></tooltip></label>
-  <button id="reset" type="button" class="btn" (click)="reset(); ga.field('button.reset', 'true');">{{'options.extra.reset' | translate}}</button>
+  <label for="reset"
+    >{{ "options.extra.resetToDefault" | translate
+    }}<tooltip text="{{ 'options.extra.resetDesc' | translate }}"></tooltip
+  ></label>
+  <button
+    id="reset"
+    type="button"
+    class="btn"
+    (click)="reset(); ga.field('button.reset', 'true')"
+  >
+    {{ "options.extra.reset" | translate }}
+  </button>
 </div>

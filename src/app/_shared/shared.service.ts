@@ -265,9 +265,9 @@ export class SharedService {
     this.settings.setAll(this.settings.config.time, 'ct-time');
   }
 
-  public getRandomNumber(): number {
-    var min = 0;
-    var max = this.settings.config.message.texts.length;
+  public getRandomNumber(minNumber,maxNumber): number {
+    var min = minNumber;
+    var max = maxNumber;
     return Math.floor(Math.random() * (max - min)) + min;
   };
 }

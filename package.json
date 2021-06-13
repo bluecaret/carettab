@@ -37,7 +37,6 @@
     "bowser": "^2.11.0",
     "compare-versions": "^3.6.0",
     "core-js": "^2.6.12",
-    "material-design-icons": "^3.0.1",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.33",
     "rxjs": "^6.6.7",

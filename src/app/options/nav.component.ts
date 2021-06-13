@@ -64,6 +64,12 @@ import * as manifest from '../../manifest.json';
       </li>
       <li>
         <button
+          type="button" (click)="goToPage('Weather')" [ngClass]="{'active': shared.optionsPage === 'Weather'}">
+          <div class="icon" aria-hidden="true">wb_sunny</div>Weather
+        </button>
+      </li>
+      <li>
+        <button
           type="button" (click)="goToPage('Extra')" [ngClass]="{'active': shared.optionsPage === 'Extra'}">
           <div class="icon" aria-hidden="true">settings</div>{{'options.extra.extra' | translate}}
         </button>

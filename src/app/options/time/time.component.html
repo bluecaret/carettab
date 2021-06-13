@@ -2,8 +2,8 @@
 <form #clockList="ngForm" novalidate>
   <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index; trackBy:trackByFn; let isFirst = first; let isLast = last">
     <h3>{{'options.time.clock' | translate}} #{{i + 1}}</h3>
-    <div class="grid cols-2 mt">
-      <div class="input inputStacked">
+    <div class="grid cols-4 mt">
+      <div class="input inputStacked span-3">
         <label [for]="'timezone'+i" title="{{'options.time.timezoneDesc' | translate}}">{{'options.common.timezone' | translate}}</label>
         <select [name]="'timezone'+i" [id]="'timezone'+i" [(ngModel)]="clock.timezone" (ngModelChange)="ga.field('time.clocks.timezone', clock.timezone)">
           <option value="Automatic">{{'options.time.automatic' | translate}} ({{tz.timezoneFormat(tzGuess)}})</option>
@@ -36,26 +36,6 @@
             <div class="icon" aria-hidden="true" *ngIf="selected !== i">more_horiz</div>
             <div class="icon" aria-hidden="true" *ngIf="selected === i">close</div>
           </button>
-          <div class="orderBtns">
-            <button
-              type="button"
-              class="btn btnIcon"
-              [disabled]="shared.isFirst(clock.id)"
-              attr.aria-label="{{'options.common.moveUp' | translate}}"
-              title="{{'options.common.moveUp' | translate}}"
-              (click)="shared.changeOrder(clock.id, true); ga.field('button.clockMoveUp', 'true')">
-              <div class="icon" aria-hidden="true">expand_less</div>
-            </button>
-            <button
-              type="button"
-              class="btn btnIcon"
-              [disabled]="shared.isLast(clock.id)"
-              attr.aria-label="{{'options.common.moveDown' | translate}}"
-              title="{{'options.common.moveDown' | translate}}"
-              (click)="shared.changeOrder(clock.id, false); ga.field('button.clockMoveDown', 'true')">
-              <div class="icon" aria-hidden="true">expand_more</div>
-            </button>
-          </div>
           <button
             type="button"
             title="{{'options.time.copyClock' | translate}}"
@@ -74,16 +54,8 @@
       </div>
     </div>
     <div *ngIf="selected === i" class="mt">
-      <h4 class="span-2">{{'options.time.generalSettings' | translate}}</h4>
+      <h4>Layout</h4>
       <div class="indent">
-        <div class="input">
-          <label [for]="'clockTwentyFour'+i">{{'options.time.twentyFour' | translate}}<tooltip text="{{'options.time.twentyFourDesc' | translate}}"></tooltip></label>
-          <options-toggle [name]="'clockTwentyFour'+i" [id]="'clockTwentyFour'+i" [(ngModel)]="clock.twentyFour" (ngModelChange)="ga.field('time.clocks.twentyFour', clock.twentyFour)"></options-toggle>
-        </div>
-        <div class="input">
-          <label [for]="'clockTwoDigit'+i">{{'options.time.twoDigit' | translate}}<tooltip text="{{'options.time.twoDigitDesc' | translate}}"></tooltip></label>
-          <options-toggle [disabled]="clock.twentyFour" [name]="'clockTwoDigit'+i" [id]="'clockTwoDigit'+i" [(ngModel)]="clock.twoDigit" (ngModelChange)="ga.field('time.clocks.twoDigit', clock.twoDigit)"></options-toggle>
-        </div>
         <div class="input">
           <label [for]="'clockSize'+i">{{'options.common.size' | translate}}<tooltip text="{{'options.time.sizeDesc' | translate}}"></tooltip></label>
           <options-range [name]="'clockSize'+i" [id]="'clockSize'+i" min="1" max="40" [(ngModel)]="clock.scaling" (ngModelChange)="ga.field('time.clocks.scaling', clock.scaling)"></options-range>
@@ -101,6 +73,44 @@
         <div class="input">
           <label [for]="'clockPadding'+i">{{'options.time.padding' | translate}}<tooltip text="{{'options.time.paddingDesc' | translate}}"></tooltip></label>
           <options-range [name]="'clockPadding'+i" [id]="'clockPadding'+i" min="1" max="20" [(ngModel)]="clock.padding" (ngModelChange)="ga.field('time.clocks.padding', clock.padding)"></options-range>
+        </div>
+        <div class="input">
+          <label [for]="'clockPlacement'+i">Position</label>
+          <options-position [id]="'clockPlacement'+i" [name]="'clockPlacement'+i" [settingId]="clock.id" [(ngModel)]="clock.position" (ngModelChange)="ga.field('time.clocks.position', clock.position)"></options-position>
+        </div>
+        <div class="input">
+          <label [for]="'clockOrder'+i">{{'options.common.order' | translate}}</label>
+          <div [id]="'clockOrder'+i" class="orderBtns">
+            <button
+              type="button"
+              attr.aria-label="{{'options.common.moveUp' | translate}}"
+              title="{{'options.common.moveUp' | translate}}"
+              class="btn"
+              [disabled]="shared.isFirst(clock.id, clock.position)"
+              (click)="shared.changeOrder(clock.id, true, clock.position); ga.field('button.clockMoveUp', 'true')">
+              <div class="icon" aria-hidden="true">expand_less</div>
+            </button>
+            <button
+              type="button"
+              attr.aria-label="{{'options.common.moveDown' | translate}}"
+              title="{{'options.common.moveDown' | translate}}"
+              class="btn"
+              [disabled]="shared.isLast(clock.id, clock.position)"
+              (click)="shared.changeOrder(clock.id, false, clock.position); ga.field('button.clockMoveDown', 'true')">
+              <div class="icon" aria-hidden="true">expand_more</div>
+            </button>
+          </div>
+        </div>
+      </div>
+      <h4>{{'options.time.generalSettings' | translate}}</h4>
+      <div class="indent">
+        <div class="input">
+          <label [for]="'clockTwentyFour'+i">{{'options.time.twentyFour' | translate}}<tooltip text="{{'options.time.twentyFourDesc' | translate}}"></tooltip></label>
+          <options-toggle [name]="'clockTwentyFour'+i" [id]="'clockTwentyFour'+i" [(ngModel)]="clock.twentyFour" (ngModelChange)="ga.field('time.clocks.twentyFour', clock.twentyFour)"></options-toggle>
+        </div>
+        <div class="input">
+          <label [for]="'clockTwoDigit'+i">{{'options.time.twoDigit' | translate}}<tooltip text="{{'options.time.twoDigitDesc' | translate}}"></tooltip></label>
+          <options-toggle [disabled]="clock.twentyFour" [name]="'clockTwoDigit'+i" [id]="'clockTwoDigit'+i" [(ngModel)]="clock.twoDigit" (ngModelChange)="ga.field('time.clocks.twoDigit', clock.twoDigit)"></options-toggle>
         </div>
       </div>
       <h4 class="span-2">{{'options.time.label' | translate}}</h4>
@@ -132,7 +142,6 @@
           <options-toggle type="toggle" [name]="'labelDim'+i" [id]="'labelDim'+i" [(ngModel)]="clock.label.dim" (ngModelChange)="ga.field('time.clocks.label.dim', clock.label.dim)"></options-toggle>
         </div>
       </div>
-      <!-- <h4>{{'options.common.placement' | translate}}</h4> -->
       <h4 class="span-2">{{'options.time.delimiter' | translate}}</h4>
       <div class="indent">
         <div class="input">

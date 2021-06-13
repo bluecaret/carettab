@@ -2,7 +2,7 @@
 <form #date="ngForm" novalidate>
   <div class="input">
     <label>{{'options.date.date' | translate}}</label>
-    <options-toggle name="date" [(ngModel)]="settings.config.date.enabled" (ngModelChange)="shared.toggleOrder(settings.config.date.id, $event)" (ngModelChange)="ga.field('date.enabled', settings.config.date.enabled);"></options-toggle>
+    <options-toggle name="date" [(ngModel)]="settings.config.date.enabled" (ngModelChange)="shared.toggleOrder(settings.config.date.id, $event, settings.config.date.position); ga.field('date.enabled', settings.config.date.enabled);"></options-toggle>
   </div>
   <ng-container *ngIf="settings.config.date.enabled">
     <div class="input">
@@ -36,8 +36,8 @@
           attr.aria-label="{{'options.common.moveUp' | translate}}"
           title="{{'options.common.moveUp' | translate}}"
           class="btn"
-          [disabled]="!settings.config.date.enabled || shared.isFirst(settings.config.date.id)"
-          (click)="shared.changeOrder(settings.config.date.id, true); ga.field('button.dateMoveUp', 'true');">
+          [disabled]="shared.isFirst(settings.config.date.id, settings.config.date.position)"
+          (click)="shared.changeOrder(settings.config.date.id, true, settings.config.date.position); ga.field('button.dateMoveUp', 'true');">
           <div class="icon" aria-hidden="true">expand_less</div>
         </button>
         <button
@@ -45,8 +45,8 @@
           attr.aria-label="{{'options.common.moveDown' | translate}}"
           title="{{'options.common.moveDown' | translate}}"
           class="btn"
-          [disabled]="!settings.config.date.enabled || shared.isLast(settings.config.date.id)"
-          (click)="shared.changeOrder(settings.config.date.id, false); ga.field('button.dateMoveDown', 'true');">
+          [disabled]="shared.isLast(settings.config.date.id, settings.config.date.position)"
+          (click)="shared.changeOrder(settings.config.date.id, false, settings.config.date.position); ga.field('button.dateMoveDown', 'true');">
           <div class="icon" aria-hidden="true">expand_more</div>
         </button>
       </div>

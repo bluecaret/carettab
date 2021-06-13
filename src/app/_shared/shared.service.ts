@@ -165,6 +165,14 @@ export class SharedService {
     return (size / emBase) + 'em';
   }
 
+  public getMargin(size: number) {
+    return (size * .1) + 'em';
+  }
+
+  public getPadding(size: number) {
+    return (size * .1) + 'em';
+  }
+
   public getOffset(size: number) {
     let offset = ((size * 5) * -1);
     return 'translateY(' + offset + '%)';
@@ -175,45 +183,149 @@ export class SharedService {
     return 'translateY(' + offset + '%)';
   }
 
-  public toggleOrder(id: string, enabled: boolean) {
-      if (!enabled) {
-        let elIndex = this.settings.config.order.items.findIndex(e => e.id === id);
-        this.settings.config.order.items.splice(elIndex, 1);
-        let sorted = this.settings.config.order.items;
-        if (this.settings.config.order.items.length > 1) {
-          sorted = this.settings.config.order.items.sort((a, b) => a.order - b.order);
+  public toggleOrder(id: string, enabled: boolean, position: string = "c") {
+    let positionOrder: any[];
+    switch (position) {
+      case "nw":
+        positionOrder = this.settings.config.order.nw;
+        break;
+      case "n":
+        positionOrder = this.settings.config.order.n;
+        break;
+      case "ne":
+        positionOrder = this.settings.config.order.ne;
+        break;
+      case "w":
+        positionOrder = this.settings.config.order.w;
+        break;
+      case "c":
+        positionOrder = this.settings.config.order.items;
+        break;
+      case "e":
+        positionOrder = this.settings.config.order.e;
+        break;
+      case "sw":
+        positionOrder = this.settings.config.order.sw;
+        break;
+      case "s":
+        positionOrder = this.settings.config.order.s;
+        break;
+      case "se":
+        positionOrder = this.settings.config.order.se;
+        break;
+    
+      default:
+        positionOrder = this.settings.config.order.items;
+        break;
+    }
+
+    if (!enabled) {
+      this.removeOrder(id);
+    } else {
+      this.removeOrder(id);
+      let sorted = positionOrder;
+      if (positionOrder.length > 1) {
+        sorted = positionOrder.sort((a, b) => a.order - b.order);
+      }
+      let newOrderNumber = 1;
+      if (positionOrder.length > 0) {
+        newOrderNumber = (sorted[sorted.length - 1].order) + 1;
+      }
+      positionOrder.push({
+        id: id,
+        order: newOrderNumber
+      });
+    }
+  }
+
+  private removeOrder(id: string) {
+    let foundInList = false;
+    let positionOrder;
+
+    let inNW = this.settings.config.order.nw.some(e => e.id === id);
+    let inN = this.settings.config.order.n.some(e => e.id === id);
+    let inNE = this.settings.config.order.ne.some(e => e.id === id);
+    let inW = this.settings.config.order.w.some(e => e.id === id);
+    let inC = this.settings.config.order.items.some(e => e.id === id);
+    let inE = this.settings.config.order.e.some(e => e.id === id);
+    let inSW = this.settings.config.order.sw.some(e => e.id === id);
+    let inS = this.settings.config.order.s.some(e => e.id === id);
+    let inSE = this.settings.config.order.se.some(e => e.id === id);
+
+    foundInList = (inNW || inN || inNE || inW || inC || inE || inSW || inS || inSE);
+    
+    if (foundInList) {
+      if (inNW) {positionOrder = this.settings.config.order.nw}
+      if (inN) {positionOrder = this.settings.config.order.n}
+      if (inNE) {positionOrder = this.settings.config.order.ne}
+      if (inW) {positionOrder = this.settings.config.order.w}
+      if (inC) {positionOrder = this.settings.config.order.items}
+      if (inE) {positionOrder = this.settings.config.order.e}
+      if (inSW) {positionOrder = this.settings.config.order.sw}
+      if (inS) {positionOrder = this.settings.config.order.s}
+      if (inSE) {positionOrder = this.settings.config.order.se}
+
+      if (positionOrder) {
+        let elIndex = positionOrder.findIndex(e => e.id === id);
+        positionOrder.splice(elIndex, 1);
+        let sorted = positionOrder;
+        if (positionOrder.length > 1) {
+          sorted = positionOrder.sort((a, b) => a.order - b.order);
         }
         sorted.forEach((e, index) => {
           e.order = index + 1;
         });
-      } else {
-        let sorted = this.settings.config.order.items;
-        if (this.settings.config.order.items.length > 1) {
-          sorted = this.settings.config.order.items.sort((a, b) => a.order - b.order);
-        }
-        let newOrderNumber = 1;
-        if (this.settings.config.order.items.length > 0) {
-          newOrderNumber = (sorted[sorted.length - 1].order) + 1;
-        }
-        this.settings.config.order.items.push({
-          id: id,
-          order: newOrderNumber
-        });
       }
+    }
   }
 
-  public changeOrder(id: string, up: boolean) {
+  public changeOrder(id: string, up: boolean, position: string = "c") {
+    let positionOrder: any[];
+    switch (position) {
+      case "nw":
+        positionOrder = this.settings.config.order.nw;
+        break;
+      case "n":
+        positionOrder = this.settings.config.order.n;
+        break;
+      case "ne":
+        positionOrder = this.settings.config.order.ne;
+        break;
+      case "w":
+        positionOrder = this.settings.config.order.w;
+        break;
+      case "c":
+        positionOrder = this.settings.config.order.items;
+        break;
+      case "e":
+        positionOrder = this.settings.config.order.e;
+        break;
+      case "sw":
+        positionOrder = this.settings.config.order.sw;
+        break;
+      case "s":
+        positionOrder = this.settings.config.order.s;
+        break;
+      case "se":
+        positionOrder = this.settings.config.order.se;
+        break;
+    
+      default:
+        positionOrder = this.settings.config.order.items;
+        break;
+    }
+
     let sibling: any;
-    let el = this.settings.config.order.items.find(e => e.id === id);
+    let el = positionOrder.find(e => e.id === id);
 
     if (up) {
-      sibling = this.settings.config.order.items.find(e => e.order === el.order - 1);
+      sibling = positionOrder.find(e => e.order === el.order - 1);
       if (sibling) {
         sibling.order += 1;
         el.order -= 1;
       }
     } else {
-      sibling = this.settings.config.order.items.find(e => e.order === el.order + 1);
+      sibling = positionOrder.find(e => e.order === el.order + 1);
       if (sibling) {
         sibling.order -= 1;
         el.order += 1;
@@ -221,8 +333,43 @@ export class SharedService {
     }
   }
 
-  public getOrder(id: string) {
-    let el = this.settings.config.order.items.find(e => e.id === id);
+  public getOrder(id: string, position: string = "c") {
+    let positionOrder: any[];
+    switch (position) {
+      case "nw":
+        positionOrder = this.settings.config.order.nw;
+        break;
+      case "n":
+        positionOrder = this.settings.config.order.n;
+        break;
+      case "ne":
+        positionOrder = this.settings.config.order.ne;
+        break;
+      case "w":
+        positionOrder = this.settings.config.order.w;
+        break;
+      case "c":
+        positionOrder = this.settings.config.order.items;
+        break;
+      case "e":
+        positionOrder = this.settings.config.order.e;
+        break;
+      case "sw":
+        positionOrder = this.settings.config.order.sw;
+        break;
+      case "s":
+        positionOrder = this.settings.config.order.s;
+        break;
+      case "se":
+        positionOrder = this.settings.config.order.se;
+        break;
+    
+      default:
+        positionOrder = this.settings.config.order.items;
+        break;
+    }
+
+    let el = positionOrder.find(e => e.id === id);
     if (el) {
       return el.order;
     } else {
@@ -230,8 +377,43 @@ export class SharedService {
     }
   }
 
-  public isFirst(id: string): boolean {
-    let el = this.settings.config.order.items.find(e => e.id === id);
+  public isFirst(id: string, position: string = "c"): boolean {
+    let positionOrder: any[];
+    switch (position) {
+      case "nw":
+        positionOrder = this.settings.config.order.nw;
+        break;
+      case "n":
+        positionOrder = this.settings.config.order.n;
+        break;
+      case "ne":
+        positionOrder = this.settings.config.order.ne;
+        break;
+      case "w":
+        positionOrder = this.settings.config.order.w;
+        break;
+      case "c":
+        positionOrder = this.settings.config.order.items;
+        break;
+      case "e":
+        positionOrder = this.settings.config.order.e;
+        break;
+      case "sw":
+        positionOrder = this.settings.config.order.sw;
+        break;
+      case "s":
+        positionOrder = this.settings.config.order.s;
+        break;
+      case "se":
+        positionOrder = this.settings.config.order.se;
+        break;
+    
+      default:
+        positionOrder = this.settings.config.order.items;
+        break;
+    }
+
+    let el = positionOrder.find(e => e.id === id);
     if (el) {
       return el.order === 1;
     } else {
@@ -239,10 +421,45 @@ export class SharedService {
     }
   }
 
-  public isLast(id: string): boolean {
-    let el = this.settings.config.order.items.find(e => e.id === id);
+  public isLast(id: string, position: "nw" | "n" | "ne" | "w" | "c" | "e" | "sw" | "s" | "se" = "c"): boolean {
+    let positionOrder: any[];
+    switch (position) {
+      case "nw":
+        positionOrder = this.settings.config.order.nw;
+        break;
+      case "n":
+        positionOrder = this.settings.config.order.n;
+        break;
+      case "ne":
+        positionOrder = this.settings.config.order.ne;
+        break;
+      case "w":
+        positionOrder = this.settings.config.order.w;
+        break;
+      case "c":
+        positionOrder = this.settings.config.order.items;
+        break;
+      case "e":
+        positionOrder = this.settings.config.order.e;
+        break;
+      case "sw":
+        positionOrder = this.settings.config.order.sw;
+        break;
+      case "s":
+        positionOrder = this.settings.config.order.s;
+        break;
+      case "se":
+        positionOrder = this.settings.config.order.se;
+        break;
+    
+      default:
+        positionOrder = this.settings.config.order.items;
+        break;
+    }
+
+    let el = positionOrder.find(e => e.id === id);
     if (el) {
-      let sorted = this.settings.config.order.items.sort((a, b) => a.order - b.order);
+      let sorted = positionOrder.sort((a, b) => a.order - b.order);
       let last = sorted[sorted.length - 1].order;
       return el.order === last;
     } else {
@@ -263,6 +480,7 @@ export class SharedService {
     this.settings.setAll(this.settings.config.quickLink, 'ct-quick-link');
     this.settings.setAll(this.settings.config.search, 'ct-search');
     this.settings.setAll(this.settings.config.time, 'ct-time');
+    this.settings.setAll(this.settings.config.weather, 'ct-weather');
   }
 
 }

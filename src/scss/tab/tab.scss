@@ -22,9 +22,6 @@ app-tab {
   width: 100vw;
   height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   transform-origin: 100% 100%;
   transform: translate(0, 0) scale(1);
   box-shadow: #000000 -8px 0px 20px 2px;
@@ -32,23 +29,90 @@ app-tab {
 
 .tabBackground {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background-position: center;
 }
 
-.tabCenter {
-  position: fixed;
+.tabGrid {
+  position: absolute;
+  inset: 0;
+  &.tabGridBookmarksBar {
+    top: $bookmarksBarHeight;
+  }
+}
+
+.gridPosition {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#nw {
+  top: 0;
+  left: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#n {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+  align-items: center;
+}
+
+#ne {
+  top: 0;
+  right: 0;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+#w {
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#c {
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
   justify-content: center;
   align-items: center;
+}
+
+#e {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#sw {
+  bottom: 0;
+  left: 0;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+#s {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#se {
+  bottom: 0;
+  right: 0;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 @import "logo";
@@ -60,3 +124,4 @@ app-tab {
 @import "feature/date";
 @import "feature/message";
 @import "feature/search";
+@import "feature/weather";

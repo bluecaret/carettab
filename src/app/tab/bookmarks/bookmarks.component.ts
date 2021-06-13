@@ -28,7 +28,8 @@ import { GoogleAnalyticsService } from '../../_shared/ga.service';
         animate('200ms ease-in', style({transform: 'translateY(-100%)'}))
       ])
     ])
-  ]
+  ],
+  host: {'class': 'tabBookmarks'}
 })
 export class TabBookmarksComponent implements OnInit {
   allBookmarks: any;

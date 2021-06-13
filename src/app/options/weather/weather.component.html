@@ -1,0 +1,196 @@
+<h2>Weather</h2>
+<form #weatherOptions="ngForm" novalidate>
+  <div class="input">
+    <label for="enableWeather">Weather</label>
+    <options-toggle name="enableWeather" id="enableWeather" [(ngModel)]="settings.config.weather.enabled" (ngModelChange)="shared.toggleOrder(settings.config.weather.id, $event, settings.config.weather.position); ga.field('weather.enabled', settings.config.weather.enabled)"></options-toggle>
+  </div>
+  <ng-container *ngIf="settings.config.weather.enabled">
+
+    <!-- GENERAL -->
+    <div class="input">
+      <label for="weatherLocation">Set location</label>
+      <input list="locations" id="weatherLocation" name="weatherLocation" [(ngModel)]="searchLocation" />
+      <button class="btn" type="button" (click)="getLocation()"></button>
+      <div>
+        Locations:
+        <ul>
+          <li *ngFor="let loc of locationList">
+            <button type="button" (click)="setLocation(loc.url)">{{loc.name}}</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="input">
+      <label for="weatherPreciseNumbers">Precise numbers</label>
+      <options-toggle name="weatherPreciseNumbers" id="weatherPreciseNumbers" [(ngModel)]="settings.config.weather.preciseDigits" (ngModelChange)="ga.field('weather.preciseDigits', settings.config.weather.autocomplete)"></options-toggle>
+    </div>
+    <div class="input">
+      <label for="weatherCelsius">Temperature scale</label>
+      <options-toggle name="weatherCelsius" id="weatherCelsius" [(ngModel)]="settings.config.weather.celsius" (ngModelChange)="ga.field('weather.celsius', settings.config.weather.celsius)" on="&deg;C" off="&deg;F"></options-toggle>
+    </div>
+    <div class="input">
+      <label for="weatherMetric">Metric units</label>
+      <options-toggle name="weatherMetric" id="weatherMetric" [(ngModel)]="settings.config.weather.metric" (ngModelChange)="ga.field('weather.metric', settings.config.weather.metric)"></options-toggle>
+    </div>
+
+    <!-- TODAY -->
+    <h3>Today</h3>
+    <div class="input">
+      <label for="weatherToday">Enable today's weather</label>
+      <options-toggle name="weatherToday" id="weatherToday" [(ngModel)]="settings.config.weather.current.enabled" (ngModelChange)="ga.field('weather.current.enabled', settings.config.weather.current.enabled)"></options-toggle>
+    </div>
+    <ng-container *ngIf="settings.config.weather.current.enabled">
+      <div class="input">
+        <label for="currentIcon">Icon</label>
+        <options-toggle name="currentIcon" id="currentIcon" [(ngModel)]="settings.config.weather.current.icon.enabled" (ngModelChange)="ga.field('weather.current.icon.enabled', settings.config.weather.current.icon.enabled)"></options-toggle>
+      </div>
+      <div class="input" *ngIf="settings.config.weather.current.icon.enabled">
+        <label for="currentIconSize">Icon size</label>
+        <options-range name="currentIconSize" id="currentIconSize" min="1" max="50" [(ngModel)]="settings.config.weather.current.icon.size" (ngModelChange)="ga.field('weather.current.icon.size', settings.config.weather.current.icon.size)"></options-range>
+      </div>
+      <div class="input">
+        <label for="currentCurrently">Current temperature</label>
+        <options-toggle name="currentCurrently" id="currentCurrently" [(ngModel)]="settings.config.weather.current.temp.currently" (ngModelChange)="ga.field('weather.current.temp.currently', settings.config.weather.current.temp.currently)"></options-toggle>
+      </div>
+      <div class="input">
+        <label for="currentFeelsLike">Feels like temperature</label>
+        <options-toggle name="currentFeelsLike" id="currentFeelsLike" [(ngModel)]="settings.config.weather.current.temp.feelsLike" (ngModelChange)="ga.field('weather.current.temp.feelsLike', settings.config.weather.current.temp.feelsLike)"></options-toggle>
+      </div>
+      <div class="input" *ngIf="settings.config.weather.current.temp.currently || settings.config.weather.current.temp.feelsLike">
+        <label for="currentDegree">Degree symbol</label>
+        <options-toggle name="currentDegree" id="currentDegree" [(ngModel)]="settings.config.weather.current.temp.degree" (ngModelChange)="ga.field('weather.current.temp.degree', settings.config.weather.current.temp.degree)"></options-toggle>
+      </div>
+      <div class="input">
+        <label for="currentWind">Wind</label>
+        <options-toggle name="currentWind" id="currentWind" [(ngModel)]="settings.config.weather.current.wind.enabled" (ngModelChange)="ga.field('weather.current.wind.enabled', settings.config.weather.current.wind.enabled)"></options-toggle>
+      </div>
+      <div class="input">
+        <label for="currentHumidity">Humidity</label>
+        <options-toggle name="currentHumidity" id="currentHumidity" [(ngModel)]="settings.config.weather.current.humidity.enabled" (ngModelChange)="ga.field('weather.current.humidity.enabled', settings.config.weather.current.humidity.enabled)"></options-toggle>
+      </div>
+      <div class="input">
+        <label for="currentPressure">Pressure</label>
+        <options-toggle name="currentPressure" id="currentPressure" [(ngModel)]="settings.config.weather.current.pressure.enabled" (ngModelChange)="ga.field('weather.current.pressure.enabled', settings.config.weather.current.pressure.enabled)"></options-toggle>
+      </div>
+      <div class="input">
+        <label for="currentSunrise">Sunrise</label>
+        <options-toggle name="currentSunrise" id="currentSunrise" [(ngModel)]="settings.config.weather.current.astro.sunrise" (ngModelChange)="ga.field('weather.current.astro.sunrise', settings.config.weather.current.astro.sunrise)"></options-toggle>
+      </div>
+      <div class="input">
+        <label for="currentSunset">Sunset</label>
+        <options-toggle name="currentSunset" id="currentSunset" [(ngModel)]="settings.config.weather.current.astro.sunset" (ngModelChange)="ga.field('weather.current.astro.sunset', settings.config.weather.current.astro.sunset)"></options-toggle>
+      </div>
+      <div class="input">
+        <label for="currentMoonPhase">Moon phase</label>
+        <options-toggle name="currentMoonPhase" id="currentMoonPhase" [(ngModel)]="settings.config.weather.current.astro.moonPhase" (ngModelChange)="ga.field('weather.current.astro.moonPhase', settings.config.weather.current.astro.moonPhase)"></options-toggle>
+      </div>
+    </ng-container>
+
+    <!-- FORECAST -->
+    <h3>Forecast</h3>
+    <div class="input">
+      <label for="weatherForecast">Enable forecast</label>
+      <options-toggle name="weatherForecast" id="weatherForecast" [(ngModel)]="settings.config.weather.forecast.enabled" (ngModelChange)="ga.field('weather.forecast.enabled', settings.config.weather.forecast.enabled)"></options-toggle>
+    </div>
+    <ng-container *ngIf="settings.config.weather.forecast.enabled">
+      <div class="input">
+        <label for="forecastDays">Number of days</label>
+        <options-range name="forecastDays" id="forecastDays" min="1" max="3" [(ngModel)]="settings.config.weather.forecast.days" (ngModelChange)="ga.field('weather.forecast.days', settings.config.weather.forecast.days)"></options-range>
+      </div>
+      <div class="input">
+        <label for="forecastHorizontal">Horizontal display</label>
+        <options-toggle name="forecastHorizontal" id="forecastHorizontal" [(ngModel)]="settings.config.weather.forecast.horizontal" (ngModelChange)="ga.field('weather.forecast.horizontal', settings.config.weather.forecast.horizontal)"></options-toggle>
+      </div>
+      <div class="input">
+        <label for="forecastIcon">Icon</label>
+        <options-toggle name="forecastIcon" id="forecastIcon" [(ngModel)]="settings.config.weather.forecast.icon.enabled" (ngModelChange)="ga.field('weather.forecast.icon.enabled', settings.config.weather.forecast.icon.enabled)"></options-toggle>
+      </div>
+      <div class="input" *ngIf="settings.config.weather.forecast.icon.enabled">
+        <label for="forecastIconSize">Icon size</label>
+        <options-range name="forecastIconSize" id="forecastIconSize" min="1" max="50" [(ngModel)]="settings.config.weather.forecast.icon.size" (ngModelChange)="ga.field('weather.forecast.icon.size', settings.config.weather.forecast.icon.size)"></options-range>
+      </div>
+      <div class="input">
+        <label for="forecastDayName">Day name</label>
+        <options-toggle name="forecastDayName" id="forecastDayName" [(ngModel)]="settings.config.weather.forecast.day.enabled" (ngModelChange)="ga.field('weather.forecast.day.enabled', settings.config.weather.forecast.day.enabled)"></options-toggle>
+      </div>
+      <div class="input">
+        <label for="forecastHigh">High Temperature</label>
+        <options-toggle name="forecastHigh" id="forecastHigh" [(ngModel)]="settings.config.weather.forecast.temp.high" (ngModelChange)="ga.field('weather.forecast.temp.high', settings.config.weather.forecast.temp.high)"></options-toggle>
+      </div>
+      <div class="input">
+        <label for="forecastLow">Low Temperature</label>
+        <options-toggle name="forecastLow" id="forecastLow" [(ngModel)]="settings.config.weather.forecast.temp.low" (ngModelChange)="ga.field('weather.forecast.temp.low', settings.config.weather.forecast.temp.low)"></options-toggle>
+      </div>
+      <div class="input" *ngIf="settings.config.weather.forecast.temp.low || settings.config.weather.forecast.temp.high">
+        <label for="forecastDegree">Degree symbol</label>
+        <options-toggle name="forecastDegree" id="forecastDegree" [(ngModel)]="settings.config.weather.forecast.temp.degree" (ngModelChange)="ga.field('weather.forecast.temp.degree', settings.config.weather.forecast.temp.degree)"></options-toggle>
+      </div>
+    </ng-container>
+
+    <!-- LAYOUT -->
+    <h3>Layout</h3>
+    <div class="input">
+      <label for="weatherSize">{{'options.common.size' | translate}}</label>
+      <options-range name="weatherSize" id="weatherSize" min="1" max="50" [(ngModel)]="settings.config.weather.scaling" (ngModelChange)="ga.field('weather.scaling', settings.config.weather.scaling)"></options-range>
+    </div>
+    <div class="input">
+      <label for="weatherPadding">{{'options.common.padding' | translate}}</label>
+      <options-range name="weatherPadding" min="0" max="100" [(ngModel)]="settings.config.weather.padding" (ngModelChange)="ga.field('weather.padding', settings.config.weather.padding)"></options-range>
+    </div>
+    <div class="input">
+      <label for="weatherMargin">Margin</label>
+      <options-range name="weatherMargin" min="0" max="100" [(ngModel)]="settings.config.weather.margin" (ngModelChange)="ga.field('weather.margin', settings.config.weather.margin)"></options-range>
+    </div>
+    <div class="input">
+      <label for="weatherOffset">{{'options.common.offset' | translate}}</label>
+      <options-range name="weatherOffset" min="-20" max="20" [(ngModel)]="settings.config.weather.offset" (ngModelChange)="ga.field('weather.offset', settings.config.weather.offset)"></options-range>
+    </div>
+    <div class="input">
+      <label for="weatherPlacement">Position</label>
+      <options-position id="weatherPlacement" name="weatherPlacement" [settingId]="settings.config.weather.id" [(ngModel)]="settings.config.weather.position" (ngModelChange)="ga.field('weather.position', settings.config.weather.position)"></options-position>
+    </div>
+    <div class="input">
+      <label for="weatherOrder">{{'options.common.order' | translate}}</label>
+      <div id="weatherOrder" class="orderBtns">
+        <button
+          type="button"
+          attr.aria-label="{{'options.common.moveUp' | translate}}"
+          title="{{'options.common.moveUp' | translate}}"
+          class="btn"
+          [disabled]="shared.isFirst(settings.config.weather.id, settings.config.weather.position)"
+          (click)="shared.changeOrder(settings.config.weather.id, true, settings.config.weather.position); ga.field('button.weatherMoveUp', 'true')">
+          <div class="icon" aria-hidden="true">expand_less</div>
+        </button>
+        <button
+          type="button"
+          attr.aria-label="{{'options.common.moveDown' | translate}}"
+          title="{{'options.common.moveDown' | translate}}"
+          class="btn"
+          [disabled]="shared.isLast(settings.config.weather.id, settings.config.weather.position)"
+          (click)="shared.changeOrder(settings.config.weather.id, false, settings.config.weather.position); ga.field('button.weatherMoveDown', 'true')">
+          <div class="icon" aria-hidden="true">expand_more</div>
+        </button>
+      </div>
+    </div>
+    <!-- 
+    <div class="input">
+      <label data-tooltip>{{'options.search.searchEngine' | translate}}</label>
+      <select name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine" (ngModelChange)="ga.field('search.engine', findEngine(settings.config.search.engine).label)">
+        <option *ngFor="let e of engines" [ngValue]="e.id">{{e.label}}</option>
+      </select>
+    </div>
+    <div class="input">
+      <label>{{'options.search.label' | translate}}</label>
+      <input type="text" name="searchLabel" id="searchLabel" [(ngModel)]="settings.config.search.label" (ngModelChange)="ga.field('search.label', 'userData')">
+    </div>
+    <div class="input">
+      <label>{{'options.search.autocomplete' | translate}}<tooltip text="{{'options.search.autocompleteDesc' | translate}}"></tooltip></label>
+      <options-toggle name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete" (ngModelChange)="ga.field('search.autocomplete', settings.config.search.autocomplete)"></options-toggle>
+    </div>
+    <div class="input">
+      <label>{{'options.common.width' | translate}}</label>
+      <options-range name="searchWidth" min="5" max="30" [(ngModel)]="settings.config.search.width" (ngModelChange)="ga.field('search.width', settings.config.search.width)"></options-range>
+    </div> 
+    -->
+  </ng-container>
+</form>

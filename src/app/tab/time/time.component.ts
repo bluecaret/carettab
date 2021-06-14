@@ -16,11 +16,11 @@ export class TabTimeComponent implements OnInit {
 
   @Input() index: number;
   @Input() clock: Clock;
-  @ViewChild('hours', { static: false })
+  @ViewChild('binaryHours', { static: false })
   public hoursList: ElementRef;
-  @ViewChild('minutes', { static: false })
+  @ViewChild('binaryMinutes', { static: false })
   public minutesList: ElementRef;
-  @ViewChild('seconds', { static: false })
+  @ViewChild('binarySeconds', { static: false })
   public secondsList: ElementRef;
   @ViewChild('time', { static: false })
   public displayTime: ElementRef;
@@ -115,7 +115,8 @@ export class TabTimeComponent implements OnInit {
   }
   
   toBinary(v) {
-    return (v >>> 0).toString(2);
+    //makes a binary value from a number
+    return (v).toString(2);
   }
 
   constructTitleTime(): string {

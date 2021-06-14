@@ -1,7 +1,7 @@
 <div
   class="bracket bracket--left"
   *ngIf="clock.brackets.enabled && clock.brackets.left !== ''"
-  [ngClass]="{ dim: clock.brackets.dim }"
+  [ngClass]="{ 'dim': clock.brackets.dim }"
   [style.fontSize]="shared.getFontSize(clock.brackets.scaling, 5)"
   [style.transform]="shared.getOffset(clock.brackets.offset)"
   [style.marginRight]="getPadding(clock.brackets.padding)"
@@ -9,7 +9,7 @@
   {{ clock.brackets.left }}
 </div>
 <div class="clockContent">
-  <div class="time" *ngIf="!clock.analog.enabled">
+  <div class="time" *ngIf="!clock.analog.enabled && !clock.binary.enabled">
     <div class="timeDigit hour">
       <span [style.width]="getWidth(clock.padding)">{{
         getHour(clock.timezone, clock.twentyFour, clock.twoDigit, 1)
@@ -26,8 +26,8 @@
       *ngIf="clock.delimiter.enabled"
       class="delimiter"
       [ngClass]="{
-        dim: clock.delimiter.dim,
-        blink: getBlink(clock.delimiter.blink)
+        'dim': clock.delimiter.dim,
+        'blink': getBlink(clock.delimiter.blink)
       }"
       [style.fontSize]="shared.getFontSize(clock.delimiter.scaling, 10)"
       [style.transform]="shared.getOffset(clock.delimiter.offset)"
@@ -176,7 +176,7 @@
       <div
         class="analogSecond"
         *ngIf="clock.seconds.enabled"
-        [ngClass]="{ dim: clock.seconds.dim }"
+        [ngClass]="{ 'dim': clock.seconds.dim }"
         [ngStyle]="{ transform: getAnalogSecond(clock.timezone) }"
         [style.background]="settings.config.design.foreground"
       ></div>
@@ -185,75 +185,108 @@
   <div
     class="binary"
     *ngIf="clock.binary.enabled"
-    [style.fontSize]="shared.getFontSize(clock.delimiter.scaling, 1.2)"
+    [style.fontSize]="shared.getFontSize(clock.scaling, 1.2)"
   >
     <div class="binaryContainer">
-      <div #hours id="hours">
+      <div #binaryHours id="binaryHours">
         <div>
-          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
-          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
+          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }"  [ngClass]="{ 'dim': clock.binary.dim }">
+            &nbsp;
+          </span>
+          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
+            &nbsp;
+          </span>
         </div>
         <div>
-          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
-          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
-          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
-          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
-        </div>
-      </div>
-
-      <div #minutes id="minutes">
-        <div>
-          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
-          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
-          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
-        </div>
-        <div>
-          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
-          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
-          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
-          <span class="dab" [ngClass]="{ dim: clock.binary.dim }">&nbsp;</span>
+          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
+            &nbsp;
+          </span>
+          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
+            &nbsp;
+          </span>
+          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
+            &nbsp;
+          </span>
+          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
+            &nbsp;
+          </span>
         </div>
       </div>
 
-      <div #seconds id="seconds" *ngIf="clock.seconds.enabled">
+      <div #binaryMinutes id="binaryMinutes">
+        <div>
+          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
+            &nbsp;
+          </span>
+          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
+            &nbsp;
+          </span>
+          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
+            &nbsp;
+          </span>
+        </div>
+        <div>
+          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
+            &nbsp;
+          </span>
+          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
+            &nbsp;
+          </span>
+          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
+            &nbsp;
+          </span>
+          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
+            &nbsp;
+          </span>
+        </div>
+      </div>
+
+      <div #binarySeconds id="binarySeconds" *ngIf="clock.seconds.enabled">
         <div>
           <span
-            class="dab"
-            [ngClass]="{ dim: clock.seconds.dim || clock.binary.dim }"
-            >&nbsp;</span
+            class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }"
+            [ngClass]="{ 'dim': clock.seconds.dim || clock.binary.dim }"
           >
+            &nbsp;
+          </span>
           <span
-            class="dab"
-            [ngClass]="{ dim: clock.seconds.dim || clock.binary.dim }"
-            >&nbsp;</span
+            class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }"
+            [ngClass]="{ 'dim': clock.seconds.dim || clock.binary.dim }"
           >
+            &nbsp;
+          </span>
           <span
-            class="dab"
-            [ngClass]="{ dim: clock.seconds.dim || clock.binary.dim }"
-            >&nbsp;</span
+            class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }"
+            [ngClass]="{ 'dim': clock.seconds.dim || clock.binary.dim }"
           >
+            &nbsp;
+          </span>
         </div>
         <div>
           <span
-            class="dab"
-            [ngClass]="{ dim: clock.seconds.dim || clock.binary.dim }"
-            >&nbsp;</span
+            class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }"
+            [ngClass]="{ 'dim': clock.seconds.dim || clock.binary.dim }"
           >
+            &nbsp;
+          </span>
           <span
-            class="dab"
-            [ngClass]="{ dim: clock.seconds.dim || clock.binary.dim }"
-            >&nbsp;</span
+            class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }"
+            [ngClass]="{ 'dim': clock.seconds.dim || clock.binary.dim }"
           >
+            &nbsp;
+          </span>
           <span
-            class="dab"
-            [ngClass]="{ dim: clock.seconds.dim || clock.binary.dim }"
-            >&nbsp;</span
+            class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }"
+            [ngClass]="{ 'dim': clock.seconds.dim || clock.binary.dim }"
           >
+            &nbsp;
+          </span>
           <span
-            class="dab"
-            [ngClass]="{ dim: clock.seconds.dim || clock.binary.dim }"
-            >&nbsp;</span
+            class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }"
+            [ngClass]="{ 'dim': clock.seconds.dim || clock.binary.dim }"
           >
+            &nbsp;
+          </span>
         </div>
       </div>
     </div>
@@ -261,7 +294,7 @@
   <div
     *ngIf="clock.label.text !== '' && clock.label.enabled === true"
     class="label"
-    [ngClass]="{ dim: clock.label.dim }"
+    [ngClass]="{ 'dim': clock.label.dim }"
     [style.fontSize]="shared.getFontSize(clock.label.scaling, 20)"
     [style.transform]="shared.getOffset(clock.label.offset)"
   >
@@ -270,7 +303,7 @@
   <div
     *ngIf="clock.relativeTime.enabled === true"
     class="clockDate"
-    [ngClass]="{ dim: clock.relativeTime.dim }"
+    [ngClass]="{ 'dim': clock.relativeTime.dim }"
     [style.fontSize]="shared.getFontSize(clock.relativeTime.scaling, 20)"
     [style.transform]="shared.getOffset(clock.relativeTime.offset)"
   >
@@ -280,7 +313,7 @@
 <div
   class="bracket bracket--right"
   *ngIf="clock.brackets.enabled && clock.brackets.right !== ''"
-  [ngClass]="{ dim: clock.brackets.dim }"
+  [ngClass]="{ 'dim': clock.brackets.dim }"
   [style.fontSize]="shared.getFontSize(clock.brackets.scaling, 5)"
   [style.transform]="shared.getOffset(clock.brackets.offset)"
   [style.marginLeft]="getPadding(clock.brackets.padding)"

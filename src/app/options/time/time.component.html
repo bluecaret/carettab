@@ -260,7 +260,7 @@
       <div class="indent">
         <div class="input">
           <label [for]="'analogEnable'+i">{{'options.time.analogEnable' | translate}}<tooltip text="{{'options.time.analogEnableDesc' | translate}}"></tooltip></label>
-          <options-toggle type="toggle" [name]="'analogEnable'+i" [id]="'analogEnable'+i" [(ngModel)]="clock.analog.enabled" (ngModelChange)="ga.field('time.clocks.analog.enabled', clock.analog.enabled)"></options-toggle>
+          <options-toggle type="toggle" [name]="'analogEnable'+i" [id]="'analogEnable'+i" [(ngModel)]="clock.analog.enabled" (ngModelChange)="clock.binary.enabled=false;ga.field('time.clocks.analog.enabled', clock.analog.enabled)"></options-toggle>
         </div>
         <div class="input" *ngIf="clock.analog.enabled === true">
           <label [for]="'analogStyle'+i">{{'options.time.analogStyle' | translate}}<tooltip text="{{'options.time.analogStyleDesc' | translate}}"></tooltip></label>
@@ -273,7 +273,7 @@
       <div class="indent">
         <div class="input">
           <label [for]="'binaryEnable'+i">{{'options.time.binaryEnable' | translate}}<tooltip text="{{'options.time.binaryEnableDesc' | translate}}"></tooltip></label>
-          <options-toggle type="toggle" [name]="'binaryEnable'+i" [id]="'analogEnable'+i" [(ngModel)]="clock.binary.enabled" (ngModelChange)="ga.field('time.clocks.binary.enabled', clock.binary.enabled)"></options-toggle>
+          <options-toggle type="toggle" [name]="'binaryEnable'+i" [id]="'analogEnable'+i" [(ngModel)]="clock.binary.enabled" (ngModelChange)="clock.analog.enabled=false;ga.field('time.clocks.binary.enabled', clock.binary.enabled)"></options-toggle>
         </div>
         <div class="input" *ngIf="clock.binary.enabled === true">
           <label [for]="'binarydim'+i">{{'options.time.binaryDim' | translate}}<tooltip text="{{'options.time.binaryDimDesc' | translate}}"></tooltip></label>

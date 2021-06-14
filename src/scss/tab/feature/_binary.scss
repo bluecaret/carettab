@@ -5,16 +5,15 @@
     display: flex;
     justify-content: space-around;
     
-    #seconds,
-    #minutes,
-    #hours {
+    #binarySeconds,
+    #binaryMinutes,
+    #binaryHours {
       display: flex;
       flex-direction: row;
       font-size: small;
       color: white;
       flex-wrap: wrap;
       align-items: flex-end;
-      width: 60px;
       div {
         display: flex;
         flex-direction: column;
@@ -24,7 +23,6 @@
   .dab {
     display: flex;
     opacity: 50%;
-    width: 20px;
     margin: 5px;
     border-radius: 50px;
     justify-content: center;

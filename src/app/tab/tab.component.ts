@@ -124,9 +124,19 @@ export class TabComponent implements OnInit {
   setTimeStyles(clock): Object {
     const styles = {
       'font-size' : this.shared.getFontSize(clock.scaling, 1.7),
-      'width' : this.getClockSpan(clock.span),
+      'flex-basis' : this.getClockSpan(clock.span),
       'order' : this.shared.getOrder(clock.id, clock.position),
-      'transform' : this.shared.getOffset(clock.offset)
+      'transform' : this.shared.getOffset(clock.offset),
+      'margin' : this.shared.getMargin(clock.margin)
+    };
+    return styles;
+  }
+
+  setQuickLinkStyles(): Object {
+    const styles = {
+      'order' : this.shared.getOrder(this.settings.config.quickLink.id, this.settings.config.quickLink.position),
+      'transform' : this.shared.getOffsetLarge(this.settings.config.quickLink.offset),
+      'margin' : this.shared.getMargin(this.settings.config.quickLink.margin)
     };
     return styles;
   }
@@ -134,7 +144,8 @@ export class TabComponent implements OnInit {
   setDateStyles(): Object {
     const styles = {
       'order' : this.shared.getOrder(this.settings.config.date.id, this.settings.config.date.position),
-      'transform' : this.shared.getOffsetLarge(this.settings.config.date.offset)
+      'transform' : this.shared.getOffsetLarge(this.settings.config.date.offset),
+      'margin' : this.shared.getMargin(this.settings.config.date.margin)
     };
     return styles;
   }
@@ -143,7 +154,8 @@ export class TabComponent implements OnInit {
     const styles = {
       'font-size' : this.shared.getFontSize(this.settings.config.message.scaling, 3),
       'order' : this.shared.getOrder(this.settings.config.message.id, this.settings.config.message.position),
-      'transform' : this.shared.getOffsetLarge(this.settings.config.message.offset)
+      'transform' : this.shared.getOffsetLarge(this.settings.config.message.offset),
+      'margin' : this.shared.getMargin(this.settings.config.message.margin)
     };
     return styles;
   }
@@ -152,7 +164,8 @@ export class TabComponent implements OnInit {
     const styles = {
       'font-size' : this.shared.getFontSize(this.settings.config.search.scaling, 3),
       'order' : this.shared.getOrder(this.settings.config.search.id, this.settings.config.search.position),
-      'transform' : this.shared.getOffsetLarge(this.settings.config.search.offset)
+      'transform' : this.shared.getOffsetLarge(this.settings.config.search.offset),
+      'margin' : this.shared.getMargin(this.settings.config.search.margin)
     };
     return styles;
   }

@@ -19,12 +19,7 @@ export class OrderSettings {
   w = [];
   e = [];
   sw = [];
-  s = [
-    {
-      id: 'WEATHER_KS096NVA56',
-      order: 1
-    }
-  ];
+  s = [];
   se = [];
 }
 
@@ -50,6 +45,7 @@ export class MessageSettings {
   enabled = false;
   scaling = 8;
   offset = 0;
+  margin = 0;
   position = 'c';
   text = 'Hello world!';
 }
@@ -73,6 +69,9 @@ export class QuickLinkSettings {
   enabled = false;
   icons = true;
   scaling = 10;
+  offset = 0;
+  padding = 12;
+  margin = 0;
   position = 'n';
   mostVisited = false;
   bookmarksManager = false;
@@ -106,6 +105,7 @@ export class TimeSettings {
       scaling: 10,
       span: 40,
       padding: 10,
+      margin: 0,
       position: 'c',
       offset: 0,
       twentyFour: false,
@@ -167,6 +167,7 @@ export class DateSettings {
   enabled = true;
   scaling = 6;
   offset = 0;
+  margin = 0;
   position = 'c';
   timezone = 'Automatic';
   dimDelimiter = false;
@@ -206,6 +207,7 @@ export class SearchSettings {
   enabled = true;
   scaling = 4;
   offset = 0;
+  margin = 0;
   position = 'c';
   width = 21;
   engine = 40;

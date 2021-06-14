@@ -19,6 +19,9 @@
   <div class="tabGrid" [ngClass]="{'tabGridBookmarksBar': settings.config.bookmark.enabled}">
 
     <article id="nw" class="gridPosition">
+      <tab-quickLinks
+        *ngIf="settings.config.quickLink.position === 'nw' && settings.config.quickLink.enabled"
+        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -31,19 +34,22 @@
       </ng-container>
       <tab-date
         *ngIf="settings.config.date.position === 'nw' && settings.config.date.enabled"
-        [ngStyle]="setDateStyles(clock)"></tab-date>
+        [ngStyle]="setDateStyles()"></tab-date>
       <tab-message
         *ngIf="settings.config.message.position === 'nw' && settings.config.message.enabled"
-        [ngStyle]="setMessageStyles(clock)"></tab-message>
+        [ngStyle]="setMessageStyles()"></tab-message>
       <tab-search
         *ngIf="settings.config.search.position === 'nw' && settings.config.search.enabled"
-        [ngStyle]="setSearchStyles(clock)"></tab-search>
+        [ngStyle]="setSearchStyles()"></tab-search>
       <tab-weather 
         *ngIf="settings.config.weather.position === 'nw' && settings.config.weather.enabled"
-        [ngStyle]="setWeatherStyles(clock)"></tab-weather>
+        [ngStyle]="setWeatherStyles()"></tab-weather>
     </article>
 
     <article id="n" class="gridPosition">
+      <tab-quickLinks
+        *ngIf="settings.config.quickLink.position === 'n' && settings.config.quickLink.enabled"
+        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -69,6 +75,9 @@
     </article>
 
     <article id="ne" class="gridPosition">
+      <tab-quickLinks
+        *ngIf="settings.config.quickLink.position === 'ne' && settings.config.quickLink.enabled"
+        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -94,6 +103,9 @@
     </article>
 
     <article id="w" class="gridPosition">
+      <tab-quickLinks
+        *ngIf="settings.config.quickLink.position === 'w' && settings.config.quickLink.enabled"
+        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -119,6 +131,9 @@
     </article>
 
     <article id="c" class="gridPosition">
+      <tab-quickLinks
+        *ngIf="settings.config.quickLink.position === 'c' && settings.config.quickLink.enabled"
+        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -144,6 +159,9 @@
     </article>
 
     <article id="e" class="gridPosition">
+      <tab-quickLinks
+        *ngIf="settings.config.quickLink.position === 'e' && settings.config.quickLink.enabled"
+        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -169,6 +187,9 @@
     </article>
 
     <article id="sw" class="gridPosition">
+      <tab-quickLinks
+        *ngIf="settings.config.quickLink.position === 'sw' && settings.config.quickLink.enabled"
+        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -194,6 +215,9 @@
     </article>
 
     <article id="s" class="gridPosition">
+      <tab-quickLinks
+        *ngIf="settings.config.quickLink.position === 's' && settings.config.quickLink.enabled"
+        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -219,6 +243,9 @@
     </article>
 
     <article id="se" class="gridPosition">
+      <tab-quickLinks
+        *ngIf="settings.config.quickLink.position === 'se' && settings.config.quickLink.enabled"
+        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 

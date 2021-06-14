@@ -421,7 +421,7 @@ export class SharedService {
     }
   }
 
-  public isLast(id: string, position: "nw" | "n" | "ne" | "w" | "c" | "e" | "sw" | "s" | "se" = "c"): boolean {
+  public isLast(id: string, position: string = "c"): boolean {
     let positionOrder: any[];
     switch (position) {
       case "nw":

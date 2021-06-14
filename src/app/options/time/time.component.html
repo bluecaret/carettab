@@ -75,6 +75,10 @@
           <options-range [name]="'clockPadding'+i" [id]="'clockPadding'+i" min="1" max="20" [(ngModel)]="clock.padding" (ngModelChange)="ga.field('time.clocks.padding', clock.padding)"></options-range>
         </div>
         <div class="input">
+          <label [for]="'clockMargin'+i">Margin</label>
+          <options-range [name]="'clockMargin'+i" min="0" max="100" [(ngModel)]="clock.margin" (ngModelChange)="ga.field('time.clocks.margin', clock.margin)"></options-range>
+        </div>
+        <div class="input">
           <label [for]="'clockPlacement'+i">Position</label>
           <options-position [id]="'clockPlacement'+i" [name]="'clockPlacement'+i" [settingId]="clock.id" [(ngModel)]="clock.position" (ngModelChange)="ga.field('time.clocks.position', clock.position)"></options-position>
         </div>

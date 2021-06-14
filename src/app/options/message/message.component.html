@@ -9,7 +9,7 @@
       <label>{{'options.message.msgText' | translate}}</label>
       <input type="text" name="messageText" id="messageText" [(ngModel)]="settings.config.message.text" (ngModelChange)="ga.field('message.text', 'userData');" autocomplete="off">
     </div>
-    <h3>{{'options.common.placement' | translate}}</h3>
+    <h3>Layout</h3>
     <div class="input">
       <label>{{'options.common.order' | translate}}</label>
       <div class="orderBtns">
@@ -40,6 +40,14 @@
     <div class="input">
       <label>{{'options.common.offset' | translate}}</label>
       <options-range name="messageOffset" min="-20" max="20" [(ngModel)]="settings.config.message.offset" (ngModelChange)="ga.field('message.offset', settings.config.message.offset);"></options-range>
+    </div>
+    <div class="input">
+      <label for="messageMargin">Margin</label>
+      <options-range name="messageMargin" min="0" max="100" [(ngModel)]="settings.config.message.margin" (ngModelChange)="ga.field('message.margin', settings.config.message.margin)"></options-range>
+    </div>
+    <div class="input">
+      <label for="messagePlacement">Position</label>
+      <options-position id="messagePlacement" name="messagePlacement" [settingId]="settings.config.message.id" [(ngModel)]="settings.config.message.position" (ngModelChange)="ga.field('message.position', settings.config.message.position)"></options-position>
     </div>
   </ng-container>
 </form>

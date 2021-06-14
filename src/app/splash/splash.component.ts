@@ -85,6 +85,7 @@ export class SplashComponent implements OnInit {
         scaling: 10,
         span: 40,
         padding: 10,
+        margin: 0,
         position: 'c',
         offset: 0,
         twentyFour: false,

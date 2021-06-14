@@ -19,7 +19,7 @@
       <label>{{'options.search.autocomplete' | translate}}<tooltip text="{{'options.search.autocompleteDesc' | translate}}"></tooltip></label>
       <options-toggle name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete" (ngModelChange)="ga.field('search.autocomplete', settings.config.search.autocomplete)"></options-toggle>
     </div>
-    <h3>{{'options.common.placement' | translate}}</h3>
+    <h3>Layout</h3>
     <div class="input">
       <label>{{'options.common.order' | translate}}</label>
       <div class="orderBtns">
@@ -54,6 +54,14 @@
     <div class="input">
       <label>{{'options.common.width' | translate}}</label>
       <options-range name="searchWidth" min="5" max="30" [(ngModel)]="settings.config.search.width" (ngModelChange)="ga.field('search.width', settings.config.search.width)"></options-range>
+    </div>
+    <div class="input">
+      <label for="searchMargin">Margin</label>
+      <options-range name="searchMargin" min="0" max="100" [(ngModel)]="settings.config.search.margin" (ngModelChange)="ga.field('search.margin', settings.config.search.margin)"></options-range>
+    </div>
+    <div class="input">
+      <label for="searchPlacement">Position</label>
+      <options-position id="searchPlacement" name="searchPlacement" [settingId]="settings.config.search.id" [(ngModel)]="settings.config.search.position" (ngModelChange)="ga.field('search.position', settings.config.search.position)"></options-position>
     </div>
   </ng-container>
 </form>

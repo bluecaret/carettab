@@ -2,16 +2,19 @@ $qlBorderColor: #1f2020;
 $qlBorder: 1px solid $qlBorderColor;
 $qlRadius: 8px;
 
+.tabQuickLinks {
+  width: 100%;
+}
+
 .quickLinksBar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
   ul {
-    position: fixed;
-    z-index: z('tabQuickLinks');
-    top: 0px;
-    left: 0;
-    right: 0;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    width: 100%;
     flex-wrap: wrap;
     list-style: none;
     margin: .5em 0 0 0;

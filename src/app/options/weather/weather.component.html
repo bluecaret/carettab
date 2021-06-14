@@ -134,7 +134,7 @@
       <options-range name="weatherSize" id="weatherSize" min="1" max="50" [(ngModel)]="settings.config.weather.scaling" (ngModelChange)="ga.field('weather.scaling', settings.config.weather.scaling)"></options-range>
     </div>
     <div class="input">
-      <label for="weatherPadding">{{'options.common.padding' | translate}}</label>
+      <label for="weatherPadding">Padding</label>
       <options-range name="weatherPadding" min="0" max="100" [(ngModel)]="settings.config.weather.padding" (ngModelChange)="ga.field('weather.padding', settings.config.weather.padding)"></options-range>
     </div>
     <div class="input">

@@ -8,6 +8,7 @@ export class Clock {
     public scaling: number = 5,
     public span: number = 10,
     public padding: number = 10,
+    public margin: number = 0,
     public position: string = 'c',
     public offset: number = 0,
     public twentyFour: boolean = false,

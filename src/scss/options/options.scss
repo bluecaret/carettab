@@ -6,12 +6,12 @@
   height: 20px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--optNavBorder);
+  background: var(--optScrollTrack);
   border: solid 4px transparent;
   border-radius: 0 10px 10px 0;
 }
 ::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 10px 10px $gray;
+  box-shadow: inset 0 0 10px 10px var(--optScrollThumb);
   border: solid 4px transparent;
   border-radius: 10px;
 }

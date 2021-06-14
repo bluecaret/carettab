@@ -52,6 +52,12 @@ import * as manifest from '../../manifest.json';
       </li>
       <li>
         <button
+          type="button" (click)="goToPage('Weather')" [ngClass]="{'active': shared.optionsPage === 'Weather'}">
+          <div class="icon" aria-hidden="true">wb_sunny</div>Weather
+        </button>
+      </li>
+      <li>
+        <button
           type="button" (click)="goToPage('Search')" [ngClass]="{'active': shared.optionsPage === 'Search'}">
           <div class="icon" aria-hidden="true">search</div>{{'options.search.search' | translate}}
         </button>
@@ -60,12 +66,6 @@ import * as manifest from '../../manifest.json';
         <button
           type="button" (click)="goToPage('Message')" [ngClass]="{'active': shared.optionsPage === 'Message'}">
           <div class="icon" aria-hidden="true">textsms</div>{{'options.message.msg' | translate}}
-        </button>
-      </li>
-      <li>
-        <button
-          type="button" (click)="goToPage('Weather')" [ngClass]="{'active': shared.optionsPage === 'Weather'}">
-          <div class="icon" aria-hidden="true">wb_sunny</div>Weather
         </button>
       </li>
       <li>

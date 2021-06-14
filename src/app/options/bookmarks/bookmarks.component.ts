@@ -126,6 +126,7 @@ export class OptionsBookmarksComponent implements OnInit {
   }
 
   addLink(model: any, isValid: boolean) {
+    debugger;
     if (isValid) {
       this.isInvalid = false;
       let id = this.shared.createID('LINK');

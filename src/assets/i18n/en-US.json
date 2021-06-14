@@ -140,9 +140,11 @@
       "tabTitleDesc": "Choose what to display in the New Tab title (shows on the tab itself as well as in the browser's title bar)."
     },
     "message": {
+      "save": "Save new message",
       "customMsg": "Custom message",
       "msg": "Message",
-      "msgText": "Message text"
+      "msgText": "Message text",
+      "messageValidation":"Empty strings are not allowed"
     },
     "search": {
       "autocomplete": "Autocomplete",

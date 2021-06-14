@@ -48,7 +48,7 @@ export class MessageSettings {
   margin = 0;
   position = 'c';
   text = 'Hello world!';
-  texts = [];
+  messageList = [];
 }
 
 export class I18nSettings {
@@ -288,7 +288,7 @@ export class MiscSettings {
 export class Settings {
   order = new OrderSettings();
   design = new DesignSettings();
-  message = new MessageSettings();
+  messages = new MessageSettings();
   i18n = new I18nSettings();
   bookmark = new BookmarkSettings();
   quickLink = new QuickLinkSettings();

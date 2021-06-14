@@ -11,7 +11,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     }
   ],
   template: `
-    <div [class]="type">
+    <div [class]="type" [ngClass]="{'customToggle' : on}">
       <input
         *ngIf="type === 'radio'"
         type="radio"
@@ -29,7 +29,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
         [(ngModel)]="toggle"
         [disabled]="disabled"
         [required]="required">
-      <label [for]="value? name+'-'+value : name+'-id'"><span *ngIf="type === 'toggle'" attr.data-on="{{'options.common.on' | translate}}" attr.data-off="{{'options.common.off' | translate}}"></span></label>
+      <label [for]="value? name+'-'+value : name+'-id'"><span *ngIf="type === 'toggle'" attr.data-on="{{on ? on : 'options.common.on' | translate}}" attr.data-off="{{off ? off : 'options.common.off' | translate}}"></span></label>
     </div>
   `,
   host: {'class': 'customControl'}
@@ -42,6 +42,8 @@ export class ToggleComponent implements ControlValueAccessor {
   @Input() disabled: boolean;
   @Input() required: boolean;
   @Input() value: any;
+  @Input() on?: string;
+  @Input() off?: string;
   @Input() type: 'toggle' | 'check' | 'radio' = 'toggle';
 
   constructor() {

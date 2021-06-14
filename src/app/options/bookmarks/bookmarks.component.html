@@ -64,6 +64,45 @@
     <button class="btn" *ngIf="!hasTopSitesPermission" (click)="setTopSitesPermission(); ga.field('button.QuickLinkTopSitesPermissionRequest', 'true');">Allow extension to access Top Sites</button>
     <options-toggle *ngIf="hasTopSitesPermission" name="mostVisitedQuickLinks" [(ngModel)]="settings.config.quickLink.mostVisited" (ngModelChange)="ga.field('quickLink.mostVisited', settings.config.quickLink.mostVisited);"></options-toggle>
   </div>
+  <div class="input">
+    <label for="quickLinkPadding">Padding</label>
+    <options-range name="quickLinkPadding" min="0" max="100" [(ngModel)]="settings.config.quickLink.padding" (ngModelChange)="ga.field('quickLink.padding', settings.config.quickLink.padding)"></options-range>
+  </div>
+  <div class="input">
+    <label for="quickLinkMargin">Margin</label>
+    <options-range name="quickLinkMargin" min="0" max="100" [(ngModel)]="settings.config.quickLink.margin" (ngModelChange)="ga.field('quickLink.margin', settings.config.quickLink.margin)"></options-range>
+  </div>
+  <div class="input">
+    <label for="quickLinkOffset">{{'options.common.offset' | translate}}</label>
+    <options-range name="quickLinkOffset" min="-20" max="20" [(ngModel)]="settings.config.quickLink.offset" (ngModelChange)="ga.field('quickLink.offset', settings.config.quickLink.offset)"></options-range>
+  </div>
+  <div class="input">
+    <label for="quickLinkPlacement">Position</label>
+    <options-position id="quickLinkPlacement" name="quickLinkPlacement" [settingId]="settings.config.quickLink.id" [(ngModel)]="settings.config.quickLink.position" (ngModelChange)="ga.field('quickLink.position', settings.config.quickLink.position)"></options-position>
+  </div>
+  <div class="input">
+    <label for="quickLinkOrder">{{'options.common.order' | translate}}</label>
+    <div id="quickLinkOrder" class="orderBtns">
+      <button
+        type="button"
+        attr.aria-label="{{'options.common.moveUp' | translate}}"
+        title="{{'options.common.moveUp' | translate}}"
+        class="btn"
+        [disabled]="shared.isFirst(settings.config.quickLink.id, settings.config.quickLink.position)"
+        (click)="shared.changeOrder(settings.config.quickLink.id, true, settings.config.quickLink.position); ga.field('button.quickLinkComponentMoveUp', 'true')">
+        <div class="icon" aria-hidden="true">expand_less</div>
+      </button>
+      <button
+        type="button"
+        attr.aria-label="{{'options.common.moveDown' | translate}}"
+        title="{{'options.common.moveDown' | translate}}"
+        class="btn"
+        [disabled]="shared.isLast(settings.config.quickLink.id, settings.config.quickLink.position)"
+        (click)="shared.changeOrder(settings.config.quickLink.id, false, settings.config.quickLink.position); ga.field('button.quickLinkComponentMoveDown', 'true')">
+        <div class="icon" aria-hidden="true">expand_more</div>
+      </button>
+    </div>
+  </div>
 </form>
 <ng-container *ngIf="settings.config.quickLink.enabled">
   <h3>Links</h3>

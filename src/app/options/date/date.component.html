@@ -2,7 +2,7 @@
 <form #date="ngForm" novalidate>
   <div class="input">
     <label>{{'options.date.date' | translate}}</label>
-    <options-toggle name="date" [(ngModel)]="settings.config.date.enabled" (ngModelChange)="shared.toggleOrder(settings.config.date.id, $event)" (ngModelChange)="ga.field('date.enabled', settings.config.date.enabled);"></options-toggle>
+    <options-toggle name="date" [(ngModel)]="settings.config.date.enabled" (ngModelChange)="shared.toggleOrder(settings.config.date.id, $event, settings.config.date.position); ga.field('date.enabled', settings.config.date.enabled);"></options-toggle>
   </div>
   <ng-container *ngIf="settings.config.date.enabled">
     <div class="input">
@@ -27,7 +27,23 @@
         <option *ngFor="let f of dateFormat" [ngValue]="f.id">{{f.label}}</option>
       </select>
     </div>
-    <h3 class="boxHeading">{{'options.common.placement' | translate}}</h3>
+    <h3 class="boxHeading">Layout</h3>
+    <div class="input">
+      <label>{{'options.common.size' | translate}}</label>
+      <options-range name="dateSize" min="1" max="20" [(ngModel)]="settings.config.date.scaling" (change)="ga.field('date.scaling', settings.config.date.scaling);"></options-range>
+    </div>
+    <div class="input">
+      <label for="dateMargin">Margin</label>
+      <options-range name="dateMargin" min="0" max="100" [(ngModel)]="settings.config.date.margin" (ngModelChange)="ga.field('date.margin', settings.config.date.margin)"></options-range>
+    </div>
+    <div class="input">
+      <label>{{'options.common.offset' | translate}}</label>
+      <options-range name="dateOffset" min="-20" max="20" [(ngModel)]="settings.config.date.offset" (change)="ga.field('date.offset', settings.config.date.offset);"></options-range>
+    </div>
+    <div class="input">
+      <label for="datePosition">Position</label>
+      <options-position id="datePosition" name="datePosition" [settingId]="settings.config.date.id" [(ngModel)]="settings.config.date.position" (ngModelChange)="ga.field('date.position', settings.config.date.position)"></options-position>
+    </div>
     <div class="input">
       <label>{{'options.common.order' | translate}}</label>
       <div class="orderBtns">
@@ -36,8 +52,8 @@
           attr.aria-label="{{'options.common.moveUp' | translate}}"
           title="{{'options.common.moveUp' | translate}}"
           class="btn"
-          [disabled]="!settings.config.date.enabled || shared.isFirst(settings.config.date.id)"
-          (click)="shared.changeOrder(settings.config.date.id, true); ga.field('button.dateMoveUp', 'true');">
+          [disabled]="shared.isFirst(settings.config.date.id, settings.config.date.position)"
+          (click)="shared.changeOrder(settings.config.date.id, true, settings.config.date.position); ga.field('button.dateMoveUp', 'true');">
           <div class="icon" aria-hidden="true">expand_less</div>
         </button>
         <button
@@ -45,19 +61,11 @@
           attr.aria-label="{{'options.common.moveDown' | translate}}"
           title="{{'options.common.moveDown' | translate}}"
           class="btn"
-          [disabled]="!settings.config.date.enabled || shared.isLast(settings.config.date.id)"
-          (click)="shared.changeOrder(settings.config.date.id, false); ga.field('button.dateMoveDown', 'true');">
+          [disabled]="shared.isLast(settings.config.date.id, settings.config.date.position)"
+          (click)="shared.changeOrder(settings.config.date.id, false, settings.config.date.position); ga.field('button.dateMoveDown', 'true');">
           <div class="icon" aria-hidden="true">expand_more</div>
         </button>
       </div>
-    </div>
-    <div class="input">
-      <label>{{'options.common.size' | translate}}</label>
-      <options-range name="dateSize" min="1" max="20" [(ngModel)]="settings.config.date.scaling" (change)="ga.field('date.scaling', settings.config.date.scaling);"></options-range>
-    </div>
-    <div class="input">
-      <label>{{'options.common.offset' | translate}}</label>
-      <options-range name="dateOffset" min="-20" max="20" [(ngModel)]="settings.config.date.offset" (change)="ga.field('date.offset', settings.config.date.offset);"></options-range>
     </div>
     <h3>{{'options.date.shortDate' | translate}}</h3>
     <div class="input">

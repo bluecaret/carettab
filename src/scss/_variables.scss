@@ -38,12 +38,15 @@ $z-indexes: (
 
 // $optionsBg: $optBgDark;
 $optionsWidth: 700px;
+$bookmarksBarHeight: 33px;
 
 :root {
   --optAccent: rgb(0, 106, 183);
   --optAccentLight: rgb(11, 134, 221);
   --optAccentDark: rgb(0, 80, 138);
   --optAccentDisabled: rgb(220, 220, 215);
+  --optScrollTrack: rgba(0,0,0,.05);
+  --optScrollThumb: rgba(119, 136, 136, 1);
   --optText: rgb(40,40,20);
   --optNavBase: 245,245,240;
   --optNavBg: rgba(var(--optNavBase), 1);
@@ -65,6 +68,8 @@ $optionsWidth: 700px;
     --optAccentLight: rgb(131, 151, 201);
     --optAccentDark: rgb(80, 100, 150);
     --optAccentDisabled: rgb(47, 61, 95);
+    --optScrollTrack: rgba(255,255,255,.15);
+    --optScrollThumb: rgba(119, 136, 136, 1);
     --optText: rgb(185,185,215);
     --optBgBase: 0,10,18;
     --optNavBase: 0,10,18;

@@ -59,4 +59,8 @@ export class TabSearchComponent implements OnInit {
     location.replace(searchUrl);
   }
 
+  findEngine(engine) {
+    return this.engines.find(x => x.id === engine)
+  }
+
 }

@@ -45,7 +45,6 @@ export class OptionsExtraComponent {
   }
 
   enableAnalytics(enable: boolean) {
-    console.log('enable', enable);
     enable === true ?
       localStorage.setItem('ct-enableAnalytics', 'true') : localStorage.setItem('ct-enableAnalytics', 'false');
   }

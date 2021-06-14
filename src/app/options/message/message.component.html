@@ -1,16 +1,8 @@
 <h2>{{ "options.message.customMsg" | translate }}</h2>
 <form #messageOptions="ngForm" novalidate>
   <div class="input">
-    <label>{{ "options.message.msg" | translate }}</label>
-    <options-toggle
-      name="message"
-      id="message"
-      [(ngModel)]="settings.config.message.enabled"
-      (ngModelChange)="
-        shared.toggleOrder(settings.config.message.id, $event);
-        ga.field('message.enabled', settings.config.message.enabled)
-      "
-    ></options-toggle>
+    <label>{{'options.message.msg' | translate}}</label>
+    <options-toggle name="message" id="message" [(ngModel)]="settings.config.message.enabled" (ngModelChange)="shared.toggleOrder(settings.config.message.id, $event, settings.config.message.position); ga.field('message.enabled', settings.config.message.enabled);"></options-toggle>
   </div>
   <ng-container *ngIf="settings.config.message.enabled">
     <div class="input">
@@ -34,7 +26,7 @@
       </div>
     </span>
 
-    <h3>{{ "options.common.placement" | translate }}</h3>
+    <h3>Layout</h3>
     <div class="input">
       <label>{{ "options.common.order" | translate }}</label>
       <div class="orderBtns">
@@ -43,15 +35,8 @@
           attr.aria-label="{{ 'options.common.moveUp' | translate }}"
           title="{{ 'options.common.moveUp' | translate }}"
           class="btn"
-          [disabled]="
-            !settings.config.message.enabled ||
-            shared.isFirst(settings.config.message.id)
-          "
-          (click)="
-            shared.changeOrder(settings.config.message.id, true);
-            ga.field('button.messageMoveUp', 'true')
-          "
-        >
+          [disabled]="shared.isFirst(settings.config.message.id, settings.config.message.position)"
+          (click)="shared.changeOrder(settings.config.message.id, true, settings.config.message.position); ga.field('button.messageMoveUp', 'true');">
           <div class="icon" aria-hidden="true">expand_less</div>
         </button>
         <button
@@ -59,15 +44,8 @@
           attr.aria-label="{{ 'options.common.moveDown' | translate }}"
           title="{{ 'options.common.moveDown' | translate }}"
           class="btn"
-          [disabled]="
-            !settings.config.message.enabled ||
-            shared.isLast(settings.config.message.id)
-          "
-          (click)="
-            shared.changeOrder(settings.config.message.id, false);
-            ga.field('button.messageMoveDown', 'true')
-          "
-        >
+          [disabled]="shared.isLast(settings.config.message.id, settings.config.message.position)"
+          (click)="shared.changeOrder(settings.config.message.id, false, settings.config.message.position); ga.field('button.messageMoveDown', 'true');">
           <div class="icon" aria-hidden="true">expand_more</div>
         </button>
       </div>
@@ -96,6 +74,14 @@
           ga.field('message.offset', settings.config.message.offset)
         "
       ></options-range>
+    </div>
+    <div class="input">
+      <label for="messageMargin">Margin</label>
+      <options-range name="messageMargin" min="0" max="100" [(ngModel)]="settings.config.message.margin" (ngModelChange)="ga.field('message.margin', settings.config.message.margin)"></options-range>
+    </div>
+    <div class="input">
+      <label for="messagePlacement">Position</label>
+      <options-position id="messagePlacement" name="messagePlacement" [settingId]="settings.config.message.id" [(ngModel)]="settings.config.message.position" (ngModelChange)="ga.field('message.position', settings.config.message.position)"></options-position>
     </div>
   </ng-container>
 </form>

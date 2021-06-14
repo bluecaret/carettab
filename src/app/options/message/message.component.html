@@ -29,11 +29,7 @@
 
     <span *ngFor="let item of settings.config.message.texts; index as i">
       <div class="messageContainer">
-        <span
-          class="messageRemoveBtn"
-          (click)="removeMessage(i)"
-          >&times;</span
-        >
+        <span class="messageRemoveBtn" (click)="removeMessage(i)">&times;</span>
         {{ item }}
       </div>
     </span>

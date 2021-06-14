@@ -29,10 +29,10 @@
   <label>{{'options.extra.hideMenu' | translate}}<tooltip text="{{'options.extra.hideMenuDesc' | translate}}"></tooltip></label>
   <options-toggle name="hideMenu" id="hideMenu" [(ngModel)]="settings.config.design.hideMenu" (ngModelChange)="ga.field('design.hideMenu', settings.config.design.hideMenu)"></options-toggle>
 </div>
-<div class="input">
+<!-- <div class="input">
   <label>{{'options.extra.hideLogo' | translate}}</label>
   <options-toggle name="hideLogo" id="hideLogo" [(ngModel)]="settings.config.design.hideLogo" (ngModelChange)="ga.field('design.hideLogo', settings.config.design.hideLogo)"></options-toggle>
-</div>
+</div> -->
 <div class="input">
   <label>{{'options.extra.enableAnalytics' | translate}}<tooltip text="{{'options.extra.enableAnalyticsDesc' | translate}}"></tooltip></label>
   <options-toggle name="enableAnalytics" id="enableAnalytics" [(ngModel)]="settings.config.misc.enableAnalytics"></options-toggle>

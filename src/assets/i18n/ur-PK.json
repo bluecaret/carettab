@@ -142,7 +142,9 @@
     "message": {
       "customMsg": "حسب ضرورت پیغام",
       "msg": "پیغام",
-      "msgText": "پیغام کا متن"
+      "msgText": "پیغام کا متن",
+      "save": "نیا پیغام بچائیں",
+      "messageValidation":"خالی ڈوروں کی اجازت نہیں ہے"
     },
     "search": {
       "autocomplete": "خود بخود",

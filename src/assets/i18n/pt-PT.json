@@ -142,7 +142,10 @@
     "message": {
       "customMsg": "mensagem personalizada",
       "msg": "mensagem",
-      "msgText": "Mensagem de texto"
+      "msgText": "Mensagem de texto",
+      "save": "Salvar nova mensagem",
+      "messageValidation":"Strings vazias não são permitidas"
+
     },
     "search": {
       "autocomplete": "autocompletar",

@@ -142,7 +142,9 @@
     "message": {
       "customMsg": "benutzerdefinierte Nachricht",
       "msg": "Botschaft",
-      "msgText": "Nachrichtentext"
+      "msgText": "Nachrichtentext",
+      "save": "Neue Nachricht speichern",
+      "messageValidation":"Leere Zeichenfolgen sind nicht erlaubt"
     },
     "search": {
       "autocomplete": "Autovervollständigen",

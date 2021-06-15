@@ -152,6 +152,16 @@ app-options {
       }
     }
   }
+  &.customToggle {
+    input + label {
+      span {
+        &:before {
+          font-weight: 700;
+          color: var(--optAccent);
+        }
+      }
+    }
+  }
   input:checked + label {
     &:after {
       background-color: var(--optAccent);

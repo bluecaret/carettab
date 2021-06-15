@@ -112,6 +112,11 @@ export class Storage {
       this.loadTracker++;
     });
 
+    this.getChrome('ct-weather', this.config.weather).then((data: any) => {
+      this.config.weather = data;
+      this.loadTracker++;
+    });
+
     return this.config;
   }
 

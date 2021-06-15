@@ -11,27 +11,31 @@ $barBorderDark: #2C2F32;
 $barTitleBgDark: #565C61;
 $barTitleBgHoverDark: lighten($barTitleBgDark, 15%);
 $barBtnBorderDark: darken($barBorderDark, 5%);
-$barHeight: 22px;
+$barPadding: 5px 8px;
+$barHeight: ($bookmarksBarHeight - 10px);
 $barMaxWidth: 9.7em;
 $barFontFamily: "Roboto", sans-serif;
 $barFontWeight: 300;
+
+.tabBookmarks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 
 .bookmarksBar {
   font-size: $bookmarksBaseScale;
 }
 
 .bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   width: 100%;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   background: $barBg;
   color: black;
-  padding: .4em .6em;
+  padding: 5px 8px;
   border-bottom: 1px solid $barBorder;
   z-index: z('tabBookmarks');
   @media (prefers-color-scheme: dark) {

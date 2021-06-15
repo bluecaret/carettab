@@ -13,6 +13,14 @@ export class OrderSettings {
       order: 3
     }
   ];
+  nw = [];
+  n = [];
+  ne = [];
+  w = [];
+  e = [];
+  sw = [];
+  s = [];
+  se = [];
 }
 
 export class DesignSettings {
@@ -37,6 +45,8 @@ export class MessageSettings {
   enabled = false;
   scaling = 8;
   offset = 0;
+  margin = 0;
+  position = 'c';
   text = 'Hello world!';
 }
 
@@ -55,9 +65,14 @@ export class BookmarkSettings {
 }
 
 export class QuickLinkSettings {
+  id = "QUICKLINK_C5HDR1KCPMG";
   enabled = false;
   icons = true;
   scaling = 10;
+  offset = 0;
+  padding = 12;
+  margin = 0;
+  position = 'n';
   mostVisited = false;
   bookmarksManager = false;
   history = false;
@@ -96,6 +111,8 @@ export class TimeSettings {
       scaling: 10,
       span: 40,
       padding: 10,
+      margin: 0,
+      position: 'c',
       offset: 0,
       twentyFour: false,
       twoDigit: false,
@@ -156,6 +173,8 @@ export class DateSettings {
   enabled = true;
   scaling = 6;
   offset = 0;
+  margin = 0;
+  position = 'c';
   timezone = 'Automatic';
   dimDelimiter = false;
   format = 20;
@@ -194,10 +213,70 @@ export class SearchSettings {
   enabled = true;
   scaling = 4;
   offset = 0;
+  margin = 0;
+  position = 'c';
   width = 21;
   engine = 40;
   autocomplete = true;
   label = 'Search the web...';
+}
+
+export class WeatherSettings {
+  id = 'WEATHER_KS096NVA56';
+  enabled = false;
+  scaling = 10;
+  offset = 0;
+  position = 's';
+  padding = 20;
+  margin = 10;
+  location = {
+    url: "seattle-washington-united-states-of-america"
+  };
+  celsius = false;
+  metric = false;
+  preciseDigits = false;
+  current = {
+    enabled: true,
+    icon: {
+      enabled: true,
+      size: 28
+    },
+    temp: {
+      currently: true,
+      feelsLike: true,
+      degree: true
+    },
+    wind: {
+      enabled: true
+    },
+    humidity: {
+      enabled: true
+    },
+    pressure: {
+      enabled: false
+    },
+    astro: {
+      moonPhase: false,
+      sunrise: false,
+      sunset: false
+    }
+  }
+  forecast = {
+    days: 3,
+    horizontal: true,
+    icon: {
+      enabled: true,
+      size: 20
+    },
+    day: {
+      enabled: true
+    },
+    temp: {
+      high: true,
+      low: true,
+      degree: true
+    },
+  }
 }
 
 export class MiscSettings {
@@ -222,5 +301,6 @@ export class Settings {
   covidData = new CovidSettings();
   date = new DateSettings();
   search = new SearchSettings();
+  weather = new WeatherSettings();
   misc = new MiscSettings();
 }

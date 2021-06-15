@@ -75,16 +75,18 @@ export class SplashComponent implements OnInit {
 
   enableTime(enable: boolean) {
     if (enable) {
-      this.shared.toggleOrder(this.settings.config.time.clocks[0].id, false);
+      this.shared.toggleOrder(this.settings.config.time.clocks[0].id, false, this.settings.config.time.clocks[0].position);
       this.settings.config.time.clocks = [];
       let newId = this.shared.createID('CLOCK');
-      this.shared.toggleOrder(newId, true);
+      this.shared.toggleOrder(newId, true, 'c');
       this.settings.config.time.clocks.push({
         id: newId,
         timezone: 'Automatic',
         scaling: 10,
         span: 40,
         padding: 10,
+        margin: 0,
+        position: 'c',
         offset: 0,
         twentyFour: false,
         twoDigit: false,
@@ -138,7 +140,7 @@ export class SplashComponent implements OnInit {
         }
       });
     } else {
-      this.shared.toggleOrder(this.settings.config.time.clocks[0].id, false);
+      this.shared.toggleOrder(this.settings.config.time.clocks[0].id, false, this.settings.config.time.clocks[0].position);
       this.settings.config.time.clocks = [];
     }
     this.step = 3.1;
@@ -154,12 +156,12 @@ export class SplashComponent implements OnInit {
   enableDate(enable: boolean) {
     let dateId = this.settings.config.date.id;
     if (enable) {
-      this.shared.toggleOrder(dateId, false);
+      this.shared.toggleOrder(dateId, false, this.settings.config.date.position);
       this.settings.config.date.enabled = true;
-      this.shared.toggleOrder(dateId, true);
+      this.shared.toggleOrder(dateId, true, this.settings.config.date.position);
     } else {
       this.settings.config.date.enabled = false;
-      this.shared.toggleOrder(dateId, false);
+      this.shared.toggleOrder(dateId, false, this.settings.config.date.position);
     }
     this.step = 5;
   }

@@ -33,10 +33,12 @@
         </ng-container>
       </ng-container>
       <ng-container *ngIf="settings.config.covidData.enabled && settings.config.covidData.countries.length > 0">
-        <tab-covid *ngFor="let c of settings.config.covidData.countries; let i = index;" [index]="i" [countryCode]="c.code"
-        [style.order]="shared.getOrder(c.id)"
-        [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-        [style.transform]="shared.getOffset(c.offset)"></tab-covid>
+        <ng-container *ngFor="let c of settings.config.covidData.countries; let i = index;" >
+          <tab-covid *ngIf="c.position === 'nw'" [index]="i" [countryCode]="c.code"
+          [style.order]="shared.getOrder(c.id)"
+          [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
+          [style.transform]="shared.getOffset(c.offset)"></tab-covid>
+        </ng-container>
       </ng-container>
       <tab-date
         *ngIf="settings.config.date.position === 'nw' && settings.config.date.enabled"
@@ -64,6 +66,14 @@
             [clock]="clock" 
             [ngStyle]="setTimeStyles(clock)">
           </tab-time>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="settings.config.covidData.enabled && settings.config.covidData.countries.length > 0">
+        <ng-container *ngFor="let c of settings.config.covidData.countries; let i = index;" >
+          <tab-covid *ngIf="c.position === 'n'" [index]="i" [countryCode]="c.code"
+          [style.order]="shared.getOrder(c.id)"
+          [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
+          [style.transform]="shared.getOffset(c.offset)"></tab-covid>
         </ng-container>
       </ng-container>
       <tab-date
@@ -94,6 +104,14 @@
           </tab-time>
         </ng-container>
       </ng-container>
+      <ng-container *ngIf="settings.config.covidData.enabled && settings.config.covidData.countries.length > 0">
+        <ng-container *ngFor="let c of settings.config.covidData.countries; let i = index;" >
+          <tab-covid *ngIf="c.position === 'ne'" [index]="i" [countryCode]="c.code"
+          [style.order]="shared.getOrder(c.id)"
+          [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
+          [style.transform]="shared.getOffset(c.offset)"></tab-covid>
+        </ng-container>
+      </ng-container>
       <tab-date
         *ngIf="settings.config.date.position === 'ne' && settings.config.date.enabled"
         [ngStyle]="setDateStyles(clock)"></tab-date>
@@ -120,6 +138,14 @@
             [clock]="clock" 
             [ngStyle]="setTimeStyles(clock)">
           </tab-time>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="settings.config.covidData.enabled && settings.config.covidData.countries.length > 0">
+        <ng-container *ngFor="let c of settings.config.covidData.countries; let i = index;" >
+          <tab-covid *ngIf="c.position === 'w'" [index]="i" [countryCode]="c.code"
+          [style.order]="shared.getOrder(c.id)"
+          [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
+          [style.transform]="shared.getOffset(c.offset)"></tab-covid>
         </ng-container>
       </ng-container>
       <tab-date
@@ -150,6 +176,14 @@
           </tab-time>
         </ng-container>
       </ng-container>
+      <ng-container *ngIf="settings.config.covidData.enabled && settings.config.covidData.countries.length > 0">
+        <ng-container *ngFor="let c of settings.config.covidData.countries; let i = index;" >
+          <tab-covid *ngIf="c.position === 'c'" [index]="i" [countryCode]="c.code"
+          [style.order]="shared.getOrder(c.id)"
+          [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
+          [style.transform]="shared.getOffset(c.offset)"></tab-covid>
+        </ng-container>
+      </ng-container>
       <tab-date
         *ngIf="(settings.config.date.position === 'c' || settings.config.date.position == null) && settings.config.date.enabled"
         [ngStyle]="setDateStyles(clock)"></tab-date>
@@ -176,6 +210,14 @@
             [clock]="clock" 
             [ngStyle]="setTimeStyles(clock)">
           </tab-time>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="settings.config.covidData.enabled && settings.config.covidData.countries.length > 0">
+        <ng-container *ngFor="let c of settings.config.covidData.countries; let i = index;" >
+          <tab-covid *ngIf="c.position === 'e'" [index]="i" [countryCode]="c.code"
+          [style.order]="shared.getOrder(c.id)"
+          [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
+          [style.transform]="shared.getOffset(c.offset)"></tab-covid>
         </ng-container>
       </ng-container>
       <tab-date
@@ -206,6 +248,14 @@
           </tab-time>
         </ng-container>
       </ng-container>
+      <ng-container *ngIf="settings.config.covidData.enabled && settings.config.covidData.countries.length > 0">
+        <ng-container *ngFor="let c of settings.config.covidData.countries; let i = index;" >
+          <tab-covid *ngIf="c.position === 'sw'" [index]="i" [countryCode]="c.code"
+          [style.order]="shared.getOrder(c.id)"
+          [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
+          [style.transform]="shared.getOffset(c.offset)"></tab-covid>
+        </ng-container>
+      </ng-container>
       <tab-date
         *ngIf="settings.config.date.position === 'sw' && settings.config.date.enabled"
         [ngStyle]="setDateStyles(clock)"></tab-date>
@@ -234,6 +284,14 @@
           </tab-time>
         </ng-container>
       </ng-container>
+      <ng-container *ngIf="settings.config.covidData.enabled && settings.config.covidData.countries.length > 0">
+        <ng-container *ngFor="let c of settings.config.covidData.countries; let i = index;" >
+          <tab-covid *ngIf="c.position === 's'" [index]="i" [countryCode]="c.code"
+          [style.order]="shared.getOrder(c.id)"
+          [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
+          [style.transform]="shared.getOffset(c.offset)"></tab-covid>
+        </ng-container>
+      </ng-container>
       <tab-date
         *ngIf="settings.config.date.position === 's' && settings.config.date.enabled"
         [ngStyle]="setDateStyles(clock)"></tab-date>
@@ -260,6 +318,14 @@
             [clock]="clock" 
             [ngStyle]="setTimeStyles(clock)">
           </tab-time>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="settings.config.covidData.enabled && settings.config.covidData.countries.length > 0">
+        <ng-container *ngFor="let c of settings.config.covidData.countries; let i = index;" >
+          <tab-covid *ngIf="c.position === 'se'" [index]="i" [countryCode]="c.code"
+          [style.order]="shared.getOrder(c.id)"
+          [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
+          [style.transform]="shared.getOffset(c.offset)"></tab-covid>
         </ng-container>
       </ng-container>
       <tab-date

@@ -106,7 +106,7 @@ export class OptionsExtraComponent {
 
   addCountry() {
     let elementId = this.shared.createID("covid");
-    this.settings.config.covidData.countries.push({id:elementId, code: 'AF',flagSize:165,textScaling:20,offset:0,padding:1 })
+    this.settings.config.covidData.countries.push({id:elementId, code: 'AF',flagSize:165,textScaling:20,offset:0,padding:1,position:'n' })
     this.shared.toggleOrder(elementId, true);
   }
 

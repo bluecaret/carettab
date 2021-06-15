@@ -107,24 +107,10 @@
     "
   ></options-toggle>
 </div>
-<<<<<<< HEAD
-<div class="input">
-  <label>{{ "options.extra.hideLogo" | translate }}</label>
-  <options-toggle
-    name="hideLogo"
-    id="hideLogo"
-    [(ngModel)]="settings.config.design.hideLogo"
-    (ngModelChange)="
-      ga.field('design.hideLogo', settings.config.design.hideLogo)
-    "
-  ></options-toggle>
-</div>
-=======
 <!-- <div class="input">
   <label>{{'options.extra.hideLogo' | translate}}</label>
   <options-toggle name="hideLogo" id="hideLogo" [(ngModel)]="settings.config.design.hideLogo" (ngModelChange)="ga.field('design.hideLogo', settings.config.design.hideLogo)"></options-toggle>
 </div> -->
->>>>>>> master
 <div class="input">
   <label>
     {{ "options.extra.enableAnalytics" | translate }}
@@ -340,6 +326,10 @@
               ga.field('covidData.countries.padding', country.padding)
             "
           ></options-range>
+        </div>
+        <div class="input">
+          <label for="covidPlacement">Position</label>
+          <options-position id="covidPlacement" name="covidPlacement" [settingId]="country.id" [(ngModel)]="country.position" (ngModelChange)="ga.field('country.position', country.position)"></options-position>
         </div>
       </div>
     </ng-container>

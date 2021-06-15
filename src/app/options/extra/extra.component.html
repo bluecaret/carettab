@@ -160,6 +160,10 @@
             [name]="'country' + i"
             [id]="'country' + i"
             [(ngModel)]="country.code"
+            (ngModelChange)="
+            updateCountryName(i)
+          "
+           
           >
             <option
               *ngFor="let country of countryList"

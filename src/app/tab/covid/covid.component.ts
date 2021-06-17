@@ -28,7 +28,6 @@ export class TabCovidComponent implements OnInit, OnChanges {
       .get("https://corona.lmao.ninja/v2/countries/" + this.countryCode)
       .subscribe((data: CovidData) => {
         this.shared.echo(JSON.stringify(data));
-        debugger
         this.countryData = data;
       });
   }

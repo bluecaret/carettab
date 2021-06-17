@@ -157,6 +157,10 @@ export class TimeSettings {
       analog: {
         enabled: false,
         style: 10
+      },
+      binary:{
+        enabled:false,
+        dim:false
       }
     }
   ];

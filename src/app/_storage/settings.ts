@@ -48,6 +48,7 @@ export class MessageSettings {
   margin = 0;
   position = 'c';
   text = 'Hello world!';
+  messageList = [];
 }
 
 export class I18nSettings {
@@ -65,7 +66,7 @@ export class BookmarkSettings {
 }
 
 export class QuickLinkSettings {
-  id = "QUICKLINK_C5HDR1KCPMG";
+  id = 'QUICKLINK_C5HDR1KCPMG';
   enabled = false;
   icons = true;
   scaling = 10;
@@ -228,7 +229,7 @@ export class WeatherSettings {
   padding = 20;
   margin = 10;
   location = {
-    url: "seattle-washington-united-states-of-america"
+    url: 'seattle-washington-united-states-of-america'
   };
   celsius = false;
   metric = false;
@@ -258,7 +259,7 @@ export class WeatherSettings {
       sunrise: false,
       sunset: false
     }
-  }
+  };
   forecast = {
     days: 3,
     horizontal: true,
@@ -273,8 +274,8 @@ export class WeatherSettings {
       high: true,
       low: true,
       degree: true
-    },
-  }
+    }
+  };
 }
 
 export class MiscSettings {
@@ -285,13 +286,13 @@ export class MiscSettings {
     type: 10,
     text: 'Hello world!',
     clockUsed: 1
-  }
+  };
 }
 
 export class Settings {
   order = new OrderSettings();
   design = new DesignSettings();
-  message = new MessageSettings();
+  messages = new MessageSettings();
   i18n = new I18nSettings();
   bookmark = new BookmarkSettings();
   quickLink = new QuickLinkSettings();

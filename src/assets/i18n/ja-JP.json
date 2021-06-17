@@ -142,7 +142,9 @@
     "message": {
       "customMsg": "カスタムメッセージ",
       "msg": "メッセージ",
-      "msgText": "メッセージテキスト"
+      "msgText": "メッセージテキスト",
+      "save": "新しいメッセージを保存する",
+      "messageValidation":"空の文字列は許可されません"
     },
     "search": {
       "autocomplete": "オートコンプリート",

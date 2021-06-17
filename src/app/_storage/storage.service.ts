@@ -35,7 +35,7 @@ export class Storage {
     this.config.date = new DateSettings();
     this.config.design = new DesignSettings();
     this.config.i18n = new I18nSettings();
-    this.config.message = new MessageSettings();
+    this.config.messages = new MessageSettings();
     this.config.misc = new MiscSettings();
     this.config.order = new OrderSettings();
     this.config.quickLink = new QuickLinkSettings();
@@ -80,8 +80,8 @@ export class Storage {
       this.loadTracker++;
     });
 
-    this.getChrome('ct-message', this.config.message).then((data: any) => {
-      this.config.message = data;
+    this.getChrome('ct-message', this.config.messages).then((data: any) => {
+      this.config.messages = data;
       this.loadTracker++;
     });
 

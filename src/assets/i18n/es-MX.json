@@ -142,7 +142,9 @@
     "message": {
       "customMsg": "mensaje personalizado",
       "msg": "Mensaje",
-      "msgText": "Mensaje de texto"
+      "msgText": "Mensaje de texto",
+      "save": "Guardar mensaje nuevo",
+      "messageValidation":"No se permiten cadenas vacías"
     },
     "search": {
       "autocomplete": "Autocompletar",

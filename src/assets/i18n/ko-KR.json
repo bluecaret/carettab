@@ -142,7 +142,9 @@
     "message": {
       "customMsg": "맞춤 메시지",
       "msg": "메시지",
-      "msgText": "메시지 텍스트"
+      "msgText": "메시지 텍스트",
+      "save": "새 메시지 저장",
+      "messageValidation":"빈 문자열은 허용되지 않습니다."
     },
     "search": {
       "autocomplete": "자동 완성",

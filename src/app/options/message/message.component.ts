@@ -17,6 +17,7 @@ export class OptionsMessageComponent {
   ) {}
 
   addMessage(model, isValid) {
+    debugger;
     if (isValid && model.value.message.trim().length > 0) {
       this.isInvalid = false;
       let id = this.shared.createID("message");

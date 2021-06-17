@@ -125,7 +125,8 @@ export class OptionsBookmarksComponent implements OnInit {
     this.editMode.fill(false);
   }
 
-  addLink(model: any, isValid: boolean) {    
+  addLink(model: any, isValid: boolean) {
+    debugger;
     if (isValid) {
       this.isInvalid = false;
       let id = this.shared.createID('LINK');

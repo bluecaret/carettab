@@ -58,7 +58,7 @@
   },
   "prettier": {
     "singleQuote": true,
-    "trailingComma": "none"
+    "trailingComma": "none",
     "quoteProps": "preserve"
   }
 }

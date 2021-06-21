@@ -142,7 +142,9 @@
     "message": {
       "customMsg": "自定义提示语",
       "msg": "提示语",
-      "msgText": "提示语文本"
+      "msgText": "提示语文本",
+      "save": "保存新消息",
+      "messageValidation":"不允许空字符串"
     },
     "search": {
       "autocomplete": "自动完成",

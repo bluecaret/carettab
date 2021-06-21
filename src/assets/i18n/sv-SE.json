@@ -142,7 +142,9 @@
     "message": {
       "customMsg": "anpassat meddelande",
       "msg": "Meddelande",
-      "msgText": "Meddelandetext"
+      "msgText": "Meddelandetext",
+      "save": "Spara nytt meddelande",
+      "messageValidation":"Tomma strängar är inte tillåtna"
     },
     "search": {
       "autocomplete": "Komplettera automatiskt",

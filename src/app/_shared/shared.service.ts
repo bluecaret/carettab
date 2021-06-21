@@ -112,21 +112,21 @@ export class SharedService {
     }
     if (str) {
       console.log(
-        `%c${msg}%c${str}`, 
-        style, 
+        `%c${msg}%c${str}`,
+        style,
         strStyle
       );
     }
     if (obj) {
       console.log(
-        `%c${msg}`, 
-        style, 
+        `%c${msg}`,
+        style,
         obj
       );
     }
     if (!str && !obj) {
       console.log(
-        `%c${msg}`, 
+        `%c${msg}`,
         style
       );
     }
@@ -474,7 +474,7 @@ export class SharedService {
     this.settings.setAll(this.settings.config.date, 'ct-date');
     this.settings.setAll(this.settings.config.design, 'ct-design');
     this.settings.setAll(this.settings.config.i18n, 'ct-i18n');
-    this.settings.setAll(this.settings.config.message, 'ct-message');
+    this.settings.setAll(this.settings.config.messages, 'ct-message');
     this.settings.setAll(this.settings.config.misc, 'ct-misc');
     this.settings.setAll(this.settings.config.order, 'ct-order');
     this.settings.setAll(this.settings.config.quickLink, 'ct-quick-link');
@@ -483,6 +483,9 @@ export class SharedService {
     this.settings.setAll(this.settings.config.weather, 'ct-weather');
   }
 
+  public getRandomNumber(min,max): number {
+    return Math.floor(Math.random() * (max - min)) + min;
+  };
 }
 
 @Pipe({ name: 'translateCut' })

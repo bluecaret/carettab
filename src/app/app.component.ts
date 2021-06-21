@@ -129,7 +129,7 @@ export class AppComponent implements OnInit, AfterViewInit {
           this.settings.config.date = old.date;
           this.settings.config.design = old.design;
           this.settings.config.i18n.lang = old.lang;
-          this.settings.config.message = old.message;
+          this.settings.config.messages = old.message;
           this.settings.config.order.items = old.order;
           this.settings.config.search = old.search;
           this.settings.config.time = old.time;

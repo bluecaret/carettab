@@ -1,53 +1,114 @@
-<h2>{{'options.message.customMsg' | translate}}</h2>
+<h2>{{ "options.message.customMsg" | translate }}</h2>
 <form #messageOptions="ngForm" novalidate>
   <div class="input">
     <label>{{'options.message.msg' | translate}}</label>
-    <options-toggle name="message" id="message" [(ngModel)]="settings.config.message.enabled" (ngModelChange)="shared.toggleOrder(settings.config.message.id, $event, settings.config.message.position); ga.field('message.enabled', settings.config.message.enabled);"></options-toggle>
+    <options-toggle name="message" id="message" [(ngModel)]="settings.config.messages.enabled" (ngModelChange)="shared.toggleOrder(settings.config.messages.id, $event, settings.config.messages.position); ga.field('message.enabled', settings.config.messages.enabled);"></options-toggle>
   </div>
-  <ng-container *ngIf="settings.config.message.enabled">
-    <div class="input">
-      <label>{{'options.message.msgText' | translate}}</label>
-      <input type="text" name="messageText" id="messageText" [(ngModel)]="settings.config.message.text" (ngModelChange)="ga.field('message.text', 'userData');" autocomplete="off">
-    </div>
+  <ng-container *ngIf="settings.config.messages.enabled">
+
+    <form #messageList="ngForm" novalidate>
+      <div class="grid cols-19 mb15">
+        <div class="span-19">
+          <label>{{ "options.message.msgText" | translate }}</label>
+        </div>
+      </div>
+      <div class="grid cols-19 mb15">
+        <ng-container *ngFor="let message of settings.config.messages.messageList; let i = index; trackBy:trackByFn; let isFirst = first; let isLast = last">
+          <div class="span-14">
+            <input
+              type="text"
+              [name]="'message'+i"
+              #editLabel="ngModel"
+              [(ngModel)]="message.text"
+              (change)="ga.field('message.messageList.message.text', 'userData');"
+              autocomplete="off">
+          </div>
+          <div class="span-5 compactBtnList">
+            <div class="orderBtns">
+              <button
+                type="button"
+                class="btn btnIcon"
+                [disabled]="isFirst"
+                attr.aria-label="{{'options.common.moveUp' | translate}}"
+                title="{{'options.common.moveUp' | translate}}"
+                (click)="swap(settings.config.messages.messageList, i, (i - 1)); ga.field('button.messageMoveUp', 'true');">
+                <div class="icon" aria-hidden="true">expand_less</div>
+              </button>
+              <button
+                type="button"
+                class="btn btnIcon"
+                [disabled]="isLast"
+                attr.aria-label="{{'options.common.moveDown' | translate}}"
+                title="{{'options.common.moveDown' | translate}}"
+                (click)="swap(settings.config.messages.messageList, i, (i + 1)); ga.field('button.messageMoveDown', 'true');">
+                <div class="icon" aria-hidden="true">expand_more</div>
+              </button>
+            </div>
+            <button
+              type="button"
+              class="btn btnIcon"
+              (click)="removeMessage(i); ga.field('button.messageDelete', 'true');">
+              <div class="icon" aria-hidden="true">delete</div>
+            </button>
+          </div>
+        </ng-container>
+      </div>
+    </form>
+    <form #newMessage="ngForm" novalidate (ngSubmit)="addMessage(newMessage,newMessage.valid); ga.field('button.newMessageAdd', 'true');">
+      <div class="grid cols-19">
+        <div class="span-15">
+          <input
+            type="text"
+            name="message"
+            placeholder="Add new message"
+            #newText="ngModel"
+            [(ngModel)]="message"
+            (change)="ga.field('message.texts.newMessage', 'userData');"
+            autocomplete="off"
+            required>
+            <div class="valMsg" *ngIf="(newMessage.invalid ||isInvalid) && newMessage.submitted">{{'options.message.messageValidation' | translate}}</div>
+        </div>
+        
+        <div class="span-4">
+          <button type="submit" class="btn" title="{{'options.message.save' | translate}}">
+            <div  class="icon" aria-hidden="true">add</div>{{'options.common.add' | translate}}</button>
+        </div>
+      </div>
+    </form>
+
     <h3>Layout</h3>
     <div class="input">
-      <label>{{'options.common.order' | translate}}</label>
-      <div class="orderBtns">
-        <button
-          type="button"
-          attr.aria-label="{{'options.common.moveUp' | translate}}"
-          title="{{'options.common.moveUp' | translate}}"
-          class="btn"
-          [disabled]="shared.isFirst(settings.config.message.id, settings.config.message.position)"
-          (click)="shared.changeOrder(settings.config.message.id, true, settings.config.message.position); ga.field('button.messageMoveUp', 'true');">
-          <div class="icon" aria-hidden="true">expand_less</div>
-        </button>
-        <button
-          type="button"
-          attr.aria-label="{{'options.common.moveDown' | translate}}"
-          title="{{'options.common.moveDown' | translate}}"
-          class="btn"
-          [disabled]="shared.isLast(settings.config.message.id, settings.config.message.position)"
-          (click)="shared.changeOrder(settings.config.message.id, false, settings.config.message.position); ga.field('button.messageMoveDown', 'true');">
-          <div class="icon" aria-hidden="true">expand_more</div>
-        </button>
-      </div>
+      <label>{{ "options.common.size" | translate }}</label>
+      <options-range
+        name="messageSize"
+        id="messageSize"
+        min="1"
+        max="20"
+        [(ngModel)]="settings.config.messages.scaling"
+        (ngModelChange)="
+          ga.field('messages.scaling', settings.config.messages.scaling)
+        "
+      ></options-range>
     </div>
     <div class="input">
-      <label>{{'options.common.size' | translate}}</label>
-      <options-range name="messageSize" id="messageSize" min="1" max="20" [(ngModel)]="settings.config.message.scaling" (ngModelChange)="ga.field('message.scaling', settings.config.message.scaling);"></options-range>
-    </div>
-    <div class="input">
-      <label>{{'options.common.offset' | translate}}</label>
-      <options-range name="messageOffset" min="-20" max="20" [(ngModel)]="settings.config.message.offset" (ngModelChange)="ga.field('message.offset', settings.config.message.offset);"></options-range>
+      <label>{{ "options.common.offset" | translate }}</label>
+      <options-range
+        name="messageOffset"
+        min="-20"
+        max="20"
+        [(ngModel)]="settings.config.messages.offset"
+        (ngModelChange)="
+          ga.field('messages.offset', settings.config.messages.offset)
+        "
+      ></options-range>
     </div>
     <div class="input">
       <label for="messageMargin">Margin</label>
-      <options-range name="messageMargin" min="0" max="100" [(ngModel)]="settings.config.message.margin" (ngModelChange)="ga.field('message.margin', settings.config.message.margin)"></options-range>
+      <options-range name="messageMargin" min="0" max="100" [(ngModel)]="settings.config.messages.margin" (ngModelChange)="ga.field('messages.margin', settings.config.messages.margin)"></options-range>
     </div>
     <div class="input">
       <label for="messagePlacement">Position</label>
-      <options-position id="messagePlacement" name="messagePlacement" [settingId]="settings.config.message.id" [(ngModel)]="settings.config.message.position" (ngModelChange)="ga.field('message.position', settings.config.message.position)"></options-position>
+      <options-position id="messagePlacement" name="messagePlacement" [settingId]="settings.config.messages.id" [(ngModel)]="settings.config.messages.position" (ngModelChange)="ga.field('messages.position', settings.config.messages.position)"></options-position>
     </div>
   </ng-container>
 </form>

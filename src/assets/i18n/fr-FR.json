@@ -142,7 +142,9 @@
     "message": {
       "customMsg": "message personnalisé",
       "msg": "Message",
-      "msgText": "Texte du message"
+      "msgText": "Texte du message",
+      "save": "Enregistrer le nouveau message",
+      "messageValidation":"Les chaînes vides ne sont pas autorisées"
     },
     "search": {
       "autocomplete": "Autocomplete",

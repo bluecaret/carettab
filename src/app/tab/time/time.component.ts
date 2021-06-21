@@ -1,4 +1,4 @@
-import { Component, NgZone, Renderer2, ElementRef, ViewChild, Input, OnInit } from '@angular/core';
+import { Component, NgZone, Renderer2, ElementRef, ViewChild, ViewChildren, Input, OnInit, QueryList } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { Clock } from '../../_shared/models/clock';
 import { SharedService } from '../../_shared/shared.service';
@@ -8,7 +8,7 @@ import * as moment from 'moment';
 @Component({
   selector: 'tab-time',
   templateUrl: 'time.component.html',
-  host: {'class': 'clock'}
+  host: { 'class': 'clock' }
 })
 export class TabTimeComponent implements OnInit {
   currentTime: Date;
@@ -16,7 +16,12 @@ export class TabTimeComponent implements OnInit {
 
   @Input() index: number;
   @Input() clock: Clock;
-
+  @ViewChild('binaryHours', { static: false })
+  public hoursList: ElementRef;
+  @ViewChild('binaryMinutes', { static: false })
+  public minutesList: ElementRef;
+  @ViewChild('binarySeconds', { static: false })
+  public secondsList: ElementRef;
   @ViewChild('time', { static: false })
   public displayTime: ElementRef;
 
@@ -25,7 +30,7 @@ export class TabTimeComponent implements OnInit {
     public settings: Storage,
     private zone: NgZone,
     private renderer: Renderer2
-  ) {}
+  ) { }
 
   ngOnInit() {
     if (this.settings.config.time.clocks.length > 0) {
@@ -45,6 +50,73 @@ export class TabTimeComponent implements OnInit {
     ) {
       this.shared.time = this.constructTitleTime();
     }
+    if (this.clock.binary.enabled) {
+
+      var hourList = this.hoursList.nativeElement.children;
+      var minuteList = this.minutesList.nativeElement.children;
+      var secondsList = this.secondsList.nativeElement.children;
+
+      var seconds = parseInt(this.getSecond(this.clock.timezone, 1) + this.getSecond(this.clock.timezone, 2));
+      var minutes = parseInt(this.getMinute(this.clock.timezone, 1) + this.getMinute(this.clock.timezone, 2));
+      var hours = parseInt(this.getHour(this.clock.timezone, this.clock.twentyFour, this.clock.twoDigit, 1) + this.getHour(this.clock.timezone, this.clock.twentyFour, this.clock.twoDigit, 2));
+
+      if (seconds == 0) {
+        this.resetdabs(secondsList);
+        if (minutes == 0) {
+          this.resetdabs(minuteList);
+          if (hours > 23) {
+            this.resetdabs(hourList);
+          }
+        }
+      }
+      this.UpdateBinaryClock(hourList, hours);
+      this.UpdateBinaryClock(minuteList, minutes);
+      this.UpdateBinaryClock(secondsList, seconds);
+    }
+  }
+
+  setActiveDabs(childrenList, v) {
+    var val = this.toBinary(parseInt(v))
+    this.resetChildren(childrenList);
+    for (var i = 0; i <= val.length - 1; i++) {
+      if (parseInt(val[(val.length - 1) - i]) > 0) {
+        childrenList[(childrenList.length - 1) - i].style.opacity ='100%';
+        if (this.clock.binary.dim) {
+          childrenList[(childrenList.length - 1) - i].style.opacity ='60%';
+          childrenList[(childrenList.length - 1) - i].classList.add('dim')
+        }
+      }
+    }
+  }
+
+  UpdateBinaryClock(childrenList, v) {
+    this.resetdabs(childrenList);
+    for (var s = 0; s <= v.toString().length - 1; s++) {
+      var childrensList = childrenList[(childrenList.length - 1) - s].children;
+      this.setActiveDabs(childrensList, parseInt(v.toString()[(v.toString().length - 1) - s]))
+    }
+  }
+
+  resetdabs = (childrenList) => {
+    for (var c = 0; c <= childrenList.length - 1; c++) {
+      this.resetChildren(childrenList[(childrenList.length - 1) - c].children);
+    }
+  }
+
+  resetChildren(childrenList) {
+    for (var i = childrenList.length - 1; i >= 0; i--) {
+      childrenList[(childrenList.length - 1) - i].style.opacity ='50%';
+      childrenList[(childrenList.length - 1) - i].style.backgroundColor =this.settings.config.design.foreground;
+      if (this.clock.binary.dim) {
+        childrenList[(childrenList.length - 1) - i].style.opacity ='20%';
+        childrenList[i].classList.add('dim')
+      }
+    }
+  }
+  
+  toBinary(v) {
+    //makes a binary value from a number
+    return (v).toString(2);
   }
 
   constructTitleTime(): string {
@@ -68,7 +140,7 @@ export class TabTimeComponent implements OnInit {
     return '';
   }
 
-  getHour(zone: string, twentyFour: boolean, twoDigit: boolean, digit: 1|2): string {
+  getHour(zone: string, twentyFour: boolean, twoDigit: boolean, digit: 1 | 2): string {
     moment.locale(this.settings.config.i18n.lang);
     zone = this.getZone(zone);
     let format: string;
@@ -84,14 +156,14 @@ export class TabTimeComponent implements OnInit {
     return this.splitDigits(time, digit);
   }
 
-  getMinute(zone: string, digit: 1|2): string {
+  getMinute(zone: string, digit: 1 | 2): string {
     moment.locale(this.settings.config.i18n.lang);
     zone = this.getZone(zone);
     let time = moment(this.currentTime).tz(zone).format('mm');
     return this.splitDigits(time, digit);
   }
 
-  getSecond(zone: string, digit: 1|2): string {
+  getSecond(zone: string, digit: 1 | 2): string {
     moment.locale(this.settings.config.i18n.lang);
     zone = this.getZone(zone);
     let time = moment(this.currentTime).tz(zone).format('ss');
@@ -151,7 +223,7 @@ export class TabTimeComponent implements OnInit {
     return false;
   }
 
-  splitDigits(time: string, digit: 1|2) {
+  splitDigits(time: string, digit: 1 | 2) {
     let timeSplit = time.split('');
     if (digit === 1) {
       return timeSplit[0];

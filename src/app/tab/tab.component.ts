@@ -152,10 +152,10 @@ export class TabComponent implements OnInit {
 
   setMessageStyles(): Object {
     const styles = {
-      'font-size' : this.shared.getFontSize(this.settings.config.message.scaling, 3),
-      'order' : this.shared.getOrder(this.settings.config.message.id, this.settings.config.message.position),
-      'transform' : this.shared.getOffsetLarge(this.settings.config.message.offset),
-      'margin' : this.shared.getMargin(this.settings.config.message.margin)
+      'font-size' : this.shared.getFontSize(this.settings.config.messages.scaling, 3),
+      'order' : this.shared.getOrder(this.settings.config.messages.id, this.settings.config.messages.position),
+      'transform' : this.shared.getOffsetLarge(this.settings.config.messages.offset),
+      'margin' : this.shared.getMargin(this.settings.config.messages.margin)
     };
     return styles;
   }

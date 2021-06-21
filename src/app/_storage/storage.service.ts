@@ -18,8 +18,7 @@ import {
   QuickLinkSettings,
   SearchSettings,
   TimeSettings,
-  CovidSettings as CovidSettings
-} from './settings';
+  CovidSettings} from './settings';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable()

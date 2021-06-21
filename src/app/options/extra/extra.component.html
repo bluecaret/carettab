@@ -133,37 +133,33 @@
     <options-toggle
       name="enabled"
       [(ngModel)]="settings.config.covidData.enabled"
-      (ngModelChange)="loadData($event)"
     >
     </options-toggle>
   </div>
 
   <ng-container *ngIf="settings.config.covidData.enabled">
-    <div class="btn" (click)="addCountry()">
-      {{ "options.covidData.addCountry" | translate }}
-    </div>
-    <ng-container
-      *ngFor="
-        let country of settings.config.covidData.countries;
-        let i = index;
-        trackBy: trackByFn
-      "
-    >
-      <div class="grid cols-2 mt">
+    <div class="grid cols-2">
+      <div class="span-1">
+        <label title="{{ 'options.covidData.countryDesc' | translate }}">
+          {{ "options.covidData.country" | translate }}
+        </label>
+      </div>
+      <div class="span-1">
+        <label>{{ "options.covidData.actions" | translate }}</label>
+      </div>
+      <ng-container
+        *ngFor="
+          let country of settings.config.covidData.countries;
+          let i = index;
+          trackBy: trackByFn
+        "
+      >
         <div class="input inputStacked">
-          <label
-            [for]="'country' + i"
-            title="{{ 'options.covidData.countryDesc' | translate }}"
-            >{{ "options.covidData.country" | translate }}</label
-          >
           <select
             [name]="'country' + i"
             [id]="'country' + i"
             [(ngModel)]="country.code"
-            (ngModelChange)="
-            updateCountryName(i)
-          "
-           
+            (ngModelChange)="updateCountryName(i)"
           >
             <option
               *ngFor="let country of countryList"
@@ -174,9 +170,6 @@
           </select>
         </div>
         <div class="input inputStacked">
-          <label [for]="'actions' + i">{{
-            "options.covidData.actions" | translate
-          }}</label>
           <div [id]="'actions' + i" class="compactBtnList">
             <button
               type="button"
@@ -205,7 +198,7 @@
                 attr.aria-label="{{ 'options.common.moveUp' | translate }}"
                 title="{{ 'options.common.moveUp' | translate }}"
                 (click)="
-                  shared.changeOrder(country.id, true);
+                  shared.changeOrder(country.id, true,country.position);
                   ga.field('button.covidMoveUp', 'true')
                 "
               >
@@ -218,7 +211,7 @@
                 attr.aria-label="{{ 'options.common.moveDown' | translate }}"
                 title="{{ 'options.common.moveDown' | translate }}"
                 (click)="
-                  shared.changeOrder(country.id, false);
+                  shared.changeOrder(country.id, false,country.position);
                   ga.field('button.covidMoveDown', 'true')
                 "
               >
@@ -235,108 +228,139 @@
             </button>
           </div>
         </div>
+
+        <div *ngIf="selected === i" class="span-2 mt">
+          <div class="input">
+            <label [for]="'covidShowFlag' + i"
+              >{{ "options.covidData.showFlag" | translate
+              }}<tooltip
+                text="{{ 'options.covidData.showFlagDesc' | translate }}"
+              ></tooltip
+            ></label>
+            <options-toggle
+              [name]="'covidShowFlag' + i"
+              [id]="'covidShowFlag' + i"
+              [(ngModel)]="country.enableFlag"
+              (ngModelChange)="
+                ga.field('covid.country.showFlag', country.showFlag)
+              "
+            ></options-toggle>
+          </div>
+          <div class="input"
+            *ngIf="settings.config.covidData.countries[i].enableFlag"
+          >
+            <label [for]="'covidDataFlagSize' + i"
+              >{{ "options.covidData.flagSize" | translate
+              }}<tooltip
+                text="{{ 'options.covidData.flagSizeDesc' | translate }}"
+              ></tooltip
+            ></label>
+            <options-range
+              [name]="'covidDataFlagSize' + i"
+              [id]="'covidDataFlagSize' + i"
+              min="1"
+              max="60"
+              [(ngModel)]="country.flagSize"
+              (ngModelChange)="
+                ga.field(
+                  'covidData.flagSize',
+                  settings.config.covidData.flagSize
+                )
+              "
+            ></options-range>
+          </div>
+          <div class="input">
+            <label [for]="'covidDataScaling' + i"
+              >{{ "options.covidData.textScaling" | translate
+              }}<tooltip
+                text="{{ 'options.covidData.textScalingDesc' | translate }}"
+              ></tooltip
+            ></label>
+            <options-range
+              [name]="'covidDataScaling' + i"
+              [id]="'covidDataScaling' + i"
+              min="1"
+              max="40"
+              [(ngModel)]="country.textScaling"
+              (ngModelChange)="
+                ga.field(
+                  'covidData.textScaling',
+                  settings.config.covidData.textScaling
+                )
+              "
+            ></options-range>
+          </div>
+          <div class="input">
+            <label [for]="'covidDataOffset' + i"
+              >{{ "options.common.offset" | translate
+              }}<tooltip
+                text="{{ 'options.common.offsetDesc' | translate }}"
+              ></tooltip
+            ></label>
+            <options-range
+              [name]="'covidDataOffset' + i"
+              [id]="'covidDataOffset' + i"
+              min="-20"
+              max="20"
+              [(ngModel)]="country.offset"
+              (ngModelChange)="
+                ga.field('covidData.countries.offset', country.offset)
+              "
+            ></options-range>
+          </div>
+          <div class="input">
+            <label [for]="'covidDataPadding' + i"
+              >{{ "options.covidData.padding" | translate
+              }}<tooltip
+                text="{{ 'options.covidData.paddingDesc' | translate }}"
+              ></tooltip
+            ></label>
+            <options-range
+              [name]="'covidDataPadding' + i"
+              [id]="'covidDataPadding' + i"
+              min="0"
+              max="20"
+              [(ngModel)]="country.padding"
+              (ngModelChange)="
+                ga.field('covidData.countries.padding', country.padding)
+              "
+            ></options-range>
+          </div>
+          <div class="input">
+            <label for="covidPlacement">Position</label>
+            <options-position
+              id="covidPlacement"
+              name="covidPlacement"
+              [settingId]="country.id"
+              [(ngModel)]="country.position"
+              (ngModelChange)="shared.changeOrder(country.id, true, country.position);ga.field('country.position', country.position)"
+            ></options-position>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="grid cols-1 mt15">
+      <div class="span-1">
+        <div class="input">
+          <select
+            [name]="'newCountry'"
+            [id]="'newCountry'"
+            [(ngModel)]="newCountry.code"
+          >
+            <option
+              *ngFor="let country of countryList"
+              [ngValue]="country.code"
+            >
+              {{ country.label }}
+            </option>
+          </select>
+          <button type="button" class="btn" (click)="addCountry()">
+            <div class="icon" aria-hidden="true">add</div>
+            {{ "options.covidData.addCountry" | translate }}
+          </button>
+        </div>
       </div>
-      <div *ngIf="selected === i" class="mt">
-        <div class="input">
-          <label [for]="'covidShowFlag' + i"
-            >{{ "options.covidData.showFlag" | translate
-            }}<tooltip
-              text="{{ 'options.covidData.showFlagDesc' | translate }}"
-            ></tooltip
-          ></label>
-          <options-toggle
-            [name]="'covidShowFlag' + i"
-            [id]="'covidShowFlag' + i"
-            [(ngModel)]="country.enableFlag"
-            (ngModelChange)="
-              ga.field('covid.country.showFlag', country.showFlag)
-            "
-          ></options-toggle>
-        </div>
-        <div
-          class="input"
-          *ngIf="settings.config.covidData.countries[i].enableFlag"
-        >
-          <label [for]="'covidDataFlagSize' + i"
-            >{{ "options.covidData.flagSize" | translate
-            }}<tooltip
-              text="{{ 'options.covidData.flagSizeDesc' | translate }}"
-            ></tooltip
-          ></label>
-          <options-range
-            [name]="'covidDataFlagSize' + i"
-            [id]="'covidDataFlagSize' + i"
-            min="1"
-            max="165"
-            [(ngModel)]="country.flagSize"
-            (ngModelChange)="
-              ga.field('covidData.flagSize', settings.config.covidData.flagSize)
-            "
-          ></options-range>
-        </div>
-        <div class="input">
-          <label [for]="'covidDataScaling' + i"
-            >{{ "options.covidData.textScaling" | translate
-            }}<tooltip
-              text="{{ 'options.covidData.textScalingDesc' | translate }}"
-            ></tooltip
-          ></label>
-          <options-range
-            [name]="'covidDataScaling' + i"
-            [id]="'covidDataScaling' + i"
-            min="1"
-            max="40"
-            [(ngModel)]="country.textScaling"
-            (ngModelChange)="
-              ga.field(
-                'covidData.textScaling',
-                settings.config.covidData.textScaling
-              )
-            "
-          ></options-range>
-        </div>
-        <div class="input">
-          <label [for]="'covidDataOffset' + i"
-            >{{ "options.common.offset" | translate
-            }}<tooltip
-              text="{{ 'options.common.offsetDesc' | translate }}"
-            ></tooltip
-          ></label>
-          <options-range
-            [name]="'covidDataOffset' + i"
-            [id]="'covidDataOffset' + i"
-            min="-20"
-            max="20"
-            [(ngModel)]="country.offset"
-            (ngModelChange)="
-              ga.field('covidData.countries.offset', country.offset)
-            "
-          ></options-range>
-        </div>
-        <div class="input">
-          <label [for]="'covidDataPadding' + i"
-            >{{ "options.covidData.padding" | translate
-            }}<tooltip
-              text="{{ 'options.covidData.paddingDesc' | translate }}"
-            ></tooltip
-          ></label>
-          <options-range
-            [name]="'covidDataPadding' + i"
-            [id]="'covidDataPadding' + i"
-            min="1"
-            max="20"
-            [(ngModel)]="country.padding"
-            (ngModelChange)="
-              ga.field('covidData.countries.padding', country.padding)
-            "
-          ></options-range>
-        </div>
-        <div class="input">
-          <label for="covidPlacement">Position</label>
-          <options-position id="covidPlacement" name="covidPlacement" [settingId]="country.id" [(ngModel)]="country.position" (ngModelChange)="ga.field('country.position', country.position)"></options-position>
-        </div>
-      </div>
-    </ng-container>
+    </div>
   </ng-container>
 </form>
 <h3>{{ "options.extra.exportImport" | translate }}</h3>

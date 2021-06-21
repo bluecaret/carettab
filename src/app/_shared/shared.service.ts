@@ -166,8 +166,8 @@ export class SharedService {
   }
 
   public getImageSize(size: number, baseSize?: number) {
-    let base = baseSize ? baseSize : 165;
-    return ((size / base)*100) + 'px';
+    let base = baseSize ? baseSize : 10;
+    return ((size / base)) + 'em';
   }
   
   public getMargin(size: number) {

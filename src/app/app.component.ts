@@ -66,28 +66,35 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.settings.onChange().subscribe((data) => {
       this.enableAnalytics(this.settings.config.misc.enableAnalytics);
     });
+
+    // Set background initially to blank pattern to avoid 404 error due to setTimeout
+    this.shared.bg = './assets/patterns/0.png';
   }
 
   ngAfterViewInit(): void {
     // Set background image
-    let savedImg = localStorage.getItem('bgImg');
-    if (savedImg != null || savedImg != undefined) {
-      this.shared.bg = savedImg;
-      this.shared.echo('Background image found in storage', savedImg.substr(0,20))
-    } else {
-      let patternId = this.settings.config.design.patternId;
-      let img = '0.png';
-
-      // Check for "900" is for backwards compatibility with an old bug
-      if (patternId !== null && patternId !== undefined && patternId !== 0 && patternId !== 99999 && patternId !== 900) {
-        img = patterns.find(p => p.id === patternId).pattern;
-        this.shared.echo('No background, use selected pattern:', patternId)
+    // Must be in setTimeout or else settings don't have time to load preventing image from being set.
+    setTimeout(() => {
+      let savedImg = localStorage.getItem('bgImg');
+      if (savedImg != null || savedImg != undefined) {
+        this.shared.bg = savedImg;
+        this.shared.echo('Background image found in storage', savedImg.substr(0,20))
       } else {
-        this.shared.echo('No background or pattern set', patternId)
+        let patternId = this.settings.config.design.patternId;
+        console.log('patternId', patternId);
+        let img = '0.png';
+
+        // Check for "900" is for backwards compatibility with an old bug
+        if (patternId !== null && patternId !== undefined && patternId !== 0 && patternId !== 99999 && patternId !== 900) {
+          img = patterns.find(p => p.id === patternId).pattern;
+          this.shared.echo('No background, use selected pattern:', patternId)
+        } else {
+          this.shared.echo('No background or pattern set', patternId)
+        }
+        let bg = './assets/patterns/' + img;
+        this.shared.bg = bg;
       }
-      let bg = './assets/patterns/' + img;
-      this.shared.bg = bg;
-    }
+    }, 0);
   }
 
   enableAnalytics(enable: boolean) {

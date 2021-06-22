@@ -3,7 +3,7 @@
   <div class="input">
     <label>{{'options.bookmarks.enableBar' | translate}}</label>
     <button class="btn" *ngIf="!hasBookmarkPermission" (click)="setBookmarkPermission(); ga.field('button.bookmarkPermissionRequest', 'true');">Allow extension to access Bookmarks</button>
-    <options-toggle *ngIf="hasBookmarkPermission" name="toggleBookmarks" [(ngModel)]="settings.config.bookmark.enabled" (ngModelChange)="ga.field('bookmark.enabled', settings.config.bookmark.enabled);"></options-toggle>
+    <options-toggle *ngIf="hasBookmarkPermission" name="toggleBookmarks" [(ngModel)]="settings.config.bookmark.enabled" (ngModelChange)="getBookmarks(); ga.field('bookmark.enabled', settings.config.bookmark.enabled);"></options-toggle>
   </div>
   <div class="input" *ngIf="settings.config.bookmark.enabled">
     <label>{{'options.bookmarks.favicons' | translate}}</label>

@@ -52,7 +52,7 @@
           </ng-container>
         </div>
       </li>
-      <li class="barNode" *ngFor="let item of allBookmarks; let i = index">
+      <li class="barNode" *ngFor="let item of shared.allBookmarks; let i = index">
         <ng-container *ngIf="item.url; else bookmarkFolder">
           <a
             href="{{item.url}}"

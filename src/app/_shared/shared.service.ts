@@ -15,6 +15,7 @@ export class SharedService {
   private _browser: string;
   private _status: string;
   private _updateType: "major" | "minor" | "quiet" | "hidden";
+  private _allBookmarks: any;
 
   constructor(
     public settings: Storage
@@ -96,6 +97,13 @@ export class SharedService {
   }
   set updateType(value: "major" | "minor" | "quiet" | "hidden") {
     this._updateType = value;
+  }
+
+  get allBookmarks(): any {
+    return this._allBookmarks;
+  }
+  set allBookmarks(value: any) {
+    this._allBookmarks = value;
   }
 
   public echo(msg: string, str?: any, obj?: any, type?: 'warning' | 'error' | 'success' | 'save') {

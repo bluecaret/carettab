@@ -1,9 +1,9 @@
-<div class="covidContainer" [style.padding]="getWidth(settings.config.covidData.countries[index].padding)">
+<div class="covidContainer">
   <div class="flag" *ngIf="settings.config.covidData.countries[index].enableFlag"
   >
     <img  [ngStyle]="{ 'height' :shared.getImageSize(settings.config.covidData.countries[index].flagSize)}"  [src]="countryData.countryInfo.flag" alt="flag" />
   </div>
-  <div class="info" [style.padding]="getWidth(settings.config.covidData.countries[index].padding)">
+  <div class="info">
     <div><strong>Country :</strong> {{ countryData.country }}</div>
     <div><strong>Today :</strong> {{ countryData.todayCases }}</div>
     <div><strong>Deaths :</strong> {{ countryData.deaths }}</div>

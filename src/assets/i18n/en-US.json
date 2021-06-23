@@ -144,7 +144,9 @@
     "message": {
       "customMsg": "Custom message",
       "msg": "Message",
-      "msgText": "Message text"
+      "msgText": "Message text",
+      "save": "Save new message",
+      "messageValidation":"Empty strings are not allowed"
     },
     "search": {
       "autocomplete": "Autocomplete",
@@ -179,6 +181,11 @@
     "time": {
       "actions": "Actions",
       "addNewClock": "Add New Clock",
+      "binary": "Binary",
+      "binaryEnable": "Enable binary clock",
+      "binaryEnableDesc": "Displays the clock in a binary format.",    
+      "binaryDim": "Dim",
+      "binaryDimDesc": "Dim the binary clock.",    
       "analog": "Analog",
       "analogEnable": "Enable analog clock",
       "analogEnableDesc": "Displays the clock in an analog style instead of digital.",

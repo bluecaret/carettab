@@ -14,7 +14,9 @@ export class SharedService {
   private _bgColor: string;
   private _browser: string;
   private _status: string;
+  private _advancedLayout: boolean = false;
   private _updateType: "major" | "minor" | "quiet" | "hidden";
+  private _allBookmarks: any;
 
   constructor(
     public settings: Storage
@@ -91,11 +93,25 @@ export class SharedService {
     this._status = value;
   }
 
+  get advancedLayout(): boolean {
+    return this._advancedLayout;
+  }
+  set advancedLayout(value: boolean) {
+    this._advancedLayout = value;
+  }
+
   get updateType(): "major" | "minor" | "quiet" | "hidden" {
     return this._updateType;
   }
   set updateType(value: "major" | "minor" | "quiet" | "hidden") {
     this._updateType = value;
+  }
+
+  get allBookmarks(): any {
+    return this._allBookmarks;
+  }
+  set allBookmarks(value: any) {
+    this._allBookmarks = value;
   }
 
   public echo(msg: string, str?: any, obj?: any, type?: 'warning' | 'error' | 'success' | 'save') {
@@ -112,21 +128,21 @@ export class SharedService {
     }
     if (str) {
       console.log(
-        `%c${msg}%c${str}`, 
-        style, 
+        `%c${msg}%c${str}`,
+        style,
         strStyle
       );
     }
     if (obj) {
       console.log(
-        `%c${msg}`, 
-        style, 
+        `%c${msg}`,
+        style,
         obj
       );
     }
     if (!str && !obj) {
       console.log(
-        `%c${msg}`, 
+        `%c${msg}`,
         style
       );
     }
@@ -164,18 +180,23 @@ export class SharedService {
     let emBase = baseSize ? baseSize : 10;
     return (size / emBase) + 'em';
   }
-
+  
   public getImageSize(size: number, baseSize?: number) {
     let base = baseSize ? baseSize : 10;
     return ((size / base)) + 'em';
   }
   
-  public getMargin(size: number) {
-    return (size * .1) + 'em';
+  public getMaxWidth(size: number) {
+    // Max width will always be based on viewport as opposed to scaling method.
+    return (size * 1) + 'vw';
   }
 
-  public getPadding(size: number) {
-    return (size * .1) + 'em';
+  public getMargin(height: number, width: number, multiplier = .1) {
+    return `${height * multiplier}em ${width * multiplier}em`;
+  }
+
+  public getPadding(size: number, multiplier = .1) {
+    return (size * multiplier) + 'em';
   }
 
   public getOffset(size: number) {
@@ -479,7 +500,7 @@ export class SharedService {
     this.settings.setAll(this.settings.config.date, 'ct-date');
     this.settings.setAll(this.settings.config.design, 'ct-design');
     this.settings.setAll(this.settings.config.i18n, 'ct-i18n');
-    this.settings.setAll(this.settings.config.message, 'ct-message');
+    this.settings.setAll(this.settings.config.messages, 'ct-message');
     this.settings.setAll(this.settings.config.misc, 'ct-misc');
     this.settings.setAll(this.settings.config.order, 'ct-order');
     this.settings.setAll(this.settings.config.quickLink, 'ct-quick-link');
@@ -488,6 +509,9 @@ export class SharedService {
     this.settings.setAll(this.settings.config.weather, 'ct-weather');
   }
 
+  public getRandomNumber(min,max): number {
+    return Math.floor(Math.random() * (max - min)) + min;
+  };
 }
 
 @Pipe({ name: 'translateCut' })

@@ -29,13 +29,17 @@ $barFontWeight: 300;
 }
 
 .bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   background: $barBg;
   color: black;
-  padding: 5px 8px;
+  padding: $barPadding;
   border-bottom: 1px solid $barBorder;
   z-index: z('tabBookmarks');
   @media (prefers-color-scheme: dark) {
@@ -109,6 +113,9 @@ $barFontWeight: 300;
   width: 16px;
   height: 16px;
   font-size: 16px;
+  &.icon {
+    line-height: 16px;
+  }
 }
 
 .barIcon + .barLabel {

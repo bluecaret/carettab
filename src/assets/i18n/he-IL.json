@@ -142,7 +142,9 @@
     "message": {
       "customMsg": "הודעה מותאמת אישית",
       "msg": "הודעה",
-      "msgText": "הודעת טקסט"
+      "msgText": "הודעת טקסט",
+      "save": "שמור הודעה חדשה",
+      "messageValidation":"מחרוזות ריקות אינן מורשות"
     },
     "search": {
       "autocomplete": "השלמה אוטומטית",

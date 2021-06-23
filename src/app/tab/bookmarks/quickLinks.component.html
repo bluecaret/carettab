@@ -1,34 +1,43 @@
 <div
   class="quickLinksBar"
-  [style.fontSize]="shared.getFontSize(settings.config.quickLink.scaling)"
   *ngIf="settings.config.quickLink.enabled">
-  <ul>
+  <ul 
+    [ngClass]="{
+      'quickLinksVertical' : settings.config.quickLink.vertical,
+      'quickLinksAlignLeft' : settings.config.quickLink.textAlign === 'left',
+      'quickLinksAlignCenter' : settings.config.quickLink.textAlign === 'center',
+      'quickLinksAlignRight' : settings.config.quickLink.textAlign === 'right'
+    }"
+    [ngStyle]="{
+      'gap' : shared.getPadding(settings.config.quickLink.padding, .5)
+    }"
+  >
     <li *ngIf="settings.config.quickLink.apps">
-      <button title="{{'tab.bookmarks.links.apps' | translate}}" class="link" [ngStyle]="{'padding' : shared.getPadding(settings.config.quickLink.padding)}" (click)="apps(); ga.field('tab.quickLinks.apps', 'true')">
+      <button title="{{'tab.bookmarks.links.apps' | translate}}" class="link" (click)="apps(); ga.field('tab.quickLinks.apps', 'true')">
         <img *ngIf="settings.config.quickLink.icons" src="/assets/img/apps.png" class="quickLinksIcon">
         <div class="quickLinksLabel">{{'tab.bookmarks.links.apps' | translate}}</div>
       </button>
     </li>
     <li *ngIf="settings.config.quickLink.chromeTab">
-      <button title="{{'tab.bookmarks.links.chromeTab' | translate}}" class="link" [ngStyle]="{'padding' : shared.getPadding(settings.config.quickLink.padding)}" (click)="chromeTab(); ga.field('tab.quickLinks.defaultTab', 'true')">
+      <button title="{{'tab.bookmarks.links.chromeTab' | translate}}" class="link" (click)="chromeTab(); ga.field('tab.quickLinks.defaultTab', 'true')">
         <img *ngIf="settings.config.quickLink.icons" src="/assets/img/tab.png" class="quickLinksIcon">
         <div class="quickLinksLabel">{{'tab.bookmarks.links.chromeTab' | translate}}</div>
       </button>
     </li>
     <li *ngIf="settings.config.quickLink.history">
-      <button title="{{'tab.bookmarks.links.history' | translate}}" class="link" [ngStyle]="{'padding' : shared.getPadding(settings.config.quickLink.padding)}" (click)="history(); ga.field('tab.quickLinks.history', 'true')">
+      <button title="{{'tab.bookmarks.links.history' | translate}}" class="link" (click)="history(); ga.field('tab.quickLinks.history', 'true')">
         <img *ngIf="settings.config.quickLink.icons" src="/assets/img/history.png" class="quickLinksIcon">
         <div class="quickLinksLabel">{{'tab.bookmarks.links.history' | translate}}</div>
       </button>
     </li>
     <li *ngIf="settings.config.quickLink.bookmarksManager">
-      <button title="{{'tab.bookmarks.links.bookmarksManager' | translate}}" class="link" [ngStyle]="{'padding' : shared.getPadding(settings.config.quickLink.padding)}" (click)="bookmarksManager(); ga.field('tab.quickLinks.manager', 'true')">
+      <button title="{{'tab.bookmarks.links.bookmarksManager' | translate}}" class="link" (click)="bookmarksManager(); ga.field('tab.quickLinks.manager', 'true')">
         <img *ngIf="settings.config.quickLink.icons" src="/assets/img/bookmarks.png" class="quickLinksIcon">
         <div class="quickLinksLabel">{{'tab.bookmarks.links.bookmarksManager' | translate}}</div>
       </button>
     </li>
     <li class="mostVisitedLink" *ngIf="settings.config.quickLink.mostVisited">
-      <button title="{{'tab.bookmarks.links.mostVisited' | translate}}" class="link" [ngStyle]="{'padding' : shared.getPadding(settings.config.quickLink.padding)}" (click)="toggleMvMenu = !toggleMvMenu; ga.field('tab.quickLinks.topSites', 'true')">
+      <button title="{{'tab.bookmarks.links.mostVisited' | translate}}" class="link" (click)="toggleMvMenu = !toggleMvMenu; ga.field('tab.quickLinks.topSites', 'true')">
         <img *ngIf="settings.config.quickLink.icons" src="/assets/img/folder.png" class="quickLinksIcon">
         <div class="quickLinksLabel">{{'tab.bookmarks.links.mostVisited' | translate}}</div>
       </button>
@@ -50,7 +59,6 @@
           href="{{item.url}}" 
           (click)="ga.field('tab.quickLinks.link', 'true')"
           class="link"
-          [ngStyle]="{'padding' : shared.getPadding(settings.config.quickLink.padding)}"
           title="{{getShortcut(i)}}" 
           attr.accesskey="{{i <= 9 ? i + 1 : null}}">
           <img *ngIf="settings.config.quickLink.icons" [src]="getQuickLinksIcon(item.url)" class="quickLinksIcon">

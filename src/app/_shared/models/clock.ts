@@ -8,7 +8,8 @@ export class Clock {
     public scaling: number = 5,
     public span: number = 10,
     public padding: number = 10,
-    public margin: number = 0,
+    public marginHeight: number = 0,
+    public marginWidth: number = 0,
     public position: string = 'c',
     public offset: number = 0,
     public twentyFour: boolean = false,
@@ -19,6 +20,7 @@ export class Clock {
     public delimiter: Delimiter = new Delimiter(),
     public brackets: Brackets = new Brackets(),
     public analog: Analog = new Analog(),
+    public binary: Binary = new Binary(),
   ) {}
 }
 
@@ -88,5 +90,13 @@ export class Analog {
   constructor(
     public enabled: boolean = false,
     public style: number = 10
+  ) {}
+}
+
+
+export class Binary {
+  constructor(
+    public enabled: boolean = false,
+    public dim: boolean = true
   ) {}
 }

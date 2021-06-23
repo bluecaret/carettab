@@ -33,8 +33,8 @@ export class TabComponent implements OnInit {
   }
 
   ngOnInit() {
-    let localBg = localStorage.getItem('ct-background');
-    this.shared.bgColor = localBg ? localBg : this.settings.config.design.background;
+    let localBgColor = localStorage.getItem('ct-background');
+    this.shared.bgColor = localBgColor ? localBgColor : this.settings.config.design.background;
     this.translate.use(this.settings.config.i18n.lang);
     this.translate.get('title.newTab').subscribe(value => {
       this.NEW_TAB_TEXT = value;
@@ -124,38 +124,67 @@ export class TabComponent implements OnInit {
   setTimeStyles(clock): Object {
     const styles = {
       'font-size' : this.shared.getFontSize(clock.scaling, 1.7),
-      'flex-basis' : this.getClockSpan(clock.span),
+      'width' : this.getClockSpan(clock.span),
       'order' : this.shared.getOrder(clock.id, clock.position),
       'transform' : this.shared.getOffset(clock.offset),
-      'margin' : this.shared.getMargin(clock.margin)
+      'margin' : this.shared.getMargin(clock.marginHeight, clock.marginWidth)
+    };
+    return styles;
+  }
+
+  setQuickLinkWrapStyles(): Object {
+    const styles = {
+      'order' : this.shared.getOrder(this.settings.config.quickLink.id, this.settings.config.quickLink.position)
     };
     return styles;
   }
 
   setQuickLinkStyles(): Object {
     const styles = {
-      'order' : this.shared.getOrder(this.settings.config.quickLink.id, this.settings.config.quickLink.position),
+      'font-size' : this.shared.getFontSize(this.settings.config.quickLink.scaling),
+      'max-width' : this.settings.config.quickLink.vertical ? this.shared.getMaxWidth(100) : this.shared.getMaxWidth(this.settings.config.quickLink.width),
       'transform' : this.shared.getOffsetLarge(this.settings.config.quickLink.offset),
-      'margin' : this.shared.getMargin(this.settings.config.quickLink.margin)
+      'margin' : this.shared.getMargin(this.settings.config.quickLink.marginHeight, this.settings.config.quickLink.marginWidth, .4)
+    };
+    return styles;
+  }
+
+  setDateWrapStyles(): Object {
+    const styles = {
+      'order' : this.shared.getOrder(this.settings.config.date.id, this.settings.config.date.position)
     };
     return styles;
   }
 
   setDateStyles(): Object {
     const styles = {
-      'order' : this.shared.getOrder(this.settings.config.date.id, this.settings.config.date.position),
       'transform' : this.shared.getOffsetLarge(this.settings.config.date.offset),
-      'margin' : this.shared.getMargin(this.settings.config.date.margin)
+      'margin' : this.shared.getMargin(this.settings.config.date.marginHeight, this.settings.config.date.marginWidth)
+    };
+    return styles;
+  }
+
+  setMessageWrapStyles(): Object {
+    const styles = {
+      'order' : this.shared.getOrder(this.settings.config.messages.id, this.settings.config.messages.position)
     };
     return styles;
   }
 
   setMessageStyles(): Object {
     const styles = {
-      'font-size' : this.shared.getFontSize(this.settings.config.message.scaling, 3),
-      'order' : this.shared.getOrder(this.settings.config.message.id, this.settings.config.message.position),
-      'transform' : this.shared.getOffsetLarge(this.settings.config.message.offset),
-      'margin' : this.shared.getMargin(this.settings.config.message.margin)
+      'font-size' : this.shared.getFontSize(this.settings.config.messages.scaling, 3),
+      'text-align' : this.settings.config.messages.textAlign,
+      'max-width' : this.shared.getMaxWidth(this.settings.config.messages.width),
+      'transform' : this.shared.getOffsetLarge(this.settings.config.messages.offset),
+      'margin' : this.shared.getMargin(this.settings.config.messages.marginHeight, this.settings.config.messages.marginWidth)
+    };
+    return styles;
+  }
+
+  setSearchWrapStyles(): Object {
+    const styles = {
+      'order' : this.shared.getOrder(this.settings.config.search.id, this.settings.config.search.position)
     };
     return styles;
   }
@@ -163,9 +192,15 @@ export class TabComponent implements OnInit {
   setSearchStyles(): Object {
     const styles = {
       'font-size' : this.shared.getFontSize(this.settings.config.search.scaling, 3),
-      'order' : this.shared.getOrder(this.settings.config.search.id, this.settings.config.search.position),
       'transform' : this.shared.getOffsetLarge(this.settings.config.search.offset),
-      'margin' : this.shared.getMargin(this.settings.config.search.margin)
+      'margin' : this.shared.getMargin(this.settings.config.search.marginHeight, this.settings.config.search.marginWidth)
+    };
+    return styles;
+  }
+
+  setWeatherWrapStyles(): Object {
+    const styles = {
+      'order' : this.shared.getOrder(this.settings.config.weather.id, this.settings.config.weather.position)
     };
     return styles;
   }
@@ -173,9 +208,8 @@ export class TabComponent implements OnInit {
   setWeatherStyles(): Object {
     const styles = {
       'font-size' : this.shared.getFontSize(this.settings.config.weather.scaling, 12),
-      'order' : this.shared.getOrder(this.settings.config.weather.id, this.settings.config.weather.position),
       'transform' : this.shared.getOffsetLarge(this.settings.config.weather.offset),
-      'margin' : this.shared.getMargin(this.settings.config.weather.margin)
+      'margin' : this.shared.getMargin(this.settings.config.weather.marginHeight, this.settings.config.weather.marginWidth)
     };
     return styles;
   }

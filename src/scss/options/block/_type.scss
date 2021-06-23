@@ -33,3 +33,9 @@ app-splash a {
   color: var(--optAccent);
   text-decoration: underline;
 }
+
+.layoutHeading {
+  display: flex;
+  gap: 10px;
+  // justify-content: space-between;
+}

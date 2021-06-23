@@ -3,7 +3,7 @@ $qlBorder: 1px solid $qlBorderColor;
 $qlRadius: 8px;
 
 .tabQuickLinks {
-  width: 100%;
+  width: max-content;
 }
 
 .quickLinksBar {
@@ -17,20 +17,45 @@ $qlRadius: 8px;
     width: 100%;
     flex-wrap: wrap;
     list-style: none;
-    margin: .5em 0 0 0;
+    margin: 0;
     padding: 0;
+    &.quickLinksVertical {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    &.quickLinksAlignLeft {
+      justify-content: flex-start;
+      &.quickLinksVertical {
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+    }
+    &.quickLinksAlignCenter {
+      justify-content: center;
+      &.quickLinksVertical {
+        justify-content: flex-start;
+        align-items: center;
+      }
+    }
+    &.quickLinksAlignRight {
+      justify-content: flex-end;
+      &.quickLinksVertical {
+        justify-content: flex-start;
+        align-items: flex-end;
+      }
+    }
   }
   button.link,
   a.link {
-    display: flex;
+    display: inline-flex;
     flex-wrap: nowrap;
     font-size: inherit;
     font-weight: inherit;
     align-items: center;
-    padding: .5em 1.2em;
     text-decoration: none;
     transition: transform 0.2s;
-    text-align: center;
+    text-align: left;
     color: inherit;
     background: transparent;
     font-family: inherit;
@@ -52,6 +77,29 @@ $qlRadius: 8px;
   }
   .quickLinksIcon + .quickLinksLabel {
     margin-left: .4em;
+  }
+
+  .quickLinksAlignLeft {
+    .quickLinksLabel {
+      text-align: left;
+    }
+  }
+  .quickLinksAlignCenter {
+    .quickLinksLabel {
+      text-align: center;
+    }
+  }
+  .quickLinksAlignRight {
+    .quickLinksLabel {
+      text-align: right;
+    }
+    .quickLinksIcon {
+      order: 2;
+    }
+    .quickLinksIcon + .quickLinksLabel {
+      margin-right: .4em;
+      margin-left: 0;
+    }
   }
 }
 

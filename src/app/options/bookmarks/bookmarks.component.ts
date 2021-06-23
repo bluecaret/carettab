@@ -85,6 +85,16 @@ export class OptionsBookmarksComponent implements OnInit {
     }
   }
 
+  getBookmarks() {
+    if (this.settings.config.bookmark.enabled) {
+      chrome.bookmarks.getTree(bookmarks => {
+        this.zone.run(() => {
+          this.shared.allBookmarks = bookmarks[0].children[0].children;
+        });
+      });
+    }
+  }
+
   checkTopSitesPermission() {
     const that = this;
     chrome.permissions.contains({permissions: ['topSites']}, function(result) {

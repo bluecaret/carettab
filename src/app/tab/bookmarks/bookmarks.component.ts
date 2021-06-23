@@ -23,7 +23,6 @@ import { GoogleAnalyticsService } from '../../_shared/ga.service';
   host: {'class': 'tabBookmarks'}
 })
 export class TabBookmarksComponent implements OnInit {
-  allBookmarks: any;
   isLoading: boolean;
   toggle: any = {};
   allMostVisited: any;
@@ -97,9 +96,9 @@ export class TabBookmarksComponent implements OnInit {
     chrome.bookmarks.getTree(bookmarks => {
       this.zone.run(() => {
         this.isLoading = false;
-        this.allBookmarks = bookmarks[0].children[0].children;
+        this.shared.allBookmarks = bookmarks[0].children[0].children;
         this.cdRef.detectChanges();
-        this.toggle = this.allBookmarks.map(i => false);
+        this.toggle = this.shared.allBookmarks.map(i => false);
       });
     });
   }

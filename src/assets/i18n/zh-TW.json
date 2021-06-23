@@ -142,7 +142,9 @@
     "message": {
       "customMsg": "自訂訊息",
       "msg": "信息",
-      "msgText": "訊息文字"
+      "msgText": "訊息文字",
+      "save": "保存新消息",
+      "messageValidation":"不允许空字符串"
     },
     "search": {
       "autocomplete": "自動完成",

@@ -19,7 +19,16 @@
       <label>{{'options.search.autocomplete' | translate}}<tooltip text="{{'options.search.autocompleteDesc' | translate}}"></tooltip></label>
       <options-toggle name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete" (ngModelChange)="ga.field('search.autocomplete', settings.config.search.autocomplete)"></options-toggle>
     </div>
-    <h3>Layout</h3>
+
+    <!-- Layout -->
+    <h3 class="layoutHeading">
+      <span>Layout</span>
+      <button class="btn btnSmall" [ngClass]="{'active' : shared.advancedLayout}" (click)="shared.advancedLayout = !shared.advancedLayout"><span class="icon">build</span> Advanced</button>
+    </h3>
+    <div class="input">
+      <label>{{'options.common.size' | translate}}</label>
+      <options-range name="searchSize" id="searchSize" min="1" max="20" [(ngModel)]="settings.config.search.scaling" (ngModelChange)="ga.field('search.scaling', settings.config.search.scaling)"></options-range>
+    </div>
     <div class="input">
       <label>{{'options.common.order' | translate}}</label>
       <div class="orderBtns">
@@ -43,25 +52,27 @@
         </button>
       </div>
     </div>
-    <div class="input">
-      <label>{{'options.common.size' | translate}}</label>
-      <options-range name="searchSize" id="searchSize" min="1" max="20" [(ngModel)]="settings.config.search.scaling" (ngModelChange)="ga.field('search.scaling', settings.config.search.scaling)"></options-range>
-    </div>
-    <div class="input">
-      <label>{{'options.common.offset' | translate}}</label>
-      <options-range name="searchOffset" min="-20" max="20" [(ngModel)]="settings.config.search.offset" (ngModelChange)="ga.field('search.offset', settings.config.search.offset)"></options-range>
-    </div>
-    <div class="input">
-      <label>{{'options.common.width' | translate}}</label>
-      <options-range name="searchWidth" min="5" max="30" [(ngModel)]="settings.config.search.width" (ngModelChange)="ga.field('search.width', settings.config.search.width)"></options-range>
-    </div>
-    <div class="input">
-      <label for="searchMargin">Margin</label>
-      <options-range name="searchMargin" min="0" max="100" [(ngModel)]="settings.config.search.margin" (ngModelChange)="ga.field('search.margin', settings.config.search.margin)"></options-range>
-    </div>
-    <div class="input">
-      <label for="searchPlacement">Position</label>
-      <options-position id="searchPlacement" name="searchPlacement" [settingId]="settings.config.search.id" [(ngModel)]="settings.config.search.position" (ngModelChange)="ga.field('search.position', settings.config.search.position)"></options-position>
-    </div>
+    <ng-container *ngIf="shared.advancedLayout">
+      <div class="input">
+        <label for="searchPlacement">Position</label>
+        <options-position id="searchPlacement" name="searchPlacement" [settingId]="settings.config.search.id" [(ngModel)]="settings.config.search.position" (ngModelChange)="ga.field('search.position', settings.config.search.position)"></options-position>
+      </div>
+      <div class="input">
+        <label>{{'options.common.width' | translate}}</label>
+        <options-range name="searchWidth" min="5" max="30" [(ngModel)]="settings.config.search.width" (ngModelChange)="ga.field('search.width', settings.config.search.width)"></options-range>
+      </div>
+      <div class="input">
+        <label for="searchMarginHeight">Margin Height</label>
+        <options-range name="searchMarginHeight" min="0" max="100" [(ngModel)]="settings.config.search.marginHeight" (ngModelChange)="ga.field('search.marginHeight', settings.config.search.marginHeight)"></options-range>
+      </div>
+      <div class="input">
+        <label for="searchMarginWidth">Margin Width</label>
+        <options-range name="searchMarginWidth" min="0" max="100" [(ngModel)]="settings.config.search.marginWidth" (ngModelChange)="ga.field('search.marginWidth', settings.config.search.marginWidth)"></options-range>
+      </div>
+      <div class="input">
+        <label>{{'options.common.offset' | translate}}</label>
+        <options-range name="searchOffset" min="-20" max="20" [(ngModel)]="settings.config.search.offset" (ngModelChange)="ga.field('search.offset', settings.config.search.offset)"></options-range>
+      </div>
+    </ng-container>
   </ng-container>
 </form>

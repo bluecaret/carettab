@@ -85,7 +85,8 @@ export class SplashComponent implements OnInit {
         scaling: 10,
         span: 40,
         padding: 10,
-        margin: 0,
+        marginHeight: 0,
+        marginWidth: 0,
         position: 'c',
         offset: 0,
         twentyFour: false,
@@ -137,6 +138,10 @@ export class SplashComponent implements OnInit {
         analog: {
           enabled: false,
           style: 10
+        },
+        binary: {
+          enabled: false,
+          dim:false
         }
       });
     } else {

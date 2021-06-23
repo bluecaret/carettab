@@ -19,9 +19,14 @@
   <div class="tabGrid" [ngClass]="{'tabGridBookmarksBar': settings.config.bookmark.enabled}">
 
     <article id="nw" class="gridPosition">
-      <tab-quickLinks
-        *ngIf="settings.config.quickLink.position === 'nw' && settings.config.quickLink.enabled"
-        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
+      <div 
+        class="forceLineBreak" 
+        *ngIf="settings.config.quickLink.position === 'nw' && settings.config.quickLink.enabled" 
+        [ngStyle]="setQuickLinkWrapStyles()">
+        <tab-quickLinks
+          [ngStyle]="setQuickLinkStyles()">
+        </tab-quickLinks>
+      </div>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -32,24 +37,40 @@
           </tab-time>
         </ng-container>
       </ng-container>
-      <tab-date
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.date.position === 'nw' && settings.config.date.enabled"
-        [ngStyle]="setDateStyles()"></tab-date>
-      <tab-message
-        *ngIf="settings.config.messages.position === 'nw' && settings.config.messages.enabled"
-        [ngStyle]="setMessageStyles()"></tab-message>
-      <tab-search
+        [ngStyle]="setDateWrapStyles()">
+        <tab-date [ngStyle]="setDateStyles()"></tab-date>
+      </div>
+      <div class="forceLineBreak" *ngIf="settings.config.messages.position === 'nw' && settings.config.messages.enabled" [ngStyle]="setMessageWrapStyles()">
+        <tab-message [ngStyle]="setMessageStyles()"></tab-message>
+      </div>
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.search.position === 'nw' && settings.config.search.enabled"
-        [ngStyle]="setSearchStyles()"></tab-search>
-      <tab-weather 
+        [ngStyle]="setSearchWrapStyles()">
+        <tab-search
+          [ngStyle]="setSearchStyles()"></tab-search>
+      </div>
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.weather.position === 'nw' && settings.config.weather.enabled"
-        [ngStyle]="setWeatherStyles()"></tab-weather>
+        [ngStyle]="setWeatherWrapStyles()">
+        <tab-weather 
+          [ngStyle]="setWeatherStyles()"></tab-weather>
+      </div>
     </article>
 
     <article id="n" class="gridPosition">
-      <tab-quickLinks
-        *ngIf="settings.config.quickLink.position === 'n' && settings.config.quickLink.enabled"
-        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
+      <div 
+        class="forceLineBreak" 
+        *ngIf="settings.config.quickLink.position === 'n' && settings.config.quickLink.enabled" 
+        [ngStyle]="setQuickLinkWrapStyles()">
+        <tab-quickLinks
+          [ngStyle]="setQuickLinkStyles()">
+        </tab-quickLinks>
+      </div>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -60,24 +81,40 @@
           </tab-time>
         </ng-container>
       </ng-container>
-      <tab-date
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.date.position === 'n' && settings.config.date.enabled"
-        [ngStyle]="setDateStyles(clock)"></tab-date>
-      <tab-message
-        *ngIf="settings.config.messages.position === 'n' && settings.config.messages.enabled"
-        [ngStyle]="setMessageStyles(clock)"></tab-message>
-      <tab-search
+        [ngStyle]="setDateWrapStyles()">
+        <tab-date [ngStyle]="setDateStyles()"></tab-date>
+      </div>
+      <div class="forceLineBreak" *ngIf="settings.config.messages.position === 'n' && settings.config.messages.enabled" [ngStyle]="setMessageWrapStyles()">
+        <tab-message [ngStyle]="setMessageStyles()"></tab-message>
+      </div>
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.search.position === 'n' && settings.config.search.enabled"
-        [ngStyle]="setSearchStyles(clock)"></tab-search>
-      <tab-weather 
+        [ngStyle]="setSearchWrapStyles()">
+        <tab-search
+          [ngStyle]="setSearchStyles()"></tab-search>
+      </div>
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.weather.position === 'n' && settings.config.weather.enabled"
-        [ngStyle]="setWeatherStyles(clock)"></tab-weather>
+        [ngStyle]="setWeatherWrapStyles()">
+        <tab-weather 
+          [ngStyle]="setWeatherStyles()"></tab-weather>
+      </div>
     </article>
 
     <article id="ne" class="gridPosition">
-      <tab-quickLinks
-        *ngIf="settings.config.quickLink.position === 'ne' && settings.config.quickLink.enabled"
-        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
+      <div 
+        class="forceLineBreak" 
+        *ngIf="settings.config.quickLink.position === 'ne' && settings.config.quickLink.enabled" 
+        [ngStyle]="setQuickLinkWrapStyles()">
+        <tab-quickLinks
+          [ngStyle]="setQuickLinkStyles()">
+        </tab-quickLinks>
+      </div>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -88,24 +125,40 @@
           </tab-time>
         </ng-container>
       </ng-container>
-      <tab-date
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.date.position === 'ne' && settings.config.date.enabled"
-        [ngStyle]="setDateStyles(clock)"></tab-date>
-      <tab-message
-        *ngIf="settings.config.messages.position === 'ne' && settings.config.messages.enabled"
-        [ngStyle]="setMessageStyles(clock)"></tab-message>
-      <tab-search
+        [ngStyle]="setDateWrapStyles()">
+        <tab-date [ngStyle]="setDateStyles()"></tab-date>
+      </div>
+      <div class="forceLineBreak" *ngIf="settings.config.messages.position === 'ne' && settings.config.messages.enabled" [ngStyle]="setMessageWrapStyles()">
+        <tab-message [ngStyle]="setMessageStyles()"></tab-message>
+      </div>
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.search.position === 'ne' && settings.config.search.enabled"
-        [ngStyle]="setSearchStyles(clock)"></tab-search>
-      <tab-weather 
+        [ngStyle]="setSearchWrapStyles()">
+        <tab-search
+          [ngStyle]="setSearchStyles()"></tab-search>
+      </div>
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.weather.position === 'ne' && settings.config.weather.enabled"
-        [ngStyle]="setWeatherStyles(clock)"></tab-weather>
+        [ngStyle]="setWeatherWrapStyles()">
+        <tab-weather 
+          [ngStyle]="setWeatherStyles()"></tab-weather>
+      </div>
     </article>
 
     <article id="w" class="gridPosition">
-      <tab-quickLinks
-        *ngIf="settings.config.quickLink.position === 'w' && settings.config.quickLink.enabled"
-        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
+      <div 
+        class="forceLineBreak" 
+        *ngIf="settings.config.quickLink.position === 'w' && settings.config.quickLink.enabled" 
+        [ngStyle]="setQuickLinkWrapStyles()">
+        <tab-quickLinks
+          [ngStyle]="setQuickLinkStyles()">
+        </tab-quickLinks>
+      </div>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -116,24 +169,40 @@
           </tab-time>
         </ng-container>
       </ng-container>
-      <tab-date
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.date.position === 'w' && settings.config.date.enabled"
-        [ngStyle]="setDateStyles(clock)"></tab-date>
-      <tab-message
-        *ngIf="settings.config.messages.position === 'w' && settings.config.messages.enabled"
-        [ngStyle]="setMessageStyles(clock)"></tab-message>
-      <tab-search
+        [ngStyle]="setDateWrapStyles()">
+        <tab-date [ngStyle]="setDateStyles()"></tab-date>
+      </div>
+      <div class="forceLineBreak" *ngIf="settings.config.messages.position === 'w' && settings.config.messages.enabled" [ngStyle]="setMessageWrapStyles()">
+        <tab-message [ngStyle]="setMessageStyles()"></tab-message>
+      </div>
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.search.position === 'w' && settings.config.search.enabled"
-        [ngStyle]="setSearchStyles(clock)"></tab-search>
-      <tab-weather 
+        [ngStyle]="setSearchWrapStyles()">
+        <tab-search
+          [ngStyle]="setSearchStyles()"></tab-search>
+      </div>
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.weather.position === 'w' && settings.config.weather.enabled"
-        [ngStyle]="setWeatherStyles(clock)"></tab-weather>
+        [ngStyle]="setWeatherWrapStyles()">
+        <tab-weather 
+          [ngStyle]="setWeatherStyles()"></tab-weather>
+      </div>
     </article>
 
     <article id="c" class="gridPosition">
-      <tab-quickLinks
-        *ngIf="settings.config.quickLink.position === 'c' && settings.config.quickLink.enabled"
-        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
+      <div 
+        class="forceLineBreak" 
+        *ngIf="settings.config.quickLink.position === 'c' && settings.config.quickLink.enabled" 
+        [ngStyle]="setQuickLinkWrapStyles()">
+        <tab-quickLinks
+          [ngStyle]="setQuickLinkStyles()">
+        </tab-quickLinks>
+      </div>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -144,24 +213,40 @@
           </tab-time>
         </ng-container>
       </ng-container>
-      <tab-date
-        *ngIf="(settings.config.date.position === 'c' || settings.config.date.position == null) && settings.config.date.enabled"
-        [ngStyle]="setDateStyles(clock)"></tab-date>
-      <tab-message
-        *ngIf="(settings.config.messages.position === 'c' || settings.config.messages.position == null) && settings.config.messages.enabled"
-        [ngStyle]="setMessageStyles(clock)"></tab-message>
-      <tab-search
-        *ngIf="(settings.config.search.position === 'c' || settings.config.search.position == null) && settings.config.search.enabled"
-        [ngStyle]="setSearchStyles(clock)"></tab-search>
-      <tab-weather 
+      <div 
+        class="forceLineBreak" 
+        *ngIf="settings.config.date.position === 'c' && settings.config.date.enabled"
+        [ngStyle]="setDateWrapStyles()">
+        <tab-date [ngStyle]="setDateStyles()"></tab-date>
+      </div>
+      <div class="forceLineBreak" *ngIf="settings.config.messages.position === 'c' && settings.config.messages.enabled" [ngStyle]="setMessageWrapStyles()">
+        <tab-message [ngStyle]="setMessageStyles()"></tab-message>
+      </div>
+      <div 
+        class="forceLineBreak" 
+        *ngIf="settings.config.search.position === 'c' && settings.config.search.enabled"
+        [ngStyle]="setSearchWrapStyles()">
+        <tab-search
+          [ngStyle]="setSearchStyles()"></tab-search>
+      </div>
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.weather.position === 'c' && settings.config.weather.enabled"
-        [ngStyle]="setWeatherStyles(clock)"></tab-weather>
+        [ngStyle]="setWeatherWrapStyles()">
+        <tab-weather 
+          [ngStyle]="setWeatherStyles()"></tab-weather>
+      </div>
     </article>
 
     <article id="e" class="gridPosition">
-      <tab-quickLinks
-        *ngIf="settings.config.quickLink.position === 'e' && settings.config.quickLink.enabled"
-        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
+      <div 
+        class="forceLineBreak" 
+        *ngIf="settings.config.quickLink.position === 'e' && settings.config.quickLink.enabled" 
+        [ngStyle]="setQuickLinkWrapStyles()">
+        <tab-quickLinks
+          [ngStyle]="setQuickLinkStyles()">
+        </tab-quickLinks>
+      </div>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -172,24 +257,40 @@
           </tab-time>
         </ng-container>
       </ng-container>
-      <tab-date
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.date.position === 'e' && settings.config.date.enabled"
-        [ngStyle]="setDateStyles(clock)"></tab-date>
-      <tab-message
-        *ngIf="settings.config.messages.position === 'e' && settings.config.messages.enabled"
-        [ngStyle]="setMessageStyles(clock)"></tab-message>
-      <tab-search
+        [ngStyle]="setDateWrapStyles()">
+        <tab-date [ngStyle]="setDateStyles()"></tab-date>
+      </div>
+      <div class="forceLineBreak" *ngIf="settings.config.messages.position === 'e' && settings.config.messages.enabled" [ngStyle]="setMessageWrapStyles()">
+        <tab-message [ngStyle]="setMessageStyles()"></tab-message>
+      </div>
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.search.position === 'e' && settings.config.search.enabled"
-        [ngStyle]="setSearchStyles(clock)"></tab-search>
-      <tab-weather 
+        [ngStyle]="setSearchWrapStyles()">
+        <tab-search
+          [ngStyle]="setSearchStyles()"></tab-search>
+      </div>
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.weather.position === 'e' && settings.config.weather.enabled"
-        [ngStyle]="setWeatherStyles(clock)"></tab-weather>
+        [ngStyle]="setWeatherWrapStyles()">
+        <tab-weather 
+          [ngStyle]="setWeatherStyles()"></tab-weather>
+      </div>
     </article>
 
     <article id="sw" class="gridPosition">
-      <tab-quickLinks
-        *ngIf="settings.config.quickLink.position === 'sw' && settings.config.quickLink.enabled"
-        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
+      <div 
+        class="forceLineBreak" 
+        *ngIf="settings.config.quickLink.position === 'sw' && settings.config.quickLink.enabled" 
+        [ngStyle]="setQuickLinkWrapStyles()">
+        <tab-quickLinks
+          [ngStyle]="setQuickLinkStyles()">
+        </tab-quickLinks>
+      </div>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -200,24 +301,40 @@
           </tab-time>
         </ng-container>
       </ng-container>
-      <tab-date
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.date.position === 'sw' && settings.config.date.enabled"
-        [ngStyle]="setDateStyles(clock)"></tab-date>
-      <tab-message
-        *ngIf="settings.config.messages.position === 'sw' && settings.config.messages.enabled"
-        [ngStyle]="setMessageStyles(clock)"></tab-message>
-      <tab-search
+        [ngStyle]="setDateWrapStyles()">
+        <tab-date [ngStyle]="setDateStyles()"></tab-date>
+      </div>
+      <div class="forceLineBreak" *ngIf="settings.config.messages.position === 'sw' && settings.config.messages.enabled" [ngStyle]="setMessageWrapStyles()">
+        <tab-message [ngStyle]="setMessageStyles()"></tab-message>
+      </div>
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.search.position === 'sw' && settings.config.search.enabled"
-        [ngStyle]="setSearchStyles(clock)"></tab-search>
-      <tab-weather 
+        [ngStyle]="setSearchWrapStyles()">
+        <tab-search
+          [ngStyle]="setSearchStyles()"></tab-search>
+      </div>
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.weather.position === 'sw' && settings.config.weather.enabled"
-        [ngStyle]="setWeatherStyles(clock)"></tab-weather>
+        [ngStyle]="setWeatherWrapStyles()">
+        <tab-weather 
+          [ngStyle]="setWeatherStyles()"></tab-weather>
+      </div>
     </article>
 
     <article id="s" class="gridPosition">
-      <tab-quickLinks
-        *ngIf="settings.config.quickLink.position === 's' && settings.config.quickLink.enabled"
-        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
+      <div 
+        class="forceLineBreak" 
+        *ngIf="settings.config.quickLink.position === 's' && settings.config.quickLink.enabled" 
+        [ngStyle]="setQuickLinkWrapStyles()">
+        <tab-quickLinks
+          [ngStyle]="setQuickLinkStyles()">
+        </tab-quickLinks>
+      </div>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -228,24 +345,40 @@
           </tab-time>
         </ng-container>
       </ng-container>
-      <tab-date
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.date.position === 's' && settings.config.date.enabled"
-        [ngStyle]="setDateStyles(clock)"></tab-date>
-      <tab-message
-        *ngIf="settings.config.messages.position === 's' && settings.config.messages.enabled"
-        [ngStyle]="setMessageStyles(clock)"></tab-message>
-      <tab-search
+        [ngStyle]="setDateWrapStyles()">
+        <tab-date [ngStyle]="setDateStyles()"></tab-date>
+      </div>
+      <div class="forceLineBreak" *ngIf="settings.config.messages.position === 's' && settings.config.messages.enabled" [ngStyle]="setMessageWrapStyles()">
+        <tab-message [ngStyle]="setMessageStyles()"></tab-message>
+      </div>
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.search.position === 's' && settings.config.search.enabled"
-        [ngStyle]="setSearchStyles(clock)"></tab-search>
-      <tab-weather 
-        *ngIf="(settings.config.weather.position === 's' || settings.config.weather.position == null) && settings.config.weather.enabled"
-        [ngStyle]="setWeatherStyles(clock)"></tab-weather>
+        [ngStyle]="setSearchWrapStyles()">
+        <tab-search
+          [ngStyle]="setSearchStyles()"></tab-search>
+      </div>
+      <div 
+        class="forceLineBreak" 
+        *ngIf="settings.config.weather.position === 's' && settings.config.weather.enabled"
+        [ngStyle]="setWeatherWrapStyles()">
+        <tab-weather 
+          [ngStyle]="setWeatherStyles()"></tab-weather>
+      </div>
     </article>
 
     <article id="se" class="gridPosition">
-      <tab-quickLinks
-        *ngIf="settings.config.quickLink.position === 'se' && settings.config.quickLink.enabled"
-        [ngStyle]="setQuickLinkStyles()"></tab-quickLinks>
+      <div 
+        class="forceLineBreak" 
+        *ngIf="settings.config.quickLink.position === 'se' && settings.config.quickLink.enabled" 
+        [ngStyle]="setQuickLinkWrapStyles()">
+        <tab-quickLinks
+          [ngStyle]="setQuickLinkStyles()">
+        </tab-quickLinks>
+      </div>
       <ng-container *ngIf="settings.config.time.clocks.length > 0">
         <ng-container *ngFor="let clock of settings.config.time.clocks; let i = index;">
           <tab-time 
@@ -256,18 +389,29 @@
           </tab-time>
         </ng-container>
       </ng-container>
-      <tab-date
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.date.position === 'se' && settings.config.date.enabled"
-        [ngStyle]="setDateStyles(clock)"></tab-date>
-      <tab-message
-        *ngIf="settings.config.messages.position === 'se' && settings.config.messages.enabled"
-        [ngStyle]="setMessageStyles(clock)"></tab-message>
-      <tab-search
+        [ngStyle]="setDateWrapStyles()">
+        <tab-date [ngStyle]="setDateStyles()"></tab-date>
+      </div>
+      <div class="forceLineBreak" *ngIf="settings.config.messages.position === 'se' && settings.config.messages.enabled" [ngStyle]="setMessageWrapStyles()">
+        <tab-message [ngStyle]="setMessageStyles()"></tab-message>
+      </div>
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.search.position === 'se' && settings.config.search.enabled"
-        [ngStyle]="setSearchStyles(clock)"></tab-search>
-      <tab-weather 
+        [ngStyle]="setSearchWrapStyles()">
+        <tab-search
+          [ngStyle]="setSearchStyles()"></tab-search>
+      </div>
+      <div 
+        class="forceLineBreak" 
         *ngIf="settings.config.weather.position === 'se' && settings.config.weather.enabled"
-        [ngStyle]="setWeatherStyles(clock)"></tab-weather>
+        [ngStyle]="setWeatherWrapStyles()">
+        <tab-weather 
+          [ngStyle]="setWeatherStyles()"></tab-weather>
+      </div>
     </article>
 
   </div>

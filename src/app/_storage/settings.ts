@@ -45,8 +45,11 @@ export class MessageSettings {
   enabled = false;
   scaling = 8;
   offset = 0;
-  margin = 0;
+  marginHeight = 0;
+  marginWidth = 0;
+  width = 100;
   position = 'c';
+  textAlign = 'center';
   text = 'Hello world!';
   messageList = [];
 }
@@ -70,10 +73,14 @@ export class QuickLinkSettings {
   enabled = false;
   icons = true;
   scaling = 10;
+  width = 100;
   offset = 0;
-  padding = 12;
-  margin = 0;
+  padding = 5;
+  marginHeight = 4;
+  marginWidth = 2;
   position = 'n';
+  textAlign = 'center';
+  vertical = false;
   mostVisited = false;
   bookmarksManager = false;
   history = false;
@@ -106,7 +113,8 @@ export class TimeSettings {
       scaling: 10,
       span: 40,
       padding: 10,
-      margin: 0,
+      marginHeight: 0,
+      marginWidth: 0,
       position: 'c',
       offset: 0,
       twentyFour: false,
@@ -172,7 +180,8 @@ export class DateSettings {
   enabled = true;
   scaling = 6;
   offset = 0;
-  margin = 0;
+  marginHeight = 0;
+  marginWidth = 0;
   position = 'c';
   timezone = 'Automatic';
   dimDelimiter = false;
@@ -212,7 +221,8 @@ export class SearchSettings {
   enabled = true;
   scaling = 4;
   offset = 0;
-  margin = 0;
+  marginHeight = 10;
+  marginWidth = 10;
   position = 'c';
   width = 21;
   engine = 40;
@@ -227,7 +237,8 @@ export class WeatherSettings {
   offset = 0;
   position = 's';
   padding = 20;
-  margin = 10;
+  marginHeight = 10;
+  marginWidth = 10;
   location = {
     url: 'seattle-washington-united-states-of-america'
   };

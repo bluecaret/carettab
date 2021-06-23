@@ -45,6 +45,12 @@ app-tab {
   position: absolute;
   display: flex;
   flex-wrap: wrap;
+  width: min-content;
+}
+
+.forceLineBreak {
+  display: flex;
+  width: 100%;
 }
 
 #nw {
@@ -52,6 +58,9 @@ app-tab {
   left: 0;
   justify-content: flex-start;
   align-items: flex-start;
+  .forceLineBreak {
+    justify-content: flex-start;
+  }
 }
 
 #n {
@@ -60,6 +69,9 @@ app-tab {
   transform: translateX(-50%);
   justify-content: center;
   align-items: center;
+  .forceLineBreak {
+    justify-content: center;
+  }
 }
 
 #ne {
@@ -67,6 +79,9 @@ app-tab {
   right: 0;
   justify-content: flex-end;
   align-items: flex-start;
+  .forceLineBreak {
+    justify-content: flex-end;
+  }
 }
 
 #w {
@@ -75,6 +90,9 @@ app-tab {
   transform: translateY(-50%);
   justify-content: flex-start;
   align-items: center;
+  .forceLineBreak {
+    justify-content: flex-start;
+  }
 }
 
 #c {
@@ -83,6 +101,9 @@ app-tab {
   transform: translateY(-50%) translateX(-50%);
   justify-content: center;
   align-items: center;
+  .forceLineBreak {
+    justify-content: center;
+  }
 }
 
 #e {
@@ -91,6 +112,9 @@ app-tab {
   transform: translateY(-50%);
   justify-content: flex-end;
   align-items: center;
+  .forceLineBreak {
+    justify-content: flex-end;
+  }
 }
 
 #sw {
@@ -98,6 +122,9 @@ app-tab {
   left: 0;
   justify-content: flex-start;
   align-items: flex-end;
+  .forceLineBreak {
+    justify-content: flex-start;
+  }
 }
 
 #s {
@@ -106,6 +133,9 @@ app-tab {
   transform: translateX(-50%);
   justify-content: center;
   align-items: flex-end;
+  .forceLineBreak {
+    justify-content: center;
+  }
 }
 
 #se {
@@ -113,6 +143,9 @@ app-tab {
   right: 0;
   justify-content: flex-end;
   align-items: flex-end;
+  .forceLineBreak {
+    justify-content: flex-end;
+  }
 }
 
 @import "logo";

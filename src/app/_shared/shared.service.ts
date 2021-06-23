@@ -173,12 +173,17 @@ export class SharedService {
     return (size / emBase) + 'em';
   }
 
-  public getMargin(size: number) {
-    return (size * .1) + 'em';
+  public getMaxWidth(size: number) {
+    // Max width will always be based on viewport as opposed to scaling method.
+    return (size * 1) + 'vw';
   }
 
-  public getPadding(size: number) {
-    return (size * .1) + 'em';
+  public getMargin(height: number, width: number, multiplier = .1) {
+    return `${height * multiplier}em ${width * multiplier}em`;
+  }
+
+  public getPadding(size: number, multiplier = .1) {
+    return (size * multiplier) + 'em';
   }
 
   public getOffset(size: number) {

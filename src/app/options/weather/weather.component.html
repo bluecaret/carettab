@@ -138,8 +138,12 @@
       <options-range name="weatherPadding" min="0" max="100" [(ngModel)]="settings.config.weather.padding" (ngModelChange)="ga.field('weather.padding', settings.config.weather.padding)"></options-range>
     </div>
     <div class="input">
-      <label for="weatherMargin">Margin</label>
-      <options-range name="weatherMargin" min="0" max="100" [(ngModel)]="settings.config.weather.margin" (ngModelChange)="ga.field('weather.margin', settings.config.weather.margin)"></options-range>
+      <label for="weatherMarginHeight">Margin Height</label>
+      <options-range name="weatherMarginHeight" min="0" max="100" [(ngModel)]="settings.config.weather.marginHeight" (ngModelChange)="ga.field('weather.marginHeight', settings.config.weather.marginHeight)"></options-range>
+    </div>
+    <div class="input">
+      <label for="weatherMarginWidth">Margin Width</label>
+      <options-range name="weatherMarginWidth" min="0" max="100" [(ngModel)]="settings.config.weather.marginWidth" (ngModelChange)="ga.field('weather.marginWidth', settings.config.weather.marginWidth)"></options-range>
     </div>
     <div class="input">
       <label for="weatherOffset">{{'options.common.offset' | translate}}</label>

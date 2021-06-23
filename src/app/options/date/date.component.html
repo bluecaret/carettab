@@ -33,8 +33,12 @@
       <options-range name="dateSize" min="1" max="20" [(ngModel)]="settings.config.date.scaling" (change)="ga.field('date.scaling', settings.config.date.scaling);"></options-range>
     </div>
     <div class="input">
-      <label for="dateMargin">Margin</label>
-      <options-range name="dateMargin" min="0" max="100" [(ngModel)]="settings.config.date.margin" (ngModelChange)="ga.field('date.margin', settings.config.date.margin)"></options-range>
+      <label for="dateMarginHeight">Margin Height</label>
+      <options-range name="dateMarginHeight" min="0" max="100" [(ngModel)]="settings.config.date.marginHeight" (ngModelChange)="ga.field('date.marginHeight', settings.config.date.marginHeight)"></options-range>
+    </div>
+    <div class="input">
+      <label for="dateMarginWidth">Margin Width</label>
+      <options-range name="dateMarginWidth" min="0" max="100" [(ngModel)]="settings.config.date.marginWidth" (ngModelChange)="ga.field('date.marginWidth', settings.config.date.marginWidth)"></options-range>
     </div>
     <div class="input">
       <label>{{'options.common.offset' | translate}}</label>

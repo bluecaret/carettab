@@ -14,6 +14,7 @@ export class OptionsExtraComponent {
   titleOptions = title;
   languages = languages;
   selected = "";
+  newCountry={code:''};
   importStatus: string;
   public countryList = [];
   constructor(
@@ -25,7 +26,6 @@ export class OptionsExtraComponent {
   ) {
     this.countryLists();
   }
-  public newCountry = { code: "" };
   trackByFn(index: any, item: any) {
     return index;
   }
@@ -114,21 +114,24 @@ export class OptionsExtraComponent {
     this.countryLists();
   }
 
-  addCountry() {
-    let elementId = this.shared.createID("COVID");
-    this.settings.config.covidData.countries.push({
-      id: elementId,
-      code: this.newCountry.code,
-      flagSize: 30,
-      textScaling: 20,
-      offset: 0,
-      padding: 0,
-      name: "default",
-      position: "n",
-    });
-    this.newCountry.code = "";
-    this.shared.toggleOrder(elementId, true, 'n');
+  addCountry(model: any, isValid: boolean) {
+    if (isValid) {
+      let elementId = this.shared.createID("COVID");
+      this.settings.config.covidData.countries.push({
+        id: elementId,
+        code: model.value.newCountry,
+        flagSize: 30,
+        textScaling: 20,
+        offset: 0,
+        padding: 0,
+        name: "default",
+        position: "n",
+      });
+      model.resetForm();
+      this.shared.toggleOrder(elementId, true, "n");
+    }
   }
+
   updateCountryName(i) {
     this.settings.config.covidData.countries[i].name = this.countryList.find(
       (x) => x.code == this.settings.config.covidData.countries[i].code
@@ -152,10 +155,8 @@ export class OptionsExtraComponent {
       .get("https://covid19.mathdro.id/api/countries")
       .subscribe((data) => {
         this.countryList = data["countries"].map((x) => {
-          console.info("country" + x.name);
           return { label: x.name, code: x.iso2 };
         });
-        console.info("countries loaded");
       });
   }
 }

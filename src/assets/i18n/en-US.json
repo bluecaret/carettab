@@ -47,7 +47,8 @@
       "supportLink": "Support",
       "timezone": "Timezone",
       "up": "Up",
-      "width": "Width"
+      "width": "Width",
+      "emptyValueError":"Empty value not allowed"
     },
     "dashboard": {
       "contribute": "Contribute code",

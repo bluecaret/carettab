@@ -127,31 +127,14 @@
       </div>
     </ng-container>
 
-    <!-- LAYOUT -->
-    <h3>Layout</h3>
+    <!-- Layout -->
+    <h3 class="layoutHeading">
+      <span>Layout</span>
+      <button class="btn btnSmall" [ngClass]="{'active' : shared.advancedLayout}" (click)="shared.advancedLayout = !shared.advancedLayout"><span class="icon">build</span> Advanced</button>
+    </h3>
     <div class="input">
       <label for="weatherSize">{{'options.common.size' | translate}}</label>
       <options-range name="weatherSize" id="weatherSize" min="1" max="50" [(ngModel)]="settings.config.weather.scaling" (ngModelChange)="ga.field('weather.scaling', settings.config.weather.scaling)"></options-range>
-    </div>
-    <div class="input">
-      <label for="weatherPadding">Padding</label>
-      <options-range name="weatherPadding" min="0" max="100" [(ngModel)]="settings.config.weather.padding" (ngModelChange)="ga.field('weather.padding', settings.config.weather.padding)"></options-range>
-    </div>
-    <div class="input">
-      <label for="weatherMarginHeight">Margin Height</label>
-      <options-range name="weatherMarginHeight" min="0" max="100" [(ngModel)]="settings.config.weather.marginHeight" (ngModelChange)="ga.field('weather.marginHeight', settings.config.weather.marginHeight)"></options-range>
-    </div>
-    <div class="input">
-      <label for="weatherMarginWidth">Margin Width</label>
-      <options-range name="weatherMarginWidth" min="0" max="100" [(ngModel)]="settings.config.weather.marginWidth" (ngModelChange)="ga.field('weather.marginWidth', settings.config.weather.marginWidth)"></options-range>
-    </div>
-    <div class="input">
-      <label for="weatherOffset">{{'options.common.offset' | translate}}</label>
-      <options-range name="weatherOffset" min="-20" max="20" [(ngModel)]="settings.config.weather.offset" (ngModelChange)="ga.field('weather.offset', settings.config.weather.offset)"></options-range>
-    </div>
-    <div class="input">
-      <label for="weatherPlacement">Position</label>
-      <options-position id="weatherPlacement" name="weatherPlacement" [settingId]="settings.config.weather.id" [(ngModel)]="settings.config.weather.position" (ngModelChange)="ga.field('weather.position', settings.config.weather.position)"></options-position>
     </div>
     <div class="input">
       <label for="weatherOrder">{{'options.common.order' | translate}}</label>
@@ -176,25 +159,27 @@
         </button>
       </div>
     </div>
-    <!-- 
-    <div class="input">
-      <label data-tooltip>{{'options.search.searchEngine' | translate}}</label>
-      <select name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine" (ngModelChange)="ga.field('search.engine', findEngine(settings.config.search.engine).label)">
-        <option *ngFor="let e of engines" [ngValue]="e.id">{{e.label}}</option>
-      </select>
-    </div>
-    <div class="input">
-      <label>{{'options.search.label' | translate}}</label>
-      <input type="text" name="searchLabel" id="searchLabel" [(ngModel)]="settings.config.search.label" (ngModelChange)="ga.field('search.label', 'userData')">
-    </div>
-    <div class="input">
-      <label>{{'options.search.autocomplete' | translate}}<tooltip text="{{'options.search.autocompleteDesc' | translate}}"></tooltip></label>
-      <options-toggle name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete" (ngModelChange)="ga.field('search.autocomplete', settings.config.search.autocomplete)"></options-toggle>
-    </div>
-    <div class="input">
-      <label>{{'options.common.width' | translate}}</label>
-      <options-range name="searchWidth" min="5" max="30" [(ngModel)]="settings.config.search.width" (ngModelChange)="ga.field('search.width', settings.config.search.width)"></options-range>
-    </div> 
-    -->
+    <ng-container *ngIf="shared.advancedLayout">
+      <div class="input">
+        <label for="weatherPlacement">Position</label>
+        <options-position id="weatherPlacement" name="weatherPlacement" [settingId]="settings.config.weather.id" [(ngModel)]="settings.config.weather.position" (ngModelChange)="ga.field('weather.position', settings.config.weather.position)"></options-position>
+      </div>
+      <div class="input">
+        <label for="weatherPadding">Padding</label>
+        <options-range name="weatherPadding" min="0" max="100" [(ngModel)]="settings.config.weather.padding" (ngModelChange)="ga.field('weather.padding', settings.config.weather.padding)"></options-range>
+      </div>
+      <div class="input">
+        <label for="weatherMarginHeight">Margin Height</label>
+        <options-range name="weatherMarginHeight" min="0" max="100" [(ngModel)]="settings.config.weather.marginHeight" (ngModelChange)="ga.field('weather.marginHeight', settings.config.weather.marginHeight)"></options-range>
+      </div>
+      <div class="input">
+        <label for="weatherMarginWidth">Margin Width</label>
+        <options-range name="weatherMarginWidth" min="0" max="100" [(ngModel)]="settings.config.weather.marginWidth" (ngModelChange)="ga.field('weather.marginWidth', settings.config.weather.marginWidth)"></options-range>
+      </div>
+      <div class="input">
+        <label for="weatherOffset">{{'options.common.offset' | translate}}</label>
+        <options-range name="weatherOffset" min="-20" max="20" [(ngModel)]="settings.config.weather.offset" (ngModelChange)="ga.field('weather.offset', settings.config.weather.offset)"></options-range>
+      </div>
+    </ng-container>
   </ng-container>
 </form>

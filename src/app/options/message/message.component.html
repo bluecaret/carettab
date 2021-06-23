@@ -76,36 +76,11 @@
       </div>
     </form>
 
-    <h3>Layout</h3>
-    <div class="input">
-      <label for="messageTextAlign">Align text</label>
-      <div id="messageTextAlign" class="connectedBtns">
-        <button
-          type="button"
-          class="btn btnIcon"
-          [ngClass]="{'active' : settings.config.messages.textAlign === 'left'}"
-          title="Align text to the left"
-          (click)="settings.config.messages.textAlign = 'left'; ga.field('messages.textAlign', 'left')">
-          <div class="icon" aria-hidden="true">format_align_left</div>
-        </button>
-        <button
-          type="button"
-          class="btn btnIcon"
-          [ngClass]="{'active' : settings.config.messages.textAlign === 'center'}"
-          title="Align text to center"
-          (click)="settings.config.messages.textAlign = 'center'; ga.field('messages.textAlign', 'center')">
-          <div class="icon" aria-hidden="true">format_align_center</div>
-        </button>
-        <button
-          type="button"
-          class="btn btnIcon"
-          [ngClass]="{'active' : settings.config.messages.textAlign === 'right'}"
-          title="Align text to the right"
-          (click)="settings.config.messages.textAlign = 'right'; ga.field('messages.textAlign', 'right')">
-          <div class="icon" aria-hidden="true">format_align_right</div>
-        </button>
-      </div>
-    </div>
+    <!-- Layout -->
+    <h3 class="layoutHeading">
+      <span>Layout</span>
+      <button class="btn btnSmall" [ngClass]="{'active' : shared.advancedLayout}" (click)="shared.advancedLayout = !shared.advancedLayout"><span class="icon">build</span> Advanced</button>
+    </h3>
     <div class="input">
       <label>{{ "options.common.size" | translate }}</label>
       <options-range
@@ -118,38 +93,6 @@
           ga.field('messages.scaling', settings.config.messages.scaling)
         "
       ></options-range>
-    </div>
-    <div class="input">
-      <label>{{ "options.common.offset" | translate }}</label>
-      <options-range
-        name="messageOffset"
-        min="-20"
-        max="20"
-        [(ngModel)]="settings.config.messages.offset"
-        (ngModelChange)="
-          ga.field('messages.offset', settings.config.messages.offset)
-        "
-      ></options-range>
-    </div>
-    <div class="input">
-      <label>Maximum width</label>
-      <options-range name="messageWidth" id="messageWidth" min="1" max="100" [(ngModel)]="settings.config.messages.width" (ngModelChange)="ga.field('messages.width', settings.config.messages.width);"></options-range>
-    </div>
-    <div class="input">
-      <label for="messageMarginHeight">Margin Height</label>
-      <options-range name="messageMarginHeight" min="0" max="100" [(ngModel)]="settings.config.messages.marginHeight" (ngModelChange)="ga.field('messages.marginHeight', settings.config.messages.marginHeight)"></options-range>
-    </div>
-    <div class="input">
-      <label for="messageMarginWidth">Margin Width</label>
-      <options-range name="messageMarginWidth" min="0" max="100" [(ngModel)]="settings.config.messages.marginWidth" (ngModelChange)="ga.field('messages.marginWidth', settings.config.messages.marginWidth)"></options-range>
-    </div>
-    <div class="input">
-      <label>{{'options.common.offset' | translate}}</label>
-      <options-range name="messageOffset" min="-20" max="20" [(ngModel)]="settings.config.messages.offset" (ngModelChange)="ga.field('messages.offset', settings.config.messages.offset);"></options-range>
-    </div>
-    <div class="input">
-      <label for="messagePlacement">Position</label>
-      <options-position id="messagePlacement" name="messagePlacement" [settingId]="settings.config.messages.id" [(ngModel)]="settings.config.messages.position" (ngModelChange)="ga.field('messages.position', settings.config.messages.position)"></options-position>
     </div>
     <div class="input">
       <label>{{'options.common.order' | translate}}</label>
@@ -174,5 +117,56 @@
         </button>
       </div>
     </div>
+    <ng-container *ngIf="shared.advancedLayout">
+      <div class="input">
+        <label for="messagePlacement">Position</label>
+        <options-position id="messagePlacement" name="messagePlacement" [settingId]="settings.config.messages.id" [(ngModel)]="settings.config.messages.position" (ngModelChange)="ga.field('messages.position', settings.config.messages.position)"></options-position>
+      </div>
+      <div class="input">
+        <label for="messageTextAlign">Align text</label>
+        <div id="messageTextAlign" class="connectedBtns">
+          <button
+            type="button"
+            class="btn btnIcon"
+            [ngClass]="{'active' : settings.config.messages.textAlign === 'left'}"
+            title="Align text to the left"
+            (click)="settings.config.messages.textAlign = 'left'; ga.field('messages.textAlign', 'left')">
+            <div class="icon" aria-hidden="true">format_align_left</div>
+          </button>
+          <button
+            type="button"
+            class="btn btnIcon"
+            [ngClass]="{'active' : settings.config.messages.textAlign === 'center'}"
+            title="Align text to center"
+            (click)="settings.config.messages.textAlign = 'center'; ga.field('messages.textAlign', 'center')">
+            <div class="icon" aria-hidden="true">format_align_center</div>
+          </button>
+          <button
+            type="button"
+            class="btn btnIcon"
+            [ngClass]="{'active' : settings.config.messages.textAlign === 'right'}"
+            title="Align text to the right"
+            (click)="settings.config.messages.textAlign = 'right'; ga.field('messages.textAlign', 'right')">
+            <div class="icon" aria-hidden="true">format_align_right</div>
+          </button>
+        </div>
+      </div>
+      <div class="input">
+        <label>Maximum width</label>
+        <options-range name="messageWidth" id="messageWidth" min="1" max="100" [(ngModel)]="settings.config.messages.width" (ngModelChange)="ga.field('messages.width', settings.config.messages.width);"></options-range>
+      </div>
+      <div class="input">
+        <label for="messageMarginHeight">Margin Height</label>
+        <options-range name="messageMarginHeight" min="0" max="100" [(ngModel)]="settings.config.messages.marginHeight" (ngModelChange)="ga.field('messages.marginHeight', settings.config.messages.marginHeight)"></options-range>
+      </div>
+      <div class="input">
+        <label for="messageMarginWidth">Margin Width</label>
+        <options-range name="messageMarginWidth" min="0" max="100" [(ngModel)]="settings.config.messages.marginWidth" (ngModelChange)="ga.field('messages.marginWidth', settings.config.messages.marginWidth)"></options-range>
+      </div>
+      <div class="input">
+        <label>{{'options.common.offset' | translate}}</label>
+        <options-range name="messageOffset" min="-20" max="20" [(ngModel)]="settings.config.messages.offset" (ngModelChange)="ga.field('messages.offset', settings.config.messages.offset);"></options-range>
+      </div>
+    </ng-container>
   </ng-container>
 </form>

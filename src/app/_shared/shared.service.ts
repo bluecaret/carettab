@@ -14,6 +14,7 @@ export class SharedService {
   private _bgColor: string;
   private _browser: string;
   private _status: string;
+  private _advancedLayout: boolean = false;
   private _updateType: "major" | "minor" | "quiet" | "hidden";
   private _allBookmarks: any;
 
@@ -90,6 +91,13 @@ export class SharedService {
   }
   set status(value: string) {
     this._status = value;
+  }
+
+  get advancedLayout(): boolean {
+    return this._advancedLayout;
+  }
+  set advancedLayout(value: boolean) {
+    this._advancedLayout = value;
   }
 
   get updateType(): "major" | "minor" | "quiet" | "hidden" {

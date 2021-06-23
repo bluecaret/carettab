@@ -8,8 +8,7 @@ import { GoogleAnalyticsService } from "../../_shared/ga.service";
   templateUrl: "message.component.html",
 })
 export class OptionsMessageComponent {
-  isInvalid = false;
-  public message: ElementRef;
+  public newMessageTextModel: ElementRef;
   constructor(
     public shared: SharedService,
     public settings: Storage,
@@ -17,24 +16,22 @@ export class OptionsMessageComponent {
   ) {}
 
   addMessage(model, isValid) {
-    if (isValid && model.value.message.trim().length > 0) {
-      this.isInvalid = false;
-      let id = this.shared.createID("message");
+    if (isValid && model.value.newMessageText.trim().length > 0) {
+      let id = this.shared.createID("MESSAGETEXT");
+      let newText = model.value.newMessageText;
       this.settings.config.messages.messageList.push({
-        id,
-        text: model.value.message,
+        id: id,
+        text: newText,
+      });
+      this.shared.echo('New message text added', '', {
+        id: id,
+        text: newText
       });
       model.resetForm();
-    } else {
-      this.isInvalid = true;
     }
   }
 
   removeMessage(index) {
     this.settings.config.messages.messageList.splice(index, 1);
-  }
-
-  swap(arr: any[], from: number, to: number) {
-    arr.splice(from, 1, arr.splice(to, 1, arr[from])[0]);
   }
 }

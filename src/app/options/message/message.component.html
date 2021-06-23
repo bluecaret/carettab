@@ -4,78 +4,65 @@
     <label>{{'options.message.msg' | translate}}</label>
     <options-toggle name="message" id="message" [(ngModel)]="settings.config.messages.enabled" (ngModelChange)="shared.toggleOrder(settings.config.messages.id, $event, settings.config.messages.position); ga.field('messages.enabled', settings.config.messages.enabled);"></options-toggle>
   </div>
-  <ng-container *ngIf="settings.config.messages.enabled">
+  <div class="input" *ngIf="settings.config.messages.enabled">
+    <label>Random message</label>
+    <options-toggle name="randomMessage" id="randomMessage" [(ngModel)]="settings.config.messages.random" (ngModelChange)="ga.field('messages.random', settings.config.messages.random);"></options-toggle>
+  </div>
+</form>
+<ng-container *ngIf="settings.config.messages.enabled">
 
-    <form #messageList="ngForm" novalidate>
-      <div class="grid cols-19 mb15">
-        <div class="span-19">
-          <label>{{ "options.message.msgText" | translate }}</label>
-        </div>
-      </div>
-      <div class="grid cols-19 mb15">
-        <ng-container *ngFor="let message of settings.config.messages.messageList; let i = index; trackBy:trackByFn; let isFirst = first; let isLast = last">
-          <div class="span-14">
+  <h3>Message text</h3>
+  <form #messageList="ngForm" novalidate>
+    <div class="grid cols-19 mb15">
+      <ng-container *ngFor="let message of settings.config.messages.messageList; let i = index; trackBy:trackByFn; let isFirst = first; let isLast = last">
+        <ng-container  *ngIf="settings.config.messages.random || isFirst">
+          <div class="span-17">
             <input
+              aria-label="Message text"
               type="text"
               [name]="'message'+i"
-              #editLabel="ngModel"
+              #editText="ngModel"
               [(ngModel)]="message.text"
-              (change)="ga.field('messages.messageList.message.text', 'userData');"
+              (change)="ga.field('messages.messageList.text', 'userData');"
               autocomplete="off">
+            <div class="valMsg" *ngIf="messageList.invalid && messageList.submitted">{{'options.message.messageValidation' | translate}}</div>
           </div>
-          <div class="span-5 compactBtnList">
-            <div class="orderBtns">
-              <button
-                type="button"
-                class="btn btnIcon"
-                [disabled]="isFirst"
-                attr.aria-label="{{'options.common.moveUp' | translate}}"
-                title="{{'options.common.moveUp' | translate}}"
-                (click)="swap(settings.config.messages.messageList, i, (i - 1)); ga.field('button.messageMoveUp', 'true');">
-                <div class="icon" aria-hidden="true">expand_less</div>
-              </button>
-              <button
-                type="button"
-                class="btn btnIcon"
-                [disabled]="isLast"
-                attr.aria-label="{{'options.common.moveDown' | translate}}"
-                title="{{'options.common.moveDown' | translate}}"
-                (click)="swap(settings.config.messages.messageList, i, (i + 1)); ga.field('button.messageMoveDown', 'true');">
-                <div class="icon" aria-hidden="true">expand_more</div>
-              </button>
-            </div>
+          <div class="span-2 compactBtnList">
             <button
               type="button"
               class="btn btnIcon"
+              [disabled]="settings.config.messages.messageList.length === 1"
               (click)="removeMessage(i); ga.field('button.messageDelete', 'true');">
               <div class="icon" aria-hidden="true">delete</div>
             </button>
           </div>
         </ng-container>
+      </ng-container>
+    </div>
+  </form>
+  <form *ngIf="settings.config.messages.random" #newMessage="ngForm" novalidate (ngSubmit)="addMessage(newMessage, newMessage.valid); ga.field('button.messageNewAdd', 'true');">
+    <div class="grid cols-19 mb1">
+      <div class="span-15">
+        <input
+          type="text"
+          name="newMessageText"
+          placeholder="Add new message"
+          #newMessageTextRef="ngModel"
+          [(ngModel)]="newMessageText"
+          (change)="ga.field('messages.messageList.newMessage', 'userData');"
+          autocomplete="off"
+          required>
+        <div class="valMsg" *ngIf="newMessageTextRef.invalid && newMessage.submitted">{{'options.message.messageValidation' | translate}}</div>
       </div>
-    </form>
-    <form #newMessage="ngForm" novalidate (ngSubmit)="addMessage(newMessage,newMessage.valid); ga.field('button.newMessageAdd', 'true');">
-      <div class="grid cols-19">
-        <div class="span-15">
-          <input
-            type="text"
-            name="message"
-            placeholder="Add new message"
-            #newText="ngModel"
-            [(ngModel)]="message"
-            (change)="ga.field('messages.texts.newMessage', 'userData');"
-            autocomplete="off"
-            required>
-            <div class="valMsg" *ngIf="(newMessage.invalid ||isInvalid) && newMessage.submitted">{{'options.message.messageValidation' | translate}}</div>
-        </div>
-        
-        <div class="span-4">
-          <button type="submit" class="btn" title="{{'options.message.save' | translate}}">
-            <div  class="icon" aria-hidden="true">add</div>{{'options.common.add' | translate}}</button>
-        </div>
+      <div class="span-4">
+        <button type="submit" class="btn" title="{{'options.message.save' | translate}}">
+          <div class="icon" aria-hidden="true">add</div>{{'options.common.add' | translate}}
+        </button>
       </div>
-    </form>
+    </div>
+  </form>
 
+  <form class="pt15" #messageLayoutOptions="ngForm" novalidate>
     <!-- Layout -->
     <h3 class="layoutHeading">
       <span>Layout</span>
@@ -168,5 +155,5 @@
         <options-range name="messageOffset" min="-20" max="20" [(ngModel)]="settings.config.messages.offset" (ngModelChange)="ga.field('messages.offset', settings.config.messages.offset);"></options-range>
       </div>
     </ng-container>
-  </ng-container>
-</form>
+  </form>
+</ng-container>

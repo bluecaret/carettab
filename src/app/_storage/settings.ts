@@ -43,6 +43,7 @@ export class DesignSettings {
 export class MessageSettings {
   id = 'MESSAGE_1CUETHV7L63';
   enabled = false;
+  random = false;
   scaling = 8;
   offset = 0;
   marginHeight = 0;
@@ -50,8 +51,12 @@ export class MessageSettings {
   width = 100;
   position = 'c';
   textAlign = 'center';
-  text = 'Hello world!';
-  messageList = [];
+  messageList = [
+    {
+      id: "MESSAGETEXT_1PCCEZ3K991",
+      text: "Hello world!"
+    }
+  ];
 }
 
 export class I18nSettings {

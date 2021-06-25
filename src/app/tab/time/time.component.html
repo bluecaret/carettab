@@ -77,9 +77,9 @@
       [ngClass]="{ dim: clock.meridiem.dim }"
       [style.fontSize]="shared.getFontSize(clock.meridiem.scaling, 20)"
       [style.transform]="shared.getOffset(clock.meridiem.offset)"
-    >
-      {{ getMeridiem(clock.timezone, clock.meridiem.am, clock.meridiem.pm) }}
-    </div>
+    >{{ 
+      getMeridiem(clock.timezone, clock.meridiem.am, clock.meridiem.pm) 
+    }}</div>
   </div>
   <div
     class="analog"

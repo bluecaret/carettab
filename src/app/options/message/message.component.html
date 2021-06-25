@@ -74,7 +74,7 @@
         name="messageSize"
         id="messageSize"
         min="1"
-        max="20"
+        max="50"
         [(ngModel)]="settings.config.messages.scaling"
         (ngModelChange)="
           ga.field('messages.scaling', settings.config.messages.scaling)
@@ -144,15 +144,15 @@
       </div>
       <div class="input">
         <label for="messageMarginHeight">Margin Height</label>
-        <options-range name="messageMarginHeight" min="0" max="100" [(ngModel)]="settings.config.messages.marginHeight" (ngModelChange)="ga.field('messages.marginHeight', settings.config.messages.marginHeight)"></options-range>
+        <options-range name="messageMarginHeight" min="0" max="50" [(ngModel)]="settings.config.messages.marginHeight" (ngModelChange)="ga.field('messages.marginHeight', settings.config.messages.marginHeight)"></options-range>
       </div>
       <div class="input">
         <label for="messageMarginWidth">Margin Width</label>
-        <options-range name="messageMarginWidth" min="0" max="100" [(ngModel)]="settings.config.messages.marginWidth" (ngModelChange)="ga.field('messages.marginWidth', settings.config.messages.marginWidth)"></options-range>
+        <options-range name="messageMarginWidth" min="0" max="50" [(ngModel)]="settings.config.messages.marginWidth" (ngModelChange)="ga.field('messages.marginWidth', settings.config.messages.marginWidth)"></options-range>
       </div>
       <div class="input">
         <label>{{'options.common.offset' | translate}}</label>
-        <options-range name="messageOffset" min="-20" max="20" [(ngModel)]="settings.config.messages.offset" (ngModelChange)="ga.field('messages.offset', settings.config.messages.offset);"></options-range>
+        <options-range name="messageOffset" min="-50" max="50" [(ngModel)]="settings.config.messages.offset" (ngModelChange)="ga.field('messages.offset', settings.config.messages.offset);"></options-range>
       </div>
     </ng-container>
   </form>

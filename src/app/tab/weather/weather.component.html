@@ -88,8 +88,8 @@ Moonset: {{weather.forecast.forecastday[0].astro.moonset}}"
     <div 
       class="forecast" 
       [ngStyle]="{
-        'gap': shared.getPadding(settings.config.weather.padding), 
-        'margin-left' : settings.config.weather.current.enabled ? shared.getPadding(settings.config.weather.padding) : '0'
+        'gap': shared.getPadding(settings.config.weather.padding, .4), 
+        'margin-left' : settings.config.weather.current.enabled ? shared.getPadding(settings.config.weather.padding, .4) : '0'
       }"
     >
       <ng-container 

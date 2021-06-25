@@ -91,11 +91,11 @@
     </div>
     <div class="input" *ngIf="settings.config.date.week.enabled">
       <label>{{'options.common.size' | translate}}</label>
-      <options-range name="weekSize" min="1" max="20" [(ngModel)]="settings.config.date.week.scaling" (change)="ga.field('date.week.scaling', settings.config.date.week.scaling);"></options-range>
+      <options-range name="weekSize" min="1" max="50" [(ngModel)]="settings.config.date.week.scaling" (change)="ga.field('date.week.scaling', settings.config.date.week.scaling);"></options-range>
     </div>
     <div class="input" *ngIf="settings.config.date.week.enabled">
       <label>{{'options.common.offset' | translate}}</label>
-      <options-range name="weekOffset" min="-10" max="10" [(ngModel)]="settings.config.date.week.offset" (change)="ga.field('date.week.offset', settings.config.date.week.offset);"></options-range>
+      <options-range name="weekOffset" min="-50" max="50" [(ngModel)]="settings.config.date.week.offset" (change)="ga.field('date.week.offset', settings.config.date.week.offset);"></options-range>
     </div>
     <div class="input" *ngIf="settings.config.date.week.enabled">
       <label>{{'options.date.weekIso' | translate}}<tooltip text="{{'options.date.weekIsoDesc' | translate}}"></tooltip></label>
@@ -109,7 +109,7 @@
     </h3>
     <div class="input">
       <label>{{'options.common.size' | translate}}</label>
-      <options-range name="dateSize" min="1" max="20" [(ngModel)]="settings.config.date.scaling" (change)="ga.field('date.scaling', settings.config.date.scaling);"></options-range>
+      <options-range name="dateSize" min="1" max="50" [(ngModel)]="settings.config.date.scaling" (change)="ga.field('date.scaling', settings.config.date.scaling);"></options-range>
     </div>
     <div class="input">
       <label>{{'options.common.order' | translate}}</label>
@@ -141,15 +141,15 @@
       </div>
       <div class="input">
         <label for="dateMarginHeight">Margin Height</label>
-        <options-range name="dateMarginHeight" min="0" max="100" [(ngModel)]="settings.config.date.marginHeight" (ngModelChange)="ga.field('date.marginHeight', settings.config.date.marginHeight)"></options-range>
+        <options-range name="dateMarginHeight" min="0" max="50" [(ngModel)]="settings.config.date.marginHeight" (ngModelChange)="ga.field('date.marginHeight', settings.config.date.marginHeight)"></options-range>
       </div>
       <div class="input">
         <label for="dateMarginWidth">Margin Width</label>
-        <options-range name="dateMarginWidth" min="0" max="100" [(ngModel)]="settings.config.date.marginWidth" (ngModelChange)="ga.field('date.marginWidth', settings.config.date.marginWidth)"></options-range>
+        <options-range name="dateMarginWidth" min="0" max="50" [(ngModel)]="settings.config.date.marginWidth" (ngModelChange)="ga.field('date.marginWidth', settings.config.date.marginWidth)"></options-range>
       </div>
       <div class="input">
         <label>{{'options.common.offset' | translate}}</label>
-        <options-range name="dateOffset" min="-20" max="20" [(ngModel)]="settings.config.date.offset" (change)="ga.field('date.offset', settings.config.date.offset);"></options-range>
+        <options-range name="dateOffset" min="-50" max="50" [(ngModel)]="settings.config.date.offset" (change)="ga.field('date.offset', settings.config.date.offset);"></options-range>
       </div>
     </ng-container>
   </ng-container>

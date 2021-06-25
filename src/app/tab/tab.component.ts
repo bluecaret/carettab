@@ -209,7 +209,7 @@ export class TabComponent implements OnInit {
     const styles = {
       'font-size' : this.shared.getFontSize(this.settings.config.weather.scaling, 12),
       'transform' : this.shared.getOffsetLarge(this.settings.config.weather.offset),
-      'margin' : this.shared.getMargin(this.settings.config.weather.marginHeight, this.settings.config.weather.marginWidth)
+      'margin' : this.shared.getMargin(this.settings.config.weather.marginHeight, this.settings.config.weather.marginWidth, .4)
     };
     return styles;
   }

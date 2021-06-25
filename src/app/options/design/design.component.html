@@ -36,7 +36,7 @@
   </div>
   <div class="input">
     <label for="globalSize">{{'options.design.globalSize' | translate}}<tooltip text="{{'options.design.globalSizeDesc' | translate}}"></tooltip></label>
-    <options-range name="globalSize" id="globalSize" min="1" max="20" [(ngModel)]="settings.config.design.scaling" (change)="ga.field('design.scaling', settings.config.design.scaling);"></options-range>
+    <options-range name="globalSize" id="globalSize" min="1" max="50" [(ngModel)]="settings.config.design.scaling" (change)="ga.field('design.scaling', settings.config.design.scaling);"></options-range>
   </div>
   <div class="input">
     <label for="scalingMethod">{{'options.design.dynScale' | translate}}<tooltip text="{{'options.design.dynScaleDesc' | translate}}"></tooltip></label>

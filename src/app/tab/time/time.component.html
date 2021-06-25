@@ -188,27 +188,13 @@
     [ngStyle]="{ 'font-size': shared.getFontSize(clock.scaling, 45) }"
     [ngClass]="{ 'binaryDim': clock.binary.dim, 'binarySecondsDim': clock.seconds.dim }"
   >
-    <div class="binaryContainer">
-      <div #binaryHours id="binaryHours">
-        <div class="binaryColumn">
+    <div class="binaryContainer" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
+      <div #binaryHours id="binaryHours" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
+        <div class="binaryColumn" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
           <span class="binaryMarker"></span>
           <span class="binaryMarker"></span>
         </div>
-        <div class="binaryColumn">
-          <span class="binaryMarker"></span>
-          <span class="binaryMarker"></span>
-          <span class="binaryMarker"></span>
-          <span class="binaryMarker"></span>
-        </div>
-      </div>
-
-      <div #binaryMinutes id="binaryMinutes">
-        <div class="binaryColumn">
-          <span class="binaryMarker"></span>
-          <span class="binaryMarker"></span>
-          <span class="binaryMarker"></span>
-        </div>
-        <div class="binaryColumn">
+        <div class="binaryColumn" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
           <span class="binaryMarker"></span>
           <span class="binaryMarker"></span>
           <span class="binaryMarker"></span>
@@ -216,13 +202,27 @@
         </div>
       </div>
 
-      <div #binarySeconds id="binarySeconds" *ngIf="clock.seconds.enabled">
-        <div class="binaryColumn">
+      <div #binaryMinutes id="binaryMinutes" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
+        <div class="binaryColumn" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
           <span class="binaryMarker"></span>
           <span class="binaryMarker"></span>
           <span class="binaryMarker"></span>
         </div>
-        <div class="binaryColumn">
+        <div class="binaryColumn" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
+          <span class="binaryMarker"></span>
+          <span class="binaryMarker"></span>
+          <span class="binaryMarker"></span>
+          <span class="binaryMarker"></span>
+        </div>
+      </div>
+
+      <div #binarySeconds id="binarySeconds" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }" *ngIf="clock.seconds.enabled">
+        <div class="binaryColumn" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
+          <span class="binaryMarker"></span>
+          <span class="binaryMarker"></span>
+          <span class="binaryMarker"></span>
+        </div>
+        <div class="binaryColumn" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
           <span class="binaryMarker"></span>
           <span class="binaryMarker"></span>
           <span class="binaryMarker"></span>

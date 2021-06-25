@@ -69,9 +69,9 @@ export class TabTimeComponent implements OnInit {
           }
         }
       }
-      this.UpdateBinaryClock(hourList, hours);
-      this.UpdateBinaryClock(minuteList, minutes);
-      this.UpdateBinaryClock(secondsList, seconds);
+      this.updateBinaryClock(hourList, hours);
+      this.updateBinaryClock(minuteList, minutes);
+      this.updateBinaryClock(secondsList, seconds);
     }
   }
 
@@ -85,7 +85,7 @@ export class TabTimeComponent implements OnInit {
     }
   }
 
-  UpdateBinaryClock(childrenList, v) {
+  updateBinaryClock(childrenList, v) {
     this.resetMarkers(childrenList);
     for (var s = 0; s <= v.toString().length - 1; s++) {
       var childrensList = childrenList[(childrenList.length - 1) - s].children;

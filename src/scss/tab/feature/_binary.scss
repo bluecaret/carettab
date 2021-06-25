@@ -1,30 +1,40 @@
-.binary {
+.binaryContainer {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1em;
+}
+
+#binarySeconds,
+#binaryMinutes,
+#binaryHours {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1em;
+}
+
+.binaryColumn {
   display: flex;
-  justify-content: center;
-  .binaryContainer {
-    display: flex;
-    justify-content: space-around;
-    
-    #binarySeconds,
-    #binaryMinutes,
-    #binaryHours {
-      display: flex;
-      flex-direction: row;
-      font-size: small;
-      color: white;
-      flex-wrap: wrap;
-      align-items: flex-end;
-      div {
-        display: flex;
-        flex-direction: column;
-      }
-    }
+  flex-direction: column;
+  gap: 1em;
+  justify-content: flex-end;
+}
+
+.binaryMarker {
+  background-color: currentColor;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  opacity: .5;
+  &.active {
+    opacity: 1;
   }
-  .dab {
-    display: flex;
-    opacity: 50%;
-    margin: 5px;
-    border-radius: 50px;
-    justify-content: center;
+}
+.binarySecondsDim #binarySeconds,
+.binaryDim {
+  .binaryMarker {
+    opacity: .25;
+    &.active {
+      opacity: 1;
+    }
   }
 }

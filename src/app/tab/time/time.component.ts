@@ -61,11 +61,11 @@ export class TabTimeComponent implements OnInit {
       var hours = parseInt(this.getHour(this.clock.timezone, this.clock.twentyFour, this.clock.twoDigit, 1) + this.getHour(this.clock.timezone, this.clock.twentyFour, this.clock.twoDigit, 2));
 
       if (seconds == 0) {
-        this.resetdabs(secondsList);
+        this.resetMarkers(secondsList);
         if (minutes == 0) {
-          this.resetdabs(minuteList);
+          this.resetMarkers(minuteList);
           if (hours > 23) {
-            this.resetdabs(hourList);
+            this.resetMarkers(hourList);
           }
         }
       }
@@ -75,42 +75,33 @@ export class TabTimeComponent implements OnInit {
     }
   }
 
-  setActiveDabs(childrenList, v) {
+  setActiveMarkers(childrenList, v) {
     var val = this.toBinary(parseInt(v))
-    this.resetChildren(childrenList);
+    this.resetBinaryChildren(childrenList);
     for (var i = 0; i <= val.length - 1; i++) {
       if (parseInt(val[(val.length - 1) - i]) > 0) {
-        childrenList[(childrenList.length - 1) - i].style.opacity ='100%';
-        if (this.clock.binary.dim) {
-          childrenList[(childrenList.length - 1) - i].style.opacity ='60%';
-          childrenList[(childrenList.length - 1) - i].classList.add('dim')
-        }
+        childrenList[(childrenList.length - 1) - i].classList.add('active');
       }
     }
   }
 
   UpdateBinaryClock(childrenList, v) {
-    this.resetdabs(childrenList);
+    this.resetMarkers(childrenList);
     for (var s = 0; s <= v.toString().length - 1; s++) {
       var childrensList = childrenList[(childrenList.length - 1) - s].children;
-      this.setActiveDabs(childrensList, parseInt(v.toString()[(v.toString().length - 1) - s]))
+      this.setActiveMarkers(childrensList, parseInt(v.toString()[(v.toString().length - 1) - s]))
     }
   }
 
-  resetdabs = (childrenList) => {
+  resetMarkers = (childrenList) => {
     for (var c = 0; c <= childrenList.length - 1; c++) {
-      this.resetChildren(childrenList[(childrenList.length - 1) - c].children);
+      this.resetBinaryChildren(childrenList[(childrenList.length - 1) - c].children);
     }
   }
 
-  resetChildren(childrenList) {
+  resetBinaryChildren(childrenList) {
     for (var i = childrenList.length - 1; i >= 0; i--) {
-      childrenList[(childrenList.length - 1) - i].style.opacity ='50%';
-      childrenList[(childrenList.length - 1) - i].style.backgroundColor =this.settings.config.design.foreground;
-      if (this.clock.binary.dim) {
-        childrenList[(childrenList.length - 1) - i].style.opacity ='20%';
-        childrenList[i].classList.add('dim')
-      }
+      childrenList[(childrenList.length - 1) - i].classList.remove('active');
     }
   }
   

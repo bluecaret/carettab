@@ -14,7 +14,7 @@ export class OptionsExtraComponent {
   titleOptions = title;
   languages = languages;
   selected = '';
-  newCountry = { code: '' };
+  newCountry = '';
   importStatus: string;
   public countryList = [];
   constructor(
@@ -115,7 +115,8 @@ export class OptionsExtraComponent {
   }
 
   addCountry(model: any, isValid: boolean) {
-    if (isValid) {
+    debugger;
+    if (isValid && model.value.newCountry.code != '') {
       let elementId = this.shared.createID('COVID');
       this.settings.config.covidData.countries.push({
         id: elementId,

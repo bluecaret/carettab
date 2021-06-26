@@ -1,14 +1,15 @@
-<div class="covidContainer">
+<div
+  class="covidContainer"
+  [ngStyle]="{
+    'gap': shared.getPadding(settings.config.covidData.countries[index].padding)
+  }"
+>
   <div
     class="covidFlag"
     *ngIf="settings.config.covidData.countries[index].enableFlag"
-    [ngStyle]="{'gap': shared.getPadding(settings.config.covidData.countries[index].padding)}"
   >
     <img
       [ngStyle]="{
-        'gap': shared.getPadding(
-          settings.config.covidData.countries[index].padding
-        ),
         'height': shared.getImageSize(
           settings.config.covidData.countries[index].flagSize
         )

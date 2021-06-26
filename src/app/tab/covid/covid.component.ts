@@ -1,18 +1,18 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 import {
   Component,
   Input,
   OnChanges,
   OnInit,
-  SimpleChanges,
-} from "@angular/core";
-import { SharedService } from "../../_shared/shared.service";
-import { Storage } from "../../_storage/storage.service";
+  SimpleChanges
+} from '@angular/core';
+import { SharedService } from '../../_shared/shared.service';
+import { Storage } from '../../_storage/storage.service';
 
 @Component({
-  selector: "tab-covid",
-  templateUrl: "covid.component.html",
-  host: { class: "covid" },
+  selector: 'tab-covid',
+  templateUrl: 'covid.component.html',
+  host: { class: 'covid' }
 })
 export class TabCovidComponent implements OnInit, OnChanges {
   @Input() countryCode: string;
@@ -25,7 +25,7 @@ export class TabCovidComponent implements OnInit, OnChanges {
   ) {}
   ngOnChanges(changes: SimpleChanges): void {
     this.http
-      .get("https://corona.lmao.ninja/v2/countries/" + this.countryCode)
+      .get('https://corona.lmao.ninja/v2/countries/' + this.countryCode)
       .subscribe((data: CovidData) => {
         this.shared.echo(JSON.stringify(data));
         this.countryData = data;
@@ -33,23 +33,23 @@ export class TabCovidComponent implements OnInit, OnChanges {
   }
   ngOnInit(): void {
     this.http
-      .get("https://corona.lmao.ninja/v2/countries/" + this.countryCode)
+      .get('https://corona.lmao.ninja/v2/countries/' + this.countryCode)
       .subscribe((data: CovidData) => {
         this.shared.echo(JSON.stringify(data));
         this.countryData = data;
       });
   }
 
-  getWidth(size: number) {
-    return size * 0.06 + "em";
+  getGap(padding: number) {
+    return padding * 0.1 + 'em';
   }
 }
 
 export class CovidData {
-  todayCases: string = "";
-  deaths: string = "";
-  active: string = "";
-  country: string = "";
+  todayCases: string = '';
+  deaths: string = '';
+  active: string = '';
+  country: string = '';
   countryInfo: {
     flag: string;
   };

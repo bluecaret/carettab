@@ -122,7 +122,7 @@ export class OptionsExtraComponent {
         enableFlag: true,
         code: model.value.newCountry,
         flagSize: 30,
-        textScaling: 20,
+        textScaling: 2,
         offset: 0,
         padding: 10,
         marginHeight: 0,

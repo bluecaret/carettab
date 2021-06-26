@@ -156,9 +156,7 @@
             *ngIf="c.position === 'n'"
             [index]="i"
             [countryCode]="c.code"
-            [style.order]="shared.getOrder(c.id, c.position)"
-            [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.transform]="shared.getOffset(c.offset)"
+            [ngStyle]="setCovidCountryStyles(c)"
           ></tab-covid>
         </ng-container>
       </ng-container>

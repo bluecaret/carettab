@@ -134,7 +134,7 @@ export class TabComponent implements OnInit {
     const styles = {
       'font-size' : this.shared.getFontSize(clock.scaling, 1.7),
       'justify-content' : this.getAlignment(clock.position),
-      'width' : this.getClockSpan(clock.span),
+      'width' : this.shared.getPercentWidth(clock.span),
       'order' : this.shared.getOrder(clock.id, clock.position),
       'transform' : this.shared.getOffset(clock.offset),
       'margin' : this.shared.getMargin(clock.marginHeight, clock.marginWidth)

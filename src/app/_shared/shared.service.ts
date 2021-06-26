@@ -186,6 +186,11 @@ export class SharedService {
     return (size * 1) + 'vw';
   }
 
+  public getPercentWidth(size: number) {
+    // Max width will always be based on viewport as opposed to scaling method.
+    return (size * 1) + '%';
+  }
+
   public getMargin(height: number, width: number, multiplier = .1) {
     return `${height * multiplier}em ${width * multiplier}em`;
   }

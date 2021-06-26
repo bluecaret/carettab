@@ -72,11 +72,7 @@
             [countryCode]="c.code"
             [style.order]="shared.getOrder(c.id, c.position)"
             [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.margin]="
-              shared.getMargin(
-                c.padding
-              )
-            "
+            [style.margin]="shared.getMargin(c.padding)"
             [style.transform]="shared.getOffset(c.offset)"
           ></tab-covid>
         </ng-container>
@@ -153,19 +149,16 @@
         "
       >
         <ng-container
+          [style.margin]="shared.getMargin(c.marginHeight,c.marginWidth)"
           *ngFor="let c of settings.config.covidData.countries; let i = index"
         >
+        {{c.marginHeight}}
           <tab-covid
             *ngIf="c.position === 'n'"
             [index]="i"
             [countryCode]="c.code"
             [style.order]="shared.getOrder(c.id, c.position)"
             [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.margin]="
-              shared.getMargin(
-                c.padding
-              )
-            "
             [style.transform]="shared.getOffset(c.offset)"
           ></tab-covid>
         </ng-container>
@@ -248,14 +241,7 @@
             *ngIf="c.position === 'ne'"
             [index]="i"
             [countryCode]="c.code"
-            [style.order]="shared.getOrder(c.id, c.position)"
-            [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.margin]="
-              shared.getMargin(
-                c.padding
-              )
-            "
-            [style.transform]="shared.getOffset(c.offset)"
+            [ngStyle]="setCovidCountryStyles()"
           ></tab-covid>
         </ng-container>
       </ng-container>
@@ -339,11 +325,7 @@
             [countryCode]="c.code"
             [style.order]="shared.getOrder(c.id, c.position)"
             [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.margin]="
-              shared.getMargin(
-                c.padding
-              )
-            "
+            [style.margin]="shared.getMargin(c.padding)"
             [style.transform]="shared.getOffset(c.offset)"
           ></tab-covid>
         </ng-container>
@@ -428,11 +410,7 @@
             [countryCode]="c.code"
             [style.order]="shared.getOrder(c.id, c.position)"
             [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.margin]="
-              shared.getMargin(
-                c.padding
-              )
-            "
+            [style.margin]="shared.getMargin(c.padding)"
             [style.transform]="shared.getOffset(c.offset)"
           ></tab-covid>
         </ng-container>
@@ -517,11 +495,7 @@
             [countryCode]="c.code"
             [style.order]="shared.getOrder(c.id, c.position)"
             [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.margin]="
-              shared.getMargin(
-                c.padding
-              )
-            "
+            [style.margin]="shared.getMargin(c.padding)"
             [style.transform]="shared.getOffset(c.offset)"
           ></tab-covid>
         </ng-container>
@@ -606,11 +580,7 @@
             [countryCode]="c.code"
             [style.order]="shared.getOrder(c.id, c.position)"
             [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.margin]="
-              shared.getMargin(
-                c.padding
-              )
-            "
+            [style.margin]="shared.getMargin(c.padding)"
             [style.transform]="shared.getOffset(c.offset)"
           ></tab-covid>
         </ng-container>
@@ -695,11 +665,7 @@
             [countryCode]="c.code"
             [style.order]="shared.getOrder(c.id, c.position)"
             [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.margin]="
-              shared.getMargin(
-                c.padding
-              )
-            "
+            [style.margin]="shared.getMargin(c.padding)"
             [style.transform]="shared.getOffset(c.offset)"
           ></tab-covid>
         </ng-container>
@@ -784,11 +750,7 @@
             [countryCode]="c.code"
             [style.order]="shared.getOrder(c.id, c.position)"
             [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.margin]="
-              shared.getMargin(
-                c.padding
-              )
-            "
+            [style.margin]="shared.getMargin(c.padding)"
             [style.transform]="shared.getOffset(c.offset)"
           ></tab-covid>
         </ng-container>

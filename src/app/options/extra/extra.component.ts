@@ -119,11 +119,14 @@ export class OptionsExtraComponent {
       let elementId = this.shared.createID('COVID');
       this.settings.config.covidData.countries.push({
         id: elementId,
+        enableFlag: true,
         code: model.value.newCountry,
         flagSize: 30,
         textScaling: 20,
         offset: 0,
-        padding: 0,
+        padding: 10,
+        marginHeight: 0,
+        marginWidth: 0,
         name: 'default',
         position: 'n'
       });

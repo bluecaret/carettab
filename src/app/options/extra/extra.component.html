@@ -317,6 +317,14 @@
         ></options-range>
       </div>
       <div class="input">
+        <label for="countryMarginHeight">Margin Height</label>
+        <options-range name="countryMarginHeight" min="0" max="100" [(ngModel)]="country.marginHeight" (ngModelChange)="ga.field('country.marginHeight', country.marginHeight)"></options-range>
+      </div>
+      <div class="input">
+        <label for="countryMarginWidth">Margin Width</label>
+        <options-range name="countryMarginWidth" min="0" max="100" [(ngModel)]="country.marginWidth" (ngModelChange)="ga.field('country.marginWidth', country.marginWidth)"></options-range>
+      </div>
+      <div class="input">
         <label for="covidPlacement">Position</label>
         <options-position
           id="covidPlacement"

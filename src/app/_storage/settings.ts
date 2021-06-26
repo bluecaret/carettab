@@ -26,7 +26,7 @@ export class OrderSettings {
 export class DesignSettings {
   scalingMethod = false;
   scaling = 14;
-  font = 91;
+  font = 181;
   customFont = 'Comic Sans MS';
   customFontWeight = 40;
   background = '#ffffff';
@@ -277,6 +277,7 @@ export class WeatherSettings {
     }
   };
   forecast = {
+    enabled: false,
     days: 3,
     horizontal: true,
     icon: {

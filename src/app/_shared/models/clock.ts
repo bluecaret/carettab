@@ -6,7 +6,7 @@ export class Clock {
     public label: Label = new Label(),
     public timezone: string = 'Automatic',
     public scaling: number = 5,
-    public span: number = 10,
+    public span: number = 100,
     public padding: number = 10,
     public marginHeight: number = 0,
     public marginWidth: number = 2,

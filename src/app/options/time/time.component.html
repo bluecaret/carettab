@@ -54,193 +54,6 @@
       </div>
     </div>
     <div *ngIf="selected === i" class="mt">
-      <h4>{{'options.time.generalSettings' | translate}}</h4>
-      <div class="indent">
-        <div class="input">
-          <label [for]="'clockTwentyFour'+i">{{'options.time.twentyFour' | translate}}<tooltip text="{{'options.time.twentyFourDesc' | translate}}"></tooltip></label>
-          <options-toggle [name]="'clockTwentyFour'+i" [id]="'clockTwentyFour'+i" [(ngModel)]="clock.twentyFour" (ngModelChange)="ga.field('time.clocks.twentyFour', clock.twentyFour)"></options-toggle>
-        </div>
-        <div class="input">
-          <label [for]="'clockTwoDigit'+i">{{'options.time.twoDigit' | translate}}<tooltip text="{{'options.time.twoDigitDesc' | translate}}"></tooltip></label>
-          <options-toggle [disabled]="clock.twentyFour" [name]="'clockTwoDigit'+i" [id]="'clockTwoDigit'+i" [(ngModel)]="clock.twoDigit" (ngModelChange)="ga.field('time.clocks.twoDigit', clock.twoDigit)"></options-toggle>
-        </div>
-      </div>
-      <h4 class="span-2">{{'options.time.label' | translate}}</h4>
-      <div class="indent">
-        <div class="input">
-          <label [for]="'labelEnable'+i">{{'options.time.labelEnable' | translate}}</label>
-          <options-toggle type="toggle" [name]="'labelEnable'+i" [id]="'labelEnable'+i" [(ngModel)]="clock.label.enabled" (ngModelChange)="ga.field('time.clocks.label.enabled', clock.label.enabled)"></options-toggle>
-        </div>
-        <div class="input" *ngIf="clock.label.enabled">
-          <label [for]="'label'+i">{{'options.common.label' | translate}}<tooltip text="{{'options.time.labelDesc' | translate}}"></tooltip></label>
-          <input
-            type="text"
-            [name]="'label'+i"
-            [id]="'label'+i"
-            [(ngModel)]="clock.label.text"
-            (ngModelChange)="ga.field('time.clocks.label.text', clock.label.text)"
-            autocomplete="off">
-        </div>
-        <div class="input" *ngIf="clock.label.enabled">
-          <label [for]="'labelScaling'+i">{{'options.common.size' | translate}}<tooltip text="{{'options.time.labelSize' | translate}}">{{'options.time.labelSize' | translate}}</tooltip></label>
-          <options-range [name]="'labelScaling'+i" [id]="'labelScaling'+i" min="1" max="20" [(ngModel)]="clock.label.scaling" (ngModelChange)="ga.field('time.clocks.label.scaling', clock.label.scaling)"></options-range>
-        </div>
-        <div class="input" *ngIf="clock.label.enabled">
-          <label [for]="'labelOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.time.labelOffset' | translate}}"></tooltip></label>
-          <options-range [name]="'labelOffset'+i" [id]="'labelOffset'+i" min="-10" max="10" [(ngModel)]="clock.label.offset" (ngModelChange)="ga.field('time.clocks.label.offset', clock.label.offset)"></options-range>
-        </div>
-        <div class="input" *ngIf="clock.label.enabled">
-          <label [for]="'labelDim'+i">{{'options.time.labelDim' | translate}}</label>
-          <options-toggle type="toggle" [name]="'labelDim'+i" [id]="'labelDim'+i" [(ngModel)]="clock.label.dim" (ngModelChange)="ga.field('time.clocks.label.dim', clock.label.dim)"></options-toggle>
-        </div>
-      </div>
-      <h4 class="span-2">{{'options.time.delimiter' | translate}}</h4>
-      <div class="indent">
-        <div class="input">
-          <label [for]="'delimiterEnable'+i">{{'options.time.enableDelimiter' | translate}}</label>
-          <options-toggle type="toggle" [name]="'delimiterEnable'+i" [id]="'delimiterEnable'+i" [(ngModel)]="clock.delimiter.enabled" (ngModelChange)="ga.field('time.clocks.delimiter.enabled', clock.delimiter.enabled)"></options-toggle>
-        </div>
-        <div class="input" *ngIf="clock.delimiter.enabled">
-          <label [for]="'delimiterSymbol'+i">{{'options.time.symbol' | translate}}<tooltip text="{{'options.time.symbolDesc' | translate}}"></tooltip></label>
-          <input type="text" maxlength="1" [id]="'delimiterSymbol'+i" [name]="'delimiterSymbol'+i" [(ngModel)]="clock.delimiter.symbol" (ngModelChange)="ga.field('time.clocks.delimiter.symbol', clock.delimiter.symbol)" autocomplete="off">
-        </div>
-        <div class="input" *ngIf="clock.delimiter.enabled">
-          <label [for]="'delimiterDim'+i">{{'options.time.dimDelimiter' | translate}}</label>
-          <options-toggle type="toggle" [name]="'delimiterDim'+i" [id]="'delimiterDim'+i" [(ngModel)]="clock.delimiter.dim" (ngModelChange)="ga.field('time.clocks.delimiter.dim', clock.delimiter.dim)"></options-toggle>
-        </div>
-        <div class="input" *ngIf="clock.delimiter.enabled">
-          <label [for]="'delimiterBlink'+i">{{'options.time.delimiterBlink' | translate}}</label>
-          <options-toggle type="toggle" [name]="'delimiterBlink'+i" [id]="'delimiterBlink'+i" [(ngModel)]="clock.delimiter.blink" (ngModelChange)="ga.field('time.clocks.delimiter.blink', clock.delimiter.blink)"></options-toggle>
-        </div>
-        <div class="input" *ngIf="clock.delimiter.enabled">
-          <label [for]="'delimiterScaling'+i">{{'options.common.size' | translate}}<tooltip text="{{'options.time.delimiterSize' | translate}}"></tooltip></label>
-          <options-range [name]="'delimiterScaling'+i" [id]="'delimiterScaling'+i" min="1" max="20" [(ngModel)]="clock.delimiter.scaling" (ngModelChange)="ga.field('time.clocks.delimiter.scaling', clock.delimiter.scaling)"></options-range>
-        </div>
-        <div class="input" *ngIf="clock.delimiter.enabled">
-          <label [for]="'delimiterOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.time.delimiterOffset' | translate}}"></tooltip></label>
-          <options-range [name]="'delimiterOffset'+i" [id]="'delimiterOffset'+i" min="-10" max="10" [(ngModel)]="clock.delimiter.offset" (ngModelChange)="ga.field('time.clocks.delimiter.offset', clock.delimiter.offset)"></options-range>
-        </div>
-      </div >
-      <h4 class="span-2">{{'options.time.seconds' | translate}}</h4>
-      <div class="indent">
-        <div class="input">
-          <label [for]="'secondsEnable'+i">{{'options.time.secondsEnable' | translate}}</label>
-          <options-toggle type="toggle" [name]="'secondsEnable'+i" [id]="'secondsEnable'+i" [(ngModel)]="clock.seconds.enabled" (ngModelChange)="ga.field('time.clocks.seconds.enabled', clock.seconds.enabled)"></options-toggle>
-        </div>
-        <div class="input" *ngIf="clock.seconds.enabled">
-          <label [for]="'secondsDim'+i">{{'options.time.secondsDim' | translate}}</label>
-          <options-toggle type="toggle" [name]="'secondsDim'+i" [id]="'secondsDim'+i" [(ngModel)]="clock.seconds.dim" (ngModelChange)="ga.field('time.clocks.seconds.dim', clock.seconds.dim)"></options-toggle>
-        </div>
-        <div class="input" *ngIf="clock.seconds.enabled">
-          <label [for]="'secondsScaling'+i">{{'options.common.size' | translate}}<tooltip text="{{'options.time.secondsSize' | translate}}"></tooltip></label>
-          <options-range [name]="'secondsScaling'+i" [id]="'secondsScaling'+i" min="1" max="20" [(ngModel)]="clock.seconds.scaling" (ngModelChange)="ga.field('time.clocks.seconds.scaling', clock.seconds.scaling)"></options-range>
-        </div>
-        <div class="input" *ngIf="clock.seconds.enabled">
-          <label [for]="'secondsOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.time.secondsOffset' | translate}}"></tooltip></label>
-          <options-range [name]="'secondsOffset'+i" [id]="'secondsOffset'+i" min="-10" max="10" [(ngModel)]="clock.seconds.offset" (ngModelChange)="ga.field('time.clocks.seconds.offset', clock.seconds.offset)"></options-range>
-        </div>
-      </div>
-      <h4 class="span-2">{{'options.time.meridiem' | translate}}</h4>
-      <div class="indent">
-        <div class="input">
-          <label [for]="'meridiemEnable'+i">{{'options.time.meridiemEnable' | translate}}</label>
-          <options-toggle type="toggle" [name]="'meridiemEnable'+i" [id]="'meridiemEnable'+i" [(ngModel)]="clock.meridiem.enabled" (ngModelChange)="ga.field('time.clocks.meridiem.enabled', clock.meridiem.enabled)"></options-toggle>
-        </div>
-        <div class="input" *ngIf="clock.meridiem.enabled">
-          <label [for]="'meridiemDim'+i">{{'options.time.meridiemDim' | translate}}</label>
-          <options-toggle type="toggle" [name]="'meridiemDim'+i" [id]="'meridiemDim'+i" [(ngModel)]="clock.meridiem.dim" (ngModelChange)="ga.field('time.clocks.meridiem.dim', clock.meridiem.dim)"></options-toggle>
-        </div>
-        <div class="input" *ngIf="clock.meridiem.enabled">
-          <label [for]="'meridiemAm'+i">A.M.<tooltip text="{{'options.time.symbolAm' | translate}}"></tooltip></label>
-          <input type="text" [id]="'meridiemAm'+i" [name]="'meridiemAm'+i" [(ngModel)]="clock.meridiem.am" (ngModelChange)="ga.field('time.clocks.meridiem.am', clock.meridiem.am)" autocomplete="off">
-        </div>
-        <div class="input" *ngIf="clock.meridiem.enabled">
-          <label [for]="'meridiemPm'+i">P.M.<tooltip text="{{'options.time.symbolPm' | translate}}"></tooltip></label>
-          <input type="text" [id]="'meridiemPm'+i" [name]="'meridiemPm'+i" [(ngModel)]="clock.meridiem.pm" (ngModelChange)="ga.field('time.clocks.meridiem.pm', clock.meridiem.pm)" autocomplete="off">
-        </div>
-        <div class="input" *ngIf="clock.meridiem.enabled">
-          <label [for]="'meridiemScaling'+i">{{'options.common.size' | translate}}<tooltip text="{{'options.time.meridiemSize' | translate}}"></tooltip></label>
-          <options-range [name]="'meridiemScaling'+i" [id]="'meridiemScaling'+i" min="1" max="20" [(ngModel)]="clock.meridiem.scaling" (ngModelChange)="ga.field('time.clocks.meridiem.scaling', clock.meridiem.scaling)"></options-range>
-        </div>
-        <div class="input" *ngIf="clock.meridiem.enabled">
-          <label [for]="'meridiemOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.time.meridiemOffset' | translate}}"></tooltip></label>
-          <options-range [name]="'meridiemOffset'+i" [id]="'meridiemOffset'+i" min="-10" max="10" [(ngModel)]="clock.meridiem.offset" (ngModelChange)="ga.field('time.clocks.meridiem.offset', clock.meridiem.offset)"></options-range>
-        </div>
-      </div>
-      <h4 class="span-2">{{'options.time.brackets' | translate}}</h4>
-      <div class="indent">
-        <div class="input">
-          <label [for]="'bracketsEnable'+i">{{'options.time.bracketsEnable' | translate}}</label>
-          <options-toggle type="toggle" [name]="'bracketsEnable'+i" [id]="'bracketsEnable'+i" [(ngModel)]="clock.brackets.enabled" (ngModelChange)="ga.field('time.clocks.brackets.enabled', clock.brackets.enabled)"></options-toggle>
-        </div>
-        <div class="input" *ngIf="clock.brackets.enabled">
-          <label [for]="'bracketsDim'+i">{{'options.time.bracketsDim' | translate}}</label>
-          <options-toggle type="toggle" [name]="'bracketsDim'+i" [id]="'bracketsDim'+i" [(ngModel)]="clock.brackets.dim" (ngModelChange)="ga.field('time.clocks.brackets.dim', clock.brackets.dim)"></options-toggle>
-        </div>
-        <div class="input" *ngIf="clock.brackets.enabled">
-          <label [for]="'bracketsLeft'+i">{{'options.time.bracketsLeft' | translate}}<tooltip text="{{'options.time.bracketsLeftDesc' | translate}}"></tooltip></label>
-          <input type="text" maxlength="1" [id]="'bracketsLeft'+i" [name]="'bracketsLeft'+i" [(ngModel)]="clock.brackets.left" (ngModelChange)="ga.field('time.clocks.brackets.left', clock.brackets.left)" autocomplete="off">
-        </div>
-        <div class="input" *ngIf="clock.brackets.enabled">
-          <label [for]="'bracketsRight'+i">{{'options.time.bracketsRight' | translate}}<tooltip text="{{'options.time.bracketsRightDesc' | translate}}"></tooltip></label>
-          <input type="text" maxlength="1" [id]="'bracketsRight'+i" [name]="'bracketsRight'+i" [(ngModel)]="clock.brackets.right" (ngModelChange)="ga.field('time.clocks.brackets.right', clock.brackets.right)" autocomplete="off">
-        </div>
-        <div class="input" *ngIf="clock.brackets.enabled">
-          <label [for]="'bracketsScaling'+i">{{'options.common.size' | translate}}<tooltip text="{{'options.time.bracketsSize' | translate}}"></tooltip></label>
-          <options-range [name]="'bracketsScaling'+i" [id]="'bracketsScaling'+i" min="1" max="20" [(ngModel)]="clock.brackets.scaling" (ngModelChange)="ga.field('time.clocks.brackets.scaling', clock.brackets.scaling)"></options-range>
-        </div>
-        <div class="input" *ngIf="clock.brackets.enabled">
-          <label [for]="'bracketsOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.time.bracketsOffset' | translate}}"></tooltip></label>
-          <options-range [name]="'bracketsOffset'+i" [id]="'bracketsOffset'+i" min="-10" max="10" [(ngModel)]="clock.brackets.offset" (ngModelChange)="ga.field('time.clocks.brackets.offset', clock.brackets.offset)"></options-range>
-        </div>
-        <div class="input" *ngIf="clock.brackets.enabled">
-          <label [for]="'bracketsPadding'+i">{{'options.time.bracketsPadding' | translate}}<tooltip text="{{'options.time.bracketsPaddingDesc' | translate}}"></tooltip></label>
-          <options-range [name]="'bracketsPadding'+i" [id]="'bracketsPadding'+i" min="0" max="5" [(ngModel)]="clock.brackets.padding" (ngModelChange)="ga.field('time.clocks.brackets.padding', clock.brackets.padding)"></options-range>
-        </div>
-      </div>
-      <h4 class="span-2">{{'options.time.relativeTime' | translate}}</h4>
-      <div class="indent">
-        <div class="input">
-          <label [for]="'relativeTimeEnable'+i">{{'options.time.relativeTime' | translate}}<tooltip text="{{'options.time.relativeEnable' | translate}}"></tooltip></label>
-          <options-toggle type="toggle" [name]="'relativeTimeEnable'+i" [id]="'relativeTimeEnable'+i" [(ngModel)]="clock.relativeTime.enabled" (ngModelChange)="ga.field('time.clocks.relativeTime.enabled', clock.relativeTime.enabled)"></options-toggle>
-        </div>
-        <div class="input" *ngIf="clock.relativeTime.enabled">
-          <label [for]="'relativeTimeDim'+i">{{'options.time.relativeDim' | translate}}</label>
-          <options-toggle type="toggle" [name]="'relativeTimeDim'+i" [id]="'relativeTimeDim'+i" [(ngModel)]="clock.relativeTime.dim" (ngModelChange)="ga.field('time.clocks.relativeTime.dim', clock.relativeTime.dim)"></options-toggle>
-        </div>
-        <div class="input" *ngIf="clock.relativeTime.enabled">
-          <label [for]="'relativeTimeScaling'+i">{{'options.common.size' | translate}}<tooltip text="{{'options.time.relativeSize' | translate}}"></tooltip></label>
-          <options-range [name]="'relativeTimeScaling'+i" [id]="'relativeTimeScaling'+i" min="1" max="20" [(ngModel)]="clock.relativeTime.scaling" (ngModelChange)="ga.field('time.clocks.relativeTime.scaling', clock.relativeTime.scaling)"></options-range>
-        </div>
-        <div class="input" *ngIf="clock.relativeTime.enabled">
-          <label [for]="'relativeTimeOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.time.relativeOffset' | translate}}"></tooltip></label>
-          <options-range [name]="'relativeTimeOffset'+i" [id]="'relativeTimeOffset'+i" min="-10" max="10" [(ngModel)]="clock.relativeTime.offset" (ngModelChange)="ga.field('time.clocks.relativeTime.offset', clock.relativeTime.offset)"></options-range>
-        </div>
-      </div>
-      <h4 class="span-2">{{'options.time.analog' | translate}}</h4>
-      <div class="indent">
-        <div class="input">
-          <label [for]="'analogEnable'+i">{{'options.time.analogEnable' | translate}}<tooltip text="{{'options.time.analogEnableDesc' | translate}}"></tooltip></label>
-          <options-toggle type="toggle" [name]="'analogEnable'+i" [id]="'analogEnable'+i" [(ngModel)]="clock.analog.enabled" (ngModelChange)="clock.binary.enabled=false;ga.field('time.clocks.analog.enabled', clock.analog.enabled)"></options-toggle>
-        </div>
-        <div class="input" *ngIf="clock.analog.enabled === true">
-          <label [for]="'analogStyle'+i">{{'options.time.analogStyle' | translate}}<tooltip text="{{'options.time.analogStyleDesc' | translate}}"></tooltip></label>
-          <select [name]="'analogStyle'+i" [id]="'analogStyle'+i" [(ngModel)]="clock.analog.style" (ngModelChange)="ga.field('time.clocks.analog.style', clock.analog.style)">
-            <option *ngFor="let s of analog" [ngValue]="s.id">{{s.label}}</option>
-          </select>
-        </div>
-      </div>
-      <h4 class="span-2">{{'options.time.binary' | translate}}</h4>
-      <div class="indent">
-        <div class="input">
-          <label [for]="'binaryEnable'+i">{{'options.time.binaryEnable' | translate}}<tooltip text="{{'options.time.binaryEnableDesc' | translate}}"></tooltip></label>
-          <options-toggle type="toggle" [name]="'binaryEnable'+i" [id]="'analogEnable'+i" [(ngModel)]="clock.binary.enabled" (ngModelChange)="clock.analog.enabled=false;ga.field('time.clocks.binary.enabled', clock.binary.enabled)"></options-toggle>
-        </div>
-        <div class="input" *ngIf="clock.binary.enabled === true">
-          <label [for]="'binarydim'+i">{{'options.time.binaryDim' | translate}}<tooltip text="{{'options.time.binaryDimDesc' | translate}}"></tooltip></label>
-          <options-toggle type="toggle" [name]="'binarydim'+i" [id]="'binarydim'+i" [(ngModel)]="clock.binary.dim" (ngModelChange)="ga.field('time.clocks.binary.dim', clock.binary.dim)"></options-toggle>          
-        </div>
-      </div>
       <!-- Layout -->
       <h4 class="layoutHeading">
         <span>Layout</span>
@@ -248,14 +61,8 @@
       </h4>
       <div class="indent">
         <div class="input">
-          <label [for]="'clockSpan'+i">{{'options.time.span' | translate}}<tooltip text="{{'options.time.spanDesc' | translate}}"></tooltip></label>
-          <select [name]="'clockSpan'+i" [id]="'clockSpan'+i" [(ngModel)]="clock.span" (ngModelChange)="ga.field('time.clocks.span', findSpan(clock.span))">
-            <option *ngFor="let s of span" [ngValue]="s.id">{{s.label}}</option>
-          </select>
-        </div>
-        <div class="input">
           <label [for]="'clockSize'+i">{{'options.common.size' | translate}}<tooltip text="{{'options.time.sizeDesc' | translate}}"></tooltip></label>
-          <options-range [name]="'clockSize'+i" [id]="'clockSize'+i" min="1" max="40" [(ngModel)]="clock.scaling" (ngModelChange)="ga.field('time.clocks.scaling', clock.scaling)"></options-range>
+          <options-range [name]="'clockSize'+i" [id]="'clockSize'+i" min="1" max="50" [(ngModel)]="clock.scaling" (ngModelChange)="ga.field('time.clocks.scaling', clock.scaling)"></options-range>
         </div>
         <div class="input">
           <label [for]="'clockOrder'+i">{{'options.common.order' | translate}}</label>
@@ -286,22 +93,213 @@
             <options-position [id]="'clockPlacement'+i" [name]="'clockPlacement'+i" [settingId]="clock.id" [(ngModel)]="clock.position" (ngModelChange)="ga.field('time.clocks.position', clock.position)"></options-position>
           </div>
           <div class="input">
+            <label [for]="'clockSpan'+i">{{'options.time.span' | translate}}<tooltip text="{{'options.time.spanDesc' | translate}}"></tooltip></label>
+            <options-range [name]="'clockSpan'+i" [id]="'clockSpan'+i" min="1" max="100" [(ngModel)]="clock.span" (ngModelChange)="ga.field('time.clocks.span', clock.span)"></options-range>
+          </div>
+          <div class="input">
             <label [for]="'clockPadding'+i">{{'options.time.padding' | translate}}<tooltip text="{{'options.time.paddingDesc' | translate}}"></tooltip></label>
-            <options-range [name]="'clockPadding'+i" [id]="'clockPadding'+i" min="1" max="20" [(ngModel)]="clock.padding" (ngModelChange)="ga.field('time.clocks.padding', clock.padding)"></options-range>
+            <options-range [name]="'clockPadding'+i" [id]="'clockPadding'+i" min="0" max="50" [(ngModel)]="clock.padding" (ngModelChange)="ga.field('time.clocks.padding', clock.padding)"></options-range>
           </div>
           <div class="input">
             <label [for]="'clockMarginHeight'+i">Margin Height</label>
-            <options-range [name]="'clockMarginHeight'+i" min="0" max="100" [(ngModel)]="clock.marginHeight" (ngModelChange)="ga.field('time.clocks.marginHeight', clock.marginHeight)"></options-range>
+            <options-range [name]="'clockMarginHeight'+i" min="0" max="50" [(ngModel)]="clock.marginHeight" (ngModelChange)="ga.field('time.clocks.marginHeight', clock.marginHeight)"></options-range>
           </div>
           <div class="input">
             <label [for]="'clockMarginWidth'+i">Margin Width</label>
-            <options-range [name]="'clockMarginWidth'+i" min="0" max="100" [(ngModel)]="clock.marginWidth" (ngModelChange)="ga.field('time.clocks.marginWidth', clock.marginWidth)"></options-range>
+            <options-range [name]="'clockMarginWidth'+i" min="0" max="50" [(ngModel)]="clock.marginWidth" (ngModelChange)="ga.field('time.clocks.marginWidth', clock.marginWidth)"></options-range>
           </div>
           <div class="input">
             <label [for]="'clockOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.time.offsetDesc' | translate}}"></tooltip></label>
-            <options-range [name]="'clockOffset'+i" [id]="'clockOffset'+i" min="-20" max="20" [(ngModel)]="clock.offset" (ngModelChange)="ga.field('time.clocks.offset', clock.offset)"></options-range>
+            <options-range [name]="'clockOffset'+i" [id]="'clockOffset'+i" min="-50" max="50" [(ngModel)]="clock.offset" (ngModelChange)="ga.field('time.clocks.offset', clock.offset)"></options-range>
           </div>
         </ng-container>
+      </div>
+      <h4>{{'options.time.generalSettings' | translate}}</h4>
+      <div class="indent">
+        <div class="input">
+          <label [for]="'clockTwentyFour'+i">{{'options.time.twentyFour' | translate}}<tooltip text="{{'options.time.twentyFourDesc' | translate}}"></tooltip></label>
+          <options-toggle [name]="'clockTwentyFour'+i" [id]="'clockTwentyFour'+i" [(ngModel)]="clock.twentyFour" (ngModelChange)="ga.field('time.clocks.twentyFour', clock.twentyFour)"></options-toggle>
+        </div>
+        <div class="input">
+          <label [for]="'clockTwoDigit'+i">{{'options.time.twoDigit' | translate}}<tooltip text="{{'options.time.twoDigitDesc' | translate}}"></tooltip></label>
+          <options-toggle [disabled]="clock.twentyFour" [name]="'clockTwoDigit'+i" [id]="'clockTwoDigit'+i" [(ngModel)]="clock.twoDigit" (ngModelChange)="ga.field('time.clocks.twoDigit', clock.twoDigit)"></options-toggle>
+        </div>
+      </div>
+      <h4 class="span-2">{{'options.time.label' | translate}}</h4>
+      <div class="indent">
+        <div class="input">
+          <label [for]="'labelEnable'+i">{{'options.time.labelEnable' | translate}}</label>
+          <options-toggle type="toggle" [name]="'labelEnable'+i" [id]="'labelEnable'+i" [(ngModel)]="clock.label.enabled" (ngModelChange)="ga.field('time.clocks.label.enabled', clock.label.enabled)"></options-toggle>
+        </div>
+        <div class="input" *ngIf="clock.label.enabled">
+          <label [for]="'label'+i">{{'options.common.label' | translate}}<tooltip text="{{'options.time.labelDesc' | translate}}"></tooltip></label>
+          <input
+            type="text"
+            [name]="'label'+i"
+            [id]="'label'+i"
+            [(ngModel)]="clock.label.text"
+            (ngModelChange)="ga.field('time.clocks.label.text', clock.label.text)"
+            autocomplete="off">
+        </div>
+        <div class="input" *ngIf="clock.label.enabled">
+          <label [for]="'labelScaling'+i">{{'options.common.size' | translate}}<tooltip text="{{'options.time.labelSize' | translate}}">{{'options.time.labelSize' | translate}}</tooltip></label>
+          <options-range [name]="'labelScaling'+i" [id]="'labelScaling'+i" min="1" max="50" [(ngModel)]="clock.label.scaling" (ngModelChange)="ga.field('time.clocks.label.scaling', clock.label.scaling)"></options-range>
+        </div>
+        <div class="input" *ngIf="clock.label.enabled">
+          <label [for]="'labelOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.time.labelOffset' | translate}}"></tooltip></label>
+          <options-range [name]="'labelOffset'+i" [id]="'labelOffset'+i" min="-50" max="50" [(ngModel)]="clock.label.offset" (ngModelChange)="ga.field('time.clocks.label.offset', clock.label.offset)"></options-range>
+        </div>
+        <div class="input" *ngIf="clock.label.enabled">
+          <label [for]="'labelDim'+i">{{'options.time.labelDim' | translate}}</label>
+          <options-toggle type="toggle" [name]="'labelDim'+i" [id]="'labelDim'+i" [(ngModel)]="clock.label.dim" (ngModelChange)="ga.field('time.clocks.label.dim', clock.label.dim)"></options-toggle>
+        </div>
+      </div>
+      <h4 class="span-2">{{'options.time.delimiter' | translate}}</h4>
+      <div class="indent">
+        <div class="input">
+          <label [for]="'delimiterEnable'+i">{{'options.time.enableDelimiter' | translate}}</label>
+          <options-toggle type="toggle" [name]="'delimiterEnable'+i" [id]="'delimiterEnable'+i" [(ngModel)]="clock.delimiter.enabled" (ngModelChange)="ga.field('time.clocks.delimiter.enabled', clock.delimiter.enabled)"></options-toggle>
+        </div>
+        <div class="input" *ngIf="clock.delimiter.enabled">
+          <label [for]="'delimiterSymbol'+i">{{'options.time.symbol' | translate}}<tooltip text="{{'options.time.symbolDesc' | translate}}"></tooltip></label>
+          <input type="text" maxlength="1" [id]="'delimiterSymbol'+i" [name]="'delimiterSymbol'+i" [(ngModel)]="clock.delimiter.symbol" (ngModelChange)="ga.field('time.clocks.delimiter.symbol', clock.delimiter.symbol)" autocomplete="off">
+        </div>
+        <div class="input" *ngIf="clock.delimiter.enabled">
+          <label [for]="'delimiterDim'+i">{{'options.time.dimDelimiter' | translate}}</label>
+          <options-toggle type="toggle" [name]="'delimiterDim'+i" [id]="'delimiterDim'+i" [(ngModel)]="clock.delimiter.dim" (ngModelChange)="ga.field('time.clocks.delimiter.dim', clock.delimiter.dim)"></options-toggle>
+        </div>
+        <div class="input" *ngIf="clock.delimiter.enabled">
+          <label [for]="'delimiterBlink'+i">{{'options.time.delimiterBlink' | translate}}</label>
+          <options-toggle type="toggle" [name]="'delimiterBlink'+i" [id]="'delimiterBlink'+i" [(ngModel)]="clock.delimiter.blink" (ngModelChange)="ga.field('time.clocks.delimiter.blink', clock.delimiter.blink)"></options-toggle>
+        </div>
+        <div class="input" *ngIf="clock.delimiter.enabled">
+          <label [for]="'delimiterScaling'+i">{{'options.common.size' | translate}}<tooltip text="{{'options.time.delimiterSize' | translate}}"></tooltip></label>
+          <options-range [name]="'delimiterScaling'+i" [id]="'delimiterScaling'+i" min="1" max="50" [(ngModel)]="clock.delimiter.scaling" (ngModelChange)="ga.field('time.clocks.delimiter.scaling', clock.delimiter.scaling)"></options-range>
+        </div>
+        <div class="input" *ngIf="clock.delimiter.enabled">
+          <label [for]="'delimiterOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.time.delimiterOffset' | translate}}"></tooltip></label>
+          <options-range [name]="'delimiterOffset'+i" [id]="'delimiterOffset'+i" min="-50" max="50" [(ngModel)]="clock.delimiter.offset" (ngModelChange)="ga.field('time.clocks.delimiter.offset', clock.delimiter.offset)"></options-range>
+        </div>
+      </div >
+      <h4 class="span-2">{{'options.time.seconds' | translate}}</h4>
+      <div class="indent">
+        <div class="input">
+          <label [for]="'secondsEnable'+i">{{'options.time.secondsEnable' | translate}}</label>
+          <options-toggle type="toggle" [name]="'secondsEnable'+i" [id]="'secondsEnable'+i" [(ngModel)]="clock.seconds.enabled" (ngModelChange)="ga.field('time.clocks.seconds.enabled', clock.seconds.enabled)"></options-toggle>
+        </div>
+        <div class="input" *ngIf="clock.seconds.enabled">
+          <label [for]="'secondsDim'+i">{{'options.time.secondsDim' | translate}}</label>
+          <options-toggle type="toggle" [name]="'secondsDim'+i" [id]="'secondsDim'+i" [(ngModel)]="clock.seconds.dim" (ngModelChange)="ga.field('time.clocks.seconds.dim', clock.seconds.dim)"></options-toggle>
+        </div>
+        <div class="input" *ngIf="clock.seconds.enabled">
+          <label [for]="'secondsScaling'+i">{{'options.common.size' | translate}}<tooltip text="{{'options.time.secondsSize' | translate}}"></tooltip></label>
+          <options-range [name]="'secondsScaling'+i" [id]="'secondsScaling'+i" min="1" max="50" [(ngModel)]="clock.seconds.scaling" (ngModelChange)="ga.field('time.clocks.seconds.scaling', clock.seconds.scaling)"></options-range>
+        </div>
+        <div class="input" *ngIf="clock.seconds.enabled">
+          <label [for]="'secondsOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.time.secondsOffset' | translate}}"></tooltip></label>
+          <options-range [name]="'secondsOffset'+i" [id]="'secondsOffset'+i" min="-50" max="50" [(ngModel)]="clock.seconds.offset" (ngModelChange)="ga.field('time.clocks.seconds.offset', clock.seconds.offset)"></options-range>
+        </div>
+      </div>
+      <h4 class="span-2">{{'options.time.meridiem' | translate}}</h4>
+      <div class="indent">
+        <div class="input">
+          <label [for]="'meridiemEnable'+i">{{'options.time.meridiemEnable' | translate}}</label>
+          <options-toggle type="toggle" [name]="'meridiemEnable'+i" [id]="'meridiemEnable'+i" [(ngModel)]="clock.meridiem.enabled" (ngModelChange)="ga.field('time.clocks.meridiem.enabled', clock.meridiem.enabled)"></options-toggle>
+        </div>
+        <div class="input" *ngIf="clock.meridiem.enabled">
+          <label [for]="'meridiemDim'+i">{{'options.time.meridiemDim' | translate}}</label>
+          <options-toggle type="toggle" [name]="'meridiemDim'+i" [id]="'meridiemDim'+i" [(ngModel)]="clock.meridiem.dim" (ngModelChange)="ga.field('time.clocks.meridiem.dim', clock.meridiem.dim)"></options-toggle>
+        </div>
+        <div class="input" *ngIf="clock.meridiem.enabled">
+          <label [for]="'meridiemAm'+i">A.M.<tooltip text="{{'options.time.symbolAm' | translate}}"></tooltip></label>
+          <input type="text" [id]="'meridiemAm'+i" [name]="'meridiemAm'+i" [(ngModel)]="clock.meridiem.am" (ngModelChange)="ga.field('time.clocks.meridiem.am', clock.meridiem.am)" autocomplete="off">
+        </div>
+        <div class="input" *ngIf="clock.meridiem.enabled">
+          <label [for]="'meridiemPm'+i">P.M.<tooltip text="{{'options.time.symbolPm' | translate}}"></tooltip></label>
+          <input type="text" [id]="'meridiemPm'+i" [name]="'meridiemPm'+i" [(ngModel)]="clock.meridiem.pm" (ngModelChange)="ga.field('time.clocks.meridiem.pm', clock.meridiem.pm)" autocomplete="off">
+        </div>
+        <div class="input" *ngIf="clock.meridiem.enabled">
+          <label [for]="'meridiemScaling'+i">{{'options.common.size' | translate}}<tooltip text="{{'options.time.meridiemSize' | translate}}"></tooltip></label>
+          <options-range [name]="'meridiemScaling'+i" [id]="'meridiemScaling'+i" min="1" max="50" [(ngModel)]="clock.meridiem.scaling" (ngModelChange)="ga.field('time.clocks.meridiem.scaling', clock.meridiem.scaling)"></options-range>
+        </div>
+        <div class="input" *ngIf="clock.meridiem.enabled">
+          <label [for]="'meridiemOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.time.meridiemOffset' | translate}}"></tooltip></label>
+          <options-range [name]="'meridiemOffset'+i" [id]="'meridiemOffset'+i" min="-50" max="50" [(ngModel)]="clock.meridiem.offset" (ngModelChange)="ga.field('time.clocks.meridiem.offset', clock.meridiem.offset)"></options-range>
+        </div>
+      </div>
+      <h4 class="span-2">{{'options.time.brackets' | translate}}</h4>
+      <div class="indent">
+        <div class="input">
+          <label [for]="'bracketsEnable'+i">{{'options.time.bracketsEnable' | translate}}</label>
+          <options-toggle type="toggle" [name]="'bracketsEnable'+i" [id]="'bracketsEnable'+i" [(ngModel)]="clock.brackets.enabled" (ngModelChange)="ga.field('time.clocks.brackets.enabled', clock.brackets.enabled)"></options-toggle>
+        </div>
+        <div class="input" *ngIf="clock.brackets.enabled">
+          <label [for]="'bracketsDim'+i">{{'options.time.bracketsDim' | translate}}</label>
+          <options-toggle type="toggle" [name]="'bracketsDim'+i" [id]="'bracketsDim'+i" [(ngModel)]="clock.brackets.dim" (ngModelChange)="ga.field('time.clocks.brackets.dim', clock.brackets.dim)"></options-toggle>
+        </div>
+        <div class="input" *ngIf="clock.brackets.enabled">
+          <label [for]="'bracketsLeft'+i">{{'options.time.bracketsLeft' | translate}}<tooltip text="{{'options.time.bracketsLeftDesc' | translate}}"></tooltip></label>
+          <input type="text" maxlength="1" [id]="'bracketsLeft'+i" [name]="'bracketsLeft'+i" [(ngModel)]="clock.brackets.left" (ngModelChange)="ga.field('time.clocks.brackets.left', clock.brackets.left)" autocomplete="off">
+        </div>
+        <div class="input" *ngIf="clock.brackets.enabled">
+          <label [for]="'bracketsRight'+i">{{'options.time.bracketsRight' | translate}}<tooltip text="{{'options.time.bracketsRightDesc' | translate}}"></tooltip></label>
+          <input type="text" maxlength="1" [id]="'bracketsRight'+i" [name]="'bracketsRight'+i" [(ngModel)]="clock.brackets.right" (ngModelChange)="ga.field('time.clocks.brackets.right', clock.brackets.right)" autocomplete="off">
+        </div>
+        <div class="input" *ngIf="clock.brackets.enabled">
+          <label [for]="'bracketsScaling'+i">{{'options.common.size' | translate}}<tooltip text="{{'options.time.bracketsSize' | translate}}"></tooltip></label>
+          <options-range [name]="'bracketsScaling'+i" [id]="'bracketsScaling'+i" min="1" max="50" [(ngModel)]="clock.brackets.scaling" (ngModelChange)="ga.field('time.clocks.brackets.scaling', clock.brackets.scaling)"></options-range>
+        </div>
+        <div class="input" *ngIf="clock.brackets.enabled">
+          <label [for]="'bracketsOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.time.bracketsOffset' | translate}}"></tooltip></label>
+          <options-range [name]="'bracketsOffset'+i" [id]="'bracketsOffset'+i" min="-50" max="50" [(ngModel)]="clock.brackets.offset" (ngModelChange)="ga.field('time.clocks.brackets.offset', clock.brackets.offset)"></options-range>
+        </div>
+        <div class="input" *ngIf="clock.brackets.enabled">
+          <label [for]="'bracketsPadding'+i">{{'options.time.bracketsPadding' | translate}}<tooltip text="{{'options.time.bracketsPaddingDesc' | translate}}"></tooltip></label>
+          <options-range [name]="'bracketsPadding'+i" [id]="'bracketsPadding'+i" min="-10" max="50" [(ngModel)]="clock.brackets.padding" (ngModelChange)="ga.field('time.clocks.brackets.padding', clock.brackets.padding)"></options-range>
+        </div>
+      </div>
+      <h4 class="span-2">{{'options.time.relativeTime' | translate}}</h4>
+      <div class="indent">
+        <div class="input">
+          <label [for]="'relativeTimeEnable'+i">{{'options.time.relativeTime' | translate}}<tooltip text="{{'options.time.relativeEnable' | translate}}"></tooltip></label>
+          <options-toggle type="toggle" [name]="'relativeTimeEnable'+i" [id]="'relativeTimeEnable'+i" [(ngModel)]="clock.relativeTime.enabled" (ngModelChange)="ga.field('time.clocks.relativeTime.enabled', clock.relativeTime.enabled)"></options-toggle>
+        </div>
+        <div class="input" *ngIf="clock.relativeTime.enabled">
+          <label [for]="'relativeTimeDim'+i">{{'options.time.relativeDim' | translate}}</label>
+          <options-toggle type="toggle" [name]="'relativeTimeDim'+i" [id]="'relativeTimeDim'+i" [(ngModel)]="clock.relativeTime.dim" (ngModelChange)="ga.field('time.clocks.relativeTime.dim', clock.relativeTime.dim)"></options-toggle>
+        </div>
+        <div class="input" *ngIf="clock.relativeTime.enabled">
+          <label [for]="'relativeTimeScaling'+i">{{'options.common.size' | translate}}<tooltip text="{{'options.time.relativeSize' | translate}}"></tooltip></label>
+          <options-range [name]="'relativeTimeScaling'+i" [id]="'relativeTimeScaling'+i" min="1" max="50" [(ngModel)]="clock.relativeTime.scaling" (ngModelChange)="ga.field('time.clocks.relativeTime.scaling', clock.relativeTime.scaling)"></options-range>
+        </div>
+        <div class="input" *ngIf="clock.relativeTime.enabled">
+          <label [for]="'relativeTimeOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.time.relativeOffset' | translate}}"></tooltip></label>
+          <options-range [name]="'relativeTimeOffset'+i" [id]="'relativeTimeOffset'+i" min="-50" max="50" [(ngModel)]="clock.relativeTime.offset" (ngModelChange)="ga.field('time.clocks.relativeTime.offset', clock.relativeTime.offset)"></options-range>
+        </div>
+      </div>
+      <h4 class="span-2">{{'options.time.analog' | translate}}</h4>
+      <div class="indent">
+        <div class="input">
+          <label [for]="'analogEnable'+i">{{'options.time.analogEnable' | translate}}<tooltip text="{{'options.time.analogEnableDesc' | translate}}"></tooltip></label>
+          <options-toggle type="toggle" [name]="'analogEnable'+i" [id]="'analogEnable'+i" [(ngModel)]="clock.analog.enabled" (ngModelChange)="clock.binary.enabled=false;ga.field('time.clocks.analog.enabled', clock.analog.enabled)"></options-toggle>
+        </div>
+        <div class="input" *ngIf="clock.analog.enabled === true">
+          <label [for]="'analogStyle'+i">{{'options.time.analogStyle' | translate}}<tooltip text="{{'options.time.analogStyleDesc' | translate}}"></tooltip></label>
+          <select [name]="'analogStyle'+i" [id]="'analogStyle'+i" [(ngModel)]="clock.analog.style" (ngModelChange)="ga.field('time.clocks.analog.style', clock.analog.style)">
+            <option *ngFor="let s of analog" [ngValue]="s.id">{{s.label}}</option>
+          </select>
+        </div>
+      </div>
+      <h4 class="span-2">{{'options.time.binary' | translate}}</h4>
+      <div class="indent">
+        <div class="input">
+          <label [for]="'binaryEnable'+i">{{'options.time.binaryEnable' | translate}}<tooltip text="{{'options.time.binaryEnableDesc' | translate}}"></tooltip></label>
+          <options-toggle type="toggle" [name]="'binaryEnable'+i" [id]="'binaryEnable'+i" [(ngModel)]="clock.binary.enabled" (ngModelChange)="clock.analog.enabled=false;ga.field('time.clocks.binary.enabled', clock.binary.enabled)"></options-toggle>
+        </div>
+        <div class="input" *ngIf="clock.binary.enabled === true">
+          <label [for]="'binarydim'+i">{{'options.time.binaryDim' | translate}}<tooltip text="{{'options.time.binaryDimDesc' | translate}}"></tooltip></label>
+          <options-toggle type="toggle" [name]="'binarydim'+i" [id]="'binarydim'+i" [(ngModel)]="clock.binary.dim" (ngModelChange)="ga.field('time.clocks.binary.dim', clock.binary.dim)"></options-toggle>          
+        </div>
       </div>
     </div>
   </ng-container>

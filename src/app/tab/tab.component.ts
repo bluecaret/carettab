@@ -127,13 +127,23 @@ export class TabComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustStyle(value);
   }
 
+  getAlignment(el): string {
+    if (el === 'nw' || el === 'w' || el === 'sw') {
+      return 'flex-start';
+    } else if (el === 'ne' || el === 'e' || el === 'se') {
+      return 'flex-end';
+    }
+    return 'center';
+  }
+
   setTimeStyles(clock): Object {
     const styles = {
-      'font-size': this.shared.getFontSize(clock.scaling, 1.7),
-      'width': this.getClockSpan(clock.span),
-      'order': this.shared.getOrder(clock.id, clock.position),
-      'transform': this.shared.getOffset(clock.offset),
-      'margin': this.shared.getMargin(clock.marginHeight, clock.marginWidth)
+      'font-size' : this.shared.getFontSize(clock.scaling, 1.7),
+      'justify-content' : this.getAlignment(clock.position),
+      'width' : this.shared.getPercentWidth(clock.span),
+      'order' : this.shared.getOrder(clock.id, clock.position),
+      'transform' : this.shared.getOffset(clock.offset),
+      'margin' : this.shared.getMargin(clock.marginHeight, clock.marginWidth)
     };
     return styles;
   }
@@ -180,11 +190,9 @@ export class TabComponent implements OnInit {
 
   setDateStyles(): Object {
     const styles = {
-      'transform': this.shared.getOffsetLarge(this.settings.config.date.offset),
-      'margin': this.shared.getMargin(
-        this.settings.config.date.marginHeight,
-        this.settings.config.date.marginWidth
-      )
+      'transform' : this.shared.getOffsetLarge(this.settings.config.date.offset),
+      'justify-content' : this.getAlignment(this.settings.config.date.position),
+      'margin' : this.shared.getMargin(this.settings.config.date.marginHeight, this.settings.config.date.marginWidth)
     };
     return styles;
   }
@@ -257,17 +265,9 @@ export class TabComponent implements OnInit {
 
   setWeatherStyles(): Object {
     const styles = {
-      'font-size': this.shared.getFontSize(
-        this.settings.config.weather.scaling,
-        12
-      ),
-      'transform': this.shared.getOffsetLarge(
-        this.settings.config.weather.offset
-      ),
-      'margin': this.shared.getMargin(
-        this.settings.config.weather.marginHeight,
-        this.settings.config.weather.marginWidth
-      )
+      'font-size' : this.shared.getFontSize(this.settings.config.weather.scaling, 12),
+      'transform' : this.shared.getOffsetLarge(this.settings.config.weather.offset),
+      'margin' : this.shared.getMargin(this.settings.config.weather.marginHeight, this.settings.config.weather.marginWidth, .4)
     };
     return styles;
   }

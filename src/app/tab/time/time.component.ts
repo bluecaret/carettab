@@ -13,6 +13,7 @@ import * as moment from 'moment';
 export class TabTimeComponent implements OnInit {
   currentTime: Date;
   span = span;
+  binaryMarkers: Array<any>;
 
   @Input() index: number;
   @Input() clock: Clock;
@@ -30,14 +31,31 @@ export class TabTimeComponent implements OnInit {
     public settings: Storage,
     private zone: NgZone,
     private renderer: Renderer2
-  ) { }
+  ) { 
+    this.binaryMarkers = [
+      [
+        [false, false],
+        [false, false, false, false]
+      ],
+      [
+        [false, false, false],
+        [false, false, false, false]
+      ],
+      [
+        [false, false, false],
+        [false, false, false, false]
+      ]
+    ]
+  }
 
   ngOnInit() {
     if (this.settings.config.time.clocks.length > 0) {
       this.shared.zoneGuess = moment.tz.guess();
+      this.setBinaryTime();
       setInterval(() => {
         this.currentTime = new Date();
         this.setTitleTime();
+        this.setBinaryTime();
       }, 500);
     }
   }
@@ -50,67 +68,59 @@ export class TabTimeComponent implements OnInit {
     ) {
       this.shared.time = this.constructTitleTime();
     }
+  }
+
+  setBinaryTime() {
     if (this.clock.binary.enabled) {
 
-      var hourList = this.hoursList.nativeElement.children;
-      var minuteList = this.minutesList.nativeElement.children;
-      var secondsList = this.secondsList.nativeElement.children;
-
-      var seconds = parseInt(this.getSecond(this.clock.timezone, 1) + this.getSecond(this.clock.timezone, 2));
-      var minutes = parseInt(this.getMinute(this.clock.timezone, 1) + this.getMinute(this.clock.timezone, 2));
       var hours = parseInt(this.getHour(this.clock.timezone, this.clock.twentyFour, this.clock.twoDigit, 1) + this.getHour(this.clock.timezone, this.clock.twentyFour, this.clock.twoDigit, 2));
+      var minutes = parseInt(this.getMinute(this.clock.timezone, 1) + this.getMinute(this.clock.timezone, 2));
+      var seconds = parseInt(this.getSecond(this.clock.timezone, 1) + this.getSecond(this.clock.timezone, 2));
 
       if (seconds == 0) {
-        this.resetdabs(secondsList);
+        this.resetMarkers(this.binaryMarkers[2]);
         if (minutes == 0) {
-          this.resetdabs(minuteList);
+          this.resetMarkers(this.binaryMarkers[1]);
           if (hours > 23) {
-            this.resetdabs(hourList);
+            this.resetMarkers(this.binaryMarkers[0]);
           }
         }
       }
-      this.UpdateBinaryClock(hourList, hours);
-      this.UpdateBinaryClock(minuteList, minutes);
-      this.UpdateBinaryClock(secondsList, seconds);
+      this.updateBinaryClock(this.binaryMarkers[0], hours);
+      this.updateBinaryClock(this.binaryMarkers[1], minutes);
+      this.updateBinaryClock(this.binaryMarkers[2], seconds);
     }
   }
 
-  setActiveDabs(childrenList, v) {
-    var val = this.toBinary(parseInt(v))
-    this.resetChildren(childrenList);
-    for (var i = 0; i <= val.length - 1; i++) {
-      if (parseInt(val[(val.length - 1) - i]) > 0) {
-        childrenList[(childrenList.length - 1) - i].style.opacity ='100%';
-        if (this.clock.binary.dim) {
-          childrenList[(childrenList.length - 1) - i].style.opacity ='60%';
-          childrenList[(childrenList.length - 1) - i].classList.add('dim')
-        }
+  setActiveMarkers(column, time) {
+    let binary = this.toBinary(parseInt(time));
+    this.resetMarkerColumn(column);
+
+    for (let i = 0; i <= binary.length - 1; i++) {
+      if (parseInt(binary[(binary.length - 1) - i]) > 0) {
+        column[(column.length - 1) - i] = true;
       }
     }
   }
 
-  UpdateBinaryClock(childrenList, v) {
-    this.resetdabs(childrenList);
-    for (var s = 0; s <= v.toString().length - 1; s++) {
-      var childrensList = childrenList[(childrenList.length - 1) - s].children;
-      this.setActiveDabs(childrensList, parseInt(v.toString()[(v.toString().length - 1) - s]))
+  updateBinaryClock(markerColumns, time) {
+    this.resetMarkers(markerColumns);
+
+    for (let s = 0; s <= time.toString().length - 1; s++) {
+      let column = markerColumns[(markerColumns.length - 1) - s];
+      this.setActiveMarkers(column, parseInt(time.toString()[(time.toString().length - 1) - s]))
     }
   }
 
-  resetdabs = (childrenList) => {
-    for (var c = 0; c <= childrenList.length - 1; c++) {
-      this.resetChildren(childrenList[(childrenList.length - 1) - c].children);
+  resetMarkers = (markerColumns) => {
+    for (var c = 0; c <= markerColumns.length - 1; c++) {
+      this.resetMarkerColumn(markerColumns[(markerColumns.length - 1) - c]);
     }
   }
 
-  resetChildren(childrenList) {
-    for (var i = childrenList.length - 1; i >= 0; i--) {
-      childrenList[(childrenList.length - 1) - i].style.opacity ='50%';
-      childrenList[(childrenList.length - 1) - i].style.backgroundColor =this.settings.config.design.foreground;
-      if (this.clock.binary.dim) {
-        childrenList[(childrenList.length - 1) - i].style.opacity ='20%';
-        childrenList[i].classList.add('dim')
-      }
+  resetMarkerColumn(column) {
+    for (var i = column.length - 1; i >= 0; i--) {
+      column[(column.length - 1) - i] = false;
     }
   }
   

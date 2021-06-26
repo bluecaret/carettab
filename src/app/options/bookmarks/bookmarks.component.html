@@ -167,7 +167,7 @@
     </h3>
     <div class="input" *ngIf="settings.config.quickLink.enabled">
       <label for="quickLinksSize">{{'options.common.size' | translate}}</label>
-      <options-range name="quickLinksSize" id="quickLinksSize" min="1" max="20" [(ngModel)]="settings.config.quickLink.scaling" (change)="ga.field('quickLink.scaling', settings.config.quickLink.scaling);"></options-range>
+      <options-range name="quickLinksSize" id="quickLinksSize" min="1" max="50" [(ngModel)]="settings.config.quickLink.scaling" (change)="ga.field('quickLink.scaling', settings.config.quickLink.scaling);"></options-range>
     </div>
     <div class="input" *ngIf="settings.config.quickLink.enabled">
       <label for="quickLinkOrder">{{'options.common.order' | translate}}</label>
@@ -236,19 +236,19 @@
       </div>
       <div class="input" *ngIf="settings.config.quickLink.enabled">
         <label for="quickLinkPadding">Padding</label>
-        <options-range name="quickLinkPadding" min="0" max="100" [(ngModel)]="settings.config.quickLink.padding" (ngModelChange)="ga.field('quickLink.padding', settings.config.quickLink.padding)"></options-range>
+        <options-range name="quickLinkPadding" min="0" max="50" [(ngModel)]="settings.config.quickLink.padding" (ngModelChange)="ga.field('quickLink.padding', settings.config.quickLink.padding)"></options-range>
       </div>
       <div class="input" *ngIf="settings.config.quickLink.enabled">
         <label for="quickLinkMarginHeight">Margin Height</label>
-        <options-range name="quickLinkMarginHeight" min="0" max="100" [(ngModel)]="settings.config.quickLink.marginHeight" (ngModelChange)="ga.field('quickLink.marginHeight', settings.config.quickLink.marginHeight)"></options-range>
+        <options-range name="quickLinkMarginHeight" min="0" max="50" [(ngModel)]="settings.config.quickLink.marginHeight" (ngModelChange)="ga.field('quickLink.marginHeight', settings.config.quickLink.marginHeight)"></options-range>
       </div>
       <div class="input" *ngIf="settings.config.quickLink.enabled">
         <label for="quickLinkMarginWidth">Margin Width</label>
-        <options-range name="quickLinkMarginWidth" min="0" max="100" [(ngModel)]="settings.config.quickLink.marginWidth" (ngModelChange)="ga.field('quickLink.marginWidth', settings.config.quickLink.marginWidth)"></options-range>
+        <options-range name="quickLinkMarginWidth" min="0" max="50" [(ngModel)]="settings.config.quickLink.marginWidth" (ngModelChange)="ga.field('quickLink.marginWidth', settings.config.quickLink.marginWidth)"></options-range>
       </div>
       <div class="input" *ngIf="settings.config.quickLink.enabled">
         <label for="quickLinkOffset">{{'options.common.offset' | translate}}</label>
-        <options-range name="quickLinkOffset" min="-20" max="20" [(ngModel)]="settings.config.quickLink.offset" (ngModelChange)="ga.field('quickLink.offset', settings.config.quickLink.offset)"></options-range>
+        <options-range name="quickLinkOffset" min="-50" max="50" [(ngModel)]="settings.config.quickLink.offset" (ngModelChange)="ga.field('quickLink.offset', settings.config.quickLink.offset)"></options-range>
       </div>
     </ng-container>
   </ng-container>

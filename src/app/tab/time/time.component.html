@@ -77,9 +77,9 @@
       [ngClass]="{ dim: clock.meridiem.dim }"
       [style.fontSize]="shared.getFontSize(clock.meridiem.scaling, 20)"
       [style.transform]="shared.getOffset(clock.meridiem.offset)"
-    >
-      {{ getMeridiem(clock.timezone, clock.meridiem.am, clock.meridiem.pm) }}
-    </div>
+    >{{ 
+      getMeridiem(clock.timezone, clock.meridiem.am, clock.meridiem.pm) 
+    }}</div>
   </div>
   <div
     class="analog"
@@ -184,109 +184,49 @@
   </div>
   <div
     class="binary"
-    *ngIf="clock.binary.enabled"
-    [style.fontSize]="shared.getFontSize(clock.scaling, 1.2)"
+    *ngIf="clock.binary.enabled && !clock.analog.enabled"
+    [ngStyle]="{ 'font-size': shared.getFontSize(clock.scaling, 45) }"
+    [ngClass]="{ 'binaryDim': clock.binary.dim, 'binarySecondsDim': clock.seconds.dim }"
   >
-    <div class="binaryContainer">
-      <div #binaryHours id="binaryHours">
-        <div>
-          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }"  [ngClass]="{ 'dim': clock.binary.dim }">
-            &nbsp;
-          </span>
-          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
-            &nbsp;
-          </span>
+    <div class="binaryContainer" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
+      <div #binaryHours id="binaryHours" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
+        <div class="binaryColumn" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[0][0][0]}"></span>
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[0][0][1]}"></span>
         </div>
-        <div>
-          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
-            &nbsp;
-          </span>
-          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
-            &nbsp;
-          </span>
-          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
-            &nbsp;
-          </span>
-          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
-            &nbsp;
-          </span>
+        <div class="binaryColumn" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[0][1][0]}"></span>
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[0][1][1]}"></span>
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[0][1][2]}"></span>
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[0][1][3]}"></span>
         </div>
       </div>
 
-      <div #binaryMinutes id="binaryMinutes">
-        <div>
-          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
-            &nbsp;
-          </span>
-          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
-            &nbsp;
-          </span>
-          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
-            &nbsp;
-          </span>
+      <div #binaryMinutes id="binaryMinutes" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
+        <div class="binaryColumn" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[1][0][0]}"></span>
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[1][0][1]}"></span>
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[1][0][2]}"></span>
         </div>
-        <div>
-          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
-            &nbsp;
-          </span>
-          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
-            &nbsp;
-          </span>
-          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
-            &nbsp;
-          </span>
-          <span class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }" [ngClass]="{ 'dim': clock.binary.dim }">
-            &nbsp;
-          </span>
+        <div class="binaryColumn" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[1][1][0]}"></span>
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[1][1][1]}"></span>
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[1][1][2]}"></span>
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[1][1][3]}"></span>
         </div>
       </div>
 
-      <div #binarySeconds id="binarySeconds" *ngIf="clock.seconds.enabled">
-        <div>
-          <span
-            class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }"
-            [ngClass]="{ 'dim': clock.seconds.dim || clock.binary.dim }"
-          >
-            &nbsp;
-          </span>
-          <span
-            class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }"
-            [ngClass]="{ 'dim': clock.seconds.dim || clock.binary.dim }"
-          >
-            &nbsp;
-          </span>
-          <span
-            class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }"
-            [ngClass]="{ 'dim': clock.seconds.dim || clock.binary.dim }"
-          >
-            &nbsp;
-          </span>
+      <div #binarySeconds id="binarySeconds" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }" *ngIf="clock.seconds.enabled">
+        <div class="binaryColumn" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[2][0][0]}"></span>
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[2][0][1]}"></span>
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[2][0][2]}"></span>
         </div>
-        <div>
-          <span
-            class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }"
-            [ngClass]="{ 'dim': clock.seconds.dim || clock.binary.dim }"
-          >
-            &nbsp;
-          </span>
-          <span
-            class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }"
-            [ngClass]="{ 'dim': clock.seconds.dim || clock.binary.dim }"
-          >
-            &nbsp;
-          </span>
-          <span
-            class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }"
-            [ngClass]="{ 'dim': clock.seconds.dim || clock.binary.dim }"
-          >
-            &nbsp;
-          </span>
-          <span
-            class="dab" [ngStyle]="{ width: clock.scaling+'px', height: clock.scaling+'px' }"
-            [ngClass]="{ 'dim': clock.seconds.dim || clock.binary.dim }"
-          >
-            &nbsp;
-          </span>
+        <div class="binaryColumn" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[2][1][0]}"></span>
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[2][1][1]}"></span>
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[2][1][2]}"></span>
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[2][1][3]}"></span>
         </div>
       </div>
     </div>

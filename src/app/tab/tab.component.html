@@ -152,7 +152,6 @@
           [style.margin]="shared.getMargin(c.marginHeight,c.marginWidth)"
           *ngFor="let c of settings.config.covidData.countries; let i = index"
         >
-        {{c.marginHeight}}
           <tab-covid
             *ngIf="c.position === 'n'"
             [index]="i"

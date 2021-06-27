@@ -277,7 +277,9 @@ export class TabComponent implements OnInit {
       'font-size': this.shared.getFontSize(c.textScaling, 1.7),
       'transform': this.shared.getOffset(c.offset),
       'margin': this.shared.getMargin(c.marginHeight, c.marginWidth),
-      'order': this.shared.getOrder(c.id, c.position)
+      'width': this.shared.getPercentWidth(c.width),
+      'order': this.shared.getOrder(c.id, c.position),
+      'justify-content' : this.getAlignment(c.position)
     };
     return styles;
   }

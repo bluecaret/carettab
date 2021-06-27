@@ -126,6 +126,7 @@ export class OptionsExtraComponent {
         textScaling: 2,
         offset: 0,
         padding: 10,
+        width:20,
         marginHeight: 0,
         marginWidth: 0,
         name: 'default',

@@ -70,10 +70,7 @@
             *ngIf="c.position === 'nw'"
             [index]="i"
             [countryCode]="c.code"
-            [style.order]="shared.getOrder(c.id, c.position)"
-            [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.margin]="shared.getMargin(c.padding)"
-            [style.transform]="shared.getOffset(c.offset)"
+            [ngStyle]="setCovidCountryStyles(c)"
           ></tab-covid>
         </ng-container>
       </ng-container>
@@ -149,7 +146,7 @@
         "
       >
         <ng-container
-          [style.margin]="shared.getMargin(c.marginHeight,c.marginWidth)"
+          [style.margin]="shared.getMargin(c.marginHeight, c.marginWidth)"
           *ngFor="let c of settings.config.covidData.countries; let i = index"
         >
           <tab-covid
@@ -238,7 +235,7 @@
             *ngIf="c.position === 'ne'"
             [index]="i"
             [countryCode]="c.code"
-            [ngStyle]="setCovidCountryStyles()"
+            [ngStyle]="setCovidCountryStyles(c)"
           ></tab-covid>
         </ng-container>
       </ng-container>
@@ -320,10 +317,7 @@
             *ngIf="c.position === 'w'"
             [index]="i"
             [countryCode]="c.code"
-            [style.order]="shared.getOrder(c.id, c.position)"
-            [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.margin]="shared.getMargin(c.padding)"
-            [style.transform]="shared.getOffset(c.offset)"
+            [ngStyle]="setCovidCountryStyles(c)"
           ></tab-covid>
         </ng-container>
       </ng-container>
@@ -405,10 +399,7 @@
             *ngIf="c.position === 'c'"
             [index]="i"
             [countryCode]="c.code"
-            [style.order]="shared.getOrder(c.id, c.position)"
-            [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.margin]="shared.getMargin(c.padding)"
-            [style.transform]="shared.getOffset(c.offset)"
+            [ngStyle]="setCovidCountryStyles(c)"
           ></tab-covid>
         </ng-container>
       </ng-container>
@@ -490,10 +481,7 @@
             *ngIf="c.position === 'e'"
             [index]="i"
             [countryCode]="c.code"
-            [style.order]="shared.getOrder(c.id, c.position)"
-            [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.margin]="shared.getMargin(c.padding)"
-            [style.transform]="shared.getOffset(c.offset)"
+            [ngStyle]="setCovidCountryStyles(c)"
           ></tab-covid>
         </ng-container>
       </ng-container>
@@ -575,10 +563,7 @@
             *ngIf="c.position === 'sw'"
             [index]="i"
             [countryCode]="c.code"
-            [style.order]="shared.getOrder(c.id, c.position)"
-            [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.margin]="shared.getMargin(c.padding)"
-            [style.transform]="shared.getOffset(c.offset)"
+            [ngStyle]="setCovidCountryStyles(c)"
           ></tab-covid>
         </ng-container>
       </ng-container>
@@ -660,10 +645,7 @@
             *ngIf="c.position === 's'"
             [index]="i"
             [countryCode]="c.code"
-            [style.order]="shared.getOrder(c.id, c.position)"
-            [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.margin]="shared.getMargin(c.padding)"
-            [style.transform]="shared.getOffset(c.offset)"
+            [ngStyle]="setCovidCountryStyles(c)"
           ></tab-covid>
         </ng-container>
       </ng-container>
@@ -745,10 +727,7 @@
             *ngIf="c.position === 'se'"
             [index]="i"
             [countryCode]="c.code"
-            [style.order]="shared.getOrder(c.id, c.position)"
-            [style.fontSize]="shared.getFontSize(c.textScaling, 20)"
-            [style.margin]="shared.getMargin(c.padding)"
-            [style.transform]="shared.getOffset(c.offset)"
+            [ngStyle]="setCovidCountryStyles(c)"
           ></tab-covid>
         </ng-container>
       </ng-container>

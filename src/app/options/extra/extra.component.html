@@ -317,6 +317,10 @@
         ></options-range>
       </div>
       <div class="input">
+        <label for="countryWidth">Width</label>
+        <options-range name="countryWidth" min="0" max="100" [(ngModel)]="country.width" (ngModelChange)="ga.field('country.width', country.width)"></options-range>
+      </div>
+      <div class="input">
         <label for="countryMarginHeight">Margin Height</label>
         <options-range name="countryMarginHeight" min="0" max="100" [(ngModel)]="country.marginHeight" (ngModelChange)="ga.field('country.marginHeight', country.marginHeight)"></options-range>
       </div>

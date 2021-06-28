@@ -63,6 +63,12 @@ export class SplashComponent implements OnInit {
     this.shared.status = 'existing';
   }
 
+  removeIntroAndReload() {
+    localStorage.setItem('caretTabStatus', 'existing');
+    this.shared.status = 'existing';
+    location.reload();
+  }
+
   skipIntro() {
     this.shared.saveAll(); // Save
     this.removeIntro();
@@ -141,7 +147,7 @@ export class SplashComponent implements OnInit {
         },
         binary: {
           enabled: false,
-          dim:false
+          dim: false
         }
       });
     } else {

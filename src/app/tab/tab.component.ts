@@ -33,8 +33,9 @@ export class TabComponent implements OnInit {
   }
 
   ngOnInit() {
-    let localBgColor = localStorage.getItem('ct-background');
-    this.shared.bgColor = localBgColor ? localBgColor : this.settings.config.design.background;
+    let localBgColor = this.settings.config.design.background;
+    this.shared.bgColor = localBgColor;
+    localStorage.setItem('ct-background', localBgColor);
     this.translate.use(this.settings.config.i18n.lang);
     this.translate.get('title.newTab').subscribe(value => {
       this.NEW_TAB_TEXT = value;

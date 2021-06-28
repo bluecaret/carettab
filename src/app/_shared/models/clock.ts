@@ -93,10 +93,9 @@ export class Analog {
   ) {}
 }
 
-
 export class Binary {
   constructor(
     public enabled: boolean = false,
-    public dim: boolean = true
+    public dim: boolean = false
   ) {}
 }

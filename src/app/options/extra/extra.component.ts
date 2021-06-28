@@ -115,7 +115,6 @@ export class OptionsExtraComponent {
   }
 
   addCountry(model: any, isValid: boolean) {
-    debugger;
     if (isValid && model.value.newCountry.code != '') {
       let elementId = this.shared.createID('COVID');
       this.settings.config.covidData.countries.push({

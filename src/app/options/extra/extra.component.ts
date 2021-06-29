@@ -77,8 +77,10 @@ export class OptionsExtraComponent {
 
     this.ga.field('button.export', 'true');
   }
-  swap(arr: any[], from: number, to: number) {
-    arr.splice(from, 1, arr.splice(to, 1, arr[from])[0]);
+  swap(arr: any[], from: number, to: number, position:string) {
+    //Only execute the swop if we have more than one item in that position
+    if (arr.filter((x) => x.position === position).length > 1)
+      arr.splice(from, 1, arr.splice(to, 1, arr[from])[0]);
   }
   import(e: any, input: any) {
     let files = e.target.files;

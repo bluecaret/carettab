@@ -208,7 +208,7 @@
             attr.aria-label="{{ 'options.common.moveDown' | translate }}"
             title="{{ 'options.common.moveDown' | translate }}"
             (click)="
-              swap(settings.config.covidData.countries, i, i + 1);
+              swap(settings.config.covidData.countries, i, i + 1,country.position);
               shared.changeOrder(country.id, false, country.position);
               ga.field('button.covidMoveDown', 'true')
             "

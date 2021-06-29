@@ -9,7 +9,7 @@
   {{ clock.brackets.left }}
 </div>
 <div class="clockContent">
-  <div class="time" *ngIf="!clock.analog.enabled && !clock.binary.enabled">
+  <div class="time" *ngIf="!clock.analog.enabled && (!clock.binary || !clock.binary.enabled)">
     <div class="timeDigit hour">
       <span [style.width]="getWidth(clock.padding)">{{
         getHour(clock.timezone, clock.twentyFour, clock.twoDigit, 1)
@@ -83,7 +83,7 @@
   </div>
   <div
     class="analog"
-    *ngIf="clock.analog.enabled && !clock.binary.enabled"
+    *ngIf="clock.analog.enabled && (!clock.binary || !clock.binary.enabled)"
     [style.fontSize]="shared.getFontSize(clock.delimiter.scaling, 1.2)"
   >
     <div class="analogFace">
@@ -184,7 +184,7 @@
   </div>
   <div
     class="binary"
-    *ngIf="clock.binary.enabled && !clock.analog.enabled"
+    *ngIf="clock.binary && clock.binary.enabled && !clock.analog.enabled"
     [ngStyle]="{ 'font-size': shared.getFontSize(clock.scaling, 45) }"
     [ngClass]="{ 'binaryDim': clock.binary.dim, 'binarySecondsDim': clock.seconds.dim }"
   >

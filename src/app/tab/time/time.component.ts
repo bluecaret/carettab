@@ -17,14 +17,6 @@ export class TabTimeComponent implements OnInit {
 
   @Input() index: number;
   @Input() clock: Clock;
-  @ViewChild('binaryHours', { static: false })
-  public hoursList: ElementRef;
-  @ViewChild('binaryMinutes', { static: false })
-  public minutesList: ElementRef;
-  @ViewChild('binarySeconds', { static: false })
-  public secondsList: ElementRef;
-  @ViewChild('time', { static: false })
-  public displayTime: ElementRef;
 
   constructor(
     public shared: SharedService,
@@ -71,7 +63,7 @@ export class TabTimeComponent implements OnInit {
   }
 
   setBinaryTime() {
-    if (this.clock.binary.enabled) {
+    if (this.clock.binary && this.clock.binary.enabled) {
 
       var hours = parseInt(this.getHour(this.clock.timezone, this.clock.twentyFour, this.clock.twoDigit, 1) + this.getHour(this.clock.timezone, this.clock.twentyFour, this.clock.twoDigit, 2));
       var minutes = parseInt(this.getMinute(this.clock.timezone, 1) + this.getMinute(this.clock.timezone, 2));

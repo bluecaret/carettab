@@ -26,6 +26,7 @@ export class OptionsExtraComponent {
   ) {
     this.countryLists();
   }
+
   trackByFn(index: any, item: any) {
     return index;
   }
@@ -76,7 +77,9 @@ export class OptionsExtraComponent {
 
     this.ga.field('button.export', 'true');
   }
-
+  swap(arr: any[], from: number, to: number) {
+    arr.splice(from, 1, arr.splice(to, 1, arr[from])[0]);
+  }
   import(e: any, input: any) {
     let files = e.target.files;
     let reader: FileReader = new FileReader();
@@ -122,10 +125,11 @@ export class OptionsExtraComponent {
         enableFlag: true,
         code: model.value.newCountry,
         flagSize: 30,
+        flagImage: `https://disease.sh/assets/img/flags/${model.value.newCountry.toLowerCase()}.png`,
         textScaling: 2,
         offset: 0,
         padding: 10,
-        width:20,
+        width: 100,
         marginHeight: 0,
         marginWidth: 0,
         name: 'default',

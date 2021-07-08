@@ -13,10 +13,10 @@
 
   <h3>Message text</h3>
   <form #messageList="ngForm" novalidate>
-    <div class="grid cols-19 mb15">
+    <div class="mb15" [ngClass]="{'grid cols-19' : settings.config.messages.random}">
       <ng-container *ngFor="let message of settings.config.messages.messageList; let i = index; trackBy:trackByFn; let isFirst = first; let isLast = last">
-        <ng-container  *ngIf="settings.config.messages.random || isFirst">
-          <div class="span-17">
+        <ng-container *ngIf="settings.config.messages.random || isFirst">
+          <div [ngClass]="{'span-17' : settings.config.messages.random}">
             <input
               aria-label="Message text"
               type="text"
@@ -27,7 +27,7 @@
               autocomplete="off">
             <div class="valMsg" *ngIf="messageList.invalid && messageList.submitted">{{'options.message.messageValidation' | translate}}</div>
           </div>
-          <div class="span-2 compactBtnList">
+          <div class="span-2 compactBtnList" *ngIf="settings.config.messages.random">
             <button
               type="button"
               class="btn btnIcon"

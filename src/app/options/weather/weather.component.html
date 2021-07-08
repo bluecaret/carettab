@@ -5,21 +5,26 @@
     <options-toggle name="enableWeather" id="enableWeather" [(ngModel)]="settings.config.weather.enabled" (ngModelChange)="shared.toggleOrder(settings.config.weather.id, $event, settings.config.weather.position); ga.field('weather.enabled', settings.config.weather.enabled)"></options-toggle>
   </div>
   <ng-container *ngIf="settings.config.weather.enabled">
-
-    <!-- GENERAL -->
+    <h3>Location</h3>
     <div class="input">
-      <label for="weatherLocation">Set location</label>
-      <input list="locations" id="weatherLocation" name="weatherLocation" [(ngModel)]="searchLocation" />
-      <button class="btn" type="button" (click)="getLocation()"></button>
-      <div>
-        Locations:
-        <ul>
-          <li *ngFor="let loc of locationList">
-            <button type="button" (click)="setLocation(loc.url)">{{loc.name}}</button>
-          </li>
-        </ul>
+      <label for="weatherLocation">Location</label>
+      <div class="grid cols-12">
+        <input type="text" class="span-9" id="weatherLocation" name="weatherLocation" [(ngModel)]="weatherService.locName" />
+        <button class="btn btnIcon span-3" type="button" (click)="getLocation()" aria-label="Search"><div class="icon" aria-hidden="true">search</div></button>
       </div>
     </div>
+    <div class="box mt15 mb15" *ngIf="locationList && locationList.length > 1">
+      <h4>Select your location</h4>
+      <div class="locationList mt1">
+        <ng-container *ngFor="let loc of locationList">
+          <button class="btn btnIcon btnIconSmall" type="button" (click)="setLocation(loc.url)" attr.aria-label="Select {{loc.name}}"><div class="icon" aria-hidden="true">check</div></button>
+          <div>{{loc.name}}</div>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- GENERAL -->
+    <h3>General</h3>
     <div class="input">
       <label for="weatherPreciseNumbers">Precise numbers</label>
       <options-toggle name="weatherPreciseNumbers" id="weatherPreciseNumbers" [(ngModel)]="settings.config.weather.preciseDigits" (ngModelChange)="ga.field('weather.preciseDigits', settings.config.weather.autocomplete)"></options-toggle>

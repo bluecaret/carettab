@@ -24,31 +24,27 @@ export class TabWeatherComponent implements OnInit {
     let getStoredWeather = localStorage.getItem('ct-weather');
     this.cachedWeather = getStoredWeather && JSON.parse(getStoredWeather);
     this.weather = this.cachedWeather ? this.cachedWeather.report : null;
+    this.setWeather();
 
-    // if (
-    //   (
-    //     this.cachedWeather && this.cachedWeather.date && 
-    //     !this.isToday(this.cachedWeather.date)
-    //   ) || 
-    //   !this.cachedWeather
-    // ) {
-      console.log('Refresh weather data');
-      this.weatherService.getWeather(this.settings.config.weather.location.url, 3).subscribe((data)=>{
-        this.shared.echo('Weather API response:', null, data);
+    this.settings.onChange().subscribe((data) => {
+      if (data['ct-weather']) {
+        this.setWeather();
+      }
+    });
+  }
 
-        this.cachedWeather = {}
-        let today = new Date();
-        this.cachedWeather['date'] = today;
-        this.cachedWeather['report'] = {...data};
-
-        localStorage.setItem('ct-weather', JSON.stringify(this.cachedWeather));
-
-      });
-    // } else {
-    //   console.log('Weather data still current');
-    // }
-
-
+  setWeather() {
+    this.shared.echo('Refresh weather data');
+    this.weatherService.getWeather(this.settings.config.weather.location.url, 3).subscribe((data)=>{
+      this.shared.echo('Weather API response:', null, data);
+      this.cachedWeather = {}
+      let today = new Date();
+      this.cachedWeather['date'] = today;
+      this.cachedWeather['report'] = {...data};
+      this.weather = this.cachedWeather.report;
+      this.weatherService.locName = this.cachedWeather.report.location.name;
+      localStorage.setItem('ct-weather', JSON.stringify(this.cachedWeather));
+    });
   }
 
   getPreciseDigit(digit) {

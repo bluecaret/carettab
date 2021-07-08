@@ -9,7 +9,6 @@ import { WeatherService } from '../../tab/weather/weather.service';
   templateUrl: './weather.component.html'
 })
 export class OptionsWeatherComponent implements OnInit {
-  searchLocation: string;
   locationList: any = [];
 
   constructor(
@@ -23,11 +22,13 @@ export class OptionsWeatherComponent implements OnInit {
   ngOnInit(): void { }
 
   setLocation(loc) {
-    this.settings.config.weather.location = loc;
+    this.settings.config.weather.location.url = loc;
+    this.settings.setAll(this.settings.config.weather, 'ct-weather');
+    this.locationList = [];
   }
 
   getLocation() {
-    this.weatherService.searchLocation(this.searchLocation).subscribe((data)=>{
+    this.weatherService.searchLocation(this.weatherService.locName).subscribe((data)=>{
       this.shared.echo('Weather Search API response:', null, data);
       this.locationList = data;
     });

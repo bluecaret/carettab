@@ -47,6 +47,7 @@ import { TabTimeComponent } from './tab/time/time.component';
 import { TabDateComponent } from './tab/date/date.component';
 import { TabMessageComponent } from './tab/message/message.component';
 import { TabSearchComponent } from './tab/search/search.component';
+import { TabCovidComponent } from './tab/covid/covid.component';
 import { TabWeatherComponent } from './tab/weather/weather.component';
 
 @NgModule({
@@ -82,6 +83,7 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     TabDateComponent,
     TabMessageComponent,
     TabSearchComponent,
+    TabCovidComponent,
     TabWeatherComponent
   ],
   imports: [

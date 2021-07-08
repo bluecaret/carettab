@@ -38,6 +38,7 @@
       "moveUp": "Move above other elements",
       "off": "Off",
       "offset": "Offset",
+      "offsetDesc": "Adjust the position of the control up or down.",
       "on": "On",
       "order": "Order",
       "placement": "Placement",
@@ -46,7 +47,8 @@
       "supportLink": "Support",
       "timezone": "Timezone",
       "up": "Up",
-      "width": "Width"
+      "width": "Width",
+      "emptyValueError":"Empty value not allowed"
     },
     "dashboard": {
       "contribute": "Contribute code",
@@ -153,6 +155,28 @@
       "search": "Search",
       "searchBox": "Search box",
       "searchEngine": "Search engine"
+    },
+    "covidData":{
+      "actions":"Options",
+      "addCountry" : "Add Country",
+      "caption":"Covid Data",
+      "country":"Country",
+      "countryDesc": "Country to monitor",
+      "deleteCountry":"Delete country",
+      "enable":"Enable",
+      "flagSize": "Flag size",
+      "flagSizeDesc": "Change the size of the flag",
+      "hideOptions": "Hide additional options",
+      "monitor":"Monitored countries",
+      "padding": "Padding",
+      "paddingDesc": "Change the padding around the element.",
+      "removeCountry":"Delete country",
+      "showFlag": "Show flag",
+      "showFlagDesc": "Show flag",
+      "showOptions": "Show more options",
+      "textScaling":"Text size",
+      "textScalingDesc": "Change the size of the text.",
+      "disclaimer": "<small>COVID data is sourced from the <a href='#'>Open Disease Data API</a> which itself sources from multiple places to give you a comprehensive view. A full list of sources can be found on the API documentation. BlueCaret and it's product, CaretTab, takes no responsibility for the accuracy of this data.</small>"
     },
     "time": {
       "actions": "Actions",

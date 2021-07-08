@@ -122,6 +122,12 @@ export class QuickLinkSettings {
   ) {}
 }
 
+export class CovidSettings {
+  enabled = false;
+  countries = [
+  ]
+}
+
 export class TimeSettings {
   constructor(
     public clocks = [
@@ -337,6 +343,7 @@ export class Settings {
     public bookmark = new BookmarkSettings(),
     public quickLink = new QuickLinkSettings(),
     public time = new TimeSettings(),
+    public covidData = new CovidSettings(),
     public date = new DateSettings(),
     public search = new SearchSettings(),
     public weather = new WeatherSettings(),

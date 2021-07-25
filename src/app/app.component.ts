@@ -270,7 +270,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     let hasMigrationHappened = localStorage.getItem('carettabSettingsMigation');
 
-    if (!hasMigrationHappened && compare(prevVer, '3.4.0', '<') && this.shared.status === 'updated') {
+    if (!hasMigrationHappened && prevVer && compare(prevVer, '3.4.0', '<') && this.shared.status === 'updated') {
       this.shared.echo('Migrate pre-schema settings');
       this.migrateSettings();
     } else if ((!hasMigrationHappened || hasMigrationHappened !== '1.1') && this.shared.status === 'updated') {

@@ -1,0 +1,27 @@
+<div
+  class="covidContainer"
+  [ngStyle]="{
+    'gap': shared.getPadding(settings.config.covidData.countries[index].padding)
+  }"
+>
+  <div
+    class="covidFlag"
+    *ngIf="settings.config.covidData.countries[index].enableFlag"
+  >
+    <img
+      [ngStyle]="{
+        'height': shared.getImageSize(
+          settings.config.covidData.countries[index].flagSize
+        )
+      }"
+      [src]="settings.config.covidData.countries[index].flagImage"
+      alt="flag"
+    />
+  </div>
+  <div class="info">
+    <div>Country : {{ countryData.country }}</div>
+    <div>Today : {{ countryData.todayCases }}</div>
+    <div>Deaths : {{ countryData.deaths }}</div>
+    <div>Active : {{ countryData.active }}</div>
+  </div>
+</div>

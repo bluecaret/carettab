@@ -6,8 +6,8 @@
  * Modified by BlueCaret (John Hancock) <john0404@gmail.com>
  */
 import { Injectable, NgZone, Optional } from '@angular/core';
-import { 
-  Settings, 
+import {
+  Settings,
   BookmarkSettings,
   DateSettings,
   DesignSettings,
@@ -17,7 +17,8 @@ import {
   OrderSettings,
   QuickLinkSettings,
   SearchSettings,
-  TimeSettings
+  TimeSettings,
+  CovidSettings
 } from './settings';
 import { Observable } from 'rxjs/internal/Observable';
 
@@ -29,12 +30,13 @@ export class Storage {
   config: Settings; // holds settings
 
   constructor(private zone: NgZone, @Optional() _settings: Settings) {
-    let usethisSettings = (_settings) ? _settings : new Settings();
+    let usethisSettings = _settings ? _settings : new Settings();
     this.config = usethisSettings;
     this.config.bookmark = new BookmarkSettings();
     this.config.date = new DateSettings();
     this.config.design = new DesignSettings();
     this.config.i18n = new I18nSettings();
+    this.config.covidData = new CovidSettings();
     this.config.messages = new MessageSettings();
     this.config.misc = new MiscSettings();
     this.config.order = new OrderSettings();
@@ -58,7 +60,10 @@ export class Storage {
     //   return data;
     // });
 
-    console.log('%cLoading data from storage.sync on page load.','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;');
+    console.log(
+      '%cLoading data from storage.sync on page load.',
+      'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;'
+    );
 
     this.getChrome('ct-bookmark', this.config.bookmark).then((data: any) => {
       this.config.bookmark = data;
@@ -115,6 +120,11 @@ export class Storage {
       this.loadTracker++;
     });
 
+    this.getChrome('ct-covid', this.config.covidData).then((data: any) => {
+      this.config.covidData = data; 
+      this.loadTracker++;
+    });
+
     return this.config;
   }
 
@@ -124,20 +134,36 @@ export class Storage {
       if (chrome !== undefined && chrome.storage !== undefined) {
         let saveObj = {};
         saveObj[key] = settings;
-        chrome.storage.sync.set(/* String or Array */saveObj, () => this.zone.run(() => {
-          if (chrome.runtime.lastError) {
-            console.log('%cERROR saving to storage.sync','display:inline-block;background:#c52525;color:white;padding:5px;border-radius:5px;', chrome.runtime.lastError, saveObj);
-            reject(chrome.runtime.lastError);
-          }
-          console.log('%cSaving to storage.sync','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;', saveObj);
-          resolve(true);
-        }));
+        chrome.storage.sync.set(/* String or Array */ saveObj, () =>
+          this.zone.run(() => {
+            if (chrome.runtime.lastError) {
+              console.log(
+                '%cERROR saving to storage.sync',
+                'display:inline-block;background:#c52525;color:white;padding:5px;border-radius:5px;',
+                chrome.runtime.lastError,
+                saveObj
+              );
+              reject(chrome.runtime.lastError);
+            }
+            console.log(
+              '%cSaving to storage.sync',
+              'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
+              saveObj
+            );
+            resolve(true);
+          })
+        );
       } else {
         // Put the object into storage
-        console.log('%cSaving to localStorage','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;', key, settings);
+        console.log(
+          '%cSaving to localStorage',
+          'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
+          key,
+          settings
+        );
         localStorage.setItem(key, JSON.stringify(settings));
         // hack to resolve storage change event on the same window
-        window.dispatchEvent( new Event('storage') );
+        window.dispatchEvent(new Event('storage'));
         resolve(true);
       }
     });
@@ -147,16 +173,31 @@ export class Storage {
   remove(key: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
       if (chrome !== undefined && chrome.storage !== undefined) {
-        chrome.storage.sync.remove(/* String or Array */key, () => this.zone.run(() => {
-          if (chrome.runtime.lastError) {
-            console.log('%cERROR removing key from storage.sync','display:inline-block;background:#c52525;color:white;padding:5px;border-radius:5px;', chrome.runtime.lastError, key);
-            reject(chrome.runtime.lastError);
-          }
-          console.log('%cRemoving key from storage.sync','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;', key);
-          resolve(true);
-        }));
+        chrome.storage.sync.remove(/* String or Array */ key, () =>
+          this.zone.run(() => {
+            if (chrome.runtime.lastError) {
+              console.log(
+                '%cERROR removing key from storage.sync',
+                'display:inline-block;background:#c52525;color:white;padding:5px;border-radius:5px;',
+                chrome.runtime.lastError,
+                key
+              );
+              reject(chrome.runtime.lastError);
+            }
+            console.log(
+              '%cRemoving key from storage.sync',
+              'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
+              key
+            );
+            resolve(true);
+          })
+        );
       } else {
-        console.log('%cRemoving key from localStorage','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;', key);
+        console.log(
+          '%cRemoving key from localStorage',
+          'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
+          key
+        );
         localStorage.removeItem(key);
         resolve(true);
       }
@@ -167,16 +208,28 @@ export class Storage {
   clear(): Promise<boolean> {
     return new Promise((resolve, reject) => {
       if (chrome !== undefined && chrome.storage !== undefined) {
-        chrome.storage.sync.clear(() => this.zone.run(() => {
-          if (chrome.runtime.lastError) {
-            console.log('%cERROR clearing storage.sync','display:inline-block;background:#c52525;color:white;padding:5px;border-radius:5px;', chrome.runtime.lastError);
-            reject(chrome.runtime.lastError);
-          }
-          console.log('%cClearing all keys from storage.sync','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;');
-          resolve(true);
-        }));
+        chrome.storage.sync.clear(() =>
+          this.zone.run(() => {
+            if (chrome.runtime.lastError) {
+              console.log(
+                '%cERROR clearing storage.sync',
+                'display:inline-block;background:#c52525;color:white;padding:5px;border-radius:5px;',
+                chrome.runtime.lastError
+              );
+              reject(chrome.runtime.lastError);
+            }
+            console.log(
+              '%cClearing all keys from storage.sync',
+              'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;'
+            );
+            resolve(true);
+          })
+        );
       } else {
-        console.log('%cClearing all keys from localStorage','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;');
+        console.log(
+          '%cClearing all keys from localStorage',
+          'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;'
+        );
         localStorage.clear();
         resolve(true);
       }
@@ -188,17 +241,35 @@ export class Storage {
       if (chrome !== undefined && chrome.storage !== undefined) {
         let saveObj = {};
         saveObj[key] = defaults;
-        chrome.storage.sync.get(/* String or Array */saveObj, (data) => this.zone.run(() => {
-          if (chrome.runtime.lastError) {
-            console.log('%cERROR loading from storage.sync','display:inline-block;background:#c52525;color:white;padding:5px;border-radius:5px;', chrome.runtime.lastError, data);
-            reject(chrome.runtime.lastError);
-          }
-          console.log('%cLoad from storage.sync','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;', data);
-          resolve(data[key]);
-        }));
+        chrome.storage.sync.get(/* String or Array */ saveObj, (data) =>
+          this.zone.run(() => {
+            if (chrome.runtime.lastError) {
+              console.log(
+                '%cERROR loading from storage.sync',
+                'display:inline-block;background:#c52525;color:white;padding:5px;border-radius:5px;',
+                chrome.runtime.lastError,
+                data
+              );
+              reject(chrome.runtime.lastError);
+            }
+            console.log(
+              '%cLoad from storage.sync',
+              'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
+              data
+            );
+            resolve(data[key]);
+          })
+        );
       } else {
-        console.log('%cLoad from localStorage','display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;', key);
-        let object =  (localStorage.getItem(key) === null) ? defaults : JSON.parse(localStorage.getItem(key));
+        console.log(
+          '%cLoad from localStorage',
+          'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
+          key
+        );
+        let object =
+          localStorage.getItem(key) === null
+            ? defaults
+            : JSON.parse(localStorage.getItem(key));
         resolve(object);
       }
     });
@@ -206,30 +277,37 @@ export class Storage {
 
   //  change detection
   onChange(key?: string): Observable<any> {
-    return Observable.create(observer => {
+    return Observable.create((observer) => {
       if (chrome !== undefined && chrome.storage !== undefined) {
-        chrome.storage.onChanged.addListener((changes, namespace) => this.zone.run(() => {
-          if (!key) {
-            // give all changes
-            observer.next(changes);
-          } else {
-            for (let tkey in changes) {
-              if ( changes.hasOwnProperty( tkey ) ) {
-                let storageChange = changes[tkey];
-                if (tkey === key) {
-                  this.config = storageChange.newValue;
-                  observer.next(storageChange.newValue);
+        chrome.storage.onChanged.addListener((changes, namespace) =>
+          this.zone.run(() => {
+            if (!key) {
+              // give all changes
+              observer.next(changes);
+            } else {
+              for (let tkey in changes) {
+                if (changes.hasOwnProperty(tkey)) {
+                  let storageChange = changes[tkey];
+                  if (tkey === key) {
+                    this.config = storageChange.newValue;
+                    observer.next(storageChange.newValue);
+                  }
                 }
               }
             }
-          }
-        }));
+          })
+        );
       } else {
-        window.addEventListener('storage', () => this.zone.run(() => {
-           let object = JSON.parse(localStorage.getItem(key));
-           this.config = object;
-           observer.next(object);
-        }), false);
+        window.addEventListener(
+          'storage',
+          () =>
+            this.zone.run(() => {
+              let object = JSON.parse(localStorage.getItem(key));
+              this.config = object;
+              observer.next(object);
+            }),
+          false
+        );
       }
     });
   }

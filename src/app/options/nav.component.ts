@@ -70,6 +70,12 @@ import * as manifest from '../../manifest.json';
       </li>
       <li>
         <button
+          type="button" (click)="goToPage('Covid')" [ngClass]="{'active': shared.optionsPage === 'Covid'}">
+          <div class="icon" aria-hidden="true">coronavirus</div>{{'options.covidData.caption' | translate}}
+        </button>
+      </li>
+      <li>
+        <button
           type="button" (click)="goToPage('Extra')" [ngClass]="{'active': shared.optionsPage === 'Extra'}">
           <div class="icon" aria-hidden="true">settings</div>{{'options.extra.extra' | translate}}
         </button>

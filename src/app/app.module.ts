@@ -28,6 +28,7 @@ import { SplashComponent } from './splash/splash.component';
 import { NavComponent } from './options/nav.component';
 import { OptionsComponent } from './options/options.component';
 import { OptionsBookmarksComponent } from './options/bookmarks/bookmarks.component';
+import { OptionsCovidComponent } from './options/covid/covid.component';
 import { OptionsDashboardComponent } from './options/dashboard/dashboard.component';
 import { OptionsDateComponent } from './options/date/date.component';
 import { OptionsDesignComponent } from './options/design/design.component';
@@ -65,6 +66,7 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
 
     OptionsComponent,
     OptionsBookmarksComponent,
+    OptionsCovidComponent,
     OptionsDashboardComponent,
     OptionsDateComponent,
     OptionsDesignComponent,

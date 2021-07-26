@@ -218,7 +218,7 @@
               ></options-position>
             </div>
             <div class="input">
-              <label for="countryWidth">Width</label>
+              <label for="countryWidth">Maximum Width</label>
               <options-range
                 name="countryWidth"
                 min="0"
@@ -238,7 +238,7 @@
                 [name]="'covidDataPadding' + i"
                 [id]="'covidDataPadding' + i"
                 min="0"
-                max="20"
+                max="50"
                 [(ngModel)]="country.padding"
                 (ngModelChange)="
                   ga.field('covidData.countries.padding', country.padding)
@@ -250,7 +250,7 @@
               <options-range
                 name="countryMarginHeight"
                 min="0"
-                max="100"
+                max="50"
                 [(ngModel)]="country.marginHeight"
                 (ngModelChange)="
                   ga.field('country.marginHeight', country.marginHeight)
@@ -262,7 +262,7 @@
               <options-range
                 name="countryMarginWidth"
                 min="0"
-                max="100"
+                max="50"
                 [(ngModel)]="country.marginWidth"
                 (ngModelChange)="ga.field('country.marginWidth', country.marginWidth)"
               ></options-range>
@@ -277,8 +277,8 @@
               <options-range
                 [name]="'covidDataOffset' + i"
                 [id]="'covidDataOffset' + i"
-                min="-20"
-                max="20"
+                min="-50"
+                max="50"
                 [(ngModel)]="country.offset"
                 (ngModelChange)="
                   ga.field('covidData.countries.offset', country.offset)

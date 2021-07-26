@@ -21,6 +21,7 @@ import { colors, languages } from '../_shared/lists/lists';
 })
 export class SplashComponent implements OnInit {
   step = 1;
+  featureCarousel = 1;
   colors = colors;
   languages = languages;
   newLang: string;

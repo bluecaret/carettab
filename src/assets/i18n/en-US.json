@@ -53,7 +53,7 @@
     "covidData": {
       "actions": "Options",
       "addCountry": "Add Country",
-      "caption": "Covid Data",
+      "caption": "COVID-19 Data",
       "country": "Country",
       "countryDesc": "Country to monitor",
       "deleteCountry": "Delete country",

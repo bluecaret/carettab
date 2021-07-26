@@ -37,41 +37,110 @@
 <!-- MAJOR VERSION SPLASH SCREEN: -->
 
 <div class="updated" *ngIf="step === 800">
-  <h1>
-    <svg x="0px" y="0px" width="128px" height="128px" viewBox="0 0 128 128" enable-background="new 0 0 128 128" xml:space="preserve">
-      <g>
+  <div class="splash350">
+    <h1>
+      <svg x="0px" y="0px" width="128px" height="128px" viewBox="0 0 128 128" enable-background="new 0 0 128 128" xml:space="preserve">
         <g>
-          <rect x="24" y="80" fill="#0071BC" width="16" height="16"/>
-          <rect x="40" y="64" fill="#0071BC" width="16" height="16"/>
-          <rect x="56" y="48" fill="#0071BC" width="16" height="16"/>
-          <rect x="72" y="64" fill="#0071BC" width="16" height="16"/>
-          <rect x="88" y="80" fill="#0071BC" width="16" height="16"/>
+          <g>
+            <rect x="24" y="80" fill="#0071BC" width="16" height="16"/>
+            <rect x="40" y="64" fill="#0071BC" width="16" height="16"/>
+            <rect x="56" y="48" fill="#0071BC" width="16" height="16"/>
+            <rect x="72" y="64" fill="#0071BC" width="16" height="16"/>
+            <rect x="88" y="80" fill="#0071BC" width="16" height="16"/>
+          </g>
+          <path fill="#4D4D4D" d="M123,20V0H88v20h-9V0H44v20h-9V10V0H25H10H0v10v10v10v20v78h128V20H123z M118,118H10V10h15v20h19h35h9h30
+            V118z"/>
         </g>
-        <path fill="#4D4D4D" d="M123,20V0H88v20h-9V0H44v20h-9V10V0H25H10H0v10v10v10v20v78h128V20H123z M118,118H10V10h15v20h19h35h9h30
-          V118z"/>
-      </g>
-    </svg>
-    <div>{{'splash.updatedTo' | translate}} v3.4.0!</div>
-  </h1>
-  <div class="splash-options">
-    <h3>{{'splash.new' | translate}}</h3>
-    <ul>
-      <li>{{'splash.v340.l1' | translate}}</li>
-      <li>{{'splash.v340.l2' | translate}}</li>
-      <li>{{'splash.v340.l3' | translate}}</li>
-      <li>{{'splash.v340.l4' | translate}}</li>
-      <li>{{'splash.v340.l5' | translate}}</li>
-      <li>{{'splash.v340.l6' | translate}}</li>
-    </ul>
-    <form novalidate>
-      <h3 style="margin-top: 40px;">{{'splash.v340.h2' | translate}}</h3>
-      <p>{{'options.extra.enableAnalyticsDesc' | translate}}</p>
-      <div class="splash-input input">
-        <label>{{'options.extra.enableAnalytics' | translate}}</label>
-        <options-toggle name="enableAnalytics" id="enableAnalytics" [(ngModel)]="settings.config.misc.enableAnalytics"></options-toggle>
+      </svg>
+      <div>{{'splash.updatedTo' | translate}} v3.5.0!</div>
+    </h1>
+    <h2 class="splash350_heading">Many new features now available!</h2>
+    <div class="featureGrid">
+      <div class="featureGridNav">
+        <button type="button" class="btn btn--splash btn--feature" (click)="featureCarousel === 1 ? featureCarousel = 11 : featureCarousel = featureCarousel - 1"><div class="icon">chevron_left</div></button>
       </div>
-      <p><a href="https://www.bluecaret.com/terms" target="_blank">{{'options.common.privacyPolicy' | translate}}</a></p>
-    </form>
+      <section *ngIf="featureCarousel === 1">
+        <div class="icon">wb_sunny</div>
+        <h3>Weather widget</h3>
+        <p class="mb0">The much requested, long awaited, weather widget is finally here! Get all the weather data you need at a glance with both current weather and a forecast. Like always, lots of customization available!</p>
+      </section>
+      <section *ngIf="featureCarousel === 2">
+        <div class="icon">coronavirus</div>
+        <h3>COVID-19 data widget</h3>
+        <p class="mb0">Now you can track COVID statistics by country on your New Tab.</p>
+      </section>
+      <section *ngIf="featureCarousel === 3">
+        <div class="icon">access_time</div>
+        <h3>Binary clock</h3>
+        <p class="mb0">Show off your nerd pride and read time like a machine!</p>
+      </section>
+      <section *ngIf="featureCarousel === 4">
+        <div class="icon">textsms</div>
+        <h3>Random message</h3>
+        <p class="mb0">You can now add multiple custom messages to a list and have a random one display on every new tab!</p>
+      </section>
+      <section *ngIf="featureCarousel === 5">
+        <div class="icon">content_copy</div>
+        <h3>Duplicate clocks</h3>
+        <p class="mb0">Want a second clock setup exactly the same way but with a different time zone? Duplicate it!</p>
+      </section>
+      <section *ngIf="featureCarousel === 6">
+        <div class="icon">auto_awesome_mosaic</div>
+        <h3>Place widgets anywhere</h3>
+        <p class="mb0">New position options for all widgets! Now you can place each widget in different locations on the screen. Place the quick links on the bottom, move the clock to the top corner, the choice is yours!</p>
+      </section>
+      <section *ngIf="featureCarousel === 7">
+        <div class="icon">download_for_offline</div>
+        <h3>Backup and restore</h3>
+        <p class="mb0">Backup and restore your settings with a new Export/Import option!</p>
+      </section>
+      <section *ngIf="featureCarousel === 8">
+        <div class="icon">notes</div>
+        <h3>Disable selection</h3>
+        <p class="mb0">Added option to disable text selection! No more accidental highlighting.</p>
+      </section>
+      <section *ngIf="featureCarousel === 9">
+        <div class="icon">brightness_medium</div>
+        <h3>Date delimiter dimming</h3>
+        <p class="mb0">Added option to dim the delimiter on the short date.</p>
+      </section>
+      <section *ngIf="featureCarousel === 10">
+        <h3>Minor changes</h3>
+        <ul>
+          <li>Many size options have greater range to select from.</li>
+          <li>Added extension version number to settings panel</li>
+          <li>Removed logo from corner</li>
+          <li>Adjusted some default settings</li>
+          <li>Improved help text for several settings</li>
+          <li>Translation improvements</li>
+        </ul>
+      </section> 
+      <section *ngIf="featureCarousel === 11">
+        <h3>Bug fixes</h3>
+        <ul>
+          <li>Fixed bug preventing patterns from displaying in certain situations.</li>
+          <li>Fixed occasional 404 error for background images.</li>
+          <li>Fixed issue where bookmarks wouldn't display when enabling bookmarks bar.</li>
+          <li>Fixed display bug in bookmarks bar.</li>
+        </ul>
+      </section> 
+      <div class="featureGridNav">
+        <button type="button" class="btn btn--splash btn--feature" (click)="featureCarousel === 11 ? featureCarousel = 1 : featureCarousel = featureCarousel + 1"><div class="icon">chevron_right</div></button>
+      </div>
+    </div>
+    <div class="featureDotNav">
+      <button class="featureDotBtn" [ngClass]="{'featureDotBtn--active': featureCarousel === 1}" type="button" (click)="featureCarousel = 1" aria-label="View more new features"></button>
+      <button class="featureDotBtn" [ngClass]="{'featureDotBtn--active': featureCarousel === 2}" type="button" (click)="featureCarousel = 2" aria-label="View more new features"></button>
+      <button class="featureDotBtn" [ngClass]="{'featureDotBtn--active': featureCarousel === 3}" type="button" (click)="featureCarousel = 3" aria-label="View more new features"></button>
+      <button class="featureDotBtn" [ngClass]="{'featureDotBtn--active': featureCarousel === 4}" type="button" (click)="featureCarousel = 4" aria-label="View more new features"></button>
+      <button class="featureDotBtn" [ngClass]="{'featureDotBtn--active': featureCarousel === 5}" type="button" (click)="featureCarousel = 5" aria-label="View more new features"></button>
+      <button class="featureDotBtn" [ngClass]="{'featureDotBtn--active': featureCarousel === 6}" type="button" (click)="featureCarousel = 6" aria-label="View more new features"></button>
+      <button class="featureDotBtn" [ngClass]="{'featureDotBtn--active': featureCarousel === 7}" type="button" (click)="featureCarousel = 7" aria-label="View more new features"></button>
+      <button class="featureDotBtn" [ngClass]="{'featureDotBtn--active': featureCarousel === 8}" type="button" (click)="featureCarousel = 8" aria-label="View more new features"></button>
+      <button class="featureDotBtn" [ngClass]="{'featureDotBtn--active': featureCarousel === 9}" type="button" (click)="featureCarousel = 9" aria-label="View more new features"></button>
+      <button class="featureDotBtn" [ngClass]="{'featureDotBtn--active': featureCarousel === 10}" type="button" (click)="featureCarousel = 10" aria-label="View more new features"></button>
+      <button class="featureDotBtn" [ngClass]="{'featureDotBtn--active': featureCarousel === 11}" type="button" (click)="featureCarousel = 11" aria-label="View more new features"></button>
+    </div>
   </div>
   <button type="button" class="btn btn--splash btn--start" (click)="removeIntroAndReload()">{{'splash.getStarted' | translate}}</button>
 </div>

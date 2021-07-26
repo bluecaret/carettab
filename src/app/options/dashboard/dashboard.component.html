@@ -1,17 +1,4 @@
-<h2>
-  <svg *ngIf="status === 'updated' && shared.updateType !== 'hidden'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8zm1 13h-2v-6h2v6zm0-8h-2V7h2v2z" fill="limegreen" /><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#000000"/></svg>
-  {{'options.dashboard.new' | translate}}
-</h2>
-<p>{{'options.dashboard.updated' | translate}} June 1, 2021</p>
-<ul class="changelog">
-  <li>{{'splash.v340.l1' | translate}}</li>
-  <li>{{'splash.v340.l2' | translate}}</li>
-  <li>{{'splash.v340.l3' | translate}}</li>
-  <li>{{'splash.v340.l4' | translate}}</li>
-  <li>{{'splash.v340.l5' | translate}}</li>
-  <li>{{'splash.v340.l6' | translate}}</li>
-</ul>
-<div class="donate">
+<div class="donate mb15">
   <div class="donate-intro">
     <svg class="heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.6 30.6">
       <path d="M15.3 11c-1.2-3.5-8.7-4.5-9.2 1.6 -0.7 7.8 9.2 11.7 9.2 11.7s9.9-3.8 9.2-11.7C24 6.5 16.5 7.5 15.3 11zM10.1 19.1c-2.4-1.8-4.7-8.6 0.1-9.4C7.8 12 8.1 16.5 10.1 19.1z"/>
@@ -47,6 +34,32 @@
     </li>
   </ul>
 </div>
+<h2 class="mt15">
+  <svg *ngIf="status === 'updated' && shared.updateType !== 'hidden'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8zm1 13h-2v-6h2v6zm0-8h-2V7h2v2z" fill="limegreen" /><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#000000"/></svg>
+  {{'options.dashboard.new' | translate}}
+</h2>
+<p>{{'options.dashboard.updated' | translate}} July 26, 2021</p>
+<ul class="changelog">
+  <li>{{'splash.v350.weatherTitle' | translate}}: {{'splash.v350.weatherDesc' | translate}}</li>
+  <li>{{'splash.v350.covidTitle' | translate}}: {{'splash.v350.covidDesc' | translate}}</li>
+  <li>{{'splash.v350.binaryTitle' | translate}}: {{'splash.v350.binaryDesc' | translate}}</li>
+  <li>{{'splash.v350.messageTitle' | translate}}: {{'splash.v350.messageDesc' | translate}}</li>
+  <li>{{'splash.v350.duplicateTitle' | translate}}: {{'splash.v350.duplicateDesc' | translate}}</li>
+  <li>{{'splash.v350.positionTitle' | translate}}: {{'splash.v350.positionDesc' | translate}}</li>
+  <li>{{'splash.v350.backupTitle' | translate}}: {{'splash.v350.backupDesc' | translate}}</li>
+  <li>{{'splash.v350.selectTitle' | translate}}: {{'splash.v350.selectDesc' | translate}}</li>
+  <li>{{'splash.v350.dimTitle' | translate}}: {{'splash.v350.dimDesc' | translate}}</li>
+  <li>{{'splash.v350.m1' | translate}}</li>
+  <li>{{'splash.v350.m2' | translate}}</li>
+  <li>{{'splash.v350.m3' | translate}}</li>
+  <li>{{'splash.v350.m4' | translate}}</li>
+  <li>{{'splash.v350.m5' | translate}}</li>
+  <li>{{'splash.v350.m6' | translate}}</li>
+  <li>{{'splash.v350.b1' | translate}}</li>
+  <li>{{'splash.v350.b2' | translate}}</li>
+  <li>{{'splash.v350.b3' | translate}}</li>
+  <li>{{'splash.v350.b4' | translate}}</li>
+</ul>
 <p>
   {{'options.dashboard.needHelp' | translate | translateCut:0 }}<a href="https://www.bluecaret.com" (click)="ga.event('dashboard', 'externalLink', 'helpBlueCaret');">{{'options.dashboard.needHelp' | translate | translateCut:1 }}</a>{{'options.dashboard.needHelp' | translate | translateCut:2 }}<a href="https://twitter.com/bluecaret" (click)="ga.event('dashboard', 'externalLink', 'helpTwitter');">{{'options.dashboard.needHelp' | translate | translateCut:3 }}</a>{{'options.dashboard.needHelp' | translate | translateCut:4 }}<a href="https://github.com/bluecaret/carettab" (click)="ga.event('dashboard', 'externalLink', 'helpGithub');">{{'options.dashboard.needHelp' | translate | translateCut:5 }}</a>{{'options.dashboard.needHelp' | translate | translateCut:6 }}
 </p>

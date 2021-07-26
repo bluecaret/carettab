@@ -1,10 +1,26 @@
-.covidContainer {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
+.covid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: max-content;
+}
+
+.covidCountry {
+  display: flex;
+  align-items: center;
+  gap: .3em;
+}
+
+.covidFlag {
+  border:1px solid black;
+  height: .8em;
+}
+
+.covidNumbers {
+  display: flex;
+  align-items: center;
+  gap: .2em;
+  .icon {
+    font-size: 1em;
   }
-    
-  .covidFlag{
-    border:1px solid black;
-  }
+}

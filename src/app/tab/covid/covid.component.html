@@ -1,27 +1,59 @@
-<div
-  class="covidContainer"
-  [ngStyle]="{
-    'gap': shared.getPadding(settings.config.covidData.countries[index].padding)
-  }"
->
-  <div
-    class="covidFlag"
+<div class="covidCountry" *ngIf="settings.config.covidData.countries[index].enableFlag || settings.config.covidData.countries[index].enableCountryName">
+  <img
     *ngIf="settings.config.covidData.countries[index].enableFlag"
-  >
-    <img
-      [ngStyle]="{
-        'height': shared.getImageSize(
-          settings.config.covidData.countries[index].flagSize
-        )
-      }"
-      [src]="settings.config.covidData.countries[index].flagImage"
-      alt="flag"
-    />
+    class="covidFlag"
+    [src]="settings.config.covidData.countries[index].flagImage"
+    alt="flag"
+  />
+  <div *ngIf="settings.config.covidData.countries[index].enableCountryName">{{ countryData.country }}</div>
+</div>
+<div 
+  class="covidNumbers" 
+  title="Today's new cases"
+  *ngIf="settings.config.covidData.countries[index].enableToday"
+>
+  <div class="icon" aria-hidden="true">today</div>
+  <div>{{ countryData.todayCases || countryData.todayCases === 0 ? countryData.todayCases.toLocaleString() : '???' }}</div>
+</div>
+<div 
+  class="covidNumbers" 
+  title="Total active cases{{settings.config.covidData.countries[index].enablePer1M ? ' per one million' : null}}"
+  *ngIf="settings.config.covidData.countries[index].enableActive"
+>
+  <div class="icon" aria-hidden="true">sick</div>
+  <div>
+    {{ 
+      settings.config.covidData.countries[index].enablePer1M
+        ? countryData.activePerOneMillion || countryData.activePerOneMillion === 0 ? countryData.activePerOneMillion.toLocaleString() : '???'
+        : countryData.active || countryData.active === 0 ? countryData.active.toLocaleString() : '???'
+    }}
   </div>
-  <div class="info">
-    <div>Country : {{ countryData.country }}</div>
-    <div>Today : {{ countryData.todayCases }}</div>
-    <div>Deaths : {{ countryData.deaths }}</div>
-    <div>Active : {{ countryData.active }}</div>
+</div>
+<div 
+  class="covidNumbers" 
+  title="Total recovered{{settings.config.covidData.countries[index].enablePer1M ? ' per one million' : null}}"
+  *ngIf="settings.config.covidData.countries[index].enableRecovered"
+>
+  <div class="icon" aria-hidden="true">emoji_emotions</div>
+  <div>
+    {{ 
+      settings.config.covidData.countries[index].enablePer1M
+        ? countryData.recoveredPerOneMillion || countryData.recoveredPerOneMillion === 0 ? countryData.recoveredPerOneMillion.toLocaleString() : '???'
+        : countryData.recovered || countryData.recovered === 0 ? countryData.recovered.toLocaleString() : '???'
+    }}
+  </div>
+</div>
+<div 
+  class="covidNumbers" 
+  title="Total deaths{{settings.config.covidData.countries[index].enablePer1M ? ' per one million' : null}}"
+  *ngIf="settings.config.covidData.countries[index].enableDeaths"
+>
+  <div class="icon" aria-hidden="true">remove_circle</div>
+  <div>
+    {{ 
+      settings.config.covidData.countries[index].enablePer1M
+        ? countryData.deathsPerOneMillion || countryData.deathsPerOneMillion === 0 ? countryData.deathsPerOneMillion.toLocaleString() : '???'
+        : countryData.deaths || countryData.deaths === 0 ? countryData.deaths.toLocaleString() : '???'
+    }}
   </div>
 </div>

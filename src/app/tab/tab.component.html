@@ -66,12 +66,17 @@
         <ng-container
           *ngFor="let c of settings.config.covidData.countries; let i = index"
         >
-          <tab-covid
+          <div
             *ngIf="c.position === 'nw'"
-            [index]="i"
-            [countryCode]="c.code"
-            [ngStyle]="setCovidCountryStyles(c)"
-          ></tab-covid>
+            class="forceLineBreak"
+            [ngStyle]="setCovidCountryWrapStyles(c)"
+          >
+            <tab-covid
+              [index]="i"
+              [countryCode]="c.code"
+              [ngStyle]="setCovidCountryStyles(c)"
+            ></tab-covid>
+          </div>
         </ng-container>
       </ng-container>
       <div
@@ -146,15 +151,19 @@
         "
       >
         <ng-container
-          [style.margin]="shared.getMargin(c.marginHeight, c.marginWidth)"
           *ngFor="let c of settings.config.covidData.countries; let i = index"
         >
-          <tab-covid
+          <div
             *ngIf="c.position === 'n'"
-            [index]="i"
-            [countryCode]="c.code"
-            [ngStyle]="setCovidCountryStyles(c)"
-          ></tab-covid>
+            class="forceLineBreak"
+            [ngStyle]="setCovidCountryWrapStyles(c)"
+          >
+            <tab-covid
+              [index]="i"
+              [countryCode]="c.code"
+              [ngStyle]="setCovidCountryStyles(c)"
+            ></tab-covid>
+          </div>
         </ng-container>
       </ng-container>
       <div
@@ -231,12 +240,17 @@
         <ng-container
           *ngFor="let c of settings.config.covidData.countries; let i = index"
         >
-          <tab-covid
+          <div
             *ngIf="c.position === 'ne'"
-            [index]="i"
-            [countryCode]="c.code"
-            [ngStyle]="setCovidCountryStyles(c)"
-          ></tab-covid>
+            class="forceLineBreak"
+            [ngStyle]="setCovidCountryWrapStyles(c)"
+          >
+            <tab-covid
+              [index]="i"
+              [countryCode]="c.code"
+              [ngStyle]="setCovidCountryStyles(c)"
+            ></tab-covid>
+          </div>
         </ng-container>
       </ng-container>
       <div
@@ -313,12 +327,17 @@
         <ng-container
           *ngFor="let c of settings.config.covidData.countries; let i = index"
         >
-          <tab-covid
+          <div
             *ngIf="c.position === 'w'"
-            [index]="i"
-            [countryCode]="c.code"
-            [ngStyle]="setCovidCountryStyles(c)"
-          ></tab-covid>
+            class="forceLineBreak"
+            [ngStyle]="setCovidCountryWrapStyles(c)"
+          >
+            <tab-covid
+              [index]="i"
+              [countryCode]="c.code"
+              [ngStyle]="setCovidCountryStyles(c)"
+            ></tab-covid>
+          </div>
         </ng-container>
       </ng-container>
       <div
@@ -395,12 +414,17 @@
         <ng-container
           *ngFor="let c of settings.config.covidData.countries; let i = index"
         >
-          <tab-covid
+          <div
             *ngIf="c.position === 'c'"
-            [index]="i"
-            [countryCode]="c.code"
-            [ngStyle]="setCovidCountryStyles(c)"
-          ></tab-covid>
+            class="forceLineBreak"
+            [ngStyle]="setCovidCountryWrapStyles(c)"
+          >
+            <tab-covid
+              [index]="i"
+              [countryCode]="c.code"
+              [ngStyle]="setCovidCountryStyles(c)"
+            ></tab-covid>
+          </div>
         </ng-container>
       </ng-container>
       <div
@@ -477,12 +501,17 @@
         <ng-container
           *ngFor="let c of settings.config.covidData.countries; let i = index"
         >
-          <tab-covid
+          <div
             *ngIf="c.position === 'e'"
-            [index]="i"
-            [countryCode]="c.code"
-            [ngStyle]="setCovidCountryStyles(c)"
-          ></tab-covid>
+            class="forceLineBreak"
+            [ngStyle]="setCovidCountryWrapStyles(c)"
+          >
+            <tab-covid
+              [index]="i"
+              [countryCode]="c.code"
+              [ngStyle]="setCovidCountryStyles(c)"
+            ></tab-covid>
+          </div>
         </ng-container>
       </ng-container>
       <div
@@ -559,12 +588,17 @@
         <ng-container
           *ngFor="let c of settings.config.covidData.countries; let i = index"
         >
-          <tab-covid
+          <div
             *ngIf="c.position === 'sw'"
-            [index]="i"
-            [countryCode]="c.code"
-            [ngStyle]="setCovidCountryStyles(c)"
-          ></tab-covid>
+            class="forceLineBreak"
+            [ngStyle]="setCovidCountryWrapStyles(c)"
+          >
+            <tab-covid
+              [index]="i"
+              [countryCode]="c.code"
+              [ngStyle]="setCovidCountryStyles(c)"
+            ></tab-covid>
+          </div>
         </ng-container>
       </ng-container>
       <div
@@ -641,12 +675,17 @@
         <ng-container
           *ngFor="let c of settings.config.covidData.countries; let i = index"
         >
-          <tab-covid
+          <div
             *ngIf="c.position === 's'"
-            [index]="i"
-            [countryCode]="c.code"
-            [ngStyle]="setCovidCountryStyles(c)"
-          ></tab-covid>
+            class="forceLineBreak"
+            [ngStyle]="setCovidCountryWrapStyles(c)"
+          >
+            <tab-covid
+              [index]="i"
+              [countryCode]="c.code"
+              [ngStyle]="setCovidCountryStyles(c)"
+            ></tab-covid>
+          </div>
         </ng-container>
       </ng-container>
       <div
@@ -723,12 +762,17 @@
         <ng-container
           *ngFor="let c of settings.config.covidData.countries; let i = index"
         >
-          <tab-covid
+          <div
             *ngIf="c.position === 'se'"
-            [index]="i"
-            [countryCode]="c.code"
-            [ngStyle]="setCovidCountryStyles(c)"
-          ></tab-covid>
+            class="forceLineBreak"
+            [ngStyle]="setCovidCountryWrapStyles(c)"
+          >
+            <tab-covid
+              [index]="i"
+              [countryCode]="c.code"
+              [ngStyle]="setCovidCountryStyles(c)"
+            ></tab-covid>
+          </div>
         </ng-container>
       </ng-container>
       <div

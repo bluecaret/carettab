@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '../../_storage/storage.service';
-import { title, languages } from '../../_shared/lists/lists';
 import { SharedService } from '../../_shared/shared.service';
 import { GoogleAnalyticsService } from '../../_shared/ga.service';
 import { HttpClient } from '@angular/common/http';
@@ -12,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OptionsCovidComponent {
   selected = '';
-  newCountry = '';
+  newCountry = null;
   public countryList = [];
   constructor(
     public settings: Storage,
@@ -23,18 +21,13 @@ export class OptionsCovidComponent {
     this.countryLists();
   }
 
-  trackByFn(index: any, item: any) {
-    return index;
-  }
-
-  swap(arr: any[], from: number, to: number, position:string) {
-    //Only execute the swop if we have more than one item in that position
-    if (arr.filter((x) => x.position === position).length > 1)
-      arr.splice(from, 1, arr.splice(to, 1, arr[from])[0]);
-  }
-
-  loadData(e) {
-    this.countryLists();
+  /* Sets item as selected */
+  setSelected(i) {
+    if (this.selected !== i) {
+      this.selected = i;
+    } else {
+      this.selected = null;
+    }
   }
 
   addCountry(model: any, isValid: boolean) {
@@ -43,28 +36,36 @@ export class OptionsCovidComponent {
       this.settings.config.covidData.countries.push({
         id: elementId,
         enableFlag: true,
+        enableCountryName: true,
+        enablePer1M: false,
+        enableToday: true,
+        enableActive: true,
+        enableRecovered: false,
+        enableDeaths: false,
         code: model.value.newCountry,
-        flagSize: 30,
         flagImage: `https://disease.sh/assets/img/flags/${model.value.newCountry.toLowerCase()}.png`,
-        textScaling: 2,
+        textScaling: 12,
         offset: 0,
         padding: 10,
         width: 100,
-        marginHeight: 0,
+        marginHeight: 5,
         marginWidth: 0,
         name: 'default',
-        position: 'n'
+        position: 's'
       });
       model.resetForm();
-      this.shared.toggleOrder(elementId, true, 'n');
+      this.shared.toggleOrder(elementId, true, 's');
     }
   }
 
   updateCountryName(i) {
-    this.settings.config.covidData.countries[i].name = this.countryList.find(
+    let newCountry = this.countryList.find(
       (x) => x.code == this.settings.config.covidData.countries[i].code
-    ).label;
+    );
+    this.settings.config.covidData.countries[i].name = newCountry.label;
+    this.settings.config.covidData.countries[i].flagImage = `https://disease.sh/assets/img/flags/${newCountry.code.toLowerCase()}.png`;
   }
+
   removeCountry(i) {
     this.shared.toggleOrder(
       this.settings.config.covidData.countries[i].id,
@@ -72,15 +73,6 @@ export class OptionsCovidComponent {
       this.settings.config.covidData.countries[i].position
     );
     this.settings.config.covidData.countries.splice(i, 1);
-  }
-
-  /** Sets item as selected */
-  setSelected(i) {
-    if (this.selected !== i) {
-      this.selected = i;
-    } else {
-      this.selected = null;
-    }
   }
 
   countryLists() {
@@ -91,5 +83,15 @@ export class OptionsCovidComponent {
           return { label: x.name, code: x.iso2 };
         });
       });
+  }
+
+  copy(index: number) {
+    let newCountry = {...this.settings.config.covidData.countries[index]};
+    newCountry.id = this.shared.createID('CLOCK');
+    this.settings.config.covidData.countries.push(newCountry);
+    let i = (this.settings.config.covidData.countries.length - 1);
+    this.shared.toggleOrder(this.settings.config.covidData.countries[i].id, true, this.settings.config.covidData.countries[index].position);
+    this.selected = null;
+    this.shared.echo('COVID country copied', null, newCountry);
   }
 }

@@ -46,9 +46,10 @@ export class TabCovidComponent implements OnInit, OnChanges {
 }
 
 export class CovidData {
-  todayCases: string = '';
-  deaths: string = '';
-  active: string = '';
+  todayCases: number = null;
+  deaths: number = null;
+  active: number = null;
+  recovered: number = null;
   country: string = '';
   countryInfo: {
     flag: string;

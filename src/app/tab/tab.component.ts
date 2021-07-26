@@ -271,14 +271,22 @@ export class TabComponent implements OnInit {
     return styles;
   }
 
+
+  setCovidCountryWrapStyles(c: any): Object {
+    const styles = {
+      'order': this.shared.getOrder(c.id, c.position)
+    };
+    return styles;
+  }
+
   setCovidCountryStyles(c: any): Object {
     const styles = {
-      'font-size': this.shared.getFontSize(c.textScaling, 1.7),
+      'font-size': this.shared.getFontSize(c.textScaling, 12),
       'transform': this.shared.getOffset(c.offset),
       'margin': this.shared.getMargin(c.marginHeight, c.marginWidth),
-      'width': this.shared.getPercentWidth(c.width),
-      'order': this.shared.getOrder(c.id, c.position),
-      'justify-content' : this.getAlignment(c.position)
+      'max-width': this.shared.getMaxWidth(c.width),
+      'justify-content' : this.getAlignment(c.position),
+      'gap' : this.shared.getPadding(c.padding)
     };
     return styles;
   }

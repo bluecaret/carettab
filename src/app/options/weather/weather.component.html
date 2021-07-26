@@ -4,6 +4,9 @@
     <label for="enableWeather">Weather</label>
     <options-toggle name="enableWeather" id="enableWeather" [(ngModel)]="settings.config.weather.enabled" (ngModelChange)="shared.toggleOrder(settings.config.weather.id, $event, settings.config.weather.position); ga.field('weather.enabled', settings.config.weather.enabled)"></options-toggle>
   </div>
+  <div class="warning pl15 mt1">
+    <div class="icon" aria-hidden="true">info</div>{{'options.common.requiresInternet' | translate}}
+  </div>
   <ng-container *ngIf="settings.config.weather.enabled">
     <h3>Location</h3>
     <div class="input">

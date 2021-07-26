@@ -44,6 +44,7 @@
       "order": "ordine",
       "placement": "posizionamento",
       "privacyPolicy": "Norme sulla privacy e condizioni d'uso",
+      "requiresInternet": "Questa funzione richiede l'accesso a Internet.",
       "size": "Taglia",
       "supportLink": "Supporto",
       "timezone": "Fuso orario",

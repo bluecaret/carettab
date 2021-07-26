@@ -44,6 +44,7 @@
       "order": "顺序",
       "placement": "位置",
       "privacyPolicy": "隐私政策和使用条款",
+      "requiresInternet": "此功能需要访问互联网。",
       "size": "尺寸",
       "supportLink": "支持",
       "timezone": "时区",

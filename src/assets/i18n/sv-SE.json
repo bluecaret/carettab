@@ -44,6 +44,7 @@
       "order": "Ordning",
       "placement": "Placering",
       "privacyPolicy": "Sekretesspolicy och användarvillkor",
+      "requiresInternet": "Denna funktion kräver internetåtkomst.",
       "size": "Storlek",
       "supportLink": "Stöd",
       "timezone": "tidszon",

@@ -3,6 +3,9 @@
   <label>{{'options.covidData.enable' | translate}}</label>
   <options-toggle name="toggleCovidData" [(ngModel)]="settings.config.covidData.enabled" (ngModelChange)="ga.field('covidData.enabled', settings.config.covidData.enabled);"></options-toggle>
 </div>
+<div class="warning pl15 mt1">
+  <div class="icon" aria-hidden="true">info</div>{{'options.common.requiresInternet' | translate}}
+</div>
 <ng-container *ngIf="settings.config.covidData.enabled">
   <h3>Country data</h3>
   <form #countryListForm="ngForm" novalidate *ngIf="settings.config.covidData.countries.length > 0">

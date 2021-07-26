@@ -44,6 +44,7 @@
       "order": "주문",
       "placement": "놓기",
       "privacyPolicy": "개인 정보 보호 정책 및 이용 약관",
+      "requiresInternet": "이 기능을 사용하려면 인터넷 액세스가 필요합니다.",
       "size": "크기",
       "supportLink": "지원하다",
       "timezone": "시간대",

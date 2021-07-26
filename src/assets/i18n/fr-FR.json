@@ -44,6 +44,7 @@
       "order": "ordre",
       "placement": "Placement",
       "privacyPolicy": "POLITIQUE DE CONFIDENTIALITÉ ET CONDITIONS D'UTILISATION",
+      "requiresInternet": "Cette fonctionnalité nécessite un accès Internet.",
       "size": "Taille",
       "supportLink": "Soutien",
       "timezone": "Fuseau horaire",

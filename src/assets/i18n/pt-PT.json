@@ -44,6 +44,7 @@
       "order": "Ordem",
       "placement": "Canal",
       "privacyPolicy": "POLÍTICA DE PRIVACIDADE E TERMOS DE USO",
+      "requiresInternet": "Este recurso requer acesso à Internet.",
       "size": "Tamanho",
       "supportLink": "Apoio, suporte",
       "timezone": "Fuso horário",

@@ -44,6 +44,7 @@
       "order": "Auftrag",
       "placement": "Platzierung",
       "privacyPolicy": "Datenschutzerklärung und Nutzungsbedingungen",
+      "requiresInternet": "Diese Funktion erfordert einen Internetzugang.",
       "size": "Größe",
       "supportLink": "Unterstützung",
       "timezone": "Zeitzone",

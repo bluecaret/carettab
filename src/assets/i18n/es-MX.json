@@ -44,6 +44,7 @@
       "order": "Orden",
       "placement": "Colocación",
       "privacyPolicy": "Política de privacidad y condiciones de uso",
+      "requiresInternet": "Esta función requiere acceso a Internet.",
       "size": "Tamaño",
       "supportLink": "Apoyo",
       "timezone": "Zona horaria",

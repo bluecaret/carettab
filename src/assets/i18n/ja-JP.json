@@ -44,6 +44,7 @@
       "order": "注文",
       "placement": "配置",
       "privacyPolicy": "プライバシー ポリシーと利用規約",
+      "requiresInternet": "この機能にはインターネットアクセスが必要です。",
       "size": "サイズ",
       "supportLink": "サポート",
       "timezone": "タイムゾーン",

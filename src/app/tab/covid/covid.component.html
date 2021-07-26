@@ -9,7 +9,7 @@
 </div>
 <div 
   class="covidNumbers" 
-  title="Today's new cases"
+  title="{{'options.covidData.todayCases' | translate}}"
   *ngIf="settings.config.covidData.countries[index].enableToday"
 >
   <div class="icon" aria-hidden="true">today</div>
@@ -17,7 +17,7 @@
 </div>
 <div 
   class="covidNumbers" 
-  title="Total active cases{{settings.config.covidData.countries[index].enablePer1M ? ' per one million' : null}}"
+  title="{{'options.covidData.activeCases' | translate}}{{settings.config.covidData.countries[index].enablePer1M ? ' per one million' : null}}"
   *ngIf="settings.config.covidData.countries[index].enableActive"
 >
   <div class="icon" aria-hidden="true">sick</div>
@@ -31,7 +31,7 @@
 </div>
 <div 
   class="covidNumbers" 
-  title="Total recovered{{settings.config.covidData.countries[index].enablePer1M ? ' per one million' : null}}"
+  title="{{'options.covidData.recoveredCases' | translate}}{{settings.config.covidData.countries[index].enablePer1M ? ' per one million' : null}}"
   *ngIf="settings.config.covidData.countries[index].enableRecovered"
 >
   <div class="icon" aria-hidden="true">emoji_emotions</div>
@@ -45,7 +45,7 @@
 </div>
 <div 
   class="covidNumbers" 
-  title="Total deaths{{settings.config.covidData.countries[index].enablePer1M ? ' per one million' : null}}"
+  title="{{'options.covidData.deaths' | translate}}{{settings.config.covidData.countries[index].enablePer1M ? ' per one million' : null}}"
   *ngIf="settings.config.covidData.countries[index].enableDeaths"
 >
   <div class="icon" aria-hidden="true">remove_circle</div>

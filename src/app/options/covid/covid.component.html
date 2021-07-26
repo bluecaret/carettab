@@ -1,4 +1,4 @@
-<h2>{{ 'options.covidData.caption' | translate }}</h2>
+<h2>{{ 'options.covidData.covidData' | translate }}</h2>
 <div class="input">
   <label>{{'options.covidData.enable' | translate}}</label>
   <options-toggle name="toggleCovidData" [(ngModel)]="settings.config.covidData.enabled" (ngModelChange)="ga.field('covidData.enabled', settings.config.covidData.enabled);"></options-toggle>
@@ -7,14 +7,14 @@
   <div class="icon" aria-hidden="true">info</div>{{'options.common.requiresInternet' | translate}}
 </div>
 <ng-container *ngIf="settings.config.covidData.enabled">
-  <h3>Country data</h3>
+  <h3>{{'options.covidData.countryData' | translate}}</h3>
   <form #countryListForm="ngForm" novalidate *ngIf="settings.config.covidData.countries.length > 0">
     <div class="grid cols-19 mb15">
       <div class="span-13">
         <label>{{ 'options.covidData.country' | translate }}</label>
       </div>
       <div class="span-6">
-        <label>{{ 'options.covidData.actions' | translate }}</label>
+        <label>{{'options.common.actions' | translate}}</label>
       </div>
     </div>
     <div class="grid cols-19">
@@ -61,7 +61,8 @@
           </button>
           <button
             type="button"
-            title="Copy country"
+            title="{{'options.covidData.copyCountry' | translate}}"
+            attr.aria-label="{{'options.covidData.copyCountry' | translate}}"
             class="btn btnIcon btnIconSmall"
             (click)="copy(i); ga.field('button.covidCountryCopy', 'true')">
             <div class="icon" aria-hidden="true">content_copy</div>
@@ -69,6 +70,7 @@
           <button
             type="button"
             title="{{ 'options.covidData.deleteCountry' | translate }}"
+            attr.aria-label="{{ 'options.covidData.deleteCountry' | translate }}"
             class="btn btnIcon"
             (click)="removeCountry(i); ga.field('button.covidDelete', 'true')"
           >
@@ -79,11 +81,11 @@
         <!-- Selected country data -->
 
         <div *ngIf="selected === i" class="span-19 mb">
-          <h4>General</h4>
+          <h4>{{'options.common.generalSettings' | translate}}</h4>
           <div class="indent">
             <div class="input">
               <label [for]="'covidEnableFlag' + i">
-                Country flag
+                {{'options.covidData.countryFlag' | translate}}
               </label>
               <options-toggle
                 [name]="'covidEnableFlag' + i"
@@ -94,7 +96,7 @@
             </div>
             <div class="input">
               <label [for]="'covidEnableName' + i">
-                Country name
+                {{'options.covidData.countryName' | translate}}
               </label>
               <options-toggle
                 [name]="'covidEnableName' + i"
@@ -105,7 +107,7 @@
             </div>
             <div class="input">
               <label [for]="'covidEnablePer1M' + i">
-                Per one million
+                {{'options.covidData.perOneMillion' | translate}}<tooltip text="{{'options.covidData.perOneMillionDesc' | translate}}"></tooltip>
               </label>
               <options-toggle
                 [name]="'covidEnablePer1M' + i"
@@ -116,7 +118,7 @@
             </div>
             <div class="input">
               <label [for]="'covidEnableToday' + i">
-                Today's cases
+                {{'options.covidData.todayCases' | translate}}
               </label>
               <options-toggle
                 [name]="'covidEnableToday' + i"
@@ -127,7 +129,7 @@
             </div>
             <div class="input">
               <label [for]="'covidEnableActive' + i">
-                Total active cases
+                {{'options.covidData.activeCases' | translate}}
               </label>
               <options-toggle
                 [name]="'covidEnableActive' + i"
@@ -138,7 +140,7 @@
             </div>
             <div class="input">
               <label [for]="'covidEnableRecovered' + i">
-                Total cases recovered
+                {{'options.covidData.recoveredCases' | translate}}
               </label>
               <options-toggle
                 [name]="'covidEnableRecovered' + i"
@@ -149,7 +151,7 @@
             </div>
             <div class="input">
               <label [for]="'covidEnableDeaths' + i">
-                Total deaths
+                {{'options.covidData.deaths' | translate}}
               </label>
               <options-toggle
                 [name]="'covidEnableDeaths' + i"
@@ -159,12 +161,12 @@
               ></options-toggle>
             </div>
           </div>
-          <h4>Layout</h4>
+          <h4>{{'options.common.layout' | translate}}</h4>
           <div class="indent">
             <div class="input">
               <label [for]="'covidDataScaling' + i"
-                >Size<tooltip
-                  text="{{ 'options.covidData.textScalingDesc' | translate }}"
+                >{{'options.common.size' | translate}}<tooltip
+                  text="{{'options.common.sizeDesc' | translate}}"
                 ></tooltip
               ></label>
               <options-range
@@ -182,7 +184,7 @@
               ></options-range>
             </div>
             <div class="input">
-              <label [for]="'countryOrder'+i">{{'options.common.order' | translate}}</label>
+              <label [for]="'countryOrder'+i">{{'options.common.order' | translate}}<tooltip text="{{'options.common.orderDesc' | translate}}"></tooltip></label>
               <div [id]="'countryOrder'+i" class="orderBtns">
                 <button
                   type="button"
@@ -205,7 +207,7 @@
               </div>
             </div>
             <div class="input">
-              <label for="covidPlacement">Position</label>
+              <label for="covidPlacement">{{'options.common.position' | translate}}<tooltip text="{{'options.common.positionDesc' | translate}}"></tooltip></label>
               <options-position
                 id="covidPlacement"
                 name="covidPlacement"
@@ -218,7 +220,7 @@
               ></options-position>
             </div>
             <div class="input">
-              <label for="countryWidth">Maximum Width</label>
+              <label for="countryWidth">{{'options.common.maxWidth' | translate}}<tooltip text="{{'options.common.maxWidthDesc' | translate}}"></tooltip></label>
               <options-range
                 name="countryWidth"
                 min="0"
@@ -229,8 +231,7 @@
             </div>
             <div class="input">
               <label [for]="'covidDataPadding' + i"
-                >{{ 'options.covidData.padding' | translate
-                }}<tooltip
+                >{{'options.common.padding' | translate}}<tooltip
                   text="{{ 'options.covidData.paddingDesc' | translate }}"
                 ></tooltip
               ></label>
@@ -246,7 +247,7 @@
               ></options-range>
             </div>
             <div class="input">
-              <label for="countryMarginHeight">Margin Height</label>
+              <label for="countryMarginHeight">{{'options.common.marginHeight' | translate}}<tooltip text="{{'options.common.marginHeightDesc' | translate}}"></tooltip></label>
               <options-range
                 name="countryMarginHeight"
                 min="0"
@@ -258,7 +259,7 @@
               ></options-range>
             </div>
             <div class="input">
-              <label for="countryMarginWidth">Margin Width</label>
+              <label for="countryMarginWidth">{{'options.common.marginWidth' | translate}}<tooltip text="{{'options.common.marginWidthDesc' | translate}}"></tooltip></label>
               <options-range
                 name="countryMarginWidth"
                 min="0"
@@ -302,7 +303,7 @@
               [(ngModel)]="newCountry"
               required
             >
-              <option [value]="null" disabled selected>Select a country</option>
+              <option [value]="null" disabled selected>{{'options.covidData.selectCountry' | translate}}</option>
               <option
                 *ngFor="let newCountryOption of countryList"
                 [ngValue]="newCountryOption.code"

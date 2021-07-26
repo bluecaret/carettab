@@ -242,14 +242,14 @@
         </div>
       </div>
       <!-- Layout -->
-      <h4>Layout</h4>
+      <h4>{{'options.common.layout' | translate}}</h4>
       <div class="indent">
         <div class="input">
           <label [for]="'clockSize'+i">{{'options.common.size' | translate}}<tooltip text="{{'options.time.sizeDesc' | translate}}"></tooltip></label>
           <options-range [name]="'clockSize'+i" [id]="'clockSize'+i" min="1" max="50" [(ngModel)]="clock.scaling" (ngModelChange)="ga.field('time.clocks.scaling', clock.scaling)"></options-range>
         </div>
         <div class="input">
-          <label [for]="'clockOrder'+i">{{'options.common.order' | translate}}</label>
+          <label [for]="'clockOrder'+i">{{'options.common.order' | translate}}<tooltip text="{{'options.common.orderDesc' | translate}}"></tooltip></label>
           <div [id]="'clockOrder'+i" class="orderBtns">
             <button
               type="button"
@@ -272,7 +272,7 @@
           </div>
         </div>
         <div class="input">
-          <label [for]="'clockPlacement'+i">Position</label>
+          <label [for]="'clockPlacement'+i">{{'options.common.position' | translate}}<tooltip text="{{'options.common.positionDesc' | translate}}"></tooltip></label>
           <options-position [id]="'clockPlacement'+i" [name]="'clockPlacement'+i" [settingId]="clock.id" [(ngModel)]="clock.position" (ngModelChange)="ga.field('time.clocks.position', clock.position)"></options-position>
         </div>
         <div class="input">
@@ -280,19 +280,19 @@
           <options-range [name]="'clockSpan'+i" [id]="'clockSpan'+i" min="1" max="100" [(ngModel)]="clock.span" (ngModelChange)="ga.field('time.clocks.span', clock.span)"></options-range>
         </div>
         <div class="input">
-          <label [for]="'clockPadding'+i">{{'options.time.padding' | translate}}<tooltip text="{{'options.time.paddingDesc' | translate}}"></tooltip></label>
+          <label [for]="'clockPadding'+i">{{'options.common.padding' | translate}}<tooltip text="{{'options.time.paddingDesc' | translate}}"></tooltip></label>
           <options-range [name]="'clockPadding'+i" [id]="'clockPadding'+i" min="0" max="50" [(ngModel)]="clock.padding" (ngModelChange)="ga.field('time.clocks.padding', clock.padding)"></options-range>
         </div>
         <div class="input">
-          <label [for]="'clockMarginHeight'+i">Margin Height</label>
+          <label [for]="'clockMarginHeight'+i">{{'options.common.marginHeight' | translate}}<tooltip text="{{'options.common.marginHeightDesc' | translate}}"></tooltip></label>
           <options-range [name]="'clockMarginHeight'+i" min="0" max="50" [(ngModel)]="clock.marginHeight" (ngModelChange)="ga.field('time.clocks.marginHeight', clock.marginHeight)"></options-range>
         </div>
         <div class="input">
-          <label [for]="'clockMarginWidth'+i">Margin Width</label>
+          <label [for]="'clockMarginWidth'+i">{{'options.common.marginWidth' | translate}}<tooltip text="{{'options.common.marginWidthDesc' | translate}}"></tooltip></label>
           <options-range [name]="'clockMarginWidth'+i" min="0" max="50" [(ngModel)]="clock.marginWidth" (ngModelChange)="ga.field('time.clocks.marginWidth', clock.marginWidth)"></options-range>
         </div>
         <div class="input">
-          <label [for]="'clockOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.time.offsetDesc' | translate}}"></tooltip></label>
+          <label [for]="'clockOffset'+i">{{'options.common.offset' | translate}}<tooltip text="{{'options.common.offsetDesc' | translate}}"></tooltip></label>
           <options-range [name]="'clockOffset'+i" [id]="'clockOffset'+i" min="-50" max="50" [(ngModel)]="clock.offset" (ngModelChange)="ga.field('time.clocks.offset', clock.offset)"></options-range>
         </div>
       </div>

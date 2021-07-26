@@ -2,7 +2,7 @@
   <h2>{{'options.bookmarks.headingBar' | translate}}</h2>
   <div class="input">
     <label>{{'options.bookmarks.enableBar' | translate}}</label>
-    <button class="btn" *ngIf="!hasBookmarkPermission" (click)="setBookmarkPermission(); ga.field('button.bookmarkPermissionRequest', 'true');">Allow extension to access Bookmarks</button>
+    <button class="btn" *ngIf="!hasBookmarkPermission" (click)="setBookmarkPermission(); ga.field('button.bookmarkPermissionRequest', 'true');">{{'options.bookmarks.bookmarksPermission' | translate}}</button>
     <options-toggle *ngIf="hasBookmarkPermission" name="toggleBookmarks" [(ngModel)]="settings.config.bookmark.enabled" (ngModelChange)="getBookmarks(); ga.field('bookmark.enabled', settings.config.bookmark.enabled);"></options-toggle>
   </div>
   <div class="input" *ngIf="settings.config.bookmark.enabled">
@@ -27,7 +27,7 @@
   </div>
   <div class="input" *ngIf="settings.config.bookmark.enabled">
     <label>{{'options.bookmarks.mostVisited' | translate}}</label>
-    <button class="btn" *ngIf="!hasTopSitesPermission" (click)="setTopSitesPermission(); ga.field('button.BarTopSitesPermissionRequest', 'true');">Allow extension to access Top Sites</button>
+    <button class="btn" *ngIf="!hasTopSitesPermission" (click)="setTopSitesPermission(); ga.field('button.BarTopSitesPermissionRequest', 'true');">{{'options.bookmarks.topSitesPermission' | translate}}</button>
     <options-toggle *ngIf="hasTopSitesPermission" name="mostVisitedBookmarksBar" [(ngModel)]="settings.config.bookmark.mostVisited" (ngModelChange)="ga.field('bookmark.mostVisited', settings.config.bookmark.mostVisited);"></options-toggle>
   </div>
   <h2>{{'options.bookmarks.headingQuick' | translate}}</h2>
@@ -57,12 +57,12 @@
   </div>
   <div class="input" *ngIf="settings.config.quickLink.enabled">
     <label>{{'options.bookmarks.mostVisited' | translate}}</label>
-    <button class="btn" *ngIf="!hasTopSitesPermission" (click)="setTopSitesPermission(); ga.field('button.QuickLinkTopSitesPermissionRequest', 'true');">Allow extension to access Top Sites</button>
+    <button class="btn" *ngIf="!hasTopSitesPermission" (click)="setTopSitesPermission(); ga.field('button.QuickLinkTopSitesPermissionRequest', 'true');">{{'options.bookmarks.topSitesPermission' | translate}}</button>
     <options-toggle *ngIf="hasTopSitesPermission" name="mostVisitedQuickLinks" [(ngModel)]="settings.config.quickLink.mostVisited" (ngModelChange)="ga.field('quickLink.mostVisited', settings.config.quickLink.mostVisited);"></options-toggle>
   </div>
 </form>
 <ng-container *ngIf="settings.config.quickLink.enabled">
-  <h3>Links</h3>
+  <h3>{{'options.bookmarks.headingLink' | translate}}</h3>
   <form #quickLinksList="ngForm" novalidate>
     <div class="grid cols-19 mb15">
       <div class="span-6">
@@ -118,6 +118,8 @@
           <button
             type="button"
             class="btn btnIcon"
+            title="{{'options.bookmarks.deleteLink' | translate}}"
+            attr.aria-label="{{'options.bookmarks.deleteLink' | translate}}"
             (click)="deleteLink(link, i); ga.field('button.quickLinkDelete', 'true');">
             <div class="icon" aria-hidden="true">delete</div>
           </button>
@@ -131,7 +133,7 @@
         <input
           type="text"
           name="label"
-          placeholder="Add new link"
+          placeholder="{{'options.bookmarks.addNewLink' | translate}}"
           #newLabel="ngModel"
           [(ngModel)]="label"
           (change)="ga.field('quickLink.links.link.newLabel', 'userData');"
@@ -161,13 +163,13 @@
   <ng-container *ngIf="settings.config.quickLink.enabled">
 
     <!-- Layout -->
-    <h3>Layout</h3>
+    <h3>{{'options.common.layout' | translate}}</h3>
     <div class="input" *ngIf="settings.config.quickLink.enabled">
-      <label for="quickLinksSize">{{'options.common.size' | translate}}</label>
+      <label for="quickLinksSize">{{'options.common.size' | translate}}<tooltip text="{{'options.common.sizeDesc' | translate}}"></tooltip></label>
       <options-range name="quickLinksSize" id="quickLinksSize" min="1" max="50" [(ngModel)]="settings.config.quickLink.scaling" (change)="ga.field('quickLink.scaling', settings.config.quickLink.scaling);"></options-range>
     </div>
     <div class="input" *ngIf="settings.config.quickLink.enabled">
-      <label for="quickLinkOrder">{{'options.common.order' | translate}}</label>
+      <label for="quickLinkOrder">{{'options.common.order' | translate}}<tooltip text="{{'options.common.orderDesc' | translate}}"></tooltip></label>
       <div id="quickLinkOrder" class="orderBtns">
         <button
           type="button"
@@ -190,17 +192,17 @@
       </div>
     </div>
     <div class="input" *ngIf="settings.config.quickLink.enabled">
-      <label for="quickLinkPlacement">Position</label>
+      <label for="quickLinkPlacement">{{'options.common.position' | translate}}<tooltip text="{{'options.common.positionDesc' | translate}}"></tooltip></label>
       <options-position id="quickLinkPlacement" name="quickLinkPlacement" [settingId]="settings.config.quickLink.id" [(ngModel)]="settings.config.quickLink.position" (ngModelChange)="ga.field('quickLink.position', settings.config.quickLink.position)"></options-position>
     </div>
     <div class="input">
-      <label for="quickLinkTextAlign">Align text</label>
+      <label for="quickLinkTextAlign">{{'options.common.alignText' | translate}}<tooltip text="{{'options.common.alignTextDesc' | translate}}"></tooltip></label>
       <div id="quickLinkTextAlign" class="connectedBtns">
         <button
           type="button"
           class="btn btnIcon"
           [ngClass]="{'active' : settings.config.quickLink.textAlign === 'left'}"
-          title="Align text to the left"
+          title="{{'options.common.alignTextLeft' | translate}}"
           (click)="settings.config.quickLink.textAlign = 'left'; ga.field('quickLink.textAlign', 'left')">
           <div class="icon" aria-hidden="true">format_align_left</div>
         </button>
@@ -208,7 +210,7 @@
           type="button"
           class="btn btnIcon"
           [ngClass]="{'active' : settings.config.quickLink.textAlign === 'center'}"
-          title="Align text to center"
+          title="{{'options.common.alignTextCenter' | translate}}"
           (click)="settings.config.quickLink.textAlign = 'center'; ga.field('quickLink.textAlign', 'center')">
           <div class="icon" aria-hidden="true">format_align_center</div>
         </button>
@@ -216,34 +218,34 @@
           type="button"
           class="btn btnIcon"
           [ngClass]="{'active' : settings.config.quickLink.textAlign === 'right'}"
-          title="Align text to the right"
+          title="{{'options.common.alignTextRight' | translate}}"
           (click)="settings.config.quickLink.textAlign = 'right'; ga.field('quickLink.textAlign', 'right')">
           <div class="icon" aria-hidden="true">format_align_right</div>
         </button>
       </div>
     </div>
     <div class="input" *ngIf="settings.config.quickLink.enabled">
-      <label for="quickLinkVertical">Stack vertically</label>
+      <label for="quickLinkVertical">{{'options.bookmarks.stackVert' | translate}}<tooltip text="{{'options.bookmarks.stackVertDesc' | translate}}"></tooltip></label>
       <options-toggle name="quickLinkVertical" [(ngModel)]="settings.config.quickLink.vertical" (ngModelChange)="ga.field('quickLink.vertical', settings.config.quickLink.vertical);"></options-toggle>
     </div>
     <div class="input" *ngIf="settings.config.quickLink.enabled && !settings.config.quickLink.vertical">
-      <label>Maximum width</label>
+      <label>{{'options.common.maxWidth' | translate}}<tooltip text="{{'options.common.maxWidthDesc' | translate}}"></tooltip></label>
       <options-range name="quickLinkWidth" id="quickLinkWidth" min="1" max="100" [(ngModel)]="settings.config.quickLink.width" (ngModelChange)="ga.field('quickLink.width', settings.config.quickLink.width);"></options-range>
     </div>
     <div class="input" *ngIf="settings.config.quickLink.enabled">
-      <label for="quickLinkPadding">Padding</label>
+      <label for="quickLinkPadding">{{'options.common.padding' | translate}}<tooltip text="{{'options.bookmarks.paddingDesc' | translate}}"></tooltip></label>
       <options-range name="quickLinkPadding" min="0" max="50" [(ngModel)]="settings.config.quickLink.padding" (ngModelChange)="ga.field('quickLink.padding', settings.config.quickLink.padding)"></options-range>
     </div>
     <div class="input" *ngIf="settings.config.quickLink.enabled">
-      <label for="quickLinkMarginHeight">Margin Height</label>
+      <label for="quickLinkMarginHeight">{{'options.common.marginHeight' | translate}}<tooltip text="{{'options.common.marginHeightDesc' | translate}}"></tooltip></label>
       <options-range name="quickLinkMarginHeight" min="0" max="50" [(ngModel)]="settings.config.quickLink.marginHeight" (ngModelChange)="ga.field('quickLink.marginHeight', settings.config.quickLink.marginHeight)"></options-range>
     </div>
     <div class="input" *ngIf="settings.config.quickLink.enabled">
-      <label for="quickLinkMarginWidth">Margin Width</label>
+      <label for="quickLinkMarginWidth">{{'options.common.marginWidth' | translate}}<tooltip text="{{'options.common.marginWidthDesc' | translate}}"></tooltip></label>
       <options-range name="quickLinkMarginWidth" min="0" max="50" [(ngModel)]="settings.config.quickLink.marginWidth" (ngModelChange)="ga.field('quickLink.marginWidth', settings.config.quickLink.marginWidth)"></options-range>
     </div>
     <div class="input" *ngIf="settings.config.quickLink.enabled">
-      <label for="quickLinkOffset">{{'options.common.offset' | translate}}</label>
+      <label for="quickLinkOffset">{{'options.common.offset' | translate}}<tooltip text="{{'options.common.offsetDesc' | translate}}"></tooltip></label>
       <options-range name="quickLinkOffset" min="-50" max="50" [(ngModel)]="settings.config.quickLink.offset" (ngModelChange)="ga.field('quickLink.offset', settings.config.quickLink.offset)"></options-range>
     </div>
   </ng-container>

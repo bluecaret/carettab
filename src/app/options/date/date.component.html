@@ -103,13 +103,13 @@
     </div>
 
     <!-- Layout -->
-    <h3>Layout</h3>
+    <h3>{{'options.common.layout' | translate}}</h3>
     <div class="input">
-      <label>{{'options.common.size' | translate}}</label>
+      <label>{{'options.common.size' | translate}}<tooltip text="{{'options.common.sizeDesc' | translate}}"></tooltip></label>
       <options-range name="dateSize" min="1" max="50" [(ngModel)]="settings.config.date.scaling" (change)="ga.field('date.scaling', settings.config.date.scaling);"></options-range>
     </div>
     <div class="input">
-      <label>{{'options.common.order' | translate}}</label>
+      <label>{{'options.common.order' | translate}}<tooltip text="{{'options.common.orderDesc' | translate}}"></tooltip></label>
       <div class="orderBtns">
         <button
           type="button"
@@ -132,19 +132,19 @@
       </div>
     </div>
     <div class="input">
-      <label for="datePosition">Position</label>
+      <label for="datePosition">{{'options.common.position' | translate}}<tooltip text="{{'options.common.positionDesc' | translate}}"></tooltip></label>
       <options-position id="datePosition" name="datePosition" [settingId]="settings.config.date.id" [(ngModel)]="settings.config.date.position" (ngModelChange)="ga.field('date.position', settings.config.date.position)"></options-position>
     </div>
     <div class="input">
-      <label for="dateMarginHeight">Margin Height</label>
+      <label for="dateMarginHeight">{{'options.common.marginHeight' | translate}}<tooltip text="{{'options.common.marginHeightDesc' | translate}}"></tooltip></label>
       <options-range name="dateMarginHeight" min="0" max="50" [(ngModel)]="settings.config.date.marginHeight" (ngModelChange)="ga.field('date.marginHeight', settings.config.date.marginHeight)"></options-range>
     </div>
     <div class="input">
-      <label for="dateMarginWidth">Margin Width</label>
+      <label for="dateMarginWidth">{{'options.common.marginWidth' | translate}}<tooltip text="{{'options.common.marginWidthDesc' | translate}}"></tooltip></label>
       <options-range name="dateMarginWidth" min="0" max="50" [(ngModel)]="settings.config.date.marginWidth" (ngModelChange)="ga.field('date.marginWidth', settings.config.date.marginWidth)"></options-range>
     </div>
     <div class="input">
-      <label>{{'options.common.offset' | translate}}</label>
+      <label>{{'options.common.offset' | translate}}<tooltip text="{{'options.common.offsetDesc' | translate}}"></tooltip></label>
       <options-range name="dateOffset" min="-50" max="50" [(ngModel)]="settings.config.date.offset" (change)="ga.field('date.offset', settings.config.date.offset);"></options-range>
     </div>
   </ng-container>

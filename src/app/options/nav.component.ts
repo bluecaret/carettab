@@ -53,7 +53,7 @@ import * as manifest from '../../manifest.json';
       <li>
         <button
           type="button" (click)="goToPage('Weather')" [ngClass]="{'active': shared.optionsPage === 'Weather'}">
-          <div class="icon" aria-hidden="true">wb_sunny</div>Weather
+          <div class="icon" aria-hidden="true">wb_sunny</div>{{'options.weather.weather' | translate}}
         </button>
       </li>
       <li>
@@ -71,7 +71,7 @@ import * as manifest from '../../manifest.json';
       <li>
         <button
           type="button" (click)="goToPage('Covid')" [ngClass]="{'active': shared.optionsPage === 'Covid'}">
-          <div class="icon" aria-hidden="true">coronavirus</div>{{'options.covidData.caption' | translate}}
+          <div class="icon" aria-hidden="true">coronavirus</div>{{'options.covidData.covidData' | translate}}
         </button>
       </li>
       <li>
@@ -82,7 +82,7 @@ import * as manifest from '../../manifest.json';
       </li>
     </ul>
     <div class="version">
-      Version {{ver}}
+      {{'options.common.version' | translate}} {{ver}}
     </div>
   `,
 })

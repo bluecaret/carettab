@@ -2,26 +2,26 @@
   <div 
     class="current current--horz" 
     *ngIf="settings.config.weather.current.enabled"
-    title="Last updated: {{weather.current.last_updated}}
+    title="{{'options.weather.lastUpdated' | translate}}: {{weather.current.last_updated}}
 --------
 {{weather.current.condition.text}}
-Temperature: {{getPreciseDigit(settings.config.weather.celsius ? weather.current.temp_c : weather.current.temp_f)}}&deg;
-Feels like: {{getPreciseDigit(settings.config.weather.celsius ? weather.current.feelslike_c : weather.current.feelslike_f)}}&deg;
-Wind: {{settings.config.weather.metric ? getPreciseDigit(weather.current.wind_kph) : getPreciseDigit(weather.current.wind_mph)}}{{settings.config.weather.metric ? ' km/h' : ' mph'}} {{weather.current.wind_dir}}
-Gusts: {{settings.config.weather.metric ? getPreciseDigit(weather.current.gust_kph) : getPreciseDigit(weather.current.gust_mph)}}{{settings.config.weather.metric ? ' km/h' : ' mph'}}
-Visibility: {{settings.config.weather.metric ? weather.current.vis_km : weather.current.vis_miles}}{{settings.config.weather.metric ? ' km' : ' miles'}}
-Humidity: {{weather.current.humidity}}%
-Precipitation: {{settings.config.weather.metric ? weather.current.precip_mm : weather.current.precip_in}}{{settings.config.weather.metric ? ' mm' : ' in'}}
-Pressure: {{settings.config.weather.metric ? weather.current.pressure_mb : weather.current.pressure_in}}{{settings.config.weather.metric ? ' mb' : ' in'}}
+{{'options.weather.temp' | translate}}: {{getPreciseDigit(settings.config.weather.celsius ? weather.current.temp_c : weather.current.temp_f)}}&deg;
+{{'options.weather.feelsLikeTitle' | translate}}: {{getPreciseDigit(settings.config.weather.celsius ? weather.current.feelslike_c : weather.current.feelslike_f)}}&deg;
+{{'options.weather.wind' | translate}}: {{settings.config.weather.metric ? getPreciseDigit(weather.current.wind_kph) : getPreciseDigit(weather.current.wind_mph)}}{{settings.config.weather.metric ? ' km/h' : ' mph'}} {{weather.current.wind_dir}}
+{{'options.weather.gusts' | translate}}: {{settings.config.weather.metric ? getPreciseDigit(weather.current.gust_kph) : getPreciseDigit(weather.current.gust_mph)}}{{settings.config.weather.metric ? ' km/h' : ' mph'}}
+{{'options.weather.visibility' | translate}}: {{settings.config.weather.metric ? weather.current.vis_km : weather.current.vis_miles}}{{settings.config.weather.metric ? ' km' : ' miles'}}
+{{'options.weather.humidity' | translate}}: {{weather.current.humidity}}%
+{{'options.weather.precip' | translate}}: {{settings.config.weather.metric ? weather.current.precip_mm : weather.current.precip_in}}{{settings.config.weather.metric ? ' mm' : ' in'}}
+{{'options.weather.pressure' | translate}}: {{settings.config.weather.metric ? weather.current.pressure_mb : weather.current.pressure_in}}{{settings.config.weather.metric ? ' mb' : ' in'}}
 UV: {{weather.current.uv}}
-Cloud cover: {{weather.current.cloud}}%
-Chance of rain: {{weather.forecast.forecastday[0].day.daily_chance_of_rain}}%
-Chance of snow: {{weather.forecast.forecastday[0].day.daily_chance_of_snow}}%
-Sunrise: {{weather.forecast.forecastday[0].astro.sunrise}}
-Sunset: {{weather.forecast.forecastday[0].astro.sunset}}
-Moon phase: {{weather.forecast.forecastday[0].astro.moon_phase}}
-Moonrise: {{weather.forecast.forecastday[0].astro.moonrise}}
-Moonset: {{weather.forecast.forecastday[0].astro.moonset}}"
+{{'options.weather.cloudCover' | translate}}: {{weather.current.cloud}}%
+{{'options.weather.chanceOfRain' | translate}}: {{weather.forecast.forecastday[0].day.daily_chance_of_rain}}%
+{{'options.weather.chanceOfSnow' | translate}}: {{weather.forecast.forecastday[0].day.daily_chance_of_snow}}%
+{{'options.weather.sunrise' | translate}}: {{weather.forecast.forecastday[0].astro.sunrise}}
+{{'options.weather.sunset' | translate}}: {{weather.forecast.forecastday[0].astro.sunset}}
+{{'options.weather.moonPhase' | translate}}: {{weather.forecast.forecastday[0].astro.moon_phase}}
+{{'options.weather.moonrise' | translate}}: {{weather.forecast.forecastday[0].astro.moonrise}}
+{{'options.weather.moonset' | translate}}: {{weather.forecast.forecastday[0].astro.moonset}}"
   >
     <div class="currentHero" *ngIf="settings.config.weather.current.icon.enabled">
       <div class="currentIcon">
@@ -50,26 +50,26 @@ Moonset: {{weather.forecast.forecastday[0].astro.moonset}}"
           settings.config.weather.current.pressure.enabled
         "
       >
-        <div class="currentWind" title="Wind direction: {{weather.current.wind_dir}}" *ngIf="settings.config.weather.current.wind.enabled">
+        <div class="currentWind" title="{{'options.weather.windDirection' | translate}}: {{weather.current.wind_dir}}" *ngIf="settings.config.weather.current.wind.enabled">
           <i class="w-wind-deg {{weather.current.wind_dir}}"></i>{{settings.config.weather.metric ? weather.current.wind_kph : weather.current.wind_mph}}{{settings.config.weather.metric ? ' km/h' : ' mph'}}
         </div>
-        <div class="weatherDetail" title="Humidity: {{weather.current.humidity}}%" *ngIf="settings.config.weather.current.humidity.enabled">
+        <div class="weatherDetail" title="{{'options.weather.humidity' | translate}}: {{weather.current.humidity}}%" *ngIf="settings.config.weather.current.humidity.enabled">
           <i class="w-humidity"></i>{{weather.current.humidity}}%
         </div>
-        <div class="weatherDetail" title="Pressure: {{settings.config.weather.metric ? weather.current.pressure_mb : weather.current.pressure_in}}{{settings.config.weather.metric ? 'mb' : 'in'}}" *ngIf="settings.config.weather.current.pressure.enabled">
+        <div class="weatherDetail" title="{{'options.weather.pressure' | translate}}: {{settings.config.weather.metric ? weather.current.pressure_mb : weather.current.pressure_in}}{{settings.config.weather.metric ? 'mb' : 'in'}}" *ngIf="settings.config.weather.current.pressure.enabled">
           <i class="w-barometer"></i>{{settings.config.weather.metric ? weather.current.pressure_mb : weather.current.pressure_in}}{{settings.config.weather.metric ? ' mb' : ' in'}}
         </div>
       </div>
       <div class="currentDetails" *ngIf="settings.config.weather.current.astro.sunrise || settings.config.weather.current.astro.sunset">
-        <div class="weatherDetail" title="Sunrise: {{weather.forecast.forecastday[0].astro.sunrise}}" *ngIf="settings.config.weather.current.astro.sunrise">
+        <div class="weatherDetail" title="{{'options.weather.sunrise' | translate}}: {{weather.forecast.forecastday[0].astro.sunrise}}" *ngIf="settings.config.weather.current.astro.sunrise">
           <i class="w-sunrise"></i>{{weather.forecast.forecastday[0].astro.sunrise}}
         </div>
-        <div class="weatherDetail" title="Sunset: {{weather.forecast.forecastday[0].astro.sunset}}" *ngIf="settings.config.weather.current.astro.sunset">
+        <div class="weatherDetail" title="{{'options.weather.sunset' | translate}}: {{weather.forecast.forecastday[0].astro.sunset}}" *ngIf="settings.config.weather.current.astro.sunset">
           <i class="w-sunset"></i>{{weather.forecast.forecastday[0].astro.sunset}}
         </div>
       </div>
       <div class="currentDetails" *ngIf="settings.config.weather.current.astro.moonPhase">
-        <div class="weatherDetail weatherMoon" title="Moon phase: {{weather.forecast.forecastday[0].astro.moon_phase}}">
+        <div class="weatherDetail weatherMoon" title="{{'options.weather.moonPhase' | translate}}: {{weather.forecast.forecastday[0].astro.moon_phase}}">
           <i [ngClass]="{
             'w-moon-waxing-crescent' : weather.forecast.forecastday[0].astro.moon_phase === 'Waxing Crescent', 
             'w-moon-first-quarter' : weather.forecast.forecastday[0].astro.moon_phase === 'First Quarter', 
@@ -101,20 +101,20 @@ Moonset: {{weather.forecast.forecastday[0].astro.moonset}}"
           title="{{getDayOfWeek(forecastDay.date)}}
 --------
 {{forecastDay.day.condition.text}}
-High: {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.maxtemp_c : forecastDay.day.maxtemp_f)}}&deg; / Low: {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.mintemp_c : forecastDay.day.mintemp_f)}}&deg;
-Average Temperature: {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.avgtemp_c : forecastDay.day.avgtemp_f)}}&deg;
-Wind: {{settings.config.weather.metric ? getPreciseDigit(forecastDay.day.maxwind_kph) : getPreciseDigit(forecastDay.day.maxwind_mph)}}{{settings.config.weather.metric ? ' km/h' : ' mph'}}
-Visibility: {{settings.config.weather.metric ? forecastDay.day.avgvis_km : forecastDay.day.avgvis_miles}}{{settings.config.weather.metric ? ' km' : ' miles'}}
-Humidity: {{forecastDay.day.avghumidity}}%
-Precipitation: {{settings.config.weather.metric ? forecastDay.day.totalprecip_mm : forecastDay.day.totalprecip_in}}{{settings.config.weather.metric ? ' mm' : ' in'}}
+{{'options.weather.high' | translate}}: {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.maxtemp_c : forecastDay.day.maxtemp_f)}}&deg; / {{'options.weather.low' | translate}}: {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.mintemp_c : forecastDay.day.mintemp_f)}}&deg;
+{{'options.weather.avgTemp' | translate}}: {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.avgtemp_c : forecastDay.day.avgtemp_f)}}&deg;
+{{'options.weather.wind' | translate}}: {{settings.config.weather.metric ? getPreciseDigit(forecastDay.day.maxwind_kph) : getPreciseDigit(forecastDay.day.maxwind_mph)}}{{settings.config.weather.metric ? ' km/h' : ' mph'}}
+{{'options.weather.visibility' | translate}}: {{settings.config.weather.metric ? forecastDay.day.avgvis_km : forecastDay.day.avgvis_miles}}{{settings.config.weather.metric ? ' km' : ' miles'}}
+{{'options.weather.humidity' | translate}}: {{forecastDay.day.avghumidity}}%
+{{'options.weather.precip' | translate}}: {{settings.config.weather.metric ? forecastDay.day.totalprecip_mm : forecastDay.day.totalprecip_in}}{{settings.config.weather.metric ? ' mm' : ' in'}}
 UV: {{forecastDay.day.uv}}
-Chance of rain: {{forecastDay.day.daily_chance_of_rain}}%
-Chance of snow: {{forecastDay.day.daily_chance_of_snow}}%
-Sunrise: {{forecastDay.astro.sunrise}}
-Sunset: {{forecastDay.astro.sunset}}
-Moon phase: {{forecastDay.astro.moon_phase}}
-Moonrise: {{forecastDay.astro.moonrise}}
-Moonset: {{forecastDay.astro.moonset}}"
+{{'options.weather.chanceOfRain' | translate}}: {{forecastDay.day.daily_chance_of_rain}}%
+{{'options.weather.chanceOfSnow' | translate}}: {{forecastDay.day.daily_chance_of_snow}}%
+{{'options.weather.sunrise' | translate}}: {{forecastDay.astro.sunrise}}
+{{'options.weather.sunset' | translate}}: {{forecastDay.astro.sunset}}
+{{'options.weather.moonPhase' | translate}}: {{forecastDay.astro.moon_phase}}
+{{'options.weather.moonrise' | translate}}: {{forecastDay.astro.moonrise}}
+{{'options.weather.moonset' | translate}}: {{forecastDay.astro.moonset}}"
         >
           <div class="forecastHero" *ngIf="settings.config.weather.forecast.icon.enabled">
             <div class="forecastIcon">

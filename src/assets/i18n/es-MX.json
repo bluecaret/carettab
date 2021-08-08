@@ -371,6 +371,7 @@
       "b2": "Se corrigió un error 404 ocasional para imágenes de fondo.",
       "b3": "Se solucionó el problema por el cual los marcadores no se mostraban al habilitar la barra de marcadores.",
       "b4": "Error de visualización fijo en la barra de marcadores.",
+      "b5": "Capacidad fija de buscar con caracteres especiales.",
       "backupDesc": "¡Haga una copia de seguridad y restaure su configuración con una nueva opción de Exportar / Importar!",
       "backupTitle": "Copia de seguridad y restaurar",
       "binaryDesc": "¡Demuestra tu orgullo de nerd y lee el tiempo como una máquina!",

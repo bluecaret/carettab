@@ -371,6 +371,7 @@
       "b2": "Correction d'une erreur 404 occasionnelle pour les images d'arrière-plan.",
       "b3": "Correction d'un problème où les signets ne s'affichaient pas lors de l'activation de la barre de signets.",
       "b4": "Correction d'un bug d'affichage dans la barre de favoris.",
+      "b5": "Correction de la possibilité de rechercher avec des caractères spéciaux",
       "backupDesc": "Sauvegardez et restaurez vos paramètres avec une nouvelle option d'exportation/importation !",
       "backupTitle": "Sauvegarde et restauration",
       "binaryDesc": "Montrez votre fierté de nerd et lisez l'heure comme une machine !",

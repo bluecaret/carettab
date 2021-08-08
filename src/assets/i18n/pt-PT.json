@@ -371,6 +371,7 @@
       "b2": "Correção do erro 404 ocasional para imagens de fundo.",
       "b3": "Corrigido o problema em que os favoritos não eram exibidos ao ativar a barra de favoritos.",
       "b4": "Corrigido bug de exibição na barra de favoritos.",
+      "b5": "Capacidade fixa de pesquisar com caracteres especiais",
       "backupDesc": "Faça backup e restaure suas configurações com uma nova opção Exportar / Importar!",
       "backupTitle": "Backup e restauração",
       "binaryDesc": "Mostre seu orgulho nerd e leia o tempo como uma máquina!",

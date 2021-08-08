@@ -371,6 +371,7 @@
       "b2": "Fixed occasional 404 error for background images.",
       "b3": "Fixed issue where bookmarks wouldn't display when enabling bookmarks bar.",
       "b4": "Fixed display bug in bookmarks bar.",
+      "b5": "Fixed ability to search with special characters",
       "backupDesc": "Backup and restore your settings with a new Export/Import option!",
       "backupTitle": "Backup and restore",
       "binaryDesc": "Show off your nerd pride and read time like a machine!",

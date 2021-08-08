@@ -371,6 +371,7 @@
       "b2": "Fixat enstaka 404-fel för bakgrundsbilder.",
       "b3": "Fixat problem där bokmärken inte skulle visas när bokmärkesfältet aktiverades.",
       "b4": "Fixat displayfel i bokmärkesfältet.",
+      "b5": "Fixad möjlighet att söka med specialtecken",
       "backupDesc": "Säkerhetskopiera och återställ dina inställningar med ett nytt alternativ för export / import!",
       "backupTitle": "Säkerhetskopiering och återställning",
       "binaryDesc": "Visa upp din nördstolthet och läs tiden som en maskin!",

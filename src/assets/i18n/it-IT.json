@@ -371,6 +371,7 @@
       "b2": "Risolto errore 404 occasionale per le immagini di sfondo.",
       "b3": "Risolto il problema per cui i segnalibri non venivano visualizzati quando si abilitava la barra dei segnalibri.",
       "b4": "Risolto bug di visualizzazione nella barra dei preferiti.",
+      "b5": "Risolta la possibilità di cercare con caratteri speciali",
       "backupDesc": "Esegui il backup e ripristina le tue impostazioni con una nuova opzione di esportazione/importazione!",
       "backupTitle": "Backup e ripristino",
       "binaryDesc": "Mostra il tuo orgoglio nerd e leggi il tempo come una macchina!",

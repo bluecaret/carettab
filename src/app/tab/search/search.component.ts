@@ -52,9 +52,9 @@ export class TabSearchComponent implements OnInit {
     let searchUrl;
     let engine = this.engines.find(e => e.id === this.settings.config.search.engine);
     if (engine.id === 40 && (this.shared.browser === 'chrome' || this.shared.browser === 'firefox' || this.shared.browser === 'edge')) {
-      searchUrl = `${this.url}&q=${this.searchText}`
+      searchUrl = `${this.url}&q=${encodeURIComponent(this.searchText)}`
     } else {
-      searchUrl = `${this.url}?${this.param}=${this.searchText}`
+      searchUrl = `${this.url}?${this.param}=${encodeURIComponent(this.searchText)}`
     }
     location.replace(searchUrl);
   }

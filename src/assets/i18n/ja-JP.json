@@ -240,7 +240,7 @@
       "delimiter": "区切り文字",
       "delimiterBlink": "点滅区切り文字",
       "delimiterOffset": "区切り文字の位置を上下に調整する",
-      "delimiterSize": "時計を基準にして区切り文字のサイズを調整します"
+      "delimiterSize": "時計を基準にして区切り文字のサイズを調整します",
       "dimDelimiter": "薄暗い区切り文字",
       "enableDelimiter": "区切り文字を有効にする",
       "generalSettings": "一般的な時計設定",

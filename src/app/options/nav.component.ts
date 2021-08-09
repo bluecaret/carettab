@@ -81,6 +81,9 @@ import * as manifest from '../../manifest.json';
         </button>
       </li>
     </ul>
+    <div class="preview" (mouseenter)="togglePreview(true)" (mouseleave)="togglePreview(false)">
+      {{'options.common.preview' | translate}}
+    </div>
     <div class="version">
       {{'options.common.version' | translate}} {{ver}}
     </div>
@@ -110,6 +113,10 @@ export class NavComponent implements AfterViewInit {
     this.shared.echo('Opened settings page:', page);
     let path = encodeURI(page).toLowerCase();
     this.ga.pageView(page, path);
+  }
+
+  togglePreview(enable: boolean) {
+    this.shared.optionsPreview = enable;
   }
 
 }

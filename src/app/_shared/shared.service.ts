@@ -5,6 +5,7 @@ import { Storage } from '../_storage/storage.service';
 @Injectable()
 export class SharedService {
   private _optionsToggle: boolean;
+  private _optionsPreview: boolean;
   private _optionsPage: string;
   private _zoneGuess: string;
   private _time: string;
@@ -27,6 +28,13 @@ export class SharedService {
   }
   set optionsToggle(value: boolean) {
     this._optionsToggle = value;
+  }
+
+  get optionsPreview(): boolean {
+    return this._optionsPreview;
+  }
+  set optionsPreview(value: boolean) {
+    this._optionsPreview = value;
   }
 
   get optionsPage(): string {

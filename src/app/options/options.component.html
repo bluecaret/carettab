@@ -1,4 +1,4 @@
-<section class="panel" [@options] *ngIf="shared.optionsToggle">
+<section class="panel" [ngClass]="{'panelPreview': this.shared.optionsPreview}" [@options] *ngIf="shared.optionsToggle">
   <nav *ngIf="shared.optionsToggle"></nav>
   <div class="pageWrap">
     <options-dashboard *ngIf="shared.optionsPage === 'Dashboard'" class="page" [ngClass]="{'open': shared.optionsPage === 'Dashboard'}"></options-dashboard>

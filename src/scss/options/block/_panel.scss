@@ -12,4 +12,9 @@
   box-shadow: 0 0 5px 3px var(--optShadow);
   transform-origin: bottom right;
   border-radius: 10px;
+  transition: opacity .2s;
+
+  &.panelPreview {
+    opacity: 0;
+  }
 }

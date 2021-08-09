@@ -181,7 +181,7 @@
       "importSettings": "Impostazioni di importazione",
       "importSettingsDesc": "Importa le impostazioni di CaretTab da un file. Assicurati di utilizzare il file \"carettab-settings.json\" che è stato scaricato quando hai fatto clic su Esporta.",
       "importedSuccessfully": "IMPOSTAZIONI IMPORTATE CON SUCCESSO",
-      "importedSuccessfullyDesc": "Per salvare questa importazione, chiudi il pannello delle impostazioni. Se desideri annullare l'importazione, aggiorna la scheda senza chiudere il pannello delle impostazioni.",
+      "importedSuccessfullyDesc": "Per salvare questa importazione, chiudi il pannello delle impostazioni e aggiorna la pagina. Se desideri annullare l'importazione, aggiorna la scheda senza chiudere il pannello delle impostazioni.",
       "lang": "linguaggio",
       "reset": "Reset",
       "resetDesc": "Se desideri ripristinare tutte le impostazioni ai valori predefiniti, puoi fare clic su questo pulsante e quindi aggiornare la pagina. Questo rimuoverà tutte le tue impostazioni.",

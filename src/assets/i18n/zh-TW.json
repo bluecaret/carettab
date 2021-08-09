@@ -181,7 +181,7 @@
       "importSettings": "匯入設定",
       "importSettingsDesc": "從檔案匯入 CaretTab 設定。確認您使用的檔案為點下匯出按鈕時下載的“carettab-settings.json”設定檔。",
       "importedSuccessfully": "匯入設定成功",
-      "importedSuccessfullyDesc": "要保存此匯入，請關閉設定選單。如果您想取消匯入，請在不關閉設定選單的情況下重新整理分頁。",
+      "importedSuccessfullyDesc": "要保存此導入，請關閉設置面板並刷新頁面。如果您想取消導入，請在不關閉設置面板的情況下刷新選項卡。",
       "lang": "語言",
       "reset": "重設",
       "resetDesc": "如果要將所有設定重設為預設值，可以點下此按鈕，然後重新整理分頁。這將刪除所有設定。",

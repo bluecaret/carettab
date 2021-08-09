@@ -18,7 +18,8 @@ import {
   QuickLinkSettings,
   SearchSettings,
   TimeSettings,
-  CovidSettings
+  CovidSettings,
+  WeatherSettings
 } from './settings';
 import { Observable } from 'rxjs/internal/Observable';
 
@@ -43,6 +44,7 @@ export class Storage {
     this.config.quickLink = new QuickLinkSettings();
     this.config.search = new SearchSettings();
     this.config.time = new TimeSettings();
+    this.config.weather = new WeatherSettings();
   }
 
   get loadTracker(): number {

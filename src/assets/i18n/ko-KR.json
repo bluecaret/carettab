@@ -181,7 +181,7 @@
       "importSettings": "가져 오기 설정",
       "importSettingsDesc": "파일에서 CaretTab 설정을 가져옵니다. 내보내기를 클릭 할 때 다운로드 한 'carettab-settings.json'파일을 사용해야합니다.",
       "importedSuccessfully": "성공적으로 가져온 설정",
-      "importedSuccessfullyDesc": "이 가져 오기를 저장하려면 설정 패널을 닫으십시오. 가져 오기를 취소하려면 설정 패널을 닫지 않고 탭을 새로 고치십시오.",
+      "importedSuccessfullyDesc": "이 가져오기를 저장하려면 설정 패널을 닫고 페이지를 새로고침하세요. 가져오기를 취소하려면 설정 패널을 닫지 않고 탭을 새로고침하세요.",
       "lang": "언어",
       "reset": "다시 놓기",
       "resetDesc": "모든 설정을 기본값으로 다시 설정하려면이 버튼을 클릭 한 다음 페이지를 새로 고칠 수 있습니다. 모든 설정이 제거됩니다.",

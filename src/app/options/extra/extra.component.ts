@@ -77,20 +77,20 @@ export class OptionsExtraComponent {
     reader.onload = (e: any) => {
       let _imp = JSON.parse(e.target.result);
 
-      if (_imp && _imp.misc && _imp.misc.schema && _imp.misc.schema === '1.0') {
-        _imp.bookmark &&
-          Object.assign(this.settings.config.bookmark, _imp.bookmark);
+      if (_imp && _imp.misc && _imp.misc.schema && (_imp.misc.schema === '1.0' || _imp.misc.schema === '1.1')) {
+        _imp.bookmark && Object.assign(this.settings.config.bookmark, _imp.bookmark);
         _imp.date && Object.assign(this.settings.config.date, _imp.date);
         _imp.design && Object.assign(this.settings.config.design, _imp.design);
         _imp.i18n && Object.assign(this.settings.config.i18n, _imp.i18n);
-        _imp.message &&
-          Object.assign(this.settings.config.messages, _imp.message);
+        _imp.covidData && Object.assign(this.settings.config.covidData, _imp.covidData);
+        _imp.message && Object.assign(this.settings.config.messages, _imp.message);
+        _imp.messages && Object.assign(this.settings.config.messages, _imp.messages);
         _imp.misc && Object.assign(this.settings.config.misc, _imp.misc);
         _imp.order && Object.assign(this.settings.config.order, _imp.order);
-        _imp.quickLink &&
-          Object.assign(this.settings.config.quickLink, _imp.quickLink);
+        _imp.quickLink && Object.assign(this.settings.config.quickLink, _imp.quickLink);
         _imp.search && Object.assign(this.settings.config.search, _imp.search);
         _imp.time && Object.assign(this.settings.config.time, _imp.time);
+        _imp.weather && Object.assign(this.settings.config.weather, _imp.weather);
         this.importStatus = 'success';
         this.ga.field('button.import', 'true');
       } else {

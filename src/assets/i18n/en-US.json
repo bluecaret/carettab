@@ -181,7 +181,7 @@
       "importSettings": "Import settings",
       "importSettingsDesc": "Import CaretTab settings from a file. Ensure you use the 'carettab-settings.json' file that was downloaded when you clicked export.",
       "importedSuccessfully": "SETTINGS IMPORTED SUCCESSFULLY",
-      "importedSuccessfullyDesc": "To save this import, close the settings panel. If you would like to cancel the import, refresh the tab without closing the settings panel.",
+      "importedSuccessfullyDesc": "To save this import, close the settings panel and refresh the page. If you would like to cancel the import, refresh the tab without closing the settings panel.",
       "lang": "Language",
       "reset": "Reset",
       "resetDesc": "If you would like to reset all settings back to the default, you can click this button and then refresh the page. This will remove all of your settings.",

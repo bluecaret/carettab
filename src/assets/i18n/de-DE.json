@@ -181,7 +181,7 @@
       "importSettings": "Importeinstellungen",
       "importSettingsDesc": "Importieren Sie CaretTab-Einstellungen aus einer Datei. Stellen Sie sicher, dass Sie die Datei „carettab-settings.json“ verwenden, die heruntergeladen wurde, als Sie auf „Exportieren“ geklickt haben.",
       "importedSuccessfully": "EINSTELLUNGEN ERFOLGREICH IMPORTIERT",
-      "importedSuccessfullyDesc": "Um diesen Import zu speichern, schließen Sie das Einstellungsfenster. Wenn Sie den Import abbrechen möchten, aktualisieren Sie die Registerkarte, ohne das Einstellungsfenster zu schließen.",
+      "importedSuccessfullyDesc": "Um diesen Import zu speichern, schließen Sie das Einstellungsfenster und aktualisieren Sie die Seite. Wenn Sie den Import abbrechen möchten, aktualisieren Sie die Registerkarte, ohne das Einstellungsfenster zu schließen.",
       "lang": "Sprache",
       "reset": "Zurücksetzen",
       "resetDesc": "Wenn Sie alle Einstellungen auf die Standardeinstellungen zurücksetzen möchten, können Sie auf diese Schaltfläche klicken und die Seite anschließend aktualisieren. Dadurch werden alle Ihre Einstellungen entfernt.",

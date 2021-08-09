@@ -97,7 +97,7 @@ export class OptionsTimeComponent {
   }
 
   copy(index: number) {
-    let newClock: Clock = {...this.settings.config.time.clocks[index]};
+    let newClock: Clock = JSON.parse(JSON.stringify(this.settings.config.time.clocks[index]));
     newClock.id = this.shared.createID('CLOCK');
     this.settings.config.time.clocks.push(newClock);
     let i = (this.settings.config.time.clocks.length - 1);

@@ -122,19 +122,19 @@ export class TabTimeComponent implements OnInit {
   }
 
   constructTitleTime(): string {
-    let index = this.settings.config.misc.title.clockUsed - 1;
-    let clock = this.settings.config.time.clocks[index];
-    if (clock) {
-      let hour1 = this.getHour(clock.timezone, clock.twentyFour, clock.twoDigit, 1);
-      let getHour2 = this.getHour(clock.timezone, clock.twentyFour, clock.twoDigit, 2);
+    let titleIndex = this.settings.config.misc.title.clockUsed - 1;
+    let titleClock = this.settings.config.time.clocks[titleIndex];
+    if (titleClock) {
+      let hour1 = this.getHour(titleClock.timezone, titleClock.twentyFour, titleClock.twoDigit, 1);
+      let getHour2 = this.getHour(titleClock.timezone, titleClock.twentyFour, titleClock.twoDigit, 2);
       let hour2 = getHour2 ? getHour2 : '';
-      let min1 = this.getMinute(clock.timezone, 1);
-      let min2 = this.getMinute(clock.timezone, 2);
-      let sec1 = clock.seconds.enabled ? this.getSecond(clock.timezone, 1) : '';
-      let sec2 = clock.seconds.enabled ? this.getSecond(clock.timezone, 2) : '';
-      let meridiem = clock.meridiem.enabled ? ' ' + this.getMeridiem(clock.timezone, clock.meridiem.am, clock.meridiem.pm) : '';
-      let delimiter1 = clock.delimiter.enabled ? ':' : '';
-      let delimiter2 = clock.delimiter.enabled && clock.seconds.enabled ? ':' : '';
+      let min1 = this.getMinute(titleClock.timezone, 1);
+      let min2 = this.getMinute(titleClock.timezone, 2);
+      let sec1 = titleClock.seconds.enabled ? this.getSecond(titleClock.timezone, 1) : '';
+      let sec2 = titleClock.seconds.enabled ? this.getSecond(titleClock.timezone, 2) : '';
+      let meridiem = titleClock.meridiem.enabled ? ' ' + this.getMeridiem(titleClock.timezone, titleClock.meridiem.am, titleClock.meridiem.pm) : '';
+      let delimiter1 = titleClock.delimiter.enabled ? ':' : '';
+      let delimiter2 = titleClock.delimiter.enabled && titleClock.seconds.enabled ? ':' : '';
 
       let title = hour1 + hour2 + delimiter1 + min1 + min2 + delimiter2 + sec1 + sec2 + meridiem;
       return title;

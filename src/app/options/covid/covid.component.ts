@@ -86,8 +86,8 @@ export class OptionsCovidComponent {
   }
 
   copy(index: number) {
-    let newCountry = {...this.settings.config.covidData.countries[index]};
-    newCountry.id = this.shared.createID('CLOCK');
+    let newCountry = JSON.parse(JSON.stringify(this.settings.config.covidData.countries[index]));
+    newCountry.id = this.shared.createID('COVID');
     this.settings.config.covidData.countries.push(newCountry);
     let i = (this.settings.config.covidData.countries.length - 1);
     this.shared.toggleOrder(this.settings.config.covidData.countries[i].id, true, this.settings.config.covidData.countries[index].position);

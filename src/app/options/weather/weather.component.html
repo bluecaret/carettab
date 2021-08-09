@@ -13,14 +13,14 @@
       <label for="weatherLocation">{{'options.weather.location' | translate}}</label>
       <div class="grid cols-12">
         <input type="text" class="span-9" id="weatherLocation" name="weatherLocation" [(ngModel)]="weatherService.locName" />
-        <button class="btn btnIcon span-3" type="button" (click)="getLocation()" attr.aria-label="{{'options.weather.search' | translate}}"><div class="icon" aria-hidden="true">search</div></button>
+        <button class="btn btnIcon span-3" type="button" (click)="getLocation(); ga.field('button.weatherSearchLocation', 'true')" attr.aria-label="{{'options.weather.search' | translate}}"><div class="icon" aria-hidden="true">search</div></button>
       </div>
     </div>
     <div class="box mt15 mb15" *ngIf="locationList && locationList.length > 1">
       <h4>{{'options.weather.selectLocation' | translate}}</h4>
       <div class="locationList mt1">
         <ng-container *ngFor="let loc of locationList">
-          <button class="btn btnIcon btnIconSmall" type="button" (click)="setLocation(loc.url)" attr.aria-label="{{'options.weather.select' | translate}} {{loc.name}}"><div class="icon" aria-hidden="true">check</div></button>
+          <button class="btn btnIcon btnIconSmall" type="button" (click)="setLocation(loc.url); ga.field('button.weatherSelectLocation', loc.name)" attr.aria-label="{{'options.weather.select' | translate}} {{loc.name}}"><div class="icon" aria-hidden="true">check</div></button>
           <div>{{loc.name}}</div>
         </ng-container>
       </div>

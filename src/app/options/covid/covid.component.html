@@ -64,7 +64,7 @@
             title="{{'options.covidData.copyCountry' | translate}}"
             attr.aria-label="{{'options.covidData.copyCountry' | translate}}"
             class="btn btnIcon btnIconSmall"
-            (click)="copy(i); ga.field('button.covidCountryCopy', 'true')">
+            (click)="copy(i); ga.field('button.covidCopy', 'true')">
             <div class="icon" aria-hidden="true">content_copy</div>
           </button>
           <button
@@ -91,7 +91,7 @@
                 [name]="'covidEnableFlag' + i"
                 [id]="'covidEnableFlag' + i"
                 [(ngModel)]="country.enableFlag"
-                (ngModelChange)="ga.field('covid.country.enableFlag', country.enableFlag)"
+                (ngModelChange)="ga.field('covidData.enableFlag', country.enableFlag)"
               ></options-toggle>
             </div>
             <div class="input">
@@ -102,7 +102,7 @@
                 [name]="'covidEnableName' + i"
                 [id]="'covidEnableName' + i"
                 [(ngModel)]="country.enableCountryName"
-                (ngModelChange)="ga.field('covid.country.enableCountryName', country.enableCountryName)"
+                (ngModelChange)="ga.field('covidData.enableCountryName', country.enableCountryName)"
               ></options-toggle>
             </div>
             <div class="input">
@@ -113,7 +113,7 @@
                 [name]="'covidEnablePer1M' + i"
                 [id]="'covidEnablePer1M' + i"
                 [(ngModel)]="country.enablePer1M"
-                (ngModelChange)="ga.field('covid.country.enablePer1M', country.enablePer1M)"
+                (ngModelChange)="ga.field('covidData.enablePer1M', country.enablePer1M)"
               ></options-toggle>
             </div>
             <div class="input">
@@ -124,7 +124,7 @@
                 [name]="'covidEnableToday' + i"
                 [id]="'covidEnableToday' + i"
                 [(ngModel)]="country.enableToday"
-                (ngModelChange)="ga.field('covid.country.enableToday', country.enableToday)"
+                (ngModelChange)="ga.field('covidData.enableToday', country.enableToday)"
               ></options-toggle>
             </div>
             <div class="input">
@@ -135,7 +135,7 @@
                 [name]="'covidEnableActive' + i"
                 [id]="'covidEnableActive' + i"
                 [(ngModel)]="country.enableActive"
-                (ngModelChange)="ga.field('covid.country.enableActive', country.enableActive)"
+                (ngModelChange)="ga.field('covidData.enableActive', country.enableActive)"
               ></options-toggle>
             </div>
             <div class="input">
@@ -146,7 +146,7 @@
                 [name]="'covidEnableRecovered' + i"
                 [id]="'covidEnableRecovered' + i"
                 [(ngModel)]="country.enableRecovered"
-                (ngModelChange)="ga.field('covid.country.enableRecovered', country.enableRecovered)"
+                (ngModelChange)="ga.field('covidData.enableRecovered', country.enableRecovered)"
               ></options-toggle>
             </div>
             <div class="input">
@@ -157,7 +157,7 @@
                 [name]="'covidEnableDeaths' + i"
                 [id]="'covidEnableDeaths' + i"
                 [(ngModel)]="country.enableDeaths"
-                (ngModelChange)="ga.field('covid.country.enableDeaths', country.enableDeaths)"
+                (ngModelChange)="ga.field('covidData.enableDeaths', country.enableDeaths)"
               ></options-toggle>
             </div>
           </div>
@@ -215,7 +215,7 @@
                 [(ngModel)]="country.position"
                 (ngModelChange)="
                   shared.changeOrder(country.id, true, country.position);
-                  ga.field('country.position', country.position)
+                  ga.field('covidData.position', country.position)
                 "
               ></options-position>
             </div>
@@ -226,7 +226,7 @@
                 min="0"
                 max="100"
                 [(ngModel)]="country.width"
-                (ngModelChange)="ga.field('country.width', country.width)"
+                (ngModelChange)="ga.field('covidData.width', country.width)"
               ></options-range>
             </div>
             <div class="input">
@@ -242,7 +242,7 @@
                 max="50"
                 [(ngModel)]="country.padding"
                 (ngModelChange)="
-                  ga.field('covidData.countries.padding', country.padding)
+                  ga.field('covidData.padding', country.padding)
                 "
               ></options-range>
             </div>
@@ -254,7 +254,7 @@
                 max="50"
                 [(ngModel)]="country.marginHeight"
                 (ngModelChange)="
-                  ga.field('country.marginHeight', country.marginHeight)
+                  ga.field('covidData.marginHeight', country.marginHeight)
                 "
               ></options-range>
             </div>
@@ -265,7 +265,7 @@
                 min="0"
                 max="50"
                 [(ngModel)]="country.marginWidth"
-                (ngModelChange)="ga.field('country.marginWidth', country.marginWidth)"
+                (ngModelChange)="ga.field('covidData.marginWidth', country.marginWidth)"
               ></options-range>
             </div>
             <div class="input">
@@ -282,7 +282,7 @@
                 max="50"
                 [(ngModel)]="country.offset"
                 (ngModelChange)="
-                  ga.field('covidData.countries.offset', country.offset)
+                  ga.field('covidData.offset', country.offset)
                 "
               ></options-range>
             </div>

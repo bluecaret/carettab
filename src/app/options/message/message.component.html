@@ -23,7 +23,7 @@
               [name]="'message'+i"
               #editText="ngModel"
               [(ngModel)]="message.text"
-              (change)="ga.field('messages.messageList.text', 'userData');"
+              (change)="ga.field('messages.text', 'userData');"
               autocomplete="off">
             <div class="valMsg" *ngIf="messageList.invalid && messageList.submitted">{{'options.message.messageValidation' | translate}}</div>
           </div>
@@ -49,7 +49,7 @@
           placeholder="Add new message"
           #newMessageTextRef="ngModel"
           [(ngModel)]="newMessageText"
-          (change)="ga.field('messages.messageList.newMessage', 'userData');"
+          (change)="ga.field('messages.newMessage', 'userData');"
           autocomplete="off"
           required>
         <div class="valMsg" *ngIf="newMessageTextRef.invalid && newMessage.submitted">{{'options.message.messageValidation' | translate}}</div>

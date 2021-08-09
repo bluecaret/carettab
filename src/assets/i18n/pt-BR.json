@@ -372,6 +372,7 @@
       "b3": "Corrigido o problema em que os favoritos não eram exibidos ao ativar a barra de favoritos.",
       "b4": "Corrigido bug de exibição na barra de favoritos.",
       "b5": "Capacidade fixa de pesquisar com caracteres especiais",
+      "b6": "Remova temporariamente as opções de fuso horário GMT, pois estavam incorretas. Recomendamos selecionar um fuso horário nomeado.",
       "backupDesc": "Faça backup e restaure suas configurações com uma nova opção Exportar / Importar!",
       "backupTitle": "Backup e restauração",
       "binaryDesc": "Mostre seu orgulho nerd e leia o tempo como uma máquina!",

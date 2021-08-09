@@ -372,6 +372,7 @@
       "b3": "Correction d'un problème où les signets ne s'affichaient pas lors de l'activation de la barre de signets.",
       "b4": "Correction d'un bug d'affichage dans la barre de favoris.",
       "b5": "Correction de la possibilité de rechercher avec des caractères spéciaux",
+      "b6": "Supprimez temporairement les options de fuseau horaire GMT car elles étaient incorrectes. Recommandez plutôt de sélectionner un fuseau horaire nommé.",
       "backupDesc": "Sauvegardez et restaurez vos paramètres avec une nouvelle option d'exportation/importation !",
       "backupTitle": "Sauvegarde et restauration",
       "binaryDesc": "Montrez votre fierté de nerd et lisez l'heure comme une machine !",

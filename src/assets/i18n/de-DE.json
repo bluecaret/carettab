@@ -372,6 +372,7 @@
       "b3": "Problem behoben, bei dem Lesezeichen nicht angezeigt wurden, wenn die Lesezeichenleiste aktiviert wurde.",
       "b4": "Anzeigefehler in der Lesezeichenleiste behoben.",
       "b5": "Möglichkeit zum Suchen mit Sonderzeichen behoben",
+      "b6": "Entfernen Sie vorübergehend die GMT-Zeitzonenoptionen, da sie falsch waren. Empfehlen Sie stattdessen, eine benannte Zeitzone auszuwählen.",
       "backupDesc": "Sichern und stellen Sie Ihre Einstellungen mit einer neuen Export/Import-Option wieder her!",
       "backupTitle": "Sichern und Wiederherstellen",
       "binaryDesc": "Führen Sie Ihren Nerdstolz vor und lesen Sie Zeit wie eine Maschine!",

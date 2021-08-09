@@ -21,8 +21,9 @@
 .covidNumbers {
   display: flex;
   align-items: center;
-  gap: .2em;
+  gap: .4em;
   .icon {
     font-size: 1em;
+    width: auto;
   }
 }

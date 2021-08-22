@@ -5,15 +5,16 @@ For more information visit the website for [CaretTab](http://www.carettab.com)
 
 ## Features
 - Display time and date on new tab page.
-- Digital/Analog clock options.
+- Digital/Analog/Binary clock options.
 - Add additional clocks with labels.
 - Customizable timezones for all clocks.
-- Search Google/Bing/Baidu and more from new tab page.
+- Display current weather and forecast.
+- Search Yahoo/Google/Baidu and more from new tab page.
 - Display favorite links for quick access and the bookmarks bar.
 - Include a custom message on the page.
 - Choose from a several different color themes or choose your own custom colors.
 - Use various provided patterns or your own background image.
-- Select your desired size.
+- Select your desired size, spacing, and placement of everything.
 - Choose from a handful of fonts or use any installed on your machine.
 - Customize everything! Toggle the time, seconds, time format, date, date format, search engine, 24 hour time, week numbers, tab title and more.
 - Sync support. Keep your settings across all devices. (Requires storage permissions)

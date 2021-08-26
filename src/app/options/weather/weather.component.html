@@ -40,7 +40,12 @@
       <label for="weatherMetric">{{'options.weather.metricUnits' | translate}}</label>
       <options-toggle name="weatherMetric" id="weatherMetric" [(ngModel)]="settings.config.weather.metric" (ngModelChange)="ga.field('weather.metric', settings.config.weather.metric)"></options-toggle>
     </div>
-
+    <ng-container *ngIf="settings.config.weather.metric">
+      <div class="input">
+        <label for="weatherWindUnits">{{'options.weather.windUnits' | translate}}</label>
+        <options-toggle name="weatherWindUnits" id="weatherWindUnits" [(ngModel)]="settings.config.weather.windUnits" (ngModelChange)="ga.field('weather.windUnits', settings.config.weather.windUnits)"  off="km/h" on="m/s"></options-toggle>
+      </div>
+    </ng-container>
     <!-- TODAY -->
     <h3>{{'options.weather.today' | translate}}</h3>
     <div class="input">

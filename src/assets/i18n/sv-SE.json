@@ -311,6 +311,7 @@
       "low": "Låg",
       "lowTemp": "Låg temperatur",
       "metricUnits": "Metriska enheter",
+      "windUnits": "Vindhastighetsenheter",
       "moonPhase": "Månfas",
       "moonrise": "Månuppgång",
       "moonset": "Moonset",

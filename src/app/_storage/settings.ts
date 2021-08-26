@@ -275,6 +275,7 @@ export class WeatherSettings {
     public celsius = false,
     public metric = false,
     public preciseDigits = false,
+    public windUnits = false,
     public current = {
       enabled: true,
       icon: {

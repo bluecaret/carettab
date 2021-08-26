@@ -311,6 +311,7 @@
       "low": "Niedrig",
       "lowTemp": "Niedrige Temperatur",
       "metricUnits": "Metrische Einheiten",
+      "windUnits": "Windgeschwindigkeitseinheiten",
       "moonPhase": "Mond Phase",
       "moonrise": "Mondaufgang",
       "moonset": "Monduntergang",

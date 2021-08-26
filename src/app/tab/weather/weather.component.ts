@@ -47,6 +47,22 @@ export class TabWeatherComponent implements OnInit {
     });
   }
 
+  getImperialWind(digit) {
+    if (this.settings.config.weather.windUnits) {
+      //mph >> m/s
+      digit = digit / 2.237;
+    }
+    return this.getPreciseDigit(digit);
+  }
+
+  getMetricWind(digit) {
+    if (this.settings.config.weather.windUnits) {
+      //km/h >> m/s
+      digit = digit / 3.6;
+    }
+    return this.getPreciseDigit(digit);
+  }
+
   getPreciseDigit(digit) {
     if (this.settings.config.weather.preciseDigits) {
       return digit.toFixed(1);

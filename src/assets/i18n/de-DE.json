@@ -311,7 +311,6 @@
       "low": "Niedrig",
       "lowTemp": "Niedrige Temperatur",
       "metricUnits": "Metrische Einheiten",
-      "windUnits": "Windgeschwindigkeitseinheiten",
       "moonPhase": "Mond Phase",
       "moonrise": "Mondaufgang",
       "moonset": "Monduntergang",
@@ -329,10 +328,13 @@
       "temp": "Temperatur",
       "tempScale": "Temperaturskala",
       "today": "Heute",
+      "twentyFour": "24 Stunden",
+      "twentyFourDesc": "Zeigen Sie alle Zeiten im Wetter im 24-Stunden-Format anstelle von 12 Stunden an.",
       "visibility": "Sichtweite",
       "weather": "Wetter ",
       "wind": "Wind",
-      "windDirection": "Windrichtung"
+      "windDirection": "Windrichtung",
+      "windUnits": "Windgeschwindigkeitseinheiten"
     }
   },
   "splash": {

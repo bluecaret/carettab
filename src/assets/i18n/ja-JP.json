@@ -311,7 +311,6 @@
       "low": "低い",
       "lowTemp": "低温",
       "metricUnits": "メートル単位",
-      "windUnits": "風速単位",
       "moonPhase": "月相",
       "moonrise": "月の出",
       "moonset": "月の入り",
@@ -329,10 +328,13 @@
       "temp": "温度",
       "tempScale": "温度尺度",
       "today": "今日",
+      "twentyFour": "24時間",
+      "twentyFourDesc": "天気予報のすべての時間を12時間ではなく24時間形式で表示します。",
       "visibility": "可視性",
       "weather": "天気",
       "wind": "風",
-      "windDirection": "風向き"
+      "windDirection": "風向き",
+      "windUnits": "風速単位"
     }
   },
   "splash": {

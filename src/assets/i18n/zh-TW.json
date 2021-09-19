@@ -311,7 +311,6 @@
       "low": "低",
       "lowTemp": "低溫",
       "metricUnits": "公制單位",
-      "windUnits": "风速单位",
       "moonPhase": "月相",
       "moonrise": "月出",
       "moonset": "月落",
@@ -329,10 +328,13 @@
       "temp": "溫度",
       "tempScale": "溫標",
       "today": "今天",
+      "twentyFour": "24小時",
+      "twentyFourDesc": "以 24 小時格式而不是 12 小時格式顯示天氣中的所有時間。",
       "visibility": "能見度",
       "weather": "天氣",
       "wind": "風",
-      "windDirection": "風向"
+      "windDirection": "風向",
+      "windUnits": "风速单位"
     }
   },
   "splash": {

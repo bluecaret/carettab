@@ -102,4 +102,15 @@ export class TabWeatherComponent implements OnInit {
     return day;
   }
 
+  getTwentyFourTime(time): string {
+    let fromApi = moment(time, 'hh:mm A');
+
+    let transformed = moment(fromApi).format("hh:mm A");
+    if (this.settings.config.weather.twentyFour) {
+      transformed = moment(fromApi).format("HH:mm");
+    }
+
+    return `${transformed}`;
+  }
+
 }

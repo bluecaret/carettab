@@ -311,7 +311,6 @@
       "low": "کم",
       "lowTemp": "کم درجہ حرا رت",
       "metricUnits": "میٹرک یونٹ",
-      "windUnits": "ہوا کی رفتار یونٹس",
       "moonPhase": "چاند کا مرحلہ",
       "moonrise": "چاند طلوع ہونا",
       "moonset": "مونسٹ",
@@ -329,10 +328,13 @@
       "temp": "درجہ حرارت",
       "tempScale": "درجہ حرارت کا پیمانہ",
       "today": "آج",
+      "twentyFour": "24 گھنٹے",
+      "twentyFourDesc": "موسم میں ہر وقت 12 گھنٹے کی بجائے 24 گھنٹے کی شکل میں دکھائیں۔",
       "visibility": "مرئیت",
       "weather": "موسم",
       "wind": "ہوا",
-      "windDirection": "ہوا کی سمت"
+      "windDirection": "ہوا کی سمت",
+      "windUnits": "ہوا کی رفتار یونٹس"
     }
   },
   "splash": {

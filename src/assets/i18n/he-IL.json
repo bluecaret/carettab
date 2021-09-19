@@ -311,7 +311,6 @@
       "low": "נמוך",
       "lowTemp": "טמפרטורה נמוכה",
       "metricUnits": "יחידות מטריות",
-      "windUnits": "יחידות מהירות הרוח",
       "moonPhase": "שלב הירח",
       "moonrise": "זריחת ירח",
       "moonset": "ירח",
@@ -329,10 +328,13 @@
       "temp": "טמפרטורה",
       "tempScale": "סולם טמפרטורה",
       "today": "היום",
+      "twentyFour": "24 שעות",
+      "twentyFourDesc": "הצג את כל הזמנים במזג אוויר בפורמט 24 שעות במקום 12 שעות.",
       "visibility": "רְאוּת",
       "weather": "מזג אוויר",
       "wind": "רוּחַ",
-      "windDirection": "כיוון הרוח"
+      "windDirection": "כיוון הרוח",
+      "windUnits": "יחידות מהירות הרוח"
     }
   },
   "splash": {

@@ -17,11 +17,11 @@ UV: {{weather.current.uv}}
 {{'options.weather.cloudCover' | translate}}: {{weather.current.cloud}}%
 {{'options.weather.chanceOfRain' | translate}}: {{weather.forecast.forecastday[0].day.daily_chance_of_rain}}%
 {{'options.weather.chanceOfSnow' | translate}}: {{weather.forecast.forecastday[0].day.daily_chance_of_snow}}%
-{{'options.weather.sunrise' | translate}}: {{weather.forecast.forecastday[0].astro.sunrise}}
-{{'options.weather.sunset' | translate}}: {{weather.forecast.forecastday[0].astro.sunset}}
+{{'options.weather.sunrise' | translate}}: {{getTwentyFourTime(weather.forecast.forecastday[0].astro.sunrise)}}
+{{'options.weather.sunset' | translate}}: {{getTwentyFourTime(weather.forecast.forecastday[0].astro.sunset)}}
 {{'options.weather.moonPhase' | translate}}: {{weather.forecast.forecastday[0].astro.moon_phase}}
-{{'options.weather.moonrise' | translate}}: {{weather.forecast.forecastday[0].astro.moonrise}}
-{{'options.weather.moonset' | translate}}: {{weather.forecast.forecastday[0].astro.moonset}}"
+{{'options.weather.moonrise' | translate}}: {{getTwentyFourTime(weather.forecast.forecastday[0].astro.moonrise)}}
+{{'options.weather.moonset' | translate}}: {{getTwentyFourTime(weather.forecast.forecastday[0].astro.moonset)}}"
   >
     <div class="currentHero" *ngIf="settings.config.weather.current.icon.enabled">
       <div class="currentIcon">
@@ -61,11 +61,11 @@ UV: {{weather.current.uv}}
         </div>
       </div>
       <div class="currentDetails" *ngIf="settings.config.weather.current.astro.sunrise || settings.config.weather.current.astro.sunset">
-        <div class="weatherDetail" title="{{'options.weather.sunrise' | translate}}: {{weather.forecast.forecastday[0].astro.sunrise}}" *ngIf="settings.config.weather.current.astro.sunrise">
-          <i class="w-sunrise"></i>{{weather.forecast.forecastday[0].astro.sunrise}}
+        <div class="weatherDetail" title="{{'options.weather.sunrise' | translate}}: {{getTwentyFourTime(weather.forecast.forecastday[0].astro.sunrise)}}" *ngIf="settings.config.weather.current.astro.sunrise">
+          <i class="w-sunrise"></i>{{getTwentyFourTime(weather.forecast.forecastday[0].astro.sunrise)}}
         </div>
-        <div class="weatherDetail" title="{{'options.weather.sunset' | translate}}: {{weather.forecast.forecastday[0].astro.sunset}}" *ngIf="settings.config.weather.current.astro.sunset">
-          <i class="w-sunset"></i>{{weather.forecast.forecastday[0].astro.sunset}}
+        <div class="weatherDetail" title="{{'options.weather.sunset' | translate}}: {{getTwentyFourTime(weather.forecast.forecastday[0].astro.sunset)}}" *ngIf="settings.config.weather.current.astro.sunset">
+          <i class="w-sunset"></i>{{getTwentyFourTime(weather.forecast.forecastday[0].astro.sunset)}}
         </div>
       </div>
       <div class="currentDetails" *ngIf="settings.config.weather.current.astro.moonPhase">
@@ -110,11 +110,11 @@ UV: {{weather.current.uv}}
 UV: {{forecastDay.day.uv}}
 {{'options.weather.chanceOfRain' | translate}}: {{forecastDay.day.daily_chance_of_rain}}%
 {{'options.weather.chanceOfSnow' | translate}}: {{forecastDay.day.daily_chance_of_snow}}%
-{{'options.weather.sunrise' | translate}}: {{forecastDay.astro.sunrise}}
-{{'options.weather.sunset' | translate}}: {{forecastDay.astro.sunset}}
+{{'options.weather.sunrise' | translate}}: {{getTwentyFourTime(forecastDay.astro.sunrise)}}
+{{'options.weather.sunset' | translate}}: {{getTwentyFourTime(forecastDay.astro.sunset)}}
 {{'options.weather.moonPhase' | translate}}: {{forecastDay.astro.moon_phase}}
-{{'options.weather.moonrise' | translate}}: {{forecastDay.astro.moonrise}}
-{{'options.weather.moonset' | translate}}: {{forecastDay.astro.moonset}}"
+{{'options.weather.moonrise' | translate}}: {{getTwentyFourTime(forecastDay.astro.moonrise)}}
+{{'options.weather.moonset' | translate}}: {{getTwentyFourTime(forecastDay.astro.moonset)}}"
         >
           <div class="forecastHero" *ngIf="settings.config.weather.forecast.icon.enabled">
             <div class="forecastIcon">

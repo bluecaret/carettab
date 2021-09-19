@@ -44,6 +44,10 @@
       <label for="weatherWindUnits">{{'options.weather.windUnits' | translate}}</label>
       <options-toggle name="weatherWindUnits" id="weatherWindUnits" [(ngModel)]="settings.config.weather.windUnits" (ngModelChange)="ga.field('weather.windUnits', settings.config.weather.windUnits)"  off="{{settings.config.weather.metric?'km/h':'mph'}}" on="{{settings.config.weather.metric?'m/s':'ft/s'}}"></options-toggle>
     </div>
+    <div class="input">
+      <label for="weatherTwentyFour">{{'options.weather.twentyFour' | translate}}<tooltip text="{{'options.weather.twentyFourDesc' | translate}}"></tooltip></label>
+      <options-toggle name="weatherTwentyFour" id="weatherTwentyFour" [(ngModel)]="settings.config.weather.twentyFour" (ngModelChange)="ga.field('weather.twentyFour', settings.config.weather.twentyFour)"></options-toggle>
+    </div>
     <!-- TODAY -->
     <h3>{{'options.weather.today' | translate}}</h3>
     <div class="input">

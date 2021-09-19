@@ -311,7 +311,6 @@
       "low": "낮은",
       "lowTemp": "낮은 온도",
       "metricUnits": "미터법 단위",
-      "windUnits": "풍속 단위",
       "moonPhase": "달의 위상",
       "moonrise": "월출",
       "moonset": "월몰",
@@ -329,10 +328,13 @@
       "temp": "온도",
       "tempScale": "온도 눈금",
       "today": "오늘",
+      "twentyFour": "24 시간",
+      "twentyFourDesc": "날씨의 모든 시간을 12시간 대신 24시간 형식으로 표시합니다.",
       "visibility": "시계",
       "weather": "날씨",
       "wind": "바람",
-      "windDirection": "바람의 방향"
+      "windDirection": "바람의 방향",
+      "windUnits": "풍속 단위"
     }
   },
   "splash": {

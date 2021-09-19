@@ -311,7 +311,6 @@
       "low": "Låg",
       "lowTemp": "Låg temperatur",
       "metricUnits": "Metriska enheter",
-      "windUnits": "Vindhastighetsenheter",
       "moonPhase": "Månfas",
       "moonrise": "Månuppgång",
       "moonset": "Moonset",
@@ -329,10 +328,13 @@
       "temp": "Temperatur",
       "tempScale": "Temperaturskala",
       "today": "I dag",
+      "twentyFour": "24 timmar",
+      "twentyFourDesc": "Visa alla tider i vädret i 24 -timmarsformat istället för 12 timmar.",
       "visibility": "Synlighet",
       "weather": "Väder",
       "wind": "Vind",
-      "windDirection": "Vindriktning"
+      "windDirection": "Vindriktning",
+      "windUnits": "Vindhastighetsenheter"
     }
   },
   "splash": {

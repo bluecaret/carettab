@@ -311,7 +311,6 @@
       "low": "Baixo",
       "lowTemp": "temperatura baixa",
       "metricUnits": "Unidades métricas",
-      "windUnits": "Unidades de velocidade do vento",
       "moonPhase": "Fase da lua",
       "moonrise": "Nascer da lua",
       "moonset": "Pôr da lua",
@@ -329,10 +328,13 @@
       "temp": "Temperatura",
       "tempScale": "Escala de temperatura",
       "today": "Hoje",
+      "twentyFour": "24 horas",
+      "twentyFourDesc": "Exibe todos os horários do clima no formato de 24 horas em vez de 12 horas.",
       "visibility": "visibilidade",
       "weather": "Clima",
       "wind": "vento",
-      "windDirection": "Direção do vento"
+      "windDirection": "Direção do vento",
+      "windUnits": "Unidades de velocidade do vento"
     }
   },
   "splash": {

@@ -311,7 +311,6 @@
       "low": "Low",
       "lowTemp": "Low Temperature",
       "metricUnits": "Metric units",
-      "windUnits": "Wind speed units",
       "moonPhase": "Moon phase",
       "moonrise": "Moonrise",
       "moonset": "Moonset",
@@ -329,10 +328,13 @@
       "temp": "Temperature",
       "tempScale": "Temperature scale",
       "today": "Today",
+      "twentyFour": "24 hour",
+      "twentyFourDesc": "Display all times in the weather in 24 hour format instead of 12 hour.",
       "visibility": "Visibility",
       "weather": "Weather",
       "wind": "Wind",
-      "windDirection": "Wind direction"
+      "windDirection": "Wind direction",
+      "windUnits": "Wind speed units"
     }
   },
   "splash": {

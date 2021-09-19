@@ -35,7 +35,7 @@ export class TabWeatherComponent implements OnInit {
 
   setWeather() {
     this.shared.echo('Refresh weather data');
-    this.weatherService.getWeather(this.settings.config.weather.location.url, 3).subscribe((data)=>{
+    this.weatherService.getWeather(this.settings.config.weather.location.url, 5).subscribe((data)=>{
       this.shared.echo('Weather API response:', null, data);
       this.cachedWeather = {}
       let today = new Date();

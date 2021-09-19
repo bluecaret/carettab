@@ -110,7 +110,7 @@
     <ng-container *ngIf="settings.config.weather.forecast.enabled">
       <div class="input">
         <label for="forecastDays">{{'options.weather.numOfDays' | translate}}</label>
-        <options-range name="forecastDays" id="forecastDays" min="1" max="3" [(ngModel)]="settings.config.weather.forecast.days" (ngModelChange)="ga.field('weather.forecast.days', settings.config.weather.forecast.days)"></options-range>
+        <options-range name="forecastDays" id="forecastDays" min="1" max="5" [(ngModel)]="settings.config.weather.forecast.days" (ngModelChange)="ga.field('weather.forecast.days', settings.config.weather.forecast.days)"></options-range>
       </div>
       <div class="input">
         <label for="forecastHorizontal">{{'options.weather.horzDisplay' | translate}}</label>

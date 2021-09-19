@@ -311,6 +311,7 @@
       "low": "basso",
       "lowTemp": "Bassa temperatura",
       "metricUnits": "Unità metrica",
+      "windUnits": "Unità di velocità del vento",
       "moonPhase": "Fase lunare",
       "moonrise": "Alba lunare",
       "moonset": "tramonto della luna",

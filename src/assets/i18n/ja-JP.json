@@ -311,6 +311,7 @@
       "low": "低い",
       "lowTemp": "低温",
       "metricUnits": "メートル単位",
+      "windUnits": "風速単位",
       "moonPhase": "月相",
       "moonrise": "月の出",
       "moonset": "月の入り",

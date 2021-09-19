@@ -311,6 +311,7 @@
       "low": "낮은",
       "lowTemp": "낮은 온도",
       "metricUnits": "미터법 단위",
+      "windUnits": "풍속 단위",
       "moonPhase": "달의 위상",
       "moonrise": "월출",
       "moonset": "월몰",

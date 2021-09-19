@@ -311,6 +311,7 @@
       "low": "Faible",
       "lowTemp": "Basse température",
       "metricUnits": "Unités métriques",
+      "windUnits": "Unités de vitesse du vent",
       "moonPhase": "Phase de lune",
       "moonrise": "Lever de la lune",
       "moonset": "coucher de lune",

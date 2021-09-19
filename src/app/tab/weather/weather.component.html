@@ -7,8 +7,8 @@
 {{weather.current.condition.text}}
 {{'options.weather.temp' | translate}}: {{getPreciseDigit(settings.config.weather.celsius ? weather.current.temp_c : weather.current.temp_f)}}&deg;
 {{'options.weather.feelsLikeTitle' | translate}}: {{getPreciseDigit(settings.config.weather.celsius ? weather.current.feelslike_c : weather.current.feelslike_f)}}&deg;
-{{'options.weather.wind' | translate}}: {{settings.config.weather.metric ? getPreciseDigit(weather.current.wind_kph) : getPreciseDigit(weather.current.wind_mph)}}{{settings.config.weather.metric ? ' km/h' : ' mph'}} {{weather.current.wind_dir}}
-{{'options.weather.gusts' | translate}}: {{settings.config.weather.metric ? getPreciseDigit(weather.current.gust_kph) : getPreciseDigit(weather.current.gust_mph)}}{{settings.config.weather.metric ? ' km/h' : ' mph'}}
+{{'options.weather.wind' | translate}}: {{settings.config.weather.metric ? getMetricWind(weather.current.wind_kph) : getImperialWind(weather.current.wind_mph)}}{{getWindUnitType()}} {{weather.current.wind_dir}}
+{{'options.weather.gusts' | translate}}: {{settings.config.weather.metric ? getMetricWind(weather.current.gust_kph) : getImperialWind(weather.current.gust_mph)}}{{getWindUnitType()}}
 {{'options.weather.visibility' | translate}}: {{settings.config.weather.metric ? weather.current.vis_km : weather.current.vis_miles}}{{settings.config.weather.metric ? ' km' : ' miles'}}
 {{'options.weather.humidity' | translate}}: {{weather.current.humidity}}%
 {{'options.weather.precip' | translate}}: {{settings.config.weather.metric ? weather.current.precip_mm : weather.current.precip_in}}{{settings.config.weather.metric ? ' mm' : ' in'}}
@@ -51,7 +51,7 @@ UV: {{weather.current.uv}}
         "
       >
         <div class="currentWind" title="{{'options.weather.windDirection' | translate}}: {{weather.current.wind_dir}}" *ngIf="settings.config.weather.current.wind.enabled">
-          <i class="w-wind-deg {{weather.current.wind_dir}}"></i>{{settings.config.weather.metric ? weather.current.wind_kph : weather.current.wind_mph}}{{settings.config.weather.metric ? ' km/h' : ' mph'}}
+          <i class="w-wind-deg {{weather.current.wind_dir}}"></i>{{settings.config.weather.metric ? getMetricWind(weather.current.wind_kph) : getImperialWind(weather.current.wind_mph)}}{{getWindUnitType()}}
         </div>
         <div class="weatherDetail" title="{{'options.weather.humidity' | translate}}: {{weather.current.humidity}}%" *ngIf="settings.config.weather.current.humidity.enabled">
           <i class="w-humidity"></i>{{weather.current.humidity}}%
@@ -103,7 +103,7 @@ UV: {{weather.current.uv}}
 {{forecastDay.day.condition.text}}
 {{'options.weather.high' | translate}}: {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.maxtemp_c : forecastDay.day.maxtemp_f)}}&deg; / {{'options.weather.low' | translate}}: {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.mintemp_c : forecastDay.day.mintemp_f)}}&deg;
 {{'options.weather.avgTemp' | translate}}: {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.avgtemp_c : forecastDay.day.avgtemp_f)}}&deg;
-{{'options.weather.wind' | translate}}: {{settings.config.weather.metric ? getPreciseDigit(forecastDay.day.maxwind_kph) : getPreciseDigit(forecastDay.day.maxwind_mph)}}{{settings.config.weather.metric ? ' km/h' : ' mph'}}
+{{'options.weather.wind' | translate}}: {{settings.config.weather.metric ? getMetricWind(forecastDay.day.maxwind_kph) : getImperialWind(forecastDay.day.maxwind_mph)}}{{getWindUnitType()}}
 {{'options.weather.visibility' | translate}}: {{settings.config.weather.metric ? forecastDay.day.avgvis_km : forecastDay.day.avgvis_miles}}{{settings.config.weather.metric ? ' km' : ' miles'}}
 {{'options.weather.humidity' | translate}}: {{forecastDay.day.avghumidity}}%
 {{'options.weather.precip' | translate}}: {{settings.config.weather.metric ? forecastDay.day.totalprecip_mm : forecastDay.day.totalprecip_in}}{{settings.config.weather.metric ? ' mm' : ' in'}}

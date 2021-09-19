@@ -1,9 +1,8 @@
-import { Component, OnInit, NgZone, AfterViewInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { transition, trigger, style, state, animate } from '@angular/animations';
 import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from './_shared/shared.service';
 import { Storage } from './_storage/storage.service';
-import { patterns } from './_shared/lists/lists';
 import { tab } from './_shared/animations';
 import * as moment from 'moment';
 import { compare } from 'compare-versions';
@@ -40,8 +39,7 @@ import { Settings } from './_storage/settings';
     ])
   ]
 })
-export class AppComponent implements OnInit, AfterViewInit {
-  patterns = patterns;
+export class AppComponent implements OnInit {
 
   constructor(
     public shared: SharedService,
@@ -68,31 +66,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     // Set background initially to blank pattern to avoid 404 error due to setTimeout
     this.shared.bg = './assets/patterns/0.png';
-  }
-
-  ngAfterViewInit(): void {
-    // Set background image
-    // Must be in setTimeout or else settings don't have time to load preventing image from being set.
-    setTimeout(() => {
-      let savedImg = localStorage.getItem('bgImg');
-      if (savedImg != null || savedImg != undefined) {
-        this.shared.bg = savedImg;
-        this.shared.echo('Background image found in storage', savedImg.substr(0,20))
-      } else {
-        let patternId = this.settings.config.design.patternId;
-        let img = '0.png';
-
-        // Check for "900" is for backwards compatibility with an old bug
-        if (patternId !== null && patternId !== undefined && patternId !== 0 && patternId !== 99999 && patternId !== 900) {
-          img = patterns.find(p => p.id === patternId).pattern;
-          this.shared.echo('No background, use selected pattern:', patternId)
-        } else {
-          this.shared.echo('No background or pattern set', patternId)
-        }
-        let bg = './assets/patterns/' + img;
-        this.shared.bg = bg;
-      }
-    }, 0);
   }
 
   enableAnalytics(enable: boolean) {

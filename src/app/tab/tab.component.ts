@@ -1,10 +1,10 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, AfterViewInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from '../_shared/shared.service';
 import { Storage } from '../_storage/storage.service';
-import { span, bgSize, bgBlend } from '../_shared/lists/lists';
+import { span, bgSize, bgBlend, patterns } from '../_shared/lists/lists';
 import { tab } from '../_shared/animations';
 
 @Component({
@@ -13,11 +13,12 @@ import { tab } from '../_shared/animations';
   encapsulation: ViewEncapsulation.None,
   animations: [tab]
 })
-export class TabComponent implements OnInit {
+export class TabComponent implements OnInit, AfterViewInit {
   NEW_TAB_TEXT = 'New Tab';
   span = span;
   bgSize = bgSize;
   bgBlend = bgBlend;
+  patterns = patterns;
 
   constructor(
     public sanitizer: DomSanitizer,
@@ -55,6 +56,31 @@ export class TabComponent implements OnInit {
         this.setTitleOnInterval();
       }
     });
+  }
+
+  ngAfterViewInit(): void {
+    // Set background image
+    // Must be in setTimeout or else settings don't have time to load preventing image from being set.
+    setTimeout(() => {
+      let savedImg = localStorage.getItem('bgImg');
+      if (savedImg != null || savedImg != undefined) {
+        this.shared.bg = savedImg;
+        this.shared.echo('Background image found in storage', savedImg.substr(0,20))
+      } else {
+        let patternId = this.settings.config.design.patternId;
+        let img = '0.png';
+
+        // Check for "900" is for backwards compatibility with an old bug
+        if (patternId !== null && patternId !== undefined && patternId !== 0 && patternId !== 99999 && patternId !== 900) {
+          img = patterns.find(p => p.id === patternId).pattern;
+          this.shared.echo('No background, use selected pattern:', patternId)
+        } else {
+          this.shared.echo('No background or pattern set', patternId)
+        }
+        let bg = './assets/patterns/' + img;
+        this.shared.bg = bg;
+      }
+    }, 0);
   }
 
   setTitleOnInterval() {

@@ -1,4 +1,4 @@
-<div class="donate mb15">
+<div class="donate mb1">
   <div class="donate-intro">
     <svg class="heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.6 30.6">
       <path d="M15.3 11c-1.2-3.5-8.7-4.5-9.2 1.6 -0.7 7.8 9.2 11.7 9.2 11.7s9.9-3.8 9.2-11.7C24 6.5 16.5 7.5 15.3 11zM10.1 19.1c-2.4-1.8-4.7-8.6 0.1-9.4C7.8 12 8.1 16.5 10.1 19.1z"/>
@@ -15,11 +15,27 @@
       <path d="M9.4 25.5c-0.2-0.1-0.5-0.1-0.6 0.2l-1.3 2.3c-0.1 0.2 0 0.5 0.2 0.6 0.1 0 0.1 0.1 0.2 0.1 0.2 0 0.3-0.1 0.4-0.2l1.3-2.3C9.7 25.9 9.6 25.6 9.4 25.5z"/>
       <path d="M21.2 5.1c0.1 0 0.1 0.1 0.2 0.1 0.2 0 0.3-0.1 0.4-0.2l1.3-2.3c0.1-0.2 0.1-0.5-0.2-0.6C22.8 1.9 22.5 2 22.4 2.2l-1.3 2.3C20.9 4.7 21 5 21.2 5.1z"/>
     </svg>
-    <span>
-      {{'options.dashboard.supportDev' | translate}}
-    </span>
+    <div>
+      <div>
+        {{'options.dashboard.supportDev' | translate}}
+      </div>
+      <a class="patreon" href="https://www.patreon.com/bluecaret" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 569 546" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <circle cx="362.589996" cy="204.589996" id="patreonOval" r="204.589996"></circle>
+            <rect height="545.799988" id="patreonRectangle" width="100" x="0" y="0"></rect>
+          </g>
+        </svg>
+        <div>Become a patron</div>
+      </a>
+    </div>
   </div>
   <ul class="supportList">
+    <li>
+      <a href="{{getReviewLink(false)}}" class="supportBtn" (click)="ga.event('dashboard', 'externalLink', 'supportLeaveReview');">{{'options.dashboard.review' | translate}}</a> | 
+      <!-- <a href="https://paypal.me/bluecaret" class="supportBtn" (click)="ga.event('dashboard', 'externalLink', 'supportPaypalDonation');">{{'options.dashboard.donate' | translate}}</a> |  -->
+      <a href="https://github.com/bluecaret/carettab" class="supportBtn" (click)="ga.event('dashboard', 'externalLink', 'supportContributeCode');">{{'options.dashboard.contribute' | translate}}</a>
+    </li>
     <li>
       {{'options.dashboard.share' | translate}}: 
       <a href="https://twitter.com/intent/tweet?url=https://www.carettab.com/" class="supportBtn" (click)="ga.event('dashboard', 'externalLink', 'supportTwitter');">Twitter</a> | 
@@ -27,11 +43,11 @@
       <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.carettab.com/" class="supportBtn" (click)="ga.event('dashboard', 'externalLink', 'supportLinkedIn');">LinkedIn</a> | 
       <a href="mailto:?body=https://www.carettab.com/" class="supportBtn" (click)="ga.event('link', 'externalLink', 'Email');">Email</a>
     </li>
-    <li>
-      <a href="{{getReviewLink(false)}}" class="supportBtn" (click)="ga.event('dashboard', 'externalLink', 'supportLeaveReview');">{{'options.dashboard.review' | translate}}</a> | 
-      <a href="https://paypal.me/bluecaret" class="supportBtn" (click)="ga.event('dashboard', 'externalLink', 'supportPaypalDonation');">{{'options.dashboard.donate' | translate}}</a> | 
-      <a href="https://github.com/bluecaret/carettab" class="supportBtn" (click)="ga.event('dashboard', 'externalLink', 'supportContributeCode');">{{'options.dashboard.contribute' | translate}}</a>
-    </li>
+  </ul>
+</div>
+<div class="donate mb15">
+  <ul class="supportList mt0">
+    <li>{{'options.dashboard.supportBox' | translate | translateCut:0 }}<a href="https://github.com/bluecaret/carettab" class="supportBtn" (click)="ga.event('link', 'externalLink', 'SupportGithub');">{{'options.dashboard.supportBox' | translate | translateCut:1 }}</a>{{'options.dashboard.supportBox' | translate | translateCut:2 }}<a href="mailto:bluecaret@outlook.com" class="supportBtn" (click)="ga.event('link', 'externalLink', 'SupportEmail');">{{'options.dashboard.supportBox' | translate | translateCut:3 }}</a></li>
   </ul>
 </div>
 <h2 class="mt15">

@@ -93,12 +93,14 @@ UV: {{weather.current.uv}}
       }"
     >
       <ng-container 
-        *ngFor="let forecastDay of weather.forecast.forecastday | slice:0:settings.config.weather.forecast.days;"
+        *ngFor="let forecastDay of weather.forecast.forecastday | slice:0:settings.config.weather.forecast.days; let i = index;"
       >
-        <div 
-          class="forecastDay" 
-          [ngClass]="{'forecastDay--horz' : settings.config.weather.forecast.horizontal}" 
-          title="{{getDayOfWeek(forecastDay.date)}}
+        <ng-container *ngIf="!settings.config.weather.forecast.hideToday || (settings.config.weather.forecast.hideToday && i !== 0)">
+        
+          <div 
+            class="forecastDay" 
+            [ngClass]="{'forecastDay--horz' : settings.config.weather.forecast.horizontal}" 
+            title="{{getDayOfWeek(forecastDay.date)}}
 --------
 {{forecastDay.day.condition.text}}
 {{'options.weather.high' | translate}}: {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.maxtemp_c : forecastDay.day.maxtemp_f)}}&deg; / {{'options.weather.low' | translate}}: {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.mintemp_c : forecastDay.day.mintemp_f)}}&deg;
@@ -115,35 +117,36 @@ UV: {{forecastDay.day.uv}}
 {{'options.weather.moonPhase' | translate}}: {{forecastDay.astro.moon_phase}}
 {{'options.weather.moonrise' | translate}}: {{getTwentyFourTime(forecastDay.astro.moonrise)}}
 {{'options.weather.moonset' | translate}}: {{getTwentyFourTime(forecastDay.astro.moonset)}}"
-        >
-          <div class="forecastHero" *ngIf="settings.config.weather.forecast.icon.enabled">
-            <div class="forecastIcon">
-              <i 
-                class="w-code-{{forecastDay.day.condition.code}}{{weather.current.is_day === 1 ? '' : 'n'}}"
-                [ngStyle]="{'font-size': shared.getFontSize(this.settings.config.weather.forecast.icon.size, 7)}"
-              ></i>
-            </div>
-          </div>
-          <div class="forecastContent" *ngIf="
-            settings.config.weather.forecast.day.enabled || 
-            settings.config.weather.forecast.temp.high || 
-            settings.config.weather.forecast.temp.low
-          ">
-            <div class="forecastDate" *ngIf="settings.config.weather.forecast.day.enabled">{{getDayOfWeek(forecastDay.date)}}</div>
-            <div class="forecastTemp" [ngClass]="{'forecastTemp--NoDegree' : !settings.config.weather.forecast.temp.degree}" *ngIf="settings.config.weather.forecast.temp.high || settings.config.weather.forecast.temp.low">
-              <div class="forecastHigh" *ngIf="settings.config.weather.forecast.temp.high">
-                {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.maxtemp_c : forecastDay.day.maxtemp_f)}}<span class="forecastDegree" *ngIf="settings.config.weather.forecast.temp.degree">&deg;</span>
-              </div>
-              <div class="forecastHigh" *ngIf="!settings.config.weather.forecast.temp.high && settings.config.weather.forecast.temp.low">
-                {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.mintemp_c : forecastDay.day.mintemp_f)}}<span class="forecastDegree" *ngIf="settings.config.weather.forecast.temp.degree">&deg;</span>
-              </div>
-              <span class="forecastSlash" *ngIf="settings.config.weather.forecast.temp.high && settings.config.weather.forecast.temp.low">/</span>
-              <div class="forecastLow" *ngIf="settings.config.weather.forecast.temp.high && settings.config.weather.forecast.temp.low">
-                {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.mintemp_c : forecastDay.day.mintemp_f)}}<span class="forecastDegree" *ngIf="settings.config.weather.forecast.temp.degree">&deg;</span>
+          >
+            <div class="forecastHero" *ngIf="settings.config.weather.forecast.icon.enabled">
+              <div class="forecastIcon">
+                <i 
+                  class="w-code-{{forecastDay.day.condition.code}}{{weather.current.is_day === 1 ? '' : 'n'}}"
+                  [ngStyle]="{'font-size': shared.getFontSize(this.settings.config.weather.forecast.icon.size, 7)}"
+                ></i>
               </div>
             </div>
+            <div class="forecastContent" *ngIf="
+              settings.config.weather.forecast.day.enabled || 
+              settings.config.weather.forecast.temp.high || 
+              settings.config.weather.forecast.temp.low
+            ">
+              <div class="forecastDate" *ngIf="settings.config.weather.forecast.day.enabled">{{getDayOfWeek(forecastDay.date)}}</div>
+              <div class="forecastTemp" [ngClass]="{'forecastTemp--NoDegree' : !settings.config.weather.forecast.temp.degree}" *ngIf="settings.config.weather.forecast.temp.high || settings.config.weather.forecast.temp.low">
+                <div class="forecastHigh" *ngIf="settings.config.weather.forecast.temp.high">
+                  {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.maxtemp_c : forecastDay.day.maxtemp_f)}}<span class="forecastDegree" *ngIf="settings.config.weather.forecast.temp.degree">&deg;</span>
+                </div>
+                <div class="forecastHigh" *ngIf="!settings.config.weather.forecast.temp.high && settings.config.weather.forecast.temp.low">
+                  {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.mintemp_c : forecastDay.day.mintemp_f)}}<span class="forecastDegree" *ngIf="settings.config.weather.forecast.temp.degree">&deg;</span>
+                </div>
+                <span class="forecastSlash" *ngIf="settings.config.weather.forecast.temp.high && settings.config.weather.forecast.temp.low">/</span>
+                <div class="forecastLow" *ngIf="settings.config.weather.forecast.temp.high && settings.config.weather.forecast.temp.low">
+                  {{getPreciseDigit(settings.config.weather.celsius ? forecastDay.day.mintemp_c : forecastDay.day.mintemp_f)}}<span class="forecastDegree" *ngIf="settings.config.weather.forecast.temp.degree">&deg;</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </ng-container>
       </ng-container>
     </div>
   </ng-container>

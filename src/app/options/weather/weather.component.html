@@ -113,6 +113,10 @@
         <options-range name="forecastDays" id="forecastDays" min="1" max="5" [(ngModel)]="settings.config.weather.forecast.days" (ngModelChange)="ga.field('weather.forecast.days', settings.config.weather.forecast.days)"></options-range>
       </div>
       <div class="input">
+        <label for="forecastHideToday">{{'options.weather.hideToday' | translate}}</label>
+        <options-toggle name="forecastHideToday" id="forecastHideToday" [(ngModel)]="settings.config.weather.forecast.hideToday" (ngModelChange)="ga.field('weather.forecast.hideToday', settings.config.weather.forecast.hideToday)"></options-toggle>
+      </div>
+      <div class="input">
         <label for="forecastHorizontal">{{'options.weather.horzDisplay' | translate}}</label>
         <options-toggle name="forecastHorizontal" id="forecastHorizontal" [(ngModel)]="settings.config.weather.forecast.horizontal" (ngModelChange)="ga.field('weather.forecast.horizontal', settings.config.weather.forecast.horizontal)"></options-toggle>
       </div>

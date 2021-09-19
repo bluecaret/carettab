@@ -405,6 +405,15 @@
       "weatherDesc": "Das lang ersehnte Wetter-Widget ist endlich da! Erhalten Sie alle benötigten Wetterdaten auf einen Blick mit aktuellem Wetter und einer Vorhersage. Wie immer viele Anpassungsmöglichkeiten!",
       "weatherTitle": "Wetter-Widget"
     },
+    "v360": {
+      "m1": "Die Wettervorhersage wurde auf maximal 5 Tage erhöht.",
+      "m2": "Option zum Ausblenden des aktuellen Tages in der Vorhersage.",
+      "m3": "Die Wetterwindgeschwindigkeit kann zwischen km/s, m/s, mph und ft/s geändert werden.",
+      "m4": "Die Zeiten für Sonnenaufgang/-untergang und Mondaufgang/-untergang im Wetter-Widget können im 24-Stunden-Format angezeigt werden.",
+      "m5": "Anzeigefehler im Cent-Browser behoben, der die Registerkarte unbrauchbar machte.",
+      "m6": "Fehler bei der Hintergrundanzeige behoben (hoffentlich)!",
+      "m7": "Schaltfläche hinzugefügt, um CaretTab auf Patreon zu unterstützen!"
+    },
     "yes": "Ja"
   },
   "tab": {

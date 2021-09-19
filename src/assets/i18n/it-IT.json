@@ -405,6 +405,15 @@
       "weatherDesc": "Il tanto richiesto, tanto atteso widget meteo è finalmente arrivato! Ottieni tutti i dati meteo di cui hai bisogno a colpo d'occhio sia con il meteo attuale che con una previsione. Come sempre tante personalizzazioni disponibili!",
       "weatherTitle": "Widget meteo"
     },
+    "v360": {
+      "m1": "Le previsioni del tempo sono aumentate fino a un massimo di 5 giorni.",
+      "m2": "Opzione per nascondere il giorno corrente nella previsione.",
+      "m3": "La velocità del vento meteorologico può variare tra km/s, m/s, mph e ft/s.",
+      "m4": "Gli orari di alba/tramonto e sorgere della luna/tramonto nel widget meteo possono essere visualizzati nel formato 24 ore.",
+      "m5": "Risolto bug di visualizzazione nel browser Cent che rendeva inutilizzabile la scheda.",
+      "m6": "Risolto bug di visualizzazione in background (si spera)!",
+      "m7": "Aggiunto pulsante per supportare CaretTab su Patreon!"
+    },
     "yes": "sì"
   },
   "tab": {

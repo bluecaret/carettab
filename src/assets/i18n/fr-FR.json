@@ -405,6 +405,15 @@
       "weatherDesc": "Le widget météo tant demandé et tant attendu est enfin là ! Obtenez toutes les données météorologiques dont vous avez besoin en un coup d'œil avec la météo actuelle et une prévision. Comme toujours, beaucoup de personnalisation disponible !",
       "weatherTitle": "Widget météo"
     },
+    "v360": {
+      "m1": "Les prévisions météorologiques ont augmenté jusqu'à un maximum de 5 jours.",
+      "m2": "Option pour masquer le jour en cours dans les prévisions.",
+      "m3": "La vitesse du vent météo peut varier entre km/s, m/s, mph et ft/s.",
+      "m4": "Les heures de lever/coucher et de lever/de lune dans le widget météo peuvent être affichées au format 24 heures.",
+      "m5": "Correction d'un bug d'affichage dans le navigateur Cent qui rendait l'onglet inutilisable.",
+      "m6": "Correction d'un bug d'affichage en arrière-plan (espérons-le) !",
+      "m7": "Ajout d'un bouton pour prendre en charge CaretTab sur Patreon !"
+    },
     "yes": "Oui"
   },
   "tab": {

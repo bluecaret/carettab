@@ -39,6 +39,7 @@ export class SplashComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('UPDATE CHECK', this.shared.status, this.shared.updateType);
     if (this.shared.status === 'updated') {
       if (this.shared.updateType === "minor") {
         this.step = 900;

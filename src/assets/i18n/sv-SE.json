@@ -405,6 +405,15 @@
       "weatherDesc": "Den efterfrågade, efterlängtade väderwidgeten är äntligen här! Få all väderinformation du behöver en överblick med både aktuellt väder och en prognos. Som alltid, massor av anpassningar tillgängliga!",
       "weatherTitle": "Väder widget"
     },
+    "v360": {
+      "m1": "Väderprognosen ökade till max 5 dagar.",
+      "m2": "Alternativ för att dölja den aktuella dagen i prognosen.",
+      "m3": "Vädervindens hastighet kan ändras mellan km/s, m/s, mph och ft/s.",
+      "m4": "Soluppgång/nedgång och månuppgång/nedgångstider i väderwidgeten kan visas i 24 -timmarsformat.",
+      "m5": "Fixade visningsfel i Cent -webbläsaren som gjorde fliken oanvändbar.",
+      "m6": "Fixat bakgrundsvisningsfel (förhoppningsvis)!",
+      "m7": "Tillagd knapp för att stödja CaretTab på Patreon!"
+    },
     "yes": "Ja"
   },
   "tab": {

@@ -7,6 +7,6 @@
   </app-tab>
   <app-options></app-options>
   <app-splash 
-    *ngIf="(shared.status === 'installed') || (shared.status === 'updated' && shared.updateType === 'major')"
+    *ngIf="(shared.status === 'installed') || (shared.status === 'updated' && shared.updateType === 'major') || (shared.status === 'updated' && shared.updateType === 'minor')"
   ></app-splash>
 </ng-container>

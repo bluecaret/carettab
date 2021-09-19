@@ -405,6 +405,15 @@
       "weatherDesc": "The much requested, long awaited, weather widget is finally here! Get all the weather data you need at a glance with both current weather and a forecast. Like always, lots of customization available!",
       "weatherTitle": "Weather widget"
     },
+    "v360": {
+      "m1": "Weather forecast increased to a maximum of 5 days.",
+      "m2": "Option to hide the current day in the forecast.",
+      "m3": "Weather wind speed can be change between km/s, m/s, mph, and ft/s.",
+      "m4": "Sunrise/set and Moonrise/set times in the weather widget can be shown in 24 hour format.",
+      "m5": "Fixed display bug in the Cent Browser that made the tab unusable.",
+      "m6": "Fixed background display bug (hopefully)!",
+      "m7": "Added button to support CaretTab on Patreon!"
+    },
     "yes": "Yes"
   },
   "tab": {

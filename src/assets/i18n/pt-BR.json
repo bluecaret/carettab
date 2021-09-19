@@ -405,6 +405,15 @@
       "weatherDesc": "O tão esperado widget do tempo está finalmente aqui! Obtenha todos os dados meteorológicos de que você precisa em um piscar de olhos com o clima atual e uma previsão. Como sempre, muitas personalizações disponíveis!",
       "weatherTitle": "Weather Widget"
     },
+    "v360": {
+      "m1": "A previsão do tempo aumentou para um máximo de 5 dias.",
+      "m2": "Opção para ocultar o dia atual na previsão.",
+      "m3": "A velocidade do vento do tempo pode ser alterada entre km / s, m / s, mph e pés / s.",
+      "m4": "Os horários do nascer do sol / pôr e nascer da lua / definir no widget do tempo podem ser exibidos no formato de 24 horas.",
+      "m5": "Corrigido bug de exibição no navegador Cent que tornava a guia inutilizável.",
+      "m6": "Corrigido bug de exibição de plano de fundo (espero)!",
+      "m7": "Adicionado botão para dar suporte ao CaretTab no Patreon!"
+    },
     "yes": "sim"
   },
   "tab": {

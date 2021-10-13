@@ -1,45 +1,39 @@
 {
   "manifest_version": 2,
-
   "name": "__MSG_appName__",
   "short_name": "CaretTab",
   "description": "__MSG_appDesc__",
-  "version": "3.6.0",
+  "version": "3.6.1",
   "default_locale": "en",
-
-  "icons": { "16": "assets/img/icon16.png",
-             "48": "assets/img/icon48.png",
-            "128": "assets/img/icon128.png" },
-
-  "chrome_url_overrides" : {
+  "icons": {
+    "16": "assets/img/icon16.png",
+    "48": "assets/img/icon48.png",
+    "128": "assets/img/icon128.png"
+  },
+  "chrome_url_overrides": {
     "newtab": "index.html"
   },
-
-  "chrome_settings_overrides" : {
+  "chrome_settings_overrides": {
     "homepage": "index.html"
   },
-
   "background": {
-    "scripts": ["js/update.js"]
+    "scripts": [
+      "js/update.js"
+    ]
   },
-
   "permissions": [
     "storage",
     "chrome://favicon/"
   ],
-
   "optional_permissions": [
     "bookmarks",
     "topSites"
   ],
-
   "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
-
   "applications": {
     "gecko": {
       "id": "{1ab49626-2e16-405b-ad65-dcaab8decd7b}",
       "strict_min_version": "57.0"
     }
   }
-
 }

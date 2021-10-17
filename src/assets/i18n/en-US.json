@@ -414,6 +414,12 @@
       "m6": "Fixed background display bug (hopefully)!",
       "m7": "Added button to support CaretTab on Patreon!"
     },
+    "v361": {
+      "m1": "Fixed background color bug in Cent Browser."
+    },
+    "v362": {
+      "m1": "Fixed blank COVID data by updating API call."
+    },
     "yes": "Yes"
   },
   "tab": {

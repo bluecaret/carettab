@@ -3,8 +3,8 @@
   "name": "__MSG_appName__",
   "short_name": "CaretTab",
   "description": "__MSG_appDesc__",
-  "version": "3.6.1",
-  "version_name": "3.6.1",
+  "version": "3.6.2",
+  "version_name": "3.6.2",
   "default_locale": "en",
   "icons": {
     "16": "assets/img/icon16.png",

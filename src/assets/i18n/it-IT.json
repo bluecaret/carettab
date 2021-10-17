@@ -414,6 +414,12 @@
       "m6": "Risolto bug di visualizzazione in background (si spera)!",
       "m7": "Aggiunto pulsante per supportare CaretTab su Patreon!"
     },
+    "v361": {
+      "m1": "Risolto bug del colore di sfondo nel browser Cent."
+    },
+    "v362": {
+      "m1": "Risolti i dati COVID vuoti aggiornando la chiamata API."
+    },
     "yes": "sì"
   },
   "tab": {

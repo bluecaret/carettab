@@ -414,6 +414,12 @@
       "m6": "¡Error de visualización de fondo fijo (con suerte)!",
       "m7": "¡Botón agregado para apoyar CaretTab en Patreon!"
     },
+    "v361": {
+      "m1": "Se corrigió el error de color de fondo en el navegador Cent."
+    },
+    "v362": {
+      "m1": "Se corrigieron los datos COVID en blanco actualizando la llamada a la API."
+    },
     "yes": "Sí"
   },
   "tab": {

@@ -414,6 +414,12 @@
       "m6": "Fehler bei der Hintergrundanzeige behoben (hoffentlich)!",
       "m7": "Schaltfläche hinzugefügt, um CaretTab auf Patreon zu unterstützen!"
     },
+    "v361": {
+      "m1": "Fehler bei der Hintergrundfarbe im Cent-Browser behoben."
+    },
+    "v362": {
+      "m1": "Leere COVID-Daten durch Aktualisierung des API-Aufrufs behoben."
+    },
     "yes": "Ja"
   },
   "tab": {

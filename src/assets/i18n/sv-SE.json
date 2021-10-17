@@ -414,6 +414,12 @@
       "m6": "Fixat bakgrundsvisningsfel (förhoppningsvis)!",
       "m7": "Tillagd knapp för att stödja CaretTab på Patreon!"
     },
+    "v361": {
+      "m1": "Åtgärdade bakgrundsfärgfel i Cent Browser."
+    },
+    "v362": {
+      "m1": "Fixade tomma COVID -data genom att uppdatera API -samtal."
+    },
     "yes": "Ja"
   },
   "tab": {

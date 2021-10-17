@@ -414,6 +414,12 @@
       "m6": "Corrigido bug de exibição de plano de fundo (espero)!",
       "m7": "Adicionado botão para dar suporte ao CaretTab no Patreon!"
     },
+    "v361": {
+      "m1": "Corrigido bug de cor de fundo no navegador Cent."
+    },
+    "v362": {
+      "m1": "Dados COVID em branco corrigidos atualizando a chamada de API."
+    },
     "yes": "sim"
   },
   "tab": {

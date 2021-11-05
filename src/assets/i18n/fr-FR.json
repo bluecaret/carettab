@@ -2,7 +2,7 @@
   "list": {
     "title": {
       "custom": "Texte personnalisé",
-      "date": "Rendez-vous amoureux",
+      "date": "Date",
       "dateTime": "Date, puis heure",
       "newTab": "\"Nouvel onglet\"",
       "time": "Temps",
@@ -118,7 +118,7 @@
     "date": {
       "abbr": "Abrégé",
       "automatic": "Automatique",
-      "date": "Rendez-vous amoureux",
+      "date": "Date",
       "day": "journée",
       "dayOfWk": "Jour de la semaine",
       "dimDateDelimiter": "Délimiteur faible",

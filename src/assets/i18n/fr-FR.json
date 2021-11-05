@@ -412,7 +412,7 @@
       "m4": "Les heures de lever/coucher et de lever/de lune dans le widget météo peuvent être affichées au format 24 heures.",
       "m5": "Correction d'un bug d'affichage dans le navigateur Cent qui rendait l'onglet inutilisable.",
       "m6": "Correction d'un bug d'affichage en arrière-plan (espérons-le) !",
-      "m7": "Ajout d'un bouton pour prendre en charge CaretTab sur Patreon !"
+      "m7": "Ajout d'un bouton pour soutenir CaretTab sur Patreon !"
     },
     "v361": {
       "m1": "Correction d'un bug de couleur d'arrière-plan dans le navigateur Cent."

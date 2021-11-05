@@ -387,7 +387,7 @@
       "covidTitle": "Widget de données COVID-19",
       "dimDesc": "Ajout d'une option pour estomper le délimiteur sur la date courte.",
       "dimTitle": "Gradation du délimiteur de date",
-      "duplicateDesc": "Vous voulez une deuxième configuration d'horloge exactement de la même manière mais avec un fuseau horaire différent ? Dupliquez-le !",
+      "duplicateDesc": "Vous voulez une deuxième configuration d'horloge exactement de la même manière mais avec un fuseau horaire différent ? Dupliquez-la !",
       "duplicateTitle": "Horloges en double",
       "m1": "De nombreuses options de taille ont une plus grande gamme de choix.",
       "m2": "Ajout du numéro de version de l'extension au panneau des paramètres",

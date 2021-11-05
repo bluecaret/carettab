@@ -32,7 +32,7 @@ Have any suggestions? Let me know on Twitter @BlueCaret
 You can install CaretTab through the browser web stores
 
 **Chrome:**
-[https://chrome.google.com/webstore/detail/carettab-new-tab-page/cojpndognjdcakkimaloeealehpkljna?hl=en-US](https://chrome.google.com/webstore/detail/carettab-new-tab-page/cojpndognjdcakkimaloeealehpkljna?hl=en-US)
+[https://chrome.google.com/webstore/detail/carettab-new-tab-page/cojpndognjdcakkimaloeealehpkljna](https://chrome.google.com/webstore/detail/carettab-new-tab-page/cojpndognjdcakkimaloeealehpkljna)
 
 **Firefox:**
 [https://addons.mozilla.org/en-US/firefox/addon/carettab/](https://addons.mozilla.org/en-US/firefox/addon/carettab/)

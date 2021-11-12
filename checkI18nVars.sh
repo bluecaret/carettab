@@ -8,8 +8,17 @@ verbose=off
 
 grep -E '\"(.*)?\": \"' src/assets/i18n/*.json  | cut -d '"' -f 2 | sort -u | while IFS= read -r ph
 do
-    pattern="\{\{.*\."$ph
     
+    if [ "$verbose" = on ]; then  
+        printf "\n Word -> " "$ph"
+    fi
+
+    pattern="\{\{.*\."$ph"'"
+    
+    if [ "$verbose" = on ]; then  
+        printf "\b\ngrep -r -E \"%s\" src/app | wc -l\n-" "$pattern"
+    fi
+
     c=$(grep -r -E "$pattern" src/app | wc -l)
 
     if [ "$verbose" = on ]; then  
@@ -25,10 +34,13 @@ do
 
     for f in src/assets/i18n/*.json; do
         printf "-"
+   
+        if [ "$verbose" = on ]; then  printf "\b\n  grep -wic %s %s \n-" "$ph" "$f"; fi
+        
         if n=$(grep -wic "$ph" "$f"); then
             if [ "$verbose" = on ]; then  printf "\b\nfound %s in %s \n-" "${n}" "$f"; fi
             if [ "$c" -eq 0 ]; then
-                printf "\b\n -- %s-- not found in code but found in %s \n-" "$ph" "$f"
+               # printf "\b\n -- %s-- not found in code but found in %s \n-" "$ph" "$f"
                 if [ "$beep" = on ]; then  printf "\a"; fi
             fi
         else

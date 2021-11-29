@@ -129,12 +129,15 @@
       "enableWeekNum": "Enable week number",
       "enableJulianDate": "Enable day of year",
       "enableYear": "Enable year",
+      "julianDateLabel": "Julian date label",
       "month": "Month",
+      "ordinalContent": "Ordinal content",
       "shortDate": "Short date",
       "twoDigit": "Two-digit",
       "weekIso": "ISO week number",
       "weekIsoDesc": "Use the ISO week date system from ISO 8601 date and time standard.",
       "weekNum": "Week number",
+      "weekNumLabel": "Week # label",
       "year": "Year"
     },
     "design": {

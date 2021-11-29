@@ -236,6 +236,7 @@ export class DateSettings {
     public ordinalContent = {
       scaling: 10,
       offset: 0,
+      delimiter: '/'
     },
     public julianDate = {
       enabled: false,

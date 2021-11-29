@@ -13,5 +13,5 @@
   class="ordinalContent"
   [style.fontSize]="shared.getFontSize(settings.config.date.ordinalContent.scaling, 6)"
   [style.transform]="shared.getOffset(settings.config.date.ordinalContent.offset)">
-  <!--week number--><span class="weekLabel" *ngIf="settings.config.date.week.enabled">{{settings.config.date.week.label}} {{getWeekNumber()}}</span><!--delimiter--><span *ngIf='settings.config.date.week.enabled && settings.config.date.julianDate.enabled'> / </span><!--day of year--><span *ngIf='settings.config.date.julianDate.enabled'>{{settings.config.date.julianDate.label}} {{getJulianDate()}}</span>
+  <!--week number--><span class="weekLabel" *ngIf="settings.config.date.week.enabled">{{settings.config.date.week.label}} {{getWeekNumber()}}</span><!--delimiter--><span *ngIf='settings.config.date.week.enabled && settings.config.date.julianDate.enabled'> {{ getOrdinalContentDelimiter() }} </span><!--day of year--><span *ngIf='settings.config.date.julianDate.enabled'>{{settings.config.date.julianDate.label}} {{getJulianDate()}}</span>
 </div>

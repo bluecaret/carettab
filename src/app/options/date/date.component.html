@@ -80,6 +80,8 @@
       <label>{{'options.date.abbr' | translate}}</label>
       <options-toggle name="dayOfWeekAbbr" [(ngModel)]="settings.config.date.dayOfWeek.abbr" (ngModelChange)="ga.field('date.dayOfWeek.abbr', settings.config.date.dayOfWeek.abbr);"></options-toggle>
     </div>
+
+    <!-- Ordinal Content settings -->
     <h3>{{'options.date.ordinalContent' | translate}}</h3>
     <div class="input">
       <label>{{'options.date.enableWeekNum' | translate}}</label>
@@ -96,6 +98,10 @@
     <div class="input" *ngIf="settings.config.date.julianDate.enabled">
       <label for="julianDateLabel">{{'options.date.julianDateLabel' | translate}}</label>
       <input type="text" id="julianDateLabel" name="julianDateLabel" [(ngModel)]="settings.config.date.julianDate.label" autocomplete="off" (change)="ga.field('date.julianDate.label', 'userData');">
+    </div>
+    <div class="input" *ngIf="settings.config.date.week.enabled && settings.config.date.julianDate.enabled">
+      <label for="ordinalContentDelimiter">{{'options.common.delimiter' | translate}}</label>
+      <input type="text" maxlength="1" id="orindalContentDelimiter" name="ordinalContentDelimiter" [(ngModel)]="settings.config.date.ordinalContent.delimiter" (change)="ga.field('date.ordinalContent.delimiter', settings.config.date.ordinalContent.delimiter);" autocomplete="off">
     </div>
     <div class="input" *ngIf="settings.config.date.week.enabled || settings.config.date.julianDate.enabled">
       <label>{{'options.common.size' | translate}}</label>

@@ -4,7 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from '../_shared/shared.service';
 import { Storage } from '../_storage/storage.service';
-import { span, bgSize, bgBlend, patterns } from '../_shared/lists/lists';
+import { span, colors, bgSize, bgBlend, patterns } from '../_shared/lists/lists';
 import { tab } from '../_shared/animations';
 
 @Component({
@@ -32,6 +32,15 @@ export class TabComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+
+    // pick a random theme
+    var c = colors[Math.floor(Math.random()*colors.length)];
+
+    this.settings.config.design.background = c.bg;
+    this.settings.config.design.foreground = c.fg;
+    this.settings.config.design.colorsId = c.id;
+
+    // rest of the initial init
     let localBgColor = this.settings.config.design.background;
     this.shared.bgColor = localBgColor;
     localStorage.setItem('ct-background', localBgColor);

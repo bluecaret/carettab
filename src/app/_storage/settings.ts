@@ -34,6 +34,7 @@ export class DesignSettings {
     public customFontWeight = 40,
     public background = '#ffffff',
     public foreground = '#000000',
+    public randTheme = false,
     public colorsId = 0,
     public patternId = 0,
     public imageSize = 10,

@@ -34,11 +34,13 @@ export class TabComponent implements OnInit, AfterViewInit {
   ngOnInit() {
 
     // pick a random theme
-    var c = colors[Math.floor(Math.random()*colors.length)];
+    if(this.settings.config.design.randTheme) {
+      var c = colors[Math.floor(Math.random()*colors.length)];
 
-    this.settings.config.design.background = c.bg;
-    this.settings.config.design.foreground = c.fg;
-    this.settings.config.design.colorsId = c.id;
+      this.settings.config.design.background = c.bg;
+      this.settings.config.design.foreground = c.fg;
+      this.settings.config.design.colorsId = c.id;
+    }
 
     // rest of the initial init
     let localBgColor = this.settings.config.design.background;

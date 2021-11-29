@@ -86,8 +86,8 @@
       <options-toggle type="toggle" name="week" [(ngModel)]="settings.config.date.week.enabled" (ngModelChange)="ga.field('date.week.enabled', settings.config.date.week.enabled);"></options-toggle>
     </div>
     <div class="input">
-      <label>{{'options.date.enableDayOfYear' | translate}}</label>
-      <options-toggle type="toggle" name="dayOfYear" [(ngModel)]="settings.config.date.dayOfYear.enabled" (ngModelChange)="ga.field('date.dayOfYear.enabled', settings.config.date.dayOfYear.enabled);"></options-toggle>
+      <label>{{'options.date.enableJulianDate' | translate}}</label>
+      <options-toggle type="toggle" name="julianDate" [(ngModel)]="settings.config.date.julianDate.enabled" (ngModelChange)="ga.field('date.julianDate.enabled', settings.config.date.julianDate.enabled);"></options-toggle>
     </div>
     <div class="input" *ngIf="settings.config.date.week.enabled">
       <label for="weekLabel">{{'options.common.label' | translate}}</label>

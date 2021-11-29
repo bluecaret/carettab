@@ -233,7 +233,7 @@ export class DateSettings {
       enabled: true,
       abbr: false
     },
-    public dayOfYear = {
+    public julianDate = {
       enabled: false,
       label: "Day",
       scaling: 10,

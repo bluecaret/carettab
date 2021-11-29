@@ -127,7 +127,7 @@
       "enableMonth": "Enable month",
       "enableShortDate": "Enable short date",
       "enableWeekNum": "Enable week number",
-      "enableDayOfYear": "Enable day of year",
+      "enableJulianDate": "Enable day of year",
       "enableYear": "Enable year",
       "month": "Month",
       "shortDate": "Short date",

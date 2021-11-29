@@ -224,7 +224,7 @@ export class TabDateComponent implements OnInit {
     return '';
   }
 
-  getDayOfYear(): string {
+  getJulianDate(): string {
     moment.locale(this.settings.config.i18n.lang);
     let current = this.currentDate;
     let c = this.settings.config.date;
@@ -233,17 +233,8 @@ export class TabDateComponent implements OnInit {
 
     let newYear = new Date(current.getFullYear(), 0, 1, 0, 0, 0); // month is 0 indexed
     let difference = current.getTime() - newYear.getTime();
-    let dayOfYear = difference/1000/60/60/24;
-    return '' + (Math.trunc(dayOfYear) + 1);
-
-
-    // let day = c.day.twoDigit ? date.format('DD') : date.format('D');
-    // if (c.short.enabled) {
-    //   if (c.day.enabled) {
-    //     return day;
-    //   }
-    // }
-    // return '';
+    let julianDate = difference/1000/60/60/24;
+    return '' + (Math.trunc(julianDate) + 1);
   }
 
   getMonth(): string {

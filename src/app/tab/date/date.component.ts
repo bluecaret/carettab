@@ -224,6 +224,28 @@ export class TabDateComponent implements OnInit {
     return '';
   }
 
+  getDayOfYear(): string {
+    moment.locale(this.settings.config.i18n.lang);
+    let current = this.currentDate;
+    let c = this.settings.config.date;
+    let zone = this.getZone(c.timezone);
+    let date = moment(current).tz(zone);
+
+    let newYear = new Date(current.getFullYear(), 0, 1, 0, 0, 0); // month is 0 indexed
+    let difference = current.getTime() - newYear.getTime();
+    let dayOfYear = difference/1000/60/60/24;
+    return '' + (Math.trunc(dayOfYear) + 1);
+
+
+    // let day = c.day.twoDigit ? date.format('DD') : date.format('D');
+    // if (c.short.enabled) {
+    //   if (c.day.enabled) {
+    //     return day;
+    //   }
+    // }
+    // return '';
+  }
+
   getMonth(): string {
     moment.locale(this.settings.config.i18n.lang);
     let current = this.currentDate;

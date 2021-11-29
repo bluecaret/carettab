@@ -233,6 +233,13 @@ export class DateSettings {
       enabled: true,
       abbr: false
     },
+    public dayOfYear = {
+      enabled: false,
+      label: "Day",
+      scaling: 10,
+      offset: 0,
+      iso: false
+    },
     public week = {
       enabled: false,
       label: 'Week',

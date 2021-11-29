@@ -85,6 +85,10 @@
       <label>{{'options.date.enableWeekNum' | translate}}</label>
       <options-toggle type="toggle" name="week" [(ngModel)]="settings.config.date.week.enabled" (ngModelChange)="ga.field('date.week.enabled', settings.config.date.week.enabled);"></options-toggle>
     </div>
+    <div class="input">
+      <label>{{'options.date.enableDayOfYear' | translate}}</label>
+      <options-toggle type="toggle" name="dayOfYear" [(ngModel)]="settings.config.date.dayOfYear.enabled" (ngModelChange)="ga.field('date.dayOfYear.enabled', settings.config.date.dayOfYear.enabled);"></options-toggle>
+    </div>
     <div class="input" *ngIf="settings.config.date.week.enabled">
       <label for="weekLabel">{{'options.common.label' | translate}}</label>
       <input type="text" id="weekLabel" name="weekLabel" [(ngModel)]="settings.config.date.week.label" autocomplete="off" (change)="ga.field('date.week.label', 'userData');">

@@ -168,6 +168,23 @@
           <options-range [name]="'meridiemOffset'+i" [id]="'meridiemOffset'+i" min="-50" max="50" [(ngModel)]="clock.meridiem.offset" (ngModelChange)="ga.field('time.clocks.meridiem.offset', clock.meridiem.offset)"></options-range>
         </div>
       </div>
+      <!-- settings for date difference -->
+      <h4 class="span-2">{{'options.time.dateDiff' | translate}}</h4>
+      <div class="indent">
+        <div class="input">
+          <label>{{'options.time.dateDiffEnable' | translate}}</label>
+          <options-toggle type="toggle" [name]="'dateDiffEnable'+i" [id]="'dateDiffEnable'+i" [(ngModel)]="clock.dateDiff.enabled" (ngModelChange)="ga.field('time.clocks.dateDiff.enabled', clock.dateDiff.enabled)"></options-toggle>
+        </div>
+        <div class="input" *ngIf="clock.dateDiff.enabled">
+          <label>{{'options.common.size' | translate}}<tooltip text="{{'options.time.dateDiffSize' | translate}}"></tooltip></label>
+          <options-range [name]="'dateDiffScaling'+i" [id]="'dateDiffScaling'+i" min="1" max="50" [(ngModel)]="clock.dateDiff.scaling" (ngModelChange)="ga.field('time.clocks.dateDiff.scaling', clock.dateDiff.scaling)"></options-range>
+        </div>
+        <div class="input" *ngIf="clock.dateDiff.enabled">
+          <label>{{'options.common.offset' | translate}}<tooltip text="{{'options.time.dateDiffOffset' | translate}}"></tooltip></label>
+          <options-range [name]="'dateDiffOffset'+i" [id]="'dateDiffOffset'+i" min="-50" max="50" [(ngModel)]="clock.dateDiff.offset" (ngModelChange)="ga.field('time.clocks.dateDiff.offset', clock.dateDiff.offset)"></options-range>
+        </div>
+      </div>
+      <!-- new code ends here -->
       <h4 class="span-2">{{'options.time.brackets' | translate}}</h4>
       <div class="indent">
         <div class="input">

@@ -80,6 +80,17 @@
     >{{ 
       getMeridiem(clock.timezone, clock.meridiem.am, clock.meridiem.pm) 
     }}</div>
+    <div
+      *ngIf="
+        clock.dateDiff.enabled
+      "
+      class="timeMeridiem"
+      [ngClass]="{ dim: clock.meridiem.dim }"
+      [style.fontSize]="shared.getFontSize(clock.dateDiff.scaling, 20)"
+      [style.transform]="shared.getOffset(clock.dateDiff.offset)"
+    > <sup>{{
+        getDateDiff(clock.timezone)
+    }}</sup></div>
   </div>
   <div
     class="analog"

@@ -150,6 +150,11 @@ export class SplashComponent implements OnInit {
         binary: {
           enabled: false,
           dim: false
+        },
+        dateDiff: {
+          enabled: false,
+          scaling: 10,
+          offset: 0
         }
       });
     } else {

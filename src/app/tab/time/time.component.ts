@@ -205,6 +205,26 @@ export class TabTimeComponent implements OnInit {
     return diff;
   }
 
+  getDateDiff(zone: string) {
+    moment.locale(this.settings.config.i18n.lang);
+    zone = this.getZone(zone);
+    let here = moment(this.currentTime);
+    let hereOffset = here.utcOffset();
+    let there = moment(this.currentTime).tz(zone);
+    let thereOffset = there.utcOffset();
+    let offset = (thereOffset - hereOffset) / 60;
+
+    let hour = parseInt(moment(this.currentTime).format('HH'));
+    
+    let diff = '';
+    if (offset < 0 && hour + offset <= 0) {
+      diff = "-1"
+    } else if (offset > 0 && hour + offset > 23) {
+      diff = "+1"
+    }
+    return diff
+  }
+
   getBlink(isBlinking): boolean {
     let time = Number(moment(this.currentTime).format('SSS'));
     if (time > 500 && isBlinking) {

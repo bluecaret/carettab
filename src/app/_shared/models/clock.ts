@@ -21,6 +21,7 @@ export class Clock {
     public brackets: Brackets = new Brackets(),
     public analog: Analog = new Analog(),
     public binary: Binary = new Binary(),
+    public dateDiff: DateDiff = new DateDiff(),
   ) {}
 }
 
@@ -97,5 +98,13 @@ export class Binary {
   constructor(
     public enabled: boolean = false,
     public dim: boolean = false
+  ) {}
+}
+
+export class DateDiff {
+  constructor(
+    public enabled: boolean = false,
+    public scaling: number = 10,
+    public offset: number = 0
   ) {}
 }

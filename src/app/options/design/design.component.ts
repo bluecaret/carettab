@@ -108,6 +108,13 @@ export class OptionsDesignComponent implements OnInit {
     this.shared.echo('Pattern changed', bg);
   }
 
+  toggleDarkMode() {
+    var t = this.settings.config.design.foreground;
+    this.settings.config.design.foreground = this.settings.config.design.background;
+    this.settings.config.design.background = t;
+    this.setLocalBg(t)
+  }
+
   encodeImage(e, input) {
     let file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
     let pattern = /image-*/;

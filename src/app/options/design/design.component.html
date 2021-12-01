@@ -42,6 +42,14 @@
     <label for="scalingMethod">{{'options.design.dynScale' | translate}}<tooltip text="{{'options.design.dynScaleDesc' | translate}}"></tooltip></label>
     <options-toggle id="scalingMethod" name="scalingMethod" [(ngModel)]="settings.config.design.scalingMethod" (ngModelChange)="ga.field('design.scalingMethod', settings.config.design.scalingMethod);"></options-toggle>
   </div>
+  <!-- dark theme toggle -->
+  <div class="input">
+    <label for="darkTheme">{{'options.design.darkTheme' | translate}}</label>
+    <options-toggle id="darkTheme" name="darkTheme" [(ngModel)]="settings.config.design.darkTheme"
+      (ngModelChange)="toggleDarkMode(); ga.field('design.darkTheme', settings.config.design.darkTheme);
+      ga.field('design.foreground', settings.config.design.foreground); ga.field('design.background', settings.config.design.background);">
+    </options-toggle>
+  </div>
   <!-- Colors -->
   <h3>{{'options.design.colors' | translate}}</h3>
   <div class="input">

@@ -35,6 +35,7 @@ export class DesignSettings {
     public background = '#ffffff',
     public foreground = '#000000',
     public randTheme = false,
+    public darkTheme = false,
     public colorsId = 0,
     public patternId = 0,
     public imageSize = 10,

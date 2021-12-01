@@ -76,6 +76,13 @@
       </div>
     </div>
   </div>
+
+  <!-- random preset theme toggle -->
+  <div class="input">
+    <label for="randTheme">{{'options.design.randTheme' | translate}}</label>
+    <options-toggle id="randTheme" name="randTheme" [(ngModel)]="settings.config.design.randTheme" (ngModelChange)="ga.field('design.randTheme', settings.config.design.randTheme);"></options-toggle>
+  </div>
+
   <div id="themeBtns" class="grid cols-4 mt designGrid">
     <button
       *ngFor="let color of colors;"

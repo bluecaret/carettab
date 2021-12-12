@@ -42,7 +42,6 @@ export class TabComponent implements OnInit, AfterViewInit {
       this.settings.config.design.colorsId = c.id;
     }
 
-    // rest of the initial init
     let localBgColor = this.settings.config.design.background;
     this.shared.bgColor = localBgColor;
     localStorage.setItem('ct-background', localBgColor);

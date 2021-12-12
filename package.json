@@ -54,7 +54,8 @@
     "shx": "^0.3.3",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
-    "typescript": "3.5.3"
+    "typescript": "3.5.3",
+    "web-ext": "^6.5.0"
   },
   "prettier": {
     "singleQuote": true,

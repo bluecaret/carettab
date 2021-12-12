@@ -48,7 +48,6 @@ Submit a Pull Request in GitHub if you would like to contribute. Always welcome 
 ### First time installation:
 1. Make sure you have [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed 
 2. Run `npm install` for packages necessary to build the project
-3. Run `npm install web-ext` to be able to start a dev build instance in Chrome
 
 ### Development workflow:
 1. Run `npm start` for a dev build. This is where local changes will be compiled and built.

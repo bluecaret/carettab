@@ -211,10 +211,16 @@ export class DateSettings {
     public position = 'c',
     public timezone = 'Automatic',
     public dimDelimiter = false,
+    public dimSuffix = false,
     public format = 20,
     public short = {
       enabled: false,
-      delimiter: '/'
+      enableDelimiter: true,
+      enableSuffix: false,
+      delimiter: '/',
+      yearSuffix: '',
+      monthSuffix: '',
+      dateSuffix:''
     },
     public year = {
       enabled: true,

@@ -27,19 +27,48 @@
         <option *ngFor="let f of dateFormat" [ngValue]="f.id">{{f.label}}</option>
       </select>
     </div>
+
+    <!-- Short Date -->
     <h3>{{'options.date.shortDate' | translate}}</h3>
     <div class="input">
       <label>{{'options.date.enableShortDate' | translate}}</label>
       <options-toggle type="toggle" name="short" [(ngModel)]="settings.config.date.short.enabled" (ngModelChange)="ga.field('date.short.enabled', settings.config.date.short.enabled);"></options-toggle>
     </div>
+    <!-- Delimiter related -->
     <div class="input" *ngIf="settings.config.date.short.enabled">
+      <label>{{'options.date.enableDelimiter' | translate}}</label>
+      <options-toggle type="toggle" name="enableDelimiter" [(ngModel)]="settings.config.date.short.enableDelimiter" (ngModelChange)="ga.field('date.short.enableDelimiter', settings.config.date.short.enableDelimiter);"></options-toggle>
+    </div>
+    <div class="input" *ngIf="settings.config.date.short.enabled && settings.config.date.short.enableDelimiter">
         <label for="delimiterDim">{{'options.date.dimDateDelimiter' | translate}}</label>
         <options-toggle type="toggle" name="delimiterDim" id="labelDim" [(ngModel)]="settings.config.date.dimDelimiter" (ngModelChange)="ga.field('date.dimDelimiter',settings.config.date.dimDelimiter)"></options-toggle>
     </div>
-    <div class="input" *ngIf="settings.config.date.short.enabled">
+    <div class="input" *ngIf="settings.config.date.short.enabled && settings.config.date.short.enableDelimiter">
       <label for="shortDelimiter">{{'options.common.delimiter' | translate}}</label>
       <input type="text" maxlength="1" id="shortDelimiter" name="shortDelimiter" [(ngModel)]="settings.config.date.short.delimiter" (change)="ga.field('date.short.delimiter', settings.config.date.short.delimiter);" autocomplete="off">
     </div>
+    <!-- Suffix related -->
+    <div class="input" *ngIf="settings.config.date.short.enabled">
+      <label>{{'options.date.enableSuffix' | translate}}</label>
+      <options-toggle type="toggle" name="enableSuffix" [(ngModel)]="settings.config.date.short.enableSuffix" (ngModelChange)="ga.field('date.short.enableSuffix', settings.config.date.short.enableSuffix);"></options-toggle>
+    </div>
+    <div class="input" *ngIf="settings.config.date.short.enabled && settings.config.date.short.enableSuffix">
+        <label for="suffixDim">{{'options.date.dimDateSuffix' | translate}}</label>
+        <options-toggle type="toggle" name="suffixDim" id="labelDim" [(ngModel)]="settings.config.date.dimSuffix" (ngModelChange)="ga.field('date.dimSuffix',settings.config.date.dimSuffix)"></options-toggle>
+    </div>
+    <div class="input" *ngIf="settings.config.date.short.enabled && settings.config.date.short.enableSuffix">
+      <label for="shortSuffixYear">{{'options.common.suffix' | translate}}-{{'options.date.year' | translate}} </label>
+      <input type="text" maxlength="3" id="shortSuffixYear" name="shortSuffixYear" [(ngModel)]="settings.config.date.short.yearSuffix" (change)="ga.field('date.short.yearSuffix', settings.config.date.short.yearSuffix);" autocomplete="off">
+    </div>
+    <div class="input" *ngIf="settings.config.date.short.enabled && settings.config.date.short.enableSuffix">
+      <label for="shortSuffixMonth">{{'options.common.suffix' | translate}}-{{'options.date.month' | translate}} </label>
+      <input type="text" maxlength="3" id="shortSuffixMonth" name="shortSuffixMonth" [(ngModel)]="settings.config.date.short.monthSuffix" (change)="ga.field('date.short.monthSuffix', settings.config.date.short.monthSuffix);" autocomplete="off">
+    </div>
+    <div class="input" *ngIf="settings.config.date.short.enabled && settings.config.date.short.enableSuffix">
+      <label for="shortSuffixDate">{{'options.common.suffix' | translate}}-{{'options.date.date' | translate}} </label>
+      <input type="text" maxlength="3" id="shortSuffixDate" name="shortSuffixDate" [(ngModel)]="settings.config.date.short.dateSuffix" (change)="ga.field('date.short.dateSuffix', settings.config.date.short.dateSuffix);" autocomplete="off">
+    </div>
+
     <h3>{{'options.date.year' | translate}}</h3>
     <div class="input">
       <label>{{'options.date.enableYear' | translate}}</label>

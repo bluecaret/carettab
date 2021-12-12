@@ -189,6 +189,18 @@ export class TabDateComponent implements OnInit {
     return (size * .1) + 'em';
   }
 
+  getDateSuffix() {
+    return this.settings.config.date.short.dateSuffix;
+  }
+
+  getMonthSuffix() {
+    return this.settings.config.date.short.monthSuffix;
+  }
+
+  getYearSuffix() {
+    return this.settings.config.date.short.yearSuffix;
+  }
+  
   getDelimiter() {
     return this.settings.config.date.short.delimiter;
   }

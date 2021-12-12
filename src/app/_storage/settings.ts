@@ -234,8 +234,6 @@ export class DateSettings {
       abbr: false
     },
     public ordinalContent = {
-      scaling: 10,
-      offset: 0,
       delimiter: '/'
     },
     public julianDate = {
@@ -245,7 +243,9 @@ export class DateSettings {
     public week = {
       enabled: false,
       label: 'Week',
-      iso: false
+      iso: false,
+      scaling: 10, // controls ordinalContent as a whole
+      offset: 0, // controls ordinalContent as a whole
     },
   ) {}
 }

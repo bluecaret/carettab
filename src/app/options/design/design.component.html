@@ -44,7 +44,13 @@
   </div>
   <!-- Colors -->
   <h3>{{'options.design.colors' | translate}}</h3>
+  <!-- random preset theme toggle -->
   <div class="input">
+    <label for="randTheme">{{'options.design.randTheme' | translate}}</label>
+    <options-toggle id="randTheme" name="randTheme" [(ngModel)]="settings.config.design.randTheme" (ngModelChange)="ga.field('design.randTheme', settings.config.design.randTheme);"></options-toggle>
+  </div>
+  <!-- Custom color settings -->
+  <div class="input" *ngIf="!(settings.config.design.randTheme)">
     <label id="set-foreground-label" for="set-foreground">{{'options.design.fg' | translate}}</label>
     <div class="grid cols-3">
       <div class="span-1">
@@ -59,7 +65,7 @@
       </div>
     </div>
   </div>
-  <div class="input">
+  <div class="input" *ngIf="!(settings.config.design.randTheme)">
     <label id="set-background-label" for="set-background">{{'options.design.bg' | translate}}</label>
     <div class="grid cols-3">
       <div class="span-1">
@@ -76,14 +82,7 @@
       </div>
     </div>
   </div>
-
-  <!-- random preset theme toggle -->
-  <div class="input">
-    <label for="randTheme">{{'options.design.randTheme' | translate}}</label>
-    <options-toggle id="randTheme" name="randTheme" [(ngModel)]="settings.config.design.randTheme" (ngModelChange)="ga.field('design.randTheme', settings.config.design.randTheme);"></options-toggle>
-  </div>
-
-  <div id="themeBtns" class="grid cols-4 mt designGrid">
+  <div id="themeBtns" class="grid cols-4 mt designGrid" *ngIf="!(settings.config.design.randTheme)">
     <button
       *ngFor="let color of colors;"
       class="colorsBtn btn btnBlock"

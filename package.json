@@ -50,7 +50,7 @@
     "@biesbjerg/ngx-translate-extract": "^2.3.4",
     "@types/node": "^6.0.118",
     "codelyzer": "^5.2.2",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "shx": "^0.3.3",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",

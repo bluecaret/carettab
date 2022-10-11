@@ -38,7 +38,7 @@
     "compare-versions": "^3.6.0",
     "core-js": "^2.6.12",
     "moment": "^2.29.1",
-    "moment-timezone": "^0.5.33",
+    "moment-timezone": "^0.5.35",
     "rxjs": "^6.6.7",
     "rxjs-compat": "^6.6.7",
     "zone.js": "^0.9.1"

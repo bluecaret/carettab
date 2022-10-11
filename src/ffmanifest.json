@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "__MSG_appName__",
   "short_name": "CaretTab",
   "description": "__MSG_appDesc__",
@@ -17,9 +17,7 @@
     "homepage": "index.html"
   },
   "background": {
-    "scripts": [
-      "js/update.js"
-    ]
+    "service_worker": "js/update.js"
   },
   "permissions": [
     "storage",
@@ -29,7 +27,6 @@
     "bookmarks",
     "topSites"
   ],
-  "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
   "applications": {
     "gecko": {
       "id": "{1ab49626-2e16-405b-ad65-dcaab8decd7b}",

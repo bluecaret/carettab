@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "__MSG_appName__",
   "short_name": "CaretTab",
   "description": "__MSG_appDesc__",
@@ -15,10 +15,7 @@
     "newtab": "index.html"
   },
   "background": {
-    "scripts": [
-      "js/update.js"
-    ],
-    "persistent": false
+    "service_worker": "js/update.js"
   },
   "offline_enabled": true,
   "permissions": [
@@ -28,6 +25,5 @@
   "optional_permissions": [
     "bookmarks",
     "topSites"
-  ],
-  "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'"
+  ]
 }

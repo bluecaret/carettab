@@ -118,7 +118,7 @@
             class="btn btnIcon"
             title="{{'options.bookmarks.deleteLink' | translate}}"
             attr.aria-label="{{'options.bookmarks.deleteLink' | translate}}"
-            (click)="deleteLink(link, i)>
+            (click)="deleteLink(link, i)">
             <div class="icon" aria-hidden="true">delete</div>
           </button>
         </div>
@@ -238,7 +238,7 @@
     </div>
     <div class="input" *ngIf="settings.config.quickLink.enabled">
       <label for="quickLinkMarginWidth">{{'options.common.marginWidth' | translate}}<tooltip text="{{'options.common.marginWidthDesc' | translate}}"></tooltip></label>
-      <options-range name="quickLinkMarginWidth" min="0" max="50" [(ngModel)]="settings.config.quickLink.marginWidth""></options-range>
+      <options-range name="quickLinkMarginWidth" min="0" max="50" [(ngModel)]="settings.config.quickLink.marginWidth"></options-range>
     </div>
     <div class="input" *ngIf="settings.config.quickLink.enabled">
       <label for="quickLinkOffset">{{'options.common.offset' | translate}}<tooltip text="{{'options.common.offsetDesc' | translate}}"></tooltip></label>

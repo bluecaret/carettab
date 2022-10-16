@@ -27,9 +27,6 @@ export class OptionsDashboardComponent implements OnInit {
     let url: string;
     if (this.shared.browser === 'edge') {
       url = 'https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe';
-    } else
-    if (this.shared.browser === 'firefox') {
-      url = 'https://addons.mozilla.org/en-US/firefox/addon/carettab/';
     } else {
       url = 'https://chrome.google.com/webstore/detail/carettab-new-tab-clock-an/cojpndognjdcakkimaloeealehpkljna';
     }

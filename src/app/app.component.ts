@@ -207,8 +207,6 @@ export class AppComponent implements OnInit {
     let b = Bowser.getParser(window.navigator.userAgent).getBrowserName();
     if (b === 'Microsoft Edge') {
       this.shared.browser = "edge";
-    } else if (b === 'Firefox') {
-      this.shared.browser = "firefox";
     } else if (b === 'Chrome') {
       this.shared.browser = "chrome";
     }

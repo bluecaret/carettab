@@ -5,7 +5,6 @@
   "scripts": {
     "ng": "ng",
     "start": "ng build --watch",
-    "start:firefox": "web-ext run --source-dir=dist-ff -t firefox-desktop",
     "start:chrome": "web-ext run --source-dir=dist -t chromium",
     "build": "set NODE_OPTIONS=--openssl-legacy-provider && ng build --prod",
     "build:ext": "web-ext build --source-dir=dist --artifacts-dir=.",
@@ -13,9 +12,8 @@
     "lint:webext": "web-ext lint --source-dir ./dist",
     "extract-translations": "ngx-translate-extract --input ./src --output ./src/assets/i18n/en-US.json ./src/assets/i18n/de-DE.json ./src/assets/i18n/es-MX.json ./src/assets/i18n/fr-FR.json ./src/assets/i18n/ja-JP.json ./src/assets/i18n/ko-KR.json  ./src/assets/i18n/ru-RU.json ./src/assets/i18n/uk-UA.json ./src/assets/i18n/zh-CN.json --sort --format namespaced-json -m _",
     "compile:chrome": "rimraf artifacts/chrome && ng build --prod --output-path ./dist-chrome && web-ext build --source-dir=dist-chrome --artifacts-dir=artifacts/chrome",
-    "compile:firefox": "rimraf artifacts/ff && ng build --prod --output-path ./dist-ff && shx cp ./src/ffmanifest.json ./dist-ff/manifest.json && web-ext build --source-dir=dist-ff --artifacts-dir=artifacts/ff",
     "compile:edge": "rimraf artifacts/edge && ng build --prod --output-path ./dist-edge && shx cp ./src/edgemanifest.json ./dist-edge/manifest.json && web-ext build --source-dir=dist-edge --artifacts-dir=artifacts/edge",
-    "compile:all": "npm run compile:chrome && npm run compile:firefox && npm run compile:edge"
+    "compile:all": "npm run compile:chrome && npm run compile:edge"
   },
   "private": true,
   "dependencies": {

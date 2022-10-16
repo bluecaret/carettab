@@ -19,7 +19,7 @@ For more information visit the website for [CaretTab](http://www.carettab.com)
 - Customize everything! Toggle the time, seconds, time format, date, date format, search engine, 24 hour time, week numbers, tab title and more.
 - Sync support. Keep your settings across all devices. (Requires storage permissions)
 - Multiple languages supported!
-- Available on Chrome, Firefox, and Edge.
+- Available on Chrome and Edge.
 
 Have any suggestions? Let me know on Twitter @BlueCaret
 
@@ -34,9 +34,6 @@ You can install CaretTab through the browser web stores
 **Chrome:**
 [https://chrome.google.com/webstore/detail/carettab-new-tab-page/cojpndognjdcakkimaloeealehpkljna](https://chrome.google.com/webstore/detail/carettab-new-tab-page/cojpndognjdcakkimaloeealehpkljna)
 
-**Firefox:**
-[https://addons.mozilla.org/en-US/firefox/addon/carettab/](https://addons.mozilla.org/en-US/firefox/addon/carettab/)
-
 **Edge:**
 [https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe](https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe)
 
@@ -46,8 +43,6 @@ Submit a Pull Request in GitHub if you would like to contribute. Always welcome 
 
 ## Build
 Run `npm start` for a dev build. You can then run `npm run start:chrome` to start an instance of the dev build in Chrome.
-
-You can run in FireFox by running `npm run compile:firefox` followed by `npm run start:firefox`.
 
 ### For a production ready build
 

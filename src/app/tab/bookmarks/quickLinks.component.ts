@@ -56,12 +56,12 @@ export class TabQuickLinksComponent implements OnInit {
     });
   }
 
-  // Use DuckDuckGo favicon service if firefox or no window.chrome
+  // Use DuckDuckGo favicon service if no window.chrome
   // otherwise use the chrome service.
   getQuickLinksIcon(url) {
     if (!this.iconTemp[url]) {
       const hostname = new URL(url).hostname;
-      if (this.browser === 'Firefox' || !this.isChrome) {
+      if (!this.isChrome) {
         this.iconTemp[url] = this.sanitizer.bypassSecurityTrustResourceUrl('https://icons.duckduckgo.com/ip3/' + hostname + '.ico' );
       } else {
         this.iconTemp[url] = this.sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/size/16@2x/' + url);
@@ -95,9 +95,6 @@ export class TabQuickLinksComponent implements OnInit {
 
     if (this.os === 'macOS') {
       return `Shortcut: [control]+[alt]+${i}`;
-    }
-    if (this.browser === 'Firefox') {
-      return `Shortcut: [alt]+[shift]+${i}`;
     }
     return `Shortcut: [alt]+${i}`;
   }

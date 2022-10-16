@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GoogleAnalyticsService } from '../../_shared/ga.service';
 import { SharedService } from '../../_shared/shared.service';
 
 @Component({
@@ -10,7 +9,7 @@ export class OptionsDashboardComponent implements OnInit {
   status: string;
   shareMenu = false;
 
-  constructor(public shared: SharedService, public ga: GoogleAnalyticsService) {
+  constructor(public shared: SharedService) {
   }
 
   ngOnInit(): void {

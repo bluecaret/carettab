@@ -2,7 +2,6 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { fade } from '../../_shared/animations';
 import { SharedService } from '../../_shared/shared.service';
-import { GoogleAnalyticsService } from '../../_shared/ga.service';
 
 @Component({
   selector: 'options-bookmarks',
@@ -25,7 +24,6 @@ export class OptionsBookmarksComponent implements OnInit {
     public settings: Storage,
     public shared: SharedService,
     private zone: NgZone,
-    public ga: GoogleAnalyticsService
   ) {
   }
 

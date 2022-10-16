@@ -3,7 +3,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
 import * as Bowser from 'bowser';
-import { GoogleAnalyticsService } from '../../_shared/ga.service';
 
 @Component({
   selector: 'tab-quickLinks',
@@ -29,7 +28,6 @@ export class TabQuickLinksComponent implements OnInit {
     private cdRef: ChangeDetectorRef,
     private sanitizer: DomSanitizer,
     private zone: NgZone,
-    public ga: GoogleAnalyticsService
   ) {
     this.settings.onChange().subscribe((data) => {
       if (this.settings.config) {
@@ -94,7 +92,7 @@ export class TabQuickLinksComponent implements OnInit {
     if (index > 9) return null;
     if (index === 9) i = 0;
     if (index < 9) i = index + 1;
-    
+
     if (this.os === 'macOS') {
       return `Shortcut: [control]+[alt]+${i}`;
     }

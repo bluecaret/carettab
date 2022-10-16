@@ -17,7 +17,6 @@ import { RangeComponent } from './_shared/controls/range.component';
 import { SettingsToggleComponent } from './_shared/controls/settings-toggle.component';
 import { LogoComponent } from './_shared/controls/logo.component';
 import { TooltipComponent } from './_shared/controls/tooltip.component';
-import { GoogleAnalyticsService } from './_shared/ga.service';
 import { WeatherService } from './tab/weather/weather.service';
 import * as moment from 'moment-timezone';
 
@@ -108,7 +107,6 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
   providers: [
     SharedService,
     TimezoneService,
-    GoogleAnalyticsService,
     WeatherService
   ],
   bootstrap: [AppComponent]

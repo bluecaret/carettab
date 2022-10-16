@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { searchEngines } from '../../_shared/lists/lists';
-import { GoogleAnalyticsService } from '../../_shared/ga.service';
 import { SharedService } from '../../_shared/shared.service';
 
 @Component({
@@ -18,7 +17,6 @@ export class TabSearchComponent implements OnInit {
   constructor(
     public shared: SharedService,
     public settings: Storage,
-    public ga: GoogleAnalyticsService
   ) {
     this.settings.onChange().subscribe((data) => {
       if (data['ct-search'] && data['ct-search'].newValue.enabled === true) {

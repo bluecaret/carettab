@@ -2,11 +2,11 @@
 <form #messageOptions="ngForm" novalidate>
   <div class="input">
     <label>{{'options.message.msg' | translate}}</label>
-    <options-toggle name="message" id="message" [(ngModel)]="settings.config.messages.enabled" (ngModelChange)="shared.toggleOrder(settings.config.messages.id, $event, settings.config.messages.position); ga.field('messages.enabled', settings.config.messages.enabled);"></options-toggle>
+    <options-toggle name="message" id="message" [(ngModel)]="settings.config.messages.enabled" (ngModelChange)="shared.toggleOrder(settings.config.messages.id, $event, settings.config.messages.position);"></options-toggle>
   </div>
   <div class="input" *ngIf="settings.config.messages.enabled">
     <label>{{'options.message.randomMsg' | translate}}<tooltip text="{{'options.message.randomMsgDesc' | translate}}"></tooltip></label>
-    <options-toggle name="randomMessage" id="randomMessage" [(ngModel)]="settings.config.messages.random" (ngModelChange)="ga.field('messages.random', settings.config.messages.random);"></options-toggle>
+    <options-toggle name="randomMessage" id="randomMessage" [(ngModel)]="settings.config.messages.random"></options-toggle>
   </div>
 </form>
 <ng-container *ngIf="settings.config.messages.enabled">
@@ -23,7 +23,7 @@
               [name]="'message'+i"
               #editText="ngModel"
               [(ngModel)]="message.text"
-              (change)="ga.field('messages.text', 'userData');"
+
               autocomplete="off">
             <div class="valMsg" *ngIf="messageList.invalid && messageList.submitted">{{'options.message.messageValidation' | translate}}</div>
           </div>
@@ -32,7 +32,7 @@
               type="button"
               class="btn btnIcon"
               [disabled]="settings.config.messages.messageList.length === 1"
-              (click)="removeMessage(i); ga.field('button.messageDelete', 'true');">
+              (click)="removeMessage(i);">
               <div class="icon" aria-hidden="true">delete</div>
             </button>
           </div>
@@ -40,7 +40,7 @@
       </ng-container>
     </div>
   </form>
-  <form *ngIf="settings.config.messages.random" #newMessage="ngForm" novalidate (ngSubmit)="addMessage(newMessage, newMessage.valid); ga.field('button.messageNewAdd', 'true');">
+  <form *ngIf="settings.config.messages.random" #newMessage="ngForm" novalidate (ngSubmit)="addMessage(newMessage, newMessage.valid);">
     <div class="grid cols-19 mb1">
       <div class="span-15">
         <input
@@ -49,7 +49,7 @@
           placeholder="Add new message"
           #newMessageTextRef="ngModel"
           [(ngModel)]="newMessageText"
-          (change)="ga.field('messages.newMessage', 'userData');"
+
           autocomplete="off"
           required>
         <div class="valMsg" *ngIf="newMessageTextRef.invalid && newMessage.submitted">{{'options.message.messageValidation' | translate}}</div>
@@ -73,9 +73,6 @@
         min="1"
         max="50"
         [(ngModel)]="settings.config.messages.scaling"
-        (ngModelChange)="
-          ga.field('messages.scaling', settings.config.messages.scaling)
-        "
       ></options-range>
     </div>
     <div class="input">
@@ -87,7 +84,7 @@
           title="{{'options.common.moveUp' | translate}}"
           class="btn"
           [disabled]="shared.isFirst(settings.config.messages.id, settings.config.messages.position)"
-          (click)="shared.changeOrder(settings.config.messages.id, true, settings.config.messages.position); ga.field('button.messageMoveUp', 'true');">
+          (click)="shared.changeOrder(settings.config.messages.id, true, settings.config.messages.position);">
           <div class="icon" aria-hidden="true">expand_less</div>
         </button>
         <button
@@ -96,14 +93,14 @@
           title="{{'options.common.moveDown' | translate}}"
           class="btn"
           [disabled]="shared.isLast(settings.config.messages.id, settings.config.messages.position)"
-          (click)="shared.changeOrder(settings.config.messages.id, false, settings.config.messages.position); ga.field('button.messageMoveDown', 'true');">
+          (click)="shared.changeOrder(settings.config.messages.id, false, settings.config.messages.position);">
           <div class="icon" aria-hidden="true">expand_more</div>
         </button>
       </div>
     </div>
     <div class="input">
       <label for="messagePlacement">{{'options.common.position' | translate}}<tooltip text="{{'options.common.positionDesc' | translate}}"></tooltip></label>
-      <options-position id="messagePlacement" name="messagePlacement" [settingId]="settings.config.messages.id" [(ngModel)]="settings.config.messages.position" (ngModelChange)="ga.field('messages.position', settings.config.messages.position)"></options-position>
+      <options-position id="messagePlacement" name="messagePlacement" [settingId]="settings.config.messages.id" [(ngModel)]="settings.config.messages.position"></options-position>
     </div>
     <div class="input">
       <label for="messageTextAlign">{{'options.common.alignText' | translate}}<tooltip text="{{'options.common.alignTextDesc' | translate}}"></tooltip></label>
@@ -113,7 +110,7 @@
           class="btn btnIcon"
           [ngClass]="{'active' : settings.config.messages.textAlign === 'left'}"
           title="{{'options.common.alignTextLeft' | translate}}"
-          (click)="settings.config.messages.textAlign = 'left'; ga.field('messages.textAlign', 'left')">
+          (click)="settings.config.messages.textAlign = 'left';">
           <div class="icon" aria-hidden="true">format_align_left</div>
         </button>
         <button
@@ -121,7 +118,7 @@
           class="btn btnIcon"
           [ngClass]="{'active' : settings.config.messages.textAlign === 'center'}"
           title="{{'options.common.alignTextCenter' | translate}}"
-          (click)="settings.config.messages.textAlign = 'center'; ga.field('messages.textAlign', 'center')">
+          (click)="settings.config.messages.textAlign = 'center';">
           <div class="icon" aria-hidden="true">format_align_center</div>
         </button>
         <button
@@ -129,26 +126,26 @@
           class="btn btnIcon"
           [ngClass]="{'active' : settings.config.messages.textAlign === 'right'}"
           title="{{'options.common.alignTextRight' | translate}}"
-          (click)="settings.config.messages.textAlign = 'right'; ga.field('messages.textAlign', 'right')">
+          (click)="settings.config.messages.textAlign = 'right';">
           <div class="icon" aria-hidden="true">format_align_right</div>
         </button>
       </div>
     </div>
     <div class="input">
       <label>{{'options.common.maxWidth' | translate}}<tooltip text="{{'options.common.maxWidthDesc' | translate}}"></tooltip></label>
-      <options-range name="messageWidth" id="messageWidth" min="1" max="100" [(ngModel)]="settings.config.messages.width" (ngModelChange)="ga.field('messages.width', settings.config.messages.width);"></options-range>
+      <options-range name="messageWidth" id="messageWidth" min="1" max="100" [(ngModel)]="settings.config.messages.width"></options-range>
     </div>
     <div class="input">
       <label for="messageMarginHeight">{{'options.common.marginHeight' | translate}}<tooltip text="{{'options.common.marginHeightDesc' | translate}}"></tooltip></label>
-      <options-range name="messageMarginHeight" min="0" max="50" [(ngModel)]="settings.config.messages.marginHeight" (ngModelChange)="ga.field('messages.marginHeight', settings.config.messages.marginHeight)"></options-range>
+      <options-range name="messageMarginHeight" min="0" max="50" [(ngModel)]="settings.config.messages.marginHeight"></options-range>
     </div>
     <div class="input">
       <label for="messageMarginWidth">{{'options.common.marginWidth' | translate}}<tooltip text="{{'options.common.marginWidthDesc' | translate}}"></tooltip></label>
-      <options-range name="messageMarginWidth" min="0" max="50" [(ngModel)]="settings.config.messages.marginWidth" (ngModelChange)="ga.field('messages.marginWidth', settings.config.messages.marginWidth)"></options-range>
+      <options-range name="messageMarginWidth" min="0" max="50" [(ngModel)]="settings.config.messages.marginWidth"></options-range>
     </div>
     <div class="input">
       <label>{{'options.common.offset' | translate}}<tooltip text="{{'options.common.offsetDesc' | translate}}"></tooltip></label>
-      <options-range name="messageOffset" min="-50" max="50" [(ngModel)]="settings.config.messages.offset" (ngModelChange)="ga.field('messages.offset', settings.config.messages.offset);"></options-range>
+      <options-range name="messageOffset" min="-50" max="50" [(ngModel)]="settings.config.messages.offset"></options-range>
     </div>
   </form>
 </ng-container>

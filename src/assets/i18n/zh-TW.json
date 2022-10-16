@@ -166,8 +166,6 @@
     "extra": {
       "disableSelect": "禁用文字選擇",
       "disableSelectDesc": "這將禁用您在新標籤頁上選擇文字，可避免一些意外選取讓畫面顯示的更清晰。",
-      "enableAnalytics": "啟用分析數據",
-      "enableAnalyticsDesc": "CaretTab希望回傳您對擴充功能的使用狀況來進行分析。這有助於我們通過了解擴充功能的使用狀況來改進擴充功能。這會追蹤數據，例如打開設置選單和更改設置的時間。這不會追蹤任何個人識別信息。您可以隨時選擇加入或退出。",
       "export": "匯出",
       "exportImport": "匯出／匯入",
       "exportSettings": "匯出設定",

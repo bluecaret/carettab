@@ -32,7 +32,6 @@ export class OptionsExtraComponent {
         null,
         'save'
       );
-      localStorage.setItem('ct-enableAnalytics', 'true');
       location.reload();
     } else {
       return;
@@ -45,12 +44,6 @@ export class OptionsExtraComponent {
 
   findTitleType(type) {
     return this.titleOptions.find((x) => x.id === type);
-  }
-
-  enableAnalytics(enable: boolean) {
-    enable === true
-      ? localStorage.setItem('ct-enableAnalytics', 'true')
-      : localStorage.setItem('ct-enableAnalytics', 'false');
   }
 
   export() {

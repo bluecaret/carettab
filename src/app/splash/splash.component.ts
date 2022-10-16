@@ -159,13 +159,6 @@ export class SplashComponent implements OnInit {
     this.step = 4;
   }
 
-  enableAnalytics(enable: boolean) {
-    this.settings.config.misc.enableAnalytics = true;
-    enable === true ?
-      localStorage.setItem('ct-enableAnalytics', 'true') : localStorage.setItem('ct-enableAnalytics', 'false');
-    this.step = 7;
-  }
-
   enableDate(enable: boolean) {
     let dateId = this.settings.config.date.id;
     if (enable) {

@@ -95,20 +95,6 @@
   <label>{{'options.extra.hideLogo' | translate}}</label>
   <options-toggle name="hideLogo" id="hideLogo" [(ngModel)]="settings.config.design.hideLogo"></options-toggle>
 </div> -->
-<div class="input">
-  <label>
-    {{ 'options.extra.enableAnalytics' | translate }}
-    <tooltip
-      text="{{ 'options.extra.enableAnalyticsDesc' | translate }}"
-    ></tooltip>
-  </label>
-  <options-toggle
-    name="enableAnalytics"
-    id="enableAnalytics"
-    [(ngModel)]="settings.config.misc.enableAnalytics"
-  >
-  </options-toggle>
-</div>
 <div class="warning pl15 mt1">
   <div class="icon" aria-hidden="true">info</div>{{'options.common.requiresInternet' | translate}}
 </div>

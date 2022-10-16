@@ -54,23 +54,14 @@ export class AppComponent implements OnInit {
     this.handleVersionNumbers();
     this.shared.echo('Settings from load:', '', this.settings.config);
     this.translate.setDefaultLang('en-US');
-    
+
     this.shared.zoneGuess = moment.tz.guess();
     this.shared.echo('Timezone guess:', this.shared.zoneGuess);
 
     this.findBrowser();
 
-    this.settings.onChange().subscribe((data) => {
-      this.enableAnalytics(this.settings.config.misc.enableAnalytics);
-    });
-
     // Set background initially to blank pattern to avoid 404 error due to setTimeout
     this.shared.bg = './assets/patterns/0.png';
-  }
-
-  enableAnalytics(enable: boolean) {
-    enable === true ?
-      localStorage.setItem('ct-enableAnalytics', 'true') : localStorage.setItem('ct-enableAnalytics', 'false');
   }
 
   migrateSettings() {
@@ -153,7 +144,7 @@ export class AppComponent implements OnInit {
         this.shared.echo('Cleared old settings', '', this.settings.config, "warning");
 
         this.shared.saveAll();
-        
+
         localStorage.setItem('carettabSettingsMigation', '1.1');
 
       } else {

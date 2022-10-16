@@ -326,7 +326,6 @@ export class WeatherSettings {
 export class MiscSettings {
   constructor(
     public schema = '1.1',
-    public enableAnalytics = true,
     public disableSelect = true,
     public title = {
       type: 10,

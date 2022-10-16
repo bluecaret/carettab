@@ -31,29 +31,12 @@ export class TabSearchComponent implements OnInit {
 
   setEngine() {
     let engine = this.engines.find(e => e.id === this.settings.config.search.engine);
-    if (engine.id === 40 && this.shared.browser === 'chrome') {
-      this.url = `https://find.allsearchvip.com/results.aspx?gd=SY1004045&searchsource=69`;
-      this.param = `q`;
-    } else if (engine.id === 40 && this.shared.browser === 'firefox') {
-      this.url = `https://find.allsearchvip.com/results.aspx?gd=SY1004047&searchsource=69`;
-      this.param = `q`;
-    } else if (engine.id === 40 && this.shared.browser === 'edge') {
-      this.url = `https://find.allsearchvip.com/results.aspx?gd=SY1004046&searchsource=69`;
-      this.param = `q`;
-    } else {
-      this.url = engine.url;
-      this.param = engine.param;
-    }
+    this.url = engine.url;
+    this.param = engine.param;
   }
 
   performSearch() {
-    let searchUrl;
-    let engine = this.engines.find(e => e.id === this.settings.config.search.engine);
-    if (engine.id === 40 && (this.shared.browser === 'chrome' || this.shared.browser === 'firefox' || this.shared.browser === 'edge')) {
-      searchUrl = `${this.url}&q=${encodeURIComponent(this.searchText)}`
-    } else {
-      searchUrl = `${this.url}?${this.param}=${encodeURIComponent(this.searchText)}`
-    }
+    let searchUrl = `${this.url}?${this.param}=${encodeURIComponent(this.searchText)}`
     location.replace(searchUrl);
   }
 

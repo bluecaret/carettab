@@ -253,7 +253,7 @@ export class SearchSettings {
     public marginWidth = 10,
     public position = 'c',
     public width = 21,
-    public engine = 40,
+    public engine = 10,
     public autocomplete = true,
     public label = 'Search the web...',
   ) {}

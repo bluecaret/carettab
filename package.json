@@ -45,7 +45,7 @@
     "@angular/cli": "8.3.21",
     "@angular/compiler-cli": "8.2.14",
     "@angular/language-service": "8.2.14",
-    "@biesbjerg/ngx-translate-extract": "^2.3.4",
+    "@biesbjerg/ngx-translate-extract": "^7.0.4",
     "@types/node": "^6.0.118",
     "codelyzer": "^5.2.2",
     "sass": "^1.55.0",

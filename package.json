@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng build --watch",
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && ng build --watch",
     "start:chrome": "web-ext run --source-dir=dist -t chromium",
     "build": "set NODE_OPTIONS=--openssl-legacy-provider && ng build --prod",
     "build:ext": "web-ext build --source-dir=dist --artifacts-dir=.",

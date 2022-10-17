@@ -90,7 +90,8 @@ export class OptionsDesignComponent implements OnInit {
 
   setLocalBg(bg = this.shared.bgColor) {
     this.shared.bgColor = bg;
-    localStorage.setItem('ct-background', bg);
+    // localStorage.setItem('ct-background', bg);
+    chrome.storage.local.set({ctBackground: bg});
   }
 
   setPattern(p: {id: number, pattern: string}) {

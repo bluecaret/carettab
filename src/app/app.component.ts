@@ -50,7 +50,13 @@ export class AppComponent implements OnInit {
     this.shared.echo('Thank you for using CaretTab!');
   }
 
+
   ngOnInit() {
+    // let localBg = localStorage.getItem('ct-background');
+    chrome.storage.local.get(['ctBackground'], function (data) {
+      document.body.style.backgroundColor = data.ctBackground;
+    });
+
     this.handleVersionNumbers();
     this.shared.echo('Settings from load:', '', this.settings.config);
     this.translate.setDefaultLang('en-US');
@@ -197,7 +203,8 @@ export class AppComponent implements OnInit {
         this.shared.echo('Settings migrated, saving...', '', this.settings.config, "success");
         this.shared.saveAll();
 
-        localStorage.setItem('ct-background', this.settings.config.design.background);
+        // localStorage.setItem('ct-background', this.settings.config.design.background);
+        chrome.storage.local.set({ctBackground: this.settings.config.design.background});
         this.shared.bgColor = this.settings.config.design.background;
       }
     }));
@@ -213,36 +220,36 @@ export class AppComponent implements OnInit {
   }
 
   handleVersionNumbers() {
-    let prevVer: string = localStorage.getItem("caretTabPrevVersion");
-    let newVer: string = localStorage.getItem("caretTabNewVersion");
-    this.shared.status = localStorage.getItem("caretTabStatus");
+    let _self = this;
+    chrome.storage.local.get(['caretTabStatus', 'caretTabNewVersion', 'caretTabPrevVersion'], function (data) {
+      let prevVer: string = data.caretTabPrevVersion ? data.caretTabPrevVersion : '';
+      let newVer: string = data.caretTabNewVersion ? data.caretTabNewVersion : '';
+      _self.shared.status = data.caretTabStatus;
 
-    this.shared.echo('Extension status:', this.shared.status);
+      _self.shared.echo('Extension status:', _self.shared.status);
 
-    // Display major update splash screen for version 3.0.0
-    if (prevVer) {
-      if (compare(prevVer, '3.5.0', '<')) {
-        this.shared.updateType = "major";
-      } else if (compare(prevVer, '3.6.0', '<')) {
-        this.shared.updateType = "minor"
-      } else {
-        this.shared.updateType = "hidden"
+      // Display major update splash screen for version 3.0.0
+      if (prevVer) {
+        if (compare(prevVer, '3.5.0', '<')) {
+          _self.shared.updateType = "major";
+        } else if (compare(prevVer, '3.6.3', '<')) {
+          _self.shared.updateType = "quiet"
+        } else {
+          _self.shared.updateType = "hidden"
+        }
       }
-    }
 
-    let hasMigrationHappened = localStorage.getItem('carettabSettingsMigation');
+      let hasMigrationHappened = localStorage.getItem('carettabSettingsMigation');
 
-    if (!hasMigrationHappened && prevVer && compare(prevVer, '3.4.0', '<') && this.shared.status === 'updated') {
-      this.shared.echo('Migrate pre-schema settings');
-      this.migrateSettings();
-    } else if ((!hasMigrationHappened || hasMigrationHappened !== '1.1') && this.shared.status === 'updated') {
-      this.shared.echo('Migrate settings from schema 1.0 to 1.1');
-      this.migrateTo11();
-    }
+      if (!hasMigrationHappened && prevVer && compare(prevVer, '3.4.0', '<') && _self.shared.status === 'updated') {
+        _self.shared.echo('Migrate pre-schema settings');
+        _self.migrateSettings();
+      } else if ((!hasMigrationHappened || hasMigrationHappened !== '1.1') && _self.shared.status === 'updated') {
+        _self.shared.echo('Migrate settings from schema 1.0 to 1.1');
+        _self.migrateTo11();
+      }
 
-    localStorage.setItem('caretTabUpdateType', this.shared.updateType);
-
-    this.shared.echo(`Version check:`, `Prev: ${prevVer} | New: ${newVer} | Type: ${this.shared.updateType}`);
+      _self.shared.echo(`Version check:`, `Prev: ${prevVer} | New: ${newVer} | Type: ${_self.shared.updateType}`);
+    });
   }
-
 }

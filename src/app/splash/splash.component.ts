@@ -61,12 +61,12 @@ export class SplashComponent implements OnInit {
   }
 
   removeIntro() {
-    localStorage.setItem('caretTabStatus', 'existing');
+    chrome.storage.local.set({caretTabStatus: 'existing'});
     this.shared.status = 'existing';
   }
 
   removeIntroAndReload() {
-    localStorage.setItem('caretTabStatus', 'existing');
+    chrome.storage.local.set({caretTabStatus: 'existing'});
     this.shared.status = 'existing';
     location.reload();
   }
@@ -212,7 +212,8 @@ export class SplashComponent implements OnInit {
     this.settings.config.design.foreground = c.fg;
     this.settings.config.design.colorsId = c.id;
     this.shared.bgColor = c.bg;
-    localStorage.setItem('ct-background', c.bg);
+    // localStorage.setItem('ct-background', c.bg);
+    chrome.storage.local.set({ctBackground: c.bg});
   }
 
   finishIntro() {

@@ -59,9 +59,9 @@ export class TabQuickLinksComponent implements OnInit {
   getQuickLinksIcon(url) {
     if (!this.iconTemp[url]) {
       let faviconUrl = new URL(`chrome-extension://${chrome.runtime.id}/_favicon/`);
-      faviconUrl.searchParams.append('page_url', url);
+      faviconUrl.searchParams.append('pageUrl', url);
       faviconUrl.searchParams.append('size', '32');
-      this.iconTemp[url] = faviconUrl.href;
+      this.iconTemp[url] = this.sanitizer.bypassSecurityTrustResourceUrl(faviconUrl.href);
     }
     return this.iconTemp[url];
   }

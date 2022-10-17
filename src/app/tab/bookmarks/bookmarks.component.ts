@@ -81,7 +81,7 @@ export class TabBookmarksComponent implements OnInit {
       let faviconUrl = new URL(`chrome-extension://${chrome.runtime.id}/_favicon/`);
       faviconUrl.searchParams.append('pageUrl', url);
       faviconUrl.searchParams.append('size', '32');
-      this.iconTemp[url] = faviconUrl.href;
+      this.iconTemp[url] = this.sanitizer.bypassSecurityTrustResourceUrl(faviconUrl.href);
     }
     return this.iconTemp[url];
   }

@@ -76,16 +76,12 @@ export class TabBookmarksComponent implements OnInit {
     });
   }
 
-  // Use DuckDuckGo favicon service if no window.chrome
-  // otherwise use the chrome service.
   getQuickLinksIcon(url) {
     if (!this.iconTemp[url]) {
-      const hostname = new URL(url).hostname;
-      if (!this.isChrome) {
-        this.iconTemp[url] = this.sanitizer.bypassSecurityTrustResourceUrl('https://icons.duckduckgo.com/ip3/' + hostname + '.ico' );
-      } else {
-        this.iconTemp[url] = this.sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/size/16@2x/' + url);
-      }
+      let faviconUrl = new URL(`chrome-extension://${chrome.runtime.id}/_favicon/`);
+      faviconUrl.searchParams.append('pageUrl', url);
+      faviconUrl.searchParams.append('size', '32');
+      this.iconTemp[url] = faviconUrl.href;
     }
     return this.iconTemp[url];
   }

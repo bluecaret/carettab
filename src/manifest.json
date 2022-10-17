@@ -20,7 +20,7 @@
   "offline_enabled": true,
   "permissions": [
     "storage",
-    "chrome://favicon/"
+    "favicon"
   ],
   "optional_permissions": [
     "bookmarks",

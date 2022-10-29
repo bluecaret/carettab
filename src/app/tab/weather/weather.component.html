@@ -1,6 +1,6 @@
 <ng-container *ngIf="weather">
-  <div 
-    class="current current--horz" 
+  <div
+    class="current current--horz"
     *ngIf="settings.config.weather.current.enabled"
     title="{{'options.weather.lastUpdated' | translate}}: {{weather.current.last_updated}}
 --------
@@ -25,7 +25,7 @@ UV: {{weather.current.uv}}
   >
     <div class="currentHero" *ngIf="settings.config.weather.current.icon.enabled">
       <div class="currentIcon">
-        <i 
+        <i
           class="w-code-{{weather.current.condition.code}}{{weather.current.is_day === 1 ? '' : 'n'}}"
           [ngStyle]="{'font-size': shared.getFontSize(this.settings.config.weather.current.icon.size, 7)}"
         ></i>
@@ -38,12 +38,12 @@ UV: {{weather.current.uv}}
         </div>
         <span class="currentSlash" *ngIf="settings.config.weather.current.temp.currently && settings.config.weather.current.temp.feelsLike">/</span>
         <div class="currentFeelsLike" *ngIf="settings.config.weather.current.temp.feelsLike">
-          Feels like {{getPreciseDigit(settings.config.weather.celsius ? weather.current.feelslike_c : weather.current.feelslike_f)}}<span class="currentDegree" *ngIf="settings.config.weather.current.temp.degree">&deg;</span>
+          {{'options.weather.feelsLikeTitle' | translate}} {{getPreciseDigit(settings.config.weather.celsius ? weather.current.feelslike_c : weather.current.feelslike_f)}}<span class="currentDegree" *ngIf="settings.config.weather.current.temp.degree">&deg;</span>
         </div>
       </div>
       <!-- <div class="currentCondition">{{weather.current.condition.text}}</div> -->
-      <div 
-        class="currentDetails" 
+      <div
+        class="currentDetails"
         *ngIf="
           settings.config.weather.current.wind.enabled ||
           settings.config.weather.current.humidity.enabled ||
@@ -71,8 +71,8 @@ UV: {{weather.current.uv}}
       <div class="currentDetails" *ngIf="settings.config.weather.current.astro.moonPhase">
         <div class="weatherDetail weatherMoon" title="{{'options.weather.moonPhase' | translate}}: {{weather.forecast.forecastday[0].astro.moon_phase}}">
           <i [ngClass]="{
-            'w-moon-waxing-crescent' : weather.forecast.forecastday[0].astro.moon_phase === 'Waxing Crescent', 
-            'w-moon-first-quarter' : weather.forecast.forecastday[0].astro.moon_phase === 'First Quarter', 
+            'w-moon-waxing-crescent' : weather.forecast.forecastday[0].astro.moon_phase === 'Waxing Crescent',
+            'w-moon-first-quarter' : weather.forecast.forecastday[0].astro.moon_phase === 'First Quarter',
             'w-moon-waxing-gibbous' : weather.forecast.forecastday[0].astro.moon_phase === 'Waxing Gibbous',
             'w-moon-full' : weather.forecast.forecastday[0].astro.moon_phase === 'Full Moon',
             'w-moon-waning-gibbous' : weather.forecast.forecastday[0].astro.moon_phase === 'Waning Gibbous',
@@ -85,21 +85,21 @@ UV: {{weather.current.uv}}
     </div>
   </div>
   <ng-container *ngIf="settings.config.weather.forecast.enabled">
-    <div 
-      class="forecast" 
+    <div
+      class="forecast"
       [ngStyle]="{
-        'gap': shared.getPadding(settings.config.weather.padding, .4), 
+        'gap': shared.getPadding(settings.config.weather.padding, .4),
         'margin-left' : settings.config.weather.current.enabled ? shared.getPadding(settings.config.weather.padding, .4) : '0'
       }"
     >
-      <ng-container 
+      <ng-container
         *ngFor="let forecastDay of weather.forecast.forecastday | slice:0:settings.config.weather.forecast.days; let i = index;"
       >
         <ng-container *ngIf="!settings.config.weather.forecast.hideToday || (settings.config.weather.forecast.hideToday && i !== 0)">
-        
-          <div 
-            class="forecastDay" 
-            [ngClass]="{'forecastDay--horz' : settings.config.weather.forecast.horizontal}" 
+
+          <div
+            class="forecastDay"
+            [ngClass]="{'forecastDay--horz' : settings.config.weather.forecast.horizontal}"
             title="{{getDayOfWeek(forecastDay.date)}}
 --------
 {{forecastDay.day.condition.text}}
@@ -120,15 +120,15 @@ UV: {{forecastDay.day.uv}}
           >
             <div class="forecastHero" *ngIf="settings.config.weather.forecast.icon.enabled">
               <div class="forecastIcon">
-                <i 
+                <i
                   class="w-code-{{forecastDay.day.condition.code}}{{weather.current.is_day === 1 ? '' : 'n'}}"
                   [ngStyle]="{'font-size': shared.getFontSize(this.settings.config.weather.forecast.icon.size, 7)}"
                 ></i>
               </div>
             </div>
             <div class="forecastContent" *ngIf="
-              settings.config.weather.forecast.day.enabled || 
-              settings.config.weather.forecast.temp.high || 
+              settings.config.weather.forecast.day.enabled ||
+              settings.config.weather.forecast.temp.high ||
               settings.config.weather.forecast.temp.low
             ">
               <div class="forecastDate" *ngIf="settings.config.weather.forecast.day.enabled">{{getDayOfWeek(forecastDay.date)}}</div>

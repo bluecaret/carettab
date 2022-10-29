@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '../../_storage/storage.service';
 import { title, languages } from '../../_shared/lists/lists';
@@ -17,6 +17,7 @@ export class OptionsExtraComponent {
     public settings: Storage,
     private translate: TranslateService,
     public shared: SharedService,
+    private zone: NgZone,
   ) {
   }
 
@@ -82,6 +83,14 @@ export class OptionsExtraComponent {
         _imp.time && Object.assign(this.settings.config.time, _imp.time);
         _imp.weather && Object.assign(this.settings.config.weather, _imp.weather);
         this.importStatus = 'success';
+
+        if (_imp.bookmark.enabled) {
+          this.checkBookmarkPermission();
+        }
+
+        if (_imp.bookmark.mostVisited || _imp.quickLink.mostVisited) {
+          this.checkTopSitesPermission();
+        }
       } else {
         this.importStatus = 'error';
       }
@@ -89,5 +98,59 @@ export class OptionsExtraComponent {
 
     reader.readAsText(files[0]);
     input.value = '';
+  }
+
+  checkBookmarkPermission() {
+    const that = this;
+    chrome.permissions.contains({permissions: ['bookmarks']}, function(result) {
+      that.zone.run(() => {
+        if (chrome.runtime.lastError) {
+          that.shared.echo('Error checking Bookmark permission', chrome.runtime.lastError, '', 'error');
+        }
+        that.shared.echo('Permission check: Bookmark allowed?', result);
+        if (result === false) {
+          that.setBookmarkPermission();
+        }
+      });
+    });
+  }
+
+  setBookmarkPermission() {
+    const that = this;
+    chrome.permissions.request({permissions: ['bookmarks']}, function(granted) {
+      that.zone.run(() => {
+        if (chrome.runtime.lastError) {
+          that.shared.echo('Error setting Bookmark permission', chrome.runtime.lastError, '', 'error');
+        }
+        that.shared.echo('Set Permission: Bookmark', granted);
+      });
+    });
+  }
+
+  checkTopSitesPermission() {
+    const that = this;
+    chrome.permissions.contains({permissions: ['topSites']}, function(result) {
+      that.zone.run(() => {
+        if (chrome.runtime.lastError) {
+          that.shared.echo('Error checking TopSites permission', chrome.runtime.lastError, '', 'error');
+        }
+        that.shared.echo('Permission check: TopSites allowed?', result);
+        if (result === false) {
+          that.setTopSitesPermission();
+        }
+      });
+    });
+  }
+
+  setTopSitesPermission() {
+    const that = this;
+    chrome.permissions.request({permissions: ['topSites']}, function(granted) {
+      that.zone.run(() => {
+        if (chrome.runtime.lastError) {
+          that.shared.echo('Error setting TopSites permission', chrome.runtime.lastError, '', 'error');
+        }
+        that.shared.echo('Set Permission: TopSites', granted);
+      });
+    });
   }
 }

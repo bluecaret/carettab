@@ -166,8 +166,6 @@
     "extra": {
       "disableSelect": "Tắt lựa chọn văn bản",
       "disableSelectDesc": "Điều này sẽ ngăn bạn chọn văn bản trên trang tab mới, dẫn đến giao diện gọn gàng hơn trong trường hợp vô tình nhấp chuột.",
-      "enableAnalytics": "Bật dữ liệu phân tích",
-      "enableAnalyticsDesc": "CaretTab muốn báo cáo việc sử dụng tiện ích mở rộng của bạn cho cơ quan phân tích. Điều này giúp chúng tôi cải thiện tiện ích mở rộng bằng cách tìm hiểu cách sử dụng tiện ích này. Điều này theo dõi dữ liệu, chẳng hạn như khi menu cài đặt được mở và khi cài đặt được thay đổi. Điều này không theo dõi bất kỳ thông tin nhận dạng cá nhân nào. Bạn có thể chọn tham gia hoặc chọn không tham gia bất kỳ lúc nào.",
       "export": "Xuất ra",
       "exportImport": "Xuất ra/Nhập vào",
       "exportSettings": "Xuất ra cài đặt",

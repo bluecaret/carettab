@@ -14,7 +14,8 @@ export const languages = [
   { id: 'es-MX', label: 'Español', name: 'Spanish (Mexico)' },
   { id: 'sv-SE', label: 'Svenska (Sverige)', name: 'Swedish (Sweden)' },
   { id: 'uk-UA', label: 'Українська', name: 'Ukrainian (Ukraine)' },
-  { id: 'ur-PK', label: 'اردو (پاکستان)', name: 'Urdu (Pakistan)' }
+  { id: 'ur-PK', label: 'اردو (پاکستان)', name: 'Urdu (Pakistan)' },
+  { id: 'vi-VN', label: 'Tiếng Việt', name: 'Vietnamese (Vietnam)' }
 ];
 
 export const span = [

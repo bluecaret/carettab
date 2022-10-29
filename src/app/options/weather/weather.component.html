@@ -21,7 +21,10 @@
       <div class="locationList mt1">
         <ng-container *ngFor="let loc of locationList">
           <button class="btn btnIcon btnIconSmall" type="button" (click)="setLocation(loc.url);" attr.aria-label="{{'options.weather.select' | translate}} {{loc.name}}"><div class="icon" aria-hidden="true">check</div></button>
-          <div>{{loc.name}}</div>
+          <div>
+            {{loc.name}}<br />
+            <small>{{loc.region}}<ng-container *ngIf="loc.region">, </ng-container>{{loc.country}}</small>
+          </div>
         </ng-container>
       </div>
     </div>

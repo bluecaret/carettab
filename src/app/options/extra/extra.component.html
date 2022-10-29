@@ -6,7 +6,7 @@
     id="lang"
     [(ngModel)]="settings.config.i18n.lang"
     (ngModelChange)="
-      useLanguage($event); ga.field('i18n.lang', settings.config.i18n.lang)
+      useLanguage($event);
     "
   >
     <option *ngFor="let lang of languages" [ngValue]="lang.id">
@@ -23,12 +23,6 @@
     name="tabTitle"
     id="tabTitle"
     [(ngModel)]="settings.config.misc.title.type"
-    (ngModelChange)="
-      ga.field(
-        'misc.title.type',
-        findTitleType(settings.config.misc.title.type).label
-      )
-    "
   >
     <option *ngFor="let type of titleOptions" [ngValue]="type.id">
       {{ type.label }}
@@ -46,7 +40,6 @@
     name="tabTitleCustom"
     id="tabTitleCustom"
     [(ngModel)]="settings.config.misc.title.text"
-    (ngModelChange)="ga.field('misc.title.text', 'userData')"
   />
 </div>
 <div
@@ -65,9 +58,6 @@
     name="tabTitle"
     id="tabTitle"
     [(ngModel)]="settings.config.misc.title.clockUsed"
-    (ngModelChange)="
-      ga.field('misc.title.clockUsed', settings.config.misc.title.clockUsed)
-    "
   >
     <option
       *ngFor="let clock of settings.config.time.clocks; let i = index"
@@ -88,9 +78,6 @@
     name="disableSelect"
     id="disableSelect"
     [(ngModel)]="settings.config.misc.disableSelect"
-    (ngModelChange)="
-      ga.field('misc.disableSelect', settings.config.misc.disableSelect)
-    "
   ></options-toggle>
 </div>
 <div class="input">
@@ -102,29 +89,12 @@
     name="hideMenu"
     id="hideMenu"
     [(ngModel)]="settings.config.design.hideMenu"
-    (ngModelChange)="
-      ga.field('design.hideMenu', settings.config.design.hideMenu)
-    "
   ></options-toggle>
 </div>
 <!-- <div class="input">
   <label>{{'options.extra.hideLogo' | translate}}</label>
-  <options-toggle name="hideLogo" id="hideLogo" [(ngModel)]="settings.config.design.hideLogo" (ngModelChange)="ga.field('design.hideLogo', settings.config.design.hideLogo)"></options-toggle>
+  <options-toggle name="hideLogo" id="hideLogo" [(ngModel)]="settings.config.design.hideLogo"></options-toggle>
 </div> -->
-<div class="input">
-  <label>
-    {{ 'options.extra.enableAnalytics' | translate }}
-    <tooltip
-      text="{{ 'options.extra.enableAnalyticsDesc' | translate }}"
-    ></tooltip>
-  </label>
-  <options-toggle
-    name="enableAnalytics"
-    id="enableAnalytics"
-    [(ngModel)]="settings.config.misc.enableAnalytics"
-  >
-  </options-toggle>
-</div>
 <div class="warning pl15 mt1">
   <div class="icon" aria-hidden="true">info</div>{{'options.common.requiresInternet' | translate}}
 </div>
@@ -182,7 +152,7 @@
     id="reset"
     type="button"
     class="btn"
-    (click)="reset(); ga.field('button.reset', 'true')"
+    (click)="reset();"
   >
     {{ 'options.extra.reset' | translate }}
   </button>

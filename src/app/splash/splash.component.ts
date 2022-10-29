@@ -61,12 +61,12 @@ export class SplashComponent implements OnInit {
   }
 
   removeIntro() {
-    localStorage.setItem('caretTabStatus', 'existing');
+    chrome.storage.local.set({caretTabStatus: 'existing'});
     this.shared.status = 'existing';
   }
 
   removeIntroAndReload() {
-    localStorage.setItem('caretTabStatus', 'existing');
+    chrome.storage.local.set({caretTabStatus: 'existing'});
     this.shared.status = 'existing';
     location.reload();
   }
@@ -159,13 +159,6 @@ export class SplashComponent implements OnInit {
     this.step = 4;
   }
 
-  enableAnalytics(enable: boolean) {
-    this.settings.config.misc.enableAnalytics = true;
-    enable === true ?
-      localStorage.setItem('ct-enableAnalytics', 'true') : localStorage.setItem('ct-enableAnalytics', 'false');
-    this.step = 7;
-  }
-
   enableDate(enable: boolean) {
     let dateId = this.settings.config.date.id;
     if (enable) {
@@ -219,7 +212,8 @@ export class SplashComponent implements OnInit {
     this.settings.config.design.foreground = c.fg;
     this.settings.config.design.colorsId = c.id;
     this.shared.bgColor = c.bg;
-    localStorage.setItem('ct-background', c.bg);
+    // localStorage.setItem('ct-background', c.bg);
+    chrome.storage.local.set({ctBackground: c.bg});
   }
 
   finishIntro() {

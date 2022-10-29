@@ -3,7 +3,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
 import * as Bowser from 'bowser';
-import { GoogleAnalyticsService } from '../../_shared/ga.service';
 
 @Component({
   selector: 'tab-quickLinks',
@@ -29,7 +28,6 @@ export class TabQuickLinksComponent implements OnInit {
     private cdRef: ChangeDetectorRef,
     private sanitizer: DomSanitizer,
     private zone: NgZone,
-    public ga: GoogleAnalyticsService
   ) {
     this.settings.onChange().subscribe((data) => {
       if (this.settings.config) {
@@ -58,16 +56,12 @@ export class TabQuickLinksComponent implements OnInit {
     });
   }
 
-  // Use DuckDuckGo favicon service if firefox or no window.chrome
-  // otherwise use the chrome service.
   getQuickLinksIcon(url) {
     if (!this.iconTemp[url]) {
-      const hostname = new URL(url).hostname;
-      if (this.browser === 'Firefox' || !this.isChrome) {
-        this.iconTemp[url] = this.sanitizer.bypassSecurityTrustResourceUrl('https://icons.duckduckgo.com/ip3/' + hostname + '.ico' );
-      } else {
-        this.iconTemp[url] = this.sanitizer.bypassSecurityTrustResourceUrl('chrome://favicon/size/16@2x/' + url);
-      }
+      let faviconUrl = new URL(`chrome-extension://${chrome.runtime.id}/_favicon/`);
+      faviconUrl.searchParams.append('pageUrl', url);
+      faviconUrl.searchParams.append('size', '32');
+      this.iconTemp[url] = this.sanitizer.bypassSecurityTrustResourceUrl(faviconUrl.href);
     }
     return this.iconTemp[url];
   }
@@ -94,12 +88,9 @@ export class TabQuickLinksComponent implements OnInit {
     if (index > 9) return null;
     if (index === 9) i = 0;
     if (index < 9) i = index + 1;
-    
+
     if (this.os === 'macOS') {
       return `Shortcut: [control]+[alt]+${i}`;
-    }
-    if (this.browser === 'Firefox') {
-      return `Shortcut: [alt]+[shift]+${i}`;
     }
     return `Shortcut: [alt]+${i}`;
   }

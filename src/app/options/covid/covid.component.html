@@ -1,7 +1,7 @@
 <h2>{{ 'options.covidData.covidData' | translate }}</h2>
 <div class="input">
   <label>{{'options.covidData.enable' | translate}}</label>
-  <options-toggle name="toggleCovidData" [(ngModel)]="settings.config.covidData.enabled" (ngModelChange)="ga.field('covidData.enabled', settings.config.covidData.enabled);"></options-toggle>
+  <options-toggle name="toggleCovidData" [(ngModel)]="settings.config.covidData.enabled"></options-toggle>
 </div>
 <div class="warning pl15 mt1">
   <div class="icon" aria-hidden="true">info</div>{{'options.common.requiresInternet' | translate}}
@@ -32,7 +32,7 @@
             [name]="'country' + i"
             [id]="'country' + i"
             [(ngModel)]="country.code"
-            (ngModelChange)="updateCountryName(i); ga.field('covidData.country', country.code)"
+            (ngModelChange)="updateCountryName(i)"
           >
             <option *ngFor="let countryOption of countryList" [ngValue]="countryOption.code">
               {{ countryOption.label }}
@@ -50,7 +50,7 @@
               ) | translate
             }}"
             [ngClass]="{ active: selected === i }"
-            (click)="setSelected(i); ga.field('button.covidSelect', 'true')"
+            (click)="setSelected(i)"
           >
             <div class="icon" aria-hidden="true" *ngIf="selected !== i">
               more_horiz
@@ -64,7 +64,7 @@
             title="{{'options.covidData.copyCountry' | translate}}"
             attr.aria-label="{{'options.covidData.copyCountry' | translate}}"
             class="btn btnIcon btnIconSmall"
-            (click)="copy(i); ga.field('button.covidCopy', 'true')">
+            (click)="copy(i)">
             <div class="icon" aria-hidden="true">content_copy</div>
           </button>
           <button
@@ -72,7 +72,7 @@
             title="{{ 'options.covidData.deleteCountry' | translate }}"
             attr.aria-label="{{ 'options.covidData.deleteCountry' | translate }}"
             class="btn btnIcon"
-            (click)="removeCountry(i); ga.field('button.covidDelete', 'true')"
+            (click)="removeCountry(i)"
           >
             <div class="icon" aria-hidden="true">delete</div>
           </button>
@@ -91,7 +91,6 @@
                 [name]="'covidEnableFlag' + i"
                 [id]="'covidEnableFlag' + i"
                 [(ngModel)]="country.enableFlag"
-                (ngModelChange)="ga.field('covidData.enableFlag', country.enableFlag)"
               ></options-toggle>
             </div>
             <div class="input">
@@ -102,7 +101,6 @@
                 [name]="'covidEnableName' + i"
                 [id]="'covidEnableName' + i"
                 [(ngModel)]="country.enableCountryName"
-                (ngModelChange)="ga.field('covidData.enableCountryName', country.enableCountryName)"
               ></options-toggle>
             </div>
             <div class="input">
@@ -113,7 +111,6 @@
                 [name]="'covidEnablePer1M' + i"
                 [id]="'covidEnablePer1M' + i"
                 [(ngModel)]="country.enablePer1M"
-                (ngModelChange)="ga.field('covidData.enablePer1M', country.enablePer1M)"
               ></options-toggle>
             </div>
             <div class="input">
@@ -124,7 +121,6 @@
                 [name]="'covidEnableToday' + i"
                 [id]="'covidEnableToday' + i"
                 [(ngModel)]="country.enableToday"
-                (ngModelChange)="ga.field('covidData.enableToday', country.enableToday)"
               ></options-toggle>
             </div>
             <div class="input">
@@ -135,7 +131,6 @@
                 [name]="'covidEnableActive' + i"
                 [id]="'covidEnableActive' + i"
                 [(ngModel)]="country.enableActive"
-                (ngModelChange)="ga.field('covidData.enableActive', country.enableActive)"
               ></options-toggle>
             </div>
             <div class="input">
@@ -146,7 +141,6 @@
                 [name]="'covidEnableRecovered' + i"
                 [id]="'covidEnableRecovered' + i"
                 [(ngModel)]="country.enableRecovered"
-                (ngModelChange)="ga.field('covidData.enableRecovered', country.enableRecovered)"
               ></options-toggle>
             </div>
             <div class="input">
@@ -157,7 +151,6 @@
                 [name]="'covidEnableDeaths' + i"
                 [id]="'covidEnableDeaths' + i"
                 [(ngModel)]="country.enableDeaths"
-                (ngModelChange)="ga.field('covidData.enableDeaths', country.enableDeaths)"
               ></options-toggle>
             </div>
           </div>
@@ -175,12 +168,6 @@
                 min="1"
                 max="40"
                 [(ngModel)]="country.textScaling"
-                (ngModelChange)="
-                  ga.field(
-                    'covidData.textScaling',
-                    settings.config.covidData.textScaling
-                  )
-                "
               ></options-range>
             </div>
             <div class="input">
@@ -192,7 +179,7 @@
                   title="{{'options.common.moveUp' | translate}}"
                   class="btn"
                   [disabled]="shared.isFirst(country.id, country.position)"
-                  (click)="shared.changeOrder(country.id, true, country.position); ga.field('button.covidMoveUp', 'true')">
+                  (click)="shared.changeOrder(country.id, true, country.position)">
                   <div class="icon" aria-hidden="true">expand_less</div>
                 </button>
                 <button
@@ -201,7 +188,7 @@
                   title="{{'options.common.moveDown' | translate}}"
                   class="btn"
                   [disabled]="shared.isLast(country.id, country.position)"
-                  (click)="shared.changeOrder(country.id, false, country.position); ga.field('button.covidMoveDown', 'true')">
+                  (click)="shared.changeOrder(country.id, false, country.position)">
                   <div class="icon" aria-hidden="true">expand_more</div>
                 </button>
               </div>
@@ -213,10 +200,7 @@
                 name="covidPlacement"
                 [settingId]="country.id"
                 [(ngModel)]="country.position"
-                (ngModelChange)="
-                  shared.changeOrder(country.id, true, country.position);
-                  ga.field('covidData.position', country.position)
-                "
+                (ngModelChange)="shared.changeOrder(country.id, true, country.position)"
               ></options-position>
             </div>
             <div class="input">
@@ -226,7 +210,6 @@
                 min="0"
                 max="100"
                 [(ngModel)]="country.width"
-                (ngModelChange)="ga.field('covidData.width', country.width)"
               ></options-range>
             </div>
             <div class="input">
@@ -241,9 +224,6 @@
                 min="0"
                 max="50"
                 [(ngModel)]="country.padding"
-                (ngModelChange)="
-                  ga.field('covidData.padding', country.padding)
-                "
               ></options-range>
             </div>
             <div class="input">
@@ -253,9 +233,6 @@
                 min="0"
                 max="50"
                 [(ngModel)]="country.marginHeight"
-                (ngModelChange)="
-                  ga.field('covidData.marginHeight', country.marginHeight)
-                "
               ></options-range>
             </div>
             <div class="input">
@@ -265,7 +242,6 @@
                 min="0"
                 max="50"
                 [(ngModel)]="country.marginWidth"
-                (ngModelChange)="ga.field('covidData.marginWidth', country.marginWidth)"
               ></options-range>
             </div>
             <div class="input">
@@ -281,9 +257,6 @@
                 min="-50"
                 max="50"
                 [(ngModel)]="country.offset"
-                (ngModelChange)="
-                  ga.field('covidData.offset', country.offset)
-                "
               ></options-range>
             </div>
           </div>
@@ -291,7 +264,7 @@
       </ng-container>
     </div>
   </form>
-  <form #covid="ngForm" novalidate (ngSubmit)="addCountry(covid, covid.valid); ga.field('button.covidDataNewAdd', 'true');">
+  <form #covid="ngForm" novalidate (ngSubmit)="addCountry(covid, covid.valid)">
     <ng-container *ngIf="settings.config.covidData.enabled">
       <div class="grid cols-1">
         <div class="span-1">

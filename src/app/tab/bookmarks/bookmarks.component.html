@@ -15,25 +15,25 @@
     <!-- Bar list -->
     <ul class="barList" #barList>
       <li class="barNode" *ngIf="settings.config.bookmark.apps">
-        <button title="{{'tab.bookmarks.links.apps' | translate}}" class="barFolder" (click)="apps(); ga.field('tab.bookmarksBar.apps', 'true')">
+        <button title="{{'tab.bookmarks.links.apps' | translate}}" class="barFolder" (click)="apps();">
           <img *ngIf="settings.config.bookmark.icons" src="/assets/img/apps.png" class="barIcon">
           <div class="barLabel">{{'tab.bookmarks.links.apps' | translate}}</div>
         </button>
       </li>
       <li class="barNode" *ngIf="settings.config.bookmark.chromeTab">
-        <button title="{{'tab.bookmarks.links.chromeTab' | translate}}" class="barFolder" (click)="chromeTab(); ga.field('tab.bookmarksBar.defaultTab', 'true')">
+        <button title="{{'tab.bookmarks.links.chromeTab' | translate}}" class="barFolder" (click)="chromeTab();">
           <img *ngIf="settings.config.bookmark.icons" src="/assets/img/tab.png" class="barIcon">
           <div class="barLabel">{{'tab.bookmarks.links.chromeTab' | translate}}</div>
         </button>
       </li>
       <li class="barNode" *ngIf="settings.config.bookmark.history">
-        <button title="{{'tab.bookmarks.links.history' | translate}}" class="barFolder" (click)="history(); ga.field('tab.bookmarksBar.history', 'true')">
+        <button title="{{'tab.bookmarks.links.history' | translate}}" class="barFolder" (click)="history();">
           <img *ngIf="settings.config.bookmark.icons" src="/assets/img/history.png" class="barIcon">
           <div class="barLabel">{{'tab.bookmarks.links.history' | translate}}</div>
         </button>
       </li>
       <li class="barNode" *ngIf="settings.config.bookmark.bookmarksManager">
-        <button title="{{'tab.bookmarks.links.bookmarksManager' | translate}}" class="barFolder" (click)="bookmarksManager(); ga.field('tab.bookmarksBar.manager', 'true')">
+        <button title="{{'tab.bookmarks.links.bookmarksManager' | translate}}" class="barFolder" (click)="bookmarksManager();">
           <img *ngIf="settings.config.bookmark.icons" src="/assets/img/bookmarks.png" class="barIcon">
           <div class="barLabel">{{'tab.bookmarks.links.bookmarksManager' | translate}}</div>
         </button>
@@ -42,7 +42,7 @@
         <button
           class="barFolder"
           title="{{'tab.bookmarks.links.mostVisited' | translate}}"
-          (click)="toggleMostVisited = !toggleMostVisited; ga.field('tab.bookmarksBar.topSites', 'true')">
+          (click)="toggleMostVisited = !toggleMostVisited;">
           <img *ngIf="settings.config.bookmark.icons" src="/assets/img/folder.png" class="barIcon">
           <div class="barLabel">{{'tab.bookmarks.links.mostVisited' | translate}}</div>
         </button>
@@ -56,7 +56,6 @@
         <ng-container *ngIf="item.url; else bookmarkFolder">
           <a
             href="{{item.url}}"
-            (click)="ga.field('tab.bookmarksBar.link', 'true')"
             title="{{item.title}}
 {{item.url}}"
             class="barLink">
@@ -114,7 +113,6 @@
       <ng-container *ngIf="item.url; else bookmarkFolder">
         <a
           href="{{item.url}}"
-          (click)="ga.field('tab.bookmarksBar.link', 'true')"
           title="{{item.title}}
 {{item.url}}"
           class="barLink">

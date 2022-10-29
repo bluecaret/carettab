@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
-import { GoogleAnalyticsService } from '../../_shared/ga.service';
 import { WeatherService } from '../../tab/weather/weather.service';
 
 @Component({
@@ -14,7 +13,6 @@ export class OptionsWeatherComponent implements OnInit {
   constructor(
     public shared: SharedService,
     public settings: Storage,
-    public ga: GoogleAnalyticsService,
     private weatherService: WeatherService
   ) {
   }

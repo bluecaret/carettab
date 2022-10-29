@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
-import { GoogleAnalyticsService } from '../../_shared/ga.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -15,7 +14,6 @@ export class OptionsCovidComponent {
   constructor(
     public settings: Storage,
     public shared: SharedService,
-    public ga: GoogleAnalyticsService,
     private http: HttpClient
   ) {
     this.countryLists();

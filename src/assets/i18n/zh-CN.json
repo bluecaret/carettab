@@ -166,8 +166,6 @@
     "extra": {
       "disableSelect": "禁用文字选择",
       "disableSelectDesc": "这将阻止您在新标签页上选择文本，从而在意外点击的情况下使外观更清晰。",
-      "enableAnalytics": "启用统计数据",
-      "enableAnalyticsDesc": "CaretTab 希望向分析报告您对扩展的使用。这有助于我们通过了解扩展名的使用方式来改进扩展名。这会跟踪数据，例如打开设置菜单和更改设置的时间。这不会跟踪任何个人识别信息。您可以随时选择加入或退出。",
       "export": "导出",
       "exportImport": "导出/导入",
       "exportSettings": "导出设置",

@@ -3,7 +3,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '../../_storage/storage.service';
 import { title, languages } from '../../_shared/lists/lists';
 import { SharedService } from '../../_shared/shared.service';
-import { GoogleAnalyticsService } from '../../_shared/ga.service';
 
 @Component({
   selector: 'options-extra',
@@ -18,7 +17,6 @@ export class OptionsExtraComponent {
     public settings: Storage,
     private translate: TranslateService,
     public shared: SharedService,
-    public ga: GoogleAnalyticsService
   ) {
   }
 
@@ -27,14 +25,14 @@ export class OptionsExtraComponent {
     if (confirm('Are you sure you want to reset all settings to default?')) {
       this.settings.clear();
       localStorage.removeItem('bgImg');
-      localStorage.removeItem('ct-background');
+      // localStorage.removeItem('ct-background');
+      chrome.storage.local.remove('ctBackground', () => {});
       this.shared.echo(
         'Background removed from localStorage',
         null,
         null,
         'save'
       );
-      localStorage.setItem('ct-enableAnalytics', 'true');
       location.reload();
     } else {
       return;
@@ -49,12 +47,6 @@ export class OptionsExtraComponent {
     return this.titleOptions.find((x) => x.id === type);
   }
 
-  enableAnalytics(enable: boolean) {
-    enable === true
-      ? localStorage.setItem('ct-enableAnalytics', 'true')
-      : localStorage.setItem('ct-enableAnalytics', 'false');
-  }
-
   export() {
     let _settings = JSON.stringify(this.settings.config, null, 4); //indentation in json format, human readable
 
@@ -66,8 +58,6 @@ export class OptionsExtraComponent {
     link.setAttribute('href', url);
     link.setAttribute('download', name);
     link.click();
-
-    this.ga.field('button.export', 'true');
   }
 
   import(e: any, input: any) {
@@ -92,10 +82,8 @@ export class OptionsExtraComponent {
         _imp.time && Object.assign(this.settings.config.time, _imp.time);
         _imp.weather && Object.assign(this.settings.config.weather, _imp.weather);
         this.importStatus = 'success';
-        this.ga.field('button.import', 'true');
       } else {
         this.importStatus = 'error';
-        this.ga.field('button.import', 'false');
       }
     };
 

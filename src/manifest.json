@@ -1,10 +1,10 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "__MSG_appName__",
   "short_name": "CaretTab",
   "description": "__MSG_appDesc__",
-  "version": "3.6.2",
-  "version_name": "3.6.2",
+  "version": "3.6.3",
+  "version_name": "3.6.3",
   "default_locale": "en",
   "icons": {
     "16": "assets/img/icon16.png",
@@ -15,19 +15,15 @@
     "newtab": "index.html"
   },
   "background": {
-    "scripts": [
-      "js/update.js"
-    ],
-    "persistent": false
+    "service_worker": "js/update.js"
   },
   "offline_enabled": true,
   "permissions": [
     "storage",
-    "chrome://favicon/"
+    "favicon"
   ],
   "optional_permissions": [
     "bookmarks",
     "topSites"
-  ],
-  "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'"
+  ]
 }

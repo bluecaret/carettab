@@ -4,22 +4,21 @@ if(typeof chrome.runtime.onInstalled  !== 'undefined')
   chrome.runtime.onInstalled.addListener(function (details)
   {
     // Set caretTabStatus if existing, intalled or updated.
+    // console.log('ON INSTALL DETAILS', details);
     let status = "existing";
+    let newVersion = '';
     if (details.reason === "install"){
       status = "installed";
     } else if (details.reason === "update"){
       status = "updated";
     }
-    localStorage.setItem('caretTabStatus', status);
-
     if (details.reason === "update") {
-      let newVersion = chrome.runtime.getManifest().version;
-
-      localStorage.setItem('caretTabPrevVersion', details.previousVersion);
-      localStorage.setItem('caretTabNewVersion', newVersion);
-
-      // console.log(`Updated from ${details.previousVersion} to ${newVersion}.`);
+      newVersion = chrome.runtime.getManifest().version;
     }
+
+    chrome.storage.local.set({caretTabStatus: status});
+    chrome.storage.local.set({caretTabNewVersion: newVersion});
+    chrome.storage.local.set({caretTabPrevVersion: details.previousVersion ? details.previousVersion : ''});
   });
 }
 
@@ -27,6 +26,7 @@ if(typeof chrome.runtime.onInstalled  !== 'undefined')
 chrome.runtime.setUninstallURL('https://www.carettab.com/thank-you');
 
 (function() {
-  let localBg = localStorage.getItem('ct-background');
-  document.body.style.backgroundColor = localBg;
+  chrome.storage.local.get(['ctBackground'], function (data) {
+    document.body.style.backgroundColor = data.ctBackground;
+  });
 });

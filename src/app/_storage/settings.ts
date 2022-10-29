@@ -253,7 +253,7 @@ export class SearchSettings {
     public marginWidth = 10,
     public position = 'c',
     public width = 21,
-    public engine = 40,
+    public engine = 10,
     public autocomplete = true,
     public label = 'Search the web...',
   ) {}
@@ -326,7 +326,6 @@ export class WeatherSettings {
 export class MiscSettings {
   constructor(
     public schema = '1.1',
-    public enableAnalytics = true,
     public disableSelect = true,
     public title = {
       type: 10,

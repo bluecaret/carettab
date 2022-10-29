@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GoogleAnalyticsService } from '../../_shared/ga.service';
 import { SharedService } from '../../_shared/shared.service';
 
 @Component({
@@ -10,7 +9,7 @@ export class OptionsDashboardComponent implements OnInit {
   status: string;
   shareMenu = false;
 
-  constructor(public shared: SharedService, public ga: GoogleAnalyticsService) {
+  constructor(public shared: SharedService) {
   }
 
   ngOnInit(): void {
@@ -18,7 +17,7 @@ export class OptionsDashboardComponent implements OnInit {
 
     // Clear updated status
     if (this.shared.status === 'updated') {
-      localStorage.setItem('caretTabStatus', 'existing');
+      chrome.storage.local.set({caretTabStatus: 'existing'});
       this.shared.status = 'existing';
       this.shared.echo('Extension status reset to "existing" after update since user opened dashboard');
     }
@@ -28,9 +27,6 @@ export class OptionsDashboardComponent implements OnInit {
     let url: string;
     if (this.shared.browser === 'edge') {
       url = 'https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe';
-    } else
-    if (this.shared.browser === 'firefox') {
-      url = 'https://addons.mozilla.org/en-US/firefox/addon/carettab/';
     } else {
       url = 'https://chrome.google.com/webstore/detail/carettab-new-tab-clock-an/cojpndognjdcakkimaloeealehpkljna';
     }

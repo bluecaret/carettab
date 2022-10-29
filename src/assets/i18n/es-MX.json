@@ -166,8 +166,6 @@
     "extra": {
       "disableSelect": "Deshabilitar la selección de texto",
       "disableSelectDesc": "Esto evitará que seleccione texto en la página de nueva pestaña, lo que dará como resultado un aspecto más limpio en caso de clics accidentales.",
-      "enableAnalytics": "Habilitar datos analíticos",
-      "enableAnalyticsDesc": "A CaretTab le gustaría informar su uso de la extensión a la analítica. Esto nos ayuda a mejorar la extensión aprendiendo cómo se usa. Esto rastrea datos como cuando se abre el menú de configuración y cuando se modifican las configuraciones. Esto no rastrea ninguna información de identificación personal. Puede optar por participar o no participar en cualquier momento.",
       "export": "Exportar",
       "exportImport": "Exportar importar",
       "exportSettings": "Configuración de exportación",

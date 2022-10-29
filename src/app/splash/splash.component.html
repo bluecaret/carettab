@@ -113,7 +113,7 @@
           <li>{{'splash.v350.m6' | translate}}</li>
           <li>{{'splash.v350.m7' | translate}}</li>
         </ul>
-      </section> 
+      </section>
       <section *ngIf="featureCarousel === 11">
         <h3>Bug fixes</h3>
         <ul>
@@ -124,7 +124,7 @@
           <li>{{'splash.v350.b5' | translate}}</li>
           <li>{{'splash.v350.b6' | translate}}</li>
         </ul>
-      </section> 
+      </section>
       <div class="featureGridNav">
         <button type="button" class="btn btn--splash btn--feature" (click)="featureCarousel === 11 ? featureCarousel = 1 : featureCarousel = featureCarousel + 1"><div class="icon">chevron_right</div></button>
       </div>
@@ -262,29 +262,10 @@
     </div>
   </div>
   <div class="splash-nav">
-    <button type="button" class="btn btn--splash btn--next" (click)="step = 6.1" [disabled]="settings.config.design.colorsId === 0">{{'splash.next' | translate}} &rarr;</button>
+    <button type="button" class="btn btn--splash btn--next" (click)="step = 7" [disabled]="settings.config.design.colorsId === 0">{{'splash.next' | translate}} &rarr;</button>
     <div class="splash-nav_misc">
       <button type="button" class="btn btn--splash btn--skip" (click)="skipIntro()">{{'splash.skip' | translate}}</button>&nbsp;
       <button type="button" class="btn btn--splash btn--back" (click)="step = 5">&larr; {{'splash.back' | translate}}</button>
-    </div>
-  </div>
-</div>
-
-<!-- STEP 6.1 -->
-<div id="step6.1" class="splash-steps" *ngIf="step === 6.1">
-  <div class="splash-options">
-    <h3>{{'options.extra.enableAnalytics' | translate}}</h3>
-    <p>{{'options.extra.enableAnalyticsDesc' | translate}}</p>
-    <p><a href="https://www.bluecaret.com/terms" target="_blank">{{'options.common.privacyPolicy' | translate}}</a></p>
-    <div style="display: flex; justify-content: space-between;">
-      <button type="button" class="btn btn--splash" (click)="enableAnalytics(false)">{{'splash.no' | translate}}</button>
-      <button type="button" class="btn btn--splash" (click)="enableAnalytics(true)">{{'splash.yes' | translate}}</button>
-    </div>
-  </div>
-  <div class="splash-nav">
-    <div class="splash-nav_misc">
-      <button type="button" class="btn btn--splash btn--skip" (click)="skipIntro()">{{'splash.skip' | translate}}</button>&nbsp;
-      <button type="button" class="btn btn--splash btn--back" (click)="step = 6">&larr; {{'splash.back' | translate}}</button>
     </div>
   </div>
 </div>
@@ -299,7 +280,7 @@
   <div class="splash-nav">
     <button type="button" class="btn btn--splash btn--next" (click)="finishIntro()">{{'splash.letsGo' | translate}}</button>
     <div class="splash-nav_misc">
-      <button type="button" class="btn btn--splash btn--back" (click)="step = 6.1">&larr; {{'splash.back' | translate}}</button>
+      <button type="button" class="btn btn--splash btn--back" (click)="step = 6">&larr; {{'splash.back' | translate}}</button>
     </div>
   </div>
 </div>

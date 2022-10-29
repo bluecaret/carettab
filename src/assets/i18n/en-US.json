@@ -166,8 +166,6 @@
     "extra": {
       "disableSelect": "Disable text selection",
       "disableSelectDesc": "This will prevent you from selecting text on the new tab page resulting in a cleaner look in case of accidental clicks.",
-      "enableAnalytics": "Enable analytics data",
-      "enableAnalyticsDesc": "CaretTab would like to report your usage of the extension to analytics. This helps us improve the extension by learning how it is used. This tracks data such as when the settings menu is opened and when settings are altered. This does not track any personal identifying information. You can opt-in or opt-out at any time.",
       "export": "Export",
       "exportImport": "Export/Import",
       "exportSettings": "Export settings",

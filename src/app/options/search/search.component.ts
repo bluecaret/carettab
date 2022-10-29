@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { searchEngines } from '../../_shared/lists/lists';
 import { SharedService } from '../../_shared/shared.service';
-import { GoogleAnalyticsService } from '../../_shared/ga.service';
 
 @Component({
   selector: 'options-search',
@@ -14,7 +13,6 @@ export class OptionsSearchComponent {
   constructor(
     public shared: SharedService,
     public settings: Storage,
-    public ga: GoogleAnalyticsService
   ) {
   }
 

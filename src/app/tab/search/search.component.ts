@@ -36,6 +36,9 @@ export class TabSearchComponent implements OnInit {
   }
 
   performSearch() {
+    if (!this.searchText || this.searchText.trim() == '') {
+      return;
+    }
     let searchUrl = `${this.url}?${this.param}=${encodeURIComponent(this.searchText)}`
     location.replace(searchUrl);
   }

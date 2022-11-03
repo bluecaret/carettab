@@ -1,7 +1,9 @@
-import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener, ElementRef, NgZone, Renderer2 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
+import { MostVisitedMenuComponent } from './most-visited-menu.component';
+import { PopupService } from '../../_shared/controls/popup.service';
 import * as Bowser from 'bowser';
 
 @Component({
@@ -10,9 +12,8 @@ import * as Bowser from 'bowser';
   host: {'class': 'tabQuickLinks'}
 })
 export class TabQuickLinksComponent implements OnInit {
-  isLoading: boolean;
-  allMostVisited: any;
-  toggleMostVisited = false;
+  popupRef: any;
+  showMostVisited = false;
   mostVisited = {title: 'Most Visited'};
   toggleMvMenu = false;
   isChrome = false;
@@ -22,12 +23,15 @@ export class TabQuickLinksComponent implements OnInit {
   browser = Bowser.getParser(window.navigator.userAgent).getBrowserName();
   os = Bowser.getParser(window.navigator.userAgent).getOSName();
 
+  @ViewChild('quickLinkMostVisitedBtn', {static: false}) quickLinkMostVisitedBtn: ElementRef;
+
   constructor(
     public shared: SharedService,
     public settings: Storage,
-    private cdRef: ChangeDetectorRef,
     private sanitizer: DomSanitizer,
     private zone: NgZone,
+    private popupService: PopupService,
+    private renderer: Renderer2
   ) {
     this.settings.onChange().subscribe((data) => {
       if (this.settings.config) {
@@ -39,19 +43,32 @@ export class TabQuickLinksComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isLoading = true;
     this.isChrome = !!window.chrome;
 
     if (this.settings.config.quickLink.mostVisited === true) {
       this.getMostVisited();
+    }
+
+    this.renderer.listen('window', 'click', (e: Event) => {
+      if (e.target !== this.quickLinkMostVisitedBtn.nativeElement && this.showMostVisited) {
+        this.popupRef.destroy();
+        this.showMostVisited = false;
+      }
+    });
+  }
+
+  toggleMostVisited(e: PointerEvent) {
+    if (!this.showMostVisited) {
+      this.popupRef = this.popupService.createComponent(MostVisitedMenuComponent, {target: e});
+      this.popupService.attachComponent(this.popupRef, document.body);
+      this.showMostVisited = true;
     }
   }
 
   getMostVisited() {
     chrome.topSites.get(site => {
       this.zone.run(() => {
-        this.isLoading = false;
-        this.allMostVisited = site;
+        this.shared.mostVisitedLinks = site;
       });
     });
   }

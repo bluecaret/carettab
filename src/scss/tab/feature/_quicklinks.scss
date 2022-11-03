@@ -109,11 +109,16 @@ $qlRadius: 8px;
 
 .mostVisitedLink {
   position: relative;
+  .link {
+    img, div {
+      pointer-events: none;
+    }
+  }
 }
 .mostVisitedMenu {
-  position: absolute;
+  position: fixed;
   z-index: z('tabQuickLinksMostVisited');
-  top: 100%;
+  top: 0;
   left: 0;
   display: block;
   margin: 0;

@@ -11,12 +11,14 @@ import { AppComponent } from './app.component';
 import { Ng2ChromeStorageModule } from './_storage/storage.module';
 import { Settings } from './_storage/settings';
 import { SharedService, TranslateCut } from './_shared/shared.service';
+import { PopupService } from './_shared/controls/popup.service';
 import { PositionComponent } from './_shared/controls/position.component';
 import { ToggleComponent } from './_shared/controls/toggle.component';
 import { RangeComponent } from './_shared/controls/range.component';
 import { SettingsToggleComponent } from './_shared/controls/settings-toggle.component';
 import { LogoComponent } from './_shared/controls/logo.component';
 import { TooltipComponent } from './_shared/controls/tooltip.component';
+import { MostVisitedMenuComponent } from './tab/bookmarks/most-visited-menu.component';
 import { WeatherService } from './tab/weather/weather.service';
 import * as moment from 'moment-timezone';
 
@@ -59,6 +61,7 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     SettingsToggleComponent,
     LogoComponent,
     TooltipComponent,
+    MostVisitedMenuComponent,
     TranslateCut,
 
     SplashComponent,
@@ -106,10 +109,14 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
   ],
   providers: [
     SharedService,
+    PopupService,
     TimezoneService,
     WeatherService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    MostVisitedMenuComponent
+  ]
 })
 export class AppModule { }
 

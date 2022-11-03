@@ -37,20 +37,10 @@
       </button>
     </li>
     <li class="mostVisitedLink" *ngIf="settings.config.quickLink.mostVisited">
-      <button title="{{'tab.bookmarks.links.mostVisited' | translate}}" class="link" (click)="toggleMvMenu = !toggleMvMenu;">
+      <button #quickLinkMostVisitedBtn title="{{'tab.bookmarks.links.mostVisited' | translate}}" class="link" (click)="toggleMostVisited($event);">
         <img *ngIf="settings.config.quickLink.icons" src="/assets/img/folder.png" class="quickLinksIcon">
         <div class="quickLinksLabel">{{'tab.bookmarks.links.mostVisited' | translate}}</div>
       </button>
-      <div class="mostVisitedMenu" *ngIf="toggleMvMenu">
-        <a
-          href="{{mv.url}}"
-          title="{{mv.title}}
-{{mv.url}}"
-          *ngFor="let mv of allMostVisited">
-          <img *ngIf="settings.config.quickLink.icons" [src]="getQuickLinksIcon(mv.url)">
-          <div>{{mv.title}}</div>
-        </a>
-      </div>
     </li>
     <ng-container *ngIf="settings.config.quickLink.links.length > 0">
       <li *ngFor="let item of settings.config.quickLink.links; let i = index">

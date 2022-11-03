@@ -17,6 +17,7 @@ export class SharedService {
   private _status: string;
   private _updateType: "major" | "minor" | "quiet" | "hidden";
   private _allBookmarks: any;
+  private _mostVisitedLinks: any;
 
   constructor(
     public settings: Storage
@@ -114,6 +115,13 @@ export class SharedService {
     this._allBookmarks = value;
   }
 
+  get mostVisitedLinks(): any {
+    return this._mostVisitedLinks;
+  }
+  set mostVisitedLinks(value: any) {
+    this._mostVisitedLinks = value;
+  }
+
   public echo(msg: string, str?: any, obj?: any, type?: 'warning' | 'error' | 'success' | 'save') {
     let strStyle = 'display:inline-block;background:#f1f3f7;color:black;padding:5px;margin:0 0 0 5px;border-radius:5px;';
     let style = 'display:inline-block;background:#ccd0da;color:black;padding:5px;border-radius:5px;';
@@ -180,12 +188,12 @@ export class SharedService {
     let emBase = baseSize ? baseSize : 10;
     return (size / emBase) + 'em';
   }
-  
+
   public getImageSize(size: number, baseSize?: number) {
     let base = baseSize ? baseSize : 10;
     return ((size / base)) + 'em';
   }
-  
+
   public getMaxWidth(size: number) {
     // Max width will always be based on viewport as opposed to scaling method.
     return (size * 1) + 'vw';
@@ -244,7 +252,7 @@ export class SharedService {
       case "se":
         positionOrder = this.settings.config.order.se;
         break;
-    
+
       default:
         positionOrder = this.settings.config.order.items;
         break;
@@ -284,7 +292,7 @@ export class SharedService {
     let inSE = this.settings.config.order.se.some(e => e.id === id);
 
     foundInList = (inNW || inN || inNE || inW || inC || inE || inSW || inS || inSE);
-    
+
     if (foundInList) {
       if (inNW) {positionOrder = this.settings.config.order.nw}
       if (inN) {positionOrder = this.settings.config.order.n}
@@ -340,7 +348,7 @@ export class SharedService {
       case "se":
         positionOrder = this.settings.config.order.se;
         break;
-    
+
       default:
         positionOrder = this.settings.config.order.items;
         break;
@@ -394,7 +402,7 @@ export class SharedService {
       case "se":
         positionOrder = this.settings.config.order.se;
         break;
-    
+
       default:
         positionOrder = this.settings.config.order.items;
         break;
@@ -438,7 +446,7 @@ export class SharedService {
       case "se":
         positionOrder = this.settings.config.order.se;
         break;
-    
+
       default:
         positionOrder = this.settings.config.order.items;
         break;
@@ -482,7 +490,7 @@ export class SharedService {
       case "se":
         positionOrder = this.settings.config.order.se;
         break;
-    
+
       default:
         positionOrder = this.settings.config.order.items;
         break;

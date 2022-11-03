@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostBinding, NgZone } from '@angular/core';
+import { Component, AfterViewInit, Input, HostBinding, ElementRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SharedService } from '../../_shared/shared.service';
 import { Storage } from '../../_storage/storage.service';
@@ -18,20 +18,48 @@ import { Storage } from '../../_storage/storage.service';
     </ng-container>
   `
 })
-export class MostVisitedMenuComponent implements OnInit {
+export class MostVisitedMenuComponent implements AfterViewInit {
   @Input() target: PointerEvent;
   @HostBinding("class") mostVisitedMenu = "mostVisitedMenu";
   @HostBinding("style.top") y = "0px"
   @HostBinding("style.left") x = "0px"
+  @HostBinding("style.visibility") visibility = "hidden"
   allMostVisited: any;
   iconTemp = {};
 
-  constructor(public settings: Storage, public shared: SharedService, private sanitizer: DomSanitizer) {
+  constructor(
+    public settings: Storage,
+    public shared: SharedService,
+    private sanitizer: DomSanitizer,
+    private elRef: ElementRef
+  ) {
   }
 
-  ngOnInit() {
-    this.y = `${this.target.pageY + 16}px`
-    this.x = `${this.target.pageX + 10}px`
+  ngAfterViewInit() {
+    setTimeout(() => {
+      const height = this.elRef.nativeElement.offsetHeight;
+      const width = this.elRef.nativeElement.offsetWidth;
+      const mouseY = this.target.pageY;
+      const mouseX = this.target.pageX;
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      const heightDifference = windowHeight - (height + mouseY);
+      const widthDifference = windowWidth - (width + mouseX);
+
+      if (heightDifference < 0) {
+        let pos = mouseY + heightDifference;
+        this.y = `${pos < 0 ? 0 : pos}px`;
+      } else {
+        this.y = `${mouseY}px`
+      }
+      if (widthDifference < 0) {
+        let pos = mouseX + widthDifference;
+        this.x = `${pos < 0 ? 0 : pos}px`;
+      } else {
+        this.x = `${mouseX}px`
+      }
+      this.visibility = "visible";
+    }, 20);
   }
 
   getQuickLinksIcon(url) {

@@ -55,7 +55,10 @@ export class TabQuickLinksComponent implements OnInit {
     }
 
     this.renderer.listen('window', 'click', (e: Event) => {
-      if (e.target !== this.quickLinkMostVisitedBtn.nativeElement && this.showMostVisited) {
+      if (
+        this.quickLinkMostVisitedBtn &&
+        (e.target !== this.quickLinkMostVisitedBtn.nativeElement && this.showMostVisited)
+      ) {
         this.popupRef.destroy();
         this.showMostVisited = false;
       }

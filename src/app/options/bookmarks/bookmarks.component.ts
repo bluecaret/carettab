@@ -11,6 +11,7 @@ import { SharedService } from '../../_shared/shared.service';
 export class OptionsBookmarksComponent implements OnInit {
   editMode: boolean[] = [];
   isInvalid = false;
+  hasFaviconPermission: boolean;
   hasBookmarkPermission: boolean;
   hasTopSitesPermission: boolean;
 
@@ -28,6 +29,7 @@ export class OptionsBookmarksComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.checkFaviconPermission();
     this.checkBookmarkPermission();
     this.checkTopSitesPermission();
 
@@ -48,6 +50,40 @@ export class OptionsBookmarksComponent implements OnInit {
 
   // Add fake old quick links for testing:
   // chrome.storage.sync.set({links: [{label: "Test", url: "https://test.com"},{label: "Lorem", url: "https://lorem.com"}]})
+
+  checkFaviconPermission() {
+    const that = this;
+    chrome.permissions.contains({permissions: ['favicon']}, function(result) {
+      that.zone.run(() => {
+        if (chrome.runtime.lastError) {
+          that.shared.echo('Error checking Favicon permission', chrome.runtime.lastError, '', 'error');
+        }
+        that.shared.echo('Permission check: Favicon allowed?', result);
+        that.allowFavicon(result);
+      });
+    });
+  }
+
+  setFaviconPermission() {
+    const that = this;
+    chrome.permissions.request({permissions: ['favicon']}, function(granted) {
+      that.zone.run(() => {
+        if (chrome.runtime.lastError) {
+          that.shared.echo('Error setting Favicon permission', chrome.runtime.lastError, '', 'error');
+        }
+        that.shared.echo('Set Permission: Favicon', granted);
+        that.allowFavicon(granted);
+      });
+    });
+  }
+
+  allowFavicon(granted: boolean) {
+    if (granted) {
+      this.hasFaviconPermission = true;
+    } else {
+      this.hasFaviconPermission = false;
+    }
+  }
 
   checkBookmarkPermission() {
     const that = this;

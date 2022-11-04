@@ -7,7 +7,8 @@
   </div>
   <div class="input" *ngIf="settings.config.bookmark.enabled">
     <label>{{'options.bookmarks.favicons' | translate}}</label>
-    <options-toggle name="bookmarksBarIcons" [(ngModel)]="settings.config.bookmark.icons"></options-toggle>
+    <button class="btn" *ngIf="!hasFaviconPermission" (click)="setFaviconPermission()">{{'options.bookmarks.faviconPermission' | translate}}</button>
+    <options-toggle *ngIf="hasFaviconPermission" name="bookmarksBarIcons" [(ngModel)]="settings.config.bookmark.icons"></options-toggle>
   </div>
   <div class="input" *ngIf="settings.config.bookmark.enabled">
     <label>{{'options.bookmarks.appsLink' | translate}}</label>
@@ -37,7 +38,8 @@
   </div>
   <div class="input" *ngIf="settings.config.quickLink.enabled">
     <label>{{'options.bookmarks.favicons' | translate}}</label>
-    <options-toggle name="quickLinksIcons" [(ngModel)]="settings.config.quickLink.icons"></options-toggle>
+    <button class="btn" *ngIf="!hasFaviconPermission" (click)="setFaviconPermission()">{{'options.bookmarks.faviconPermission' | translate}}</button>
+    <options-toggle *ngIf="hasFaviconPermission" name="quickLinksIcons" [(ngModel)]="settings.config.quickLink.icons"></options-toggle>
   </div>
   <div class="input" *ngIf="settings.config.quickLink.enabled">
     <label>{{'options.bookmarks.appsLink' | translate}}</label>

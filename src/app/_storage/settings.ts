@@ -74,7 +74,7 @@ export class I18nSettings {
 export class BookmarkSettings {
   constructor(
     public enabled = false,
-    public icons = true,
+    public icons = false,
     public mostVisited = false,
     public bookmarksManager = false,
     public history = false,
@@ -87,7 +87,7 @@ export class QuickLinkSettings {
   constructor(
     public id = 'QUICKLINK_C5HDR1KCPMG',
     public enabled = false,
-    public icons = true,
+    public icons = false,
     public scaling = 10,
     public width = 100,
     public offset = 0,

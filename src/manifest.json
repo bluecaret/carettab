@@ -19,10 +19,10 @@
   },
   "offline_enabled": true,
   "permissions": [
-    "storage",
-    "favicon"
+    "storage"
   ],
   "optional_permissions": [
+    "favicon",
     "bookmarks",
     "topSites"
   ]

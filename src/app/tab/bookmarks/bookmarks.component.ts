@@ -59,12 +59,42 @@ export class TabBookmarksComponent implements OnInit {
     this.isLoading = true;
     this.isChrome = !!window.chrome;
 
+    if (this.settings.config.bookmark.enabled && this.settings.config.bookmark.icons) {
+      this.checkFaviconPermission();
+    }
     if (this.settings.config.bookmark.enabled) {
       this.getBookmarks();
     }
     if (this.settings.config.bookmark.mostVisited === true) {
       this.getMostVisited();
     }
+  }
+
+  checkFaviconPermission() {
+    const that = this;
+    chrome.permissions.contains({permissions: ['favicon']}, function(result) {
+      that.zone.run(() => {
+        if (chrome.runtime.lastError) {
+          that.shared.echo('Error checking Favicon permission', chrome.runtime.lastError, '', 'error');
+        }
+        that.shared.echo('Permission check: Favicon allowed?', result);
+        if (!result) {
+          that.setFaviconPermission();
+        }
+      });
+    });
+  }
+
+  setFaviconPermission() {
+    const that = this;
+    chrome.permissions.request({permissions: ['favicon']}, function(granted) {
+      that.zone.run(() => {
+        if (chrome.runtime.lastError) {
+          that.shared.echo('Error setting Favicon permission', chrome.runtime.lastError, '', 'error');
+        }
+        that.shared.echo('Set Permission: Favicon', granted);
+      });
+    });
   }
 
   getMostVisited() {

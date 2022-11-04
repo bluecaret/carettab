@@ -84,6 +84,10 @@ export class OptionsExtraComponent {
         _imp.weather && Object.assign(this.settings.config.weather, _imp.weather);
         this.importStatus = 'success';
 
+        if (_imp.bookmark.icons || _imp.quickLink.icons) {
+          this.checkFaviconPermission();
+        }
+
         if (_imp.bookmark.enabled) {
           this.checkBookmarkPermission();
         }
@@ -98,6 +102,33 @@ export class OptionsExtraComponent {
 
     reader.readAsText(files[0]);
     input.value = '';
+  }
+
+  checkFaviconPermission() {
+    const that = this;
+    chrome.permissions.contains({permissions: ['favicon']}, function(result) {
+      that.zone.run(() => {
+        if (chrome.runtime.lastError) {
+          that.shared.echo('Error checking Favicon permission', chrome.runtime.lastError, '', 'error');
+        }
+        that.shared.echo('Permission check: Favicon allowed?', result);
+        if (result === false) {
+          that.setFaviconPermission();
+        }
+      });
+    });
+  }
+
+  setFaviconPermission() {
+    const that = this;
+    chrome.permissions.request({permissions: ['favicon']}, function(granted) {
+      that.zone.run(() => {
+        if (chrome.runtime.lastError) {
+          that.shared.echo('Error setting Favicon permission', chrome.runtime.lastError, '', 'error');
+        }
+        that.shared.echo('Set Permission: Favicon', granted);
+      });
+    });
   }
 
   checkBookmarkPermission() {

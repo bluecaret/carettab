@@ -418,6 +418,24 @@
     "v362": {
       "m1": "Fixed blank COVID data by updating API call."
     },
+    "v363": {
+      "m1": "No new features on this update, just some cleanup of back-end things that are no longer needed.",
+      "m2": "Migrate to manifest v3 to support current Chrome Web Store requirements.",
+      "m3": "Removed Google Analytics",
+      "m4": "Removed search monetization and changed default search to Google.",
+      "m5": "Removed support for Firefox. I am sorry to say but I am pulling CaretTab from the Firefox addons store. The extension just never received enough users to justify development resources for issues.",
+      "m6": "Privacy policy updated",
+      "m7": "CaretTab has had analytics code and a search monetization provider removed; due to this the Privacy Policy has been updated. Please review the new policy at"
+    },
+    "v364": {
+      "m1": "Fixed the \"Most Visited\" menu so it does not display behind other content.",
+      "m2": "Fixed the text color of \"Most Visited\" menu when in dark mode.",
+      "m3": "Fixed translation of the \"Feels like\" text in the weather widget.",
+      "m4": "When importing settings, optional permissions will be requested at time of import if needed.",
+      "m5": "Added Vietnamese translation.",
+      "m6": "Prevent search from running if no search term is provided.",
+      "m7": "Fix weather location search to display the city, region and country to prevent accidentally selecting the incorrect location."
+    },
     "yes": "Yes"
   },
   "tab": {

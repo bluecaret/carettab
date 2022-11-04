@@ -18,6 +18,7 @@
       "deleteLink": "Xóa liên kết",
       "enableBar": "Thanh dấu trang",
       "enableQuick": "Đường dẫn nhanh",
+      "faviconPermission": "Cho phép tiện ích mở rộng truy cập Biểu tượng yêu thích",
       "favicons": "Biểu tượng",
       "headingBar": "Dấu trang",
       "headingLink": "Liên kết",
@@ -417,6 +418,25 @@
     },
     "v362": {
       "m1": "Đã sửa dữ liệu COVID trống bằng cách cập nhật lệnh gọi API."
+    },
+    "v363": {
+      "m1": "Không có tính năng mới nào trên bản cập nhật này, chỉ là một số dọn dẹp những thứ không còn cần thiết nữa.",
+      "m2": "Di chuyển sang tệp kê khai v3 để hỗ trợ các yêu cầu hiện tại của Cửa hàng Chrome trực tuyến.",
+      "m3": "Đã xóa Google Analytics",
+      "m4": "Đã xóa tính năng kiếm tiền từ tìm kiếm và thay đổi tìm kiếm mặc định thành Google.",
+      "m5": "Đã xóa hỗ trợ cho Firefox. Tôi rất tiếc phải nói nhưng tôi đang lấy CaretTab khỏi cửa hàng tiện ích bổ sung của Firefox. Tiện ích này không bao giờ nhận đủ người dùng để biện minh cho tài nguyên phát triển cho các vấn đề.",
+      "m6": "Đã cập nhật chính sách quyền riêng tư",
+      "m7": "CaretTab đã có mã phân tích và nhà cung cấp dịch vụ kiếm tiền từ tìm kiếm bị xóa; do đó, Chính sách quyền riêng tư đã được cập nhật. Vui lòng xem lại chính sách mới tại"
+    },
+    "v364": {
+      "m1": "Đã sửa menu \" Được truy cập nhiều nhất\" để nó không hiển thị đằng sau nội dung khác.",
+      "m2": "Đã sửa màu văn bản của menu \" Được truy cập nhiều nhất\" khi ở chế độ tối.",
+      "m3": "Đã sửa bản dịch văn bản \" Cảm thấy giống\" trong tiện ích thời tiết.",
+      "m4": "Khi nhập cài đặt, các quyền tùy chọn sẽ được yêu cầu tại thời điểm nhập nếu cần.",
+      "m5": "Đã thêm bản dịch tiếng Việt.",
+      "m6": "Ngăn không cho tìm kiếm chạy nếu không có cụm từ tìm kiếm nào được cung cấp.",
+      "m7": "Sửa tìm kiếm vị trí thời tiết để hiển thị thành phố, khu vực và quốc gia để tránh việc vô tình chọn vị trí không chính xác.",
+      "m8": "Quyền Đã thay đổi \"favicon\" thành tùy chọn nếu các biểu tượng được bật cho Thanh dấu trang hoặc Liên kết nhanh."
     },
     "yes": "Có"
   },

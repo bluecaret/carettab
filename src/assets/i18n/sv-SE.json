@@ -18,6 +18,7 @@
       "deleteLink": "Radera länk",
       "enableBar": "Bokmärkesfält",
       "enableQuick": "Snabblänkar",
+      "faviconPermission": "Tillåt tillägg att komma åt favoritikoner",
       "favicons": "Favicons",
       "headingBar": "bokmärken",
       "headingLink": "länkar",
@@ -417,6 +418,25 @@
     },
     "v362": {
       "m1": "Fixade tomma COVID -data genom att uppdatera API -samtal."
+    },
+    "v363": {
+      "m1": "Inga nya funktioner i den här uppdateringen, bara lite rensning av back-end-saker som inte längre behövs.",
+      "m2": "Migrera till manifest v3 för att stödja aktuella Chrome Web Store-krav.",
+      "m3": "Ta bort Google Analytics",
+      "m4": "Ta bort intäktsgenerering för sökningar och ändrade standardsökning till Google.",
+      "m5": "Ta bort stöd för Firefox. Jag är ledsen att säga det men jag tar bort CaretTab från Firefox tilläggsbutik. Tillägget fick helt enkelt aldrig tillräckligt många användare för att motivera utvecklingsresurser för problem.",
+      "m6": "Sekretesspolicy uppdaterad",
+      "m7": "CaretTab har tagit bort analyskod och en leverantör av intäktsgenerering för söktjänster; på grund av detta har integritetspolicyn uppdaterats. Läs igenom den nya policyn på"
+    },
+    "v364": {
+      "m1": "Fixade menyn \"Mest besökta\" så att den inte visas bakom annat innehåll.",
+      "m2": "Fixade textfärgen på \"Mest besökta\"-menyn i mörkt läge.",
+      "m3": "Fixad översättning av texten \"Feels like\" i väderwidgeten.",
+      "m4": "När inställningar importeras kommer valfria behörigheter att begäras vid importtillfället om det behövs.",
+      "m5": "Lägg till vietnamesisk översättning.",
+      "m6": "Förhindra sökning från att köras om ingen sökterm anges.",
+      "m7": "Åtgärda sökning efter väderposition för att visa stad, region och land för att förhindra att felaktig plats väljs av misstag.",
+      "m8": "Ändrade \"favicon\"-behörigheter till att vara valfria om ikoner är aktiverade för bokmärkesfältet eller snabblänkar."
     },
     "yes": "Ja"
   },

@@ -18,6 +18,7 @@
       "deleteLink": "Elimina collegamento",
       "enableBar": "Barra dei segnalibri",
       "enableQuick": "Link veloci",
+      "faviconPermission": "Consenti all'interno di accedere alle Favicon",
       "favicons": "favicon",
       "headingBar": "segnalibri",
       "headingLink": "link",
@@ -417,6 +418,25 @@
     },
     "v362": {
       "m1": "Risolti i dati COVID vuoti aggiornando la chiamata API."
+    },
+    "v363": {
+      "m1": "Nessuna nuova funzionalità in questo aggiornamento, solo alcune cose di back-end che non sono più necessarie.",
+      "m2": "Migra a manifest v3 per supportare i requisiti attuali del Chrome Web Store.",
+      "m3": "Google Analytics rimosso",
+      "m4": "Rimossa la monetizzazione della ricerca e modificata la ricerca predefinita in Google.",
+      "m5": "Rimosso il supporto per Firefox. Mi dispiace dirlo ma sto ritirando CaretTab dal negozio di componenti aggiuntivi di Firefox. L'estensione non ha mai ricevuto abbastanza utenti per giustificare le risorse di sviluppo per problemi.",
+      "m6": "Informativa sulla privacy aggiornata",
+      "m7": "CaretTab ha rimosso il codice analitico e un provider di monetizzazione della ricerca; per questo motivo l'Informativa sulla privacy è stata aggiornata. Si prega di rivedere la nuova politica all'indirizzo"
+    },
+    "v364": {
+      "m1": "Risolto il problema con il menu \"Più visitati\" in modo che non venisse visualizzato dietro altri contenuti.",
+      "m2": "Corretto il colore del testo del menu \"Più visitati\" in modalità oscura.",
+      "m3": "Traduzione corretta del testo \"Sembra\" nel widget meteo.",
+      "m4": "Durante l'importazione delle impostazioni, verranno richieste autorizzazioni opzionali al momento dell'importazione, se necessario.",
+      "m5": "Aggiunta traduzione vietnamita.",
+      "m6": "Impedisci l'esecuzione della ricerca se non viene fornito alcun termine di ricerca.",
+      "m7": "Correggi la ricerca della posizione meteo per visualizzare la città, la regione e il paese per evitare di selezionare accidentalmente la posizione errata.",
+      "m8": "Le autorizzazioni \"favicon\" sono state modificate in modo che siano opzionali se le icone sono abilitate per la barra dei segnalibri o per i collegamenti rapidi."
     },
     "yes": "sì"
   },

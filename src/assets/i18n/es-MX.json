@@ -18,6 +18,7 @@
       "deleteLink": "Eliminar enlace",
       "enableBar": "La barra de marcadores",
       "enableQuick": "enlaces rápidos",
+      "faviconPermission": "Permitir que la extensión acceda a Favicons",
       "favicons": "Favicons",
       "headingBar": "Marcadores",
       "headingLink": "Campo de golf",
@@ -417,6 +418,25 @@
     },
     "v362": {
       "m1": "Se corrigieron los datos COVID en blanco actualizando la llamada a la API."
+    },
+    "v363": {
+      "m1": "No hay funciones nuevas en esta actualización, solo algunas tareas de limpieza que ya no son necesarias.",
+      "m2": "Migrar al manifiesto v3 para admitir los requisitos actuales de Chrome Web Store.",
+      "m3": "Google Analytics Eliminado",
+      "m4": "Se eliminó la monetización de búsqueda y se cambió la búsqueda predeterminada a Google.",
+      "m5": "Se eliminó el soporte para Firefox. Lamento decirlo, pero estoy retirando CaretTab de la tienda de complementos de Firefox. La extensión nunca recibió suficientes usuarios para justificar los recursos de desarrollo para los problemas.",
+      "m6": "Política de privacidad actualizada",
+      "m7": "Se ha eliminado el código de análisis y un proveedor de monetización de búsqueda de CaretTab; debido a esto, se actualizó la Política de privacidad. Revise la nueva política en"
+    },
+    "v364": {
+      "m1": "Se corrigió el menú \"Más visitado\" para que no se muestre detrás de otro contenido.",
+      "m2": "Se corrigió el color del texto del menú \"Más visitados\" cuando está en modo oscuro.",
+      "m3": "Se corrigió la traducción del texto \"Se siente como\" en el widget del clima.",
+      "m4": "Al importar configuraciones, se solicitarán permisos opcionales en el momento de la importación si es necesario.",
+      "m5": "Traducción al vietnamita agregada.",
+      "m6": "Evitar que se ejecute la búsqueda si no se proporciona ningún término de búsqueda.",
+      "m7": "Se corrigió la búsqueda de ubicación climática para mostrar la ciudad, la región y el país para evitar seleccionar accidentalmente la ubicación incorrecta.",
+      "m8": "Se cambiaron los permisos de \"favicon\" para que sean opcionales si los iconos están habilitados para la barra de marcadores o los enlaces rápidos."
     },
     "yes": "Sí"
   },

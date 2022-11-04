@@ -18,6 +18,7 @@
       "deleteLink": "Supprimer le lien",
       "enableBar": "Barre des favoris",
       "enableQuick": "Liens rapides",
+      "faviconPermission": "Autoriser l'extension à accéder aux favicons",
       "favicons": "Favicons",
       "headingBar": "Signets",
       "headingLink": "Liens",
@@ -417,6 +418,25 @@
     },
     "v362": {
       "m1": "Correction des données COVID vides en mettant à jour l'appel d'API."
+    },
+    "v363": {
+      "m1": "Aucune nouvelle fonctionnalité sur cette mise à jour, juste quelques nettoyages des éléments principaux qui ne sont plus nécessaires.",
+      "m2": "Migration vers manifeste v3 pour prendre en charge les exigences actuelles du Chrome Web Store.",
+      "m3": "Suppression de Google Analytics",
+      "m4": "Suppression de la monétisation de la recherche et modification de la recherche par défaut sur Google.",
+      "m5": "Suppression de la prise en charge de Firefox. Je suis désolé de le dire, mais je retire CaretTab de la boutique d'addons de Firefox. L'extension n'a tout simplement jamais reçu suffisamment d'utilisateurs pour justifier les ressources de développement pour les problèmes.",
+      "m6": "Politique de confidentialité mise à jour",
+      "m7": "CaretTab a fait supprimer le code d'analyse et un fournisseur de monétisation de recherche; pour cette raison, la politique de confidentialité a été mise à jour. Veuillez consulter la nouvelle politique à l'adresse"
+    },
+    "v364": {
+      "m1": "Correction du menu \"Les plus visités\" afin qu'il ne s'affiche pas derrière d'autres contenus.",
+      "m2": "Correction de la couleur du texte du menu \"Les plus visités\" en mode sombre.",
+      "m3": "Correction de la traduction du texte \"Feels like\" dans le widget météo.",
+      "m4": "Lors de l'importation des paramètres, des autorisations facultatives seront demandées au moment de l'importation si nécessaire.",
+      "m5": "Ajout de la traduction vietnamienne.",
+      "m6": "Empêcher la recherche de s'exécuter si aucun terme de recherche n'est fourni.",
+      "m7": "Corrige la recherche d'emplacement météo pour afficher la ville, la région et le pays afin d'éviter de sélectionner accidentellement un emplacement incorrect.",
+      "m8": "Modification des autorisations \"favicon\" pour qu'elles soient facultatives si les icônes sont activées pour la barre de favoris ou les liens rapides."
     },
     "yes": "Oui"
   },

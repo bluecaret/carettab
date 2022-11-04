@@ -18,6 +18,7 @@
       "deleteLink": "Excluir link",
       "enableBar": "Barra de favoritos",
       "enableQuick": "Links Rápidos",
+      "faviconPermission": "Permitir que a extensão acesse Favicons",
       "favicons": "Favicons",
       "headingBar": "favoritos",
       "headingLink": "Links",
@@ -417,6 +418,25 @@
     },
     "v362": {
       "m1": "Dados COVID em branco corrigidos atualizando a chamada de API."
+    },
+    "v363": {
+      "m1": "Não há novos recursos nesta atualização, apenas algumas limpezas de coisas de back-end que não são mais necessárias.",
+      "m2": "Migre para manifesto v3 para dar suporte aos requisitos atuais da Chrome Web Store.",
+      "m3": "Google Analytics removido",
+      "m4": "Monetização de pesquisa removida e pesquisa padrão alterada para Google.",
+      "m5": "Suporte removido para Firefox. Lamento dizer, mas estou retirando o CaretTab da loja de complementos do Firefox. A extensão nunca recebeu usuários suficientes para justificar recursos de desenvolvimento para problemas.",
+      "m6": "Política de privacidade atualizada",
+      "m7": "O CaretTab teve o código de análise e um provedor de monetização de pesquisa removidos; devido a isso, a Política de Privacidade foi atualizada. Revise a nova política em"
+    },
+    "v364": {
+      "m1": "Corrigido o menu \"Mais Visitados\" para que não seja exibido atrás de outro conteúdo.",
+      "m2": "Corrigida a cor do texto do menu \"Mais visitados\" quando em modo escuro.",
+      "m3": "Tradução fixa do texto \"Parece\" no widget de clima.",
+      "m4": "Ao importar configurações, permissões opcionais serão solicitadas no momento da importação, se necessário.",
+      "m5": "Adicionada tradução vietnamita.",
+      "m6": "Impedir a execução da pesquisa se nenhum termo de pesquisa for fornecido.",
+      "m7": "Corrigir pesquisa de localização meteorológica para exibir a cidade, região e país para evitar selecionar acidentalmente a localização incorreta.",
+      "m8": "Permissões de \"favicon\" alteradas para serem opcionais se os ícones estiverem habilitados para a Barra de Favoritos ou Links Rápidos."
     },
     "yes": "sim"
   },

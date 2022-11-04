@@ -18,6 +18,7 @@
       "deleteLink": "Link löschen",
       "enableBar": "Lesezeichenleiste",
       "enableQuick": "SCHNELLE LINKS",
+      "faviconPermission": "Erlauben Sie der Erweiterung, auf Favicons zuzugreifen",
       "favicons": "Favicons",
       "headingBar": "Lesezeichen",
       "headingLink": "Links",
@@ -417,6 +418,25 @@
     },
     "v362": {
       "m1": "Leere COVID-Daten durch Aktualisierung des API-Aufrufs behoben."
+    },
+    "v363": {
+      "m1": "Keine neuen Funktionen in diesem Update, nur einige Bereinigungen von nicht mehr benötigten Back-End-Dingen.",
+      "m2": "Migrieren Sie zu Manifest v3, um die aktuellen Chrome Web Store-Anforderungen zu unterstützen.",
+      "m3": "Google Analytics entfernt",
+      "m4": "Die Monetarisierung der Suche wurde entfernt und die Standardsuche auf Google geändert.",
+      "m5": "Unterstützung für Firefox entfernt. Es tut mir leid, das sagen zu müssen, aber ich ziehe CaretTab aus dem Firefox-Addon-Store. Die Erweiterung hat einfach nie genug Benutzer bekommen, um Entwicklungsressourcen für Probleme zu rechtfertigen.",
+      "m6": "Datenschutzrichtlinie aktualisiert",
+      "m7": "Bei CaretTab wurde der Analysecode und ein Suchmonetarisierungsanbieter entfernt; aus diesem Grund wurde die Datenschutzrichtlinie aktualisiert. Bitte lesen Sie die neue Richtlinie unter"
+    },
+    "v364": {
+      "m1": "Das „Meistbesucht“-Menü wurde korrigiert, sodass es nicht hinter anderen Inhalten angezeigt wird.",
+      "m2": "Die Textfarbe des „Meistbesucht“-Menüs im Dunkelmodus wurde korrigiert.",
+      "m3": "Die Übersetzung des „Feels like“-Textes im Wetter-Widget wurde korrigiert.",
+      "m4": "Beim Importieren von Einstellungen werden bei Bedarf optionale Berechtigungen zum Zeitpunkt des Imports angefordert.",
+      "m5": "Vietnamesische Übersetzung hinzugefügt.",
+      "m6": "Verhindert, dass die Suche ausgeführt wird, wenn kein Suchbegriff angegeben wird.",
+      "m7": "Korrigieren Sie die Suche nach Wetterstandorten, um Stadt, Region und Land anzuzeigen, um zu verhindern, dass versehentlich der falsche Standort ausgewählt wird.",
+      "m8": "Die „Favicon“-Berechtigungen sind jetzt optional, wenn Symbole für die Lesezeichenleiste oder Quicklinks aktiviert sind."
     },
     "yes": "Ja"
   },

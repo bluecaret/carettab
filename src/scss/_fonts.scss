@@ -33,6 +33,27 @@ $optFontHeading: 'Open Sans', sans-serif;
 // google-font-downloader "https://fonts.googleapis.com/css?family=Anton|Buda:300|Cabin+Sketch|Chelsea+Market|Comfortaa:300,400,700|Dancing+Script|EB+Garamond:400,700|Exo+2:200,400,700|Inconsolata:400,700|Lobster|Lobster+Two|Monoton|Nanum+Pen+Script|Nixie+One|Open+Sans:300,400,700|Overlock+SC|Quicksand:300,400,700|Special+Elite"
 //
 
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: url(#{$font-src}/SourceSansPro-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(#{$font-src}/SourceSansPro-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 600;
+  src: url(#{$font-src}/SourceSansPro-SemiBold.ttf) format('truetype');
+}
+
 /* vietnamese */
 @font-face {
   font-family: 'Anton';

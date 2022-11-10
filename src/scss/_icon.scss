@@ -1,4 +1,36 @@
 //
+// Material Symbols font
+//
+
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: block;
+  src: url("#{$font-src}/material-symbols-outlined.woff2") format("woff2");
+}
+.matIcon {
+  font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga";
+}
+
+
+
+//
 // Material Icon font
 //
 
@@ -35,7 +67,7 @@
 
 /*!
  *  WEATHER ICON DESIGN COMES FROM:
- *  
+ *
  *  Weather Icons 2.0.10
  *  Updated November 1, 2020
  *  Weather themed icons for Bootstrap
@@ -63,7 +95,7 @@
   font-weight: normal;
   font-style: normal;
 }
- 
+
 [class^="w-"], [class*=" w-"] {
   font-family: "ct-weather";
   font-weight: normal;
@@ -79,7 +111,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
- 
+
 .w-day-cloudy:before { content: '\f002'; } /* '' */
 .w-day-hail:before { content: '\f004'; } /* '' */
 .w-day-lightning:before { content: '\f005'; } /* '' */

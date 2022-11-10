@@ -1,3 +1,49 @@
+:root {
+  color-scheme: light;
+
+  --size100: .1rem;
+  --size200: .2rem;
+  --size300: .4rem;
+  --size400: .8rem;
+  --size500: 1.6rem;
+  --size600: 2.4rem;
+  --size700: 3.2rem;
+  --size800: 4rem;
+  --size900: 4.8rem;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+
+    // panel
+    --panelBackdrop: hsl(0 0% 5% / .5);
+    --panelBg: hsl(225 5% 17%);
+    --panelColor: hsl(225 10% 80%);
+    --panelColorSubtle: hsl(225 10% 60%);
+    --panelShadow: hsl(0 0% 0% / .5);
+    --panelGroupBg: hsl(225 6% 13%);
+    --panelGroupShadow: hsl(0 0% 0% / .5);
+    --panelGroupItemBorder: hsl(225 5% 17%);
+    --panelScrollTrack: var(--panelBg);
+    --panelScrollThumb: hsl(225 6% 33%);
+    --toggleBtnBg: hsl(210 20% 30%);
+    --toggleBtnIndicator: hsl(225 20% 20%);
+    --toggleBtnColor: hsl(225 10% 80%);
+    --toggleBtnPressedBg: hsl(210 80% 30%);
+    --toggleBtnPressedIndicator: hsl(225 90% 20%);
+    --toggleBtnPressedColor: hsl(225 10% 90%);
+    --inputBg: hsl(225 18% 6%);
+    --inputBorder: hsl(225 18% 20%);
+    --inputColor: hsl(225 10% 80%);
+    --btnBorder: hsl(225 5% 40%);
+    --btnBorder: hsl(210 80% 30%);
+    --btnColor: hsl(210 80% 80%);
+    --selectArrow: hsl(210 30% 50%);
+    --selectArrowFade: hsl(210 30% 50% / .3);
+    --rangeTrack: var(--inputBg);
+    --rangeThumb: var(--toggleBtnPressedBg);
+  }
+}
+
 $blue: #3FA9F5;
 $lightBlue: lighten($blue, 20%);
 $green: rgb(35, 148, 82);

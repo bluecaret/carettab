@@ -6,44 +6,44 @@
   height: 20px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--optScrollTrack);
+  background: var(--panelScrollTrack);
   border: solid 4px transparent;
-  border-radius: 0 10px 10px 0;
+  // border-radius: 0 10px 10px 0;
 }
 ::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 10px 10px var(--optScrollThumb);
+  box-shadow: inset 0 0 10px 10px var(--panelScrollThumb);
   border: solid 4px transparent;
   border-radius: 10px;
 }
 
 app-options {
-  h1, h2, h3, h4, h5, h6, p, .input, form {
-    margin: 0;
-  }
-  * + h1, 
-  * + h2, 
-  * + h3, 
-  * + h4, 
-  * + h5, 
-  * + h6, 
-  * + p, 
-  * + .input,
-  * + form {
-    margin-top: 1.5em;
-  }
+  // h1, h2, h3, h4, h5, h6, p, .input, form {
+  //   margin: 0;
+  // }
+  // * + h1,
+  // * + h2,
+  // * + h3,
+  // * + h4,
+  // * + h5,
+  // * + h6,
+  // * + p,
+  // * + .input,
+  // * + form {
+  //   margin-top: 1.5em;
+  // }
 }
 
-@import "block/box";
-@import "block/btn";
-@import "block/forms";
-@import "block/validation";
-@import "block/nav";
-@import "block/page";
+// @import "block/box";
+// @import "block/btn";
+// @import "block/forms";
+// @import "block/validation";
+// @import "block/nav";
+// @import "block/page";
 @import "block/panel";
-@import "block/type";
-@import "block/tips";
+// @import "block/type";
+// @import "block/tips";
 
-@import "page/colors";
-@import "page/dashboard";
-@import "page/design";
-@import "page/weather";
+// @import "page/colors";
+// @import "page/dashboard";
+// @import "page/design";
+// @import "page/weather";

@@ -1,9 +1,8 @@
-<section class="panel" [ngClass]="{'panelPreview': this.shared.optionsPreview}" [@options] *ngIf="shared.optionsToggle">
+<!-- <section class="panel" [ngClass]="{'panelPreview': this.shared.optionsPreview}" [@options] *ngIf="shared.optionsToggle">
   <nav *ngIf="shared.optionsToggle"></nav>
   <div class="pageWrap">
     <options-design *ngIf="shared.optionsPage === 'Design'" class="page" [ngClass]="{'open': shared.optionsPage === 'Design'}"></options-design>
     <options-time *ngIf="shared.optionsPage === 'Time'" class="page" [ngClass]="{'open': shared.optionsPage === 'Time'}"></options-time>
-    <options-date *ngIf="shared.optionsPage === 'Date'" class="page" [ngClass]="{'open': shared.optionsPage === 'Date'}"></options-date>
     <options-bookmarks *ngIf="shared.optionsPage === 'Bookmarks'" class="page" [ngClass]="{'open': shared.optionsPage === 'Bookmarks'}"></options-bookmarks>
     <options-search *ngIf="shared.optionsPage === 'Search'" class="page" [ngClass]="{'open': shared.optionsPage === 'Search'}"></options-search>
     <options-message *ngIf="shared.optionsPage === 'Message'" class="page" [ngClass]="{'open': shared.optionsPage === 'Message'}"></options-message>
@@ -11,10 +10,10 @@
     <options-covid *ngIf="shared.optionsPage === 'Covid'" class="page" [ngClass]="{'open': shared.optionsPage === 'Covid'}"></options-covid>
     <options-extra *ngIf="shared.optionsPage === 'Extra'" class="page" [ngClass]="{'open': shared.optionsPage === 'Extra'}"></options-extra>
   </div>
-</section>
+</section> -->
 
 
-<aside class="panel" *ngIf="true" [ngClass]="{'panelPreview': this.shared.optionsPreview}">
+<aside class="panel" *ngIf="shared.optionsToggle" [ngClass]="{'panelPreview': this.shared.optionsPreview}">
   <header class="panelPlate panelHeader">
     <svg class="panelLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
       <rect x="24" y="80" width="16" height="16" />
@@ -36,6 +35,7 @@
         [attr.title]="'options.common.preview' | translate"
       >preview</button>
       <button
+        (click)="closeOptions()"
         class="panelSave matIcon"
         aria-label="Save and close (refresh page to cancel)"
         title="Save and close (refresh page to cancel)"
@@ -43,6 +43,7 @@
     </div>
   </header>
   <options-dashboard *ngIf="shared.optionsPage === 'Dashboard'" class="panelPlate panelPage"></options-dashboard>
+  <options-date *ngIf="shared.optionsPage === 'Date'" class="panelPlate panelPage"></options-date>
   <!-- <div class="panelPlate panelPage">
     <h2 class="panelTitle">
       <i class="matIcon">widgets</i>
@@ -125,6 +126,74 @@
         </div>
         <div class="panelFieldInput">
           <button class="panelBtn panelOpenBtn panelOpenInNewBtn" aria-pressed="true" aria-labelledby="" ></button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+  <!-- <div class="panelPlate panelPage">
+    <h2 class="panelTitle">
+      <i class="matIcon">arrow_back</i>
+      To Do List
+    </h2>
+    <h3 class="panelSubtitle">Design</h3>
+    <div class="panelGroup">
+      <div class="panelField">
+        <div class="panelFieldContent">
+          <label htmlFor="" class="panelLabel">Background color</label>
+        </div>
+        <div class="panelFieldInput">
+          <input type="range" name="" id="" class="panelRange">
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label htmlFor="" class="panelLabel">Background color</label>
+        </div>
+        <div class="panelFieldInput">
+          <button class="panelBtn panelOpenBtn" aria-pressed="true" aria-labelledby="" ></button>
+        </div>
+      </div>
+      <div class="panelField">
+        <div class="panelFieldContent">
+          <label htmlFor="" class="panelLabel">Background color</label>
+        </div>
+        <div class="panelFieldInput">
+          <select name="" id="" class="panelSelect">
+            <option value=""></option>
+            <option value="">lorem ipsum</option>
+            <option value="">lorem ipsum</option>
+            <option value="">lorem ipsum</option>
+          </select>
+        </div>
+      </div>
+      <div class="panelField">
+        <div class="panelFieldContent">
+          <label htmlFor="" class="panelLabel">Background color</label>
+          <p class="panelDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, quo! Lorem ipsum dolor sit.</p>
+          <p class="panelDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, quo!</p>
+        </div>
+        <div class="panelFieldInput">
+          <input type="text" class="panelInput" placeholder="Background color" />
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label htmlFor="" class="panelLabel">Enable</label>
+          <p class="panelDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, quo!</p>
+        </div>
+        <div class="panelFieldInput">
+          <button class="panelToggleBtn" aria-pressed="true" aria-labelledby="" ></button>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label htmlFor="" class="panelLabel">Enable</label>
+        </div>
+        <div class="panelFieldInput">
+          <button class="panelToggleBtn" aria-pressed="false" aria-labelledby=""></button>
         </div>
       </div>
     </div>

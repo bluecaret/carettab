@@ -34,9 +34,11 @@
     --inputBg: hsl(225 18% 6%);
     --inputBorder: hsl(225 18% 20%);
     --inputColor: hsl(225 10% 80%);
-    --btnBorder: hsl(225 5% 40%);
     --btnBorder: hsl(210 80% 30%);
     --btnColor: hsl(210 80% 80%);
+    --btnBgActive: hsl(210 80% 30%);
+    --btnBorderDisabled: hsl(210 10% 30%);
+    --btnColorDisabled: hsl(210 10% 50%);
     --selectArrow: hsl(210 30% 50%);
     --selectArrowFade: hsl(210 30% 50% / .3);
     --rangeTrack: var(--inputBg);

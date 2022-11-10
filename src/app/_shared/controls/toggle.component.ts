@@ -11,26 +11,15 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     }
   ],
   template: `
-    <div [class]="type" [ngClass]="{'customToggle' : on}">
-      <input
-        *ngIf="type === 'radio'"
-        type="radio"
-        [id]="name+'-'+value"
-        [name]="name"
-        [value]="value"
-        [(ngModel)]="toggle"
-        [disabled]="disabled"
-        [required]="required">
-      <input
-        *ngIf="type !== 'radio'"
-        type="checkbox"
-        [id]="name+'-id'"
-        [name]="name"
-        [(ngModel)]="toggle"
-        [disabled]="disabled"
-        [required]="required">
-      <label [for]="value? name+'-'+value : name+'-id'"><span *ngIf="type === 'toggle'" attr.data-on="{{on ? on : 'options.common.on' | translate}}" attr.data-off="{{off ? off : 'options.common.off' | translate}}"></span></label>
-    </div>
+    <button
+      [name]="name"
+      class="panelToggleBtn"
+      [attr.aria-pressed]="toggle ? 'true' : 'false'"
+      [id]="name+'-id'"
+      [disabled]="disabled"
+      [attr.aria-labelledby]="labelledby"
+      (click)="toggle = !toggle"
+    ></button>
   `,
   host: {'class': 'customControl'}
 })
@@ -38,13 +27,14 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class ToggleComponent implements ControlValueAccessor {
   _toggle: boolean;
 
-  @Input() name: string;
   @Input() disabled: boolean;
   @Input() required: boolean;
-  @Input() value: any;
+  @Input() labelledby: string;
+  @Input() name: string;
+  @Input() value?: any;
   @Input() on?: string;
   @Input() off?: string;
-  @Input() type: 'toggle' | 'check' | 'radio' = 'toggle';
+  @Input() type?: 'toggle' | 'check' | 'radio' = 'toggle';
 
   constructor() {
   }

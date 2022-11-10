@@ -20,7 +20,7 @@ export class OptionsComponent {
     public shared: SharedService,
     public settings: Storage
   ) {
-    this.shared.optionsPage = 'Dashboard';
+    this.shared.optionsPage = 'Date';
   }
 
   togglePreview(enable: boolean) {
@@ -41,6 +41,12 @@ export class OptionsComponent {
     } else {
       return url;
     }
+  }
+
+  closeOptions() {
+    this.shared.saveAll(); // Save
+    this.shared.optionsToggle = false;
+    this.shared.echo('Settings panel closed and saving data');
   }
 
 }

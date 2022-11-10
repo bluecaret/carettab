@@ -1,7 +1,6 @@
 <section class="panel" [ngClass]="{'panelPreview': this.shared.optionsPreview}" [@options] *ngIf="shared.optionsToggle">
   <nav *ngIf="shared.optionsToggle"></nav>
   <div class="pageWrap">
-    <options-dashboard *ngIf="shared.optionsPage === 'Dashboard'" class="page" [ngClass]="{'open': shared.optionsPage === 'Dashboard'}"></options-dashboard>
     <options-design *ngIf="shared.optionsPage === 'Design'" class="page" [ngClass]="{'open': shared.optionsPage === 'Design'}"></options-design>
     <options-time *ngIf="shared.optionsPage === 'Time'" class="page" [ngClass]="{'open': shared.optionsPage === 'Time'}"></options-time>
     <options-date *ngIf="shared.optionsPage === 'Date'" class="page" [ngClass]="{'open': shared.optionsPage === 'Date'}"></options-date>
@@ -13,7 +12,9 @@
     <options-extra *ngIf="shared.optionsPage === 'Extra'" class="page" [ngClass]="{'open': shared.optionsPage === 'Extra'}"></options-extra>
   </div>
 </section>
-<aside class="panel" *ngIf="true">
+
+
+<aside class="panel" *ngIf="true" [ngClass]="{'panelPreview': this.shared.optionsPreview}">
   <header class="panelPlate panelHeader">
     <svg class="panelLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
       <rect x="24" y="80" width="16" height="16" />
@@ -24,13 +25,25 @@
       <path d="M123 20V0H88v20h-9V0H44v20h-9V10 0H25 10 0v10 10 10 20 78h128V20H123zM118 118H10V10h15v20h19 35 9 30V118z" />
     </svg>
     <h1 class="panelPageName">CaretTab</h1>
-    <button
-      class="panelSave matIcon"
-      aria-label="Save and close (refresh page to cancel)"
-      title="Save and close (refresh page to cancel)"
-    >save</button>
+    <div class="panelHeaderLinks">
+      <button
+        (mouseenter)="togglePreview(true)"
+        (mouseleave)="togglePreview(false)"
+        (click)="togglePreview(true)"
+        (blur)="togglePreview(false)"
+        class="panelSave matIcon"
+        [attr.aria-label]="'options.common.preview' | translate"
+        [attr.title]="'options.common.preview' | translate"
+      >preview</button>
+      <button
+        class="panelSave matIcon"
+        aria-label="Save and close (refresh page to cancel)"
+        title="Save and close (refresh page to cancel)"
+      >save</button>
+    </div>
   </header>
-  <div class="panelPlate panelPage">
+  <options-dashboard *ngIf="shared.optionsPage === 'Dashboard'" class="panelPlate panelPage"></options-dashboard>
+  <!-- <div class="panelPlate panelPage">
     <h2 class="panelTitle">
       <i class="matIcon">widgets</i>
       Dashboard
@@ -115,78 +128,19 @@
         </div>
       </div>
     </div>
-  </div>
-  <!-- <div class="panelPlate panelPage">
-    <h2 class="panelTitle">
-      <i class="matIcon">arrow_back</i>
-      To Do List
-    </h2>
-    <h3 class="panelSubtitle">Design</h3>
-    <div class="panelGroup">
-      <div class="panelField">
-        <div class="panelFieldContent">
-          <label htmlFor="" class="panelLabel">Background color</label>
-        </div>
-        <div class="panelFieldInput">
-          <input type="range" name="" id="" class="panelRange">
-        </div>
-      </div>
-      <div class="panelField panelFieldInline">
-        <div class="panelFieldContent">
-          <label htmlFor="" class="panelLabel">Background color</label>
-        </div>
-        <div class="panelFieldInput">
-          <button class="panelBtn panelOpenBtn" aria-pressed="true" aria-labelledby="" ></button>
-        </div>
-      </div>
-      <div class="panelField">
-        <div class="panelFieldContent">
-          <label htmlFor="" class="panelLabel">Background color</label>
-        </div>
-        <div class="panelFieldInput">
-          <select name="" id="" class="panelSelect">
-            <option value=""></option>
-            <option value="">lorem ipsum</option>
-            <option value="">lorem ipsum</option>
-            <option value="">lorem ipsum</option>
-          </select>
-        </div>
-      </div>
-      <div class="panelField">
-        <div class="panelFieldContent">
-          <label htmlFor="" class="panelLabel">Background color</label>
-          <p class="panelDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, quo! Lorem ipsum dolor sit.</p>
-          <p class="panelDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, quo!</p>
-        </div>
-        <div class="panelFieldInput">
-          <input type="text" class="panelInput" placeholder="Background color" />
-        </div>
-      </div>
-      <div class="panelField panelFieldInline">
-        <div class="panelFieldContent">
-          <label htmlFor="" class="panelLabel">Enable</label>
-          <p class="panelDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, quo!</p>
-        </div>
-        <div class="panelFieldInput">
-          <button class="panelToggleBtn" aria-pressed="true" aria-labelledby="" ></button>
-        </div>
-      </div>
-      <div class="panelField panelFieldInline">
-        <div class="panelFieldContent">
-          <label htmlFor="" class="panelLabel">Enable</label>
-        </div>
-        <div class="panelFieldInput">
-          <button class="panelToggleBtn" aria-pressed="false" aria-labelledby=""></button>
-        </div>
-      </div>
-    </div>
   </div> -->
   <footer class="panelPlate panelFooter">
     <p>
-      {{'options.dashboard.needHelp' | translate | translateCut:0 }}<a href="https://www.bluecaret.com">{{'options.dashboard.needHelp' | translate | translateCut:1 }}</a>{{'options.dashboard.needHelp' | translate | translateCut:2 }}<a href="https://twitter.com/bluecaret">{{'options.dashboard.needHelp' | translate | translateCut:3 }}</a>{{'options.dashboard.needHelp' | translate | translateCut:4 }}<a href="https://github.com/bluecaret/carettab">{{'options.dashboard.needHelp' | translate | translateCut:5 }}</a>{{'options.dashboard.needHelp' | translate | translateCut:6 }}
+      {{'options.dashboard.supportBox' | translate | translateCut:0 }}<a href="https://github.com/bluecaret/carettab" class="supportBtn">{{'options.dashboard.supportBox' | translate | translateCut:1 }}</a>{{'options.dashboard.supportBox' | translate | translateCut:2 }}<a href="mailto:bluecaret@outlook.com" class="supportBtn">{{'options.dashboard.supportBox' | translate | translateCut:3 }}</a>
     </p>
     <p>
-      <a href="https://www.carettab.com/">{{'options.dashboard.credit' | translate | translateCut:0 }}</a>{{'options.dashboard.credit' | translate | translateCut:1 }}<a href="https://www.bluecaret.com">{{'options.dashboard.credit' | translate | translateCut:2 }}</a>{{'options.dashboard.credit' | translate | translateCut:3 }}<a href="https://opensource.org/licenses/MIT">{{'options.dashboard.credit' | translate | translateCut:4 }}</a>{{'options.dashboard.credit' | translate | translateCut:5 }}
+      <a href="{{getReviewLink(false)}}" class="supportBtn">{{'options.dashboard.review' | translate}}</a> |
+      <a href="https://github.com/bluecaret/carettab" class="supportBtn">{{'options.dashboard.contribute' | translate}}</a> |
+      {{'options.dashboard.share' | translate}}:
+      <a href="https://twitter.com/intent/tweet?url=https://www.carettab.com/" class="supportBtn">Twitter</a>,
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.carettab.com/" class="supportBtn">Facebook</a>,
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.carettab.com/" class="supportBtn">LinkedIn</a>,
+      <a href="mailto:?body=https://www.carettab.com/" class="supportBtn">Email</a>
     </p>
     <p>
       <a href="https://github.com/bluecaret/carettab">{{'options.common.supportLink' | translate}}</a> |
@@ -194,6 +148,11 @@
       <a href="https://www.bluecaret.com/contact">{{'options.common.contactLink' | translate}}</a> |
       <a href="https://www.bluecaret.com/privacy">Privacy Policy</a> |
       <a href="https://www.bluecaret.com/terms">Terms of Use</a>
+    </p>
+    <p>
+      <a href="https://www.carettab.com/">{{'options.dashboard.credit' | translate | translateCut:0 }}</a>{{'options.dashboard.credit' | translate | translateCut:1 }}<a href="https://www.bluecaret.com">{{'options.dashboard.credit' | translate | translateCut:2 }}</a>{{'options.dashboard.credit' | translate | translateCut:3 }}<a href="https://opensource.org/licenses/MIT">{{'options.dashboard.credit' | translate | translateCut:4 }}</a>{{'options.dashboard.credit' | translate | translateCut:5 }}
+      <br />
+      <small>{{'options.common.version' | translate}} {{ver}}</small>
     </p>
   </footer>
 </aside>

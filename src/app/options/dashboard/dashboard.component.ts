@@ -7,7 +7,6 @@ import { SharedService } from '../../_shared/shared.service';
 })
 export class OptionsDashboardComponent implements OnInit {
   status: string;
-  shareMenu = false;
 
   constructor(public shared: SharedService) {
   }
@@ -23,18 +22,10 @@ export class OptionsDashboardComponent implements OnInit {
     }
   }
 
-  getReviewLink(encode: boolean): string {
-    let url: string;
-    if (this.shared.browser === 'edge') {
-      url = 'https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe';
-    } else {
-      url = 'https://chrome.google.com/webstore/detail/carettab-new-tab-clock-an/cojpndognjdcakkimaloeealehpkljna';
-    }
-    if (encode) {
-      return encodeURIComponent(url);
-    } else {
-      return url;
-    }
+  goToPage(page: string) {
+    this.shared.optionsPage = page;
+    this.shared.echo('Opened settings page:', page);
+    let path = encodeURI(page).toLowerCase();
   }
 
 }

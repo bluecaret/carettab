@@ -1,64 +1,115 @@
-<div class="donate mb1">
-  <ul class="supportList">
-    <li>
-      <a href="{{getReviewLink(false)}}" class="supportBtn">{{'options.dashboard.review' | translate}}</a> |
-      <!-- <a href="https://paypal.me/bluecaret" class="supportBtn">{{'options.dashboard.donate' | translate}}</a> |  -->
-      <a href="https://github.com/bluecaret/carettab" class="supportBtn">{{'options.dashboard.contribute' | translate}}</a>
-    </li>
-    <li>
-      {{'options.dashboard.share' | translate}}:
-      <a href="https://twitter.com/intent/tweet?url=https://www.carettab.com/" class="supportBtn">Twitter</a> |
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.carettab.com/" class="supportBtn">Facebook</a> |
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.carettab.com/" class="supportBtn">LinkedIn</a> |
-      <a href="mailto:?body=https://www.carettab.com/" class="supportBtn">Email</a>
-    </li>
-  </ul>
+<h2 class="panelTitle">
+  <i class="matIcon">widgets</i>
+  Dashboard
+</h2>
+<div class="panelGroup">
+  <div class="panelDashboardWidgets">
+    <button class="panelBtn panelBtnBlock" (click)="goToPage('Dashboard')">
+      <i class="matIcon" aria-hidden="true">design_services</i>
+      Design
+      <i class="matIcon append_icon" aria-hidden="true">chevron_right</i>
+    </button>
+    <button class="panelBtn panelBtnBlock" (click)="goToPage('Dashboard')">
+      <i class="matIcon" aria-hidden="true">schedule</i>
+      Time
+      <i class="matIcon append_icon" aria-hidden="true">chevron_right</i>
+    </button>
+    <button class="panelBtn panelBtnBlock" (click)="goToPage('Dashboard')">
+      <i class="matIcon" aria-hidden="true">event</i>
+      Date
+      <i class="matIcon append_icon" aria-hidden="true">chevron_right</i>
+    </button>
+    <button class="panelBtn panelBtnBlock" (click)="goToPage('Dashboard')">
+      <i class="matIcon" aria-hidden="true">bookmarks</i>
+      Bookmarks
+      <i class="matIcon append_icon" aria-hidden="true">chevron_right</i>
+    </button>
+    <button class="panelBtn panelBtnBlock" (click)="goToPage('Dashboard')">
+      <i class="matIcon" aria-hidden="true">partly_cloudy_day</i>
+      Weather
+      <i class="matIcon append_icon" aria-hidden="true">chevron_right</i>
+    </button>
+    <button class="panelBtn panelBtnBlock" (click)="goToPage('Dashboard')">
+      <i class="matIcon" aria-hidden="true">search</i>
+      Search
+      <i class="matIcon append_icon" aria-hidden="true">chevron_right</i>
+    </button>
+    <button class="panelBtn panelBtnBlock" (click)="goToPage('Dashboard')">
+      <i class="matIcon" aria-hidden="true">chat</i>
+      Message
+      <i class="matIcon append_icon" aria-hidden="true">chevron_right</i>
+    </button>
+    <button class="panelBtn panelBtnBlock" (click)="goToPage('Dashboard')">
+      <i class="matIcon" aria-hidden="true">coronavirus</i>
+      COVID-19 Data
+      <i class="matIcon append_icon" aria-hidden="true">chevron_right</i>
+    </button>
+    <button class="panelBtn panelBtnBlock" (click)="goToPage('Dashboard')">
+      <i class="matIcon" aria-hidden="true">settings</i>
+      Extra
+      <i class="matIcon append_icon" aria-hidden="true">chevron_right</i>
+    </button>
+  </div>
 </div>
-<div class="donate mb15">
-  <ul class="supportList mt0">
-    <li>{{'options.dashboard.supportBox' | translate | translateCut:0 }}<a href="https://github.com/bluecaret/carettab" class="supportBtn">{{'options.dashboard.supportBox' | translate | translateCut:1 }}</a>{{'options.dashboard.supportBox' | translate | translateCut:2 }}<a href="mailto:bluecaret@outlook.com" class="supportBtn">{{'options.dashboard.supportBox' | translate | translateCut:3 }}</a></li>
-  </ul>
-</div>
-<a href="https://chrome.google.com/webstore/detail/two-steps-forward-a-new-t/ehfogconngjcielhngfamnbdgfomlimb"><img src="assets/img/TSF-Ad.png" class="tfs-ad mt15" /></a>
-<h2 class="mt15">
+<h3 class="panelSubtitle">
   <svg *ngIf="status === 'updated' && shared.updateType !== 'hidden'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8zm1 13h-2v-6h2v6zm0-8h-2V7h2v2z" fill="limegreen" /><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#000000"/></svg>
   {{'options.dashboard.new' | translate}}
-</h2>
-<p>{{'options.dashboard.updated' | translate}} November 3, 2022</p>
-<ul class="changelog">
-  <li>{{'splash.v364.m8' | translate}}</li>
-  <li>{{'splash.v364.m1' | translate}}</li>
-  <li>{{'splash.v364.m2' | translate}}</li>
-  <li>{{'splash.v364.m3' | translate}}</li>
-  <li>{{'splash.v364.m4' | translate}}</li>
-  <li>{{'splash.v364.m5' | translate}}</li>
-  <li>{{'splash.v364.m6' | translate}}</li>
-  <li>{{'splash.v364.m7' | translate}}</li>
-</ul>
-<p>{{'splash.v363.m6' | translate}} October 16, 2022</p>
-<ul class="changelog">
-  <li>{{'splash.v363.m7' | translate}} <a href="https://www.bluecaret.com/privacy/">https://www.bluecaret.com/privacy/</a></li>
-</ul>
-<p>{{'options.dashboard.updated' | translate}} October 16, 2022</p>
-<ul class="changelog">
-  <li>{{'splash.v363.m1' | translate}}</li>
-  <li>{{'splash.v363.m2' | translate}}</li>
-  <li>{{'splash.v363.m3' | translate}}</li>
-  <li>{{'splash.v363.m4' | translate}}</li>
-  <li>{{'splash.v363.m5' | translate}}</li>
-</ul>
-<p>
-  {{'options.dashboard.needHelp' | translate | translateCut:0 }}<a href="https://www.bluecaret.com">{{'options.dashboard.needHelp' | translate | translateCut:1 }}</a>{{'options.dashboard.needHelp' | translate | translateCut:2 }}<a href="https://twitter.com/bluecaret">{{'options.dashboard.needHelp' | translate | translateCut:3 }}</a>{{'options.dashboard.needHelp' | translate | translateCut:4 }}<a href="https://github.com/bluecaret/carettab">{{'options.dashboard.needHelp' | translate | translateCut:5 }}</a>{{'options.dashboard.needHelp' | translate | translateCut:6 }}
-</p>
-<p>
-  <a href="https://www.carettab.com/">{{'options.dashboard.credit' | translate | translateCut:0 }}</a>{{'options.dashboard.credit' | translate | translateCut:1 }}<a href="https://www.bluecaret.com">{{'options.dashboard.credit' | translate | translateCut:2 }}</a>{{'options.dashboard.credit' | translate | translateCut:3 }}<a href="https://opensource.org/licenses/MIT">{{'options.dashboard.credit' | translate | translateCut:4 }}</a>{{'options.dashboard.credit' | translate | translateCut:5 }}
-</p>
-<p>
-  <a href="https://github.com/bluecaret/carettab">{{'options.common.supportLink' | translate}}</a> |
-  <a href="https://www.bluecaret.com/about">{{'options.common.aboutLink' | translate}}</a> |
-  <a href="https://www.bluecaret.com/contact">{{'options.common.contactLink' | translate}}</a> |
-  <a href="https://www.bluecaret.com/privacy">Privacy Policy</a> |
-  <a href="https://www.bluecaret.com/terms">Terms of Use</a>
-</p>
-
-
+</h3>
+<div class="panelGroup">
+  <div class="panelGroupItem">
+    <!-- <h4 class="panelGroupTitle">Updated to version 3.4.3 on Nov. 03, 2022</h4>
+    <ul class="panelList">
+      <li>Lorem ipsum dolor sit amet consectetur.</li>
+      <li>Lorem ipsum dolor sit amet consectetur.</li>
+      <li>Lorem ipsum dolor sit amet consectetur.</li>
+    </ul> -->
+    <h4 class="panelGroupTitle">{{'options.dashboard.updated' | translate}} November 3, 2022</h4>
+    <ul class="panelList">
+      <li>{{'splash.v364.m8' | translate}}</li>
+      <li>{{'splash.v364.m1' | translate}}</li>
+      <li>{{'splash.v364.m2' | translate}}</li>
+      <li>{{'splash.v364.m3' | translate}}</li>
+      <li>{{'splash.v364.m4' | translate}}</li>
+      <li>{{'splash.v364.m5' | translate}}</li>
+      <li>{{'splash.v364.m6' | translate}}</li>
+      <li>{{'splash.v364.m7' | translate}}</li>
+    </ul>
+  </div>
+  <div class="panelGroupItem">
+    <h4 class="panelGroupTitle">{{'splash.v363.m6' | translate}} October 16, 2022</h4>
+    <ul class="panelList">
+      <li>{{'splash.v363.m7' | translate}} <a href="https://www.bluecaret.com/privacy/">https://www.bluecaret.com/privacy/</a></li>
+    </ul>
+  </div>
+  <div class="panelGroupItem">
+    <h4 class="panelGroupTitle">{{'options.dashboard.updated' | translate}} October 16, 2022</h4>
+    <ul class="panelList">
+      <li>{{'splash.v363.m1' | translate}}</li>
+      <li>{{'splash.v363.m2' | translate}}</li>
+      <li>{{'splash.v363.m3' | translate}}</li>
+      <li>{{'splash.v363.m4' | translate}}</li>
+      <li>{{'splash.v363.m5' | translate}}</li>
+    </ul>
+  </div>
+</div>
+<h3 class="panelSubtitle">More from BlueCaret</h3>
+<div class="panelGroup">
+  <div class="panelField panelFieldInline">
+    <div class="panelFieldContent">
+      <h4 id="tsfLink" class="panelGroupTitle">Two Steps Forward</h4>
+      <p class="panelDescription">A To Do list for your New Tab page</p>
+    </div>
+    <div class="panelFieldInput">
+      <a href="https://chrome.google.com/webstore/detail/two-steps-forward-a-new-t/ehfogconngjcielhngfamnbdgfomlimb" class="panelBtn panelOpenBtn panelOpenInNewBtn" aria-pressed="true" aria-label="Check out Two Steps Forward on the Chrome Web Store" ></a>
+    </div>
+  </div>
+  <div class="panelField panelFieldInline">
+    <div class="panelFieldContent">
+      <h4 id="tsfLink" class="panelGroupTitle">RMS (Run My Script)</h4>
+      <p class="panelDescription">Easily run JavaScript code on the current browser tab</p>
+    </div>
+    <div class="panelFieldInput">
+      <a href="https://chrome.google.com/webstore/detail/rms-run-my-script-script/bifnofbpdbdmgopjoidbicngijjmlogj" class="panelBtn panelOpenBtn panelOpenInNewBtn" aria-pressed="true" aria-label="Check out RMS on the Chrome Web Store" ></a>
+    </div>
+  </div>
+</div>

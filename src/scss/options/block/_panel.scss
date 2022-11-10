@@ -13,11 +13,8 @@
 //   transform-origin: bottom right;
 //   border-radius: 10px;
 //   transition: opacity .2s;
-
-//   &.panelPreview {
-//     opacity: 0;
-//   }
 // }
+
 
 .panel {
   position: fixed;
@@ -35,6 +32,10 @@
   display: flex;
   flex-direction: column;
   gap: var(--size500);
+  transition: opacity .2s;
+  &.panelPreview {
+    opacity: 0;
+  }
   a {
     color: currentColor;
     &:focus-visible {
@@ -53,7 +54,7 @@
 
 .panelHeader {
   display: grid;
-  grid-template: 6rem / var(--size600) 1fr var(--size600);
+  grid-template: 6rem / var(--size600) 1fr calc(var(--size600) * 2 + 1rem);
   gap: var(--size400);
   align-items: center;
   border-radius: 0 0 var(--size400) var(--size400);
@@ -81,7 +82,13 @@
   }
 }
 
+.panelHeaderLinks {
+  display: flex;
+  gap: 1rem;
+}
+
 .panelFooter {
+  margin-top: auto;
   display: flex;
   flex-direction: column;
   gap: var(--size400);
@@ -128,7 +135,7 @@
 }
 
 .panelGroupItem {
-  padding: 0 var(--size500);
+  padding: var(--size400) var(--size500);
 }
 
 .panelDashboardWidgets {
@@ -160,6 +167,9 @@
   font-weight: 600;
   margin-block-start: var(--size400);
   margin-block-end: var(--size400);
+  .panelFieldContent & {
+    margin-top: 0;
+  }
 }
 
 .panelLabel {
@@ -258,6 +268,7 @@
   min-height: 3.4rem;
   font-size: 1.6rem;
   font-weight: 400;
+  text-decoration: none;
   .append_icon {
     margin-left: auto;
   }
@@ -366,5 +377,13 @@
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
+  }
+}
+
+.footerSupportAndShare {
+  text-align: center;
+  font-size: 1.4rem;
+  p {
+    margin: .6rem 0;
   }
 }

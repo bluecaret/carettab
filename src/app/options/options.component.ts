@@ -20,7 +20,7 @@ export class OptionsComponent {
     public shared: SharedService,
     public settings: Storage
   ) {
-    this.shared.optionsPage = 'Date';
+    this.shared.optionsPage = 'Dashboard';
   }
 
   togglePreview(enable: boolean) {

@@ -373,6 +373,44 @@ $btnRadius: var(--size300);
   }
 }
 
+.panelThemeGrid {
+  display: grid;
+  grid-template: 1fr / repeat(4, 1fr);
+  gap: var(--size400);
+}
+
+.panelBtnTheme {
+  border-color: var(--inputBg);
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  &.active {
+    box-shadow: 0 0 0 .4rem var(--inputColor);
+  }
+}
+
+.panelBtnWallpaper {
+  justify-content: center;
+  height: 8rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-color: var(--inputBg);
+  .matIcon {
+    color: white;
+    text-shadow: 0 0 5px black;
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  &:focus,
+  &:hover {
+    cursor: pointer;
+    .matIcon {
+      opacity: 1;
+    }
+  }
+}
+
 .panelList {
   display: flex;
   flex-direction: column;
@@ -399,7 +437,7 @@ $btnRadius: var(--size300);
   border-radius: var(--size300);
   margin: 0;
   font-size: 1.6rem;
-  height: 3.4rem;
+  line-height: 3.4rem;
   font-weight: 400;
 }
 
@@ -426,8 +464,8 @@ $btnRadius: var(--size300);
     linear-gradient(135deg, var(--selectArrow) 50%, transparent 50%),
     linear-gradient(to right, var(--selectArrowFade), var(--selectArrowFade));
   background-position:
-    calc(100% - 1.6rem) calc(.6em + .4rem),
-    calc(100% - 1.2rem) calc(.6em + .4rem),
+    calc(100% - 1.6rem) calc(.6em + .6rem),
+    calc(100% - 1.2rem) calc(.6em + .6rem),
     calc(100% - 3.2rem) 0.2em;
   background-size:
     .4rem .4rem,
@@ -435,6 +473,28 @@ $btnRadius: var(--size300);
     1px 2.8rem;
   background-repeat: no-repeat;
   padding-right: 3.3rem;
+}
+
+.panelInputColor {
+  width: 6rem;
+  height: 3.4rem;
+  appearance: none;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: inset 0px 0px 0px 2px var(--inputBg);
+  &::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border-radius: $btnRadius;
+  }
+  &::-webkit-color-swatch {
+    border: none;
+    border-radius: $btnRadius;
+    box-shadow: inset 0px 0px 0px 2px var(--inputBg);
+  }
+}
+
+.panelFile {
+  display: none;
 }
 
 .panelRange {

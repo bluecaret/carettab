@@ -1,7 +1,6 @@
 <!-- <section class="panel" [ngClass]="{'panelPreview': this.shared.optionsPreview}" [@options] *ngIf="shared.optionsToggle">
   <nav *ngIf="shared.optionsToggle"></nav>
   <div class="pageWrap">
-    <options-design *ngIf="shared.optionsPage === 'Design'" class="page" [ngClass]="{'open': shared.optionsPage === 'Design'}"></options-design>
     <options-time *ngIf="shared.optionsPage === 'Time'" class="page" [ngClass]="{'open': shared.optionsPage === 'Time'}"></options-time>
     <options-bookmarks *ngIf="shared.optionsPage === 'Bookmarks'" class="page" [ngClass]="{'open': shared.optionsPage === 'Bookmarks'}"></options-bookmarks>
     <options-search *ngIf="shared.optionsPage === 'Search'" class="page" [ngClass]="{'open': shared.optionsPage === 'Search'}"></options-search>
@@ -43,6 +42,7 @@
     </div>
   </header>
   <options-dashboard *ngIf="shared.optionsPage === 'Dashboard'" class="panelPlate panelPage"></options-dashboard>
+  <options-design *ngIf="shared.optionsPage === 'Design'" class="panelPlate panelPage"></options-design>
   <options-date *ngIf="shared.optionsPage === 'Date'" class="panelPlate panelPage"></options-date>
   <!-- <div class="panelPlate panelPage">
     <h2 class="panelTitle">

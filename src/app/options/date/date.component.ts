@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { TimezoneService, Timezone } from '../time/timezone.service';
 import { SharedService } from '../../_shared/shared.service';
@@ -12,6 +12,7 @@ export class OptionsDateComponent {
   allTimezones: Timezone[];
   tzGuess: string;
   dateFormat = dateFormat;
+  @HostBinding('class') hostClass: string = 'panelPlate panelPage';
 
   constructor(
     public shared: SharedService,

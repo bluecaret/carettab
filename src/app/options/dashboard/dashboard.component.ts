@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { SharedService } from '../../_shared/shared.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { SharedService } from '../../_shared/shared.service';
 })
 export class OptionsDashboardComponent implements OnInit {
   status: string;
+  @HostBinding('class') hostClass: string = 'panelPlate panelPage';
 
   constructor(public shared: SharedService) {
   }

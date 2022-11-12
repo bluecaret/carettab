@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
 import { fontList, colors, customFontWeight, patterns, bgSize, bgBlend } from '../../_shared/lists/lists';
@@ -24,6 +24,7 @@ export class OptionsDesignComponent implements OnInit {
     id: 0,
     pattern: '0.png'
   };
+  @HostBinding('class') hostClass: string = 'panelPlate panelPage';
 
   constructor(
     public sanitizer: DomSanitizer,

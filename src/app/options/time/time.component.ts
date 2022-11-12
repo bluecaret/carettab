@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { Clock } from '../../_shared/models/clock';
 import { TimezoneService, Timezone } from './timezone.service';
@@ -18,6 +18,7 @@ export class OptionsTimeComponent {
   tzGuess: string;
   analog = analogStyles;
   span = span;
+  @HostBinding('class') hostClass: string = 'panelPlateGroup';
 
   gmt = [
     {label: 'GMT-0', value: 'Etc/GMT-0'},
@@ -68,9 +69,11 @@ export class OptionsTimeComponent {
     if (this.selected !== i) {
       this.selected = i;
       this.shared.echo('Selected clock:', `${i}`);
+      this.shared.optionsPage = 'EditClock';
     } else {
       this.selected = null;
       this.shared.echo('Unselected clock:', `${i}`);
+      this.shared.optionsPage = 'Time';
     }
   }
 
@@ -79,7 +82,6 @@ export class OptionsTimeComponent {
     this.settings.config.time.clocks.push(new Clock());
     let i = (this.settings.config.time.clocks.length - 1);
     this.shared.toggleOrder(this.settings.config.time.clocks[i].id, true, 'c');
-    this.selected = i;
     this.shared.echo('New clock added', null, this.settings.config.time.clocks[i]);
   }
 

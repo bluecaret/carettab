@@ -52,6 +52,12 @@
   border-radius: var(--size400);
 }
 
+.panelPlateGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size500);
+}
+
 .panelHeader {
   position: sticky;
   top: 0;

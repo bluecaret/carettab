@@ -1,13 +1,6 @@
 <!-- <section class="panel" [ngClass]="{'panelPreview': this.shared.optionsPreview}" [@options] *ngIf="shared.optionsToggle">
   <nav *ngIf="shared.optionsToggle"></nav>
   <div class="pageWrap">
-    <options-time *ngIf="shared.optionsPage === 'Time'" class="page" [ngClass]="{'open': shared.optionsPage === 'Time'}"></options-time>
-    <options-bookmarks *ngIf="shared.optionsPage === 'Bookmarks'" class="page" [ngClass]="{'open': shared.optionsPage === 'Bookmarks'}"></options-bookmarks>
-    <options-search *ngIf="shared.optionsPage === 'Search'" class="page" [ngClass]="{'open': shared.optionsPage === 'Search'}"></options-search>
-    <options-message *ngIf="shared.optionsPage === 'Message'" class="page" [ngClass]="{'open': shared.optionsPage === 'Message'}"></options-message>
-    <options-weather *ngIf="shared.optionsPage === 'Weather'" class="page" [ngClass]="{'open': shared.optionsPage === 'Weather'}"></options-weather>
-    <options-covid *ngIf="shared.optionsPage === 'Covid'" class="page" [ngClass]="{'open': shared.optionsPage === 'Covid'}"></options-covid>
-    <options-extra *ngIf="shared.optionsPage === 'Extra'" class="page" [ngClass]="{'open': shared.optionsPage === 'Extra'}"></options-extra>
   </div>
 </section> -->
 
@@ -41,9 +34,16 @@
       >save</button>
     </div>
   </header>
-  <options-dashboard *ngIf="shared.optionsPage === 'Dashboard'" class="panelPlate panelPage"></options-dashboard>
-  <options-design *ngIf="shared.optionsPage === 'Design'" class="panelPlate panelPage"></options-design>
-  <options-date *ngIf="shared.optionsPage === 'Date'" class="panelPlate panelPage"></options-date>
+  <options-dashboard *ngIf="shared.optionsPage === 'Dashboard'"></options-dashboard>
+  <options-design *ngIf="shared.optionsPage === 'Design'"></options-design>
+  <options-time *ngIf="shared.optionsPage === 'Time' || shared.optionsPage === 'EditClock'"></options-time>
+  <options-date *ngIf="shared.optionsPage === 'Date'"></options-date>
+  <options-bookmarks *ngIf="shared.optionsPage === 'Bookmarks'"></options-bookmarks>
+  <options-search *ngIf="shared.optionsPage === 'Search'"></options-search>
+  <options-message *ngIf="shared.optionsPage === 'Message'"></options-message>
+  <options-weather *ngIf="shared.optionsPage === 'Weather'"></options-weather>
+  <options-covid *ngIf="shared.optionsPage === 'Covid'"></options-covid>
+  <options-extra *ngIf="shared.optionsPage === 'Extra'"></options-extra>
   <!-- <div class="panelPlate panelPage">
     <h2 class="panelTitle">
       <i class="matIcon">widgets</i>

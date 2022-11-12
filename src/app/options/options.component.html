@@ -1,11 +1,4 @@
-<!-- <section class="panel" [ngClass]="{'panelPreview': this.shared.optionsPreview}" [@options] *ngIf="shared.optionsToggle">
-  <nav *ngIf="shared.optionsToggle"></nav>
-  <div class="pageWrap">
-  </div>
-</section> -->
-
-
-<aside class="panel" *ngIf="shared.optionsToggle" [ngClass]="{'panelPreview': this.shared.optionsPreview}">
+<aside class="panel" *ngIf="shared.optionsToggle" [@options] [ngClass]="{'panelPreview': this.shared.optionsPreview}">
   <header class="panelPlate panelHeader">
     <svg class="panelLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
       <rect x="24" y="80" width="16" height="16" />

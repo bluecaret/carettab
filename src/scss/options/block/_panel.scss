@@ -588,3 +588,15 @@ $btnRadius: var(--size300);
     font-size: 1.6rem;
   }
 }
+
+
+.panelFieldInputQuickLinks {
+  label {
+    min-width: 7rem;
+    flex: 1 0 auto;
+  }
+  .quickLinksBtns {
+    display: flex;
+    gap: .5rem;
+  }
+}

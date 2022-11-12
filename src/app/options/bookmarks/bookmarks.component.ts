@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone, HostBinding } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { fade } from '../../_shared/animations';
 import { SharedService } from '../../_shared/shared.service';
@@ -9,6 +9,7 @@ import { SharedService } from '../../_shared/shared.service';
   animations: [fade]
 })
 export class OptionsBookmarksComponent implements OnInit {
+  @HostBinding('class') hostClass: string = 'panelPlate panelPage';
   editMode: boolean[] = [];
   isInvalid = false;
   hasFaviconPermission: boolean;

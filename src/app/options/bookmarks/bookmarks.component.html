@@ -1,250 +1,389 @@
+<h2 class="panelTitle">
+  <button
+    (click)="this.shared.optionsPage = 'Dashboard'"
+    class="panelBack matIcon"
+    aria-label="Back to dashboard"
+    title="Back to dashboard"
+  >arrow_back</button>
+  {{'options.bookmarks.headingBar' | translate}}
+</h2>
 <form #bookmarkOptions="ngForm" novalidate>
-  <h2>{{'options.bookmarks.headingBar' | translate}}</h2>
-  <div class="input">
-    <label>{{'options.bookmarks.enableBar' | translate}}</label>
-    <button class="btn" *ngIf="!hasBookmarkPermission" (click)="setBookmarkPermission()">{{'options.bookmarks.bookmarksPermission' | translate}}</button>
-    <options-toggle *ngIf="hasBookmarkPermission" name="toggleBookmarks" [(ngModel)]="settings.config.bookmark.enabled" (ngModelChange)="getBookmarks()"></options-toggle>
+  <div class="panelGroup">
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="toggleBookmarksLabel" class="panelLabel">{{'options.bookmarks.enableBar' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <button class="panelBtn" *ngIf="!hasBookmarkPermission" (click)="setBookmarkPermission()">{{'options.bookmarks.bookmarksPermission' | translate}}</button>
+        <options-toggle labelledby="toggleBookmarksLabel" *ngIf="hasBookmarkPermission" name="toggleBookmarks" [(ngModel)]="settings.config.bookmark.enabled" (ngModelChange)="getBookmarks()"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.bookmark.enabled">
+      <div class="panelFieldContent">
+        <label id="bookmarksBarIconsLabel" class="panelLabel">{{'options.bookmarks.favicons' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <button class="panelBtn" *ngIf="!hasFaviconPermission" (click)="setFaviconPermission()">{{'options.bookmarks.faviconPermission' | translate}}</button>
+        <options-toggle labelledby="bookmarksBarIconsLabel" *ngIf="hasFaviconPermission" name="bookmarksBarIcons" [(ngModel)]="settings.config.bookmark.icons"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.bookmark.enabled">
+      <div class="panelFieldContent">
+        <label id="appsBookmarksBarLabel" class="panelLabel">{{'options.bookmarks.appsLink' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle labelledby="appsBookmarksBarLabel" name="appsBookmarksBar" [(ngModel)]="settings.config.bookmark.apps"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.bookmark.enabled">
+      <div class="panelFieldContent">
+        <label id="chromeTabBookmarksBarLabel" class="panelLabel">{{'options.bookmarks.chromeTabLink' | translate}}</label>
+        <p class="panelDescription"></p>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle labelledby="chromeTabBookmarksBarLabel" name="chromeTabBookmarksBar" [(ngModel)]="settings.config.bookmark.chromeTab"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.bookmark.enabled">
+      <div class="panelFieldContent">
+        <label id="historyBookmarksBarLabel" class="panelLabel">{{'options.bookmarks.historyLink' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle labelledby="historyBookmarksBarLabel" name="historyBookmarksBar" [(ngModel)]="settings.config.bookmark.history"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.bookmark.enabled">
+      <div class="panelFieldContent">
+        <label id="bookmarksManagerBookmarksBarLabel" class="panelLabel">{{'options.bookmarks.managerLink' | translate}}</label>
+        <p class="panelDescription"></p>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle labelledby="bookmarksManagerBookmarksBarLabel" name="bookmarksManagerBookmarksBar" [(ngModel)]="settings.config.bookmark.bookmarksManager"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.bookmark.enabled">
+      <div class="panelFieldContent">
+        <label id="mostVisitedBookmarksBarLabel" class="panelLabel">{{'options.bookmarks.mostVisited' | translate}}</label>
+        <p class="panelDescription"></p>
+      </div>
+      <div class="panelFieldInput">
+        <button class="panelBtn" *ngIf="!hasTopSitesPermission" (click)="setTopSitesPermission()">{{'options.bookmarks.topSitesPermission' | translate}}</button>
+        <options-toggle labelledby="mostVisitedBookmarksBarLabel" *ngIf="hasTopSitesPermission" name="mostVisitedBookmarksBar" [(ngModel)]="settings.config.bookmark.mostVisited"></options-toggle>
+      </div>
+    </div>
   </div>
-  <div class="input" *ngIf="settings.config.bookmark.enabled">
-    <label>{{'options.bookmarks.favicons' | translate}}</label>
-    <button class="btn" *ngIf="!hasFaviconPermission" (click)="setFaviconPermission()">{{'options.bookmarks.faviconPermission' | translate}}</button>
-    <options-toggle *ngIf="hasFaviconPermission" name="bookmarksBarIcons" [(ngModel)]="settings.config.bookmark.icons"></options-toggle>
-  </div>
-  <div class="input" *ngIf="settings.config.bookmark.enabled">
-    <label>{{'options.bookmarks.appsLink' | translate}}</label>
-    <options-toggle name="appsBookmarksBar" [(ngModel)]="settings.config.bookmark.apps"></options-toggle>
-  </div>
-  <div class="input" *ngIf="settings.config.bookmark.enabled">
-    <label>{{'options.bookmarks.chromeTabLink' | translate}}</label>
-    <options-toggle name="chromeTabBookmarksBar" [(ngModel)]="settings.config.bookmark.chromeTab"></options-toggle>
-  </div>
-  <div class="input" *ngIf="settings.config.bookmark.enabled">
-    <label>{{'options.bookmarks.historyLink' | translate}}</label>
-    <options-toggle name="historyBookmarksBar" [(ngModel)]="settings.config.bookmark.history"></options-toggle>
-  </div>
-  <div class="input" *ngIf="settings.config.bookmark.enabled">
-    <label>{{'options.bookmarks.managerLink' | translate}}</label>
-    <options-toggle name="bookmarksManagerBookmarksBar" [(ngModel)]="settings.config.bookmark.bookmarksManager"></options-toggle>
-  </div>
-  <div class="input" *ngIf="settings.config.bookmark.enabled">
-    <label>{{'options.bookmarks.mostVisited' | translate}}</label>
-    <button class="btn" *ngIf="!hasTopSitesPermission" (click)="setTopSitesPermission()">{{'options.bookmarks.topSitesPermission' | translate}}</button>
-    <options-toggle *ngIf="hasTopSitesPermission" name="mostVisitedBookmarksBar" [(ngModel)]="settings.config.bookmark.mostVisited"></options-toggle>
-  </div>
-  <h2>{{'options.bookmarks.headingQuick' | translate}}</h2>
-  <div class="input">
-    <label>{{'options.bookmarks.enableQuick' | translate}}</label>
-    <options-toggle name="toggleQuickLinks" [(ngModel)]="settings.config.quickLink.enabled"></options-toggle>
-  </div>
-  <div class="input" *ngIf="settings.config.quickLink.enabled">
-    <label>{{'options.bookmarks.favicons' | translate}}</label>
-    <button class="btn" *ngIf="!hasFaviconPermission" (click)="setFaviconPermission()">{{'options.bookmarks.faviconPermission' | translate}}</button>
-    <options-toggle *ngIf="hasFaviconPermission" name="quickLinksIcons" [(ngModel)]="settings.config.quickLink.icons"></options-toggle>
-  </div>
-  <div class="input" *ngIf="settings.config.quickLink.enabled">
-    <label>{{'options.bookmarks.appsLink' | translate}}</label>
-    <options-toggle name="appsQuickLinks" [(ngModel)]="settings.config.quickLink.apps"></options-toggle>
-  </div>
-  <div class="input" *ngIf="settings.config.quickLink.enabled">
-    <label>{{'options.bookmarks.chromeTabLink' | translate}}</label>
-    <options-toggle name="chromeTabQuickLinks" [(ngModel)]="settings.config.quickLink.chromeTab"></options-toggle>
-  </div>
-  <div class="input" *ngIf="settings.config.quickLink.enabled">
-    <label>{{'options.bookmarks.historyLink' | translate}}</label>
-    <options-toggle name="historyQuickLinks" [(ngModel)]="settings.config.quickLink.history"></options-toggle>
-  </div>
-  <div class="input" *ngIf="settings.config.quickLink.enabled">
-    <label>{{'options.bookmarks.managerLink' | translate}}</label>
-    <options-toggle name="bookmarksManagerQuickLinks" [(ngModel)]="settings.config.quickLink.bookmarksManager"></options-toggle>
-  </div>
-  <div class="input" *ngIf="settings.config.quickLink.enabled">
-    <label>{{'options.bookmarks.mostVisited' | translate}}</label>
-    <button class="btn" *ngIf="!hasTopSitesPermission" (click)="setTopSitesPermission()">{{'options.bookmarks.topSitesPermission' | translate}}</button>
-    <options-toggle *ngIf="hasTopSitesPermission" name="mostVisitedQuickLinks" [(ngModel)]="settings.config.quickLink.mostVisited"></options-toggle>
+  <h2 class="panelTitle">
+    <button
+      (click)="this.shared.optionsPage = 'Dashboard'"
+      class="panelBack matIcon"
+      aria-label="Back to dashboard"
+      title="Back to dashboard"
+    >arrow_back</button>
+    {{'options.bookmarks.headingQuick' | translate}}
+  </h2>
+  <div class="panelGroup">
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="toggleQuickLinksLabel" class="panelLabel">{{'options.bookmarks.enableQuick' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle labelledby="toggleQuickLinksLabel" name="toggleQuickLinks" [(ngModel)]="settings.config.quickLink.enabled"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.quickLink.enabled">
+      <div class="panelFieldContent">
+        <label id="quickLinksIconsLabel" class="panelLabel">{{'options.bookmarks.favicons' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <button class="panelBtn" *ngIf="!hasFaviconPermission" (click)="setFaviconPermission()">{{'options.bookmarks.faviconPermission' | translate}}</button>
+        <options-toggle labelledby="quickLinksIconsLabel" *ngIf="hasFaviconPermission" name="quickLinksIcons" [(ngModel)]="settings.config.quickLink.icons"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.quickLink.enabled">
+      <div class="panelFieldContent">
+        <label id="appsQuickLinksLabel" class="panelLabel">{{'options.bookmarks.appsLink' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle labelledby="appsQuickLinksLabel" name="appsQuickLinks" [(ngModel)]="settings.config.quickLink.apps"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.quickLink.enabled">
+      <div class="panelFieldContent">
+        <label id="chromeTabQuickLinksLabel" class="panelLabel">{{'options.bookmarks.chromeTabLink' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle labelledby="chromeTabQuickLinksLabel" name="chromeTabQuickLinks" [(ngModel)]="settings.config.quickLink.chromeTab"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.quickLink.enabled">
+      <div class="panelFieldContent">
+        <label id="historyQuickLinksLabel" class="panelLabel">{{'options.bookmarks.historyLink' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle labelledby="historyQuickLinksLabel" name="historyQuickLinks" [(ngModel)]="settings.config.quickLink.history"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.quickLink.enabled">
+      <div class="panelFieldContent">
+        <label id="bookmarksManagerQuickLinksLabel" class="panelLabel">{{'options.bookmarks.managerLink' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle labelledby="bookmarksManagerQuickLinksLabel" name="bookmarksManagerQuickLinks" [(ngModel)]="settings.config.quickLink.bookmarksManager"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.quickLink.enabled">
+      <div class="panelFieldContent">
+        <label id="mostVisitedQuickLinksLabel" class="panelLabel">{{'options.bookmarks.mostVisited' | translate}}</label>
+        <p class="panelDescription"></p>
+      </div>
+      <div class="panelFieldInput">
+        <button class="panelBtn" *ngIf="!hasTopSitesPermission" (click)="setTopSitesPermission()">{{'options.bookmarks.topSitesPermission' | translate}}</button>
+        <options-toggle labelledby="mostVisitedQuickLinksLabel" *ngIf="hasTopSitesPermission" name="mostVisitedQuickLinks" [(ngModel)]="settings.config.quickLink.mostVisited"></options-toggle>
+      </div>
+    </div>
   </div>
 </form>
 <ng-container *ngIf="settings.config.quickLink.enabled">
-  <h3>{{'options.bookmarks.headingLink' | translate}}</h3>
-  <form #quickLinksList="ngForm" novalidate>
-    <div class="grid cols-19 mb15">
-      <div class="span-6">
-        <label>{{'options.common.label' | translate}}</label>
-      </div>
-      <div class="span-8">
-        <label>{{'options.bookmarks.url' | translate}}</label>
-      </div>
-    </div>
-    <div class="grid cols-19 mb15">
-      <ng-container *ngFor="let link of settings.config.quickLink.links; let i = index; trackBy:trackByFn; let isFirst = first; let isLast = last">
-        <div class="span-6">
+  <h3 class="panelSubtitle">{{'options.bookmarks.headingLink' | translate}}</h3>
+  <form class="panelGroup" #quickLinksList="ngForm" novalidate>
+    <ng-container *ngFor="let link of settings.config.quickLink.links; let i = index; trackBy:trackByFn; let isFirst = first; let isLast = last">
+      <div class="panelField">
+        <div class="panelFieldInput panelFieldInputQuickLinks">
+          <label [for]="'url'+i" class="panelLabel">{{'options.bookmarks.url' | translate}}</label>
           <input
+            class="panelInput"
             type="text"
-            [name]="'label'+i"
-            #editLabel="ngModel"
-            [(ngModel)]="link.label"
-            autocomplete="off">
-        </div>
-        <div class="span-8">
-          <input
-            type="text"
+            [id]="'url'+i"
             [name]="'url'+i"
             #editUrl="ngModel"
             [(ngModel)]="link.url"
             autocomplete="off"
             required>
-          <div class="valMsg" *ngIf="quickLinksList.invalid && quickLinksList.submitted">{{'options.bookmarks.linkValidation' | translate}}</div>
         </div>
-        <div class="span-5 compactBtnList">
-          <div class="orderBtns">
+        <div class="panelFieldInput panelFieldInputQuickLinks">
+          <label [for]="'label'+i" class="panelLabel">{{'options.common.label' | translate}}</label>
+          <input
+            class="panelInput"
+            type="text"
+            [id]="'label'+i"
+            [name]="'label'+i"
+            #editLabel="ngModel"
+            [(ngModel)]="link.label"
+            autocomplete="off">
+          <div class="quickLinksBtns">
+            <div class="panelBtnGroup">
+              <button
+                type="button"
+                class="panelBtn"
+                [disabled]="isFirst"
+                attr.aria-label="{{'options.common.moveUp' | translate}}"
+                title="{{'options.common.moveUp' | translate}}"
+                (click)="swap(settings.config.quickLink.links, i, (i - 1))">
+                <div class="matIcon" aria-hidden="true">expand_less</div>
+              </button>
+              <button
+                type="button"
+                class="panelBtn"
+                [disabled]="isLast"
+                attr.aria-label="{{'options.common.moveDown' | translate}}"
+                title="{{'options.common.moveDown' | translate}}"
+                (click)="swap(settings.config.quickLink.links, i, (i + 1))">
+                <div class="matIcon" aria-hidden="true">expand_more</div>
+              </button>
+            </div>
             <button
               type="button"
-              class="btn btnIcon"
-              [disabled]="isFirst"
-              attr.aria-label="{{'options.common.moveUp' | translate}}"
-              title="{{'options.common.moveUp' | translate}}"
-              (click)="swap(settings.config.quickLink.links, i, (i - 1))">
-              <div class="icon" aria-hidden="true">expand_less</div>
-            </button>
-            <button
-              type="button"
-              class="btn btnIcon"
-              [disabled]="isLast"
-              attr.aria-label="{{'options.common.moveDown' | translate}}"
-              title="{{'options.common.moveDown' | translate}}"
-              (click)="swap(settings.config.quickLink.links, i, (i + 1))">
-              <div class="icon" aria-hidden="true">expand_more</div>
+              class="panelBtn"
+              title="{{'options.bookmarks.deleteLink' | translate}}"
+              attr.aria-label="{{'options.bookmarks.deleteLink' | translate}}"
+              (click)="deleteLink(link, i)">
+              <div class="matIcon" aria-hidden="true">delete</div>
             </button>
           </div>
-          <button
-            type="button"
-            class="btn btnIcon"
-            title="{{'options.bookmarks.deleteLink' | translate}}"
-            attr.aria-label="{{'options.bookmarks.deleteLink' | translate}}"
-            (click)="deleteLink(link, i)">
-            <div class="icon" aria-hidden="true">delete</div>
-          </button>
         </div>
-      </ng-container>
-    </div>
-  </form>
-  <form #newLink="ngForm" novalidate (ngSubmit)="addLink(newLink, newLink.valid)">
-    <div class="grid cols-19 mb1">
-      <div class="span-6">
-        <input
-          type="text"
-          name="label"
-          placeholder="{{'options.bookmarks.addNewLink' | translate}}"
-          #newLabel="ngModel"
-          [(ngModel)]="label"
-          autocomplete="off"
-          required>
-        <div class="valMsg" *ngIf="newLabel.invalid && newLink.submitted">{{'options.bookmarks.labelValidation' | translate}}</div>
       </div>
-      <div class="span-8">
+    </ng-container>
+  </form>
+  <form class="panelGroup" #newLink="ngForm" novalidate (ngSubmit)="addLink(newLink, newLink.valid)">
+    <div class="panelField">
+      <div class="panelFieldInput panelFieldInputQuickLinks">
+        <label for="newLabel" class="panelLabel">{{'options.bookmarks.url' | translate}}</label>
         <input
+          class="panelInput"
           type="text"
+          id="newUrl"
           name="url"
           placeholder="https://"
           #newUrl="ngModel"
           [(ngModel)]="url"
           autocomplete="off"
           required>
-        <div class="valMsg" *ngIf="newUrl.invalid && newLink.submitted">{{'options.bookmarks.linkValidation' | translate}}</div>
       </div>
-      <div class="span-4">
-        <button type="submit" class="btn" title="{{'options.bookmarks.save' | translate}}"><div class="icon" aria-hidden="true">add</div>{{'options.common.add' | translate}}</button>
+      <div class="panelFieldInput panelFieldInputQuickLinks">
+        <label for="newUrl" class="panelLabel">{{'options.common.label' | translate}}</label>
+        <input
+          class="panelInput"
+          type="text"
+          id="newLabel"
+          name="label"
+          placeholder="{{'options.bookmarks.addNewLink' | translate}}"
+          #newLabel="ngModel"
+          [(ngModel)]="label"
+          autocomplete="off"
+          required>
+        <button type="submit" class="panelBtn" title="{{'options.bookmarks.save' | translate}}"><div class="matIcon" aria-hidden="true">add</div>{{'options.common.add' | translate}}</button>
+      </div>
+      <div class="panelFieldContent" *ngIf="newLink.submitted">
+        <p class="panelValidation" *ngIf="newUrl.invalid">
+          {{'options.bookmarks.linkValidation' | translate}}
+        </p>
+        <p class="panelValidation" *ngIf="newLabel.invalid">
+          {{'options.bookmarks.labelValidation' | translate}}
+        </p>
       </div>
     </div>
   </form>
+  <h3 class="panelSubtitle">{{'options.common.layout' | translate}}</h3>
+  <div class="panelGroup">
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="quickLinksSizeLabel" class="panelLabel">{{'options.common.size' | translate}}</label>
+        <p class="panelDescription">{{'options.common.sizeDesc' | translate}}</p>
+      </div>
+      <div class="panelFieldInput">
+        <options-range labelledby="quickLinksSizeLabel" class="panelInputLg" name="quickLinksSize" id="quickLinksSize" min="1" max="50" [(ngModel)]="settings.config.quickLink.scaling"></options-range>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="" class="panelLabel">{{'options.common.order' | translate}}</label>
+        <p class="panelDescription">{{'options.common.orderDesc' | translate}}</p>
+      </div>
+      <div class="panelFieldInput">
+        <div class="panelBtnGroup panelInputMd">
+          <button
+            type="button"
+            attr.aria-label="{{'options.common.moveUp' | translate}}"
+            title="{{'options.common.moveUp' | translate}}"
+            class="panelBtn"
+            [disabled]="shared.isFirst(settings.config.quickLink.id, settings.config.quickLink.position)"
+            (click)="shared.changeOrder(settings.config.quickLink.id, true, settings.config.quickLink.position)">
+            <div class="matIcon" aria-hidden="true">expand_less</div>
+          </button>
+          <button
+            type="button"
+            attr.aria-label="{{'options.common.moveDown' | translate}}"
+            title="{{'options.common.moveDown' | translate}}"
+            class="panelBtn"
+            [disabled]="shared.isLast(settings.config.quickLink.id, settings.config.quickLink.position)"
+            (click)="shared.changeOrder(settings.config.quickLink.id, false, settings.config.quickLink.position)">
+            <div class="matIcon" aria-hidden="true">expand_more</div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="quickLinkPlacementLabel" class="panelLabel">{{'options.common.position' | translate}}</label>
+        <p class="panelDescription">{{'options.common.positionDesc' | translate}}</p>
+      </div>
+      <div class="panelFieldInput">
+        <options-position aria-labelledby="quickLinkPlacementLabel" id="quickLinkPlacement" name="quickLinkPlacement" [settingId]="settings.config.quickLink.id" [(ngModel)]="settings.config.quickLink.position"></options-position>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="alignTextLabel" class="panelLabel">{{'options.common.alignText' | translate}}</label>
+        <p class="panelDescription">{{'options.common.alignTextDesc' | translate}}</p>
+      </div>
+      <div class="panelFieldInput">
+        <div class="panelBtnGroup panelInputLg">
+          <button
+            type="button"
+            attr.aria-label="{{'options.common.moveUp' | translate}}"
+            class="panelBtn"
+            [ngClass]="{'active' : settings.config.quickLink.textAlign === 'left'}"
+            title="{{'options.common.alignTextLeft' | translate}}"
+            (click)="settings.config.quickLink.textAlign = 'left'">
+            <div class="matIcon" aria-hidden="true">format_align_left</div>
+          </button>
+          <button
+            type="button"
+            attr.aria-label="{{'options.common.alignTextCenter' | translate}}"
+            class="panelBtn"
+            [ngClass]="{'active' : settings.config.quickLink.textAlign === 'center'}"
+            title="{{'options.common.alignTextCenter' | translate}}"
+            (click)="settings.config.quickLink.textAlign = 'center'">
+            <div class="matIcon" aria-hidden="true">format_align_center</div>
+          </button>
+          <button
+            type="button"
+            attr.aria-label="{{'options.common.alignTextRight' | translate}}"
+            class="panelBtn"
+            [ngClass]="{'active' : settings.config.quickLink.textAlign === 'right'}"
+            title="{{'options.common.alignTextRight' | translate}}"
+            (click)="settings.config.quickLink.textAlign = 'right'">
+            <div class="matIcon" aria-hidden="true">format_align_right</div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="quickLinkVerticalLabel" class="panelLabel">{{'options.bookmarks.stackVert' | translate}}</label>
+        <p class="panelDescription">{{'options.bookmarks.stackVertDesc' | translate}}</p>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle labelledby="quickLinkVerticalLabel" name="quickLinkVertical" [(ngModel)]="settings.config.quickLink.vertical"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="!settings.config.quickLink.vertical">
+      <div class="panelFieldContent">
+        <label id="quickLinkWidthLabel" class="panelLabel">{{'options.common.maxWidth' | translate}}</label>
+        <p class="panelDescription">{{'options.common.maxWidthDesc' | translate}}</p>
+      </div>
+      <div class="panelFieldInput">
+        <options-range labelledby="quickLinkWidthLabel" class="panelInputLg" name="quickLinkWidth" id="quickLinkWidth" min="1" max="100" [(ngModel)]="settings.config.quickLink.width"></options-range>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="quickLinkPaddingLabel" class="panelLabel">{{'options.common.padding' | translate}}</label>
+        <p class="panelDescription">{{'options.bookmarks.paddingDesc' | translate}}</p>
+      </div>
+      <div class="panelFieldInput">
+        <options-range labelledby="quickLinkPaddingLabel" class="panelInputLg" name="quickLinkPadding" min="0" max="50" [(ngModel)]="settings.config.quickLink.padding"></options-range>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="quickLinkMarginHeightLabel" class="panelLabel">{{'options.common.marginHeight' | translate}}</label>
+        <p class="panelDescription">{{'options.common.marginHeightDesc' | translate}}</p>
+      </div>
+      <div class="panelFieldInput">
+        <options-range labelledby="quickLinkMarginHeightLabel" class="panelInputLg" name="quickLinkMarginHeight" min="0" max="50" [(ngModel)]="settings.config.quickLink.marginHeight"></options-range>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="quickLinkMarginWidthLabel" class="panelLabel">{{'options.common.marginWidth' | translate}}</label>
+        <p class="panelDescription">{{'options.common.marginWidthDesc' | translate}}</p>
+      </div>
+      <div class="panelFieldInput">
+        <options-range labelledby="quickLinkMarginWidthLabel" class="panelInputLg" name="quickLinkMarginWidth" min="0" max="50" [(ngModel)]="settings.config.quickLink.marginWidth"></options-range>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="quickLinkOffsetLabel" class="panelLabel">{{'options.common.offset' | translate}}</label>
+        <p class="panelDescription">{{'options.common.offsetDesc' | translate}}</p>
+      </div>
+      <div class="panelFieldInput">
+        <options-range labelledby="quickLinkOffsetLabel" class="panelInputLg" name="quickLinkOffset" min="-50" max="50" [(ngModel)]="settings.config.quickLink.offset"></options-range>
+      </div>
+    </div>
+  </div>
 </ng-container>
-<form class="pt15" #quickLinkLayoutOptions="ngForm" novalidate>
-  <ng-container *ngIf="settings.config.quickLink.enabled">
 
-    <!-- Layout -->
-    <h3>{{'options.common.layout' | translate}}</h3>
-    <div class="input" *ngIf="settings.config.quickLink.enabled">
-      <label for="quickLinksSize">{{'options.common.size' | translate}}<tooltip text="{{'options.common.sizeDesc' | translate}}"></tooltip></label>
-      <options-range name="quickLinksSize" id="quickLinksSize" min="1" max="50" [(ngModel)]="settings.config.quickLink.scaling"></options-range>
-    </div>
-    <div class="input" *ngIf="settings.config.quickLink.enabled">
-      <label for="quickLinkOrder">{{'options.common.order' | translate}}<tooltip text="{{'options.common.orderDesc' | translate}}"></tooltip></label>
-      <div id="quickLinkOrder" class="orderBtns">
-        <button
-          type="button"
-          attr.aria-label="{{'options.common.moveUp' | translate}}"
-          title="{{'options.common.moveUp' | translate}}"
-          class="btn"
-          [disabled]="shared.isFirst(settings.config.quickLink.id, settings.config.quickLink.position)"
-          (click)="shared.changeOrder(settings.config.quickLink.id, true, settings.config.quickLink.position)">
-          <div class="icon" aria-hidden="true">expand_less</div>
-        </button>
-        <button
-          type="button"
-          attr.aria-label="{{'options.common.moveDown' | translate}}"
-          title="{{'options.common.moveDown' | translate}}"
-          class="btn"
-          [disabled]="shared.isLast(settings.config.quickLink.id, settings.config.quickLink.position)"
-          (click)="shared.changeOrder(settings.config.quickLink.id, false, settings.config.quickLink.position)">
-          <div class="icon" aria-hidden="true">expand_more</div>
-        </button>
-      </div>
-    </div>
-    <div class="input" *ngIf="settings.config.quickLink.enabled">
-      <label for="quickLinkPlacement">{{'options.common.position' | translate}}<tooltip text="{{'options.common.positionDesc' | translate}}"></tooltip></label>
-      <options-position id="quickLinkPlacement" name="quickLinkPlacement" [settingId]="settings.config.quickLink.id" [(ngModel)]="settings.config.quickLink.position"></options-position>
-    </div>
-    <div class="input">
-      <label for="quickLinkTextAlign">{{'options.common.alignText' | translate}}<tooltip text="{{'options.common.alignTextDesc' | translate}}"></tooltip></label>
-      <div id="quickLinkTextAlign" class="connectedBtns">
-        <button
-          type="button"
-          class="btn btnIcon"
-          [ngClass]="{'active' : settings.config.quickLink.textAlign === 'left'}"
-          title="{{'options.common.alignTextLeft' | translate}}"
-          (click)="settings.config.quickLink.textAlign = 'left'">
-          <div class="icon" aria-hidden="true">format_align_left</div>
-        </button>
-        <button
-          type="button"
-          class="btn btnIcon"
-          [ngClass]="{'active' : settings.config.quickLink.textAlign === 'center'}"
-          title="{{'options.common.alignTextCenter' | translate}}"
-          (click)="settings.config.quickLink.textAlign = 'center'">
-          <div class="icon" aria-hidden="true">format_align_center</div>
-        </button>
-        <button
-          type="button"
-          class="btn btnIcon"
-          [ngClass]="{'active' : settings.config.quickLink.textAlign === 'right'}"
-          title="{{'options.common.alignTextRight' | translate}}"
-          (click)="settings.config.quickLink.textAlign = 'right'">
-          <div class="icon" aria-hidden="true">format_align_right</div>
-        </button>
-      </div>
-    </div>
-    <div class="input" *ngIf="settings.config.quickLink.enabled">
-      <label for="quickLinkVertical">{{'options.bookmarks.stackVert' | translate}}<tooltip text="{{'options.bookmarks.stackVertDesc' | translate}}"></tooltip></label>
-      <options-toggle name="quickLinkVertical" [(ngModel)]="settings.config.quickLink.vertical"></options-toggle>
-    </div>
-    <div class="input" *ngIf="settings.config.quickLink.enabled && !settings.config.quickLink.vertical">
-      <label>{{'options.common.maxWidth' | translate}}<tooltip text="{{'options.common.maxWidthDesc' | translate}}"></tooltip></label>
-      <options-range name="quickLinkWidth" id="quickLinkWidth" min="1" max="100" [(ngModel)]="settings.config.quickLink.width"></options-range>
-    </div>
-    <div class="input" *ngIf="settings.config.quickLink.enabled">
-      <label for="quickLinkPadding">{{'options.common.padding' | translate}}<tooltip text="{{'options.bookmarks.paddingDesc' | translate}}"></tooltip></label>
-      <options-range name="quickLinkPadding" min="0" max="50" [(ngModel)]="settings.config.quickLink.padding"></options-range>
-    </div>
-    <div class="input" *ngIf="settings.config.quickLink.enabled">
-      <label for="quickLinkMarginHeight">{{'options.common.marginHeight' | translate}}<tooltip text="{{'options.common.marginHeightDesc' | translate}}"></tooltip></label>
-      <options-range name="quickLinkMarginHeight" min="0" max="50" [(ngModel)]="settings.config.quickLink.marginHeight"></options-range>
-    </div>
-    <div class="input" *ngIf="settings.config.quickLink.enabled">
-      <label for="quickLinkMarginWidth">{{'options.common.marginWidth' | translate}}<tooltip text="{{'options.common.marginWidthDesc' | translate}}"></tooltip></label>
-      <options-range name="quickLinkMarginWidth" min="0" max="50" [(ngModel)]="settings.config.quickLink.marginWidth"></options-range>
-    </div>
-    <div class="input" *ngIf="settings.config.quickLink.enabled">
-      <label for="quickLinkOffset">{{'options.common.offset' | translate}}<tooltip text="{{'options.common.offsetDesc' | translate}}"></tooltip></label>
-      <options-range name="quickLinkOffset" min="-50" max="50" [(ngModel)]="settings.config.quickLink.offset"></options-range>
-    </div>
-  </ng-container>
-</form>
+<button class="panelBtn panelBackToDashLink" (click)="shared.optionsPage = 'Dashboard'"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Dashboard</button>
+

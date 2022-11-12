@@ -1,14 +1,16 @@
-import { Component, NgZone } from '@angular/core';
+import { Component, HostBinding, NgZone } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '../../_storage/storage.service';
 import { title, languages } from '../../_shared/lists/lists';
 import { SharedService } from '../../_shared/shared.service';
+import { createViewChild } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'options-extra',
   templateUrl: 'extra.component.html'
 })
 export class OptionsExtraComponent {
+  @HostBinding('class') hostClass: string = 'panelPlate panelPage';
   titleOptions = title;
   languages = languages;
   importStatus: string;

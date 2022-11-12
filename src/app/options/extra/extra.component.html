@@ -1,159 +1,181 @@
-<h2>{{ 'options.extra.extra' | translate }}</h2>
-<div class="input">
-  <label for="lang">{{ 'options.extra.lang' | translate }}</label>
-  <select
-    name="lang"
-    id="lang"
-    [(ngModel)]="settings.config.i18n.lang"
-    (ngModelChange)="
-      useLanguage($event);
-    "
-  >
-    <option *ngFor="let lang of languages" [ngValue]="lang.id">
-      {{ lang.label }}
-    </option>
-  </select>
-</div>
-<div class="input">
-  <label for="tabTitle">
-    {{ 'options.extra.tabTitle' | translate }}
-    <tooltip text="{{ 'options.extra.tabTitleDesc' | translate }}"></tooltip>
-  </label>
-  <select
-    name="tabTitle"
-    id="tabTitle"
-    [(ngModel)]="settings.config.misc.title.type"
-  >
-    <option *ngFor="let type of titleOptions" [ngValue]="type.id">
-      {{ type.label }}
-    </option>
-  </select>
-</div>
-<div class="input" *ngIf="settings.config.misc.title.type === 60">
-  <label for="tabTitleCustom">
-    {{ 'options.extra.tabCustomText' | translate }}
-    <tooltip text="{{ 'options.extra.tabCustomTextDesc' | translate }}">
-    </tooltip>
-  </label>
-  <input
-    type="text"
-    name="tabTitleCustom"
-    id="tabTitleCustom"
-    [(ngModel)]="settings.config.misc.title.text"
-  />
-</div>
-<div
-  class="input"
-  *ngIf="
-    settings.config.misc.title.type === 20 ||
-    settings.config.misc.title.type === 40 ||
-    settings.config.misc.title.type === 50
-  "
->
-  <label for="tabTitle">
-    {{ 'options.extra.tabClock' | translate }}
-    <tooltip text="{{ 'options.extra.tabClockDesc' | translate }}"></tooltip>
-  </label>
-  <select
-    name="tabTitle"
-    id="tabTitle"
-    [(ngModel)]="settings.config.misc.title.clockUsed"
-  >
-    <option
-      *ngFor="let clock of settings.config.time.clocks; let i = index"
-      [ngValue]="i + 1"
-    >
-      Clock #{{ i + 1 }}
-    </option>
-  </select>
-</div>
-<div class="input">
-  <label for="disableSelect"
-    >{{ 'options.extra.disableSelect' | translate
-    }}<tooltip
-      text="{{ 'options.extra.disableSelectDesc' | translate }}"
-    ></tooltip
-  ></label>
-  <options-toggle
-    name="disableSelect"
-    id="disableSelect"
-    [(ngModel)]="settings.config.misc.disableSelect"
-  ></options-toggle>
-</div>
-<div class="input">
-  <label
-    >{{ 'options.extra.hideMenu' | translate
-    }}<tooltip text="{{ 'options.extra.hideMenuDesc' | translate }}"></tooltip
-  ></label>
-  <options-toggle
-    name="hideMenu"
-    id="hideMenu"
-    [(ngModel)]="settings.config.design.hideMenu"
-  ></options-toggle>
-</div>
-<!-- <div class="input">
-  <label>{{'options.extra.hideLogo' | translate}}</label>
-  <options-toggle name="hideLogo" id="hideLogo" [(ngModel)]="settings.config.design.hideLogo"></options-toggle>
-</div> -->
-<div class="warning pl15 mt1">
-  <div class="icon" aria-hidden="true">info</div>{{'options.common.requiresInternet' | translate}}
-</div>
-<h3>{{ 'options.extra.exportImport' | translate }}</h3>
-<div class="input">
-  <label for="export">
-    {{ 'options.extra.exportSettings' | translate }}
-    <tooltip
-      text="{{ 'options.extra.exportSettingsDesc' | translate }}"
-    ></tooltip>
-  </label>
-  <button id="export" type="button" class="btn" (click)="export()">
-    {{ 'options.extra.export' | translate }}
-  </button>
-</div>
-<div class="input">
-  <label for="importSettings">
-    {{ 'options.extra.importSettings' | translate }}
-    <tooltip
-      text="{{ 'options.extra.importSettingsDesc' | translate }}"
-    ></tooltip>
-  </label>
-  <input
-    id="importSettings"
-    #importSettings
-    name="importSettings"
-    type="file"
-    class="btn"
-    accept="image/*"
-    (change)="import($event, importSettings)"
-    accept=".json"
-  />
-  <button class="btn btnBlock" type="button" (click)="importSettings.click()">
-    {{ 'options.extra.import' | translate }}
-  </button>
-  <div
-    class="valMsg valMsg--wide valMsg--success"
-    *ngIf="importStatus === 'success'"
-  >
-    <strong> {{ 'options.extra.importedSuccessfully' | translate }}</strong> -
-    {{ 'options.extra.importedSuccessfullyDesc' | translate }}
-  </div>
-  <div class="valMsg valMsg--wide" *ngIf="importStatus === 'error'">
-    <strong>{{ 'options.extra.importFailed' | translate }}</strong> -
-    {{ 'options.extra.importFailedDesc' | translate }}
-  </div>
-</div>
-<h3>{{ 'options.extra.reset' | translate }}</h3>
-<div class="input">
-  <label for="reset">
-    {{ 'options.extra.resetToDefault' | translate }}
-    <tooltip text="{{ 'options.extra.resetDesc' | translate }}"></tooltip
-  ></label>
+<h2 class="panelTitle">
   <button
-    id="reset"
-    type="button"
-    class="btn"
-    (click)="reset();"
-  >
-    {{ 'options.extra.reset' | translate }}
-  </button>
+    (click)="this.shared.optionsPage = 'Dashboard'"
+    class="panelBack matIcon"
+    aria-label="Back to dashboard"
+    title="Back to dashboard"
+  >arrow_back</button>
+  {{ 'options.extra.extra' | translate }}
+</h2>
+<div class="panelGroup">
+  <div class="panelField panelFieldInline">
+    <div class="panelFieldContent">
+      <label for="lang" class="panelLabel">{{ 'options.extra.lang' | translate }}</label>
+    </div>
+    <div class="panelFieldInput">
+      <select
+        class="panelSelect panelInputLg"
+        name="lang"
+        id="lang"
+        [(ngModel)]="settings.config.i18n.lang"
+        (ngModelChange)="
+          useLanguage($event);
+        "
+      >
+        <option *ngFor="let lang of languages" [ngValue]="lang.id">
+          {{ lang.label }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="panelField panelFieldInline">
+    <div class="panelFieldContent">
+      <label for="tabTitle" class="panelLabel">{{ 'options.extra.tabTitle' | translate }}</label>
+      <p class="panelDescription">{{ 'options.extra.tabTitleDesc' | translate }}</p>
+    </div>
+    <div class="panelFieldInput">
+      <select
+        class="panelSelect panelInputLg"
+        name="tabTitle"
+        id="tabTitle"
+        [(ngModel)]="settings.config.misc.title.type"
+      >
+        <option *ngFor="let type of titleOptions" [ngValue]="type.id">
+          {{ type.label }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="panelField panelFieldInline" *ngIf="settings.config.misc.title.type === 60">
+    <div class="panelFieldContent">
+      <label for="tabTitleCustom" class="panelLabel">{{ 'options.extra.tabCustomText' | translate }}</label>
+      <p class="panelDescription">{{ 'options.extra.tabCustomTextDesc' | translate }}</p>
+    </div>
+    <div class="panelFieldInput">
+      <input
+        class="panelInput panelInputLg"
+        type="text"
+        name="tabTitleCustom"
+        id="tabTitleCustom"
+        [(ngModel)]="settings.config.misc.title.text"
+      />
+    </div>
+  </div>
+  <div
+    class="panelField panelFieldInline"
+    *ngIf="
+      settings.config.misc.title.type === 20 ||
+      settings.config.misc.title.type === 40 ||
+      settings.config.misc.title.type === 50
+    ">
+    <div class="panelFieldContent">
+      <label for="tabTitle" class="panelLabel">{{ 'options.extra.tabClock' | translate }}</label>
+      <p class="panelDescription">{{ 'options.extra.tabClockDesc' | translate }}</p>
+    </div>
+    <div class="panelFieldInput">
+      <select
+        class="panelSelect panelInputLg"
+        name="tabTitle"
+        id="tabTitle"
+        [(ngModel)]="settings.config.misc.title.clockUsed"
+      >
+        <option
+          *ngFor="let clock of settings.config.time.clocks; let i = index"
+          [ngValue]="i + 1"
+        >
+          Clock #{{ i + 1 }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="panelField panelFieldInline">
+    <div class="panelFieldContent">
+      <label id="disableSelectLabel" class="panelLabel">{{ 'options.extra.disableSelect' | translate }}</label>
+      <p class="panelDescription">{{ 'options.extra.disableSelectDesc' | translate }}</p>
+    </div>
+    <div class="panelFieldInput">
+      <options-toggle
+        labelledby="disableSelectLabel"
+        name="disableSelect"
+        id="disableSelect"
+        [(ngModel)]="settings.config.misc.disableSelect"
+      ></options-toggle>
+    </div>
+  </div>
+  <div class="panelField panelFieldInline">
+    <div class="panelFieldContent">
+      <label id="hideMenuLabel" class="panelLabel">{{ 'options.extra.hideMenu' | translate }}</label>
+      <p class="panelDescription">{{ 'options.extra.hideMenuDesc' | translate }}</p>
+    </div>
+    <div class="panelFieldInput">
+      <options-toggle
+        labelledby="hideMenuLabel"
+        name="hideMenu"
+        id="hideMenu"
+        [(ngModel)]="settings.config.design.hideMenu"
+      ></options-toggle>
+    </div>
+  </div>
+</div>
+<h3 class="panelSubtitle">{{ 'options.extra.exportImport' | translate }}</h3>
+<div class="panelGroup">
+  <div class="panelField panelFieldInline">
+    <div class="panelFieldContent">
+      <label for="export" class="panelLabel">{{ 'options.extra.exportSettings' | translate }}</label>
+      <p class="panelDescription">{{ 'options.extra.exportSettingsDesc' | translate }}</p>
+    </div>
+    <div class="panelFieldInput">
+      <button id="export" type="button" class="panelBtn" (click)="export()">
+        {{ 'options.extra.export' | translate }}
+      </button>
+    </div>
+  </div>
+  <div class="panelField panelFieldInline">
+    <div class="panelFieldContent">
+      <label id="" class="panelLabel">{{ 'options.extra.importSettings' | translate }}</label>
+      <p class="panelDescription">{{ 'options.extra.importSettingsDesc' | translate }}</p>
+      <p class="panelSuccess" *ngIf="importStatus === 'success'">
+        <strong> {{ 'options.extra.importedSuccessfully' | translate }}</strong> -
+        {{ 'options.extra.importedSuccessfullyDesc' | translate }}
+      </p>
+      <p class="panelValidation" *ngIf="importStatus === 'error'">
+        <strong>{{ 'options.extra.importFailed' | translate }}</strong> -
+        {{ 'options.extra.importFailedDesc' | translate }}
+      </p>
+    </div>
+    <div class="panelFieldInput">
+      <input
+        id="importSettings"
+        #importSettings
+        name="importSettings"
+        type="file"
+        class="panelFile"
+        accept="image/*"
+        (change)="import($event, importSettings)"
+        accept=".json"
+      />
+      <button class="panelBtn" type="button" (click)="importSettings.click()">
+        {{ 'options.extra.import' | translate }}
+      </button>
+    </div>
+  </div>
+</div>
+<h3 class="panelSubtitle">{{ 'options.extra.reset' | translate }}</h3>
+<div class="panelGroup">
+  <div class="panelField panelFieldInline">
+    <div class="panelFieldContent">
+      <label id="" class="panelLabel">{{ 'options.extra.resetToDefault' | translate }}</label>
+      <p class="panelDescription">{{ 'options.extra.resetDesc' | translate }}</p>
+    </div>
+    <div class="panelFieldInput">
+      <button
+        id="reset"
+        type="button"
+        class="panelBtn"
+        (click)="reset();"
+      >
+        {{ 'options.extra.reset' | translate }}
+      </button>
+    </div>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { searchEngines } from '../../_shared/lists/lists';
 import { SharedService } from '../../_shared/shared.service';
@@ -8,6 +8,7 @@ import { SharedService } from '../../_shared/shared.service';
   templateUrl: 'search.component.html'
 })
 export class OptionsSearchComponent {
+  @HostBinding('class') hostClass: string = 'panelPlate panelPage';
   engines = searchEngines;
 
   constructor(

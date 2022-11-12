@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from "@angular/core";
+import { Component, ElementRef, HostBinding, ViewChild } from "@angular/core";
 import { Storage } from "../../_storage/storage.service";
 import { SharedService } from "../../_shared/shared.service";
 
@@ -7,6 +7,7 @@ import { SharedService } from "../../_shared/shared.service";
   templateUrl: "message.component.html",
 })
 export class OptionsMessageComponent {
+  @HostBinding('class') hostClass: string = 'panelPlate panelPage';
   public newMessageTextModel: ElementRef;
   constructor(
     public shared: SharedService,

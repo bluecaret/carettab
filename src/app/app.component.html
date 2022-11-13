@@ -5,8 +5,8 @@
     [style.color]="settings.config.design.foreground"
     >
   </app-tab>
-  <app-options></app-options>
-  <app-splash 
+  <app-options [@options] (closedOptions)="closedOptions()" *ngIf="shared.optionsToggle"></app-options>
+  <app-splash
     *ngIf="(shared.status === 'installed') || (shared.status === 'updated' && shared.updateType === 'major') || (shared.status === 'updated' && shared.updateType === 'minor')"
   ></app-splash>
 </ng-container>

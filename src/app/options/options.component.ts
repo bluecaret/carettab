@@ -1,19 +1,18 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, HostBinding, AfterViewInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { SharedService } from '../_shared/shared.service';
 import { Storage } from '../_storage/storage.service';
-import { fadeIn, options } from '../_shared/animations';
+import { fadeIn } from '../_shared/animations';
 import * as manifest from '../../manifest.json';
 
 @Component({
   selector: 'app-options',
   templateUrl: 'options.component.html',
   encapsulation: ViewEncapsulation.None,
-  animations: [
-    fadeIn,
-    options
-  ]
 })
-export class OptionsComponent {
+export class OptionsComponent implements AfterViewInit {
+  @HostBinding('class.panel') panelClass = true;
+  @HostBinding('class.panelPreview') panelPreviewClass = false;
+  @ViewChild('closeButton', {static: false}) closeButton: ElementRef;
   ver = manifest.version;
 
   constructor(
@@ -23,10 +22,15 @@ export class OptionsComponent {
     this.shared.optionsPage = 'Dashboard';
   }
 
+  ngAfterViewInit() {
+    this.closeButton.nativeElement.focus();
+  }
+
   togglePreview(enable: boolean) {
     console.log('togglePreview', enable);
 
     this.shared.optionsPreview = enable;
+    this.panelPreviewClass = enable;
   }
 
   getReviewLink(encode: boolean): string {

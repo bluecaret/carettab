@@ -27,7 +27,7 @@ export class TabComponent implements OnInit, AfterViewInit {
     private titleService: Title,
     private translate: TranslateService
   ) {
-    this.shared.optionsToggle = true;
+    this.shared.optionsToggle = false;
     this.titleService.setTitle(this.NEW_TAB_TEXT);
   }
 

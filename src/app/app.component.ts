@@ -3,7 +3,7 @@ import { transition, trigger, style, state, animate } from '@angular/animations'
 import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from './_shared/shared.service';
 import { Storage } from './_storage/storage.service';
-import { tab } from './_shared/animations';
+import { tab, options } from './_shared/animations';
 import * as moment from 'moment';
 import { compare } from 'compare-versions';
 import * as Bowser from 'bowser';
@@ -14,6 +14,7 @@ import { Settings } from './_storage/settings';
   selector: 'app-root',
   templateUrl: './app.component.html',
   animations: [
+    options,
     tab,
     trigger('fade', [
       state('*', style({

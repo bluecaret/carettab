@@ -308,6 +308,10 @@ $btnRadius: var(--size300);
   }
 }
 
+.panelBtnNoWrap {
+  flex: 0 0 auto;
+}
+
 .panelBtnBlock {
   display: flex;
   width: 100%;

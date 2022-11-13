@@ -35,7 +35,7 @@
   <options-search *ngIf="shared.optionsPage === 'Search'"></options-search>
   <options-message *ngIf="shared.optionsPage === 'Message'"></options-message>
   <options-weather *ngIf="shared.optionsPage === 'Weather'"></options-weather>
-  <options-covid *ngIf="shared.optionsPage === 'Covid'"></options-covid>
+  <options-covid *ngIf="shared.optionsPage === 'Covid' || shared.optionsPage === 'EditCovidData'"></options-covid>
   <options-extra *ngIf="shared.optionsPage === 'Extra'"></options-extra>
   <!-- <div class="panelPlate panelPage">
     <h2 class="panelTitle">

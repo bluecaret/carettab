@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
 import { HttpClient } from '@angular/common/http';
@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'covid.component.html'
 })
 export class OptionsCovidComponent {
-  selected = '';
+  @HostBinding('class') hostClass: string = 'panelPlateGroup';
+  selected: number;
   newCountry = null;
   public countryList = [];
   constructor(
@@ -23,8 +24,10 @@ export class OptionsCovidComponent {
   setSelected(i) {
     if (this.selected !== i) {
       this.selected = i;
+      this.shared.optionsPage = 'EditCovidData';
     } else {
       this.selected = null;
+      this.shared.optionsPage = 'Covid';
     }
   }
 

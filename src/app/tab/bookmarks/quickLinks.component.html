@@ -20,25 +20,25 @@
     </li>
     <li *ngIf="settings.config.quickLink.chromeTab">
       <button title="{{'tab.bookmarks.links.chromeTab' | translate}}" class="link" (click)="chromeTab();">
-        <img *ngIf="settings.config.quickLink.icons" src="/assets/img/tab.png" class="quickLinksIcon">
+        <i *ngIf="settings.config.quickLink.icons" class="quickLinksIcon matIcon" aria-hidden="true">tab</i>
         <div class="quickLinksLabel">{{'tab.bookmarks.links.chromeTab' | translate}}</div>
       </button>
     </li>
     <li *ngIf="settings.config.quickLink.history">
       <button title="{{'tab.bookmarks.links.history' | translate}}" class="link" (click)="history();">
-        <img *ngIf="settings.config.quickLink.icons" src="/assets/img/history.png" class="quickLinksIcon">
+        <i *ngIf="settings.config.quickLink.icons" class="quickLinksIcon matIcon" aria-hidden="true">history</i>
         <div class="quickLinksLabel">{{'tab.bookmarks.links.history' | translate}}</div>
       </button>
     </li>
     <li *ngIf="settings.config.quickLink.bookmarksManager">
       <button title="{{'tab.bookmarks.links.bookmarksManager' | translate}}" class="link" (click)="bookmarksManager();">
-        <img *ngIf="settings.config.quickLink.icons" src="/assets/img/bookmarks.png" class="quickLinksIcon">
+        <i *ngIf="settings.config.quickLink.icons" class="quickLinksIcon matIcon" aria-hidden="true">bookmarks</i>
         <div class="quickLinksLabel">{{'tab.bookmarks.links.bookmarksManager' | translate}}</div>
       </button>
     </li>
     <li class="mostVisitedLink" *ngIf="settings.config.quickLink.mostVisited">
       <button #quickLinkMostVisitedBtn title="{{'tab.bookmarks.links.mostVisited' | translate}}" class="link" (click)="toggleMostVisited($event);">
-        <img *ngIf="settings.config.quickLink.icons" src="/assets/img/folder.png" class="quickLinksIcon">
+        <i *ngIf="settings.config.quickLink.icons" class="quickLinksIcon matIcon" aria-hidden="true">folder</i>
         <div class="quickLinksLabel">{{'tab.bookmarks.links.mostVisited' | translate}}</div>
       </button>
     </li>

@@ -116,6 +116,10 @@ $barFontWeight: 300;
   &.icon {
     line-height: 16px;
   }
+  &.matIcon {
+    font-size: 16px;
+    line-height: 16px;
+  }
 }
 
 .barIcon + .barLabel {

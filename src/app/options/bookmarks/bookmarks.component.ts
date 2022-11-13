@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone, HostBinding } from '@angular/core';
+import { Component, OnInit, NgZone, HostBinding, Output, EventEmitter } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { fade } from '../../_shared/animations';
 import { SharedService } from '../../_shared/shared.service';
@@ -10,6 +10,7 @@ import { SharedService } from '../../_shared/shared.service';
 })
 export class OptionsBookmarksComponent implements OnInit {
   @HostBinding('class') hostClass: string = 'panelPlate panelPage';
+  @Output() goTo: EventEmitter<string> = new EventEmitter<string>();
   editMode: boolean[] = [];
   isInvalid = false;
   hasFaviconPermission: boolean;

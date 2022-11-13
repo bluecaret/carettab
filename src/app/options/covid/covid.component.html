@@ -1,7 +1,7 @@
 <div *ngIf="shared.optionsPage === 'Covid'" class="panelPlate panelPage">
   <h2 class="panelTitle">
     <button
-      (click)="this.shared.optionsPage = 'Dashboard'"
+      (click)="goTo.emit('Dashboard')"
       class="panelBack matIcon"
       aria-label="Back to dashboard"
       title="Back to dashboard"
@@ -105,13 +105,13 @@
     {{'options.covidData.disclaimer' | translate | translateCut:0}}<a href="https://disease.sh/">{{'options.covidData.disclaimer' | translate | translateCut:1}}</a>{{'options.covidData.disclaimer' | translate | translateCut:2}}<a href="https://github.com/disease-sh/api/blob/master/README.md#sources">{{'options.covidData.disclaimer' | translate | translateCut:3}}</a>{{'options.covidData.disclaimer' | translate | translateCut:4}}
   </p>
 
-  <button class="panelBtn panelBackToDashLink" (click)="shared.optionsPage = 'Dashboard'"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Dashboard</button>
+  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Dashboard</button>
 </div>
 
 <div *ngIf="shared.optionsPage === 'EditCovidData'" class="panelPlate panelPage">
   <h2 class="panelTitle">
     <button
-      (click)="this.shared.optionsPage = 'Covid'; selected = null;"
+      (click)="goTo.emit('Covid'); selected = null;"
       class="panelBack matIcon"
       aria-label="Back to all clocks"
       title="Back to all clocks"
@@ -361,7 +361,7 @@
     </div>
   </div>
 
-  <button class="panelBtn panelBackToDashLink" (click)="shared.optionsPage = 'Covid'; selected = null;"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to COVID settings</button>
+  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Covid'); selected = null;"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to COVID settings</button>
 </div>
 
 <!--

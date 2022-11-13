@@ -27,16 +27,16 @@
     >save</button>
   </div>
 </header>
-<options-dashboard *ngIf="shared.optionsPage === 'Dashboard'"></options-dashboard>
-<options-design *ngIf="shared.optionsPage === 'Design'"></options-design>
-<options-time *ngIf="shared.optionsPage === 'Time' || shared.optionsPage === 'EditClock'"></options-time>
-<options-date *ngIf="shared.optionsPage === 'Date'"></options-date>
-<options-bookmarks *ngIf="shared.optionsPage === 'Bookmarks'"></options-bookmarks>
-<options-search *ngIf="shared.optionsPage === 'Search'"></options-search>
-<options-message *ngIf="shared.optionsPage === 'Message'"></options-message>
-<options-weather *ngIf="shared.optionsPage === 'Weather'"></options-weather>
-<options-covid *ngIf="shared.optionsPage === 'Covid' || shared.optionsPage === 'EditCovidData'"></options-covid>
-<options-extra *ngIf="shared.optionsPage === 'Extra'"></options-extra>
+<options-dashboard *ngIf="shared.optionsPage === 'Dashboard'" (goTo)="goTo($event)"></options-dashboard>
+<options-design *ngIf="shared.optionsPage === 'Design'" (goTo)="goTo($event)"></options-design>
+<options-time *ngIf="shared.optionsPage === 'Time' || shared.optionsPage === 'EditClock'" (goTo)="goTo($event)"></options-time>
+<options-date *ngIf="shared.optionsPage === 'Date'" (goTo)="goTo($event)"></options-date>
+<options-bookmarks *ngIf="shared.optionsPage === 'Bookmarks'" (goTo)="goTo($event)"></options-bookmarks>
+<options-search *ngIf="shared.optionsPage === 'Search'" (goTo)="goTo($event)"></options-search>
+<options-message *ngIf="shared.optionsPage === 'Message'" (goTo)="goTo($event)"></options-message>
+<options-weather *ngIf="shared.optionsPage === 'Weather'" (goTo)="goTo($event)"></options-weather>
+<options-covid *ngIf="shared.optionsPage === 'Covid' || shared.optionsPage === 'EditCovidData'" (goTo)="goTo($event)"></options-covid>
+<options-extra *ngIf="shared.optionsPage === 'Extra'" (goTo)="goTo($event)"></options-extra>
 <footer class="panelPlate panelFooter">
   <p>
     {{'options.dashboard.supportBox' | translate | translateCut:0 }}<a href="https://github.com/bluecaret/carettab" class="supportBtn">{{'options.dashboard.supportBox' | translate | translateCut:1 }}</a>{{'options.dashboard.supportBox' | translate | translateCut:2 }}<a href="mailto:bluecaret@outlook.com" class="supportBtn">{{'options.dashboard.supportBox' | translate | translateCut:3 }}</a>

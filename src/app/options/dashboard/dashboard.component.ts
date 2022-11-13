@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostBinding, OnInit, Output } from '@angular/core';
 import { SharedService } from '../../_shared/shared.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { SharedService } from '../../_shared/shared.service';
 export class OptionsDashboardComponent implements OnInit {
   status: string;
   @HostBinding('class') hostClass: string = 'panelPlate panelPage';
+  @Output() goTo: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(public shared: SharedService) {
   }
@@ -24,9 +25,8 @@ export class OptionsDashboardComponent implements OnInit {
   }
 
   goToPage(page: string) {
-    this.shared.optionsPage = page;
     this.shared.echo('Opened settings page:', page);
-    let path = encodeURI(page).toLowerCase();
+    this.goTo.emit(page);
   }
 
 }

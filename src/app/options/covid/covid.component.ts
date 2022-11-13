@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, Output, EventEmitter } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
 import { HttpClient } from '@angular/common/http';
@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OptionsCovidComponent {
   @HostBinding('class') hostClass: string = 'panelPlateGroup';
+  @Output() goTo: EventEmitter<string> = new EventEmitter<string>();
   selected: number;
   newCountry = null;
   public countryList = [];

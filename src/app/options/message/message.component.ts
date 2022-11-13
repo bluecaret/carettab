@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding, ViewChild } from "@angular/core";
+import { Component, ElementRef, HostBinding, Output, EventEmitter } from "@angular/core";
 import { Storage } from "../../_storage/storage.service";
 import { SharedService } from "../../_shared/shared.service";
 
@@ -8,6 +8,7 @@ import { SharedService } from "../../_shared/shared.service";
 })
 export class OptionsMessageComponent {
   @HostBinding('class') hostClass: string = 'panelPlate panelPage';
+  @Output() goTo: EventEmitter<string> = new EventEmitter<string>();
   public newMessageTextModel: ElementRef;
   constructor(
     public shared: SharedService,

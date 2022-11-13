@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, Output, EventEmitter } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { searchEngines } from '../../_shared/lists/lists';
 import { SharedService } from '../../_shared/shared.service';
@@ -9,6 +9,7 @@ import { SharedService } from '../../_shared/shared.service';
 })
 export class OptionsSearchComponent {
   @HostBinding('class') hostClass: string = 'panelPlate panelPage';
+  @Output() goTo: EventEmitter<string> = new EventEmitter<string>();
   engines = searchEngines;
 
   constructor(

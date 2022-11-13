@@ -12,6 +12,7 @@ import * as manifest from '../../manifest.json';
 export class OptionsComponent implements AfterViewInit {
   @HostBinding('class.panel') panelClass = true;
   @HostBinding('class.panelPreview') panelPreviewClass = false;
+  @ViewChild('backToTop', {static: false}) backToTop: ElementRef;
   @ViewChild('closeButton', {static: false}) closeButton: ElementRef;
   ver = manifest.version;
 
@@ -26,9 +27,12 @@ export class OptionsComponent implements AfterViewInit {
     this.closeButton.nativeElement.focus();
   }
 
-  togglePreview(enable: boolean) {
-    console.log('togglePreview', enable);
+  goTo(page: string) {
+    this.shared.optionsPage = page;
+    document.querySelector('.panel').scrollTop = 0;
+  }
 
+  togglePreview(enable: boolean) {
     this.shared.optionsPreview = enable;
     this.panelPreviewClass = enable;
   }

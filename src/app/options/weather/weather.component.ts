@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit, Output, EventEmitter } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
 import { WeatherService } from '../../tab/weather/weather.service';
@@ -8,6 +8,7 @@ import { WeatherService } from '../../tab/weather/weather.service';
   templateUrl: './weather.component.html'
 })
 export class OptionsWeatherComponent implements OnInit {
+  @Output() goTo: EventEmitter<string> = new EventEmitter<string>();
   @HostBinding('class') hostClass: string = 'panelPlate panelPage';
   hasSearched = false;
   locationList: any = [];

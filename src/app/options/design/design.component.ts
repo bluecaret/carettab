@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit, Output, EventEmitter } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
 import { fontList, colors, customFontWeight, patterns, bgSize, bgBlend } from '../../_shared/lists/lists';
@@ -9,6 +9,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   templateUrl: 'design.component.html'
 })
 export class OptionsDesignComponent implements OnInit {
+  @Output() goTo: EventEmitter<string> = new EventEmitter<string>();
   fonts = fontList;
   fontWeights = customFontWeight;
   colors = colors;

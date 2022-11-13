@@ -1,6 +1,6 @@
 <h2 class="panelTitle">
   <button
-    (click)="this.shared.optionsPage = 'Dashboard'"
+    (click)="goTo.emit('Dashboard')"
     class="panelBack matIcon"
     aria-label="Back to dashboard"
     title="Back to dashboard"
@@ -227,4 +227,4 @@
     </div>
   </div>
 </form>
-<button class="panelBtn panelBackToDashLink" (click)="shared.optionsPage = 'Dashboard'"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Dashboard</button>
+<button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Dashboard</button>

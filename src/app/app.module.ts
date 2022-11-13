@@ -26,7 +26,6 @@ import * as moment from 'moment-timezone';
 import { SplashComponent } from './splash/splash.component';
 
 // Options Imports
-import { NavComponent } from './options/nav.component';
 import { OptionsComponent } from './options/options.component';
 import { OptionsBookmarksComponent } from './options/bookmarks/bookmarks.component';
 import { OptionsCovidComponent } from './options/covid/covid.component';
@@ -80,7 +79,6 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     TimezonePipe,
 
     TabComponent,
-    NavComponent,
     TabBookmarksComponent,
     TabQuickLinksComponent,
     TabTimeComponent,
@@ -105,7 +103,6 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     })
   ],
   exports: [
-    NavComponent
   ],
   providers: [
     SharedService,

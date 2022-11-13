@@ -1,7 +1,7 @@
 <div *ngIf="shared.optionsPage === 'Time'" class="panelPlate panelPage">
   <h2 class="panelTitle">
     <button
-      (click)="this.shared.optionsPage = 'Dashboard'"
+      (click)="goTo.emit('Dashboard')"
       class="panelBack matIcon"
       aria-label="Back to dashboard"
       title="Back to dashboard"
@@ -70,13 +70,13 @@
   <p class="panelParagraph">
     <b>{{'options.time.note' | translate}}</b> {{'options.time.noteText' | translate}} "{{tz.timezoneFormat(this.tzGuess)}}".
   </p>
-  <button class="panelBtn panelBackToDashLink" (click)="shared.optionsPage = 'Dashboard'"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Dashboard</button>
+  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Dashboard</button>
 </div>
 
 <div *ngIf="shared.optionsPage === 'EditClock'" class="panelPlate panelPage">
   <h2 class="panelTitle">
     <button
-      (click)="this.shared.optionsPage = 'Time'; selected = null;"
+      (click)="goTo.emit('Time'); selected = null;"
       class="panelBack matIcon"
       aria-label="Back to all clocks"
       title="Back to all clocks"
@@ -873,5 +873,5 @@
     </div>
   </div>
 
-  <button class="panelBtn panelBackToDashLink" (click)="shared.optionsPage = 'Time'; selected = null;"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to all clocks</button>
+  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Time'); selected = null;"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to all clocks</button>
 </div>

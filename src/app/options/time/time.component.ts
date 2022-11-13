@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, Output, EventEmitter } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { Clock } from '../../_shared/models/clock';
 import { TimezoneService, Timezone } from './timezone.service';
@@ -11,6 +11,7 @@ import * as moment from 'moment-timezone';
   templateUrl: 'time.component.html'
 })
 export class OptionsTimeComponent {
+  @Output() goTo: EventEmitter<string> = new EventEmitter<string>();
   clock: Clock;
   showNew: Boolean = false;
   selected: number;

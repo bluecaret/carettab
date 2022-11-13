@@ -1,4 +1,4 @@
-import { Component, HostBinding, NgZone } from '@angular/core';
+import { Component, HostBinding, NgZone, Output, EventEmitter } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '../../_storage/storage.service';
 import { title, languages } from '../../_shared/lists/lists';
@@ -11,6 +11,7 @@ import { createViewChild } from '@angular/compiler/src/core';
 })
 export class OptionsExtraComponent {
   @HostBinding('class') hostClass: string = 'panelPlate panelPage';
+  @Output() goTo: EventEmitter<string> = new EventEmitter<string>();
   titleOptions = title;
   languages = languages;
   importStatus: string;

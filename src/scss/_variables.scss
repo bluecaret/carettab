@@ -11,6 +11,38 @@
   --size800: 4rem;
   --size900: 4.8rem;
 
+  // panel
+  --panelErrorColor: rgb(242, 55, 17);
+  --panelSuccessColor: rgb(95, 210, 130);
+  --panelBackdrop: hsl(0 0% 5% / .5);
+  --panelBg: hsl(225 5% 83%);
+  --panelColor: hsl(225 10% 20%);
+  --panelColorSubtle: hsl(225 10% 40%);
+  --panelShadow: hsl(0 0% 0% / .5);
+  --panelGroupBg: hsl(225 6% 87%);
+  --panelGroupShadow: hsl(0 0% 0% / .5);
+  --panelGroupItemBorder: hsl(225 5% 83%);
+  --panelScrollTrack: var(--panelBg);
+  --panelScrollThumb: hsl(225 6% 66%);
+  --toggleBtnBg: hsl(210 20% 70%);
+  --toggleBtnIndicator: hsl(225 20% 80%);
+  --toggleBtnColor: hsl(225 10% 20%);
+  --toggleBtnPressedBg: hsl(210 80% 30%);
+  --toggleBtnPressedIndicator: hsl(225 90% 80%);
+  --toggleBtnPressedColor: hsl(225 10% 10%);
+  --inputBg: hsl(225 18% 94%);
+  --inputBorder: hsl(225 18% 80%);
+  --inputColor: hsl(225 10% 20%);
+  --btnBorder: hsl(210 80% 30%);
+  --btnColor: hsl(210 80% 20%);
+  --btnBgActive: hsl(225 90% 80%);
+  --btnBorderDisabled: hsl(210 10% 70%);
+  --btnColorDisabled: hsl(210 10% 50%);
+  --selectArrow: hsl(210 30% 50%);
+  --selectArrowFade: hsl(210 30% 50% / .3);
+  --rangeTrack: var(--toggleBtnPressedBg);
+  --rangeThumb: var(--toggleBtnPressedIndicator);
+
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
 

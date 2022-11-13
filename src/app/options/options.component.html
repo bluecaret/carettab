@@ -1,30 +1,39 @@
 <header class="panelPlate panelHeader">
-  <svg class="panelLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-    <rect x="24" y="80" width="16" height="16" />
-    <rect x="40" y="64" width="16" height="16" />
-    <rect x="72" y="64" width="16" height="16" />
-    <rect x="56" y="48" width="16" height="16" />
-    <rect x="88" y="80" width="16" height="16" />
-    <path d="M123 20V0H88v20h-9V0H44v20h-9V10 0H25 10 0v10 10 10 20 78h128V20H123zM118 118H10V10h15v20h19 35 9 30V118z" />
-  </svg>
-  <h1 class="panelPageName">CaretTab</h1>
+  <h1 class="panelPageName">
+    <svg class="panelLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+      <rect x="24" y="80" width="16" height="16" />
+      <rect x="40" y="64" width="16" height="16" />
+      <rect x="72" y="64" width="16" height="16" />
+      <rect x="56" y="48" width="16" height="16" />
+      <rect x="88" y="80" width="16" height="16" />
+      <path d="M123 20V0H88v20h-9V0H44v20h-9V10 0H25 10 0v10 10 10 20 78h128V20H123zM118 118H10V10h15v20h19 35 9 30V118z" />
+    </svg>
+    CaretTab
+  </h1>
+  <small>{{'options.common.version' | translate}} {{ver}}</small>
   <div class="panelHeaderLinks">
     <button
       (mouseenter)="togglePreview(true)"
       (mouseleave)="togglePreview(false)"
       (click)="togglePreview(true)"
       (blur)="togglePreview(false)"
-      class="panelSave matIcon"
+      class="panelSave"
       [attr.aria-label]="'options.common.preview' | translate"
       [attr.title]="'options.common.preview' | translate"
-    >preview</button>
+    >
+      <i class="matIcon">preview</i>
+      Preview
+    </button>
     <button
       #closeButton
       (click)="closeOptions()"
-      class="panelSave matIcon"
+      class="panelSave"
       aria-label="Save and close (refresh page to cancel)"
       title="Save and close (refresh page to cancel)"
-    >save</button>
+    >
+      <i class="matIcon">save</i>
+      Save
+    </button>
   </div>
 </header>
 <options-dashboard *ngIf="shared.optionsPage === 'Dashboard'" (goTo)="goTo($event)"></options-dashboard>
@@ -39,9 +48,6 @@
 <options-extra *ngIf="shared.optionsPage === 'Extra'" (goTo)="goTo($event)"></options-extra>
 <footer class="panelPlate panelFooter">
   <p>
-    {{'options.dashboard.supportBox' | translate | translateCut:0 }}<a href="https://github.com/bluecaret/carettab" class="supportBtn">{{'options.dashboard.supportBox' | translate | translateCut:1 }}</a>{{'options.dashboard.supportBox' | translate | translateCut:2 }}<a href="mailto:bluecaret@outlook.com" class="supportBtn">{{'options.dashboard.supportBox' | translate | translateCut:3 }}</a>
-  </p>
-  <p>
     <a href="{{getReviewLink(false)}}" class="supportBtn">{{'options.dashboard.review' | translate}}</a> |
     <a href="https://github.com/bluecaret/carettab" class="supportBtn">{{'options.dashboard.contribute' | translate}}</a> |
     {{'options.dashboard.share' | translate}}:
@@ -49,8 +55,7 @@
     <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.carettab.com/" class="supportBtn">Facebook</a>,
     <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.carettab.com/" class="supportBtn">LinkedIn</a>,
     <a href="mailto:?body=https://www.carettab.com/" class="supportBtn">Email</a>
-  </p>
-  <p>
+    <br />
     <a href="https://github.com/bluecaret/carettab">{{'options.common.supportLink' | translate}}</a> |
     <a href="https://www.bluecaret.com/about">{{'options.common.aboutLink' | translate}}</a> |
     <a href="https://www.bluecaret.com/contact">{{'options.common.contactLink' | translate}}</a> |
@@ -58,8 +63,9 @@
     <a href="https://www.bluecaret.com/terms">Terms of Use</a>
   </p>
   <p>
+    {{'options.dashboard.supportBox' | translate | translateCut:0 }}<a href="https://github.com/bluecaret/carettab" class="supportBtn">{{'options.dashboard.supportBox' | translate | translateCut:1 }}</a>{{'options.dashboard.supportBox' | translate | translateCut:2 }}<a href="mailto:bluecaret@outlook.com" class="supportBtn">{{'options.dashboard.supportBox' | translate | translateCut:3 }}</a>
+  </p>
+  <p>
     <a href="https://www.carettab.com/">{{'options.dashboard.credit' | translate | translateCut:0 }}</a>{{'options.dashboard.credit' | translate | translateCut:1 }}<a href="https://www.bluecaret.com">{{'options.dashboard.credit' | translate | translateCut:2 }}</a>{{'options.dashboard.credit' | translate | translateCut:3 }}<a href="https://opensource.org/licenses/MIT">{{'options.dashboard.credit' | translate | translateCut:4 }}</a>{{'options.dashboard.credit' | translate | translateCut:5 }}
-    <br />
-    <small>{{'options.common.version' | translate}} {{ver}}</small>
   </p>
 </footer>

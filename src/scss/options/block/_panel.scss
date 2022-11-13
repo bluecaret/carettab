@@ -18,17 +18,19 @@
   &.panelPreview {
     opacity: 0;
   }
-  a {
-    color: currentColor;
+  a:not(.panelBtn) {
+    color: var(--panelColor);
     &:focus-visible {
-      outline: 1px solid currentColor;
+      outline: 1px solid var(--panelColor);
       outline-offset: 2px;
     }
   }
 }
 
 .panelParagraph {
+  color: var(--panelColor);
   font-size: 1.4rem;
+  font-weight: 400;
   line-height: 1.3;
 }
 
@@ -50,8 +52,8 @@
   top: 0;
   z-index: +1;
   display: grid;
-  grid-template: 6rem / var(--size600) 1fr calc(var(--size600) * 2 + 1rem);
-  gap: var(--size400);
+  grid-template: 6rem / 1fr auto auto;
+  gap: var(--size500);
   align-items: center;
   border-radius: 0 0 var(--size400) var(--size400);
 
@@ -59,11 +61,14 @@
     width: var(--size600);
     height: auto;
     * {
-      fill: currentColor;
+      fill: var(--panelColor);
     }
   }
 
   .panelPageName {
+    display: flex;
+    align-items: center;
+    gap: var(--size400);
     font-size: 2.6rem;
     font-weight: 300;
     letter-spacing: 0.05em;
@@ -77,11 +82,15 @@
   border: 0;
   padding: 0;
   cursor: pointer;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: var(--size300);
 }
 
 .panelHeaderLinks {
   display: flex;
-  gap: 1rem;
+  gap: var(--size500);
 }
 
 .panelFooter {
@@ -92,6 +101,7 @@
   padding: var(--size500);
   border-radius: var(--size400) var(--size400) 0 0;
   font-size: 1.4rem;
+  font-weight: 400;
   p {
     margin: 0;
   }
@@ -342,7 +352,7 @@ $btnRadius: var(--size300);
   .panelBtn:nth-child(5) {
     .matIcon {
       font-size: 2.4rem;
-      font-variation-settings: 'FILL' 0, 'wght' 100, 'GRAD' 0, 'opsz' 24;
+      font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
     }
   }
   .panelBtn:nth-child(7) {
@@ -353,11 +363,11 @@ $btnRadius: var(--size300);
   }
 }
 
-.panelOpenBtn {
+.panelOpenInNewBtn {
   justify-content: center;
   width: 4.2rem;
   &::after {
-    font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     font-family: "Material Symbols Outlined";
     font-weight: normal;
     font-style: normal;
@@ -372,12 +382,6 @@ $btnRadius: var(--size300);
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     font-feature-settings: "liga";
-    content: '\e5e1';
-  }
-}
-
-.panelOpenInNewBtn {
-  &::after {
     content: '\e89e';
   }
 }

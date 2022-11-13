@@ -101,10 +101,8 @@
       </div>
     </form>
   </ng-container>
-  <p>
-    <small>
-      {{'options.covidData.disclaimer' | translate | translateCut:0}}<a href="https://disease.sh/">{{'options.covidData.disclaimer' | translate | translateCut:1}}</a>{{'options.covidData.disclaimer' | translate | translateCut:2}}<a href="https://github.com/disease-sh/api/blob/master/README.md#sources">{{'options.covidData.disclaimer' | translate | translateCut:3}}</a>{{'options.covidData.disclaimer' | translate | translateCut:4}}
-    </small>
+  <p class="panelParagraph">
+    {{'options.covidData.disclaimer' | translate | translateCut:0}}<a href="https://disease.sh/">{{'options.covidData.disclaimer' | translate | translateCut:1}}</a>{{'options.covidData.disclaimer' | translate | translateCut:2}}<a href="https://github.com/disease-sh/api/blob/master/README.md#sources">{{'options.covidData.disclaimer' | translate | translateCut:3}}</a>{{'options.covidData.disclaimer' | translate | translateCut:4}}
   </p>
 
   <button class="panelBtn panelBackToDashLink" (click)="shared.optionsPage = 'Dashboard'"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Dashboard</button>

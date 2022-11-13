@@ -67,10 +67,8 @@
     </div>
 
   </form>
-  <p>
-    <small>
-      <b>{{'options.time.note' | translate}}</b> {{'options.time.noteText' | translate}} "{{tz.timezoneFormat(this.tzGuess)}}".
-    </small>
+  <p class="panelParagraph">
+    <b>{{'options.time.note' | translate}}</b> {{'options.time.noteText' | translate}} "{{tz.timezoneFormat(this.tzGuess)}}".
   </p>
   <button class="panelBtn panelBackToDashLink" (click)="shared.optionsPage = 'Dashboard'"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Dashboard</button>
 </div>

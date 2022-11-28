@@ -29,8 +29,8 @@ export class OptionsWeatherComponent implements OnInit {
     this.hasSearched = false;
   }
 
-  getLocation() {
-    this.weatherService.searchLocation(this.weatherService.locName).subscribe((data)=>{
+  async getLocation() {
+    this.weatherService.searchLocation(this.weatherService.locName).then(data => {
       this.shared.echo('Weather Search API response:', null, data);
       this.hasSearched = true;
       this.locationList = data;

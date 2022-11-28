@@ -33,9 +33,9 @@ export class TabWeatherComponent implements OnInit {
     });
   }
 
-  setWeather() {
+  async setWeather() {
     this.shared.echo('Refresh weather data');
-    this.weatherService.getWeather(this.settings.config.weather.location.url, 5).subscribe((data)=>{
+    this.weatherService.getWeather(this.settings.config.weather.location.url, 5).then(data => {
       this.shared.echo('Weather API response:', null, data);
       this.cachedWeather = {}
       let today = new Date();
@@ -63,7 +63,7 @@ export class TabWeatherComponent implements OnInit {
     return this.getPreciseDigit(digit);
   }
 
-  getWindUnitType() {    
+  getWindUnitType() {
     if (this.settings.config.weather.metric === true) {
       if (this.settings.config.weather.windUnits) {
         return ' m/s';

@@ -47,9 +47,7 @@ export class AppComponent implements OnInit {
     public settings: Storage,
     private zone: NgZone,
     private translate: TranslateService
-  ) {
-    this.shared.echo('Thank you for using CaretTab!');
-  }
+  ) { }
 
 
   ngOnInit() {
@@ -59,11 +57,11 @@ export class AppComponent implements OnInit {
     });
 
     this.handleVersionNumbers();
-    this.shared.echo('Settings from load:', '', this.settings.config);
+    this.shared.echo('Loaded settings', '', this.settings.config);
     this.translate.setDefaultLang('en-US');
 
     this.shared.zoneGuess = moment.tz.guess();
-    this.shared.echo('Timezone guess:', this.shared.zoneGuess);
+    // this.shared.echo('Timezone guess:', this.shared.zoneGuess);
 
     this.findBrowser();
 
@@ -227,7 +225,7 @@ export class AppComponent implements OnInit {
       let newVer: string = data.caretTabNewVersion ? data.caretTabNewVersion : '';
       _self.shared.status = data.caretTabStatus;
 
-      _self.shared.echo('Extension status:', _self.shared.status);
+      // _self.shared.echo('Extension status:', _self.shared.status);
 
       // Display major update splash screen for version 3.0.0
       if (prevVer) {
@@ -250,7 +248,7 @@ export class AppComponent implements OnInit {
         _self.migrateTo11();
       }
 
-      _self.shared.echo(`Version check:`, `Prev: ${prevVer} | New: ${newVer} | Type: ${_self.shared.updateType}`);
+      // _self.shared.echo(`Version check:`, `Prev: ${prevVer} | New: ${newVer} | Type: ${_self.shared.updateType}`);
     });
   }
 }

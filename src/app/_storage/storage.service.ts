@@ -56,17 +56,6 @@ export class Storage {
 
   // to be used inside a resolver
   load() {
-    // Old load code before splitting to different keys
-    // return this.getChrome(this.storeKey, this.config).then((data: any) => {
-    //   this.config = data;
-    //   return data;
-    // });
-
-    console.log(
-      '%cLoading data from storage.sync on page load.',
-      'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;'
-    );
-
     this.getChrome('ct-bookmark', this.config.bookmark).then((data: any) => {
       this.config.bookmark = data;
       this.loadTracker++;
@@ -123,7 +112,7 @@ export class Storage {
     });
 
     this.getChrome('ct-covid', this.config.covidData).then((data: any) => {
-      this.config.covidData = data; 
+      this.config.covidData = data;
       this.loadTracker++;
     });
 
@@ -147,11 +136,11 @@ export class Storage {
               );
               reject(chrome.runtime.lastError);
             }
-            console.log(
-              '%cSaving to storage.sync',
-              'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
-              saveObj
-            );
+            // console.log(
+            //   '%cSaving to storage.sync',
+            //   'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
+            //   saveObj
+            // );
             resolve(true);
           })
         );
@@ -254,11 +243,11 @@ export class Storage {
               );
               reject(chrome.runtime.lastError);
             }
-            console.log(
-              '%cLoad from storage.sync',
-              'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
-              data
-            );
+            // console.log(
+            //   '%cLoad from storage.sync',
+            //   'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
+            //   data
+            // );
             resolve(data[key]);
           })
         );

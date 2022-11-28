@@ -40,10 +40,6 @@ export class TabComponent implements OnInit, AfterViewInit {
     this.translate.get('title.newTab').subscribe((value) => {
       this.NEW_TAB_TEXT = value;
     });
-    this.shared.echo(
-      `Loaded with language set to:`,
-      this.translate.currentLang
-    );
 
     this.setTitle();
     this.setTitleOnInterval();
@@ -66,7 +62,7 @@ export class TabComponent implements OnInit, AfterViewInit {
       let savedImg = localStorage.getItem('bgImg');
       if (savedImg != null || savedImg != undefined) {
         this.shared.bg = savedImg;
-        this.shared.echo('Background image found in storage', savedImg.substr(0,20))
+        // this.shared.echo('Background image found in storage', savedImg.substr(0,20))
       } else {
         let patternId = this.settings.config.design.patternId;
         let img = '0.png';
@@ -74,9 +70,9 @@ export class TabComponent implements OnInit, AfterViewInit {
         // Check for "900" is for backwards compatibility with an old bug
         if (patternId !== null && patternId !== undefined && patternId !== 0 && patternId !== 99999 && patternId !== 900) {
           img = patterns.find(p => p.id === patternId).pattern;
-          this.shared.echo('No background, use selected pattern:', patternId)
+          // this.shared.echo('No background, use selected pattern:', patternId)
         } else {
-          this.shared.echo('No background or pattern set', patternId)
+          // this.shared.echo('No background or pattern set', patternId)
         }
         let bg = './assets/patterns/' + img;
         this.shared.bg = bg;

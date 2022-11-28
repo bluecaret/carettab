@@ -14,10 +14,16 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
+  "content_scripts": [
+    {
+      "matches": ["https://extensionpay.com/*"],
+      "js": ["js/ExtPay.js"],
+      "run_at": "document_start"
+    }
+  ],
   "background": {
-    "service_worker": "js/update.js"
+    "service_worker": "js/background.js"
   },
-  "offline_enabled": true,
   "permissions": [
     "storage"
   ],

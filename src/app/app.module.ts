@@ -17,6 +17,7 @@ import { ToggleComponent } from './_shared/controls/toggle.component';
 import { RangeComponent } from './_shared/controls/range.component';
 import { SettingsToggleComponent } from './_shared/controls/settings-toggle.component';
 import { LogoComponent } from './_shared/controls/logo.component';
+import { PremiumLabelComponent } from './_shared/controls/premium-label.component';
 import { TooltipComponent } from './_shared/controls/tooltip.component';
 import { MostVisitedMenuComponent } from './tab/bookmarks/most-visited-menu.component';
 import { WeatherService } from './tab/weather/weather.service';
@@ -59,6 +60,7 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     PositionComponent,
     SettingsToggleComponent,
     LogoComponent,
+    PremiumLabelComponent,
     TooltipComponent,
     MostVisitedMenuComponent,
     TranslateCut,

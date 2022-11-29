@@ -6,15 +6,19 @@
     title="Back to dashboard"
   >arrow_back</button>
   {{'options.design.design' | translate}}
+  <premium-label></premium-label>
 </h2>
 <form #designOptions="ngForm" novalidate>
   <div class="panelGroup">
-    <div class="panelField">
+    <div class="panelField panelFieldDisabled">
       <div class="panelFieldContent">
-        <label for="font" class="panelLabel">{{'options.design.font' | translate}}</label>
+        <label for="font" class="panelLabel">{{'options.design.font' | translate}}
+          <premium-label></premium-label>
+        </label>
       </div>
       <div class="panelFieldInput">
         <select class="panelSelect" name="font" id="font"
+          disabled
           [(ngModel)]="settings.config.design.font"
           (ngModelChange)="getFont();"
           [style.fontFamily]="currentFont"
@@ -55,13 +59,13 @@
         </select>
       </div>
     </div>
-    <div class="panelField panelFieldInline">
+    <div class="panelField panelFieldDisabled panelFieldInline">
       <div class="panelFieldContent">
         <label id="globalSizeLabel" class="panelLabel">{{'options.design.globalSize' | translate}}</label>
         <p class="panelDescription">{{'options.design.globalSizeDesc' | translate}}</p>
       </div>
       <div class="panelFieldInput">
-        <options-range class="panelInputLg" labelledby="globalSizeLabel" name="globalSize" min="1" max="50" [(ngModel)]="settings.config.design.scaling"></options-range>
+        <options-range [disabled]="true" class="panelInputLg" labelledby="globalSizeLabel" name="globalSize" min="1" max="50" [(ngModel)]="settings.config.design.scaling"></options-range>
       </div>
     </div>
     <div class="panelField panelFieldInline">

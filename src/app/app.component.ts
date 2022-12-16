@@ -9,6 +9,7 @@ import { compare } from 'compare-versions';
 import * as Bowser from 'bowser';
 import { Clock } from './_shared/models/clock';
 import { Settings } from './_storage/settings';
+import { ExtPay } from "../js/ExtPay";
 
 @Component({
   selector: 'app-root',
@@ -51,8 +52,14 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    // let localBg = localStorage.getItem('ct-background');
-    chrome.storage.local.get(['ctBackground'], function (data) {
+    let that = this;
+    chrome.storage.local.get(['ctBackground', 'ctUser'], function (data) {
+      console.log('data', data);
+      if (data.ctUser) {
+        that.shared.paid = data.ctUser.paid;
+      } else {
+        that.shared.paid = false;
+      }
       document.body.style.backgroundColor = data.ctBackground;
     });
 
@@ -67,6 +74,20 @@ export class AppComponent implements OnInit {
 
     // Set background initially to blank pattern to avoid 404 error due to setTimeout
     this.shared.bg = './assets/patterns/0.png';
+
+    (async () => {
+      const response: any = chrome.runtime.sendMessage({command: 'get-user'});
+      response.then(
+        message => {
+          console.log('Retrieved user from ExtPay', message);
+          chrome.storage.local.set({ctUser: message});
+        },
+        err => {
+          chrome.storage.local.set({ctUser: {paid: false, paidAt: null, trialStartedAt: null}});
+          console.log('Failed getting user data from ExtPay', err);
+        }
+      );
+    })();
   }
 
   migrateSettings() {
@@ -225,6 +246,7 @@ export class AppComponent implements OnInit {
       let newVer: string = data.caretTabNewVersion ? data.caretTabNewVersion : '';
       _self.shared.status = data.caretTabStatus;
 
+      _self.shared.echo('handleVersionNumbers', [localStorage.getItem('carettabSettingsMigation'), _self.shared.status, prevVer, newVer]);
       // _self.shared.echo('Extension status:', _self.shared.status);
 
       // Display major update splash screen for version 3.0.0
@@ -238,13 +260,15 @@ export class AppComponent implements OnInit {
         }
       }
 
+      _self.shared.echo('updateType', _self.shared.updateType);
+
       let hasMigrationHappened = localStorage.getItem('carettabSettingsMigation');
 
       if (!hasMigrationHappened && prevVer && compare(prevVer, '3.4.0', '<') && _self.shared.status === 'updated') {
-        _self.shared.echo('Migrate pre-schema settings');
+        _self.shared.echo('Migrate pre-schema settings', hasMigrationHappened, _self.shared.status);
         _self.migrateSettings();
       } else if ((!hasMigrationHappened || hasMigrationHappened !== '1.1') && _self.shared.status === 'updated') {
-        _self.shared.echo('Migrate settings from schema 1.0 to 1.1');
+        _self.shared.echo('Migrate settings from schema 1.0 to 1.1', hasMigrationHappened, _self.shared.status);
         _self.migrateTo11();
       }
 

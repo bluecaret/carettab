@@ -56,6 +56,10 @@
   --getPremiumAdBg: hsla(215, 20%, 78%, 1);
   --getPremiumAdBg2: hsla(215, 40%, 78%, 1);
   --getPremiumAdColor: hsla(205, 100%, 10%, 1);
+  --getPremiumModalBg: hsla(205, 100%, 18%, 1);
+  --getPremiumModalBg2: hsla(205, 100%, 30%, 1);
+  --getPremiumModalColor: hsla(205, 100%, 90%, 1);
+  --getPremiumModalShadow: hsla(0, 0%, 0%, .7);
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
@@ -142,6 +146,7 @@ $z-indexes: (
   'optionsPage',
   'optionsNav',
   'form',
+  'modal',
   'splash',
   'tooltip'
 );

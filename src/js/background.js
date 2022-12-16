@@ -1,37 +1,42 @@
-// import { ExtPay } from "./lib/ExtPay";
+import { ExtPay } from "/js/ExtPay.js";
 
-// var extpay = ExtPay("carettab");
-// extpay.startBackground();
+console.log('Service worker is running');
 
-// extpay.onPaid.addListener(user => {
-//   console.log('User just paid or logged in with ExtPay.', user);
-//   chrome.storage.sync.set({extpay: user}, () => {
-//     chrome.runtime.sendMessage({ command: 'update-paid-status', user: user }).then(
-//       () => {},
-//       (err) => {console.log('update-paid-status failed', err);}
-//     );
-//   });
-// });
+var extpay = ExtPay("carettab");
+extpay.startBackground();
 
-// async function getExtPayUser() {
-//   extpay.getUser().then((user) => {
-//     // console.log('Found user data for extpay', user);
-//     chrome.storage.sync.set({extpay: user});
-//   }).catch((err) => {
-//     console.log("%cError fetching extpay data", "color:red;", err);
-//     chrome.storage.sync.set({extpay: {paid: false, paidAt: null, trialStartedAt: null}});
-//   });
-// }
+extpay.onPaid.addListener(user => {
+  console.log('User just paid or logged in with ExtPay.', user);
+  chrome.storage.local.set({ctUser: user}, () => {
+    chrome.runtime.sendMessage({ command: 'update-paid-status', user: user }).then(
+      () => {},
+      (err) => {console.log('update-paid-status failed', err);}
+    );
+  });
+});
 
-chrome.runtime.onMessage.addListener((request) => {
-  console.log('SW got message', request);
-  if (request.command === 'get-weather') {
-    console.log('got request to check weather');
-    let currentWeather = getWeather(request.loc, request.days, request.lang);
-    console.log('return weather', currentWeather);
-    return Promise.resolve({response: currentWeather});
+// chrome.runtime.onInstalled.addListener(getExtPayUser);
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  // console.log('SW got message', request, sender);
+
+  if (request.command === 'get-user') {
+    (async () => {
+      let user = await extpay.getUser();
+      // console.log('getExtPayUser send response', user);
+      sendResponse(user);
+    })();
+    return true; // keep the messaging channel open for sendResponse
   }
-  return false;
+
+  if (request.command === 'get-weather') {
+    (async () => {
+      let currentWeather = await getWeather(request.loc, request.days, request.lang);
+      // console.log('return weather', currentWeather);
+      sendResponse({response: currentWeather});
+    })();
+    return true; // keep the messaging channel open for sendResponse
+  }
 });
 
 // Check whether new version is installed

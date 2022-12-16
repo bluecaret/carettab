@@ -19,9 +19,11 @@ import { SettingsToggleComponent } from './_shared/controls/settings-toggle.comp
 import { LogoComponent } from './_shared/controls/logo.component';
 import { PremiumLabelComponent } from './_shared/controls/premium-label.component';
 import { TooltipComponent } from './_shared/controls/tooltip.component';
+import { PremiumModalComponent } from './_shared/modals/premium-modal.component';
 import { MostVisitedMenuComponent } from './tab/bookmarks/most-visited-menu.component';
 import { WeatherService } from './tab/weather/weather.service';
 import * as moment from 'moment-timezone';
+import { SimpleModalModule, defaultSimpleModalOptions } from 'ngx-simple-modal';
 
 // Intro Imports
 import { SplashComponent } from './splash/splash.component';
@@ -62,6 +64,7 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     LogoComponent,
     PremiumLabelComponent,
     TooltipComponent,
+    PremiumModalComponent,
     MostVisitedMenuComponent,
     TranslateCut,
 
@@ -96,6 +99,17 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     FormsModule,
     HttpClientModule,
     Ng2ChromeStorageModule,
+    SimpleModalModule.forRoot({container: document.body}, {
+      animationDuration: 0,
+      autoFocus: true,
+      bodyClass: 'modal-open',
+      closeOnClickOutside: true,
+      closeOnEscape: true,
+      wrapperClass: 'in',
+      wrapperDefaultClasses: 'modal',
+      draggable: false,
+      draggableClass: 'draggable',
+    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -114,7 +128,8 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    MostVisitedMenuComponent
+    MostVisitedMenuComponent,
+    PremiumModalComponent
   ]
 })
 export class AppModule { }

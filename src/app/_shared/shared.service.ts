@@ -4,6 +4,7 @@ import { Storage } from '../_storage/storage.service';
 
 @Injectable()
 export class SharedService {
+  private _paid = true;
   private _optionsToggle: boolean;
   private _optionsPreview: boolean;
   private _optionsPage: string;
@@ -22,6 +23,13 @@ export class SharedService {
   constructor(
     public settings: Storage
   ) {
+  }
+
+  get paid(): boolean {
+    return this._paid;
+  }
+  set paid(value: boolean) {
+    this._paid = value;
   }
 
   get optionsToggle(): boolean {

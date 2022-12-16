@@ -1,5 +1,7 @@
 import { Component, EventEmitter, HostBinding, OnInit, Output } from '@angular/core';
+import { SimpleModalService } from 'ngx-simple-modal';
 import { SharedService } from '../../_shared/shared.service';
+import { PremiumModalComponent } from '../../_shared/modals/premium-modal.component';
 
 @Component({
   selector: 'options-dashboard',
@@ -10,7 +12,7 @@ export class OptionsDashboardComponent implements OnInit {
   @HostBinding('class') hostClass: string = 'panelPlate panelPage';
   @Output() goTo: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(public shared: SharedService) {
+  constructor(public shared: SharedService, private SimpleModalService: SimpleModalService) {
   }
 
   ngOnInit(): void {
@@ -27,6 +29,10 @@ export class OptionsDashboardComponent implements OnInit {
   goToPage(page: string) {
     this.shared.echo('Opened settings page:', page);
     this.goTo.emit(page);
+  }
+
+  openGetPremiumModal() {
+    this.SimpleModalService.addModal(PremiumModalComponent, {});
   }
 
 }

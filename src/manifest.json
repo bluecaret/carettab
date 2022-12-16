@@ -17,12 +17,13 @@
   "content_scripts": [
     {
       "matches": ["https://extensionpay.com/*"],
-      "js": ["js/ExtPay.js"],
+      "js": ["js/import-ExtPay.js"],
       "run_at": "document_start"
     }
   ],
   "background": {
-    "service_worker": "js/background.js"
+    "service_worker": "js/background.js",
+    "type": "module"
   },
   "permissions": [
     "storage"
@@ -33,6 +34,14 @@
     "topSites"
   ],
   "web_accessible_resources": [
+    {
+      "resources": [
+        "js/ExtPay.js"
+      ],
+      "matches": [
+        "https://extensionpay.com/*"
+      ]
+    },
     {
       "resources": [],
       "extension_ids": [ "cojpndognjdcakkimaloeealehpkljna" ]

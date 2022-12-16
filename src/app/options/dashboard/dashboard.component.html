@@ -51,11 +51,10 @@
     </button>
   </div>
 </div>
-<button class="panelGetPremiumAd" type='button'>
+<button class="panelGetPremiumAd {{shared.paid ? 'panelGetPremiumAdManage' : ''}}" type='button' (click)="openGetPremiumModal()">
   <i class='matIcon'>diamond</i>
-  <div *ngIf="false; else getPremiumAd">
-    <h2>Enjoy your Premium Access!</h2>
-    <p>Manage your subscription.</p>
+  <div *ngIf="shared.paid; else getPremiumAd">
+    <h2>Manage subscription to Premium Access</h2>
   </div>
   <ng-template #getPremiumAd>
     <div>

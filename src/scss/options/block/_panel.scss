@@ -39,6 +39,16 @@
   background-color: var(--panelBg);
   box-shadow: 0 0 var(--size300) 0 var(--panelShadow);
   border-radius: var(--size400);
+  animation: panelFadeIn .35s ease-out;
+}
+
+@keyframes panelFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .panelPlateGroup {

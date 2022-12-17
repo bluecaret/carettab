@@ -6,6 +6,7 @@
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.8rem;
   font-weight: 300;
+  animation: modalFadeIn .35s ease-out;
 }
 
 .premiumModal {
@@ -26,6 +27,7 @@
   border-radius: var(--size400);
   padding: var(--size600);
   box-shadow: 0 0 2rem 0 var(--getPremiumModalShadow);
+  animation: modalFadeIn .35s ease-out;
   a {
     color: var(--settingsLink);
     &:focus-visible {
@@ -163,4 +165,13 @@ p.premiumModalJustSubscribedInstruction {
   font-size: 1.8rem;
   padding: 0 var(--size900);
   text-transform: uppercase;
+}
+
+@keyframes modalFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

@@ -16,7 +16,7 @@
         <button class="btn btnIcon span-3" type="button" (click)="getLocation();" attr.aria-label="{{'options.weather.search' | translate}}"><div class="icon" aria-hidden="true">search</div></button>
       </div>
     </div>
-    <div class="box mt15 mb15" *ngIf="locationList && locationList.length > 1">
+    <div class="box mt15 mb15" *ngIf="locationList && locationList.length > 0">
       <h4>{{'options.weather.selectLocation' | translate}}</h4>
       <div class="locationList mt1">
         <ng-container *ngFor="let loc of locationList">

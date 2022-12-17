@@ -438,6 +438,9 @@
       "m7": "Åtgärda sökning efter väderposition för att visa stad, region och land för att förhindra att felaktig plats väljs av misstag.",
       "m8": "Ändrade \"favicon\"-behörigheter till att vara valfria om ikoner är aktiverade för bokmärkesfältet eller snabblänkar."
     },
+    "v365": {
+      "m1": "Sök efter fast väderposition. Resultaten visades inte när endast en enda plats hittades."
+    },
     "yes": "Ja"
   },
   "tab": {

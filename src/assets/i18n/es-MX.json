@@ -438,6 +438,9 @@
       "m7": "Se corrigió la búsqueda de ubicación climática para mostrar la ciudad, la región y el país para evitar seleccionar accidentalmente la ubicación incorrecta.",
       "m8": "Se cambiaron los permisos de \"favicon\" para que sean opcionales si los iconos están habilitados para la barra de marcadores o los enlaces rápidos."
     },
+    "v365": {
+      "m1": "Búsqueda de ubicación meteorológica fija. Los resultados no se mostraban cuando solo se encontraba una ubicación."
+    },
     "yes": "Sí"
   },
   "tab": {

@@ -438,6 +438,9 @@
       "m7": "Fix weather location search to display the city, region and country to prevent accidentally selecting the incorrect location.",
       "m8": "Changed \"favicon\" permissions to be optional if icons are enabled for Bookmarks Bar or Quick Links."
     },
+    "v365": {
+      "m1": "Fixed weather location search. Results were not displaying when only a single location was found."
+    },
     "yes": "Yes"
   },
   "tab": {

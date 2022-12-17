@@ -438,6 +438,9 @@
       "m7": "Corrigir pesquisa de localização meteorológica para exibir a cidade, região e país para evitar selecionar acidentalmente a localização incorreta.",
       "m8": "Permissões de \"favicon\" alteradas para serem opcionais se os ícones estiverem habilitados para a Barra de Favoritos ou Links Rápidos."
     },
+    "v365": {
+      "m1": "Pesquisa de localização meteorológica fixa. Os resultados não eram exibidos quando apenas um único local era encontrado."
+    },
     "yes": "sim"
   },
   "tab": {

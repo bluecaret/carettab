@@ -438,6 +438,9 @@
       "m7": "Correggi la ricerca della posizione meteo per visualizzare la città, la regione e il paese per evitare di selezionare accidentalmente la posizione errata.",
       "m8": "Le autorizzazioni \"favicon\" sono state modificate in modo che siano opzionali se le icone sono abilitate per la barra dei segnalibri o per i collegamenti rapidi."
     },
+    "v365": {
+      "m1": "Risolta la ricerca della posizione meteorologica. I risultati non venivano visualizzati quando veniva trovata una sola posizione."
+    },
     "yes": "sì"
   },
   "tab": {

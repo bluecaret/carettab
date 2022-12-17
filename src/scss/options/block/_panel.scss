@@ -441,6 +441,16 @@ $btnRadius: var(--size300);
   }
 }
 
+.panelBtnThemeWallpaper {
+  min-height: 8rem;
+  background-color: hsl(0deg,0%, 50%);
+  filter: contrast(3);
+  font-size: 2rem;
+  &.active {
+    background-color: hsl(210deg, 20%, 50%);
+  }
+}
+
 .panelBtnWallpaper {
   justify-content: center;
   height: 8rem;

@@ -37,7 +37,7 @@
   </div>
 </header>
 <options-dashboard *ngIf="shared.optionsPage === 'Dashboard'" (goTo)="goTo($event)"></options-dashboard>
-<options-design *ngIf="shared.optionsPage === 'Design'" (goTo)="goTo($event)"></options-design>
+<options-design *ngIf="shared.optionsPage === 'Design' || shared.optionsPage === 'Theme' || shared.optionsPage === 'Wallpaper'" (goTo)="goTo($event)"></options-design>
 <options-time *ngIf="shared.optionsPage === 'Time' || shared.optionsPage === 'EditClock'" (goTo)="goTo($event)"></options-time>
 <options-date *ngIf="shared.optionsPage === 'Date'" (goTo)="goTo($event)"></options-date>
 <options-bookmarks *ngIf="shared.optionsPage === 'Bookmarks'" (goTo)="goTo($event)"></options-bookmarks>

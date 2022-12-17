@@ -1,234 +1,290 @@
-<h2 class="panelTitle">
-  <button
-    (click)="goTo.emit('Dashboard')"
-    class="panelBack matIcon"
-    aria-label="Back to dashboard"
-    title="Back to dashboard"
-  >arrow_back</button>
-  {{'options.design.design' | translate}}
-  <premium-label></premium-label>
-</h2>
-<form #designOptions="ngForm" novalidate>
-  <div class="panelGroup">
-    <div class="panelField panelFieldDisabled">
-      <div class="panelFieldContent">
-        <label for="font" class="panelLabel">{{'options.design.font' | translate}}
-          <premium-label></premium-label>
-        </label>
+<div *ngIf="shared.optionsPage === 'Design'" class="panelPlate panelPage">
+  <h2 class="panelTitle">
+    <button
+      (click)="goTo.emit('Dashboard')"
+      class="panelBack matIcon"
+      aria-label="Back to dashboard"
+      title="Back to dashboard"
+    >arrow_back</button>
+    {{'options.design.design' | translate}}
+    <premium-label></premium-label>
+  </h2>
+  <form #designOptions="ngForm" novalidate>
+    <div class="panelGroup">
+      <div class="panelField panelFieldDisabled">
+        <div class="panelFieldContent">
+          <label for="font" class="panelLabel">{{'options.design.font' | translate}}
+            <premium-label></premium-label>
+          </label>
+        </div>
+        <div class="panelFieldInput">
+          <select class="panelSelect" name="font" id="font"
+            disabled
+            [(ngModel)]="settings.config.design.font"
+            (ngModelChange)="getFont();"
+            [style.fontFamily]="currentFont"
+            [style.fontWeight]="currentWeight"
+            style="font-size: 1em; font-weight: 400;">
+            <option
+              [ngValue]="font.id"
+              *ngFor="let font of fonts;"
+              [style.fontFamily]="setFont(font.family)"
+              [style.fontWeight]="font.weight">
+              {{font.label}}
+            </option>
+          </select>
+        </div>
       </div>
-      <div class="panelFieldInput">
-        <select class="panelSelect" name="font" id="font"
-          disabled
-          [(ngModel)]="settings.config.design.font"
-          (ngModelChange)="getFont();"
-          [style.fontFamily]="currentFont"
-          [style.fontWeight]="currentWeight"
-          style="font-size: 1em; font-weight: 400;">
-          <option
-            [ngValue]="font.id"
-            *ngFor="let font of fonts;"
-            [style.fontFamily]="setFont(font.family)"
-            [style.fontWeight]="font.weight">
-            {{font.label}}
-          </option>
-        </select>
+      <div class="panelField" *ngIf="settings.config.design.font === 0">
+        <div class="panelFieldContent">
+          <label for="customFont" class="panelLabel">{{'options.design.customFontName' | translate}}</label>
+          <!-- <p class="panelDescription">{{'options.design.customFontDesc' | translate}}</p> -->
+          <p class="panelDescription">{{'options.design.customFontUsage' | translate | translateCut:0}}<a href="https://www.adobe.com/products/type/install-instructions.html">{{'options.design.customFontUsage' | translate | translateCut:1}}</a>{{'options.design.customFontUsage' | translate | translateCut:2}}<a href="https://fonts.google.com">{{'options.design.customFontUsage' | translate | translateCut:3}}</a>{{'options.design.customFontUsage' | translate | translateCut:4}}<a href="https://www.1001freefonts.com/">{{'options.design.customFontUsage' | translate | translateCut:5}}</a>{{'options.design.customFontUsage' | translate | translateCut:6}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <input class="panelInput" type="text" id="customFont" name="customFont" [(ngModel)]="settings.config.design.customFont" autocomplete="off">
+        </div>
       </div>
-    </div>
-    <div class="panelField" *ngIf="settings.config.design.font === 0">
-      <div class="panelFieldContent">
-        <label for="customFont" class="panelLabel">{{'options.design.customFontName' | translate}}</label>
-        <!-- <p class="panelDescription">{{'options.design.customFontDesc' | translate}}</p> -->
-        <p class="panelDescription">{{'options.design.customFontUsage' | translate | translateCut:0}}<a href="https://www.adobe.com/products/type/install-instructions.html">{{'options.design.customFontUsage' | translate | translateCut:1}}</a>{{'options.design.customFontUsage' | translate | translateCut:2}}<a href="https://fonts.google.com">{{'options.design.customFontUsage' | translate | translateCut:3}}</a>{{'options.design.customFontUsage' | translate | translateCut:4}}<a href="https://www.1001freefonts.com/">{{'options.design.customFontUsage' | translate | translateCut:5}}</a>{{'options.design.customFontUsage' | translate | translateCut:6}}</p>
-      </div>
-      <div class="panelFieldInput">
-        <input class="panelInput" type="text" id="customFont" name="customFont" [(ngModel)]="settings.config.design.customFont" autocomplete="off">
-      </div>
-    </div>
-    <div class="panelField panelFieldInline" *ngIf="settings.config.design.font === 0">
-      <div class="panelFieldContent">
-        <label for="customFontWeight" class="panelLabel">{{'options.design.fontWeight' | translate}}</label>
-        <p class="panelDescription">{{'options.design.fontWeightDesc' | translate}}</p>
-      </div>
-      <div class="panelFieldInput">
-        <select class="panelSelect panelInputLg" name="customFontWeight" id="customFontWeight"
-          [(ngModel)]="settings.config.design.customFontWeight"
-         >
-          <option [ngValue]="w.id" *ngFor="let w of fontWeights;">
-            {{w.label}}
-          </option>
-        </select>
-      </div>
-    </div>
-    <div class="panelField panelFieldDisabled panelFieldInline">
-      <div class="panelFieldContent">
-        <label id="globalSizeLabel" class="panelLabel">{{'options.design.globalSize' | translate}}</label>
-        <p class="panelDescription">{{'options.design.globalSizeDesc' | translate}}</p>
-      </div>
-      <div class="panelFieldInput">
-        <options-range [disabled]="true" class="panelInputLg" labelledby="globalSizeLabel" name="globalSize" min="1" max="50" [(ngModel)]="settings.config.design.scaling"></options-range>
-      </div>
-    </div>
-    <div class="panelField panelFieldInline">
-      <div class="panelFieldContent">
-        <label id="scalingMethodLabel" class="panelLabel">{{'options.design.dynScale' | translate}}</label>
-        <p class="panelDescription">{{'options.design.dynScaleDesc' | translate}}</p>
-      </div>
-      <div class="panelFieldInput">
-        <options-toggle labelledby="scalingMethodLabel" id="scalingMethod" name="scalingMethod" [(ngModel)]="settings.config.design.scalingMethod"></options-toggle>
-      </div>
-    </div>
-  </div>
-  <h3 class="panelSubtitle">{{'options.design.colors' | translate}}</h3>
-  <div class="panelGroup">
-    <div class="panelField panelFieldInline">
-      <div class="panelFieldContent">
-        <label id="setForeground" class="panelLabel">{{'options.design.fg' | translate}}</label>
-      </div>
-      <div class="panelFieldInput">
-        <input class="panelInput panelInputColor" type="color" aria-labelledby="setForeground" name="fg-color"
-          [(ngModel)]="settings.config.design.foreground"
-          (ngModelChange)="settings.config.design.colorsId = 0;"
-          [style.backgroundColor]="settings.config.design.foreground"
-        >
-        <input class="panelInput panelInputMd" type="text" aria-labelledby="setForeground" name="fg-code" [(ngModel)]="settings.config.design.foreground" (ngModelChange)="settings.config.design.colorsId = 0; " autocomplete="off">
-      </div>
-    </div>
-    <div class="panelField panelFieldInline">
-      <div class="panelFieldContent">
-        <label id="setBackgroundLabel" class="panelLabel">{{'options.design.bg' | translate}}</label>
-      </div>
-      <div class="panelFieldInput">
-        <input class="panelInput panelInputColor" type="color" aria-labelledby="setBackgroundLabel" name="bg-color"
-          [(ngModel)]="settings.config.design.background"
-          (ngModelChange)="settings.config.design.colorsId = 0; setLocalBg(settings.config.design.background);"
-          [style.backgroundColor]="settings.config.design.background"
-        >
-        <input class="panelInput panelInputMd" type="text" aria-labelledby="setBackgroundLabel" name="bg-code" [(ngModel)]="settings.config.design.background"
-          (ngModelChange)="settings.config.design.colorsId = 0; setLocalBg(settings.config.design.background);"
-          autocomplete="off">
-      </div>
-    </div>
-    <div class="panelField">
-      <div class="panelThemeGrid">
-        <button
-          *ngFor="let color of colors;"
-          class="panelBtn panelBtnTheme"
-          [ngClass]="{'active': settings.config.design.colorsId === color.id}"
-          [style.backgroundColor]="color.bg"
-          [style.color]="color.fg"
-          (click)="setColors(color);"
-          [attr.aria-label]="'Select theme ' + color.id"
-          [title]="'Select theme ' + color.id"
+      <div class="panelField panelFieldInline" *ngIf="settings.config.design.font === 0">
+        <div class="panelFieldContent">
+          <label for="customFontWeight" class="panelLabel">{{'options.design.fontWeight' | translate}}</label>
+          <p class="panelDescription">{{'options.design.fontWeightDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <select class="panelSelect panelInputLg" name="customFontWeight" id="customFontWeight"
+            [(ngModel)]="settings.config.design.customFontWeight"
           >
-          abc 123
-        </button>
+            <option [ngValue]="w.id" *ngFor="let w of fontWeights;">
+              {{w.label}}
+            </option>
+          </select>
+        </div>
       </div>
-    </div>
-  </div>
-  <h3 class="panelSubtitle">{{'options.design.wallpaper' | translate}}</h3>
-  <div class="panelGroup">
-    <div class="panelField panelFieldInline">
-      <div class="panelFieldContent">
-        <label id="bgImgFileLabel" class="panelLabel">{{'options.design.customWallpaper' | translate}}</label>
-        <p class="panelDescription">{{'options.design.dontSync' | translate}}</p>
+      <div class="panelField panelFieldDisabled panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="globalSizeLabel" class="panelLabel">{{'options.design.globalSize' | translate}}</label>
+          <p class="panelDescription">{{'options.design.globalSizeDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-range [disabled]="true" class="panelInputLg" labelledby="globalSizeLabel" name="globalSize" min="1" max="50" [(ngModel)]="settings.config.design.scaling"></options-range>
+        </div>
       </div>
-      <div class="panelFieldInput">
-        <input class="panelFile" id="bgImgFile" #bgImgFile name="imageUrl" type="file" accept="image/*" (change)="encodeImage($event, bgImgFile)" />
-        <button class="panelBtn" aria-labelledby="bgImgFileLabel" type="button" (click)="bgImgFile.click();">{{'options.design.browseForImg' | translate}}</button>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="scalingMethodLabel" class="panelLabel">{{'options.design.dynScale' | translate}}</label>
+          <p class="panelDescription">{{'options.design.dynScaleDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-toggle labelledby="scalingMethodLabel" id="scalingMethod" name="scalingMethod" [(ngModel)]="settings.config.design.scalingMethod"></options-toggle>
+        </div>
       </div>
-    </div>
-    <div class="panelField panelFieldInline" *ngIf="shared.bg && shared.bg !== './assets/patterns/0.png'">
-      <div class="panelFieldContent">
-        <label for="wallpaperPreview" class="panelLabel">{{'options.design.selectedWallpaper' | translate}}</label>
-      </div>
-      <div class="panelFieldInput">
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="selectColors" class="panelLabel">{{'options.design.colors' | translate}}</label>
+        </div>
         <button
-          id="wallpaperPreview"
-          (click)="setPattern(noPattern);"
-          class="panelBtn panelBtnWallpaper panelInputLg"
-          [style.backgroundSize]="getBgSize()"
-          [style.backgroundRepeat]="settings.config.design.imageSize === 10 ? 'repeat' : 'no-repeat'"
-          [style.backgroundColor]="settings.config.design.background"
-          [style.backgroundBlendMode]="getBgBlend()"
-          [style.backgroundImage]="'url('+ shared.bg +')'"
-          [attr.aria-label]="'options.design.removeWallpaper' | translate"
-          [title]="'options.design.removeWallpaper' | translate">
-          <div class="matIcon" aria-hidden="true">delete</div>
+          class="panelBtn"
+          (click)="goTo.emit('Theme')"
+          [attr.aria-label]="'Choose colors'"
+          [title]="'Choose colors'"
+          >
+          Choose color theme
         </button>
       </div>
-    </div>
-    <div class="panelField panelFieldInline">
-      <div class="panelFieldContent">
-        <label id="brightnessLabel" class="panelLabel">{{'options.design.brightness' | translate}}</label>
-      </div>
-      <div class="panelFieldInput">
-        <options-range class="panelInputLg" name="brightness" labelledby="brightnessLabel" min="0" max="20" [(ngModel)]="settings.config.design.brightness"></options-range>
-      </div>
-    </div>
-    <div class="panelField panelFieldInline">
-      <div class="panelFieldContent">
-        <label for="fill" class="panelLabel">{{'options.design.fill' | translate}}</label>
-      </div>
-      <div class="panelFieldInput">
-        <select class="panelSelect panelInputLg" name="fill" id="fill"
-          [(ngModel)]="settings.config.design.imageSize">
-          <option
-            [ngValue]="s.id"
-            *ngFor="let s of bgSize;">
-            {{s.label}}
-          </option>
-        </select>
-      </div>
-    </div>
-    <div class="panelField panelFieldInline">
-      <div class="panelFieldContent">
-        <label for="blend" class="panelLabel">{{'options.design.filter' | translate}}</label>
-      </div>
-      <div class="panelFieldInput">
-        <select class="panelSelect panelInputLg" name="blend" id="blend"
-          [(ngModel)]="settings.config.design.imageBlend">
-          <option
-            [ngValue]="b.id"
-            *ngFor="let b of bgBlend;">
-            {{b.label}}
-          </option>
-        </select>
-      </div>
-    </div>
-    <div class="panelField">
-      <div class="panelThemeGrid">
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="selectColors" class="panelLabel">{{'options.design.wallpaper' | translate}}</label>
+        </div>
         <button
-          class="panelBtn panelBtnTheme"
-          [ngClass]="{'active': settings.config.design.patternId === 0}"
-          [attr.aria-label]="'options.design.removeWallpaper' | translate"
-          [title]="'options.design.removeWallpaper' | translate"
-          (click)="setPattern(noPattern);">
-          <div class="matIcon" aria-hidden="true" style="font-size: 1em;">delete</div>
+          class="panelBtn"
+          (click)="goTo.emit('Wallpaper')"
+          [attr.aria-label]="'Choose colors'"
+          [title]="'Choose colors'"
+          >
+          Choose wallpaper
         </button>
-        <button
-          *ngFor="let p of patterns;"
-          class="panelBtn panelBtnTheme"
-          [ngClass]="{'active': settings.config.design.patternId === p.id}"
-          [style.background-image]="sanitizer.bypassSecurityTrustStyle('url(./assets/patterns/' + p.pattern + ')')"
-          [style.backgroundColor]="settings.config.design.background"
-          [style.backgroundBlendMode]="getBgBlend()"
-          [style.background-image]="sanitizer.bypassSecurityTrustStyle('url(./assets/patterns/' + p.pattern + ')')"
-          (click)="setPattern(p);"
-          [attr.aria-label]="'Select pattern ' + p.id"
-          [title]="'Select pattern ' + p.id"
-        >
-          &nbsp;
-        </button>
-      </div>
-      <div class="panelFieldContent">
-        <p class="panelDescription">
-          {{'options.design.getMorePatterns' | translate | translateCut:0}}<a href="https://www.transparenttextures.com/">{{'options.design.getMorePatterns' | translate | translateCut:1}}</a>{{'options.design.getMorePatterns' | translate | translateCut:2}}<a href="https://www.toptal.com/designers/subtlepatterns/">{{'options.design.getMorePatterns' | translate | translateCut:3}}</a>{{'options.design.getMorePatterns' | translate | translateCut:4}}
-        </p>
-        <p class="panelDescription">
-          {{'options.design.hardToSee' | translate}}
-        </p>
       </div>
     </div>
-  </div>
-</form>
-<button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Dashboard</button>
+  </form>
+  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Dashboard</button>
+</div>
+
+<div *ngIf="shared.optionsPage === 'Theme'" class="panelPlate panelPage">
+  <h2 class="panelTitle">
+    <button
+      (click)="goTo.emit('Design')"
+      class="panelBack matIcon"
+      aria-label="Back to Design"
+      title="Back to Design"
+    >arrow_back</button>
+    Color theme
+  </h2>
+  <form #themeOptions="ngForm" novalidate>
+    <div class="panelGroup">
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="setForeground" class="panelLabel">{{'options.design.fg' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <input class="panelInput panelInputColor" type="color" aria-labelledby="setForeground" name="fg-color"
+            [(ngModel)]="settings.config.design.foreground"
+            (ngModelChange)="settings.config.design.colorsId = 0;"
+            [style.backgroundColor]="settings.config.design.foreground"
+          >
+          <input class="panelInput panelInputMd" type="text" aria-labelledby="setForeground" name="fg-code" [(ngModel)]="settings.config.design.foreground" (ngModelChange)="settings.config.design.colorsId = 0; " autocomplete="off">
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="setBackgroundLabel" class="panelLabel">{{'options.design.bg' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <input class="panelInput panelInputColor" type="color" aria-labelledby="setBackgroundLabel" name="bg-color"
+            [(ngModel)]="settings.config.design.background"
+            (ngModelChange)="settings.config.design.colorsId = 0; setLocalBg(settings.config.design.background);"
+            [style.backgroundColor]="settings.config.design.background"
+          >
+          <input class="panelInput panelInputMd" type="text" aria-labelledby="setBackgroundLabel" name="bg-code" [(ngModel)]="settings.config.design.background"
+            (ngModelChange)="settings.config.design.colorsId = 0; setLocalBg(settings.config.design.background);"
+            autocomplete="off">
+        </div>
+      </div>
+      <div class="panelField">
+        <div class="panelThemeGrid">
+          <button
+            *ngFor="let color of colors;"
+            class="panelBtn panelBtnTheme"
+            [ngClass]="{'active': settings.config.design.colorsId === color.id}"
+            [style.backgroundColor]="color.bg"
+            [style.color]="color.fg"
+            (click)="setColors(color);"
+            [attr.aria-label]="'Select theme ' + color.id"
+            [title]="'Select theme ' + color.id"
+            >
+            abc 123
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Design')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Design</button>
+</div>
+
+<div *ngIf="shared.optionsPage === 'Wallpaper'" class="panelPlate panelPage">
+  <h2 class="panelTitle">
+    <button
+      (click)="goTo.emit('Design')"
+      class="panelBack matIcon"
+      aria-label="Back to Design"
+      title="Back to Design"
+    >arrow_back</button>
+    {{'options.design.wallpaper' | translate}}
+  </h2>
+  <form #themeOptions="ngForm" novalidate>
+    <div class="panelGroup">
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="bgImgFileLabel" class="panelLabel">{{'options.design.customWallpaper' | translate}}</label>
+          <p class="panelDescription">{{'options.design.dontSync' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <input class="panelFile" id="bgImgFile" #bgImgFile name="imageUrl" type="file" accept="image/*" (change)="encodeImage($event, bgImgFile)" />
+          <button class="panelBtn" aria-labelledby="bgImgFileLabel" type="button" (click)="bgImgFile.click();">{{'options.design.browseForImg' | translate}}</button>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline" *ngIf="shared.bg && shared.bg !== './assets/patterns/0.png'">
+        <div class="panelFieldContent">
+          <label for="wallpaperPreview" class="panelLabel">{{'options.design.selectedWallpaper' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <button
+            id="wallpaperPreview"
+            (click)="setPattern(noPattern);"
+            class="panelBtn panelBtnWallpaper panelInputLg"
+            [style.backgroundSize]="getBgSize()"
+            [style.backgroundRepeat]="settings.config.design.imageSize === 10 ? 'repeat' : 'no-repeat'"
+            [style.backgroundColor]="settings.config.design.background"
+            [style.backgroundBlendMode]="getBgBlend()"
+            [style.backgroundImage]="'url('+ shared.bg +')'"
+            [attr.aria-label]="'options.design.removeWallpaper' | translate"
+            [title]="'options.design.removeWallpaper' | translate">
+            <div class="matIcon" aria-hidden="true">delete</div>
+          </button>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="brightnessLabel" class="panelLabel">{{'options.design.brightness' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <options-range class="panelInputLg" name="brightness" labelledby="brightnessLabel" min="0" max="20" [(ngModel)]="settings.config.design.brightness"></options-range>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label for="fill" class="panelLabel">{{'options.design.fill' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <select class="panelSelect panelInputLg" name="fill" id="fill"
+            [(ngModel)]="settings.config.design.imageSize">
+            <option
+              [ngValue]="s.id"
+              *ngFor="let s of bgSize;">
+              {{s.label}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label for="blend" class="panelLabel">{{'options.design.filter' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <select class="panelSelect panelInputLg" name="blend" id="blend"
+            [(ngModel)]="settings.config.design.imageBlend">
+            <option
+              [ngValue]="b.id"
+              *ngFor="let b of bgBlend;">
+              {{b.label}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="panelField">
+        <div class="panelFieldContent">
+          <label class="panelLabel">Patterns</label>
+        </div>
+        <div class="panelThemeGrid">
+          <button
+            class="panelBtn panelBtnTheme panelBtnThemeWallpaper"
+            [ngClass]="{'active': settings.config.design.patternId === 0}"
+            [attr.aria-label]="'options.design.removeWallpaper' | translate"
+            [title]="'options.design.removeWallpaper' | translate"
+            (click)="setPattern(noPattern);">
+            <div class="matIcon" aria-hidden="true" style="font-size: 1em;">delete</div>
+          </button>
+          <button
+            *ngFor="let p of patterns;"
+            class="panelBtn panelBtnTheme panelBtnThemeWallpaper"
+            [ngClass]="{'active': settings.config.design.patternId === p.id}"
+            [style.background-image]="sanitizer.bypassSecurityTrustStyle('url(./assets/patterns/' + p.pattern + ')')"
+            (click)="setPattern(p);"
+            [attr.aria-label]="'Select pattern ' + p.id"
+            [title]="'Select pattern ' + p.id"
+          >
+            &nbsp;
+          </button>
+        </div>
+        <div class="panelFieldContent">
+          <p class="panelDescription">
+            {{'options.design.getMorePatterns' | translate | translateCut:0}}<a href="https://www.transparenttextures.com/">{{'options.design.getMorePatterns' | translate | translateCut:1}}</a>{{'options.design.getMorePatterns' | translate | translateCut:2}}<a href="https://www.toptal.com/designers/subtlepatterns/">{{'options.design.getMorePatterns' | translate | translateCut:3}}</a>{{'options.design.getMorePatterns' | translate | translateCut:4}}
+          </p>
+          <p class="panelDescription">
+            {{'options.design.hardToSee' | translate}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </form>
+  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Design')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Design</button>
+</div>

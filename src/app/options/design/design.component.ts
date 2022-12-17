@@ -25,7 +25,7 @@ export class OptionsDesignComponent implements OnInit {
     id: 0,
     pattern: '0.png'
   };
-  @HostBinding('class') hostClass: string = 'panelPlate panelPage';
+  @HostBinding('class') hostClass: string = 'panelPlateGroup';
 
   constructor(
     public sanitizer: DomSanitizer,

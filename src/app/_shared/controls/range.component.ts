@@ -12,7 +12,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
   template: `
     <div class="panelRangeWrap">
-      <output class="panelOutput" [value]="range" [attr.data-disabled]="disabled"></output>
+      <output class="panelOutput" [value]="range" [attr.data-disabled]="disabled ? true : undefined"></output>
       <input
         class="panelRange"
         type="range"

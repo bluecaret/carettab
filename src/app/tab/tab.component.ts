@@ -130,6 +130,9 @@ export class TabComponent implements OnInit, AfterViewInit {
   }
 
   getBgSize() {
+    if (this.settings.config.design.imageSize && (this.settings.config.design.imageSize === 40 || this.settings.config.design.imageSize === 50)) {
+      return `${this.settings.config.design.imageScale}%`;
+    }
     let s = this.bgSize.find(
       (x) => x.id === this.settings.config.design.imageSize
     ).size;
@@ -143,9 +146,13 @@ export class TabComponent implements OnInit, AfterViewInit {
     return m;
   }
 
-  getBrightness() {
-    let b = this.settings.config.design.brightness * 0.1;
-    let value = 'brightness(' + b + ')';
+  getFilters() {
+    let brightness = this.settings.config.design.brightness * 0.1;
+    let blur = `${this.settings.config.design.imageBlur ? this.settings.config.design.imageBlur : '0'}px`;
+
+    let blurValue = this.shared.paid ? `blur(${blur})` : '';
+    let value = `brightness(${brightness}) ${blurValue}`;
+
     return this.sanitizer.bypassSecurityTrustStyle(value);
   }
 

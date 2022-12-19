@@ -123,6 +123,8 @@ export const bgSize = [
   { id: 10, label: 'Repeat', size: 'auto' },
   { id: 20, label: 'Cover', size: 'cover' },
   { id: 30, label: 'Contain', size: 'contain' },
+  { id: 40, label: 'Scale', size: 'scale' },
+  { id: 50, label: 'Scale and repeat', size: 'scaleRepeat' },
 ];
 
 export const colors = [

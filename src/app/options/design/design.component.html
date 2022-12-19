@@ -7,19 +7,15 @@
       title="Back to dashboard"
     >arrow_back</button>
     {{'options.design.design' | translate}}
-    <premium-label></premium-label>
   </h2>
   <form #designOptions="ngForm" novalidate>
     <div class="panelGroup">
-      <div class="panelField panelFieldDisabled">
+      <div class="panelField">
         <div class="panelFieldContent">
-          <label for="font" class="panelLabel">{{'options.design.font' | translate}}
-            <premium-label></premium-label>
-          </label>
+          <label for="font" class="panelLabel">{{'options.design.font' | translate}}</label>
         </div>
         <div class="panelFieldInput">
           <select class="panelSelect" name="font" id="font"
-            disabled
             [(ngModel)]="settings.config.design.font"
             (ngModelChange)="getFont();"
             [style.fontFamily]="currentFont"
@@ -60,13 +56,13 @@
           </select>
         </div>
       </div>
-      <div class="panelField panelFieldDisabled panelFieldInline">
+      <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
           <label id="globalSizeLabel" class="panelLabel">{{'options.design.globalSize' | translate}}</label>
           <p class="panelDescription">{{'options.design.globalSizeDesc' | translate}}</p>
         </div>
         <div class="panelFieldInput">
-          <options-range [disabled]="true" class="panelInputLg" labelledby="globalSizeLabel" name="globalSize" min="1" max="50" [(ngModel)]="settings.config.design.scaling"></options-range>
+          <options-range class="panelInputLg" labelledby="globalSizeLabel" name="globalSize" min="1" max="50" [(ngModel)]="settings.config.design.scaling"></options-range>
         </div>
       </div>
       <div class="panelField panelFieldInline">
@@ -192,7 +188,7 @@
           <button class="panelBtn" aria-labelledby="bgImgFileLabel" type="button" (click)="bgImgFile.click();">{{'options.design.browseForImg' | translate}}</button>
         </div>
       </div>
-      <div class="panelField panelFieldInline" *ngIf="shared.bg && shared.bg !== './assets/patterns/0.png'">
+      <div class="panelField panelFieldInline" *ngIf="shared.bg && shared.bg.startsWith('data:image')">
         <div class="panelFieldContent">
           <label for="wallpaperPreview" class="panelLabel">{{'options.design.selectedWallpaper' | translate}}</label>
         </div>
@@ -220,6 +216,16 @@
           <options-range class="panelInputLg" name="brightness" labelledby="brightnessLabel" min="0" max="20" [(ngModel)]="settings.config.design.brightness"></options-range>
         </div>
       </div>
+      <div class="panelField panelFieldInline {{shared.paid ? '' : 'panelFieldDisabled'}}">
+        <div class="panelFieldContent">
+          <label id="blurLabel" class="panelLabel">Blur
+            <premium-label></premium-label>
+          </label>
+        </div>
+        <div class="panelFieldInput">
+          <options-range [disabled]="!shared.paid" class="panelInputLg" name="blur" labelledby="blurLabel" min="0" max="50" [(ngModel)]="settings.config.design.imageBlur"></options-range>
+        </div>
+      </div>
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
           <label for="fill" class="panelLabel">{{'options.design.fill' | translate}}</label>
@@ -233,6 +239,16 @@
               {{s.label}}
             </option>
           </select>
+        </div>
+      </div>
+      <div *ngIf="[40, 50].includes(settings.config.design.imageSize)" class="panelField panelFieldInline {{shared.paid ? '' : 'panelFieldDisabled'}}">
+        <div class="panelFieldContent">
+          <label id="scaleLabel" class="panelLabel">Scale
+            <premium-label></premium-label>
+          </label>
+        </div>
+        <div class="panelFieldInput">
+          <options-range [disabled]="!shared.paid" class="panelInputLg" name="scale" labelledby="scaleLabel" min="10" max="200" [(ngModel)]="settings.config.design.imageScale"></options-range>
         </div>
       </div>
       <div class="panelField panelFieldInline">

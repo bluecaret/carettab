@@ -38,6 +38,8 @@ export class DesignSettings {
     public patternId = 0,
     public imageSize = 10,
     public imageBlend = 10,
+    public imageBlur = 0,
+    public imageScale = 100,
     public brightness = 10,
     public hideMenu = false,
     public hideLogo = true,

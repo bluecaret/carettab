@@ -19,11 +19,11 @@
     class="tabBackground"
     [style.backgroundColor]="shared.bgColor"
     [style.backgroundImage]="'url(' + shared.bg + ')'"
-    [style.filter]="getBrightness()"
+    [style.filter]="getFilters()"
     [style.backgroundSize]="getBgSize()"
     [style.backgroundBlendMode]="getBgBlend()"
     [style.backgroundRepeat]="
-      settings.config.design.imageSize === 10 ? 'repeat' : 'no-repeat'
+      [10, 50].includes(settings.config.design.imageSize) ? 'repeat' : 'no-repeat'
     "
   ></div>
 

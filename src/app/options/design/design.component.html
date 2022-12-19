@@ -213,7 +213,27 @@
           <label id="brightnessLabel" class="panelLabel">{{'options.design.brightness' | translate}}</label>
         </div>
         <div class="panelFieldInput">
-          <options-range class="panelInputLg" name="brightness" labelledby="brightnessLabel" min="0" max="20" [(ngModel)]="settings.config.design.brightness"></options-range>
+          <options-range class="panelInputLg" name="brightness" labelledby="brightnessLabel" min="0" max="30" [(ngModel)]="settings.config.design.brightness"></options-range>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline {{shared.paid ? '' : 'panelFieldDisabled'}}">
+        <div class="panelFieldContent">
+          <label id="contrastLabel" class="panelLabel">Contrast
+            <premium-label></premium-label>
+          </label>
+        </div>
+        <div class="panelFieldInput">
+          <options-range [disabled]="!shared.paid" class="panelInputLg" name="contrast" labelledby="contrastLabel" min="0" max="30" [(ngModel)]="settings.config.design.contrast"></options-range>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline {{shared.paid ? '' : 'panelFieldDisabled'}}">
+        <div class="panelFieldContent">
+          <label id="saturationLabel" class="panelLabel">Saturation
+            <premium-label></premium-label>
+          </label>
+        </div>
+        <div class="panelFieldInput">
+          <options-range [disabled]="!shared.paid" class="panelInputLg" name="saturation" labelledby="saturationLabel" min="0" max="30" [(ngModel)]="settings.config.design.saturation"></options-range>
         </div>
       </div>
       <div class="panelField panelFieldInline {{shared.paid ? '' : 'panelFieldDisabled'}}">

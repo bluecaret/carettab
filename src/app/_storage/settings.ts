@@ -41,6 +41,8 @@ export class DesignSettings {
     public imageBlur = 0,
     public imageScale = 100,
     public brightness = 10,
+    public contrast = 10,
+    public saturation = 10,
     public hideMenu = false,
     public hideLogo = true,
   ) {}

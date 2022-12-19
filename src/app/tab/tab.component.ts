@@ -147,12 +147,17 @@ export class TabComponent implements OnInit, AfterViewInit {
   }
 
   getFilters() {
-    let brightness = this.settings.config.design.brightness * 0.1;
-    let blur = `${this.settings.config.design.imageBlur ? this.settings.config.design.imageBlur : '0'}px`;
+    const brightness = this.settings.config.design.brightness == undefined ? 1 : this.settings.config.design.brightness;
+    const contrast = this.settings.config.design.contrast == undefined ? 1 : this.settings.config.design.contrast;
+    const saturation = this.settings.config.design.saturation == undefined ? 1 : this.settings.config.design.saturation;
+    const blur = this.settings.config.design.imageBlur == undefined ? 0 : this.settings.config.design.imageBlur;
 
-    let blurValue = this.shared.paid ? `blur(${blur})` : '';
-    let value = `brightness(${brightness}) ${blurValue}`;
+    let brightnessValue = `brightness(${brightness === 0 ? 0 : brightness * 0.1})`;
+    let contrastValue = this.shared.paid ? `contrast(${contrast === 0 ? 0 : contrast * 0.1})` : ``;
+    let saturationValue = this.shared.paid ? `saturate(${saturation === 0 ? 0 : saturation * 0.1})` : ``;
+    let blurValue = this.shared.paid ? `blur(${blur}px)` : '';
 
+    const value = `${brightnessValue} ${contrastValue} ${saturationValue} ${blurValue}`;
     return this.sanitizer.bypassSecurityTrustStyle(value);
   }
 

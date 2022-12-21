@@ -178,34 +178,46 @@
   </h2>
   <form #themeOptions="ngForm" novalidate>
     <div class="panelGroup">
-      <div class="panelField panelFieldInline">
+      <div class="panelField">
         <div class="panelFieldContent">
-          <label id="bgImgFileLabel" class="panelLabel">{{'options.design.customWallpaper' | translate}}</label>
+          <label id="bgImgFileLabel" class="panelLabel">{{'options.design.wallpaper' | translate}}</label>
           <p class="panelDescription">{{'options.design.dontSync' | translate}}</p>
         </div>
         <div class="panelFieldInput">
           <input class="panelFile" id="bgImgFile" #bgImgFile name="imageUrl" type="file" accept="image/*" (change)="encodeImage($event, bgImgFile)" />
-          <button class="panelBtn" aria-labelledby="bgImgFileLabel" type="button" (click)="bgImgFile.click();">{{'options.design.browseForImg' | translate}}</button>
+          <div class="panelBtnGroup" style="width: 100%">
+            <button class="panelBtn" aria-labelledby="bgImgFileLabel" type="button" (click)="bgImgFile.click();">
+              Upload file
+            </button>
+            <button class="panelBtn" aria-labelledby="bgImgFileLabel" type="button" (click)="goTo.emit('Patterns')">
+              Patterns
+            </button>
+            <button [disabled]="!shared.paid" class="panelBtn" aria-labelledby="bgImgFileLabel" type="button" (click)="bgImgFile.click();">
+              Unsplash.com
+              <premium-label></premium-label>
+            </button>
+          </div>
         </div>
       </div>
-      <div class="panelField panelFieldInline" *ngIf="shared.bg && shared.bg.startsWith('data:image')">
+      <div class="panelField panelFieldInline" *ngIf="shared.bg && shared.bg !== './assets/patterns/0.png'">
         <div class="panelFieldContent">
           <label for="wallpaperPreview" class="panelLabel">{{'options.design.selectedWallpaper' | translate}}</label>
+          <button class="panelBtn" style="margin-top: 1rem" type="button" (click)="setPattern(noPattern);">
+            <span class="matIcon">delete</span>
+            Remove wallpaper
+          </button>
         </div>
         <div class="panelFieldInput">
-          <button
-            id="wallpaperPreview"
-            (click)="setPattern(noPattern);"
-            class="panelBtn panelBtnWallpaper panelInputLg"
-            [style.backgroundSize]="getBgSize()"
-            [style.backgroundRepeat]="settings.config.design.imageSize === 10 ? 'repeat' : 'no-repeat'"
-            [style.backgroundColor]="settings.config.design.background"
-            [style.backgroundBlendMode]="getBgBlend()"
-            [style.backgroundImage]="'url('+ shared.bg +')'"
-            [attr.aria-label]="'options.design.removeWallpaper' | translate"
-            [title]="'options.design.removeWallpaper' | translate">
-            <div class="matIcon" aria-hidden="true">delete</div>
-          </button>
+          <div>
+            <div
+              id="wallpaperPreview"
+              class="panelBtn panelBtnWallpaper panelInputLg"
+              [style.filter]="shared.bg && shared.bg.startsWith('data:image') ? '' : 'contrast(3)'"
+              [style.backgroundSize]="shared.bg.startsWith('data:image') ? 'contain' : 'auto'"
+              [style.backgroundRepeat]="[10, 50].includes(settings.config.design.imageSize) ? 'repeat' : 'no-repeat'"
+              [style.backgroundImage]="'url('+ shared.bg +')'">
+            </div>
+          </div>
         </div>
       </div>
       <div class="panelField panelFieldInline">
@@ -286,19 +298,36 @@
           </select>
         </div>
       </div>
+    </div>
+  </form>
+  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Design')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Design</button>
+</div>
+
+<div *ngIf="shared.optionsPage === 'Patterns'" class="panelPlate panelPage">
+  <h2 class="panelTitle">
+    <button
+      (click)="goTo.emit('Wallpaper')"
+      class="panelBack matIcon"
+      aria-label="Back to Wallpaper"
+      title="Back to Wallpaper"
+    >arrow_back</button>
+    Patterns
+  </h2>
+  <form #patternsOptions="ngForm" novalidate>
+    <div class="panelGroup">
       <div class="panelField">
         <div class="panelFieldContent">
           <label class="panelLabel">Patterns</label>
         </div>
         <div class="panelThemeGrid">
-          <button
+          <!-- <button
             class="panelBtn panelBtnTheme panelBtnThemeWallpaper"
             [ngClass]="{'active': settings.config.design.patternId === 0}"
             [attr.aria-label]="'options.design.removeWallpaper' | translate"
             [title]="'options.design.removeWallpaper' | translate"
             (click)="setPattern(noPattern);">
             <div class="matIcon" aria-hidden="true" style="font-size: 1em;">delete</div>
-          </button>
+          </button> -->
           <button
             *ngFor="let p of patterns;"
             class="panelBtn panelBtnTheme panelBtnThemeWallpaper"
@@ -322,5 +351,5 @@
       </div>
     </div>
   </form>
-  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Design')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Design</button>
+  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Wallpaper')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Wallpaper</button>
 </div>

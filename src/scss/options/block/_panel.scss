@@ -454,22 +454,15 @@ $btnRadius: var(--size300);
 .panelBtnWallpaper {
   justify-content: center;
   height: 8rem;
-  background-size: cover;
-  background-repeat: no-repeat;
+  // filter: contrast(3);
+  background-color: hsl(0deg,0%, 50%);
+  // background-size: cover;
+  // background-repeat: no-repeat;
   background-position: center;
   border-color: var(--inputBg);
-  .matIcon {
-    color: white;
-    text-shadow: 0 0 5px black;
-    opacity: 0;
-    transition: opacity .3s;
-  }
   &:focus,
   &:hover {
-    cursor: pointer;
-    .matIcon {
-      opacity: 1;
-    }
+    cursor: default;
   }
 }
 

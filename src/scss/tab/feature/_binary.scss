@@ -32,13 +32,13 @@
   }
   &.numbers {
     &::before {
-      color: wheat;
-      content: '0';
+      color: rgba(246, 246, 234, 0.3); /* What values should we be using here*/
+      content: attr(data-off);
     }
     &.active {
       &::before {
-        color: wheat;
-        content: '1';
+        color: rgba(246, 246, 234, 0.8); /* What values should we be using here*/
+        content: attr(data-on);
       }
     }
   }

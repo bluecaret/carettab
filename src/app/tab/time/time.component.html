@@ -191,8 +191,8 @@
     <div class="binaryContainer" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
       <div #binaryHours id="binaryHours" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
         <div class="binaryColumn" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
-          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[0][0][0]}"></span>
-          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[0][0][1]}"></span>
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[0][0][0],'numbers':clock.binary.showNumbers}"></span>
+          <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[0][0][1],'numbers':clock.binary.showNumbers}"></span>
         </div>
         <div class="binaryColumn" [ngStyle]="{ 'gap': shared.getPadding(clock.padding, .1) }">
           <span class="binaryMarker" [ngClass]="{'active': binaryMarkers[0][1][0]}"></span>

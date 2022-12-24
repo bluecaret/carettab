@@ -241,6 +241,11 @@
           <label [for]="'binarydim'+i">{{'options.time.binaryDim' | translate}}<tooltip text="{{'options.time.binaryDimDesc' | translate}}"></tooltip></label>
           <options-toggle type="toggle" [name]="'binarydim'+i" [id]="'binarydim'+i" [(ngModel)]="clock.binary.dim"></options-toggle>
         </div>
+        <div class="input" *ngIf="clock.binary.enabled === true">
+          <label [for]="'binaryShowNumbers'+i">{{'options.time.binaryShowNumbers' | translate}}<tooltip text="{{'options.time.binaryShowNumbers' | translate}}"></tooltip></label>
+          <options-toggle type="toggle" [name]="'binaryShowNumbers'+i" [id]="'binaryShowNumbers'+i" [(ngModel)]="clock.binary.showNumbers"></options-toggle>
+        </div>
+        
       </div>
       <!-- Layout -->
       <h4>{{'options.common.layout' | translate}}</h4>

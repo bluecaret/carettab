@@ -24,15 +24,29 @@
   width: 1em;
   height: 1em;
   border-radius: 50%;
-  opacity: .5;
+  opacity: 0.5;
+  text-align: center;
+  line-height: 1;
   &.active {
     opacity: 1;
+  }
+  &.numbers {
+    &::before {
+      color: wheat;
+      content: '0';
+    }
+    &.active {
+      &::before {
+        color: wheat;
+        content: '1';
+      }
+    }
   }
 }
 .binarySecondsDim #binarySeconds,
 .binaryDim {
   .binaryMarker {
-    opacity: .25;
+    opacity: 0.25;
     &.active {
       opacity: 1;
     }

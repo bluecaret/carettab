@@ -221,6 +221,7 @@
       "automatic": "Automatic",
       "binary": "Binary",
       "binaryDim": "Dim binary clock",
+      "binaryShowNumbers": "Show binary clock numbers",
       "binaryDimDesc": "Dim the binary clock.",
       "binaryEnable": "Enable binary clock",
       "binaryEnableDesc": "Displays the clock in a binary format.",

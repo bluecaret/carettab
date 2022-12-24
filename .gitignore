@@ -11,3 +11,5 @@ dist-ff/
 dist-edge/
 packages/
 carettab.zip
+
+yarn.lock

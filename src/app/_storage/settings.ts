@@ -193,11 +193,14 @@ export class TimeSettings {
         },
         binary: {
           enabled: false,
-          dim: false
+          dim: false,
+          useNumbers: false,
+          offValueText: "0",
+          onValueText: "1"
         }
       }
     ],
-  ) {}
+  ) { }
 }
 
 export class DateSettings {

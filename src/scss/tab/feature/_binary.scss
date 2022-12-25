@@ -31,13 +31,13 @@
     opacity: 1;
   }
   &.numbers {
+    background-color: transparent;
+    color: currentColor;
     &::before {
-      color: rgba(246, 246, 234, 0.3); /* What values should we be using here*/
       content: attr(data-off);
     }
     &.active {
       &::before {
-        color: rgba(246, 246, 234, 0.8); /* What values should we be using here*/
         content: attr(data-on);
       }
     }

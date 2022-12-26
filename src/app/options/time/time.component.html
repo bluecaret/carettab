@@ -242,14 +242,14 @@
           <options-toggle type="toggle" [name]="'binarydim'+i" [id]="'binarydim'+i" [(ngModel)]="clock.binary.dim"></options-toggle>
         </div>
         <div class="input" *ngIf="clock.binary.enabled === true">
-          <label [for]="'binaryUseNumbers'+i">{{'options.time.binaryUseNumbers' | translate}}<tooltip text="{{'options.time.binaryUseNumbers' | translate}}"></tooltip></label>
+          <label [for]="'binaryUseNumbers'+i">{{'options.time.binaryUseNumbers' | translate}}</label>
           <options-toggle type="toggle" [name]="'binaryUseNumbers'+i" [id]="'binaryUseNumbers'+i" [(ngModel)]="clock.binary.useNumbers"></options-toggle>
         </div>
-        <div class="input" *ngIf="clock.binary.useNumbers === true">
+        <div class="input" *ngIf="clock.binary.useNumbers === true && clock.binary.useNumbers === true">
           <label [for]="'binaryOnValueText'+i">{{'options.time.binaryOnValue' | translate}}<tooltip text="{{'options.time.binaryOnValue' | translate}}"></tooltip></label>
           <input type="text" maxlength="1" [id]="'binaryOnValueText'+i" [name]="'binaryOnValueText'+i" [(ngModel)]="clock.binary.onValueText" autocomplete="off">
         </div>
-        <div class="input" *ngIf="clock.binary.useNumbers === true">
+        <div class="input" *ngIf="clock.binary.useNumbers === true && clock.binary.useNumbers === true">
           <label [for]="'binaryOffValueText'+i">{{'options.time.binaryOffValue' | translate}}<tooltip text="{{'options.time.binaryOffValue' | translate}}"></tooltip></label>
           <input type="text" maxlength="1" [id]="'binaryOffValueText'+i" [name]="'binaryOffValueText'+i" [(ngModel)]="clock.binary.offValueText" autocomplete="off">
         </div>

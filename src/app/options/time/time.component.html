@@ -246,11 +246,11 @@
           <options-toggle type="toggle" [name]="'binaryUseNumbers'+i" [id]="'binaryUseNumbers'+i" [(ngModel)]="clock.binary.useNumbers"></options-toggle>
         </div>
         <div class="input" *ngIf="clock.binary.useNumbers === true && clock.binary.useNumbers === true">
-          <label [for]="'binaryOnValueText'+i">{{'options.time.binaryOnValue' | translate}}<tooltip text="{{'options.time.binaryOnValue' | translate}}"></tooltip></label>
+          <label [for]="'binaryOnValueText'+i">{{'options.time.binaryOnValue' | translate}}</label>
           <input type="text" maxlength="1" [id]="'binaryOnValueText'+i" [name]="'binaryOnValueText'+i" [(ngModel)]="clock.binary.onValueText" autocomplete="off">
         </div>
         <div class="input" *ngIf="clock.binary.useNumbers === true && clock.binary.useNumbers === true">
-          <label [for]="'binaryOffValueText'+i">{{'options.time.binaryOffValue' | translate}}<tooltip text="{{'options.time.binaryOffValue' | translate}}"></tooltip></label>
+          <label [for]="'binaryOffValueText'+i">{{'options.time.binaryOffValue' | translate}}</label>
           <input type="text" maxlength="1" [id]="'binaryOffValueText'+i" [name]="'binaryOffValueText'+i" [(ngModel)]="clock.binary.offValueText" autocomplete="off">
         </div>
         

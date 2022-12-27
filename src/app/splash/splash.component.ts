@@ -149,7 +149,10 @@ export class SplashComponent implements OnInit {
         },
         binary: {
           enabled: false,
-          dim: false
+          dim: false,
+          useNumbers: false,
+          offValueText: "0",
+          onValueText: "1",
         }
       });
     } else {

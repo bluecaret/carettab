@@ -4,7 +4,6 @@ import { Clock } from '../../_shared/models/clock';
 import { TimezoneService, Timezone } from './timezone.service';
 import { SharedService } from '../../_shared/shared.service';
 import { analogStyles, span } from '../../_shared/lists/lists';
-import * as moment from 'moment-timezone';
 
 @Component({
   selector: 'options-time',

@@ -20,7 +20,7 @@ export class OptionsComponent implements AfterViewInit {
     public shared: SharedService,
     public settings: Storage
   ) {
-    this.shared.optionsPage = 'Wallpaper';
+    this.shared.optionsPage = 'Dashboard';
   }
 
   ngAfterViewInit() {

@@ -22,7 +22,7 @@
     }
   ],
   "background": {
-    "service_worker": "js/background.js",
+    "service_worker": "js/sw.js",
     "type": "module"
   },
   "permissions": [
@@ -43,7 +43,9 @@
       ]
     },
     {
-      "resources": [],
+      "resources": [
+        "js/init.js"
+      ],
       "extension_ids": [ "cojpndognjdcakkimaloeealehpkljna" ]
     }
   ],

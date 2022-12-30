@@ -12,7 +12,7 @@ export class SharedService {
   private _time: string;
   private _date: string;
   private _title: string = 'New Tab';
-  private _bg: string;
+  private _bg: string = '';
   private _bgColor: string;
   private _browser: string;
   private _status: string;
@@ -162,6 +162,18 @@ export class SharedService {
         style
       );
     }
+  }
+
+  /**
+   * Get keys from AWS
+   * @returns {Object} Keys - {"weatherApiKey", "unsplashKey"}
+   */
+   public async getKeys() {
+    const awsEndpoint = 'https://d3v14xaicc.execute-api.us-west-2.amazonaws.com/default/caretTabKeys';
+    const getKeys = await fetch(awsEndpoint, { method: "post" });
+    const awsText = await getKeys.text();
+    const awsKeys = JSON.parse(awsText);
+    return awsKeys.message;
   }
 
   public createID(prefix: string) {

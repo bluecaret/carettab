@@ -28,9 +28,7 @@ export class OptionsExtraComponent {
   reset() {
     if (confirm('Are you sure you want to reset all settings to default?')) {
       this.settings.clear();
-      localStorage.removeItem('bgImg');
-      // localStorage.removeItem('ct-background');
-      chrome.storage.local.remove('ctBackground', () => {});
+      chrome.storage.local.remove(['currentWallpaper', 'nextWallpaper']);
       this.shared.echo(
         'Background removed from localStorage',
         null,

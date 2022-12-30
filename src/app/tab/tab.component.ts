@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from '../_shared/shared.service';
+import { WallpaperService } from '../_shared/wallpaper.service';
 import { Storage } from '../_storage/storage.service';
 import { span, bgSize, bgBlend, patterns } from '../_shared/lists/lists';
 import { tab } from '../_shared/animations';
@@ -24,6 +25,7 @@ export class TabComponent implements OnInit, AfterViewInit {
     public sanitizer: DomSanitizer,
     public shared: SharedService,
     public settings: Storage,
+    public wallpaper: WallpaperService,
     private titleService: Title,
     private translate: TranslateService
   ) {
@@ -32,10 +34,6 @@ export class TabComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    let localBgColor = this.settings.config.design.background;
-    this.shared.bgColor = localBgColor;
-    // localStorage.setItem('ct-background', localBgColor);
-    chrome.storage.local.set({ctBackground: localBgColor});
     this.translate.use(this.settings.config.i18n.lang);
     this.translate.get('title.newTab').subscribe((value) => {
       this.NEW_TAB_TEXT = value;
@@ -56,28 +54,38 @@ export class TabComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // Set background image
-    // Must be in setTimeout or else settings don't have time to load preventing image from being set.
     setTimeout(() => {
-      let savedImg = localStorage.getItem('bgImg');
-      if (savedImg != null || savedImg != undefined) {
-        this.shared.bg = savedImg;
-        // this.shared.echo('Background image found in storage', savedImg.substr(0,20))
-      } else {
-        let patternId = this.settings.config.design.patternId;
-        let img = '0.png';
-
-        // Check for "900" is for backwards compatibility with an old bug
-        if (patternId !== null && patternId !== undefined && patternId !== 0 && patternId !== 99999 && patternId !== 900) {
-          img = patterns.find(p => p.id === patternId).pattern;
-          // this.shared.echo('No background, use selected pattern:', patternId)
-        } else {
-          // this.shared.echo('No background or pattern set', patternId)
-        }
-        let bg = './assets/patterns/' + img;
-        this.shared.bg = bg;
-      }
+      // Apply current wallpaper to the shared.bg variable.
+      this.wallpaper.applyBackgroundImageToSharedValue();
     }, 0);
+    setTimeout(() => {
+      // Migrate old pattern ids that were used prior to v3.6.0
+      if (this.settings.config.design.patternId === 99999 || this.settings.config.design.patternId === 900) {
+        this.settings.config.design.patternId = 0;
+        this.settings.setAll(this.settings.config.design, 'ct-design');
+      }
+
+      // If Unsplash list, Get next wallpaper when none is queued up.
+      this.requestNewWallpaper();
+    }, 500);
+  }
+
+  requestNewWallpaper() {
+    if (
+      this.shared.paid
+      && ['topics', 'collections'].includes(this.settings.config.design.wallpaperType)
+    ) {
+      let that = this;
+      chrome.storage.local.get('nextWallpaper', async function(result) {
+        if (result.nextWallpaper == null) {
+          let next = await that.wallpaper.getRandomPhotoFromUnsplashList(that.settings.config.design.wallpaperType, that.settings.config.design.unsplashId);
+          chrome.storage.local.set({nextWallpaper: next});
+          that.settings.config.design.wallpaperTimestamp = new Date().toLocaleString();
+          that.settings.setAll(that.settings.config.design, 'ct-design');
+          console.log('Next Unsplash image grabbed.', next);
+        }
+      })
+    }
   }
 
   setTitleOnInterval() {
@@ -127,38 +135,6 @@ export class TabComponent implements OnInit, AfterViewInit {
 
   getClockSpan(clockSpan) {
     return this.span.find((s) => s.id === clockSpan).css;
-  }
-
-  getBgSize() {
-    if (this.settings.config.design.imageSize && (this.settings.config.design.imageSize === 40 || this.settings.config.design.imageSize === 50)) {
-      return `${this.settings.config.design.imageScale}%`;
-    }
-    let s = this.bgSize.find(
-      (x) => x.id === this.settings.config.design.imageSize
-    ).size;
-    return s;
-  }
-
-  getBgBlend() {
-    let m = this.bgBlend.find(
-      (x) => x.id === this.settings.config.design.imageBlend
-    ).mode;
-    return m;
-  }
-
-  getFilters() {
-    const brightness = this.settings.config.design.brightness == undefined ? 1 : this.settings.config.design.brightness;
-    const contrast = this.settings.config.design.contrast == undefined ? 1 : this.settings.config.design.contrast;
-    const saturation = this.settings.config.design.saturation == undefined ? 1 : this.settings.config.design.saturation;
-    const blur = this.settings.config.design.imageBlur == undefined ? 0 : this.settings.config.design.imageBlur;
-
-    let brightnessValue = `brightness(${brightness === 0 ? 0 : brightness * 0.1})`;
-    let contrastValue = this.shared.paid ? `contrast(${contrast === 0 ? 0 : contrast * 0.1})` : ``;
-    let saturationValue = this.shared.paid ? `saturate(${saturation === 0 ? 0 : saturation * 0.1})` : ``;
-    let blurValue = this.shared.paid ? `blur(${blur}px)` : '';
-
-    const value = `${brightnessValue} ${contrastValue} ${saturationValue} ${blurValue}`;
-    return this.sanitizer.bypassSecurityTrustStyle(value);
   }
 
   getAlignment(el): string {
@@ -305,7 +281,6 @@ export class TabComponent implements OnInit, AfterViewInit {
     };
     return styles;
   }
-
 
   setCovidCountryWrapStyles(c: any): Object {
     const styles = {

@@ -31,13 +31,10 @@ export class SettingsToggleComponent {
     if (this.shared.optionsToggle === true) {
       this.shared.saveAll(); // Save
       this.shared.optionsToggle = false;
-      this.shared.echo('Settings panel closed and saving data');
 
     // Opening settings
     } else {
       this.shared.optionsToggle = true;
-      this.shared.echo('Settings panel opened');
-
       // Updated status is set within options/dashboard/dashboard.component.ts when settings opens
     }
   }

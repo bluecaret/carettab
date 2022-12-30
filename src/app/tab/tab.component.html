@@ -15,18 +15,6 @@
   "
   [style.fontSize]="shared.getFontSize(settings.config.design.scaling)"
 >
-  <div
-    class="tabBackground"
-    [style.backgroundColor]="shared.bgColor"
-    [style.backgroundImage]="'url(' + shared.bg + ')'"
-    [style.filter]="getFilters()"
-    [style.backgroundSize]="getBgSize()"
-    [style.backgroundBlendMode]="getBgBlend()"
-    [style.backgroundRepeat]="
-      [10, 50].includes(settings.config.design.imageSize) ? 'repeat' : 'no-repeat'
-    "
-  ></div>
-
   <tab-bookmarks></tab-bookmarks>
 
   <div

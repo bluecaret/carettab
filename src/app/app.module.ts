@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { Ng2ChromeStorageModule } from './_storage/storage.module';
 import { Settings } from './_storage/settings';
 import { SharedService, TranslateCut } from './_shared/shared.service';
+import { WallpaperService } from './_shared/wallpaper.service';
 import { PopupService } from './_shared/controls/popup.service';
 import { PositionComponent } from './_shared/controls/position.component';
 import { ToggleComponent } from './_shared/controls/toggle.component';
@@ -122,6 +123,7 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
   ],
   providers: [
     SharedService,
+    WallpaperService,
     PopupService,
     TimezoneService,
     WeatherService

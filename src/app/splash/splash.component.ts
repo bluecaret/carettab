@@ -212,8 +212,6 @@ export class SplashComponent implements OnInit {
     this.settings.config.design.foreground = c.fg;
     this.settings.config.design.colorsId = c.id;
     this.shared.bgColor = c.bg;
-    // localStorage.setItem('ct-background', c.bg);
-    chrome.storage.local.set({ctBackground: c.bg});
   }
 
   finishIntro() {

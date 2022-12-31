@@ -169,6 +169,9 @@
   grid-template: auto / 1fr 1fr;
   gap: var(--size500);
   padding: var(--size500);
+  .panelBtn {
+    gap: var(--size400);
+  }
 }
 
 .panelField {
@@ -327,7 +330,7 @@ $btnRadius: var(--size300);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--size300);
   background-color: transparent;
   color: var(--btnColor);
   border: 1px solid var(--btnBorder);

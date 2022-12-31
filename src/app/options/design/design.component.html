@@ -10,6 +10,61 @@
   </h2>
   <form #designOptions="ngForm" novalidate>
     <div class="panelGroup">
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="selectColors" class="panelLabel">{{'options.design.colors' | translate}}</label>
+        </div>
+        <button
+          class="panelBtn"
+          (click)="goTo.emit('Theme')"
+          [attr.aria-label]="'Choose colors'"
+          [title]="'Choose colors'"
+          >
+          Choose color theme
+        </button>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="selectColors" class="panelLabel">{{'options.design.wallpaper' | translate}}</label>
+          <ng-container *ngIf="shared.bg && shared.bg != null && shared.bg != ''">
+            <p
+              *ngIf="settings.config.design.wallpaperType === 'upload'"
+              class="panelDescription">
+              Uploaded image
+            </p>
+            <p
+              *ngIf="settings.config.design.wallpaperType === 'pattern'"
+              class="panelDescription">
+              Pattern "{{settings.config.design.patternId}}"
+            </p>
+            <p
+              *ngIf="settings.config.design.wallpaperType === 'search'"
+              class="panelDescription">
+              Unsplash author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
+            </p>
+            <p
+              *ngIf="settings.config.design.wallpaperType === 'topics'"
+              class="panelDescription">
+              Unsplash Topic: "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
+            </p>
+            <p
+              *ngIf="settings.config.design.wallpaperType === 'collections'"
+              class="panelDescription">
+              Unsplash Collection: "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
+            </p>
+          </ng-container>
+        </div>
+        <div class="panelFieldInput">
+          <button
+            class="panelBtn"
+            (click)="goTo.emit('Wallpaper')"
+            [attr.aria-label]="'Choose colors'"
+            [title]="'Choose colors'"
+            >
+            Choose wallpaper
+          </button>
+        </div>
+      </div>
       <div class="panelField">
         <div class="panelFieldContent">
           <label for="font" class="panelLabel">{{'options.design.font' | translate}}</label>
@@ -72,61 +127,6 @@
         </div>
         <div class="panelFieldInput">
           <options-toggle labelledby="scalingMethodLabel" id="scalingMethod" name="scalingMethod" [(ngModel)]="settings.config.design.scalingMethod"></options-toggle>
-        </div>
-      </div>
-      <div class="panelField panelFieldInline">
-        <div class="panelFieldContent">
-          <label id="selectColors" class="panelLabel">{{'options.design.colors' | translate}}</label>
-        </div>
-        <button
-          class="panelBtn"
-          (click)="goTo.emit('Theme')"
-          [attr.aria-label]="'Choose colors'"
-          [title]="'Choose colors'"
-          >
-          Choose color theme
-        </button>
-      </div>
-      <div class="panelField panelFieldInline">
-        <div class="panelFieldContent">
-          <label id="selectColors" class="panelLabel">{{'options.design.wallpaper' | translate}}</label>
-          <ng-container *ngIf="shared.bg && shared.bg != null && shared.bg != ''">
-            <p
-              *ngIf="settings.config.design.wallpaperType === 'upload'"
-              class="panelDescription">
-              Uploaded image
-            </p>
-            <p
-              *ngIf="settings.config.design.wallpaperType === 'pattern'"
-              class="panelDescription">
-              Pattern "{{settings.config.design.patternId}}"
-            </p>
-            <p
-              *ngIf="settings.config.design.wallpaperType === 'search'"
-              class="panelDescription">
-              Unsplash author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
-            </p>
-            <p
-              *ngIf="settings.config.design.wallpaperType === 'topics'"
-              class="panelDescription">
-              Unsplash Topic: "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
-            </p>
-            <p
-              *ngIf="settings.config.design.wallpaperType === 'collections'"
-              class="panelDescription">
-              Unsplash Collection: "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
-            </p>
-          </ng-container>
-        </div>
-        <div class="panelFieldInput">
-          <button
-            class="panelBtn"
-            (click)="goTo.emit('Wallpaper')"
-            [attr.aria-label]="'Choose colors'"
-            [title]="'Choose colors'"
-            >
-            Choose wallpaper
-          </button>
         </div>
       </div>
     </div>

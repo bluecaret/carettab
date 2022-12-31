@@ -332,4 +332,14 @@ export class OptionsDesignComponent implements OnInit {
     this.updateBackgroundImage();
   }
 
+  resetWallpaperStyles() {
+    this.settings.config.design.brightness = 10;
+    this.settings.config.design.contrast = 10;
+    this.settings.config.design.saturation = 10;
+    this.settings.config.design.imageBlur = 0;
+    this.settings.config.design.imageScale = 100;
+    this.settings.config.design.imageBlend = 10;
+    this.updateBackgroundStyles();
+  }
+
 }

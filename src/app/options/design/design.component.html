@@ -120,7 +120,6 @@
         </div>
         <div class="panelFieldInput">
           <button
-            style="flex: 0 0 auto;"
             class="panelBtn"
             (click)="goTo.emit('Wallpaper')"
             [attr.aria-label]="'Choose colors'"
@@ -208,7 +207,7 @@
   </h2>
   <form #themeOptions="ngForm" novalidate>
     <div class="panelGroup">
-      <div class="panelField" *ngIf="shared.bg && shared.bg != null && shared.bg != ''">
+      <div class="panelField {{['topics', 'collections'].includes(settings.config.design.wallpaperType) ? '' : 'panelFieldInline'}}" *ngIf="shared.bg && shared.bg != null && shared.bg != ''">
         <div class="panelFieldContent">
           <label for="wallpaperPreview" class="panelLabel">
             Current wallpaper
@@ -359,6 +358,18 @@
               {{b.label}}
             </option>
           </select>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label for="blend" class="panelLabel">Reset wallpaper styles</label>
+          <p class="panelDescription">Reset brightness, contrast, saturation, blur, scale, and filter options back to default.</p>
+        </div>
+        <div class="panelFieldInput">
+          <button class="panelBtn" type="button" (click)="resetWallpaperStyles();">
+            <span class="matIcon">restart_alt</span>
+            Reset styles
+          </button>
         </div>
       </div>
     </div>

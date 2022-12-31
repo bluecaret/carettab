@@ -11,7 +11,7 @@ import { PremiumModalComponent } from '../modals/premium-modal.component';
       type="button"
       class="premiumLabel"
       [title]="shared.paid ? 'Thank you for subscribing to Premium. Enjoy the benefits!' : 'Sign up for Premium to access this feature'"
-      (click)="openGetPremiumModal()"
+      (click)="openGetPremiumModal($event)"
       >
       <span class='matIcon'>diamond</span>
     </button>
@@ -28,7 +28,8 @@ export class PremiumLabelComponent {
   ) {
   }
 
-  openGetPremiumModal() {
+  openGetPremiumModal(e: Event) {
+    e.stopPropagation();
     this.SimpleModalService.addModal(PremiumModalComponent, {});
   }
 }

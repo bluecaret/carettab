@@ -104,28 +104,31 @@
             <p
               *ngIf="settings.config.design.wallpaperType === 'search'"
               class="panelDescription">
-              Unsplash photo by "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
+              Unsplash author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
             </p>
             <p
               *ngIf="settings.config.design.wallpaperType === 'topics'"
               class="panelDescription">
-              Unsplash Topic "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Current photo by "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
+              Unsplash Topic: "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
             </p>
             <p
               *ngIf="settings.config.design.wallpaperType === 'collections'"
               class="panelDescription">
-              Unsplash Collection "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Current photo by "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
+              Unsplash Collection: "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
             </p>
           </ng-container>
         </div>
-        <button
-          class="panelBtn"
-          (click)="goTo.emit('Wallpaper')"
-          [attr.aria-label]="'Choose colors'"
-          [title]="'Choose colors'"
-          >
-          Choose wallpaper
-        </button>
+        <div class="panelFieldInput">
+          <button
+            style="flex: 0 0 auto;"
+            class="panelBtn"
+            (click)="goTo.emit('Wallpaper')"
+            [attr.aria-label]="'Choose colors'"
+            [title]="'Choose colors'"
+            >
+            Choose wallpaper
+          </button>
+        </div>
       </div>
     </div>
   </form>
@@ -223,17 +226,17 @@
           <p
             *ngIf="settings.config.design.wallpaperType === 'search'"
             class="panelDescription">
-            Unsplash photo by "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
+            Unsplash author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
           </p>
           <p
             *ngIf="settings.config.design.wallpaperType === 'topics'"
             class="panelDescription">
-            Unsplash Topic "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Current photo by "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
+            Unsplash Topic: "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
           </p>
           <p
             *ngIf="settings.config.design.wallpaperType === 'collections'"
             class="panelDescription">
-            Unsplash Collection "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Current photo by "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
+            Unsplash Collection: "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
           </p>
         </div>
         <div class="panelFieldInput">
@@ -268,8 +271,8 @@
               Patterns
             </button>
             <button [disabled]="!shared.paid" class="panelBtn {{wallpaperType === 'search' || wallpaperType === 'topics' || wallpaperType === 'collections' ? 'active' : ''}}" aria-labelledby="bgImgFileLabel" type="button" (click)="openUnsplash()">
-              Unsplash.com
               <premium-label></premium-label>
+              Unsplash.com
             </button>
           </div>
         </div>
@@ -284,9 +287,10 @@
       </div>
       <div class="panelField panelFieldInline {{shared.paid ? '' : 'panelFieldDisabled'}}">
         <div class="panelFieldContent">
-          <label id="contrastLabel" class="panelLabel">Contrast
+          <div class="panelPremiumLabel">
             <premium-label></premium-label>
-          </label>
+            <label id="contrastLabel" class="panelLabel">Contrast</label>
+          </div>
         </div>
         <div class="panelFieldInput">
           <options-range [disabled]="!shared.paid" class="panelInputLg" name="contrast" labelledby="contrastLabel" min="0" max="30" [(ngModel)]="settings.config.design.contrast" (ngModelChange)="updateBackgroundStyles()"></options-range>
@@ -294,9 +298,10 @@
       </div>
       <div class="panelField panelFieldInline {{shared.paid ? '' : 'panelFieldDisabled'}}">
         <div class="panelFieldContent">
-          <label id="saturationLabel" class="panelLabel">Saturation
+          <div class="panelPremiumLabel">
             <premium-label></premium-label>
-          </label>
+            <label id="saturationLabel" class="panelLabel">Saturation</label>
+          </div>
         </div>
         <div class="panelFieldInput">
           <options-range [disabled]="!shared.paid" class="panelInputLg" name="saturation" labelledby="saturationLabel" min="0" max="30" [(ngModel)]="settings.config.design.saturation" (ngModelChange)="updateBackgroundStyles()"></options-range>
@@ -304,9 +309,10 @@
       </div>
       <div class="panelField panelFieldInline {{shared.paid ? '' : 'panelFieldDisabled'}}">
         <div class="panelFieldContent">
-          <label id="blurLabel" class="panelLabel">Blur
+          <div class="panelPremiumLabel">
             <premium-label></premium-label>
-          </label>
+            <label id="blurLabel" class="panelLabel">Blur</label>
+          </div>
         </div>
         <div class="panelFieldInput">
           <options-range [disabled]="!shared.paid" class="panelInputLg" name="blur" labelledby="blurLabel" min="0" max="50" [(ngModel)]="settings.config.design.imageBlur" (ngModelChange)="updateBackgroundStyles()"></options-range>
@@ -330,9 +336,10 @@
       </div>
       <div *ngIf="[40, 50].includes(settings.config.design.imageSize)" class="panelField panelFieldInline {{shared.paid ? '' : 'panelFieldDisabled'}}">
         <div class="panelFieldContent">
-          <label id="scaleLabel" class="panelLabel">Scale
+          <div class="panelPremiumLabel">
             <premium-label></premium-label>
-          </label>
+            <label id="scaleLabel" class="panelLabel">Scale</label>
+          </div>
         </div>
         <div class="panelFieldInput">
           <options-range [disabled]="!shared.paid" class="panelInputLg" name="scale" labelledby="scaleLabel" min="10" max="200" [(ngModel)]="settings.config.design.imageScale" (ngModelChange)="updateBackgroundStyles()"></options-range>
@@ -469,7 +476,7 @@
             </button>
             <div class="panelBtnUnsplashText">
               <div class="panelBtnUnsplashMeta">
-                Photo by <a [href]="result.user.links.html + '?utm_source=carettab&utm_medium=referral'" target="_blank" rel="noreferrer">{{result.user.name ? result.user.name : result.user.username}}</a>
+                Author: <a [href]="result.user.links.html + '?utm_source=carettab&utm_medium=referral'" target="_blank" rel="noreferrer">{{result.user.name ? result.user.name : result.user.username}}</a>
               </div>
             </div>
           </ng-container>

@@ -186,6 +186,10 @@
   .panelFieldContent {
     flex: 1 1 auto;
   }
+  .panelPremiumLabel {
+    display: flex;
+    gap: var(--size300);
+  }
   .panelFieldInput {
     display: flex;
     gap: 1rem;

@@ -221,6 +221,9 @@
       "automatic": "Automatic",
       "binary": "Binary",
       "binaryDim": "Dim binary clock",
+      "binaryUseNumbers": "Use numbers",
+      "binaryOffValue": "Off value",
+      "binaryOnValue": "On value",
       "binaryDimDesc": "Dim the binary clock.",
       "binaryEnable": "Enable binary clock",
       "binaryEnableDesc": "Displays the clock in a binary format.",
@@ -437,6 +440,9 @@
       "m6": "Prevent search from running if no search term is provided.",
       "m7": "Fix weather location search to display the city, region and country to prevent accidentally selecting the incorrect location.",
       "m8": "Changed \"favicon\" permissions to be optional if icons are enabled for Bookmarks Bar or Quick Links."
+    },
+    "v365": {
+      "m1": "Fixed weather location search. Results were not displaying when only a single location was found."
     },
     "yes": "Yes"
   },

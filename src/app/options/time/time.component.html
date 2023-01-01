@@ -723,6 +723,50 @@
         </options-toggle>
       </div>
     </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].binary.enabled === true">
+      <div class="panelFieldContent">
+        <label id="binaryUseNumbersLabel" class="panelLabel">{{'options.time.binaryUseNumbers' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle
+          labelledby="binaryUseNumbersLabel"
+          type="toggle"
+          name="binaryUseNumbers"
+          id="binaryUseNumbers"
+          [(ngModel)]="settings.config.time.clocks[selected].binary.useNumbers">
+        </options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].binary.enabled === true && settings.config.time.clocks[selected].binary.useNumbers === true">
+      <div class="panelFieldContent">
+        <label for="binaryOnValueText" class="panelLabel">{{'options.time.binaryOnValue' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <input
+          class="panelInput panelInputSm"
+          type="text"
+          maxlength="1"
+          id="binaryOnValueText"
+          name="binaryOnValueText"
+          [(ngModel)]="settings.config.time.clocks[selected].binary.onValueText"
+          autocomplete="off">
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].binary.enabled === true && settings.config.time.clocks[selected].binary.useNumbers === true">
+      <div class="panelFieldContent">
+        <label for="binaryOffValueText" class="panelLabel">{{'options.time.binaryOffValue' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <input
+          class="panelInput panelInputSm"
+          type="text"
+          maxlength="1"
+          id="binaryOffValueText"
+          name="binaryOffValueText"
+          [(ngModel)]="settings.config.time.clocks[selected].binary.offValueText"
+          autocomplete="off">
+      </div>
+    </div>
   </div>
   <h3 class="panelSubtitle">{{'options.common.layout' | translate}}</h3>
   <div class="panelGroup">

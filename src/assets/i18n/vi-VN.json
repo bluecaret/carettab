@@ -438,6 +438,9 @@
       "m7": "Sửa tìm kiếm vị trí thời tiết để hiển thị thành phố, khu vực và quốc gia để tránh việc vô tình chọn vị trí không chính xác.",
       "m8": "Quyền Đã thay đổi \"favicon\" thành tùy chọn nếu các biểu tượng được bật cho Thanh dấu trang hoặc Liên kết nhanh."
     },
+    "v365": {
+      "m1": "Đã sửa lỗi tìm kiếm vị trí thời tiết. Kết quả không hiển thị khi chỉ tìm thấy một vị trí."
+    },
     "yes": "Có"
   },
   "tab": {

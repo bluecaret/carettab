@@ -438,6 +438,9 @@
       "m7": "Corrige la recherche d'emplacement météo pour afficher la ville, la région et le pays afin d'éviter de sélectionner accidentellement un emplacement incorrect.",
       "m8": "Modification des autorisations \"favicon\" pour qu'elles soient facultatives si les icônes sont activées pour la barre de favoris ou les liens rapides."
     },
+    "v365": {
+      "m1": "Recherche d'emplacement météo fixe. Les résultats ne s'affichaient pas lorsqu'un seul emplacement était trouvé."
+    },
     "yes": "Oui"
   },
   "tab": {

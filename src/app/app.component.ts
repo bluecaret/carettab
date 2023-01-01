@@ -84,7 +84,7 @@ export class AppComponent implements OnInit {
       if (prevVer) {
         if (compare(prevVer, '3.5.0', '<')) {
           _self.shared.updateType = "major";
-        } else if (compare(prevVer, '3.6.4', '<')) {
+        } else if (compare(prevVer, '3.5.0', '>')) {
           _self.shared.updateType = "quiet"
         } else {
           _self.shared.updateType = "hidden"

@@ -438,6 +438,9 @@
       "m7": "Korrigieren Sie die Suche nach Wetterstandorten, um Stadt, Region und Land anzuzeigen, um zu verhindern, dass versehentlich der falsche Standort ausgewählt wird.",
       "m8": "Die „Favicon“-Berechtigungen sind jetzt optional, wenn Symbole für die Lesezeichenleiste oder Quicklinks aktiviert sind."
     },
+    "v365": {
+      "m1": "Wetterstandortsuche behoben. Ergebnisse wurden nicht angezeigt, wenn nur ein einziger Standort gefunden wurde."
+    },
     "yes": "Ja"
   },
   "tab": {

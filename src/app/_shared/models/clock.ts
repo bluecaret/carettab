@@ -96,6 +96,9 @@ export class Analog {
 export class Binary {
   constructor(
     public enabled: boolean = false,
-    public dim: boolean = false
+    public dim: boolean = false,
+    public useNumbers: boolean = false,
+    public onValueText: string = "1",
+    public offValueText: string = "0",
   ) {}
 }

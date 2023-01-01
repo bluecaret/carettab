@@ -460,12 +460,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="isLoading" class="panelField">
-      <div class="loading" aria-label="Loading, please wait.">
-        <div></div><div></div><div></div><div></div>
-      </div>
-    </div>
-    <div *ngIf="!isLoading && unsplashPage != null" class="panelField">
+    <div *ngIf="!shared.loading && unsplashPage != null" class="panelField">
       <div class="panelFieldContent">
         <label *ngIf="unsplashPage === 'search'" class="panelLabel">Search results for "{{unsplashPhotoSearchTerm.trim()}}"</label>
         <label *ngIf="unsplashPage === 'topics'" class="panelLabel">Unsplash Topics</label>

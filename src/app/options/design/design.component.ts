@@ -31,7 +31,6 @@ export class OptionsDesignComponent implements OnInit {
   unsplashPage = null;
   unsplashListItems = [];
   unsplashListPage = 1;
-  isLoading = false;
   @HostBinding('class') hostClass: string = 'panelPlateGroup';
 
   constructor(
@@ -236,7 +235,7 @@ export class OptionsDesignComponent implements OnInit {
 
   async getList(page: number) {
     if (this.wallpaperType !== 'search' && this.wallpaperType !== 'topics' && this.wallpaperType !== 'collections') { return }
-    this.isLoading = true;
+    this.shared.loading = true;
     const awsEndpoint = 'https://d3v14xaicc.execute-api.us-west-2.amazonaws.com/default/caretTabKeys';
     let unsplashEndpoint = `https://api.unsplash.com/topics?per_page=11&page=${page}`;
     if (this.wallpaperType === 'collections') {
@@ -264,12 +263,12 @@ export class OptionsDesignComponent implements OnInit {
     }
     this.unsplashListPage = page;
 
-    this.isLoading = false;
+    this.shared.loading = false;
   }
 
   async getSelectedUnsplashImage(id: string, title: string, link: string) {
     try {
-      this.isLoading = true;
+      this.shared.loading = true;
 
       // Retreive images from Unsplash
       let image, nextImage;
@@ -307,9 +306,9 @@ export class OptionsDesignComponent implements OnInit {
       // Save design settings
       this.settings.setAll(this.settings.config.design, 'ct-design');
       this.shared.echo('Background saved', null, image, 'save');
-      this.isLoading = false;
+      this.shared.loading = false;
     } catch (err) {
-      this.isLoading = false;
+      this.shared.loading = false;
       console.error('Error getting next image', err);
     }
   }

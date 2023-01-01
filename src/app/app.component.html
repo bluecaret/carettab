@@ -9,4 +9,9 @@
   <app-splash
     *ngIf="(shared.status === 'installed') || (shared.status === 'updated' && shared.updateType === 'major') || (shared.status === 'updated' && shared.updateType === 'minor')"
   ></app-splash>
+  <div *ngIf="shared.loading" class="app-loading">
+    <div class="loading" aria-label="Loading, please wait.">
+      <div></div><div></div><div></div><div></div>
+    </div>
+  </div>
 </ng-container>

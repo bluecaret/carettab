@@ -814,6 +814,17 @@ $btnRadius: var(--size300);
   letter-spacing: .1em;
 }
 
+.app-loading {
+  position: fixed;
+  inset: 0;
+  z-index: z('loading');
+  display: grid;
+  place-items: center;
+  background: hsl(0deg 0% 0% / .7);
+  color: hsl(0deg, 0%, 80%);
+  pointer-events: none;
+}
+
 .loading {
   display: block;
   margin-inline: auto;

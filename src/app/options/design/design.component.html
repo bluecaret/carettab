@@ -524,7 +524,7 @@
           <span class="matIcon" aria-hidden="true">arrow_back</span>
         </button>
         <div class="panelCurrentPage">Page {{unsplashListPage}}</div>
-        <button [disabled]="unsplashListItems.length <= 6" type="button" class="panelBtn" aria-label="Next page" title="Next page" (click)="getList(unsplashListPage + 1)">
+        <button [disabled]="unsplashListItems.length <= 10" type="button" class="panelBtn" aria-label="Next page" title="Next page" (click)="getList(unsplashListPage + 1)">
           <span class="matIcon" aria-hidden="true">arrow_forward</span>
         </button>
       </div>

@@ -282,6 +282,26 @@ export class TabComponent implements OnInit, AfterViewInit {
     return styles;
   }
 
+  setNotepadWrapStyles(): Object {
+    const styles = {
+      'order': this.shared.getOrder(
+        this.settings.config.notepad.id,
+        this.settings.config.notepad.position
+      )
+    };
+    return styles;
+  }
+
+  setNotepadStyles(): Object {
+    const styles = {
+      'transform' : this.shared.getOffsetLarge(this.settings.config.notepad.offset),
+      'width': this.shared.getMaxWidth(this.settings.config.notepad.width),
+      'height': this.shared.getMaxHeight(this.settings.config.notepad.height),
+      'margin' : this.shared.getMargin(this.settings.config.notepad.marginHeight, this.settings.config.notepad.marginWidth, .4),
+    };
+    return styles;
+  }
+
   setCovidCountryWrapStyles(c: any): Object {
     const styles = {
       'order': this.shared.getOrder(c.id, c.position)

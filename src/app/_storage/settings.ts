@@ -337,6 +337,30 @@ export class WeatherSettings {
   ) {}
 }
 
+export class NotepadSettings {
+  constructor(
+    public id = 'NOTEPAD_KS096NVA56',
+    public enabled = false,
+    public sync = false,
+    public spellCheck = true,
+    public position = 'c',
+    public scaling = 16,
+    public width = 30,
+    public height = 20,
+    public offset = 0,
+    public padding = 7,
+    public marginHeight = 3,
+    public marginWidth = 2,
+    public showBorder = true,
+    public borderRadius = 8,
+    public borderColor = '#3e3e3e',
+    public foreground = '#3e3e3e',
+    public showBg = true,
+    public background = '#1f1f1f',
+    public bgOpacity = .6,
+  ) {}
+}
+
 export class MiscSettings {
   constructor(
     public schema = '1.1',
@@ -362,6 +386,7 @@ export class Settings {
     public date = new DateSettings(),
     public search = new SearchSettings(),
     public weather = new WeatherSettings(),
+    public notepad = new NotepadSettings(),
     public misc = new MiscSettings(),
   ) {}
 }

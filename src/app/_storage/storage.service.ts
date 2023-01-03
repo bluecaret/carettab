@@ -19,7 +19,8 @@ import {
   SearchSettings,
   TimeSettings,
   CovidSettings,
-  WeatherSettings
+  WeatherSettings,
+  NotepadSettings,
 } from './settings';
 import { Observable } from 'rxjs/internal/Observable';
 
@@ -45,6 +46,7 @@ export class Storage {
     this.config.search = new SearchSettings();
     this.config.time = new TimeSettings();
     this.config.weather = new WeatherSettings();
+    this.config.notepad = new NotepadSettings();
   }
 
   get loadTracker(): number {
@@ -113,6 +115,11 @@ export class Storage {
 
     this.getChrome('ct-covid', this.config.covidData).then((data: any) => {
       this.config.covidData = data;
+      this.loadTracker++;
+    });
+
+    this.getChrome('ct-notepad', this.config.notepad).then((data: any) => {
+      this.config.notepad = data;
       this.loadTracker++;
     });
 

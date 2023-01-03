@@ -106,6 +106,16 @@
       >
         <tab-weather [ngStyle]="setWeatherStyles()"></tab-weather>
       </div>
+      <div
+        class="forceLineBreak"
+        *ngIf="
+          settings.config.notepad.position === 'nw' &&
+          settings.config.notepad.enabled
+        "
+        [ngStyle]="setNotepadWrapStyles()"
+      >
+        <tab-notepad [ngStyle]="setNotepadStyles()"></tab-notepad>
+      </div>
     </article>
 
     <article id="n" class="gridPosition">
@@ -192,6 +202,16 @@
         [ngStyle]="setWeatherWrapStyles()"
       >
         <tab-weather [ngStyle]="setWeatherStyles()"></tab-weather>
+      </div>
+      <div
+        class="forceLineBreak"
+        *ngIf="
+          settings.config.notepad.position === 'n' &&
+          settings.config.notepad.enabled
+        "
+        [ngStyle]="setNotepadWrapStyles()"
+      >
+        <tab-notepad [ngStyle]="setNotepadStyles()"></tab-notepad>
       </div>
     </article>
 
@@ -280,6 +300,16 @@
       >
         <tab-weather [ngStyle]="setWeatherStyles()"></tab-weather>
       </div>
+      <div
+        class="forceLineBreak"
+        *ngIf="
+          settings.config.notepad.position === 'ne' &&
+          settings.config.notepad.enabled
+        "
+        [ngStyle]="setNotepadWrapStyles()"
+      >
+        <tab-notepad [ngStyle]="setNotepadStyles()"></tab-notepad>
+      </div>
     </article>
 
     <article id="w" class="gridPosition">
@@ -366,6 +396,16 @@
         [ngStyle]="setWeatherWrapStyles()"
       >
         <tab-weather [ngStyle]="setWeatherStyles()"></tab-weather>
+      </div>
+      <div
+        class="forceLineBreak"
+        *ngIf="
+          settings.config.notepad.position === 'w' &&
+          settings.config.notepad.enabled
+        "
+        [ngStyle]="setNotepadWrapStyles()"
+      >
+        <tab-notepad [ngStyle]="setNotepadStyles()"></tab-notepad>
       </div>
     </article>
 
@@ -454,6 +494,16 @@
       >
         <tab-weather [ngStyle]="setWeatherStyles()"></tab-weather>
       </div>
+      <div
+        class="forceLineBreak"
+        *ngIf="
+          settings.config.notepad.position === 'c' &&
+          settings.config.notepad.enabled
+        "
+        [ngStyle]="setNotepadWrapStyles()"
+      >
+        <tab-notepad [ngStyle]="setNotepadStyles()"></tab-notepad>
+      </div>
     </article>
 
     <article id="e" class="gridPosition">
@@ -540,6 +590,16 @@
         [ngStyle]="setWeatherWrapStyles()"
       >
         <tab-weather [ngStyle]="setWeatherStyles()"></tab-weather>
+      </div>
+      <div
+        class="forceLineBreak"
+        *ngIf="
+          settings.config.notepad.position === 'e' &&
+          settings.config.notepad.enabled
+        "
+        [ngStyle]="setNotepadWrapStyles()"
+      >
+        <tab-notepad [ngStyle]="setNotepadStyles()"></tab-notepad>
       </div>
     </article>
 
@@ -628,6 +688,16 @@
       >
         <tab-weather [ngStyle]="setWeatherStyles()"></tab-weather>
       </div>
+      <div
+        class="forceLineBreak"
+        *ngIf="
+          settings.config.notepad.position === 'sw' &&
+          settings.config.notepad.enabled
+        "
+        [ngStyle]="setNotepadWrapStyles()"
+      >
+        <tab-notepad [ngStyle]="setNotepadStyles()"></tab-notepad>
+      </div>
     </article>
 
     <article id="s" class="gridPosition">
@@ -715,6 +785,16 @@
       >
         <tab-weather [ngStyle]="setWeatherStyles()"></tab-weather>
       </div>
+      <div
+        class="forceLineBreak"
+        *ngIf="
+          settings.config.notepad.position === 's' &&
+          settings.config.notepad.enabled
+        "
+        [ngStyle]="setNotepadWrapStyles()"
+      >
+        <tab-notepad [ngStyle]="setNotepadStyles()"></tab-notepad>
+      </div>
     </article>
 
     <article id="se" class="gridPosition">
@@ -801,6 +881,16 @@
         [ngStyle]="setWeatherWrapStyles()"
       >
         <tab-weather [ngStyle]="setWeatherStyles()"></tab-weather>
+      </div>
+      <div
+        class="forceLineBreak"
+        *ngIf="
+          settings.config.notepad.position === 'se' &&
+          settings.config.notepad.enabled
+        "
+        [ngStyle]="setNotepadWrapStyles()"
+      >
+        <tab-notepad [ngStyle]="setNotepadStyles()"></tab-notepad>
       </div>
     </article>
   </div>

@@ -227,6 +227,11 @@ export class SharedService {
     return (size * 1) + 'vw';
   }
 
+  public getMaxHeight(size: number) {
+    // Max height will always be based on viewport as opposed to scaling method.
+    return (size * 1) + 'vh';
+  }
+
   public getPercentWidth(size: number) {
     // Max width will always be based on viewport as opposed to scaling method.
     return (size * 1) + '%';
@@ -549,6 +554,7 @@ export class SharedService {
     this.settings.setAll(this.settings.config.search, 'ct-search');
     this.settings.setAll(this.settings.config.time, 'ct-time');
     this.settings.setAll(this.settings.config.weather, 'ct-weather');
+    this.settings.setAll(this.settings.config.notepad, 'ct-notepad');
   }
 
   public getRandomNumber(min,max): number {

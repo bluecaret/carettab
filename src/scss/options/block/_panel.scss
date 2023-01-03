@@ -742,8 +742,7 @@ $btnRadius: var(--size300);
   align-items: center;
   text-align: left;
   color: var(--getPremiumAdColor);
-  margin-bottom: var(--size500);
-  width: 100%;
+  grid-column: 1 / 3;
   > i {
     display: grid;
     place-items: center;

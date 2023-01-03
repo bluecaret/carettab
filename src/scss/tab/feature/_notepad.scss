@@ -1,0 +1,44 @@
+.notepad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: max-content;
+}
+
+.notepadEditorWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--size400);
+  border: 1px solid currentColor;
+  overflow: hidden;
+}
+
+.notepadEditorBg {
+  position: absolute;
+  inset: 0;
+}
+
+.notepadEditor {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: var(--size400);
+  resize: none;
+  // font-family: 'Open Sans', sans-serif;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.3;
+}
+
+.notepadEditor::-webkit-scrollbar {
+  display: none;
+}
+
+.notepadEditor:focus-visible::-webkit-scrollbar {
+  display: block;
+}

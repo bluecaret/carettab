@@ -38,6 +38,7 @@ import { OptionsDateComponent } from './options/date/date.component';
 import { OptionsDesignComponent } from './options/design/design.component';
 import { OptionsExtraComponent } from './options/extra/extra.component';
 import { OptionsMessageComponent } from './options/message/message.component';
+import { OptionsNotepadComponent } from './options/notepad/notepad.component';
 import { OptionsSearchComponent } from './options/search/search.component';
 import { OptionsTimeComponent } from './options/time/time.component';
 import { OptionsWeatherComponent } from './options/weather/weather.component';
@@ -51,6 +52,7 @@ import { TabQuickLinksComponent } from './tab/bookmarks/quickLinks.component';
 import { TabTimeComponent } from './tab/time/time.component';
 import { TabDateComponent } from './tab/date/date.component';
 import { TabMessageComponent } from './tab/message/message.component';
+import { TabNotepadComponent } from './tab/notepad/notepad.component';
 import { TabSearchComponent } from './tab/search/search.component';
 import { TabCovidComponent } from './tab/covid/covid.component';
 import { TabWeatherComponent } from './tab/weather/weather.component';
@@ -79,6 +81,7 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     OptionsDesignComponent,
     OptionsExtraComponent,
     OptionsMessageComponent,
+    OptionsNotepadComponent,
     OptionsSearchComponent,
     OptionsTimeComponent,
     OptionsWeatherComponent,
@@ -90,6 +93,7 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     TabTimeComponent,
     TabDateComponent,
     TabMessageComponent,
+    TabNotepadComponent,
     TabSearchComponent,
     TabCovidComponent,
     TabWeatherComponent

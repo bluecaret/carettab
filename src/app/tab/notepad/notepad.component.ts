@@ -34,7 +34,6 @@ export class TabNotepadComponent implements AfterViewInit {
     // Only save notes after a 1 second delay from user's last input.
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
-      console.log('save notes', this.notes);
       chrome.storage[this.settings.config.notepad.sync ? 'sync' : 'local'].set({'ct-notes': this.notes});
     }, 1000);
   }

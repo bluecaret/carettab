@@ -10,6 +10,7 @@ import { Storage } from "../../_storage/storage.service";
 export class TabNotepadComponent implements AfterViewInit {
   notes: any;
   timer: any;
+  totalCount: number;
   @ViewChild('notepadEditor', {static: false}) notepadEditor!: ElementRef;
 
   constructor(
@@ -21,6 +22,7 @@ export class TabNotepadComponent implements AfterViewInit {
   ngAfterViewInit() {
     // settimeout to ensure settings are fully loaded
     setTimeout(() => {
+      this.totalCount = this.settings.config.notepad.sync ? 2000 : 250000;
       let that = this;
       chrome.storage[this.settings.config.notepad.sync ? 'sync' : 'local'].get('ct-notes', (result) => {
         that.notes = result['ct-notes'];

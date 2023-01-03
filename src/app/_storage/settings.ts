@@ -343,6 +343,7 @@ export class NotepadSettings {
     public enabled = false,
     public sync = false,
     public spellCheck = true,
+    public showCharLimit = true,
     public position = 'c',
     public scaling = 16,
     public width = 30,

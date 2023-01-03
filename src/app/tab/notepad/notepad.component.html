@@ -1,6 +1,7 @@
 <div
   class="notepadEditorWrapper"
   [ngStyle]="{
+    'font-size': shared.getFontSize(this.settings.config.notepad.scaling, 22.4),
     'border-width': settings.config.notepad.showBorder ? '1px' : '0',
     'border-color': settings.config.notepad.borderColor,
     'border-radius': settings.config.notepad.borderRadius + 'px'
@@ -14,11 +15,10 @@
       'opacity': (settings.config.notepad.bgOpacity * .01)
     }"
     ></div>
-    <textarea
+  <textarea
     #notepadEditor
     class="notepadEditor"
     [ngStyle]="{
-      'font-size': shared.getFontSize(this.settings.config.notepad.scaling, 22.4),
       'color': settings.config.notepad.foreground,
       'padding': shared.getFontSize(settings.config.notepad.padding)
     }"
@@ -27,5 +27,7 @@
     [(ngModel)]="notes"
     autocomplete="off"
     [spellcheck]="settings.config.notepad.spellCheck"
+    [maxlength]="settings.config.notepad.sync ? 2000 : 250000"
   ></textarea>
+  <div *ngIf="settings.config.notepad.showCharLimit" class="notepadCharacterCount">{{ notes ? notes.length : '0' }} / {{ totalCount }}</div>
 </div>

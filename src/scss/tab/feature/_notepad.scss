@@ -42,3 +42,11 @@
 .notepadEditor:focus-visible::-webkit-scrollbar {
   display: block;
 }
+
+.notepadCharacterCount {
+  position: absolute;
+  right: 2.5em;
+  bottom: .3em;
+  font-size: .7em;
+  opacity: .25;
+}

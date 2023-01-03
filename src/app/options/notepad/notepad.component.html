@@ -30,6 +30,7 @@
         <div class="panelFieldContent">
           <label id="notepadSyncLabel" class="panelLabel">Sync notes</label>
           <div class="panelDescription">Allow notes to sync across computers. You must be signed in to the browser for syncing to work. Browsers have a higher restriction on syncing data, this means notes will be limited to only 2000 characters. Disabling sync for notes allows up to 250,000 characters.</div>
+          <div class="panelDescription">Notes are currently limited to {{sync ? '2,000' : '250,000'}} characters.</div>
         </div>
         <div class="panelFieldInput">
           <options-toggle
@@ -50,6 +51,19 @@
             name="notepadSpellCheck"
             labelledby="notepadSpellCheckLabel"
             [(ngModel)]="settings.config.notepad.spellCheck"
+          ></options-toggle>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="notepadShowCharLimitLabel" class="panelLabel">Show count</label>
+          <div class="panelDescription">Display the current character count and the total allowed in the bottom of the notepad.</div>
+        </div>
+        <div class="panelFieldInput">
+          <options-toggle
+            name="notepadShowCharLimit"
+            labelledby="notepadShowCharLimitLabel"
+            [(ngModel)]="settings.config.notepad.showCharLimit"
           ></options-toggle>
         </div>
       </div>

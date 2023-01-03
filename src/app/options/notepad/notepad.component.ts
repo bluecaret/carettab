@@ -47,7 +47,7 @@ export class OptionsNotepadComponent implements OnInit {
         this.sync = true;
 
         chrome.storage.local.get('ct-notes', (result) => {
-          chrome.storage.sync.set({'ct-notes': result['ct-notes']});
+          chrome.storage.sync.set({'ct-notes': result['ct-notes'].slice(0, 2000)});
           chrome.storage.local.set({'ct-notes': ''});
         })
         return;

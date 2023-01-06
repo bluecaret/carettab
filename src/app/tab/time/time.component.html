@@ -9,7 +9,7 @@
   {{ clock.brackets.left }}
 </div>
 <div class="clockContent">
-  <div class="time" *ngIf="!clock.analog.enabled && (!clock.binary || !clock.binary.enabled)">
+  <div class="time allowPointerEvent" *ngIf="!clock.analog.enabled && (!clock.binary || !clock.binary.enabled)">
     <div class="timeDigit hour">
       <span [style.width]="getWidth(clock.padding)">{{
         getHour(clock.timezone, clock.twentyFour, clock.twoDigit, 1)
@@ -77,8 +77,8 @@
       [ngClass]="{ dim: clock.meridiem.dim }"
       [style.fontSize]="shared.getFontSize(clock.meridiem.scaling, 20)"
       [style.transform]="shared.getOffset(clock.meridiem.offset)"
-    >{{ 
-      getMeridiem(clock.timezone, clock.meridiem.am, clock.meridiem.pm) 
+    >{{
+      getMeridiem(clock.timezone, clock.meridiem.am, clock.meridiem.pm)
     }}</div>
   </div>
   <div

@@ -5,52 +5,52 @@
     [src]="settings.config.covidData.countries[index].flagImage"
     alt="flag"
   />
-  <div *ngIf="settings.config.covidData.countries[index].enableCountryName">{{ countryData.country }}</div>
+  <div class="allowPointerEvent" *ngIf="settings.config.covidData.countries[index].enableCountryName">{{ countryData.country }}</div>
 </div>
-<div 
-  class="covidNumbers" 
+<div
+  class="covidNumbers"
   title="{{'options.covidData.todayCases' | translate}}"
   *ngIf="settings.config.covidData.countries[index].enableToday"
 >
   <div class="icon" aria-hidden="true">today</div>
-  <div>{{ countryData.todayCases || countryData.todayCases === 0 ? countryData.todayCases.toLocaleString() : '???' }}</div>
+  <div class="allowPointerEvent">{{ countryData.todayCases || countryData.todayCases === 0 ? countryData.todayCases.toLocaleString() : '???' }}</div>
 </div>
-<div 
-  class="covidNumbers" 
+<div
+  class="covidNumbers"
   title="{{'options.covidData.activeCases' | translate}}{{settings.config.covidData.countries[index].enablePer1M ? ' per one million' : null}}"
   *ngIf="settings.config.covidData.countries[index].enableActive"
 >
   <div class="icon" aria-hidden="true">sick</div>
-  <div>
-    {{ 
+  <div class="allowPointerEvent">
+    {{
       settings.config.covidData.countries[index].enablePer1M
         ? countryData.activePerOneMillion || countryData.activePerOneMillion === 0 ? countryData.activePerOneMillion.toLocaleString() : '???'
         : countryData.active || countryData.active === 0 ? countryData.active.toLocaleString() : '???'
     }}
   </div>
 </div>
-<div 
-  class="covidNumbers" 
+<div
+  class="covidNumbers"
   title="{{'options.covidData.recoveredCases' | translate}}{{settings.config.covidData.countries[index].enablePer1M ? ' per one million' : null}}"
   *ngIf="settings.config.covidData.countries[index].enableRecovered"
 >
   <div class="icon" aria-hidden="true">emoji_emotions</div>
-  <div>
-    {{ 
+  <div class="allowPointerEvent">
+    {{
       settings.config.covidData.countries[index].enablePer1M
         ? countryData.recoveredPerOneMillion || countryData.recoveredPerOneMillion === 0 ? countryData.recoveredPerOneMillion.toLocaleString() : '???'
         : countryData.recovered || countryData.recovered === 0 ? countryData.recovered.toLocaleString() : '???'
     }}
   </div>
 </div>
-<div 
-  class="covidNumbers" 
+<div
+  class="covidNumbers"
   title="{{'options.covidData.deaths' | translate}}{{settings.config.covidData.countries[index].enablePer1M ? ' per one million' : null}}"
   *ngIf="settings.config.covidData.countries[index].enableDeaths"
 >
   <div class="icon" aria-hidden="true">remove_circle</div>
-  <div>
-    {{ 
+  <div class="allowPointerEvent">
+    {{
       settings.config.covidData.countries[index].enablePer1M
         ? countryData.deathsPerOneMillion || countryData.deathsPerOneMillion === 0 ? countryData.deathsPerOneMillion.toLocaleString() : '???'
         : countryData.deaths || countryData.deaths === 0 ? countryData.deaths.toLocaleString() : '???'

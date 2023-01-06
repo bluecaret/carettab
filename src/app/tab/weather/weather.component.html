@@ -31,7 +31,7 @@ UV: {{weather.current.uv}}
         ></i>
       </div>
     </div>
-    <div class="currentContent">
+    <div class="currentContent allowPointerEvent">
       <div class="currentTemp" [ngClass]="{'currentTemp--NoDegree' : !settings.config.weather.current.temp.degree}" *ngIf="settings.config.weather.current.temp.currently || settings.config.weather.current.temp.feelsLike">
         <div class="currentNow" *ngIf="settings.config.weather.current.temp.currently">
           {{getPreciseDigit(settings.config.weather.celsius ? weather.current.temp_c : weather.current.temp_f)}}<span class="currentDegree" *ngIf="settings.config.weather.current.temp.degree">&deg;</span>
@@ -126,7 +126,7 @@ UV: {{forecastDay.day.uv}}
                 ></i>
               </div>
             </div>
-            <div class="forecastContent" *ngIf="
+            <div class="forecastContent allowPointerEvent" *ngIf="
               settings.config.weather.forecast.day.enabled ||
               settings.config.weather.forecast.temp.high ||
               settings.config.weather.forecast.temp.low

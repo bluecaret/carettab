@@ -20,6 +20,11 @@ export class TabComponent implements OnInit, AfterViewInit {
   bgSize = bgSize;
   bgBlend = bgBlend;
   patterns = patterns;
+  grid = [
+    'nw', 'n', 'ne',
+    'w', 'c', 'e',
+    'sw', 's', 'se',
+  ]
 
   constructor(
     public sanitizer: DomSanitizer,

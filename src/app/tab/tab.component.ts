@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from '../_shared/shared.service';
 import { WallpaperService } from '../_shared/wallpaper.service';
 import { Storage } from '../_storage/storage.service';
-import { span, bgSize, bgBlend, patterns } from '../_shared/lists/lists';
+import { fontList, span, bgSize, bgBlend, patterns } from '../_shared/lists/lists';
 import { tab } from '../_shared/animations';
 
 @Component({
@@ -16,6 +16,7 @@ import { tab } from '../_shared/animations';
 })
 export class TabComponent implements OnInit, AfterViewInit {
   NEW_TAB_TEXT = 'New Tab';
+  fontList = fontList;
   span = span;
   bgSize = bgSize;
   bgBlend = bgBlend;

@@ -568,6 +568,9 @@ $btnRadius: var(--size300);
     background-color: var(--inputBgDisabled);
     cursor: not-allowed;
   }
+  option[disabled] {
+    color: var(--inputColorDisabled);
+  }
 }
 
 .panelInputXl {

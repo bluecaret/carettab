@@ -192,7 +192,11 @@ export class SharedService {
     ).toString(36).toUpperCase();
   }
 
-  public getFont(font: number, custom: string) {
+  public getFontObject(font: number | string) {
+    return fontList.find(f => f.id === font);
+  }
+
+  public getFont(font: number | string, custom: string) {
     let fontName;
     if (font !== 0) {
       fontName = fontList.find(f => f.id === font).family;
@@ -202,7 +206,7 @@ export class SharedService {
     return '"' + fontName + '"';
   }
 
-  public getFontWeight(font: number, weight: number) {
+  public getFontWeight(font: number | string, weight: number) {
     let fontWeight;
     if (font !== 0) {
       fontWeight = fontList.find(f => f.id === font).weight;

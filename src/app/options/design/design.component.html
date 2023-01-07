@@ -67,23 +67,20 @@
           </button>
         </div>
       </div>
-      <div class="panelField">
+      <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
           <label for="font" class="panelLabel">{{'options.design.font' | translate}}</label>
+          <div class="panelDescription"><premium-label></premium-label> Premium fonts require internet.</div>
         </div>
         <div class="panelFieldInput">
-          <select class="panelSelect" name="font" id="font"
+          <select class="panelSelect panelInputXl" name="font" id="font"
             [(ngModel)]="settings.config.design.font"
-            (ngModelChange)="getFont();"
-            [style.fontFamily]="currentFont"
-            [style.fontWeight]="currentWeight"
-            style="font-size: 1em; font-weight: 400;">
+            (ngModelChange)="getFont();">
             <option
+              [disabled]="!shared.paid && font.premium"
               [ngValue]="font.id"
-              *ngFor="let font of fonts;"
-              [style.fontFamily]="setFont(font.family)"
-              [style.fontWeight]="font.weight">
-              {{font.label}}
+              *ngFor="let font of fonts;">
+              {{font.label}}<ng-container *ngIf="font.premium"> (Premium)</ng-container>
             </option>
           </select>
         </div>

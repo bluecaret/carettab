@@ -1,3 +1,4 @@
+<link *ngIf="shared.paid && settings.config.design.font !== 0 && shared.getFontObject(settings.config.design.font).link" id="google-font-link" rel="stylesheet" [href]="sanitizer.bypassSecurityTrustResourceUrl('https://fonts.googleapis.com/css2?family=' + shared.getFontObject(settings.config.design.font).link + '&display=swap')">
 <div
   class="tabWrap"
   [ngClass]="{ 'noHighlight': settings.config.misc.disableSelect }"

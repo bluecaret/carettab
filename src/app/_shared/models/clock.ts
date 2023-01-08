@@ -89,7 +89,9 @@ export class Brackets {
 export class Analog {
   constructor(
     public enabled: boolean = false,
-    public style: number = 10
+    public faceStyle: number = 10,
+    public handStyle: number = 10,
+    public smoothSeconds: boolean = false
   ) {}
 }
 

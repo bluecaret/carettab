@@ -111,7 +111,11 @@ export const customFontWeight = [
   { id: 80, label: 'Black', weight: 900 },
 ];
 
-export const analogStyles = [
+export const analogFaceStyles = [
+  { id: 10, label: 'Style 1' }
+];
+
+export const analogHandStyles = [
   { id: 10, label: 'Style 1' }
 ];
 

@@ -83,6 +83,7 @@
     >arrow_back</button>
     {{'options.time.clock' | translate}} #{{selected + 1}}
   </h2>
+  <!-- General -->
   <h3 class="panelSubtitle">{{'options.time.generalSettings' | translate}}</h3>
   <div class="panelGroup">
     <div class="panelField">
@@ -112,6 +113,23 @@
     </div>
     <div class="panelField panelFieldInline">
       <div class="panelFieldContent">
+        <label for="clockType" class="panelLabel">Clock type</label>
+      </div>
+      <div class="panelFieldInput">
+        <select
+          class="panelSelect panelInputLg"
+          name="clockType"
+          id="clockType"
+          [(ngModel)]="clockType"
+          (ngModelChange)="setClockType(selected)">
+          <option value="digital">Digital</option>
+          <option value="analog">Analog</option>
+          <option value="binary">Binary</option>
+        </select>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="!settings.config.time.clocks[selected].analog.enabled">
+      <div class="panelFieldContent">
         <label id="clockTwentyFourLabel" class="panelLabel">{{'options.time.twentyFour' | translate}}</label>
         <p class="panelDescription">{{'options.time.twentyFourDesc' | translate}}</p>
       </div>
@@ -124,7 +142,7 @@
         </options-toggle>
       </div>
     </div>
-    <div class="panelField panelFieldInline">
+    <div class="panelField panelFieldInline" *ngIf="!settings.config.time.clocks[selected].analog.enabled && !settings.config.time.clocks[selected].binary.enabled">
       <div class="panelFieldContent">
         <label id="clockTwoDigit" class="panelLabel">{{'options.time.twoDigit' | translate}}</label>
         <p class="panelDescription">{{'options.time.twoDigitDesc' | translate}}</p>
@@ -140,88 +158,133 @@
       </div>
     </div>
   </div>
-  <h3 class="panelSubtitle">{{'options.time.label' | translate}}</h3>
-  <div class="panelGroup">
+  <!-- Analog -->
+  <h3 class="panelSubtitle" *ngIf="settings.config.time.clocks[selected].analog.enabled === true">{{'options.time.analog' | translate}}</h3>
+  <div class="panelGroup" *ngIf="settings.config.time.clocks[selected].analog.enabled === true">
     <div class="panelField panelFieldInline">
       <div class="panelFieldContent">
-        <label id="labelEnableLabel" class="panelLabel">{{'options.time.labelEnable' | translate}}</label>
+        <label for="analogStyle" class="panelLabel">{{'options.time.analogStyle' | translate}}</label>
+        <p class="panelDescription">{{'options.time.analogStyleDesc' | translate}}</p>
+      </div>
+      <div class="panelFieldInput">
+        <select
+          class="panelSelect panelInputLg"
+          name="analogStyle"
+          id="analogStyle"
+          [(ngModel)]="settings.config.time.clocks[selected].analog.style">
+          <option *ngFor="let s of analog" [ngValue]="s.id">{{s.label}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="secondsEnableAnalogLabel" class="panelLabel">{{'options.time.secondsEnable' | translate}}</label>
       </div>
       <div class="panelFieldInput">
         <options-toggle
-          labelledby="labelEnableLabel"
+          labelledby="secondsEnableAnalogLabel"
           type="toggle"
-          name="labelEnable"
-          id="labelEnable"
-          [(ngModel)]="settings.config.time.clocks[selected].label.enabled">
-        </options-toggle>
-      </div>
-    </div>
-    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].label.enabled">
-      <div class="panelFieldContent">
-        <label for="clockLabel" class="panelLabel">{{'options.common.label' | translate}}</label>
-        <p class="panelDescription">{{'options.time.labelDesc' | translate}}</p>
-      </div>
-      <div class="panelFieldInput">
-        <input
-          class="panelInput panelInputLg"
-          type="text"
-          name="clockLabel"
-          id="clockLabel"
-          [(ngModel)]="settings.config.time.clocks[selected].label.text"
-          autocomplete="off">
-      </div>
-    </div>
-    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].label.enabled">
-      <div class="panelFieldContent">
-        <label id="labelScalingLabel" class="panelLabel">{{'options.common.size' | translate}}</label>
-        <p class="panelDescription">{{'options.time.labelSize' | translate}}</p>
-      </div>
-      <div class="panelFieldInput">
-        <options-range
-          labelledby="labelScalingLabel"
-          class="panelInputLg"
-          name="labelScaling"
-          id="labelScaling"
-          min="1"
-          max="50"
-          [(ngModel)]="settings.config.time.clocks[selected].label.scaling">
-        </options-range>
-      </div>
-    </div>
-    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].label.enabled">
-      <div class="panelFieldContent">
-        <label id="labelOffsetLabel" class="panelLabel">{{'options.common.offset' | translate}}</label>
-        <p class="panelDescription">{{'options.time.labelOffset' | translate}}</p>
-      </div>
-      <div class="panelFieldInput">
-        <options-range
-          labelledby="labelOffsetLabel"
-          class="panelInputLg"
-          name="labelOffset"
-          id="labelOffset"
-          min="-50"
-          max="50"
-          [(ngModel)]="settings.config.time.clocks[selected].label.offset">
-        </options-range>
-      </div>
-    </div>
-    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].label.enabled">
-      <div class="panelFieldContent">
-        <label id="labelDimLabel" class="panelLabel">{{'options.time.labelDim' | translate}}</label>
-      </div>
-      <div class="panelFieldInput">
-        <options-toggle
-          labelledby="labelDimLabel"
-          type="toggle"
-          name="labelDim"
-          id="labelDim"
-          [(ngModel)]="settings.config.time.clocks[selected].label.dim">
+          name="secondsEnableAnalog"
+          id="secondsEnableAnalog"
+          [(ngModel)]="settings.config.time.clocks[selected].seconds.enabled">
         </options-toggle>
       </div>
     </div>
   </div>
-  <h3 class="panelSubtitle">{{'options.time.delimiter' | translate}}</h3>
-  <div class="panelGroup">
+  <!-- Binary -->
+  <h3 class="panelSubtitle" *ngIf="settings.config.time.clocks[selected].binary.enabled === true">{{'options.time.binary' | translate}}</h3>
+  <div class="panelGroup" *ngIf="settings.config.time.clocks[selected].binary.enabled === true">
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="binarydimLabel" class="panelLabel">{{'options.time.binaryDim' | translate}}</label>
+        <p class="panelDescription">{{'options.time.binaryDimDesc' | translate}}</p>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle
+          labelledby="binarydimLabel"
+          type="toggle"
+          name="binarydim"
+          id="binarydim"
+          [(ngModel)]="settings.config.time.clocks[selected].binary.dim">
+        </options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="binaryUseNumbersLabel" class="panelLabel">{{'options.time.binaryUseNumbers' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle
+          labelledby="binaryUseNumbersLabel"
+          type="toggle"
+          name="binaryUseNumbers"
+          id="binaryUseNumbers"
+          [(ngModel)]="settings.config.time.clocks[selected].binary.useNumbers">
+        </options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label for="binaryOnValueText" class="panelLabel">{{'options.time.binaryOnValue' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <input
+          class="panelInput panelInputSm"
+          type="text"
+          maxlength="1"
+          id="binaryOnValueText"
+          name="binaryOnValueText"
+          [(ngModel)]="settings.config.time.clocks[selected].binary.onValueText"
+          autocomplete="off">
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label for="binaryOffValueText" class="panelLabel">{{'options.time.binaryOffValue' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <input
+          class="panelInput panelInputSm"
+          type="text"
+          maxlength="1"
+          id="binaryOffValueText"
+          name="binaryOffValueText"
+          [(ngModel)]="settings.config.time.clocks[selected].binary.offValueText"
+          autocomplete="off">
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="secondsEnableBinaryLabel" class="panelLabel">{{'options.time.secondsEnable' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle
+          labelledby="secondsEnableBinaryLabel"
+          type="toggle"
+          name="secondsEnableBinary"
+          id="secondsEnableBinary"
+          [(ngModel)]="settings.config.time.clocks[selected].seconds.enabled">
+        </options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="secondsDimBinaryLabel" class="panelLabel">{{'options.time.secondsDim' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle
+          labelledby="secondsDimBinaryLabel"
+          type="toggle"
+          name="secondsDimBinary"
+          id="secondsDimBinary"
+          [(ngModel)]="settings.config.time.clocks[selected].seconds.dim">
+        </options-toggle>
+      </div>
+    </div>
+  </div>
+  <!-- Delimiter -->
+  <h3 class="panelSubtitle" *ngIf="!settings.config.time.clocks[selected].analog.enabled && !settings.config.time.clocks[selected].binary.enabled">{{'options.time.delimiter' | translate}}</h3>
+  <div class="panelGroup" *ngIf="!settings.config.time.clocks[selected].analog.enabled && !settings.config.time.clocks[selected].binary.enabled">
     <div class="panelField panelFieldInline">
       <div class="panelFieldContent">
         <label id="delimiterEnableLabel" class="panelLabel">{{'options.time.enableDelimiter' | translate}}</label>
@@ -315,8 +378,9 @@
       </div>
     </div>
   </div>
-  <h3 class="panelSubtitle">{{'options.time.seconds' | translate}}</h3>
-  <div class="panelGroup">
+  <!-- Seconds -->
+  <h3 class="panelSubtitle" *ngIf="settings.config.time.clocks[selected].seconds.enabled && !settings.config.time.clocks[selected].analog.enabled && !settings.config.time.clocks[selected].binary.enabled">{{'options.time.seconds' | translate}}</h3>
+  <div class="panelGroup" *ngIf="settings.config.time.clocks[selected].seconds.enabled && !settings.config.time.clocks[selected].analog.enabled && !settings.config.time.clocks[selected].binary.enabled">
     <div class="panelField panelFieldInline">
       <div class="panelFieldContent">
         <label id="secondsEnableLabel" class="panelLabel">{{'options.time.secondsEnable' | translate}}</label>
@@ -380,8 +444,9 @@
       </div>
     </div>
   </div>
-  <h3 class="panelSubtitle">{{'options.time.meridiem' | translate}}</h3>
-  <div class="panelGroup">
+  <!-- Meridiem -->
+  <h3 class="panelSubtitle" *ngIf="!settings.config.time.clocks[selected].analog.enabled && !settings.config.time.clocks[selected].binary.enabled">{{'options.time.meridiem' | translate}}</h3>
+  <div class="panelGroup" *ngIf="!settings.config.time.clocks[selected].analog.enabled && !settings.config.time.clocks[selected].binary.enabled">
     <div class="panelField panelFieldInline">
       <div class="panelFieldContent">
         <label id="meridiemEnableLabel" class="panelLabel">{{'options.time.meridiemEnable' | translate}}</label>
@@ -475,6 +540,88 @@
       </div>
     </div>
   </div>
+  <!-- Label -->
+  <h3 class="panelSubtitle">{{'options.time.label' | translate}}</h3>
+  <div class="panelGroup">
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="labelEnableLabel" class="panelLabel">{{'options.time.labelEnable' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle
+          labelledby="labelEnableLabel"
+          type="toggle"
+          name="labelEnable"
+          id="labelEnable"
+          [(ngModel)]="settings.config.time.clocks[selected].label.enabled">
+        </options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].label.enabled">
+      <div class="panelFieldContent">
+        <label for="clockLabel" class="panelLabel">{{'options.common.label' | translate}}</label>
+        <p class="panelDescription">{{'options.time.labelDesc' | translate}}</p>
+      </div>
+      <div class="panelFieldInput">
+        <input
+          class="panelInput panelInputLg"
+          type="text"
+          name="clockLabel"
+          id="clockLabel"
+          [(ngModel)]="settings.config.time.clocks[selected].label.text"
+          autocomplete="off">
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].label.enabled">
+      <div class="panelFieldContent">
+        <label id="labelScalingLabel" class="panelLabel">{{'options.common.size' | translate}}</label>
+        <p class="panelDescription">{{'options.time.labelSize' | translate}}</p>
+      </div>
+      <div class="panelFieldInput">
+        <options-range
+          labelledby="labelScalingLabel"
+          class="panelInputLg"
+          name="labelScaling"
+          id="labelScaling"
+          min="1"
+          max="50"
+          [(ngModel)]="settings.config.time.clocks[selected].label.scaling">
+        </options-range>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].label.enabled">
+      <div class="panelFieldContent">
+        <label id="labelOffsetLabel" class="panelLabel">{{'options.common.offset' | translate}}</label>
+        <p class="panelDescription">{{'options.time.labelOffset' | translate}}</p>
+      </div>
+      <div class="panelFieldInput">
+        <options-range
+          labelledby="labelOffsetLabel"
+          class="panelInputLg"
+          name="labelOffset"
+          id="labelOffset"
+          min="-50"
+          max="50"
+          [(ngModel)]="settings.config.time.clocks[selected].label.offset">
+        </options-range>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].label.enabled">
+      <div class="panelFieldContent">
+        <label id="labelDimLabel" class="panelLabel">{{'options.time.labelDim' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle
+          labelledby="labelDimLabel"
+          type="toggle"
+          name="labelDim"
+          id="labelDim"
+          [(ngModel)]="settings.config.time.clocks[selected].label.dim">
+        </options-toggle>
+      </div>
+    </div>
+  </div>
+  <!-- Brackets -->
   <h3 class="panelSubtitle">{{'options.time.brackets' | translate}}</h3>
   <div class="panelGroup">
     <div class="panelField panelFieldInline">
@@ -590,6 +737,7 @@
       </div>
     </div>
   </div>
+  <!-- Relative time -->
   <h3 class="panelSubtitle">{{'options.time.relativeTime' | translate}}</h3>
   <div class="panelGroup">
     <div class="panelField panelFieldInline">
@@ -656,118 +804,7 @@
       </div>
     </div>
   </div>
-  <h3 class="panelSubtitle">{{'options.time.analog' | translate}}</h3>
-  <div class="panelGroup">
-    <div class="panelField panelFieldInline">
-      <div class="panelFieldContent">
-        <label id="analogEnableLabel" class="panelLabel">{{'options.time.analogEnable' | translate}}</label>
-        <p class="panelDescription">{{'options.time.analogEnableDesc' | translate}}</p>
-      </div>
-      <div class="panelFieldInput">
-        <options-toggle
-          labelledby="analogEnableLabel"
-          type="toggle"
-          name="analogEnable"
-          id="analogEnable"
-          [(ngModel)]="settings.config.time.clocks[selected].analog.enabled"
-          (ngModelChange)="settings.config.time.clocks[selected].binary.enabled=false;">
-        </options-toggle>
-      </div>
-    </div>
-    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].analog.enabled === true">
-      <div class="panelFieldContent">
-        <label for="analogStyle" class="panelLabel">{{'options.time.analogStyle' | translate}}</label>
-        <p class="panelDescription">{{'options.time.analogStyleDesc' | translate}}</p>
-      </div>
-      <div class="panelFieldInput">
-        <select
-          class="panelSelect panelInputLg"
-          name="analogStyle"
-          id="analogStyle"
-          [(ngModel)]="settings.config.time.clocks[selected].analog.style">
-          <option *ngFor="let s of analog" [ngValue]="s.id">{{s.label}}</option>
-        </select>
-      </div>
-    </div>
-  </div>
-  <h3 class="panelSubtitle">{{'options.time.binary' | translate}}</h3>
-  <div class="panelGroup">
-    <div class="panelField panelFieldInline">
-      <div class="panelFieldContent">
-        <label id="binaryEnableLabel" class="panelLabel">{{'options.time.binaryEnable' | translate}}</label>
-        <p class="panelDescription">{{'options.time.binaryEnableDesc' | translate}}</p>
-      </div>
-      <div class="panelFieldInput">
-        <options-toggle
-          labelledby="binaryEnableLabel"
-          type="toggle"
-          name="binaryEnable"
-          id="binaryEnable"
-          [(ngModel)]="settings.config.time.clocks[selected].binary.enabled"
-          (ngModelChange)="settings.config.time.clocks[selected].analog.enabled=false;">
-        </options-toggle>
-      </div>
-    </div>
-    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].binary.enabled === true">
-      <div class="panelFieldContent">
-        <label id="binarydimLabel" class="panelLabel">{{'options.time.binaryDim' | translate}}</label>
-        <p class="panelDescription">{{'options.time.binaryDimDesc' | translate}}</p>
-      </div>
-      <div class="panelFieldInput">
-        <options-toggle
-          labelledby="binarydimLabel"
-          type="toggle"
-          name="binarydim"
-          id="binarydim"
-          [(ngModel)]="settings.config.time.clocks[selected].binary.dim">
-        </options-toggle>
-      </div>
-    </div>
-    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].binary.enabled === true">
-      <div class="panelFieldContent">
-        <label id="binaryUseNumbersLabel" class="panelLabel">{{'options.time.binaryUseNumbers' | translate}}</label>
-      </div>
-      <div class="panelFieldInput">
-        <options-toggle
-          labelledby="binaryUseNumbersLabel"
-          type="toggle"
-          name="binaryUseNumbers"
-          id="binaryUseNumbers"
-          [(ngModel)]="settings.config.time.clocks[selected].binary.useNumbers">
-        </options-toggle>
-      </div>
-    </div>
-    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].binary.enabled === true && settings.config.time.clocks[selected].binary.useNumbers === true">
-      <div class="panelFieldContent">
-        <label for="binaryOnValueText" class="panelLabel">{{'options.time.binaryOnValue' | translate}}</label>
-      </div>
-      <div class="panelFieldInput">
-        <input
-          class="panelInput panelInputSm"
-          type="text"
-          maxlength="1"
-          id="binaryOnValueText"
-          name="binaryOnValueText"
-          [(ngModel)]="settings.config.time.clocks[selected].binary.onValueText"
-          autocomplete="off">
-      </div>
-    </div>
-    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].binary.enabled === true && settings.config.time.clocks[selected].binary.useNumbers === true">
-      <div class="panelFieldContent">
-        <label for="binaryOffValueText" class="panelLabel">{{'options.time.binaryOffValue' | translate}}</label>
-      </div>
-      <div class="panelFieldInput">
-        <input
-          class="panelInput panelInputSm"
-          type="text"
-          maxlength="1"
-          id="binaryOffValueText"
-          name="binaryOffValueText"
-          [(ngModel)]="settings.config.time.clocks[selected].binary.offValueText"
-          autocomplete="off">
-      </div>
-    </div>
-  </div>
+  <!-- Layout -->
   <h3 class="panelSubtitle">{{'options.common.layout' | translate}}</h3>
   <div class="panelGroup">
     <div class="panelField panelFieldInline">

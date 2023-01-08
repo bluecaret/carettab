@@ -3,7 +3,7 @@ import { Storage } from '../../_storage/storage.service';
 import { Clock } from '../../_shared/models/clock';
 import { TimezoneService, Timezone } from './timezone.service';
 import { SharedService } from '../../_shared/shared.service';
-import { analogStyles, span } from '../../_shared/lists/lists';
+import { analogFaceStyles, analogHandStyles, span } from '../../_shared/lists/lists';
 
 @Component({
   selector: 'options-time',
@@ -14,9 +14,11 @@ export class OptionsTimeComponent {
   clock: Clock;
   showNew: Boolean = false;
   selected: number;
+  clockType: string;
   allTimezones: Timezone[];
   tzGuess: string;
-  analog = analogStyles;
+  analogFaceStyles = analogFaceStyles;
+  analogHandStyles = analogHandStyles;
   span = span;
   @HostBinding('class') hostClass: string = 'panelPlateGroup';
 
@@ -64,17 +66,43 @@ export class OptionsTimeComponent {
     return index;
   }
 
+  getClockType(i: number): string {
+    if (this.settings.config.time.clocks[i].analog.enabled) {
+      return 'analog'
+    } else if (this.settings.config.time.clocks[i].binary.enabled) {
+      return 'binary'
+    } else {
+      return 'digital'
+    }
+  }
+
   /** Sets item as selected */
-  setSelected(i) {
+  setSelected(i: number) {
     if (this.selected !== i) {
       this.selected = i;
+      this.clockType = this.getClockType(i);
       this.shared.echo('Selected clock:', `${i}`);
       this.shared.optionsPage = 'EditClock';
     } else {
       this.selected = null;
+      this.clockType = this.getClockType(i);
       this.shared.echo('Unselected clock:', `${i}`);
       this.shared.optionsPage = 'Time';
     }
+  }
+
+  setClockType(i: number) {
+    if (this.clockType === 'analog') {
+      this.settings.config.time.clocks[i].analog.enabled = true;
+      this.settings.config.time.clocks[i].binary.enabled = false;
+    } else if (this.clockType === 'binary') {
+      this.settings.config.time.clocks[i].analog.enabled = false;
+      this.settings.config.time.clocks[i].binary.enabled = true;
+    } else {
+      this.settings.config.time.clocks[i].analog.enabled = false;
+      this.settings.config.time.clocks[i].binary.enabled = false;
+    }
+
   }
 
   /** Adds new clock */
@@ -103,6 +131,7 @@ export class OptionsTimeComponent {
     let i = (this.settings.config.time.clocks.length - 1);
     this.shared.toggleOrder(this.settings.config.time.clocks[i].id, true, this.settings.config.time.clocks[index].position);
     this.selected = null;
+    this.clockType = null;
     this.shared.echo('Clock copied', null, newClock);
   }
 

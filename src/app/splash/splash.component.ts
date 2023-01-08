@@ -145,7 +145,9 @@ export class SplashComponent implements OnInit {
         },
         analog: {
           enabled: false,
-          style: 10
+          faceStyle: 10,
+          handStyle: 10,
+          smoothSeconds: false
         },
         binary: {
           enabled: false,

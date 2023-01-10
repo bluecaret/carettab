@@ -365,10 +365,11 @@ export class NotepadSettings {
     public showBorder = true,
     public borderRadius = 8,
     public borderColor = '#3e3e3e',
-    public foreground = '#3e3e3e',
+    public foreground = '#dedede',
     public showBg = true,
     public background = '#1f1f1f',
-    public bgOpacity = .6,
+    public bgOpacity = 100,
+    public overrideColors = false,
   ) {}
 }
 

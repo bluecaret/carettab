@@ -74,11 +74,20 @@
     <div class="panelGroup">
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label id="notepadSizeLabel" class="panelLabel">Text size</label>
-          <p class="panelDescription">{{'options.common.sizeDesc' | translate}}</p>
+          <label id="notepadWidthLabel" class="panelLabel">Width</label>
+          <p class="panelDescription">Sets the width that the widget will span relative to the width of the screen. This could cause widgets to display smaller than intended if the window is made too small.</p>
         </div>
         <div class="panelFieldInput">
-          <options-range class="panelInputLg" labelledby="notepadSizeLabel" name="notepadSize" min="1" max="50" [(ngModel)]="settings.config.notepad.scaling"></options-range>
+          <options-range labelledby="notepadWidthLabel" class="panelInputLg" name="notepadWidth" id="notepadWidth" min="1" max="100" [(ngModel)]="settings.config.notepad.width"></options-range>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="notepadHeightLabel" class="panelLabel">Height</label>
+          <p class="panelDescription">Sets the height that the widget will span relative to the height of the screen. This could cause widgets to display smaller than intended if the window is made too small.</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-range labelledby="notepadHeightLabel" class="panelInputLg" name="notepadHeight" id="notepadHeight" min="1" max="100" [(ngModel)]="settings.config.notepad.height"></options-range>
         </div>
       </div>
       <div class="panelField panelFieldInline">
@@ -92,15 +101,11 @@
       </div>
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label id="setTextColorLabel" class="panelLabel">Text color</label>
+          <label id="notepadSizeLabel" class="panelLabel">Text size</label>
+          <p class="panelDescription">{{'options.common.sizeDesc' | translate}}</p>
         </div>
         <div class="panelFieldInput">
-          <input class="panelInput panelInputColor" type="color" aria-labelledby="setTextColorLabel" name="text-color"
-            [(ngModel)]="settings.config.notepad.foreground"
-            [style.backgroundColor]="settings.config.notepad.foreground"
-          >
-          <input class="panelInput panelInputMd" type="text" aria-labelledby="setTextColorLabel" name="text-code" [(ngModel)]="settings.config.notepad.foreground"
-            autocomplete="off">
+          <options-range class="panelInputLg" labelledby="notepadSizeLabel" name="notepadSize" min="1" max="50" [(ngModel)]="settings.config.notepad.scaling"></options-range>
         </div>
       </div>
       <div class="panelField panelFieldInline">
@@ -113,19 +118,6 @@
             labelledby="notepadShowBgLabel"
             [(ngModel)]="settings.config.notepad.showBg"
           ></options-toggle>
-        </div>
-      </div>
-      <div *ngIf="settings.config.notepad.showBg" class="panelField panelFieldInline">
-        <div class="panelFieldContent">
-          <label id="setBackgroundLabel" class="panelLabel">Background color</label>
-        </div>
-        <div class="panelFieldInput">
-          <input class="panelInput panelInputColor" type="color" aria-labelledby="setBackgroundLabel" name="bg-color"
-            [(ngModel)]="settings.config.notepad.background"
-            [style.backgroundColor]="settings.config.notepad.background"
-          >
-          <input class="panelInput panelInputMd" type="text" aria-labelledby="setBackgroundLabel" name="bg-code" [(ngModel)]="settings.config.notepad.background"
-            autocomplete="off">
         </div>
       </div>
       <div *ngIf="settings.config.notepad.showBg" class="panelField panelFieldInline">
@@ -149,7 +141,55 @@
           ></options-toggle>
         </div>
       </div>
-      <div *ngIf="settings.config.notepad.showBorder" class="panelField panelFieldInline">
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="notepadBorderRadiusLabel" class="panelLabel">Rounded corners</label>
+          <p class="panelDescription">Round the corners of the notepad box.</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-range labelledby="notepadBorderRadiusLabel" class="panelInputLg" name="notepadBorderRadius" id="notepadBorderRadius" min="0" max="20" [(ngModel)]="settings.config.notepad.borderRadius"></options-range>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="notepadOverrideColorsLabel" class="panelLabel">Override global colors</label>
+          <p class="panelDescription">Choose custom colors for this widget.</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-toggle
+            name="notepadOverrideColors"
+            labelledby="notepadOverrideColorsLabel"
+            [(ngModel)]="settings.config.notepad.overrideColors"
+          ></options-toggle>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline" *ngIf="settings.config.notepad.overrideColors">
+        <div class="panelFieldContent">
+          <label id="setTextColorLabel" class="panelLabel">Text color</label>
+        </div>
+        <div class="panelFieldInput">
+          <input class="panelInput panelInputColor" type="color" aria-labelledby="setTextColorLabel" name="text-color"
+            [(ngModel)]="settings.config.notepad.foreground"
+            [style.backgroundColor]="settings.config.notepad.foreground"
+          >
+          <input class="panelInput panelInputMd" type="text" aria-labelledby="setTextColorLabel" name="text-code" [(ngModel)]="settings.config.notepad.foreground"
+            autocomplete="off">
+        </div>
+      </div>
+      <div *ngIf="settings.config.notepad.showBg && settings.config.notepad.overrideColors" class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="setBackgroundLabel" class="panelLabel">Background color</label>
+        </div>
+        <div class="panelFieldInput">
+          <input class="panelInput panelInputColor" type="color" aria-labelledby="setBackgroundLabel" name="bg-color"
+            [(ngModel)]="settings.config.notepad.background"
+            [style.backgroundColor]="settings.config.notepad.background"
+          >
+          <input class="panelInput panelInputMd" type="text" aria-labelledby="setBackgroundLabel" name="bg-code" [(ngModel)]="settings.config.notepad.background"
+            autocomplete="off">
+        </div>
+      </div>
+      <div *ngIf="settings.config.notepad.showBorder && settings.config.notepad.overrideColors" class="panelField panelFieldInline">
         <div class="panelFieldContent">
           <label id="setBorderLabel" class="panelLabel">Border color</label>
         </div>
@@ -160,15 +200,6 @@
           >
           <input class="panelInput panelInputMd" type="text" aria-labelledby="setBorderLabel" name="border-code" [(ngModel)]="settings.config.notepad.borderColor"
             autocomplete="off">
-        </div>
-      </div>
-      <div class="panelField panelFieldInline">
-        <div class="panelFieldContent">
-          <label id="notepadBorderRadiusLabel" class="panelLabel">Rounded corners</label>
-          <p class="panelDescription">Round the corners of the notepad box.</p>
-        </div>
-        <div class="panelFieldInput">
-          <options-range labelledby="notepadBorderRadiusLabel" class="panelInputLg" name="notepadBorderRadius" id="notepadBorderRadius" min="0" max="20" [(ngModel)]="settings.config.notepad.borderRadius"></options-range>
         </div>
       </div>
     </div>
@@ -211,24 +242,6 @@
         </div>
         <div class="panelFieldInput">
           <options-position id="notepadPosition" name="notepadPosition" [settingId]="settings.config.notepad.id" [(ngModel)]="settings.config.notepad.position"></options-position>
-        </div>
-      </div>
-      <div class="panelField panelFieldInline">
-        <div class="panelFieldContent">
-          <label id="notepadWidthLabel" class="panelLabel">Width</label>
-          <p class="panelDescription">Sets the width that the widget will span relative to the width of the screen. This could cause widgets to display smaller than intended if the window is made too small.</p>
-        </div>
-        <div class="panelFieldInput">
-          <options-range labelledby="notepadWidthLabel" class="panelInputLg" name="notepadWidth" id="notepadWidth" min="1" max="100" [(ngModel)]="settings.config.notepad.width"></options-range>
-        </div>
-      </div>
-      <div class="panelField panelFieldInline">
-        <div class="panelFieldContent">
-          <label id="notepadHeightLabel" class="panelLabel">Height</label>
-          <p class="panelDescription">Sets the height that the widget will span relative to the height of the screen. This could cause widgets to display smaller than intended if the window is made too small.</p>
-        </div>
-        <div class="panelFieldInput">
-          <options-range labelledby="notepadHeightLabel" class="panelInputLg" name="notepadHeight" id="notepadHeight" min="1" max="100" [(ngModel)]="settings.config.notepad.height"></options-range>
         </div>
       </div>
       <div class="panelField panelFieldInline">

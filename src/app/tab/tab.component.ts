@@ -88,7 +88,6 @@ export class TabComponent implements OnInit, AfterViewInit {
           chrome.storage.local.set({nextWallpaper: next});
           that.settings.config.design.wallpaperTimestamp = new Date().toLocaleString();
           that.settings.setAll(that.settings.config.design, 'ct-design');
-          console.log('Next Unsplash image grabbed.', next);
         }
       })
     }

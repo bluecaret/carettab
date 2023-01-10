@@ -108,14 +108,12 @@ export class OptionsTimeComponent {
     this.settings.config.time.clocks.push(new Clock());
     let i = (this.settings.config.time.clocks.length - 1);
     this.shared.toggleOrder(this.settings.config.time.clocks[i].id, true, 'c');
-    this.shared.echo('New clock added', null, this.settings.config.time.clocks[i]);
   }
 
   /** Deletes clock */
   delete(index: number) {
     if (confirm('Are you sure you want to delete this clock?')) {
       this.shared.toggleOrder(this.settings.config.time.clocks[index].id, false, this.settings.config.time.clocks[index].position);
-      this.shared.echo('Clock removed', null, this.settings.config.time.clocks[index]);
       this.settings.config.time.clocks.splice(index, 1);
     } else {
       return;
@@ -130,7 +128,6 @@ export class OptionsTimeComponent {
     this.shared.toggleOrder(this.settings.config.time.clocks[i].id, true, this.settings.config.time.clocks[index].position);
     this.selected = null;
     this.clockType = null;
-    this.shared.echo('Clock copied', null, newClock);
   }
 
   findSpan(s): string {

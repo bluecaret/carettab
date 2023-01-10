@@ -77,7 +77,6 @@ export class TabBookmarksComponent implements OnInit {
         if (chrome.runtime.lastError) {
           that.shared.echo('Error checking Favicon permission', chrome.runtime.lastError, '', 'error');
         }
-        that.shared.echo('Permission check: Favicon allowed?', result);
         if (!result) {
           that.setFaviconPermission();
         }
@@ -92,7 +91,6 @@ export class TabBookmarksComponent implements OnInit {
         if (chrome.runtime.lastError) {
           that.shared.echo('Error setting Favicon permission', chrome.runtime.lastError, '', 'error');
         }
-        that.shared.echo('Set Permission: Favicon', granted);
       });
     });
   }

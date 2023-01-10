@@ -23,10 +23,6 @@ export class OptionsMessageComponent {
         id: id,
         text: newText,
       });
-      this.shared.echo('New message text added', '', {
-        id: id,
-        text: newText
-      });
       model.resetForm();
     }
   }

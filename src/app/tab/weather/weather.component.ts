@@ -35,7 +35,6 @@ export class TabWeatherComponent implements OnInit {
 
   async setWeather() {
     this.weatherService.getWeather(this.settings.config.weather.location.url, 5).then(data => {
-      // this.shared.echo('Weather API response:', null, data);
       this.cachedWeather = {}
       let today = new Date();
       this.cachedWeather['date'] = today;
@@ -90,7 +89,6 @@ export class TabWeatherComponent implements OnInit {
     const today = new Date();
     let comparedDate = new Date(date);
     let isDateToday = comparedDate.getDate() == today.getDate() && comparedDate.getMonth() == today.getMonth() && comparedDate.getFullYear() == today.getFullYear();
-    console.log('isDateToday', isDateToday);
     return isDateToday;
   }
 

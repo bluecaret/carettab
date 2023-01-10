@@ -22,7 +22,6 @@ export class OptionsDashboardComponent implements OnInit {
     if (this.shared.status === 'updated') {
       chrome.storage.local.set({caretTabStatus: 'existing'});
       this.shared.status = 'existing';
-      this.shared.echo('Extension status reset to "existing" after update since user opened dashboard');
     }
   }
 

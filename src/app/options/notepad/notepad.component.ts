@@ -22,8 +22,6 @@ export class OptionsNotepadComponent implements OnInit {
   }
 
   changeStorageLocation() {
-    console.log('sync', this.settings.config.notepad.sync, this.sync);
-
     if (this.settings.config.notepad.sync) {
       if (confirm('Do you want to disable syncing of your notes? Notes will no longer update on other computers. Changing this setting could potentially result in a loss of notes, please backup your notes before proceeding. \n\nOnce syncing is disabled, you will be able to add up to 250,000 characters in your notes.')) {
         this.settings.config.notepad.sync = false;

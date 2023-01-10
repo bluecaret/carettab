@@ -1,6 +1,6 @@
 import { ExtPay } from "/js/ExtPay.js";
 
-console.log('Service worker is running');
+// console.log('Service worker is running');
 
 var extpay = ExtPay("carettab");
 extpay.startBackground();

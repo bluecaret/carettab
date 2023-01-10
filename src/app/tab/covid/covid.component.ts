@@ -38,7 +38,6 @@ export class TabCovidComponent implements OnInit {
     this.http
       .get('https://disease.sh/v3/covid-19/countries/' + this.countryCode)
       .subscribe((data: CovidData) => {
-        this.shared.echo('COVID API response', null, data);
         this.countryData = data;
       });
   }

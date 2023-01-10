@@ -94,6 +94,5 @@ export class OptionsCovidComponent {
     let i = (this.settings.config.covidData.countries.length - 1);
     this.shared.toggleOrder(this.settings.config.covidData.countries[i].id, true, this.settings.config.covidData.countries[index].position);
     this.selected = null;
-    this.shared.echo('COVID country copied', null, newCountry);
   }
 }

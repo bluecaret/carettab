@@ -84,7 +84,6 @@ export class OptionsDesignComponent implements OnInit {
     this.settings.config.design.background = c.bg;
     this.settings.config.design.foreground = c.fg;
     this.settings.config.design.colorsId = c.id;
-    this.shared.echo('Color theme selected', null, c);
     this.updateBackgroundStyles();
   }
 
@@ -114,7 +113,6 @@ export class OptionsDesignComponent implements OnInit {
 
     // Save design settings
     this.settings.setAll(this.settings.config.design, 'ct-design');
-    this.shared.echo('Background saved', bg, null, 'save');
   }
 
   encodeImage(e, input) {
@@ -155,7 +153,6 @@ export class OptionsDesignComponent implements OnInit {
         this.updateBackgroundImage();
 
         this.settings.setAll(this.settings.config.design, 'ct-design');
-        this.shared.echo('Background saved', uploadSrc.substr(0,20), null, 'save');
       } catch (e) {
         if (this.isQuotaExceeded(e)) {
           let msg = 'Sorry, the file size of your image is too big.';
@@ -305,11 +302,10 @@ export class OptionsDesignComponent implements OnInit {
 
       // Save design settings
       this.settings.setAll(this.settings.config.design, 'ct-design');
-      this.shared.echo('Background saved', null, image, 'save');
       this.shared.loading = false;
     } catch (err) {
       this.shared.loading = false;
-      console.error('Error getting next image', err);
+      this.shared.echo('Error getting selected Unsplash image', err)
     }
   }
 

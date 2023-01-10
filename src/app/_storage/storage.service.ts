@@ -153,12 +153,12 @@ export class Storage {
         );
       } else {
         // Put the object into storage
-        console.log(
-          '%cSaving to localStorage',
-          'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
-          key,
-          settings
-        );
+        // console.log(
+        //   '%cSaving to localStorage',
+        //   'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
+        //   key,
+        //   settings
+        // );
         localStorage.setItem(key, JSON.stringify(settings));
         // hack to resolve storage change event on the same window
         window.dispatchEvent(new Event('storage'));
@@ -182,20 +182,20 @@ export class Storage {
               );
               reject(chrome.runtime.lastError);
             }
-            console.log(
-              '%cRemoving key from storage.sync',
-              'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
-              key
-            );
+            // console.log(
+            //   '%cRemoving key from storage.sync',
+            //   'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
+            //   key
+            // );
             resolve(true);
           })
         );
       } else {
-        console.log(
-          '%cRemoving key from localStorage',
-          'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
-          key
-        );
+        // console.log(
+        //   '%cRemoving key from localStorage',
+        //   'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
+        //   key
+        // );
         localStorage.removeItem(key);
         resolve(true);
       }
@@ -216,18 +216,18 @@ export class Storage {
               );
               reject(chrome.runtime.lastError);
             }
-            console.log(
-              '%cClearing all keys from storage.sync',
-              'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;'
-            );
+            // console.log(
+            //   '%cClearing all keys from storage.sync',
+            //   'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;'
+            // );
             resolve(true);
           })
         );
       } else {
-        console.log(
-          '%cClearing all keys from localStorage',
-          'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;'
-        );
+        // console.log(
+        //   '%cClearing all keys from localStorage',
+        //   'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;'
+        // );
         localStorage.clear();
         resolve(true);
       }
@@ -259,11 +259,11 @@ export class Storage {
           })
         );
       } else {
-        console.log(
-          '%cLoad from localStorage',
-          'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
-          key
-        );
+        // console.log(
+        //   '%cLoad from localStorage',
+        //   'display:inline-block;background:rgb(0, 106, 183);color:white;padding:5px;border-radius:5px;',
+        //   key
+        // );
         let object =
           localStorage.getItem(key) === null
             ? defaults

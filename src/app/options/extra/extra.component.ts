@@ -29,12 +29,6 @@ export class OptionsExtraComponent {
     if (confirm('Are you sure you want to reset all settings to default?')) {
       this.settings.clear();
       chrome.storage.local.remove(['currentWallpaper', 'nextWallpaper']);
-      this.shared.echo(
-        'Background removed from localStorage',
-        null,
-        null,
-        'save'
-      );
       location.reload();
     } else {
       return;
@@ -112,7 +106,6 @@ export class OptionsExtraComponent {
         if (chrome.runtime.lastError) {
           that.shared.echo('Error checking Favicon permission', chrome.runtime.lastError, '', 'error');
         }
-        that.shared.echo('Permission check: Favicon allowed?', result);
         if (result === false) {
           that.setFaviconPermission();
         }
@@ -127,7 +120,6 @@ export class OptionsExtraComponent {
         if (chrome.runtime.lastError) {
           that.shared.echo('Error setting Favicon permission', chrome.runtime.lastError, '', 'error');
         }
-        that.shared.echo('Set Permission: Favicon', granted);
       });
     });
   }
@@ -139,7 +131,6 @@ export class OptionsExtraComponent {
         if (chrome.runtime.lastError) {
           that.shared.echo('Error checking Bookmark permission', chrome.runtime.lastError, '', 'error');
         }
-        that.shared.echo('Permission check: Bookmark allowed?', result);
         if (result === false) {
           that.setBookmarkPermission();
         }
@@ -154,7 +145,6 @@ export class OptionsExtraComponent {
         if (chrome.runtime.lastError) {
           that.shared.echo('Error setting Bookmark permission', chrome.runtime.lastError, '', 'error');
         }
-        that.shared.echo('Set Permission: Bookmark', granted);
       });
     });
   }
@@ -166,7 +156,6 @@ export class OptionsExtraComponent {
         if (chrome.runtime.lastError) {
           that.shared.echo('Error checking TopSites permission', chrome.runtime.lastError, '', 'error');
         }
-        that.shared.echo('Permission check: TopSites allowed?', result);
         if (result === false) {
           that.setTopSitesPermission();
         }
@@ -181,7 +170,6 @@ export class OptionsExtraComponent {
         if (chrome.runtime.lastError) {
           that.shared.echo('Error setting TopSites permission', chrome.runtime.lastError, '', 'error');
         }
-        that.shared.echo('Set Permission: TopSites', granted);
       });
     });
   }

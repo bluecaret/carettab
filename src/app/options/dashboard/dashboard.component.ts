@@ -27,7 +27,6 @@ export class OptionsDashboardComponent implements OnInit {
   }
 
   goToPage(page: string) {
-    this.shared.echo('Opened settings page:', page);
     this.goTo.emit(page);
   }
 

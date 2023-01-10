@@ -81,12 +81,10 @@ export class OptionsTimeComponent {
     if (this.selected !== i) {
       this.selected = i;
       this.clockType = this.getClockType(i);
-      this.shared.echo('Selected clock:', `${i}`);
       this.shared.optionsPage = 'EditClock';
     } else {
       this.selected = null;
       this.clockType = this.getClockType(i);
-      this.shared.echo('Unselected clock:', `${i}`);
       this.shared.optionsPage = 'Time';
     }
   }

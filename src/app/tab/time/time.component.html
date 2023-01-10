@@ -88,13 +88,13 @@
   >
     <div
       class="analogFace"
-      [ngClass]="'faceStyle_' + (clock.analog.faceStyle ? clock.analog.faceStyle : 2)"
+      [ngClass]="'faceStyle_' + (clock.analog.faceStyle ? clock.analog.faceStyle : 'dash')"
       [style]="sanitizer.bypassSecurityTrustStyle(
         '--analogBorderSize: ' + (clock.analog.borderSize ? (clock.analog.borderSize * .1) + 'em' : 0)
         + '; --analogBorderOpacity: ' + (clock.analog.dimBorder ? .5 : 1)
-        + '; --analogQuarterMarkOpacity: ' + (clock.analog.showQuarterMarks ? clock.analog.dimQuarterMarks ? .5 : 1 : 0)
-        + '; --analogHourMarkOpacity: ' + (clock.analog.showHourMarks ? clock.analog.dimHourMarks ? .5 : 1 : 0)
-        + '; --analogMinuteMarkOpacity: ' + (clock.analog.showMinuteMarks ? clock.analog.dimMinuteMarks ? .5 : 1 : 0)
+        + '; --analogQuarterMarkOpacity: ' + (clock.analog.showQuarterMarks ? clock.analog.dimQuarterMarks ? .5 : 1 : clock.analog.showQuarterMarks === undefined ? 1 : 0)
+        + '; --analogHourMarkOpacity: ' + (clock.analog.showHourMarks ? clock.analog.dimHourMarks ? .5 : 1 : clock.analog.showHourMarks === undefined ? 1 : 0)
+        + '; --analogMinuteMarkOpacity: ' + (clock.analog.showMinuteMarks ? clock.analog.dimMinuteMarks ? .5 : 1 : clock.analog.showMinuteMarks === undefined ? 1 : 0)
       )"
     >
       <div
@@ -103,7 +103,7 @@
         [ngClass]="(i + 1) % 15 === 0 ? 'analogIndicatorQuarter' : (i + 1) % 5 === 0 ? 'analogIndicatorHour' : 'analogIndicatorMinute'"
       ></div>
     </div>
-    <div class="analogHands" [ngClass]="'handStyle_' + (clock.analog.handStyle ? clock.analog.handStyle : 2)">
+    <div class="analogHands" [ngClass]="'handStyle_' + (clock.analog.handStyle ? clock.analog.handStyle : 'minimalMedium')">
       <div
         class="analogHour"
         [style]="sanitizer.bypassSecurityTrustStyle('--analogCurrentHour: ' + analogHourRotation)">

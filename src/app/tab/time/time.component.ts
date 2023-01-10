@@ -63,6 +63,13 @@ export class TabTimeComponent implements OnInit {
         this.setBinaryTime();
       }, 500);
     }
+
+    this.settings.onChange().subscribe((data) => {
+      // set analog time on save
+      if (data['ct-time'] && this.clock.analog.enabled) {
+        this.setAnalogTime();
+      }
+    });
   }
 
   setAnalogTime() {

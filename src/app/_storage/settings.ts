@@ -200,8 +200,8 @@ export class TimeSettings {
         },
         analog: {
           enabled: false,
-          faceStyle: 10,
-          handStyle: 10,
+          faceStyle: 'dash',
+          handStyle: 'minimalMedium',
           borderSize: 1,
           dimBorder: false,
           showMinuteMarks: true,

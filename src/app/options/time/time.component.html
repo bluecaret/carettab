@@ -161,29 +161,41 @@
   <!-- Analog -->
   <h3 class="panelSubtitle" *ngIf="settings.config.time.clocks[selected].analog.enabled === true">{{'options.time.analog' | translate}}</h3>
   <div class="panelGroup" *ngIf="settings.config.time.clocks[selected].analog.enabled === true">
-    <div class="panelField panelFieldInline">
+    <div class="panelField panelFieldInline {{shared.paid ? '' : 'panelFieldDisabled'}}">
       <div class="panelFieldContent">
-        <label for="analogFaceStyle" class="panelLabel">Face style</label>
+        <label for="analogFaceStyle" class="panelLabel">
+          <div class="panelPremiumLabel">
+            <premium-label></premium-label>
+            Face style
+          </div>
+        </label>
       </div>
       <div class="panelFieldInput">
         <select
           class="panelSelect panelInputLg"
           name="analogFaceStyle"
           id="analogFaceStyle"
+          [disabled]="!shared.paid"
           [(ngModel)]="settings.config.time.clocks[selected].analog.faceStyle">
           <option *ngFor="let s of analogFaceStyles" [ngValue]="s.id">{{s.label}}</option>
         </select>
       </div>
     </div>
-    <div class="panelField panelFieldInline">
+    <div class="panelField panelFieldInline {{shared.paid ? '' : 'panelFieldDisabled'}}">
       <div class="panelFieldContent">
-        <label for="analogHandStyle" class="panelLabel">Hand style</label>
+        <label for="analogHandStyle" class="panelLabel">
+          <div class="panelPremiumLabel">
+            <premium-label></premium-label>
+            Hand style
+          </div>
+        </label>
       </div>
       <div class="panelFieldInput">
         <select
           class="panelSelect panelInputLg"
           name="analogHandStyle"
           id="analogHandStyle"
+          [disabled]="!shared.paid"
           [(ngModel)]="settings.config.time.clocks[selected].analog.handStyle">
           <option *ngFor="let s of analogHandStyles" [ngValue]="s.id">{{s.label}}</option>
         </select>

@@ -9,7 +9,7 @@
 </h2>
 <form #notepad="ngForm" novalidate>
   <div class="panelGroup">
-    <div class="panelField panelFieldInline">
+    <div class="panelField panelFieldInline {{shared.paid ? '' : 'panelFieldDisabled'}}">
       <div class="panelFieldContent">
         <div class="panelPremiumLabel">
           <premium-label></premium-label>
@@ -19,13 +19,14 @@
       <div class="panelFieldInput">
         <options-toggle
           name="notepad"
+          [disabled]="!shared.paid"
           labelledby="notepadEnableLabel"
           [(ngModel)]="settings.config.notepad.enabled"
           (ngModelChange)="shared.toggleOrder(settings.config.notepad.id, $event, settings.config.notepad.position)"
         ></options-toggle>
       </div>
     </div>
-    <ng-container *ngIf="settings.config.notepad.enabled">
+    <ng-container *ngIf="settings.config.notepad.enabled && shared.paid">
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
           <label id="notepadSyncLabel" class="panelLabel">Sync notes</label>
@@ -69,7 +70,7 @@
       </div>
     </ng-container>
   </div>
-  <ng-container *ngIf="settings.config.notepad.enabled">
+  <ng-container *ngIf="settings.config.notepad.enabled && shared.paid">
     <h3 class="panelSubtitle">Style</h3>
     <div class="panelGroup">
       <div class="panelField panelFieldInline">

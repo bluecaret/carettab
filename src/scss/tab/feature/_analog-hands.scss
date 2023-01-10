@@ -1,0 +1,230 @@
+.handStyle_swiss {
+  .analogHour {
+    //                  R   B    L   B    L   T    L   T
+    clip-path: polygon(75% 65%, 25% 65%, 35% 20%, 65% 20%);
+  }
+  .analogMinute {
+    clip-path: polygon(75% 65%, 25% 65%, 35% 1%, 65% 1%);
+  }
+  .analogSecond {
+    background-color: transparent;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      clip-path: polygon(57% 18%, 43% 18%, 43% 65%, 57% 65%);
+    }
+    &::after {
+      width: .03em;
+      height: .03em;
+      border-radius: 50%;
+      content: '';
+      display: block;
+      position: absolute;
+      top: 11%;
+      left: -3%;
+      background-color: currentColor;
+    }
+  }
+}
+
+.handStyle_modern {
+  --analogCenterSize: .015em;
+  .analogHour {
+    //                  R   B    L   B    L   T    L   T
+    clip-path: polygon(85% 50%, 50% 60%, 15% 50%, 50% 20%);
+  }
+  .analogMinute {
+    clip-path: polygon(85% 50%, 50% 60%, 15% 50%, 50% 10%);
+  }
+  .analogSecond {
+    background-color: transparent;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      clip-path: polygon(55% 10%, 45% 10%, 45% 62%, 55% 62%);
+    }
+    &::after {
+      width: .02em;
+      height: .02em;
+      border-radius: 50%;
+      content: '';
+      display: block;
+      position: absolute;
+      top: 62%;
+      left: 8%;
+      border: 0.003em solid currentColor;
+      background-color: transparent;
+    }
+  }
+}
+
+.handStyle_modern2 {
+  --analogCenterSize: .015em;
+  .analogHour {
+    //                  R   B    L   B    L   T    L   T
+    clip-path: polygon(85% 55%, 50% 55%, 15% 55%, 50% 20%);
+  }
+  .analogMinute {
+    clip-path: polygon(85% 55%, 50% 55%, 15% 55%, 50% 10%);
+  }
+  .analogSecond {
+    background-color: transparent;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      clip-path: polygon(55% 10%, 45% 10%, 45% 62%, 55% 62%);
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: .008em;
+      height: .04em;
+      top: 53%;
+      left: 36%;
+      clip-path: polygon(100% 100%, 0% 100%, 50% 0%);
+      background-color: currentColor;
+    }
+  }
+}
+
+.handStyle_minimalThin {
+  --analogCenterSize: .015em;
+  .analogHour {
+    //                  R   B    L   B    L   T    L   T
+    clip-path: polygon(55% 50%, 45% 50%, 45% 23%, 55% 23%);
+  }
+  .analogMinute {
+    clip-path: polygon(55% 50%, 45% 50%, 45% 13%, 55% 13%);
+  }
+  .analogSecond {
+    background-color: transparent;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      clip-path: polygon(53% 50%, 47% 50%, 47% 10%, 53% 10%);
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: .008em;
+      height: .04em;
+      top: 53%;
+      left: 36%;
+      clip-path: polygon(100% 100%, 0% 100%, 50% 0%);
+      background-color: transparent;
+    }
+  }
+}
+
+.handStyle_minimalMedium {
+  --analogCenterSize: .015em;
+  .analogHour {
+    //                  R   B    L   B    L   T    L   T
+    clip-path: polygon(60% 50%, 40% 50%, 40% 23%, 60% 23%);
+  }
+  .analogMinute {
+    clip-path: polygon(60% 50%, 40% 50%, 40% 13%, 60% 13%);
+  }
+  .analogSecond {
+    background-color: transparent;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      clip-path: polygon(53% 50%, 47% 50%, 47% 10%, 53% 10%);
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: .008em;
+      height: .04em;
+      top: 53%;
+      left: 36%;
+      clip-path: polygon(100% 100%, 0% 100%, 50% 0%);
+      background-color: transparent;
+    }
+  }
+}
+
+.handStyle_minimalThick {
+  --analogCenterSize: .02em;
+  .analogHour {
+    //                  R   B    L   B    L   T    L   T
+    clip-path: polygon(70% 50%, 30% 50%, 30% 23%, 70% 23%);
+  }
+  .analogMinute {
+    clip-path: polygon(70% 50%, 30% 50%, 30% 13%, 70% 13%);
+  }
+  .analogSecond {
+    background-color: transparent;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      clip-path: polygon(55% 50%, 45% 50%, 45% 10%, 55% 10%);
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: .008em;
+      height: .04em;
+      top: 53%;
+      left: 36%;
+      clip-path: polygon(100% 100%, 0% 100%, 50% 0%);
+      background-color: transparent;
+    }
+  }
+}
+
+.handStyle_pointed {
+  --analogCenterSize: .015em;
+  .analogHour {
+    //                  R   B    L   B    L   T    C   T    L   T
+    clip-path: polygon(60% 50%, 40% 50%, 40% 26%, 50% 25%, 60% 26%);
+  }
+  .analogMinute {
+    clip-path: polygon(60% 50%, 40% 50%, 40% 13%, 50% 12%, 60% 13%);
+  }
+  .analogSecond {
+    background-color: transparent;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      clip-path: polygon(53% 55%, 47% 55%, 47% 10%, 53% 10%);
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: .008em;
+      height: .04em;
+      top: 53%;
+      left: 36%;
+      clip-path: polygon(100% 100%, 0% 100%, 50% 0%);
+      background-color: transparent;
+    }
+  }
+}

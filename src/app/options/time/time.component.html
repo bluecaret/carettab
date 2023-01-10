@@ -163,17 +163,137 @@
   <div class="panelGroup" *ngIf="settings.config.time.clocks[selected].analog.enabled === true">
     <div class="panelField panelFieldInline">
       <div class="panelFieldContent">
-        <label for="analogStyle" class="panelLabel">{{'options.time.analogStyle' | translate}}</label>
-        <p class="panelDescription">{{'options.time.analogStyleDesc' | translate}}</p>
+        <label for="analogFaceStyle" class="panelLabel">Face style</label>
       </div>
       <div class="panelFieldInput">
         <select
           class="panelSelect panelInputLg"
-          name="analogStyle"
-          id="analogStyle"
-          [(ngModel)]="settings.config.time.clocks[selected].analog.style">
-          <option *ngFor="let s of analog" [ngValue]="s.id">{{s.label}}</option>
+          name="analogFaceStyle"
+          id="analogFaceStyle"
+          [(ngModel)]="settings.config.time.clocks[selected].analog.faceStyle">
+          <option *ngFor="let s of analogFaceStyles" [ngValue]="s.id">{{s.label}}</option>
         </select>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label for="analogHandStyle" class="panelLabel">Hand style</label>
+      </div>
+      <div class="panelFieldInput">
+        <select
+          class="panelSelect panelInputLg"
+          name="analogHandStyle"
+          id="analogHandStyle"
+          [(ngModel)]="settings.config.time.clocks[selected].analog.handStyle">
+          <option *ngFor="let s of analogHandStyles" [ngValue]="s.id">{{s.label}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="analogBorderSizeLabel" class="panelLabel">Border size</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-range
+          labelledby="analogBorderSizeLabel"
+          class="panelInputLg"
+          name="analogBorderSize"
+          id="analogBorderSize"
+          min="0"
+          max="10"
+          [(ngModel)]="settings.config.time.clocks[selected].analog.borderSize">
+        </options-range>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].analog.borderSize">
+      <div class="panelFieldContent">
+        <label id="analogDimBorderLabel" class="panelLabel">Dim border</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle
+          labelledby="analogDimBorderLabel"
+          name="analogDimBorder"
+          id="analogDimBorder"
+          [(ngModel)]="settings.config.time.clocks[selected].analog.dimBorder">
+        </options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="analogQuarterHourLabel" class="panelLabel">Quarter hour marks</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle
+          labelledby="analogQuarterHourLabel"
+          name="analogQuarterHour"
+          id="analogQuarterHour"
+          [(ngModel)]="settings.config.time.clocks[selected].analog.showQuarterMarks">
+        </options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].analog.showQuarterMarks">
+      <div class="panelFieldContent">
+        <label id="analogDimQuarterHourLabel" class="panelLabel">Dim quarter hour marks</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle
+          labelledby="analogDimQuarterHourLabel"
+          name="analogDimQuarterHour"
+          id="analogDimQuarterHour"
+          [(ngModel)]="settings.config.time.clocks[selected].analog.dimQuarterMarks">
+        </options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="analogHourLabel" class="panelLabel">Hour marks</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle
+          labelledby="analogHourLabel"
+          name="analogHour"
+          id="analogHour"
+          [(ngModel)]="settings.config.time.clocks[selected].analog.showHourMarks">
+        </options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].analog.showHourMarks">
+      <div class="panelFieldContent">
+        <label id="analogDimHourLabel" class="panelLabel">Dim hour marks</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle
+          labelledby="analogDimHourLabel"
+          name="analogDimHour"
+          id="analogDimHour"
+          [(ngModel)]="settings.config.time.clocks[selected].analog.dimHourMarks">
+        </options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="analogMinuteLabel" class="panelLabel">Minute marks</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle
+          labelledby="analogMinuteLabel"
+          name="analogMinute"
+          id="analogMinute"
+          [(ngModel)]="settings.config.time.clocks[selected].analog.showMinuteMarks">
+        </options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].analog.showMinuteMarks">
+      <div class="panelFieldContent">
+        <label id="analogDimMinuteLabel" class="panelLabel">Dim minute marks</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle
+          labelledby="analogDimMinuteLabel"
+          name="analogDimMinute"
+          id="analogDimMinute"
+          [(ngModel)]="settings.config.time.clocks[selected].analog.dimMinuteMarks">
+        </options-toggle>
       </div>
     </div>
     <div class="panelField panelFieldInline">
@@ -187,6 +307,19 @@
           name="secondsEnableAnalog"
           id="secondsEnableAnalog"
           [(ngModel)]="settings.config.time.clocks[selected].seconds.enabled">
+        </options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].seconds.enabled">
+      <div class="panelFieldContent">
+        <label id="analogSmoothSecondsLabel" class="panelLabel">Smooth second hand movement</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle
+          labelledby="analogSmoothSecondsLabel"
+          name="analogSmoothSeconds"
+          id="analogSmoothSeconds"
+          [(ngModel)]="settings.config.time.clocks[selected].analog.smoothSeconds">
         </options-toggle>
       </div>
     </div>

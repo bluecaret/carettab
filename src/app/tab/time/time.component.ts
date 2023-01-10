@@ -4,6 +4,7 @@ import { Clock } from '../../_shared/models/clock';
 import { SharedService } from '../../_shared/shared.service';
 import { span } from '../../_shared/lists/lists';
 import * as moment from 'moment';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'tab-time',
@@ -23,6 +24,7 @@ export class TabTimeComponent implements OnInit {
   @Input() clock: Clock;
 
   constructor(
+    public sanitizer: DomSanitizer,
     public shared: SharedService,
     public settings: Storage,
     private zone: NgZone,
@@ -50,10 +52,10 @@ export class TabTimeComponent implements OnInit {
       this.setBinaryTime();
       if (this.clock.analog.enabled) {
         this.setAnalogTime();
-        // Sync up with current time every hour to ensure animation doesn't cause time to drift.
+        // Sync up with current time every 5 min to ensure animation doesn't cause time to drift.
         setInterval(() => {
           this.setAnalogTime();
-        }, 3600000);
+        }, 300000);
       }
       setInterval(() => {
         this.currentTime = new Date();
@@ -291,17 +293,4 @@ export class TabTimeComponent implements OnInit {
     return hour + 'deg';
   }
 
-}
-
-@Directive({ selector: "[bindCssVariable]" })
-export class BindCssVariableDirective {
-  @Input("bindCssVariable") variable: string;
-  @Input("bindCssVariableValue") value: string;
-
-  constructor(private host: ElementRef<HTMLElement>) {}
-
-  ngOnChanges(changes) {
-    const value = changes.value.currentValue;
-    this.host.nativeElement.style.setProperty(`--${this.variable}`, value);
-  }
 }

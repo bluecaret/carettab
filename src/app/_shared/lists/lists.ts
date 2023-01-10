@@ -112,11 +112,24 @@ export const customFontWeight = [
 ];
 
 export const analogFaceStyles = [
-  { id: 10, label: 'Style 1' }
+  { id: 'none', label: 'No face' },
+  { id: 'dash', label: 'Dash' },
+  { id: 'dot', label: 'Dot' },
+  { id: 'romanDashHour', label: 'Roman Dash Hour' },
+  { id: 'romanDashQuarter', label: 'Roman Dash Quarter' },
+  { id: 'arabicDashHour', label: 'Arabic Dash Hour' },
+  { id: 'arabicDashQuarter', label: 'Arabic Dash Quarter' },
+  { id: 'swiss', label: 'Swiss' },
 ];
 
 export const analogHandStyles = [
-  { id: 10, label: 'Style 1' }
+  { id: 'minimalThin', label: 'Minimal Thin' },
+  { id: 'minimalMedium', label: 'Minimal Medium' },
+  { id: 'minimalThick', label: 'Minimal Thick' },
+  { id: 'pointed', label: 'Pointed' },
+  { id: 'modern', label: 'Modern' },
+  { id: 'modern2', label: 'Modern 2' },
+  { id: 'swiss', label: 'Swiss' },
 ];
 
 export const dateFormat = [

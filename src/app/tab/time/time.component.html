@@ -86,17 +86,38 @@
     *ngIf="clock.analog.enabled && (!clock.binary || !clock.binary.enabled)"
     [style.fontSize]="shared.getFontSize(clock.delimiter.scaling, 1.2)"
   >
-    <div class="analogFace" [ngClass]="'faceStyle1'">
+    <div
+      class="analogFace"
+      [ngClass]="'faceStyle_' + (clock.analog.faceStyle ? clock.analog.faceStyle : 2)"
+      [style]="sanitizer.bypassSecurityTrustStyle(
+        '--analogBorderSize: ' + (clock.analog.borderSize ? (clock.analog.borderSize * .1) + 'em' : 0)
+        + '; --analogBorderOpacity: ' + (clock.analog.dimBorder ? .5 : 1)
+        + '; --analogQuarterMarkOpacity: ' + (clock.analog.showQuarterMarks ? clock.analog.dimQuarterMarks ? .5 : 1 : 0)
+        + '; --analogHourMarkOpacity: ' + (clock.analog.showHourMarks ? clock.analog.dimHourMarks ? .5 : 1 : 0)
+        + '; --analogMinuteMarkOpacity: ' + (clock.analog.showMinuteMarks ? clock.analog.dimMinuteMarks ? .5 : 1 : 0)
+      )"
+    >
       <div
         *ngFor="let indicator of analogMinutesArray; let i = index"
         class="analogIndicator"
-        [ngClass]="(i + 1) % 15 === 0 ? 'analogIndicatorQuarter' : (i + 1) % 5 === 0 ? 'analogIndicatorFive' : 'analogIndicatorMinute'"
+        [ngClass]="(i + 1) % 15 === 0 ? 'analogIndicatorQuarter' : (i + 1) % 5 === 0 ? 'analogIndicatorHour' : 'analogIndicatorMinute'"
       ></div>
     </div>
-    <div class="analogHands">
-      <div class="analogHour" bindCssVariable="analogCurrentHour" [bindCssVariableValue]="analogHourRotation"></div>
-      <div class="analogMinute" bindCssVariable="analogCurrentMinute" [bindCssVariableValue]="analogMinuteRotation"></div>
-      <div *ngIf="clock.seconds.enabled" class="analogSecond smooth" bindCssVariable="analogCurrentSecond" [bindCssVariableValue]="analogSecondRotation"></div>
+    <div class="analogHands" [ngClass]="'handStyle_' + (clock.analog.handStyle ? clock.analog.handStyle : 2)">
+      <div
+        class="analogHour"
+        [style]="sanitizer.bypassSecurityTrustStyle('--analogCurrentHour: ' + analogHourRotation)">
+      </div>
+      <div
+        class="analogMinute"
+        [style]="sanitizer.bypassSecurityTrustStyle('--analogCurrentMinute: ' + analogMinuteRotation)">
+      </div>
+      <div
+        *ngIf="clock.seconds.enabled"
+        class="analogSecond"
+        [ngClass]="{'smooth' : clock.analog.smoothSeconds}"
+        [style]="sanitizer.bypassSecurityTrustStyle('--analogCurrentSecond: ' + analogSecondRotation)">
+      </div>
       <div class="analogCenter"></div>
     </div>
   </div>

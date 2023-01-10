@@ -49,7 +49,7 @@ import { TimezoneService } from './options/time/timezone.service';
 import { TabComponent } from './tab/tab.component';
 import { TabBookmarksComponent } from './tab/bookmarks/bookmarks.component';
 import { TabQuickLinksComponent } from './tab/bookmarks/quickLinks.component';
-import { TabTimeComponent, BindCssVariableDirective } from './tab/time/time.component';
+import { TabTimeComponent } from './tab/time/time.component';
 import { TabDateComponent } from './tab/date/date.component';
 import { TabMessageComponent } from './tab/message/message.component';
 import { TabNotepadComponent } from './tab/notepad/notepad.component';
@@ -91,7 +91,6 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     TabBookmarksComponent,
     TabQuickLinksComponent,
     TabTimeComponent,
-    BindCssVariableDirective,
     TabDateComponent,
     TabMessageComponent,
     TabNotepadComponent,

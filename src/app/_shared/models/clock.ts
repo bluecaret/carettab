@@ -91,6 +91,14 @@ export class Analog {
     public enabled: boolean = false,
     public faceStyle: number = 10,
     public handStyle: number = 10,
+    public borderSize: number = 1,
+    public dimBorder: boolean = false,
+    public showMinuteMarks: boolean = true,
+    public dimMinuteMarks: boolean = true,
+    public showHourMarks: boolean = true,
+    public dimHourMarks: boolean = false,
+    public showQuarterMarks: boolean = true,
+    public dimQuarterMarks: boolean = false,
     public smoothSeconds: boolean = false
   ) {}
 }

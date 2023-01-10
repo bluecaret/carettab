@@ -1,9 +1,10 @@
-:root {
-  --analogSize: .4em;
-  --analogIndicatorWidth: .02em;
-  --analogIndicatorHeight: var(--analogIndicatorWidth);
-  --analogIndicatorRadius: 50%;
-  --analogIndicatorOpacity: .5;
+.analog {
+  --analogBorderSize: .001em;
+  --analogBorderOpacity: 0;
+  --analogMarkMargin: 0;
+  --analogQuarterMarkOpacity: 1;
+  --analogHourMarkOpacity: 1;
+  --analogMinuteMarkOpacity: 1;
   --analogHourWidth: .007em;
   --analogHourHeight: .11em;
   --analogHourRadius: calc(var(--analogHourWidth) / 2);
@@ -18,33 +19,6 @@
   --analogCurrentHour: 0deg;
   --analogCurrentMinute: 0deg;
   --analogCurrentSecond: 0deg;
-}
-
-.faceStyle1 {
-  --analogIndicatorWidth: .02em;
-  --analogIndicatorHeight: var(--analogIndicatorWidth);
-  --analogIndicatorRadius: 50%;
-
-  .analogIndicatorQuarter {
-    --analogIndicatorWidth: .02em;
-    --analogIndicatorHeight: .02em;
-    --analogIndicatorOpacity: 1;
-  }
-
-  .analogIndicatorFive {
-    --analogIndicatorWidth: .01em;
-    --analogIndicatorHeight: .01em;
-    --analogIndicatorOpacity: .5;
-  }
-
-  .analogIndicatorMinute {
-    --analogIndicatorWidth: .005em;
-    --analogIndicatorHeight: .005em;
-    --analogIndicatorOpacity: .1;
-  }
-}
-
-.analog {
   position: relative;
   display: grid;
   grid-template: 1fr / 1fr;
@@ -52,10 +26,10 @@
   width: .4em;
   height: .4em;
   margin: 0 auto;
-  position: relative;
   border-radius: 50%;
   .analogFace,
   .analogHands {
+    position: relative;
     width: 100%;
     height: 100%;
     grid-column: 1 / 2;
@@ -65,7 +39,76 @@
     grid-template: 1fr / 1fr;
   }
 
-  .analogIndicator,
+  .analogFace {
+    font-size: 0.01em; // Move decimal of ems for markers for ease of development
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      opacity: var(--analogBorderOpacity);
+      outline: var(--analogBorderSize) solid currentColor;
+      border-radius: 50%;
+    }
+  }
+
+  .analogIndicator {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    position: absolute;
+    display: grid;
+    place-items: start center;
+    width: 100%;
+    height: 100%;
+
+    @for $i from 1 through 60 {
+      &:nth-child(#{$i}) { rotate: #{$i * 6}deg; }
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      background-color: currentColor;
+      margin: var(--analogMarkMargin);
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+    &::after {
+      content: '';
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      color: currentColor;
+      display: block;
+    }
+
+    &.analogIndicatorQuarter {
+      &::before {
+        width: var(--analogQuarterMarkWidth);
+        height: var(--analogQuarterMarkHeight);
+        border-radius: var(--analogQuarterMarkRadius);
+        opacity: var(--analogQuarterMarkOpacity);
+      }
+    }
+
+    &.analogIndicatorHour {
+      &::before {
+        width: var(--analogHourMarkWidth);
+        height: var(--analogHourMarkHeight);
+        border-radius: var(--analogHourMarkRadius);
+        opacity: var(--analogHourMarkOpacity);
+      }
+    }
+
+    &.analogIndicatorMinute {
+      &::before {
+        width: var(--analogMinuteMarkWidth);
+        height: var(--analogMinuteMarkHeight);
+        border-radius: var(--analogMinuteMarkRadius);
+        opacity: var(--analogMinuteMarkOpacity);
+      }
+    }
+  }
+
   .analogHour,
   .analogMinute,
   .analogSecond,
@@ -75,60 +118,29 @@
     grid-row: 1 / 2;
   }
 
-  .analogIndicator {
-    position: absolute;
-    width: var(--analogIndicatorWidth);
-    height: var(--analogIndicatorHeight);
-    border-radius: var(--analogIndicatorRadius);
-    opacity: var(--analogIndicatorOpacity);
-    // Move indicator to edge with transform. This allows the rotation to be based on the center of the face.
-    transform: translateY(calc(calc(var(--analogSize) / 2) * -1));
-
-    @for $i from 1 through 60 {
-      &:nth-child(#{$i}) { rotate: #{$i * 6}deg; }
-    }
-  }
-
   .analogHour {
-    width: var(--analogHourWidth);
-    height: var(--analogHourHeight);
-    border-radius: var(--analogHourRadius);
-    transform: translateY(-50%);
+    width: .03em;
+    height: .4em;
     rotate: var(--analogCurrentHour);
     animation: rotate-hour 43200s linear infinite;
     // animation: rotate-hour 43200s steps(60) infinite;
   }
 
   .analogMinute {
-    width: var(--analogMinuteWidth);
-    height: var(--analogMinuteHeight);
-    border-radius: var(--analogMinuteRadius);
-    transform: translateY(-50%);
+    width: .03em;
+    height: .4em;
     rotate: var(--analogCurrentMinute);
     animation: rotate-minute 3600s linear infinite;
     // animation: rotate-minute 3600s steps(60) infinite;
   }
 
   .analogSecond {
-    width: var(--analogSecondWidth);
-    height: var(--analogSecondHeight);
-    border-radius: var(--analogSecondRadius);
-    transform: translateY(-35%);
+    width: .03em;
+    height: .4em;
     rotate: var(--analogCurrentSecond);
     animation: rotate-second 60s steps(60) infinite;
     &.smooth {
       animation: rotate-second 60s linear infinite;
-    }
-    &::after {
-      width: calc(var(--analogSecondWidth) * 3);
-      height: calc(var(--analogSecondWidth) * 3);
-      border-radius: 50%;
-      content: '';
-      display: block;
-      position: absolute;
-      bottom: calc(calc(calc(var(--analogSecondWidth) * 3) + calc(var(--analogSecondWidth) * 1.5)) * -1);
-      left: calc(calc(var(--analogSecondWidth) * 1.5 + calc(var(--analogSecondWidth) / 2)) * -1);
-      border: var(--analogSecondWidth) solid currentColor;
     }
   }
 

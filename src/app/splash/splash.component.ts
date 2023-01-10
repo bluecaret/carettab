@@ -147,6 +147,14 @@ export class SplashComponent implements OnInit {
           enabled: false,
           faceStyle: 10,
           handStyle: 10,
+          borderSize: 1,
+          dimBorder: false,
+          showMinuteMarks: true,
+          dimMinuteMarks: true,
+          showHourMarks: true,
+          dimHourMarks: false,
+          showQuarterMarks: true,
+          dimQuarterMarks: false,
           smoothSeconds: false
         },
         binary: {

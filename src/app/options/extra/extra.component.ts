@@ -68,7 +68,6 @@ export class OptionsExtraComponent {
         _imp.date && Object.assign(this.settings.config.date, _imp.date);
         _imp.design && Object.assign(this.settings.config.design, _imp.design);
         _imp.i18n && Object.assign(this.settings.config.i18n, _imp.i18n);
-        _imp.covidData && Object.assign(this.settings.config.covidData, _imp.covidData);
         _imp.message && Object.assign(this.settings.config.messages, _imp.message);
         _imp.messages && Object.assign(this.settings.config.messages, _imp.messages);
         _imp.misc && Object.assign(this.settings.config.misc, _imp.misc);

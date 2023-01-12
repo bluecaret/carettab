@@ -18,7 +18,6 @@ import {
   QuickLinkSettings,
   SearchSettings,
   TimeSettings,
-  CovidSettings,
   WeatherSettings,
   NotepadSettings,
 } from './settings';
@@ -38,7 +37,6 @@ export class Storage {
     this.config.date = new DateSettings();
     this.config.design = new DesignSettings();
     this.config.i18n = new I18nSettings();
-    this.config.covidData = new CovidSettings();
     this.config.messages = new MessageSettings();
     this.config.misc = new MiscSettings();
     this.config.order = new OrderSettings();
@@ -110,11 +108,6 @@ export class Storage {
 
     this.getChrome('ct-weather', this.config.weather).then((data: any) => {
       this.config.weather = data;
-      this.loadTracker++;
-    });
-
-    this.getChrome('ct-covid', this.config.covidData).then((data: any) => {
-      this.config.covidData = data;
       this.loadTracker++;
     });
 

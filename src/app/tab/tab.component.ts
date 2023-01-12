@@ -306,23 +306,4 @@ export class TabComponent implements OnInit, AfterViewInit {
     };
     return styles;
   }
-
-  setCovidCountryWrapStyles(c: any): Object {
-    const styles = {
-      'order': this.shared.getOrder(c.id, c.position)
-    };
-    return styles;
-  }
-
-  setCovidCountryStyles(c: any): Object {
-    const styles = {
-      'font-size': this.shared.getFontSize(c.textScaling, 12),
-      'transform': this.shared.getOffset(c.offset),
-      'margin': this.shared.getMargin(c.marginHeight, c.marginWidth),
-      'max-width': this.shared.getMaxWidth(c.width),
-      'justify-content' : this.getAlignment(c.position),
-      'gap' : this.shared.getPadding(c.padding)
-    };
-    return styles;
-  }
 }

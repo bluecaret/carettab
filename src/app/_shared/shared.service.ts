@@ -552,7 +552,6 @@ export class SharedService {
     this.settings.setAll(this.settings.config.i18n, 'ct-i18n');
     this.settings.setAll(this.settings.config.messages, 'ct-message');
     this.settings.setAll(this.settings.config.misc, 'ct-misc');
-    this.settings.setAll(this.settings.config.covidData, 'ct-covid');
     this.settings.setAll(this.settings.config.order, 'ct-order');
     this.settings.setAll(this.settings.config.quickLink, 'ct-quick-link');
     this.settings.setAll(this.settings.config.search, 'ct-search');

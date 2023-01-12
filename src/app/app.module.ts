@@ -32,7 +32,6 @@ import { SplashComponent } from './splash/splash.component';
 // Options Imports
 import { OptionsComponent } from './options/options.component';
 import { OptionsBookmarksComponent } from './options/bookmarks/bookmarks.component';
-import { OptionsCovidComponent } from './options/covid/covid.component';
 import { OptionsDashboardComponent } from './options/dashboard/dashboard.component';
 import { OptionsDateComponent } from './options/date/date.component';
 import { OptionsDesignComponent } from './options/design/design.component';
@@ -54,7 +53,6 @@ import { TabDateComponent } from './tab/date/date.component';
 import { TabMessageComponent } from './tab/message/message.component';
 import { TabNotepadComponent } from './tab/notepad/notepad.component';
 import { TabSearchComponent } from './tab/search/search.component';
-import { TabCovidComponent } from './tab/covid/covid.component';
 import { TabWeatherComponent } from './tab/weather/weather.component';
 
 @NgModule({
@@ -75,7 +73,6 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
 
     OptionsComponent,
     OptionsBookmarksComponent,
-    OptionsCovidComponent,
     OptionsDashboardComponent,
     OptionsDateComponent,
     OptionsDesignComponent,
@@ -95,7 +92,6 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     TabMessageComponent,
     TabNotepadComponent,
     TabSearchComponent,
-    TabCovidComponent,
     TabWeatherComponent
   ],
   imports: [

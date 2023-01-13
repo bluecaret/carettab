@@ -9,6 +9,7 @@ import { PremiumModalComponent } from '../../_shared/modals/premium-modal.compon
 })
 export class OptionsDashboardComponent implements OnInit {
   status: string;
+  showWhatsNew = false;
   @HostBinding('class') hostClass: string = 'panelPlate panelPage';
   @Output() goTo: EventEmitter<string> = new EventEmitter<string>();
 
@@ -16,13 +17,19 @@ export class OptionsDashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.status = this.shared.status;
-
     // Clear updated status
     if (this.shared.status === 'updated') {
       chrome.storage.local.set({caretTabStatus: 'existing'});
       this.shared.status = 'existing';
     }
+  }
+
+  handleClearWhatsNew() {
+    chrome.storage.local.set({caretTabStatus: 'existing'});
+    chrome.storage.local.set({updateTimestamp: null});
+    chrome.storage.local.set({clearWhatsNewBox: true});
+    this.shared.status = 'existing';
+    this.shared.clearWhatsNewBox = true;
   }
 
   goToPage(page: string) {

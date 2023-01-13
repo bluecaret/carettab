@@ -21,7 +21,7 @@ $optionsToggleUpdateNoticeOffset: 16px;
   overflow: hidden;
   &:focus {
     outline: none;
-    box-shadow: 
+    box-shadow:
       inset 0 0 0 3px currentColor;
   }
   span {
@@ -68,13 +68,20 @@ $optionsToggleUpdateNoticeOffset: 16px;
       }
     }
   }
-  .quietUpdateNotice {
+  .updateNotice {
     position: absolute;
-    bottom: $optionsToggleUpdateNoticeOffset;
-    right: $optionsToggleUpdateNoticeOffset;
-    svg {
-      width: $optionsToggleUpdateNoticeSize;
-      height: $optionsToggleUpdateNoticeSize;
+    bottom: 13px;
+    right: 15px;
+    display: grid;
+    place-items: center;
+    border: 2px solid currentColor;
+    color: currentColor;
+    padding: 1px 3px;
+    border-radius: 6px;
+    &::before {
+      content: 'NEW';
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 8px;
     }
   }
   &.open .quietUpdateNotice {

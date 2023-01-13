@@ -73,25 +73,46 @@ export class AppComponent implements OnInit {
 
   handleVersionNumbers() {
     let _self = this;
-    chrome.storage.local.get(['caretTabStatus', 'caretTabNewVersion', 'caretTabPrevVersion'], function (data) {
+    chrome.storage.local.get(['caretTabStatus', 'caretTabNewVersion', 'caretTabPrevVersion', 'updateTimestamp', 'clearWhatsNewBox'], function (data) {
+      let status: string = data.caretTabStatus ? data.caretTabStatus : 'existing';
       let prevVer: string = data.caretTabPrevVersion ? data.caretTabPrevVersion : '';
       let newVer: string = data.caretTabNewVersion ? data.caretTabNewVersion : '';
-      _self.shared.status = data.caretTabStatus;
+      let updateTimestamp = data.updateTimestamp ? data.updateTimestamp : null;
+      let clearWhatsNewBox = data.clearWhatsNewBox !== undefined ? data.clearWhatsNewBox : true;
 
-      // _self.shared.echo('Extension status:', _self.shared.status);
+      _self.shared.status = status;
+      _self.shared.clearWhatsNewBox = clearWhatsNewBox;
 
-      // Display major update splash screen for version 3.0.0
-      if (prevVer) {
-        if (compare(prevVer, '3.5.0', '<')) {
-          _self.shared.updateType = "major";
-        } else if (compare(prevVer, '3.5.0', '>')) {
-          _self.shared.updateType = "quiet"
-        } else {
-          _self.shared.updateType = "hidden"
+      // Clear update notification if more than a week old.
+      if (updateTimestamp) {
+        let now = new Date();
+        let then = new Date(updateTimestamp);
+        let thenPlusWeek = new Date(then.getFullYear(), then.getMonth(), then.getDate() + 5, 0, 0, 0, 0);
+
+        if (now > thenPlusWeek) {
+          chrome.storage.local.set({caretTabStatus: 'existing'});
+          chrome.storage.local.set({updateTimestamp: null});
+          chrome.storage.local.set({clearWhatsNewBox: true});
+          _self.shared.status = 'existing';
+          _self.shared.clearWhatsNewBox = true;
         }
       }
 
-      // _self.shared.echo(`Version check:`, `Prev: ${prevVer} | New: ${newVer} | Type: ${_self.shared.updateType}`);
+      // _self.shared.echo('Extension status:', _self.shared.status);
+
+      _self.shared.updateType = "minor";
+      // Display major update splash screen for version 3.0.0
+      // if (prevVer) {
+        // if (compare(prevVer, '3.5.0', '<')) {
+        //   _self.shared.updateType = "major";
+        // } else if (compare(prevVer, '3.5.0', '>')) {
+        //   _self.shared.updateType = "quiet"
+        // } else {
+        //   _self.shared.updateType = "hidden"
+        // }
+      // }
+
+      // _self.shared.echo(`Version check:`, `Status: ${status} | Prev: ${prevVer} | New: ${newVer} | Type: ${_self.shared.updateType} | clear: ${clearWhatsNewBox} |  Timestampe: ${updateTimestamp}`);
     });
   }
 }

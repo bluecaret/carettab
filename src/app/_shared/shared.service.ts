@@ -17,6 +17,7 @@ export class SharedService {
   private _bgColor: string;
   private _browser: string;
   private _status: string;
+  private _clearWhatsNewBox = true;
   private _updateType: "major" | "minor" | "quiet" | "hidden";
   private _allBookmarks: any;
   private _mostVisitedLinks: any;
@@ -115,6 +116,13 @@ export class SharedService {
   }
   set status(value: string) {
     this._status = value;
+  }
+
+  get clearWhatsNewBox(): boolean {
+    return this._clearWhatsNewBox;
+  }
+  set clearWhatsNewBox(value: boolean) {
+    this._clearWhatsNewBox = value;
   }
 
   get updateType(): "major" | "minor" | "quiet" | "hidden" {

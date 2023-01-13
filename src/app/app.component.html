@@ -6,9 +6,9 @@
     >
   </app-tab>
   <app-options [@options] (closedOptions)="closedOptions()" *ngIf="shared.optionsToggle"></app-options>
-  <app-splash
+  <!-- <app-splash
     *ngIf="(shared.status === 'installed') || (shared.status === 'updated' && shared.updateType === 'major') || (shared.status === 'updated' && shared.updateType === 'minor')"
-  ></app-splash>
+  ></app-splash> -->
   <div *ngIf="shared.loading" class="app-loading">
     <div class="loading" aria-label="Loading, please wait.">
       <div></div><div></div><div></div><div></div>

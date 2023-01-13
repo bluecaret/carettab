@@ -15,35 +15,30 @@ extpay.onPaid.addListener(user => {
   });
 });
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.command === 'get-user') {
-    (async () => {
-      let user = await extpay.getUser();
-      sendResponse(user);
-    })();
-    return true; // keep the messaging channel open for sendResponse
-  }
-});
-
 // Check whether new version is installed
-if(typeof chrome.runtime.onInstalled  !== 'undefined')
-{
-  chrome.runtime.onInstalled.addListener(function (details)
-  {
-    // Set caretTabStatus if existing, intalled or updated.
+if (typeof chrome.runtime.onInstalled  !== 'undefined') {
+  chrome.runtime.onInstalled.addListener(function (details) {
+    // Set caretTabStatus if existing, installed or updated.
     let status = "existing";
+    let prevVersion = details.previousVersion ? details.previousVersion : '';
     let newVersion = '';
+    let timestamp = new Date().toLocaleString();
+    let clearBox = true;
+
     if (details.reason === "install"){
       status = "installed";
     } else if (details.reason === "update"){
-      status = "updated";
-    }
-    if (details.reason === "update") {
       newVersion = chrome.runtime.getManifest().version;
+      status = "updated";
+      clearBox = false;
     }
 
-    chrome.storage.local.set({caretTabStatus: status});
-    chrome.storage.local.set({caretTabNewVersion: newVersion});
-    chrome.storage.local.set({caretTabPrevVersion: details.previousVersion ? details.previousVersion : ''});
+    chrome.storage.local.set({
+      caretTabStatus: status,
+      caretTabPrevVersion: prevVersion,
+      caretTabNewVersion: newVersion,
+      updateTimestamp: timestamp,
+      clearWhatsNewBox: clearBox
+    });
   });
 }

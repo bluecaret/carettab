@@ -1,13 +1,13 @@
 <div class="introModalContent">
-  <button class="introModalClose" type='button' (click)="close()">
-    <span class='matIcon'>close</span>
+  <button class="introModalClose" type='button' attr.aria-label="{{'options.common.close' | translate}}" (click)="close()">
+    <span class='matIcon' aria-hidden="true">close</span>
   </button>
-  <h2>Thank you for choosing CaretTab!</h2>
-  <p>To get started select a language, then you can customize almost everything by clicking the settings icon in the bottom right.</p>
+  <h2>{{'modal.intro.heading' | translate}}</h2>
+  <p>{{'modal.intro.p1' | translate}}</p>
   <div class="panelGroup">
     <div class="panelField">
       <div class="panelFieldContent">
-        <label for="lang" class="panelLabel">Select a language</label>
+        <label for="lang" class="panelLabel">{{'modal.intro.selectALanguage' | translate}}</label>
       </div>
       <div class="panelFieldInput">
         <select
@@ -26,5 +26,5 @@
       </div>
     </div>
   </div>
-  <button type="button" class="panelBtn" (click)="close()">{{'splash.getStarted' | translate}}</button>
+  <button type="button" class="panelBtn" (click)="close()">{{'modal.intro.getStarted' | translate}}</button>
 </div>

@@ -3,8 +3,8 @@
     <button
       (click)="goTo.emit('Dashboard')"
       class="panelBack matIcon"
-      aria-label="Back to dashboard"
-      title="Back to dashboard"
+      attr.aria-label="{{'options.dashboard.backToDashboard' | translate}}"
+      title="{{'options.dashboard.backToDashboard' | translate}}"
     >arrow_back</button>
     {{'options.time.time' | translate}}
   </h2>
@@ -40,7 +40,7 @@
             <button
               type="button"
               class="panelBtn"
-              title="Edit clock"
+              title="{{'options.time.editClock' | translate}}"
               (click)="setSelected(i);">
               <i class="matIcon">edit</i>
             </button>
@@ -70,7 +70,7 @@
   <p class="panelParagraph">
     <b>{{'options.time.note' | translate}}</b> {{'options.time.noteText' | translate}} "{{tz.timezoneFormat(this.tzGuess)}}".
   </p>
-  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Dashboard</button>
+  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon" aria-hidden="true">arrow_back</i>{{'options.dashboard.backToDashboard' | translate}}</button>
 </div>
 
 <div *ngIf="shared.optionsPage === 'EditClock'" class="panelPlate panelPage">
@@ -78,8 +78,8 @@
     <button
       (click)="goTo.emit('Time'); selected = null;"
       class="panelBack matIcon"
-      aria-label="Back to all clocks"
-      title="Back to all clocks"
+      attr.aria-label="{{'options.time.backToAllClocks' | translate}}"
+      title="{{'options.time.backToAllClocks' | translate}}"
     >arrow_back</button>
     {{'options.time.clock' | translate}} #{{selected + 1}}
   </h2>
@@ -113,7 +113,7 @@
     </div>
     <div class="panelField panelFieldInline">
       <div class="panelFieldContent">
-        <label for="clockType" class="panelLabel">Clock type</label>
+        <label for="clockType" class="panelLabel">{{'options.time.clockType' | translate}}</label>
       </div>
       <div class="panelFieldInput">
         <select
@@ -122,9 +122,9 @@
           id="clockType"
           [(ngModel)]="clockType"
           (ngModelChange)="setClockType(selected)">
-          <option value="digital">Digital</option>
-          <option value="analog">Analog</option>
-          <option value="binary">Binary</option>
+          <option value="digital">{{'options.time.digital' | translate}}</option>
+          <option value="analog">{{'options.time.analog' | translate}}</option>
+          <option value="binary">{{'options.time.binary' | translate}}</option>
         </select>
       </div>
     </div>
@@ -166,7 +166,7 @@
         <label for="analogFaceStyle" class="panelLabel">
           <div class="panelPremiumLabel">
             <premium-label></premium-label>
-            Face style
+            {{'options.time.faceStyle' | translate}}
           </div>
         </label>
       </div>
@@ -186,7 +186,7 @@
         <label for="analogHandStyle" class="panelLabel">
           <div class="panelPremiumLabel">
             <premium-label></premium-label>
-            Hand style
+            {{'options.time.handStyle' | translate}}
           </div>
         </label>
       </div>
@@ -203,7 +203,7 @@
     </div>
     <div class="panelField panelFieldInline">
       <div class="panelFieldContent">
-        <label id="analogBorderSizeLabel" class="panelLabel">Border size</label>
+        <label id="analogBorderSizeLabel" class="panelLabel">{{'options.time.borderSize' | translate}}</label>
       </div>
       <div class="panelFieldInput">
         <options-range
@@ -219,7 +219,7 @@
     </div>
     <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].analog.borderSize">
       <div class="panelFieldContent">
-        <label id="analogDimBorderLabel" class="panelLabel">Dim border</label>
+        <label id="analogDimBorderLabel" class="panelLabel">{{'options.time.dimBorder' | translate}}</label>
       </div>
       <div class="panelFieldInput">
         <options-toggle
@@ -232,7 +232,7 @@
     </div>
     <div class="panelField panelFieldInline">
       <div class="panelFieldContent">
-        <label id="analogQuarterHourLabel" class="panelLabel">Quarter hour marks</label>
+        <label id="analogQuarterHourLabel" class="panelLabel">{{'options.time.quarterHourMarks' | translate}}</label>
       </div>
       <div class="panelFieldInput">
         <options-toggle
@@ -245,7 +245,7 @@
     </div>
     <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].analog.showQuarterMarks">
       <div class="panelFieldContent">
-        <label id="analogDimQuarterHourLabel" class="panelLabel">Dim quarter hour marks</label>
+        <label id="analogDimQuarterHourLabel" class="panelLabel">{{'options.time.dimQuarterHourMarks' | translate}}</label>
       </div>
       <div class="panelFieldInput">
         <options-toggle
@@ -258,7 +258,7 @@
     </div>
     <div class="panelField panelFieldInline">
       <div class="panelFieldContent">
-        <label id="analogHourLabel" class="panelLabel">Hour marks</label>
+        <label id="analogHourLabel" class="panelLabel">{{'options.time.hourMarks' | translate}}</label>
       </div>
       <div class="panelFieldInput">
         <options-toggle
@@ -271,7 +271,7 @@
     </div>
     <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].analog.showHourMarks">
       <div class="panelFieldContent">
-        <label id="analogDimHourLabel" class="panelLabel">Dim hour marks</label>
+        <label id="analogDimHourLabel" class="panelLabel">{{'options.time.dimHourMarks' | translate}}</label>
       </div>
       <div class="panelFieldInput">
         <options-toggle
@@ -284,7 +284,7 @@
     </div>
     <div class="panelField panelFieldInline">
       <div class="panelFieldContent">
-        <label id="analogMinuteLabel" class="panelLabel">Minute marks</label>
+        <label id="analogMinuteLabel" class="panelLabel">{{'options.time.minuteMarks' | translate}}</label>
       </div>
       <div class="panelFieldInput">
         <options-toggle
@@ -297,7 +297,7 @@
     </div>
     <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].analog.showMinuteMarks">
       <div class="panelFieldContent">
-        <label id="analogDimMinuteLabel" class="panelLabel">Dim minute marks</label>
+        <label id="analogDimMinuteLabel" class="panelLabel">{{'options.time.dimMinuteMarks' | translate}}</label>
       </div>
       <div class="panelFieldInput">
         <options-toggle
@@ -324,7 +324,7 @@
     </div>
     <div class="panelField panelFieldInline" *ngIf="settings.config.time.clocks[selected].seconds.enabled">
       <div class="panelFieldContent">
-        <label id="analogSmoothSecondsLabel" class="panelLabel">Smooth second hand movement</label>
+        <label id="analogSmoothSecondsLabel" class="panelLabel">{{'options.time.smoothSecondMovement' | translate}}</label>
       </div>
       <div class="panelFieldInput">
         <options-toggle
@@ -1099,5 +1099,5 @@
     </div>
   </div>
 
-  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Time'); selected = null;"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to all clocks</button>
+  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Time'); selected = null;"><i class="matIcon" aria-hidden="true">arrow_back</i>{{'options.time.backToAllClocks' | translate}}</button>
 </div>

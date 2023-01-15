@@ -8,5 +8,5 @@
     placeholder="{{settings.config.search.label}}"
     [autocomplete]="settings.config.search.autocomplete ? 'on' : 'off'"
     [style.width]="settings.config.search.width + 'em'">
-  <button class="allowPointerEvent" type="submit"><div class="icon">search</div></button>
+  <button class="allowPointerEvent" type="submit" attr.aria-label="{{'options.search.search' | translate}}"><div class="icon">search</div></button>
 </form>

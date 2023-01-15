@@ -8,7 +8,7 @@
   <app-options [@options] (closedOptions)="closedOptions()" *ngIf="shared.optionsToggle"></app-options>
   <div *ngIf="this.shared.status && this.shared.status === 'highlightSettings'" class="highlightSettings"></div>
   <div *ngIf="shared.loading" class="app-loading">
-    <div class="loading" aria-label="Loading, please wait.">
+    <div class="loading" attr.aria-label="{{'options.common.loadingPleaseWait' | translate}}">
       <div></div><div></div><div></div><div></div>
     </div>
   </div>

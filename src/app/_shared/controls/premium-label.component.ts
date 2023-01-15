@@ -10,7 +10,7 @@ import { PremiumModalComponent } from '../modals/premium-modal.component';
     <button
       type="button"
       class="premiumLabel"
-      [title]="shared.paid ? 'Thank you for subscribing to Premium. Enjoy the benefits!' : 'Sign up for Premium to access this feature'"
+      [title]="shared.paid ? 'options.common.premiumLabelThankYou' : 'options.common.premiumLabel' | translate"
       (click)="openGetPremiumModal($event)"
       >
       <span class='matIcon'>diamond</span>

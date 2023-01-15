@@ -18,21 +18,19 @@
       (click)="togglePreview(true)"
       (blur)="togglePreview(false)"
       class="panelPreviewBtn"
-      [attr.aria-label]="'options.common.preview' | translate"
-      [attr.title]="'options.common.preview' | translate"
     >
       <i class="matIcon">preview</i>
-      Preview
+      {{'options.common.preview' | translate}}
     </button>
     <button
       #closeButton
       (click)="closeOptions()"
       class="panelSave"
-      aria-label="Save and close (refresh page to cancel)"
-      title="Save and close (refresh page to cancel)"
+      attr.aria-label="{{'options.common.saveAndClose' | translate}}"
+      title="{{'options.common.saveAndClose' | translate}}"
     >
       <i class="matIcon">save</i>
-      Save
+      {{'options.common.save' | translate}}
     </button>
   </div>
 </header>

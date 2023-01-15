@@ -2,10 +2,10 @@
   <button
     (click)="goTo.emit('Dashboard')"
     class="panelBack matIcon"
-    aria-label="Back to dashboard"
-    title="Back to dashboard"
+    attr.aria-label="{{'options.dashboard.backToDashboard' | translate}}"
+    title="{{'options.dashboard.backToDashboard' | translate}}"
   >arrow_back</button>
-  Notepad
+  {{'options.notepad.notepad' | translate}}
 </h2>
 <form #notepad="ngForm" novalidate>
   <div class="panelGroup">
@@ -13,7 +13,7 @@
       <div class="panelFieldContent">
         <div class="panelPremiumLabel">
           <premium-label></premium-label>
-          <label id="notepadEnableLabel" class="panelLabel">Enable notepad</label>
+          <label id="notepadEnableLabel" class="panelLabel">{{'options.notepad.enableNotepad' | translate}}</label>
         </div>
       </div>
       <div class="panelFieldInput">
@@ -29,9 +29,9 @@
     <ng-container *ngIf="settings.config.notepad.enabled && shared.paid">
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label id="notepadSyncLabel" class="panelLabel">Sync notes</label>
-          <div class="panelDescription">Allow notes to sync across computers. You must be signed in to the browser for syncing to work. Browsers have a higher restriction on syncing data, this means notes will be limited to only 2000 characters. Disabling sync for notes allows up to 250,000 characters.</div>
-          <div class="panelDescription">Notes are currently limited to {{sync ? '2,000' : '250,000'}} characters.</div>
+          <label id="notepadSyncLabel" class="panelLabel">{{'options.notepad.syncNotes' | translate}}</label>
+          <div class="panelDescription">{{'options.notepad.syncNotesDesc' | translate}}</div>
+          <div class="panelDescription">{{'options.notepad.notesLimitedTo' | translate | translateCut:0}}{{sync ? '2,000' : '250,000'}}{{'options.notepad.notesLimitedTo' | translate | translateCut:1}}</div>
         </div>
         <div class="panelFieldInput">
           <options-toggle
@@ -44,8 +44,8 @@
       </div>
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label id="notepadSpellCheckLabel" class="panelLabel">Enable Browser Spellcheck</label>
-          <div class="panelDescription">Allows the browser to run spellcheck on the notes (if available).</div>
+          <label id="notepadSpellCheckLabel" class="panelLabel">{{'options.notepad.enableSpellcheck' | translate}}</label>
+          <div class="panelDescription">{{'options.notepad.enableSpellcheckDesc' | translate}}</div>
         </div>
         <div class="panelFieldInput">
           <options-toggle
@@ -57,8 +57,8 @@
       </div>
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label id="notepadShowCharLimitLabel" class="panelLabel">Show count</label>
-          <div class="panelDescription">Display the current character count and the total allowed in the bottom of the notepad.</div>
+          <label id="notepadShowCharLimitLabel" class="panelLabel">{{'options.notepad.showCount' | translate}}</label>
+          <div class="panelDescription">{{'options.notepad.showCountDesc' | translate}}</div>
         </div>
         <div class="panelFieldInput">
           <options-toggle
@@ -71,12 +71,12 @@
     </ng-container>
   </div>
   <ng-container *ngIf="settings.config.notepad.enabled && shared.paid">
-    <h3 class="panelSubtitle">Style</h3>
+    <h3 class="panelSubtitle">{{'options.common.style' | translate}}</h3>
     <div class="panelGroup">
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label id="notepadWidthLabel" class="panelLabel">Width</label>
-          <p class="panelDescription">Sets the width that the widget will span relative to the width of the screen. This could cause widgets to display smaller than intended if the window is made too small.</p>
+          <label id="notepadWidthLabel" class="panelLabel">{{'options.common.width' | translate}}</label>
+          <p class="panelDescription">{{'options.common.widthDesc' | translate}}</p>
         </div>
         <div class="panelFieldInput">
           <options-range labelledby="notepadWidthLabel" class="panelInputLg" name="notepadWidth" id="notepadWidth" min="1" max="100" [(ngModel)]="settings.config.notepad.width"></options-range>
@@ -84,8 +84,8 @@
       </div>
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label id="notepadHeightLabel" class="panelLabel">Height</label>
-          <p class="panelDescription">Sets the height that the widget will span relative to the height of the screen. This could cause widgets to display smaller than intended if the window is made too small.</p>
+          <label id="notepadHeightLabel" class="panelLabel">{{'options.common.height' | translate}}</label>
+          <p class="panelDescription">{{'options.common.heightDesc' | translate}}</p>
         </div>
         <div class="panelFieldInput">
           <options-range labelledby="notepadHeightLabel" class="panelInputLg" name="notepadHeight" id="notepadHeight" min="1" max="100" [(ngModel)]="settings.config.notepad.height"></options-range>
@@ -94,7 +94,7 @@
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
           <label id="notepadPaddingLabel" class="panelLabel">{{'options.common.padding' | translate}}</label>
-          <p class="panelDescription">Change the padding between the edge and the text of the notepad.</p>
+          <p class="panelDescription">{{'options.notepad.paddingDesc' | translate}}</p>
         </div>
         <div class="panelFieldInput">
           <options-range labelledby="notepadPaddingLabel" class="panelInputLg" name="notepadPadding" min="0" max="50" [(ngModel)]="settings.config.notepad.padding"></options-range>
@@ -102,7 +102,7 @@
       </div>
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label id="notepadSizeLabel" class="panelLabel">Text size</label>
+          <label id="notepadSizeLabel" class="panelLabel">{{'options.common.textSize' | translate}}</label>
           <p class="panelDescription">{{'options.common.sizeDesc' | translate}}</p>
         </div>
         <div class="panelFieldInput">
@@ -111,7 +111,7 @@
       </div>
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label id="notepadShowBgLabel" class="panelLabel">Show background</label>
+          <label id="notepadShowBgLabel" class="panelLabel">{{'options.notepad.showBackground' | translate}}</label>
         </div>
         <div class="panelFieldInput">
           <options-toggle
@@ -123,8 +123,8 @@
       </div>
       <div *ngIf="settings.config.notepad.showBg" class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label id="notepadBgOpacityLabel" class="panelLabel">Background opacity</label>
-          <p class="panelDescription">Add transparency to the notepad background</p>
+          <label id="notepadBgOpacityLabel" class="panelLabel">{{'options.notepad.backgroundOpacity' | translate}}</label>
+          <p class="panelDescription">{{'options.notepad.backgroundOpacityDesc' | translate}}</p>
         </div>
         <div class="panelFieldInput">
           <options-range labelledby="notepadBgOpacityLabel" class="panelInputLg" name="notepadBgOpacity" id="notepadBgOpacity" min="1" max="100" [(ngModel)]="settings.config.notepad.bgOpacity"></options-range>
@@ -132,7 +132,7 @@
       </div>
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label id="notepadShowBorderLabel" class="panelLabel">Show border</label>
+          <label id="notepadShowBorderLabel" class="panelLabel">{{'options.notepad.showBorder' | translate}}</label>
         </div>
         <div class="panelFieldInput">
           <options-toggle
@@ -144,8 +144,8 @@
       </div>
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label id="notepadBorderRadiusLabel" class="panelLabel">Rounded corners</label>
-          <p class="panelDescription">Round the corners of the notepad box.</p>
+          <label id="notepadBorderRadiusLabel" class="panelLabel">{{'options.notepad.roundedCorners' | translate}}</label>
+          <p class="panelDescription">{{'options.notepad.roundedCornersDesc' | translate}}</p>
         </div>
         <div class="panelFieldInput">
           <options-range labelledby="notepadBorderRadiusLabel" class="panelInputLg" name="notepadBorderRadius" id="notepadBorderRadius" min="0" max="20" [(ngModel)]="settings.config.notepad.borderRadius"></options-range>
@@ -153,8 +153,8 @@
       </div>
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label id="notepadOverrideColorsLabel" class="panelLabel">Override global colors</label>
-          <p class="panelDescription">Choose custom colors for this widget.</p>
+          <label id="notepadOverrideColorsLabel" class="panelLabel">{{'options.common.overrideGlobalColors' | translate}}</label>
+          <p class="panelDescription">{{'options.common.overrideGlobalColorsDesc' | translate}}</p>
         </div>
         <div class="panelFieldInput">
           <options-toggle
@@ -166,7 +166,7 @@
       </div>
       <div class="panelField panelFieldInline" *ngIf="settings.config.notepad.overrideColors">
         <div class="panelFieldContent">
-          <label id="setTextColorLabel" class="panelLabel">Text color</label>
+          <label id="setTextColorLabel" class="panelLabel">{{'options.common.textColor' | translate}}</label>
         </div>
         <div class="panelFieldInput">
           <input class="panelInput panelInputColor" type="color" aria-labelledby="setTextColorLabel" name="text-color"
@@ -179,7 +179,7 @@
       </div>
       <div *ngIf="settings.config.notepad.showBg && settings.config.notepad.overrideColors" class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label id="setBackgroundLabel" class="panelLabel">Background color</label>
+          <label id="setBackgroundLabel" class="panelLabel">{{'options.common.backgroundColor' | translate}}</label>
         </div>
         <div class="panelFieldInput">
           <input class="panelInput panelInputColor" type="color" aria-labelledby="setBackgroundLabel" name="bg-color"
@@ -192,7 +192,7 @@
       </div>
       <div *ngIf="settings.config.notepad.showBorder && settings.config.notepad.overrideColors" class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label id="setBorderLabel" class="panelLabel">Border color</label>
+          <label id="setBorderLabel" class="panelLabel">{{'options.common.borderColor' | translate}}</label>
         </div>
         <div class="panelFieldInput">
           <input class="panelInput panelInputColor" type="color" aria-labelledby="setBorderLabel" name="border-color"
@@ -276,4 +276,4 @@
   </ng-container>
 </form>
 
-<button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Dashboard</button>
+<button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon" aria-hidden="true">arrow_back</i>{{'options.dashboard.backToDashboard' | translate}}</button>

@@ -2,8 +2,8 @@
   <button
     (click)="goTo.emit('Dashboard')"
     class="panelBack matIcon"
-    aria-label="Back to dashboard"
-    title="Back to dashboard"
+    attr.aria-label="{{'options.dashboard.backToDashboard' | translate}}"
+    title="{{'options.dashboard.backToDashboard' | translate}}"
   >arrow_back</button>
   {{'options.weather.weather' | translate}}
 </h2>
@@ -33,7 +33,7 @@
     <ng-container *ngIf="hasSearched && (!locationList || locationList.length < 1)">
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label id="setLocationLabel" class="panelLabel">No location found.</label>
+          <label id="setLocationLabel" class="panelLabel">{{'options.weather.noLocationFound' | translate}}</label>
         </div>
       </div>
     </ng-container>
@@ -368,4 +368,4 @@
   </div>
 </ng-container>
 
-<button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Dashboard</button>
+<button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon" aria-hidden="true">arrow_back</i>{{'options.dashboard.backToDashboard' | translate}}</button>

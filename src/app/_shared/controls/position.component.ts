@@ -14,8 +14,8 @@ import { SharedService } from '../shared.service';
   template: `
     <button
       type="button"
-      attr.aria-label="Top left"
-      title="Top left"
+      attr.aria-label="{{'options.common.topLeft' | translate}}"
+      title="{{'options.common.topLeft' | translate}}"
       class="panelBtn"
       [ngClass]="{'active' : position === 'nw'}"
       (click)="handleClick('nw')"
@@ -24,8 +24,8 @@ import { SharedService } from '../shared.service';
     </button>
     <button
       type="button"
-      attr.aria-label="Top center"
-      title="Top center"
+      attr.aria-label="{{'options.common.topCenter' | translate}}"
+      title="{{'options.common.topCenter' | translate}}"
       class="panelBtn"
       [ngClass]="{'active' : position === 'n'}"
       (click)="handleClick('n')"
@@ -34,8 +34,8 @@ import { SharedService } from '../shared.service';
     </button>
     <button
       type="button"
-      attr.aria-label="Top right"
-      title="Top right"
+      attr.aria-label="{{'options.common.topRight' | translate}}"
+      title="{{'options.common.topRight' | translate}}"
       class="panelBtn"
       [ngClass]="{'active' : position === 'ne'}"
       (click)="handleClick('ne')"
@@ -44,8 +44,8 @@ import { SharedService } from '../shared.service';
     </button>
     <button
       type="button"
-      attr.aria-label="Center left"
-      title="Center left"
+      attr.aria-label="{{'options.common.centerLeft' | translate}}"
+      title="{{'options.common.centerLeft' | translate}}"
       class="panelBtn"
       [ngClass]="{'active' : position === 'w'}"
       (click)="handleClick('w')"
@@ -54,8 +54,8 @@ import { SharedService } from '../shared.service';
     </button>
     <button
       type="button"
-      attr.aria-label="Center"
-      title="Center"
+      attr.aria-label="{{'options.common.center' | translate}}"
+      title="{{'options.common.center' | translate}}"
       class="panelBtn"
       [ngClass]="{'active' : position === 'c' || position == null}"
       (click)="handleClick('c')"
@@ -64,8 +64,8 @@ import { SharedService } from '../shared.service';
     </button>
     <button
       type="button"
-      attr.aria-label="Center right"
-      title="Center right"
+      attr.aria-label="{{'options.common.centerRight' | translate}}"
+      title="{{'options.common.centerRight' | translate}}"
       class="panelBtn"
       [ngClass]="{'active' : position === 'e'}"
       (click)="handleClick('e')"
@@ -74,8 +74,8 @@ import { SharedService } from '../shared.service';
     </button>
     <button
       type="button"
-      attr.aria-label="Bottom left"
-      title="Bottom left"
+      attr.aria-label="{{'options.common.bottomLeft' | translate}}"
+      title="{{'options.common.bottomLeft' | translate}}"
       class="panelBtn"
       [ngClass]="{'active' : position === 'sw'}"
       (click)="handleClick('sw')"
@@ -84,8 +84,8 @@ import { SharedService } from '../shared.service';
     </button>
     <button
       type="button"
-      attr.aria-label="Bottom center"
-      title="Bottom center"
+      attr.aria-label="{{'options.common.bottomCenter' | translate}}"
+      title="{{'options.common.bottomCenter' | translate}}"
       class="panelBtn"
       [ngClass]="{'active' : position === 's'}"
       (click)="handleClick('s')"
@@ -94,8 +94,8 @@ import { SharedService } from '../shared.service';
     </button>
     <button
       type="button"
-      attr.aria-label="Bottom right"
-      title="Bottom right"
+      attr.aria-label="{{'options.common.bottomRight' | translate}}"
+      title="{{'options.common.bottomRight' | translate}}"
       class="panelBtn"
       [ngClass]="{'active' : position === 'se'}"
       (click)="handleClick('se')"

@@ -3,8 +3,8 @@
     <button
       (click)="goTo.emit('Dashboard')"
       class="panelBack matIcon"
-      aria-label="Back to dashboard"
-      title="Back to dashboard"
+      attr.aria-label="{{'options.dashboard.backToDashboard' | translate}}"
+      title="{{'options.dashboard.backToDashboard' | translate}}"
     >arrow_back</button>
     {{'options.design.design' | translate}}
   </h2>
@@ -17,11 +17,9 @@
         <button
           class="panelBtn"
           (click)="goTo.emit('Theme')"
-          [attr.aria-label]="'Choose colors'"
-          [title]="'Choose colors'"
           >
           <span class="matIcon">palette</span>
-          Choose color theme
+          {{'options.design.chooseColorTheme' | translate}}
         </button>
       </div>
       <div class="panelField panelFieldInline">
@@ -31,27 +29,27 @@
             <p
               *ngIf="settings.config.design.wallpaperType === 'upload'"
               class="panelDescription">
-              Uploaded image
+              {{'options.design.uploadedImage' | translate}}
             </p>
             <p
               *ngIf="settings.config.design.wallpaperType === 'pattern'"
               class="panelDescription">
-              Pattern "{{settings.config.design.patternId}}"
+              {{'options.design.pattern' | translate}} "{{settings.config.design.patternId}}"
             </p>
             <p
               *ngIf="settings.config.design.wallpaperType === 'search'"
               class="panelDescription">
-              Unsplash author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
+              {{'options.design.unsplashAuthor' | translate}} "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
             </p>
             <p
               *ngIf="settings.config.design.wallpaperType === 'topics'"
               class="panelDescription">
-              Unsplash Topic: "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
+              {{'options.design.unsplashTopic' | translate}} "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
             </p>
             <p
               *ngIf="settings.config.design.wallpaperType === 'collections'"
               class="panelDescription">
-              Unsplash Collection: "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
+              {{'options.design.unsplashCollection' | translate}} "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
             </p>
           </ng-container>
         </div>
@@ -59,18 +57,16 @@
           <button
             class="panelBtn"
             (click)="goTo.emit('Wallpaper')"
-            [attr.aria-label]="'Choose colors'"
-            [title]="'Choose colors'"
             >
             <span class="matIcon">wallpaper</span>
-            Choose wallpaper
+            {{'options.design.chooseWallpaper' | translate}}
           </button>
         </div>
       </div>
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
           <label for="font" class="panelLabel">{{'options.design.font' | translate}}</label>
-          <div class="panelDescription"><premium-label></premium-label> Premium fonts require internet.</div>
+          <div class="panelDescription"><premium-label></premium-label> {{'options.design.premiumFontsInternet' | translate}}</div>
         </div>
         <div class="panelFieldInput">
           <select class="panelSelect panelInputXl" name="font" id="font"
@@ -80,7 +76,7 @@
               [disabled]="!shared.paid && font.premium"
               [ngValue]="font.id"
               *ngFor="let font of fonts;">
-              {{font.label}}<ng-container *ngIf="font.premium"> (Premium)</ng-container>
+              {{font.label}}<ng-container *ngIf="font.premium"> {{'options.design.premiumFont' | translate}}</ng-container>
             </option>
           </select>
         </div>
@@ -130,7 +126,7 @@
       </div>
     </div>
   </form>
-  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Dashboard</button>
+  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon" aria-hidden="true">arrow_back</i>{{'options.dashboard.backToDashboard' | translate}}</button>
 </div>
 
 <div *ngIf="shared.optionsPage === 'Theme'" class="panelPlate panelPage">
@@ -138,10 +134,10 @@
     <button
       (click)="goTo.emit('Design')"
       class="panelBack matIcon"
-      aria-label="Back to Design"
-      title="Back to Design"
+      attr.aria-label="{{'options.design.backToDesign' | translate}}"
+      title="{{'options.design.backToDesign' | translate}}"
     >arrow_back</button>
-    Color theme
+    {{'options.design.colorTheme' | translate}}
   </h2>
   <form #themeOptions="ngForm" novalidate>
     <div class="panelGroup">
@@ -182,8 +178,8 @@
             [style.backgroundColor]="color.bg"
             [style.color]="color.fg"
             (click)="setColors(color);"
-            [attr.aria-label]="'Select theme ' + color.id"
-            [title]="'Select theme ' + color.id"
+            attr.aria-label="{{'options.design.selectTheme' | translate}} {{color.id}}"
+            title="{{'options.design.selectTheme' | translate}} {{color.id}}"
             >
             abc 123
           </button>
@@ -191,7 +187,7 @@
       </div>
     </div>
   </form>
-  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Design')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Design</button>
+  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Design')"><i class="matIcon" aria-hidden="true">arrow_back</i>{{'options.design.backToDesign' | translate}}</button>
 </div>
 
 <div *ngIf="shared.optionsPage === 'Wallpaper'" class="panelPlate panelPage">
@@ -199,8 +195,8 @@
     <button
       (click)="goTo.emit('Design')"
       class="panelBack matIcon"
-      aria-label="Back to Design"
-      title="Back to Design"
+      attr.aria-label="{{'options.design.backToDesign' | translate}}"
+      title="{{'options.design.backToDesign' | translate}}"
     >arrow_back</button>
     {{'options.design.wallpaper' | translate}}
   </h2>
@@ -209,64 +205,64 @@
       <div class="panelField {{['topics', 'collections'].includes(settings.config.design.wallpaperType) ? '' : 'panelFieldInline'}}" *ngIf="shared.bg && shared.bg != null && shared.bg != ''">
         <div class="panelFieldContent">
           <label for="wallpaperPreview" class="panelLabel">
-            Current wallpaper
+            {{'options.design.currentWallpaper' | translate}}
           </label>
           <p
             *ngIf="settings.config.design.wallpaperType === 'upload'"
             class="panelDescription">
-            Uploaded image
+            {{'options.design.uploadedImage' | translate}}
           </p>
           <p
             *ngIf="settings.config.design.wallpaperType === 'pattern'"
             class="panelDescription">
-            Pattern "{{settings.config.design.patternId}}"
+            {{'options.design.pattern' | translate}} "{{settings.config.design.patternId}}"
           </p>
           <p
             *ngIf="settings.config.design.wallpaperType === 'search'"
             class="panelDescription">
-            Unsplash author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
+            {{'options.design.unsplashAuthor' | translate}} "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
           </p>
           <p
             *ngIf="settings.config.design.wallpaperType === 'topics'"
             class="panelDescription">
-            Unsplash Topic: "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
+            {{'options.design.unsplashTopic' | translate}} "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
           </p>
           <p
             *ngIf="settings.config.design.wallpaperType === 'collections'"
             class="panelDescription">
-            Unsplash Collection: "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
+            {{'options.design.unsplashCollection' | translate}} "<a href="{{this.settings.config.design.unsplashListLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashList}}</a>".<br />Author: "<a href="{{this.settings.config.design.unsplashCreditLink}}?utm_source=carettab&utm_medium=referral" target="_blank" rel="noreferrer">{{settings.config.design.unsplashCredit}}</a>"
           </p>
         </div>
         <div class="panelFieldInput">
           <button class="panelBtn" type="button" (click)="removeWallpaper();">
             <span class="matIcon">delete</span>
-            Remove wallpaper
+            {{'options.design.removeWallpaper' | translate}}
           </button>
           <button
             *ngIf="['topics', 'collections'].includes(settings.config.design.wallpaperType)"
             class="panelBtn"
             style="margin-left: auto;"
             type="button"
-            title="Request a new random photo from the selected Unsplash list."
+            title="{{'options.design.newPhotoDesc' | translate}}"
             (click)="getSelectedUnsplashImage(settings.config.design.unsplashId, settings.config.design.unsplashList,  settings.config.design.unsplashListLink)">
             <span class="matIcon">refresh</span>
-            New photo
+            {{'options.design.newPhoto' | translate}}
           </button>
         </div>
       </div>
       <div class="panelField">
         <div class="panelFieldContent">
-          <label id="bgImgFileLabel" class="panelLabel">Choose type of wallpaper</label>
+          <label id="bgImgFileLabel" class="panelLabel">{{'options.design.chooseTypeOfWallpaper' | translate}}</label>
           <p class="panelDescription">{{'options.design.dontSync' | translate}}</p>
         </div>
         <div class="panelFieldInput">
           <input class="panelFile" id="bgImgFile" #bgImgFile name="imageUrl" type="file" accept="image/*" (change)="encodeImage($event, bgImgFile)" />
           <div class="panelBtnGroup" style="width: 100%">
             <button class="panelBtn {{wallpaperType === 'upload' ? 'active' : ''}}" aria-labelledby="bgImgFileLabel" type="button" (click)="bgImgFile.click();">
-              Upload file
+              {{'options.design.uploadImage' | translate}}
             </button>
             <button class="panelBtn {{wallpaperType === 'pattern' ? 'active' : ''}}" aria-labelledby="bgImgFileLabel" type="button" (click)="goTo.emit('Patterns')">
-              Patterns
+              {{'options.design.pattern' | translate}}
             </button>
             <button [disabled]="!shared.paid" class="panelBtn {{wallpaperType === 'search' || wallpaperType === 'topics' || wallpaperType === 'collections' ? 'active' : ''}}" aria-labelledby="bgImgFileLabel" type="button" (click)="openUnsplash()">
               <premium-label></premium-label>
@@ -287,7 +283,7 @@
         <div class="panelFieldContent">
           <div class="panelPremiumLabel">
             <premium-label></premium-label>
-            <label id="contrastLabel" class="panelLabel">Contrast</label>
+            <label id="contrastLabel" class="panelLabel">{{'options.design.contrast' | translate}}</label>
           </div>
         </div>
         <div class="panelFieldInput">
@@ -298,7 +294,7 @@
         <div class="panelFieldContent">
           <div class="panelPremiumLabel">
             <premium-label></premium-label>
-            <label id="saturationLabel" class="panelLabel">Saturation</label>
+            <label id="saturationLabel" class="panelLabel">{{'options.design.saturation' | translate}}</label>
           </div>
         </div>
         <div class="panelFieldInput">
@@ -309,7 +305,7 @@
         <div class="panelFieldContent">
           <div class="panelPremiumLabel">
             <premium-label></premium-label>
-            <label id="blurLabel" class="panelLabel">Blur</label>
+            <label id="blurLabel" class="panelLabel">{{'options.design.blur' | translate}}</label>
           </div>
         </div>
         <div class="panelFieldInput">
@@ -336,7 +332,7 @@
         <div class="panelFieldContent">
           <div class="panelPremiumLabel">
             <premium-label></premium-label>
-            <label id="scaleLabel" class="panelLabel">Scale</label>
+            <label id="scaleLabel" class="panelLabel">{{'options.design.scale' | translate}}</label>
           </div>
         </div>
         <div class="panelFieldInput">
@@ -361,19 +357,19 @@
       </div>
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
-          <label for="blend" class="panelLabel">Reset wallpaper styles</label>
-          <p class="panelDescription">Reset brightness, contrast, saturation, blur, scale, and filter options back to default.</p>
+          <label for="blend" class="panelLabel">{{'options.design.resetWallpaperStyles' | translate}}</label>
+          <p class="panelDescription">{{'options.design.resetWallpaperStylesDesc' | translate}}</p>
         </div>
         <div class="panelFieldInput">
           <button class="panelBtn" type="button" (click)="resetWallpaperStyles();">
             <span class="matIcon">restart_alt</span>
-            Reset styles
+            {{'options.design.resetStyles' | translate}}
           </button>
         </div>
       </div>
     </div>
   </form>
-  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Design')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Design</button>
+  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Design')"><i class="matIcon" aria-hidden="true">arrow_back</i>{{'options.design.backToDesign' | translate}}</button>
 </div>
 
 <div *ngIf="shared.optionsPage === 'Patterns'" class="panelPlate panelPage">
@@ -381,16 +377,16 @@
     <button
       (click)="goTo.emit('Wallpaper')"
       class="panelBack matIcon"
-      aria-label="Back to Wallpaper"
-      title="Back to Wallpaper"
+      attr.aria-label="{{'options.design.backToWallpaper' | translate}}"
+      title="{{'options.design.backToWallpaper' | translate}}"
     >arrow_back</button>
-    Patterns
+    {{'options.design.patterns' | translate}}
   </h2>
   <form #patternsOptions="ngForm" novalidate>
     <div class="panelGroup">
       <div class="panelField">
         <div class="panelFieldContent">
-          <label class="panelLabel">Patterns</label>
+          <label class="panelLabel">{{'options.design.patterns' | translate}}</label>
         </div>
         <div class="panelThemeGrid">
           <button
@@ -399,8 +395,8 @@
             [ngClass]="{'active': settings.config.design.patternId === p.id}"
             [style.background-image]="sanitizer.bypassSecurityTrustStyle('url(./assets/patterns/' + p.pattern + ')')"
             (click)="setPattern(p);"
-            [attr.aria-label]="'Select pattern ' + p.id"
-            [title]="'Select pattern ' + p.id"
+            attr.aria-label="{{'options.design.selectPattern' | translate}} {{p.id}}"
+            title="{{'options.design.selectPattern' | translate}} {{p.id}}"
           >
             &nbsp;
           </button>
@@ -416,7 +412,7 @@
       </div>
     </div>
   </form>
-  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Wallpaper')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Wallpaper</button>
+  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Wallpaper')"><i class="matIcon" aria-hidden="true">arrow_back</i>{{'options.design.backToWallpaper' | translate}}</button>
 </div>
 
 
@@ -425,21 +421,21 @@
     <button
       (click)="goTo.emit('Wallpaper')"
       class="panelBack matIcon"
-      aria-label="Back to Wallpaper"
-      title="Back to Wallpaper"
+      attr.aria-label="{{'options.design.backToWallpaper' | translate}}"
+      title="{{'options.design.backToWallpaper' | translate}}"
     >arrow_back</button>
-    Unsplash photos
+    {{'options.design.unsplashPhotos' | translate}}
   </h2>
   <div class="panelGroup">
     <div class="panelField">
       <div class="panelFieldContent">
-        <label id="unsplashPhotoSearchLabel" class="panelLabel">Search Unsplash photos</label>
-        <p class="panelDescription">Find a single photo to use as the wallpaper from Unsplash.</p>
+        <label id="unsplashPhotoSearchLabel" class="panelLabel">{{'options.design.searchUnsplash' | translate}}</label>
+        <p class="panelDescription">{{'options.design.searchUnsplashDesc' | translate}}</p>
       </div>
       <form #unsplashSearch="ngForm" novalidate (ngSubmit)="openUnsplashPhotoSearch()">
         <div class="panelFieldInput">
           <input class="panelInput" type="text" aria-labelledby="unsplashPhotoSearchLabel" name="unsplashPhotoSearch" [(ngModel)]="unsplashPhotoSearchTerm" autocomplete="off">
-          <button type="submit" class="panelBtn" aria-label="Search Unsplash">
+          <button type="submit" class="panelBtn" attr.aria-label="{{'options.design.searchUnsplash' | translate}}">
             <span class="matIcon">search</span>
           </button>
         </div>
@@ -447,32 +443,32 @@
     </div>
     <div class="panelField">
       <div class="panelFieldContent">
-        <label class="panelLabel">Random daily photo from Unsplash lists</label>
-        <p class="panelDescription">Selecting a list will show a random photo from that list each day. Choose what type of lists you would like to browse.</p>
+        <label class="panelLabel">{{'options.design.randomDailyUnsplash' | translate}}</label>
+        <p class="panelDescription">{{'options.design.randomDailyUnsplashDesc' | translate}}</p>
       </div>
       <div class="panelFieldInput">
         <div class="panelBtnGroup" style="width: 100%">
-          <button type="button" class="panelBtn {{unsplashPage === 'topics' && 'active'}}" (click)="openUnsplashTopics()">Topics</button>
-          <button type="button" class="panelBtn {{unsplashPage === 'collections' && 'active'}}" (click)="openUnsplashCollections()">Collections</button>
+          <button type="button" class="panelBtn {{unsplashPage === 'topics' && 'active'}}" (click)="openUnsplashTopics()">{{'options.design.topics' | translate}}</button>
+          <button type="button" class="panelBtn {{unsplashPage === 'collections' && 'active'}}" (click)="openUnsplashCollections()">{{'options.design.collections' | translate}}</button>
         </div>
       </div>
     </div>
     <div *ngIf="!shared.loading && unsplashPage != null" class="panelField">
       <div class="panelFieldContent">
-        <label *ngIf="unsplashPage === 'search'" class="panelLabel">Search results for "{{unsplashPhotoSearchTerm.trim()}}"</label>
-        <label *ngIf="unsplashPage === 'topics'" class="panelLabel">Unsplash Topics</label>
-        <label *ngIf="unsplashPage === 'collections'" class="panelLabel">Unsplash Collections</label>
+        <label *ngIf="unsplashPage === 'search'" class="panelLabel">{{'options.design.searchResultsFor' | translate}} "{{unsplashPhotoSearchTerm.trim()}}"</label>
+        <label *ngIf="unsplashPage === 'topics'" class="panelLabel">{{'options.design.unsplashTopics' | translate}}</label>
+        <label *ngIf="unsplashPage === 'collections'" class="panelLabel">{{'options.design.unsplashCollections' | translate}}</label>
       </div>
       <div *ngIf="unsplashListItems.length <= 0" class="panelFieldContent">
-        No results found, please try a different search.
+        {{'options.design.noSearchResults' | translate}}
       </div>
       <div *ngIf="unsplashListItems.length > 0" class="panelUnsplashGrid">
         <div *ngFor="let result of unsplashListItems | slice:0:10" class="panelBtnUnsplashItem">
           <ng-container *ngIf="unsplashPage === 'search'; else unsplashListItem">
             <button
               class="panelBtn panelBtnTheme panelBtnUnsplashPreview"
-              [attr.aria-label]="'Select photo by ' + result.user.name ? result.user.name : result.user.username"
-              [title]="'Select photo by ' + result.user.name ? result.user.name : result.user.username"
+              attr.aria-label="{{'options.design.selectPhotoBy' | translate}} {{result.user.name ? result.user.name : result.user.username}}"
+              title="{{'options.design.selectPhotoBy' | translate}} {{result.user.name ? result.user.name : result.user.username}}"
               (click)="getSelectedUnsplashImage(result.id, result.title, result.links.html)"
             >
               <div
@@ -481,15 +477,15 @@
             </button>
             <div class="panelBtnUnsplashText">
               <div class="panelBtnUnsplashMeta">
-                Author: <a [href]="result.user.links.html + '?utm_source=carettab&utm_medium=referral'" target="_blank" rel="noreferrer">{{result.user.name ? result.user.name : result.user.username}}</a>
+                {{'options.design.author' | translate}} <a [href]="result.user.links.html + '?utm_source=carettab&utm_medium=referral'" target="_blank" rel="noreferrer">{{result.user.name ? result.user.name : result.user.username}}</a>
               </div>
             </div>
           </ng-container>
           <ng-template #unsplashListItem>
             <button
               class="panelBtn panelBtnTheme panelBtnUnsplashPreviewList"
-              [attr.aria-label]="'Select photo ' + (wallpaperType === 'topics' ? 'topic' : 'collection') + ' ' + result.title"
-              [title]="'Select photo ' + (wallpaperType === 'topics' ? 'topic' : 'collection') + ' ' + result.title"
+              attr.aria-label="{{'options.design.selectPhoto' | translate}} {{wallpaperType === 'topics' ? 'topic' : 'collection'}} {{result.title}}"
+              title="{{'options.design.selectPhoto' | translate}} {{wallpaperType === 'topics' ? 'topic' : 'collection'}} {{result.title}}"
               (click)="getSelectedUnsplashImage(result.id, result.title, result.links.html)"
             >
               <ng-container *ngIf="result.preview_photos && result.preview_photos.length > 0">
@@ -505,22 +501,22 @@
                 {{result.title}}
               </div>
               <div class="panelBtnUnsplashMeta">
-                {{result.total_photos}} photos
+                {{result.total_photos}} {{'options.design.photos' | translate}}
               </div>
             </div>
           </ng-template>
         </div>
       </div>
       <div *ngIf="unsplashListItems.length > 0" class="panelPagination">
-        <button [disabled]="unsplashListPage <= 1" type="button" class="panelBtn" aria-label="Previous page" title="Previous page" (click)="getList(unsplashListPage - 1)">
+        <button [disabled]="unsplashListPage <= 1" type="button" class="panelBtn" attr.aria-label="{{'options.common.previousPage' | translate}}" title="{{'options.common.previousPage' | translate}}" (click)="getList(unsplashListPage - 1)">
           <span class="matIcon" aria-hidden="true">arrow_back</span>
         </button>
-        <div class="panelCurrentPage">Page {{unsplashListPage}}</div>
-        <button [disabled]="unsplashListItems.length <= 10" type="button" class="panelBtn" aria-label="Next page" title="Next page" (click)="getList(unsplashListPage + 1)">
+        <div class="panelCurrentPage">{{'options.common.page' | translate}} {{unsplashListPage}}</div>
+        <button [disabled]="unsplashListItems.length <= 10" type="button" class="panelBtn" attr.aria-label="{{'options.common.nextPage' | translate}}" title="{{'options.common.nextPage' | translate}}" (click)="getList(unsplashListPage + 1)">
           <span class="matIcon" aria-hidden="true">arrow_forward</span>
         </button>
       </div>
     </div>
   </div>
-  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Wallpaper')"><i class="matIcon" aria-hidden="true">arrow_back</i>Back to Wallpaper</button>
+  <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Wallpaper')"><i class="matIcon" aria-hidden="true">arrow_back</i>{{'options.design.backToWallpaper' | translate}}</button>
 </div>

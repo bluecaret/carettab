@@ -21,13 +21,11 @@ import { LogoComponent } from './_shared/controls/logo.component';
 import { PremiumLabelComponent } from './_shared/controls/premium-label.component';
 import { TooltipComponent } from './_shared/controls/tooltip.component';
 import { PremiumModalComponent } from './_shared/modals/premium-modal.component';
+import { IntroModalComponent } from './_shared/modals/intro-modal.component';
 import { MostVisitedMenuComponent } from './tab/bookmarks/most-visited-menu.component';
 import { WeatherService } from './tab/weather/weather.service';
 import * as moment from 'moment-timezone';
 import { SimpleModalModule, defaultSimpleModalOptions } from 'ngx-simple-modal';
-
-// Intro Imports
-import { SplashComponent } from './splash/splash.component';
 
 // Options Imports
 import { OptionsComponent } from './options/options.component';
@@ -66,10 +64,9 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     PremiumLabelComponent,
     TooltipComponent,
     PremiumModalComponent,
+    IntroModalComponent,
     MostVisitedMenuComponent,
     TranslateCut,
-
-    SplashComponent,
 
     OptionsComponent,
     OptionsBookmarksComponent,
@@ -131,7 +128,8 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
   bootstrap: [AppComponent],
   entryComponents: [
     MostVisitedMenuComponent,
-    PremiumModalComponent
+    PremiumModalComponent,
+    IntroModalComponent
   ]
 })
 export class AppModule { }

@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { transition, trigger, style, state, animate } from '@angular/animations';
 import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from './_shared/shared.service';
 import { Storage } from './_storage/storage.service';
+import { WallpaperService } from './_shared/wallpaper.service';
 import { tab, options } from './_shared/animations';
 import * as moment from 'moment';
-import { compare } from 'compare-versions';
+// import { compare } from 'compare-versions';
 import * as Bowser from 'bowser';
-import { ExtPay } from "../js/ExtPay";
+import { SimpleModalService } from 'ngx-simple-modal';
+import { IntroModalComponent } from './_shared/modals/intro-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -40,11 +42,15 @@ import { ExtPay } from "../js/ExtPay";
   ]
 })
 export class AppComponent implements OnInit {
+  highlightSettings = false;
 
   constructor(
+    public renderer: Renderer2,
     public shared: SharedService,
     public settings: Storage,
-    private translate: TranslateService
+    public wallpaper: WallpaperService,
+    private translate: TranslateService,
+    private SimpleModalService: SimpleModalService
   ) { }
 
 
@@ -55,11 +61,27 @@ export class AppComponent implements OnInit {
     this.findBrowser();
 
     let that = this
-    chrome.storage.local.get('user', function (result) {
+    chrome.storage.local.get(['user', 'caretTabStatus'], function (result) {
       (result && result.user)
         ? that.shared.paid = result.user.paid
         : that.shared.paid = false;
     });
+    setTimeout(() => {
+      if (this.shared.status && this.shared.status === 'installed') {
+        this.SimpleModalService.addModal(IntroModalComponent, {}).subscribe(()=>{
+          chrome.storage.local.set({caretTabStatus: 'highlightSettings'});
+          this.shared.status = 'highlightSettings';
+          this.shared.saveAll(); // Save
+
+          const wallpaper = document.getElementById('wallpaper');
+          this.renderer.setStyle(wallpaper, 'background-color', this.settings.config.design.background);
+          this.renderer.setStyle(wallpaper, 'filter', this.wallpaper.getFilters());
+          this.renderer.setStyle(wallpaper, 'background-size', this.wallpaper.getBgSize());
+          this.renderer.setStyle(wallpaper, 'background-blend-mode', this.wallpaper.getBgBlend());
+          this.renderer.setStyle(wallpaper, 'background-repeat', [10, 50].includes(this.settings.config.design.imageSize) ? 'repeat' : 'no-repeat');
+        });
+      }
+    }, 0);
   }
 
   findBrowser() {

@@ -18,7 +18,7 @@ export class OptionsDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     // Clear updated status
-    if (this.shared.status === 'updated') {
+    if (this.shared.status === 'updated' || this.shared.status === 'highlightSettings') {
       chrome.storage.local.set({caretTabStatus: 'existing'});
       this.shared.status = 'existing';
     }

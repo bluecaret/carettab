@@ -99,52 +99,55 @@ async function setBackground() {
     console.error('Failed to get designSettings', error);
   }
 
-  // Set background color
-  wallpaperDiv.style.backgroundColor = designSettings.background;
+  if (designSettings) {
+    // Set background color
+    wallpaperDiv.style.backgroundColor = designSettings.background;
 
-  // If Unsplash image, and user has paid, apply background image
-  if (['topics', 'collections', 'search'].includes(designSettings.wallpaperType)) {
-    if (extPayUser && extPayUser.paid) {
-      let now = new Date();
-      let then = new Date(designSettings.wallpaperTimestamp);
-      let thenPlusOne = new Date(then.getFullYear(), then.getMonth(), then.getDate() + 1, 0, 0, 0, 0);
-      // console.log(
-      //   'Init: wallpaperTimestamp, then, thenPlusOne, now',
-      //   [
-      //     designSettings.wallpaperTimestamp,
-      //     then,
-      //     thenPlusOne,
-      //     now
-      //   ]
-      // );
+    // If Unsplash image, and user has paid, apply background image
+    if (['topics', 'collections', 'search'].includes(designSettings.wallpaperType)) {
+      if (extPayUser && extPayUser.paid) {
+        let now = new Date();
+        let then = new Date(designSettings.wallpaperTimestamp);
+        let thenPlusOne = new Date(then.getFullYear(), then.getMonth(), then.getDate() + 1, 0, 0, 0, 0);
+        // console.log(
+        //   'Init: wallpaperTimestamp, then, thenPlusOne, now',
+        //   [
+        //     designSettings.wallpaperTimestamp,
+        //     then,
+        //     thenPlusOne,
+        //     now
+        //   ]
+        // );
 
-      if (
-        ['topics', 'collections'].includes(designSettings.wallpaperType)
-        && thenPlusOne < now
-        && nextWallpaper != null
-      ) {
-        // Move next image to current
-        currentWallpaper = nextWallpaper;
-        nextWallpaper = null; // Set as null so app knows to request a new image
+        if (
+          ['topics', 'collections'].includes(designSettings.wallpaperType)
+          && thenPlusOne < now
+          && nextWallpaper != null
+        ) {
+          // Move next image to current
+          currentWallpaper = nextWallpaper;
+          nextWallpaper = null; // Set as null so app knows to request a new image
 
-        designSettings.wallpaperTimestamp = new Date().toLocaleString();
-        designSettings.unsplashCredit = currentWallpaper.user.name;
-        designSettings.unsplashCreditLink = currentWallpaper.user.links.html;
+          designSettings.wallpaperTimestamp = new Date().toLocaleString();
+          designSettings.unsplashCredit = currentWallpaper.user.name;
+          designSettings.unsplashCreditLink = currentWallpaper.user.links.html;
 
-        chrome.storage.local.set({currentWallpaper: currentWallpaper});
-        chrome.storage.local.set({nextWallpaper: nextWallpaper});
-        chrome.storage.local.set({'ct-design': designSettings});
+          chrome.storage.local.set({currentWallpaper: currentWallpaper});
+          chrome.storage.local.set({nextWallpaper: nextWallpaper});
+          chrome.storage.local.set({'ct-design': designSettings});
+        }
+
+        // Set background image
+        applyBackgroundStyles(designSettings, currentWallpaper.base64);
       }
+    }
 
-      // Set background image
+    // If pattern or user upload, set background image
+    if (['upload', 'pattern'].includes(designSettings.wallpaperType)) {
       applyBackgroundStyles(designSettings, currentWallpaper.base64);
     }
   }
 
-  // If pattern or user upload, set background image
-  if (['upload', 'pattern'].includes(designSettings.wallpaperType)) {
-    applyBackgroundStyles(designSettings, currentWallpaper.base64);
-  }
 
 }
 

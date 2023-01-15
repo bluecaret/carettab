@@ -88,3 +88,30 @@ $optionsToggleUpdateNoticeOffset: 16px;
     opacity: 0;
   }
 }
+
+.highlightSettings {
+  position: fixed;
+  z-index: z('tabToggle');
+  bottom: 0;
+  right: 0;
+  width: $optionsToggleHeight;
+  height: $optionsToggleHeight;
+  cursor: pointer;
+  overflow: hidden;
+  border: 3px solid currentColor;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+  animation-direction: alternate;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+    scale: 1;
+  }
+  100% {
+    opacity: 1;
+    scale: 3;
+  }
+}

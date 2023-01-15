@@ -9,6 +9,7 @@
   animation: modalFadeIn .35s ease-out;
 }
 
+.introModal,
 .premiumModal {
   position: fixed;
   inset: 0;
@@ -18,6 +19,7 @@
   pointer-events: none;
 }
 
+.introModalContent,
 .premiumModalContent {
   pointer-events: all;
   width: 80rem;
@@ -56,6 +58,30 @@
   }
 }
 
+.introModalContent {
+  width: 60rem;
+  background-image: none;
+  background-color: var(--panelBg);
+  color: var(--panelColor);
+  h2 {
+    font-size: 3.2rem;
+    font-weight: 600;
+    text-transform: none;
+    margin: var(--size600) 0 var(--size600);
+  }
+  p {
+    font-size: 2rem;
+  }
+  > .panelBtn {
+    margin-inline-start: auto;
+    display: flex;
+  }
+  .panelGroup {
+    margin-block-start: var(--size700);
+  }
+}
+
+.introModalClose,
 .premiumModalClose {
   position: absolute;
   top: 1rem;
@@ -70,6 +96,7 @@
   }
 }
 
+.introModalIcon,
 .premiumModalIcon {
   display: block;
   font-size: 6rem;

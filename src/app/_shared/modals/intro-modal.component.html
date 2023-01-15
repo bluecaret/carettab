@@ -1,0 +1,30 @@
+<div class="introModalContent">
+  <button class="introModalClose" type='button' (click)="close()">
+    <span class='matIcon'>close</span>
+  </button>
+  <h2>Thank you for choosing CaretTab!</h2>
+  <p>To get started select a language, then you can customize almost everything by clicking the settings icon in the bottom right.</p>
+  <div class="panelGroup">
+    <div class="panelField">
+      <div class="panelFieldContent">
+        <label for="lang" class="panelLabel">Select a language</label>
+      </div>
+      <div class="panelFieldInput">
+        <select
+          class="panelSelect"
+          name="lang"
+          id="lang"
+          [(ngModel)]="settings.config.i18n.lang"
+          (ngModelChange)="
+            useLanguage($event);
+          "
+        >
+          <option *ngFor="let lang of languages" [ngValue]="lang.id">
+            {{ lang.label }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="panelBtn" (click)="close()">{{'splash.getStarted' | translate}}</button>
+</div>

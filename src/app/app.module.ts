@@ -19,7 +19,6 @@ import { RangeComponent } from './_shared/controls/range.component';
 import { SettingsToggleComponent } from './_shared/controls/settings-toggle.component';
 import { LogoComponent } from './_shared/controls/logo.component';
 import { PremiumLabelComponent } from './_shared/controls/premium-label.component';
-import { TooltipComponent } from './_shared/controls/tooltip.component';
 import { PremiumModalComponent } from './_shared/modals/premium-modal.component';
 import { IntroModalComponent } from './_shared/modals/intro-modal.component';
 import { MostVisitedMenuComponent } from './tab/bookmarks/most-visited-menu.component';
@@ -62,7 +61,6 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     SettingsToggleComponent,
     LogoComponent,
     PremiumLabelComponent,
-    TooltipComponent,
     PremiumModalComponent,
     IntroModalComponent,
     MostVisitedMenuComponent,

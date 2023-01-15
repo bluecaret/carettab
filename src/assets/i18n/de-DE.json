@@ -447,19 +447,6 @@
       "unsplashPhotosDesc": "Zeigen Sie ein einzelnes oder tägliches zufälliges Hintergrundbild von Unsplash.com an."
     }
   },
-  "splash": {
-    "getStarted": "Loslegen!",
-    "v364": {
-      "m1": "Das „Meistbesucht“-Menü wurde korrigiert, sodass es nicht hinter anderen Inhalten angezeigt wird.",
-      "m2": "Die Textfarbe des „Meistbesucht“-Menüs im Dunkelmodus wurde korrigiert.",
-      "m3": "Die Übersetzung des „Feels like“-Textes im Wetter-Widget wurde korrigiert.",
-      "m4": "Beim Importieren von Einstellungen werden bei Bedarf optionale Berechtigungen zum Zeitpunkt des Imports angefordert.",
-      "m5": "Vietnamesische Übersetzung hinzugefügt.",
-      "m6": "Verhindert, dass die Suche ausgeführt wird, wenn kein Suchbegriff angegeben wird.",
-      "m7": "Korrigieren Sie die Suche nach Wetterstandorten, um Stadt, Region und Land anzuzeigen, um zu verhindern, dass versehentlich der falsche Standort ausgewählt wird.",
-      "m8": "Die „Favicon“-Berechtigungen sind jetzt optional, wenn Symbole für die Lesezeichenleiste oder Quicklinks aktiviert sind."
-    }
-  },
   "tab": {
     "bookmarks": {
       "links": {
@@ -478,5 +465,23 @@
     "close": "Einstellungen speichern und schließen",
     "open": "Einstellungen öffnen",
     "updated": "Erweiterung wurde aktualisiert! Klicken Sie hier, um die Einstellungen zu öffnen und zu sehen, was es Neues gibt."
+  },
+  "updates": {
+    "fixesAndOthers": "Korrekturen und andere Änderungen",
+    "newFeatures": "Neue Eigenschaften",
+    "v370": {
+      "analogOptions": "Neue Anzeigeoptionen für analoge Uhren",
+      "analogStyles": "Neue analoge Zifferblätter und Zeigerstile (nur Premium).",
+      "bgEffects": "Neue Hintergrundoptionen, einschließlich Kontrast, Sättigung, Unschärfe und Skalierung (nur Premium).",
+      "binaryOption": "Neue Option für die Binäruhr zur Anzeige von Zahlen anstelle von Punkten.",
+      "bts": "Aufräumarbeiten und Verbesserungen hinter den Kulissen.",
+      "covid": "Das COVID-Widget wurde entfernt. Die verwendete Datenquelle wurde geschlossen und es gibt keine gute Quelle für diese Daten mehr.",
+      "fixedWidgets": "Überlappende Widgets, die Klicks verhinderten, wurden behoben.",
+      "fonts": "Neue Schriftarten (nur Premium).",
+      "notepad": "Neues Notizblock-Widget (nur Premium).",
+      "premiumAccess": "Neues Premium Access-Abonnement!",
+      "settings": "Neues Design des Einstellungsfelds für eine einfachere Verwendung und mehr Flexibilität für Widget-Einstellungen.",
+      "unsplash": "Neue Hintergrundbilder von Unsplash.com; Holen Sie sich ein einzelnes Foto oder zeigen Sie ein zufälliges Tagesfoto aus einer Liste an (nur Premium)."
+    }
   }
 }

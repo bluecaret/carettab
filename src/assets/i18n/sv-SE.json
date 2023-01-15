@@ -447,19 +447,6 @@
       "unsplashPhotosDesc": "Visa en enstaka eller daglig slumpmässig bakgrund från Unsplash.com."
     }
   },
-  "splash": {
-    "getStarted": "Komma igång!",
-    "v364": {
-      "m1": "Fixade menyn \"Mest besökta\" så att den inte visas bakom annat innehåll.",
-      "m2": "Fixade textfärgen på \"Mest besökta\"-menyn i mörkt läge.",
-      "m3": "Fixad översättning av texten \"Feels like\" i väderwidgeten.",
-      "m4": "När inställningar importeras kommer valfria behörigheter att begäras vid importtillfället om det behövs.",
-      "m5": "Lägg till vietnamesisk översättning.",
-      "m6": "Förhindra sökning från att köras om ingen sökterm anges.",
-      "m7": "Åtgärda sökning efter väderposition för att visa stad, region och land för att förhindra att felaktig plats väljs av misstag.",
-      "m8": "Ändrade \"favicon\"-behörigheter till att vara valfria om ikoner är aktiverade för bokmärkesfältet eller snabblänkar."
-    }
-  },
   "tab": {
     "bookmarks": {
       "links": {
@@ -478,5 +465,23 @@
     "close": "Spara och stäng inställningar",
     "open": "Öppna inställningar",
     "updated": "Tillägget har uppdaterats! Klicka här för att öppna inställningarna och se vad som är nytt."
+  },
+  "updates": {
+    "fixesAndOthers": "Fixar och andra ändringar",
+    "newFeatures": "Nya egenskaper",
+    "v370": {
+      "analogOptions": "Nya alternativ för visning av analog klocka",
+      "analogStyles": "Nya analoga urtavlor och visare (endast Premium).",
+      "bgEffects": "Nya bakgrundsalternativ inklusive kontrast, mättnad, oskärpa och skalning (endast Premium).",
+      "binaryOption": "Nytt alternativ för binär klocka för att visa siffror istället för punkter.",
+      "bts": "Bakom kulisserna städning och förbättringar.",
+      "covid": "COVID-widgeten har tagits bort. Datakällan som användes har stängts ner och det finns inte längre en bra källa för denna data.",
+      "fixedWidgets": "Fixade överlappande widgets som förhindrade klick.",
+      "fonts": "Nya typsnitt (endast Premium).",
+      "notepad": "Ny widget för anteckningar (endast Premium).",
+      "premiumAccess": "Ny Premium Access-prenumeration!",
+      "settings": "Ny inställningspaneldesign för enklare användning och mer flexibilitet för widgetinställningar.",
+      "unsplash": "Nya bakgrundsbilder från Unsplash.com; få ett enda foto eller visa ett slumpmässigt dagligt foto från en lista (endast Premium)."
+    }
   }
 }

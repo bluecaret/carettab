@@ -447,19 +447,6 @@
       "unsplashPhotosDesc": "Visualizza uno sfondo casuale singolo o giornaliero da Unsplash.com."
     }
   },
-  "splash": {
-    "getStarted": "Iniziare!",
-    "v364": {
-      "m1": "Risolto il problema con il menu \"Più visitati\" in modo che non venisse visualizzato dietro altri contenuti.",
-      "m2": "Corretto il colore del testo del menu \"Più visitati\" in modalità oscura.",
-      "m3": "Traduzione corretta del testo \"Sembra\" nel widget meteo.",
-      "m4": "Durante l'importazione delle impostazioni, verranno richieste autorizzazioni opzionali al momento dell'importazione, se necessario.",
-      "m5": "Aggiunta traduzione vietnamita.",
-      "m6": "Impedisci l'esecuzione della ricerca se non viene fornito alcun termine di ricerca.",
-      "m7": "Correggi la ricerca della posizione meteo per visualizzare la città, la regione e il paese per evitare di selezionare accidentalmente la posizione errata.",
-      "m8": "Le autorizzazioni \"favicon\" sono state modificate in modo che siano opzionali se le icone sono abilitate per la barra dei segnalibri o per i collegamenti rapidi."
-    }
-  },
   "tab": {
     "bookmarks": {
       "links": {
@@ -478,5 +465,23 @@
     "close": "Salva e chiudi le impostazioni",
     "open": "Apri Impostazioni",
     "updated": "L'estensione è stata aggiornata! Fare clic qui per aprire le impostazioni e vedere le novità."
+  },
+  "updates": {
+    "fixesAndOthers": "Correzioni e altre modifiche",
+    "newFeatures": "Nuove Caratteristiche",
+    "v370": {
+      "analogOptions": "Nuove opzioni di visualizzazione dell'orologio analogico",
+      "analogStyles": "Nuovi quadranti e lancette dell'orologio analogico (solo Premium).",
+      "bgEffects": "Nuove opzioni per lo sfondo tra cui contrasto, saturazione, sfocatura e ridimensionamento (solo Premium).",
+      "binaryOption": "Nuova opzione orologio binario per la visualizzazione di numeri invece di punti.",
+      "bts": "Pulizia e miglioramenti dietro le quinte.",
+      "covid": "Il widget COVID è stato rimosso. L'origine dati utilizzata è stata chiusa e non esiste più un'origine valida per questi dati.",
+      "fixedWidgets": "Risolto il problema con i widget sovrapposti che impedivano i clic.",
+      "fonts": "Nuovi font (solo Premium).",
+      "notepad": "Nuovo widget del blocco note (solo Premium).",
+      "premiumAccess": "Nuovo abbonamento Premium Access!",
+      "settings": "Nuovo design del pannello delle impostazioni per un utilizzo più semplice e una maggiore flessibilità per le impostazioni dei widget.",
+      "unsplash": "Nuovi sfondi da Unsplash.com; ottenere una singola foto o visualizzare una foto giornaliera casuale da un elenco (solo Premium)."
+    }
   }
 }

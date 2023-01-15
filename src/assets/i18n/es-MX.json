@@ -447,19 +447,6 @@
       "unsplashPhotosDesc": "Muestre un fondo de pantalla aleatorio único o diario de Unsplash.com."
     }
   },
-  "splash": {
-    "getStarted": "¡Empezar!",
-    "v364": {
-      "m1": "Se corrigió el menú \"Más visitado\" para que no se muestre detrás de otro contenido.",
-      "m2": "Se corrigió el color del texto del menú \"Más visitados\" cuando está en modo oscuro.",
-      "m3": "Se corrigió la traducción del texto \"Se siente como\" en el widget del clima.",
-      "m4": "Al importar configuraciones, se solicitarán permisos opcionales en el momento de la importación si es necesario.",
-      "m5": "Traducción al vietnamita agregada.",
-      "m6": "Evitar que se ejecute la búsqueda si no se proporciona ningún término de búsqueda.",
-      "m7": "Se corrigió la búsqueda de ubicación climática para mostrar la ciudad, la región y el país para evitar seleccionar accidentalmente la ubicación incorrecta.",
-      "m8": "Se cambiaron los permisos de \"favicon\" para que sean opcionales si los iconos están habilitados para la barra de marcadores o los enlaces rápidos."
-    }
-  },
   "tab": {
     "bookmarks": {
       "links": {
@@ -478,5 +465,23 @@
     "close": "Guardar y cerrar ajustes",
     "open": "Configuración abierta",
     "updated": "¡La extensión ha sido actualizada! Haga clic aquí para abrir la configuración y ver las novedades."
+  },
+  "updates": {
+    "fixesAndOthers": "Arreglos y otros cambios",
+    "newFeatures": "Nuevas características",
+    "v370": {
+      "analogOptions": "Nuevas opciones de visualización del reloj analógico",
+      "analogStyles": "Nuevos estilos de carátula y manecillas de reloj analógico (solo Premium).",
+      "bgEffects": "Nuevas opciones de fondo de pantalla que incluyen contraste, saturación, desenfoque y escalado (solo Premium).",
+      "binaryOption": "Nueva opción de reloj binario para mostrar números en lugar de puntos.",
+      "bts": "Limpieza y mejoras tras bambalinas.",
+      "covid": "El widget COVID ha sido eliminado. La fuente de datos que se usó se cerró y ya no hay una buena fuente para estos datos.",
+      "fixedWidgets": "Se corrigieron los widgets superpuestos que evitaban los clics.",
+      "fonts": "Nuevas fuentes (solo Premium).",
+      "notepad": "Nuevo widget de bloc de notas (solo Premium).",
+      "premiumAccess": "¡Nueva suscripción Premium Access!",
+      "settings": "Nuevo diseño del panel de configuración para un uso más fácil y más flexibilidad para la configuración de widgets.",
+      "unsplash": "Nuevos fondos de pantalla de Unsplash.com; obtenga una sola foto o muestre una foto diaria aleatoria de una lista (solo Premium)."
+    }
   }
 }

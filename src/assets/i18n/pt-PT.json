@@ -447,19 +447,6 @@
       "unsplashPhotosDesc": "Exiba um papel de parede aleatório único ou diário de Unsplash.com."
     }
   },
-  "splash": {
-    "getStarted": "Iniciar!",
-    "v364": {
-      "m1": "Corrigido o menu \"Mais Visitados\" para que não seja exibido atrás de outro conteúdo.",
-      "m2": "Corrigida a cor do texto do menu \"Mais visitados\" quando em modo escuro.",
-      "m3": "Tradução fixa do texto \"Parece\" no widget de clima.",
-      "m4": "Ao importar configurações, permissões opcionais serão solicitadas no momento da importação, se necessário.",
-      "m5": "Adicionada tradução vietnamita.",
-      "m6": "Impedir a execução da pesquisa se nenhum termo de pesquisa for fornecido.",
-      "m7": "Corrigir pesquisa de localização meteorológica para exibir a cidade, região e país para evitar selecionar acidentalmente a localização incorreta.",
-      "m8": "Permissões de \"favicon\" alteradas para serem opcionais se os ícones estiverem habilitados para a Barra de Favoritos ou Links Rápidos."
-    }
-  },
   "tab": {
     "bookmarks": {
       "links": {
@@ -478,5 +465,23 @@
     "close": "Salvar e fechar as configurações",
     "open": "Abrir configurações",
     "updated": "A extensão foi atualizada! Clique aqui para abrir as configurações e ver o que há de novo."
+  },
+  "updates": {
+    "fixesAndOthers": "Correções e outras alterações",
+    "newFeatures": "Novas características",
+    "v370": {
+      "analogOptions": "Novas opções de exibição de relógio analógico",
+      "analogStyles": "Novos estilos de mostrador e ponteiro do relógio analógico (somente Premium).",
+      "bgEffects": "Novas opções de papel de parede, incluindo contraste, saturação, desfoque e dimensionamento (somente Premium).",
+      "binaryOption": "Nova opção de relógio binário para exibir números em vez de pontos.",
+      "bts": "Limpeza e melhorias nos bastidores.",
+      "covid": "O widget COVID foi removido. A fonte de dados usada foi encerrada e não há mais uma boa fonte para esses dados.",
+      "fixedWidgets": "Widgets sobrepostos corrigidos impedindo cliques.",
+      "fonts": "Novas fontes (somente Premium).",
+      "notepad": "Novo widget de bloco de notas (somente Premium).",
+      "premiumAccess": "Nova assinatura Premium Access!",
+      "settings": "Novo design do painel de configurações para facilitar o uso e mais flexibilidade para as configurações do widget.",
+      "unsplash": "Novos papéis de parede de Unsplash.com; obtenha uma única foto ou exiba uma foto diária aleatória de uma lista (somente Premium)."
+    }
   }
 }

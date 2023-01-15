@@ -424,7 +424,7 @@
       "analogClockStyles": "Styles d'horloge analogique",
       "analogClockStylesDesc": "Choisissez parmi différents styles de cadran et d'aiguille d'horloge pour l'horloge analogique.",
       "andMore": "Et plus!",
-      "andMoreDesc": "Encore plus de fonctionnalités premium disponibles maintenant et prévues pour l'avenir !",
+      "andMoreDesc": "Encore plus de fonctionnalités premium disponibles maintenant et prévues pour l'avenir !",
       "bgEffects": "Effets de fond",
       "bgEffectsDesc": "Modifiez la taille, le contraste, la saturation et le flou du fond d'écran.",
       "disclaimer1": "Abonnement facturé sur une base mensuelle récurrente. Annulez à tout moment pour quelque raison que ce soit.",
@@ -447,19 +447,6 @@
       "unsplashPhotosDesc": "Affichez un fond d'écran aléatoire unique ou quotidien à partir d'Unsplash.com."
     }
   },
-  "splash": {
-    "getStarted": "Commencer!",
-    "v364": {
-      "m1": "Correction du menu \"Les plus visités\" afin qu'il ne s'affiche pas derrière d'autres contenus.",
-      "m2": "Correction de la couleur du texte du menu \"Les plus visités\" en mode sombre.",
-      "m3": "Correction de la traduction du texte \"Feels like\" dans le widget météo.",
-      "m4": "Lors de l'importation des paramètres, des autorisations facultatives seront demandées au moment de l'importation si nécessaire.",
-      "m5": "Ajout de la traduction vietnamienne.",
-      "m6": "Empêcher la recherche de s'exécuter si aucun terme de recherche n'est fourni.",
-      "m7": "Corrige la recherche d'emplacement météo pour afficher la ville, la région et le pays afin d'éviter de sélectionner accidentellement un emplacement incorrect.",
-      "m8": "Modification des autorisations \"favicon\" pour qu'elles soient facultatives si les icônes sont activées pour la barre de favoris ou les liens rapides."
-    }
-  },
   "tab": {
     "bookmarks": {
       "links": {
@@ -478,5 +465,23 @@
     "close": "Enregistrer et fermer les paramètres",
     "open": "Paramètres ouverts",
     "updated": "L'extension a été mise à jour! Cliquez ici pour ouvrir les paramètres et voir les nouveautés."
+  },
+  "updates": {
+    "fixesAndOthers": "Correctifs et autres modifications",
+    "newFeatures": "Nouvelles fonctionnalités",
+    "v370": {
+      "analogOptions": "Nouvelles options d'affichage de l'horloge analogique",
+      "analogStyles": "Nouveaux styles de cadran et d'aiguille d'horloge analogique (Premium uniquement).",
+      "bgEffects": "Nouvelles options de fond d'écran, notamment contraste, saturation, flou et mise à l'échelle (Premium uniquement).",
+      "binaryOption": "Nouvelle option d'horloge binaire pour afficher des nombres au lieu de points.",
+      "bts": "Nettoyage et améliorations des coulisses.",
+      "covid": "Le widget COVID a été supprimé. La source de données utilisée a été fermée et il n'existe plus de bonne source pour ces données.",
+      "fixedWidgets": "Correction des widgets superposés empêchant les clics.",
+      "fonts": "Nouvelles polices (Premium uniquement).",
+      "notepad": "Nouveau widget bloc-notes (Premium uniquement).",
+      "premiumAccess": "Nouvel abonnement Premium Access !",
+      "settings": "Nouvelle conception du panneau des paramètres pour une utilisation plus facile et plus de flexibilité pour les paramètres du widget.",
+      "unsplash": "Nouveaux fonds d'écran d'Unsplash.com; obtenir une seule photo ou afficher une photo quotidienne aléatoire à partir d'une liste (Premium uniquement)."
+    }
   }
 }

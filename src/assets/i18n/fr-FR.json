@@ -37,7 +37,6 @@
     },
     "common": {
       "aboutLink": "sur",
-      "actions": "actes",
       "add": "Ajouter",
       "alignText": "Aligner le texte",
       "alignTextCenter": "Aligner le texte au centre",
@@ -46,8 +45,6 @@
       "alignTextRight": "Aligner le texte à droite",
       "contactLink": "Contact",
       "delimiter": "Délimiteur",
-      "down": "Vers le bas",
-      "emptyValueError": "Valeur vide non autorisée",
       "format": "Format",
       "generalSettings": "Réglages généraux",
       "label": "Étiquette",
@@ -60,14 +57,11 @@
       "maxWidthDesc": "Définit la largeur maximale que le widget peut couvrir par rapport à la largeur de l'écran. Cela pourrait entraîner l'affichage de widgets plus petits que prévu si la fenêtre est trop petite.",
       "moveDown": "Déplacer en dessous d'autres éléments",
       "moveUp": "Dépasser les autres éléments",
-      "off": "Inactif",
       "offset": "Décalage",
       "offsetDesc": "Le décalage déplacera le widget vers le haut ou vers le bas, chevauchant les widgets adjacents. Cela peut être utile pour rapprocher différents widgets.",
-      "on": "Actif",
       "order": "ordre",
       "orderDesc": "Modifie l'ordre d'affichage des widgets dans la position à laquelle il est défini.",
       "padding": "Espacement",
-      "placement": "Placement",
       "position": "Position",
       "positionDesc": "Déplacez le widget vers différentes positions sur l'écran. Cela pourrait entraîner le chevauchement des widgets, ajuster d'autres paramètres de mise en page pour un affichage optimal.",
       "preview": "Aperçu",
@@ -77,43 +71,15 @@
       "sizeDesc": "Ajuste la taille du widget. Ceci est relatif à la taille globale.",
       "supportLink": "Soutien",
       "timezone": "Fuseau horaire",
-      "up": "UP",
       "version": "Version",
       "width": "Largeur"
-    },
-    "covidData": {
-      "activeCases": "Total des cas actifs",
-      "addCountry": "Ajouter un pays",
-      "copyCountry": "Copier le pays",
-      "country": "Pays",
-      "countryData": "Données pays",
-      "countryFlag": "Drapeau du pays",
-      "countryName": "Nom du pays",
-      "covidData": "Données COVID-19",
-      "deaths": "Nombre total de décès",
-      "deleteCountry": "Supprimer le pays",
-      "disclaimer": "Les données COVID proviennent de |Open Disease Data API| qui lui-même s'approvisionne à plusieurs endroits pour vous donner une vue complète. Une liste complète des sources peut être trouvée sur la |documentation API|. BlueCaret et son produit, CaretTab, n'assument aucune responsabilité quant à l'exactitude de ces données.",
-      "enable": "Activer les données COVID-19",
-      "hideOptions": "Masquer les options supplémentaires",
-      "paddingDesc": "Modifie l'espacement entre les statistiques d'un pays",
-      "perOneMillion": "Par million",
-      "perOneMillionDesc": "Afficher les statistiques par million",
-      "recoveredCases": "Total des cas récupérés",
-      "selectCountry": "Choisissez un pays",
-      "showOptions": "Afficher plus d'options",
-      "todayCases": "Les cas d'aujourd'hui"
     },
     "dashboard": {
       "contribute": "Code de contribution",
       "credit": "CaretTab| est conçu et codé par |BlueCaret| et est sous |licence MIT|.",
-      "donate": "Donner avec PayPal",
-      "needHelp": "Si vous avez besoin d’aide ou si vous avez une suggestion, vous pouvez contacter le développeur, |BlueCaret| sur Twitter |@BlueCaret| ou consultez CaretTab sur |GitHub|.",
-      "new": "Quoi de neuf?",
       "review": "Laisser un avis",
       "share": "Partager",
       "supportBox": "Besoin d'aide? Publier sur |GitHub| ou par e-mail |bluecaret@outlook.com",
-      "supportDev": "Vous pouvez aider à soutenir et à améliorer CaretTab",
-      "updated": "mis à jour",
       "whatsNew": "Quoi de neuf?"
     },
     "date": {
@@ -140,12 +106,10 @@
     "design": {
       "bg": "Arrière-plan personnalisé",
       "brightness": "luminosité",
-      "browseForImg": "Recherchez une image ...",
       "colors": "Couleurs",
       "customFontDesc": "Entrez le nom d'une police installée localement. Vous devez installer la police sur votre ordinateur pour que cela fonctionne.",
       "customFontName": "Nom de police personnalisé",
       "customFontUsage": "Pour utiliser une police personnalisée, vous devez taper le nom de la police avec précision. Les polices personnalisées doivent être | installées localement sur votre ordinateur |. Vous pouvez obtenir plus de polices à partir de | Google Fonts | ou de | 1001 polices gratuites |.",
-      "customWallpaper": "Papier peint personnalisé",
       "design": "Conception",
       "dontSync": "Les images personnalisées ne se synchronisent pas entre ordinateurs.",
       "dynScale": "Mise à l'échelle dynamique",
@@ -160,8 +124,6 @@
       "globalSize": "Taille globale",
       "globalSizeDesc": "Ajustez la taille de tous les éléments.",
       "hardToSee": "Image trop difficile à voir? Essayez de changer le filtre.",
-      "removeWallpaper": "Cliquez pour supprimer le papier peint sélectionné",
-      "selectedWallpaper": "Papier peint sélectionné",
       "wallpaper": "Fond d'écran"
     },
     "extra": {
@@ -172,7 +134,6 @@
       "exportSettings": "Paramètres d'exportation",
       "exportSettingsDesc": "Exportez tous les paramètres CaretTab dans un fichier. Cliquez sur le bouton pour télécharger un fichier sur votre ordinateur. Ne modifiez pas ce fichier pour éviter toute erreur lors de la réimportation.",
       "extra": "Supplémentaire",
-      "hideLogo": "Masquer le logo",
       "hideMenu": "Bouton Masquer les paramètres",
       "hideMenuDesc": "Lorsqu'il est activé, le bouton de menu s'affiche lorsque vous survolez le coin inférieur droit.",
       "import": "Importation",
@@ -211,13 +172,8 @@
       "searchEngine": "Moteur de recherche"
     },
     "time": {
-      "actions": "actes",
       "addNewClock": "Ajouter une nouvelle horloge",
       "analog": "Analogique",
-      "analogEnable": "Activer l'horloge analogique",
-      "analogEnableDesc": "Affiche l'horloge dans un style analogique au lieu de numérique.",
-      "analogStyle": "Style analogique",
-      "analogStyleDesc": "Choisissez le style d'horloge analogique",
       "automatic": "Automatique",
       "binary": "binaire",
       "binaryDim": "Horloge binaire faible",
@@ -225,8 +181,6 @@
       "binaryOffValue": "",
       "binaryOnValue": "",
       "binaryDimDesc": "Tamisez l'horloge binaire.",
-      "binaryEnable": "Activer l'horloge binaire",
-      "binaryEnableDesc": "Affiche l'horloge dans un format binaire.",
       "brackets": "Supports",
       "bracketsDim": "Parenthèses",
       "bracketsEnable": "Activer les crochets",
@@ -248,7 +202,6 @@
       "dimDelimiter": "Délimiteur faible",
       "enableDelimiter": "Activer le délimiteur",
       "generalSettings": "Réglages généraux de l'horloge",
-      "hideOptions": "Masquer les options supplémentaires",
       "label": "Étiquette",
       "labelDesc": "Affiche une étiquette à côté de l'horloge. Laissez vide pour aucune étiquette.",
       "labelDim": "Dim étiquette",
@@ -273,7 +226,6 @@
       "secondsEnable": "Activer les secondes",
       "secondsOffset": "Ajuster la position des secondes vers le haut ou le bas",
       "secondsSize": "Ajuste la taille des secondes par rapport à l'horloge",
-      "showOptions": "Afficher plus d'options",
       "sizeDesc": "Changer la taille de l'horloge.",
       "span": "largeur",
       "spanDesc": "Modifie l'espace utilisé par l'horloge. Cela peut être utilisé pour afficher plusieurs horloges sur la même ligne.",
@@ -342,95 +294,7 @@
     }
   },
   "splash": {
-    "back": "Retour",
     "getStarted": "Commencer!",
-    "letsGo": "Allons-y!",
-    "new": "Quoi de neuf?",
-    "next": "Suivant",
-    "no": "Non",
-    "s1": {
-      "p1": "Passons en revue certains paramètres de base pour commencer ...",
-      "welcome": "Bienvenue dans CaretTab | Votre | nouvelle | nouvelle page d'onglet!"
-    },
-    "s2": {
-      "title": "Choisissez une langue"
-    },
-    "s3": {
-      "title": "Voulez-vous afficher une horloge?"
-    },
-    "s4": {
-      "title": "Voulez-vous afficher la date?"
-    },
-    "s5": {
-      "title": "Afficher une barre de favoris?"
-    },
-    "s6": {
-      "title": "Choisissez vos couleurs préférées"
-    },
-    "s7": {
-      "p1": "CaretTab peut être entièrement personnalisé! Vous trouverez de nombreuses autres options dans le menu des paramètres.",
-      "p2": "Pour ouvrir le menu des paramètres, cliquez sur l'icône dans le coin inférieur droit.",
-      "title": "Ce n'est que la pointe de l'iceberg!"
-    },
-    "skip": "Sauter",
-    "updatedTo": "CaretTab a été mis à jour pour",
-    "v350": {
-      "b1": "Correction d'un bug empêchant les motifs de s'afficher dans certaines situations.",
-      "b2": "Correction d'une erreur 404 occasionnelle pour les images d'arrière-plan.",
-      "b3": "Correction d'un problème où les signets ne s'affichaient pas lors de l'activation de la barre de signets.",
-      "b4": "Correction d'un bug d'affichage dans la barre de favoris.",
-      "b5": "Correction de la possibilité de rechercher avec des caractères spéciaux",
-      "b6": "Supprimez temporairement les options de fuseau horaire GMT car elles étaient incorrectes. Recommandez plutôt de sélectionner un fuseau horaire nommé.",
-      "backupDesc": "Sauvegardez et restaurez vos paramètres avec une nouvelle option d'exportation/importation !",
-      "backupTitle": "Sauvegarde et restauration",
-      "binaryDesc": "Montrez votre fierté de nerd et lisez l'heure comme une machine !",
-      "binaryTitle": "Horloge binaire",
-      "covidDesc": "Vous pouvez désormais suivre les statistiques COVID par pays sur votre nouvel onglet.",
-      "covidTitle": "Widget de données COVID-19",
-      "dimDesc": "Ajout d'une option pour estomper le délimiteur sur la date courte.",
-      "dimTitle": "Gradation du délimiteur de date",
-      "duplicateDesc": "Vous voulez une deuxième configuration d'horloge exactement de la même manière mais avec un fuseau horaire différent ? Dupliquez-la !",
-      "duplicateTitle": "Horloges en double",
-      "m1": "De nombreuses options de taille ont une plus grande gamme de choix.",
-      "m2": "Ajout du numéro de version de l'extension au panneau des paramètres",
-      "m3": "Logo supprimé du coin",
-      "m4": "Ajustement de certains paramètres par défaut",
-      "m5": "Texte d'aide amélioré pour plusieurs paramètres",
-      "m6": "Améliorations de la traduction",
-      "m7": "Ajout d'une option d'aperçu dans le panneau des paramètres qui masquera le panneau tout en survolant le bouton.",
-      "messageDesc": "Vous pouvez désormais ajouter plusieurs messages personnalisés à une liste et en afficher un au hasard sur chaque nouvel onglet !",
-      "messageTitle": "Message aléatoire",
-      "positionDesc": "Nouvelles options de position pour tous les widgets ! Vous pouvez maintenant placer chaque widget à différents endroits de l'écran. Placez les liens rapides en bas, déplacez l'horloge dans le coin supérieur, à vous de choisir !",
-      "positionTitle": "Placez des widgets n'importe où",
-      "selectDesc": "Ajout d'une option pour désactiver la sélection de texte ! Plus de surlignage accidentel.",
-      "selectTitle": "Désactiver la sélection",
-      "weatherDesc": "Le widget météo tant demandé et tant attendu est enfin là ! Obtenez toutes les données météorologiques dont vous avez besoin en un coup d'œil avec la météo actuelle et une prévision. Comme toujours, beaucoup de personnalisation disponible !",
-      "weatherTitle": "Widget météo"
-    },
-    "v360": {
-      "m1": "Les prévisions météorologiques ont augmenté jusqu'à un maximum de 5 jours.",
-      "m2": "Option pour masquer le jour en cours dans les prévisions.",
-      "m3": "La vitesse du vent météo peut varier entre km/s, m/s, mph et ft/s.",
-      "m4": "Les heures de lever/coucher et de lever/de lune dans le widget météo peuvent être affichées au format 24 heures.",
-      "m5": "Correction d'un bug d'affichage dans le navigateur Cent qui rendait l'onglet inutilisable.",
-      "m6": "Correction d'un bug d'affichage en arrière-plan (espérons-le) !",
-      "m7": "Ajout d'un bouton pour soutenir CaretTab sur Patreon !"
-    },
-    "v361": {
-      "m1": "Correction d'un bug de couleur d'arrière-plan dans le navigateur Cent."
-    },
-    "v362": {
-      "m1": "Correction des données COVID vides en mettant à jour l'appel d'API."
-    },
-    "v363": {
-      "m1": "Aucune nouvelle fonctionnalité sur cette mise à jour, juste quelques nettoyages des éléments principaux qui ne sont plus nécessaires.",
-      "m2": "Migration vers manifeste v3 pour prendre en charge les exigences actuelles du Chrome Web Store.",
-      "m3": "Suppression de Google Analytics",
-      "m4": "Suppression de la monétisation de la recherche et modification de la recherche par défaut sur Google.",
-      "m5": "Suppression de la prise en charge de Firefox. Je suis désolé de le dire, mais je retire CaretTab de la boutique d'addons de Firefox. L'extension n'a tout simplement jamais reçu suffisamment d'utilisateurs pour justifier les ressources de développement pour les problèmes.",
-      "m6": "Politique de confidentialité mise à jour",
-      "m7": "CaretTab a fait supprimer le code d'analyse et un fournisseur de monétisation de recherche; pour cette raison, la politique de confidentialité a été mise à jour. Veuillez consulter la nouvelle politique à l'adresse"
-    },
     "v364": {
       "m1": "Correction du menu \"Les plus visités\" afin qu'il ne s'affiche pas derrière d'autres contenus.",
       "m2": "Correction de la couleur du texte du menu \"Les plus visités\" en mode sombre.",
@@ -440,11 +304,7 @@
       "m6": "Empêcher la recherche de s'exécuter si aucun terme de recherche n'est fourni.",
       "m7": "Corrige la recherche d'emplacement météo pour afficher la ville, la région et le pays afin d'éviter de sélectionner accidentellement un emplacement incorrect.",
       "m8": "Modification des autorisations \"favicon\" pour qu'elles soient facultatives si les icônes sont activées pour la barre de favoris ou les liens rapides."
-    },
-    "v365": {
-      "m1": "Recherche d'emplacement météo fixe. Les résultats ne s'affichaient pas lorsqu'un seul emplacement était trouvé."
-    },
-    "yes": "Oui"
+    }
   },
   "tab": {
     "bookmarks": {

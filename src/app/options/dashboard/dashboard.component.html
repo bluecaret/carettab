@@ -8,7 +8,7 @@
       <div class="matIcon newUpdateIcon" aria-hidden="true">new_releases</div>
       <div class="newUpdateContent">
         <div class="newUpdateTitle">CaretTab has been updated to v3.6.4</div>
-        <button *ngIf="!showWhatsNew" type="button" class="panelBtn newUpdateCloseRead" (click)="showWhatsNew = true">See what's new!</button>
+        <button *ngIf="!showWhatsNew" type="button" class="panelBtn newUpdateCloseRead" (click)="showWhatsNew = true">{{'options.dashboard.whatsNew' | translate}}</button>
         <button type="button" class="panelBtn newUpdateClose" (click)="handleClearWhatsNew()"><div class="matIcon" aria-hidden="true">close</div>Close message</button>
       </div>
     </h3>

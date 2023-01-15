@@ -37,7 +37,6 @@
     },
     "common": {
       "aboutLink": "Về",
-      "actions": "Hành động",
       "add": "Thêm",
       "alignText": "Căn chỉnh văn bản",
       "alignTextCenter": "Căn giữa văn bản",
@@ -46,8 +45,6 @@
       "alignTextRight": "Căn chỉnh văn bản sang phải",
       "contactLink": "Liên lạc",
       "delimiter": "Dấu phân cách",
-      "down": "Xuống",
-      "emptyValueError": "Giá trị trống không được phép",
       "format": "Sắp xếp",
       "generalSettings": "Cài đặt chung",
       "label": "Nhãn",
@@ -60,14 +57,11 @@
       "maxWidthDesc": "Đặt chiều rộng tối đa mà tiện ích con có thể kéo dài so với chiều rộng của màn hình. Điều này có thể khiến các widget hiển thị nhỏ hơn dự định nếu cửa sổ được tạo quá nhỏ.",
       "moveDown": "Di chuyển xuống dưới các yếu tố khác",
       "moveUp": "Di chuyển lên trên các yếu tố khác",
-      "off": "Tắt",
       "offset": "Bù lại",
       "offsetDesc": "Bù lại sẽ di chuyển tiện ích lên hoặc xuống, chồng lên các tiện ích liền kề. Điều này có thể hữu ích để đưa các widget khác nhau đến gần nhau hơn.",
-      "on": "Bật",
       "order": "Thứ tự",
       "orderDesc": "Thay đổi thứ tự hiển thị của các widget trong vị trí nó được đặt.",
       "padding": "Đệm",
-      "placement": "Sắp xếp",
       "position": "Vị trí",
       "positionDesc": "Di chuyển tiện ích đến các vị trí khác nhau trên màn hình. Điều này có thể khiến các widget chồng chéo lên nhau, hãy điều chỉnh các cài đặt bố cục khác để hiển thị tối ưu.",
       "preview": "Xem trước",
@@ -77,43 +71,15 @@
       "sizeDesc": "Điều chỉnh kích thước của tiện ích con. Điều này là tương đối so với kích thước toàn cầu.",
       "supportLink": "Hỗ trợ",
       "timezone": "Múi giờ",
-      "up": "Lên",
       "version": "Phiên bản",
       "width": "Chiều rộng"
-    },
-    "covidData": {
-      "activeCases": "Tổng số trường hợp hoạt động",
-      "addCountry": "Thêm quốc gia",
-      "copyCountry": "Sao chép quốc gia",
-      "country": "Quốc gia",
-      "countryData": "Dữ liệu quốc gia",
-      "countryFlag": "Quốc kỳ",
-      "countryName": "Tên quốc gia",
-      "covidData": "Dữ liệu COVID-19",
-      "deaths": "Tổng số người chết",
-      "deleteCountry": "Xóa quốc gia",
-      "disclaimer": "Dữ liệu COVID được lấy từ |Open Disease Data API| mà họ lấy nguồn từ nhiều nơi để cung cấp cho bạn một cái nhìn toàn diện. Danh sách đầy đủ các nguồn có thể được tìm thấy trên |API documentation|. BlueCaret và sản phẩm của nó, CaretTab, không chịu trách nhiệm về tính chính xác của dữ liệu này.",
-      "enable": "Bật dữ liệu COVID-19",
-      "hideOptions": "Ẩn các tùy chọn bổ sung",
-      "paddingDesc": "Thay đổi khoảng cách giữa các số liệu thống kê của một quốc gia",
-      "perOneMillion": "Trên một triệu",
-      "perOneMillionDesc": "Hiển thị thống kê trên một triệu",
-      "recoveredCases": "Tổng số trường hợp được hồi phục",
-      "selectCountry": "Chọn một quốc gia",
-      "showOptions": "Hiển thị thêm các tùy chọn",
-      "todayCases": "Trường hợp hôm nay"
     },
     "dashboard": {
       "contribute": "Đóng góp mã",
       "credit": "CaretTab| được thiết kế và mã hóa bởi |BlueCaret| và được cấp phép theo |MIT License|.",
-      "donate": "Quyên góp bằng PayPal",
-      "needHelp": "Nếu bạn cần trợ giúp hoặc có đề xuất, bạn có thể liên hệ với nhà phát triển, |BlueCaret| tại Twitter |@BlueCaret| hoặc xem CaretTab trên |GitHub|.",
-      "new": "Có gì mới?",
       "review": "Để lại đánh giá",
       "share": "Chia sẻ",
       "supportBox": "Cần giúp đỡ? Đăng trên |GitHub| hoặc email |bluecaret@outlook.com",
-      "supportDev": "Bạn có thể giúp hỗ trợ và cải thiện CaretTab",
-      "updated": "Đã cập nhật",
       "whatsNew": "Có gì mới?"
     },
     "date": {
@@ -140,12 +106,10 @@
     "design": {
       "bg": "Tùy chỉnh nền",
       "brightness": "Độ sáng",
-      "browseForImg": "Duyệt tìm hình ảnh...",
       "colors": "Màu sắc",
       "customFontDesc": "Nhập tên của phông chữ đã được cài đặt. Bạn phải cài đặt phông chữ trên máy tính của mình để nó hoạt động.",
       "customFontName": "Tên phông chữ tùy chỉnh",
       "customFontUsage": "Để sử dụng phông chữ tùy chỉnh, bạn phải nhập chính xác tên phông chữ. Phông chữ tùy chỉnh phải |được cài đặt sẵn trên máy tính của bạn|. Bạn có thể nhận được nhiều phông chữ hơn từ |Google Fonts| hoặc từ |1001 Free Fonts|.",
-      "customWallpaper": "Hình nền tùy chỉnh",
       "design": "Thiết kế",
       "dontSync": "Hình ảnh tùy chỉnh không đồng bộ giữa các máy tính.",
       "dynScale": "Chia tỷ lệ động",
@@ -160,8 +124,6 @@
       "globalSize": "Kích thước toàn cầu",
       "globalSizeDesc": "Điều chỉnh kích thước của tất cả các yếu tố.",
       "hardToSee": "Hình ảnh quá khó để xem? Hãy thử thay đổi bộ lọc.",
-      "removeWallpaper": "Nhấp để xóa hình nền đã chọn",
-      "selectedWallpaper": "Hình nền đã chọn",
       "wallpaper": "Hình nền"
     },
     "extra": {
@@ -172,7 +134,6 @@
       "exportSettings": "Xuất ra cài đặt",
       "exportSettingsDesc": "Xuất tất cả cài đặt CaretTab thành một tệp. Nhấp vào nút sẽ tải tệp xuống máy tính của bạn. Không chỉnh sửa tệp này để đảm bảo không có lỗi khi bạn nhập lại.",
       "extra": "Thêm",
-      "hideLogo": "Ẩn logo",
       "hideMenu": "Ẩn nút cài đặt",
       "hideMenuDesc": "Khi được bật, nút menu sẽ hiển thị khi bạn di chuột qua góc dưới cùng bên phải.",
       "import": "Nhập vào",
@@ -211,13 +172,8 @@
       "searchEngine": "Công cụ tìm kiếm"
     },
     "time": {
-      "actions": "Hành động",
       "addNewClock": "Thêm đồng hồ mới",
       "analog": "Đồng hồ analog",
-      "analogEnable": "Bật đồng hồ kim",
-      "analogEnableDesc": "Hiển thị đồng hồ theo kiểu kim thay vì kỹ thuật số.",
-      "analogStyle": "Kiểu đồng hồ kim",
-      "analogStyleDesc": "Chọn kiểu đồng hồ kim",
       "automatic": "Tự động",
       "binary": "Đồng hồ Binary",
       "binaryDim": "Đồng hồ nhị phân mờ ảo",
@@ -225,8 +181,6 @@
       "binaryOffValue": "",
       "binaryOnValue": "",
       "binaryDimDesc": "Làm mờ đồng hồ nhị phân.",
-      "binaryEnable": "Bật đồng hồ nhị phân",
-      "binaryEnableDesc": "Hiển thị đồng hồ ở định dạng nhị phân.",
       "brackets": "Dấu ngoặc",
       "bracketsDim": "Dấu ngoặc mờ ảo",
       "bracketsEnable": "Bật dấu ngoặc",
@@ -248,7 +202,6 @@
       "dimDelimiter": "Dấu phân cách mờ ảo",
       "enableDelimiter": "Bật dấu phân cách",
       "generalSettings": "Cài đặt đồng hồ chung",
-      "hideOptions": "Ẩn các tùy chọn bổ sung",
       "label": "Nhãn hiệu",
       "labelDesc": "Hiển thị nhãn bên cạnh đồng hồ. Để trống không có nhãn.",
       "labelDim": "Nhãn mờ ảo",
@@ -273,7 +226,6 @@
       "secondsEnable": "Bật giây",
       "secondsOffset": "Điều chỉnh vị trí của giây lên hoặc xuống",
       "secondsSize": "Điều chỉnh kích thước của giây so với đồng hồ",
-      "showOptions": "Hiển thị thêm các tùy chọn",
       "sizeDesc": "Thay đổi kích thước của đồng hồ.",
       "span": "Chiều rộng",
       "spanDesc": "Thay đổi mức độ sử dụng của đồng hồ. Điều này có thể được sử dụng để hiển thị nhiều đồng hồ trên cùng một dòng.",
@@ -342,95 +294,7 @@
     }
   },
   "splash": {
-    "back": "Về trước",
     "getStarted": "Bắt đầu!",
-    "letsGo": "Đi nào!",
-    "new": "Có gì mới?",
-    "next": "Kế tiếp",
-    "no": "Không",
-    "s1": {
-      "p1": "Hãy xem qua một số cài đặt cơ bản để giúp bạn bắt đầu...",
-      "welcome": "Chào mừng bạn đến CaretTab|Thiết kế|giao diện|Trang Tab mới!"
-    },
-    "s2": {
-      "title": "Chọn một ngôn ngữ"
-    },
-    "s3": {
-      "title": "Bạn có muốn hiển thị một chiếc đồng hồ?"
-    },
-    "s4": {
-      "title": "Bạn có muốn hiển thị ngày tháng?"
-    },
-    "s5": {
-      "title": "Hiển thị thanh dấu trang?"
-    },
-    "s6": {
-      "title": "Chọn màu sắc yêu thích của bạn"
-    },
-    "s7": {
-      "p1": "CaretTab có thể được tùy chỉnh hoàn toàn! Bạn sẽ tìm thấy nhiều tùy chọn khác trong menu cài đặt.",
-      "p2": "Để mở menu cài đặt, hãy nhấp vào biểu tượng ở góc dưới cùng bên phải.",
-      "title": "Đây mới chỉ là sự bắt đầu!"
-    },
-    "skip": "Bỏ qua",
-    "updatedTo": "CaretTab đã được cập nhật thành",
-    "v350": {
-      "b1": "Đã sửa lỗi ngăn không cho các mẫu hiển thị trong một số tình huống nhất định.",
-      "b2": "Đã sửa lỗi 404 không thường xuyên cho ảnh nền.",
-      "b3": "Đã khắc phục sự cố trong đó dấu trang sẽ không hiển thị khi bật thanh dấu trang.",
-      "b4": "Đã sửa lỗi hiển thị trong thanh dấu trang.",
-      "b5": "Cố định khả năng tìm kiếm bằng các ký tự đặc biệt",
-      "b6": "Tạm thời xóa các tùy chọn múi giờ GMT vì chúng không chính xác. Bạn nên chọn múi giờ được đặt tên để thay thế.",
-      "backupDesc": "Sao lưu và khôi phục cài đặt của bạn với tùy chọn Xuất/Nhập mới!",
-      "backupTitle": "Sao lưu và khôi phục",
-      "binaryDesc": "Thể hiện niềm tự hào mọt sách của bạn và đọc thời gian như một bộ máy!",
-      "binaryTitle": "Đồng hồ Binary",
-      "covidDesc": "Giờ đây, bạn có thể theo dõi thống kê COVID theo quốc gia trên Tab mới của mình.",
-      "covidTitle": "Tiện ích dữ liệu COVID-19",
-      "dimDesc": "Đã thêm tùy chọn để làm mờ dấu phân cách vào ngày ngắn.",
-      "dimTitle": "Làm mờ dấu phân cách ngày",
-      "duplicateDesc": "Bạn muốn thiết lập đồng hồ thứ hai theo cùng một cách nhưng với múi giờ khác? Nhân bản nó!",
-      "duplicateTitle": "Đồng hồ trùng lặp",
-      "m1": "Nhiều tùy chọn kích thước có phạm vi lớn hơn để lựa chọn.",
-      "m2": "Đã thêm số phiên bản tiện ích mở rộng vào bảng cài đặt",
-      "m3": "Đã xóa logo khỏi góc",
-      "m4": "Đã điều chỉnh một số cài đặt mặc định",
-      "m5": "Văn bản trợ giúp được cải thiện cho một số cài đặt",
-      "m6": "Cải tiến bản dịch",
-      "m7": "Đã thêm tùy chọn xem trước trong bảng cài đặt sẽ ẩn bảng khi di chuột qua nút.",
-      "messageDesc": "Giờ đây, bạn có thể thêm nhiều tin nhắn tùy chỉnh vào một danh sách và hiển thị ngẫu nhiên một tin nhắn trên mỗi tab mới!",
-      "messageTitle": "Tin nhắn ngẫu nhiên",
-      "positionDesc": "Tùy chọn vị trí mới cho tất cả các vật dụng! Bây giờ bạn có thể đặt từng widget ở các vị trí khác nhau trên màn hình. Đặt các liên kết nhanh ở phía dưới, di chuyển đồng hồ lên góc trên cùng, sự lựa chọn là của bạn!",
-      "positionTitle": "Đặt widget ở bất cứ đâu",
-      "selectDesc": "Đã thêm tùy chọn để tắt lựa chọn văn bản! Không còn tình cờ đánh dấu.",
-      "selectTitle": "Tắt lựa chọn",
-      "weatherDesc": "Tiện ích thời tiết được yêu cầu nhiều, được chờ đợi từ lâu, cuối cùng cũng có ở đây! Nhận nhanh tất cả dữ liệu thời tiết bạn cần với cả thời tiết hiện tại và dự báo. Giống như mọi khi, rất nhiều tùy chỉnh có sẵn!",
-      "weatherTitle": "Tiện ích thời tiết"
-    },
-    "v360": {
-      "m1": "Dự báo thời tiết tăng lên tối đa 5 ngày.",
-      "m2": "Tùy chọn để ẩn ngày hiện tại trong dự báo.",
-      "m3": "Tốc độ gió thời tiết có thể thay đổi giữa các km/s, m/s, mph, và ft/s.",
-      "m4": "Thời gian Mặt trời mọc và Lúc trăng lên trong tiện ích thời tiết có thể được hiển thị ở định dạng 24 giờ.",
-      "m5": "Đã sửa lỗi hiển thị trong Trình duyệt Cent khiến tab không sử dụng được.",
-      "m6": "Đã sửa lỗi hiển thị nền (hy vọng)!",
-      "m7": "Đã thêm nút để hỗ trợ CaretTab trên Patreon!"
-    },
-    "v361": {
-      "m1": "Đã sửa lỗi màu nền trong Trình duyệt Cent."
-    },
-    "v362": {
-      "m1": "Đã sửa dữ liệu COVID trống bằng cách cập nhật lệnh gọi API."
-    },
-    "v363": {
-      "m1": "Không có tính năng mới nào trên bản cập nhật này, chỉ là một số dọn dẹp những thứ không còn cần thiết nữa.",
-      "m2": "Di chuyển sang tệp kê khai v3 để hỗ trợ các yêu cầu hiện tại của Cửa hàng Chrome trực tuyến.",
-      "m3": "Đã xóa Google Analytics",
-      "m4": "Đã xóa tính năng kiếm tiền từ tìm kiếm và thay đổi tìm kiếm mặc định thành Google.",
-      "m5": "Đã xóa hỗ trợ cho Firefox. Tôi rất tiếc phải nói nhưng tôi đang lấy CaretTab khỏi cửa hàng tiện ích bổ sung của Firefox. Tiện ích này không bao giờ nhận đủ người dùng để biện minh cho tài nguyên phát triển cho các vấn đề.",
-      "m6": "Đã cập nhật chính sách quyền riêng tư",
-      "m7": "CaretTab đã có mã phân tích và nhà cung cấp dịch vụ kiếm tiền từ tìm kiếm bị xóa; do đó, Chính sách quyền riêng tư đã được cập nhật. Vui lòng xem lại chính sách mới tại"
-    },
     "v364": {
       "m1": "Đã sửa menu \" Được truy cập nhiều nhất\" để nó không hiển thị đằng sau nội dung khác.",
       "m2": "Đã sửa màu văn bản của menu \" Được truy cập nhiều nhất\" khi ở chế độ tối.",
@@ -440,11 +304,7 @@
       "m6": "Ngăn không cho tìm kiếm chạy nếu không có cụm từ tìm kiếm nào được cung cấp.",
       "m7": "Sửa tìm kiếm vị trí thời tiết để hiển thị thành phố, khu vực và quốc gia để tránh việc vô tình chọn vị trí không chính xác.",
       "m8": "Quyền Đã thay đổi \"favicon\" thành tùy chọn nếu các biểu tượng được bật cho Thanh dấu trang hoặc Liên kết nhanh."
-    },
-    "v365": {
-      "m1": "Đã sửa lỗi tìm kiếm vị trí thời tiết. Kết quả không hiển thị khi chỉ tìm thấy một vị trí."
-    },
-    "yes": "Có"
+    }
   },
   "tab": {
     "bookmarks": {

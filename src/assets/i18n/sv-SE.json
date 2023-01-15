@@ -37,7 +37,6 @@
     },
     "common": {
       "aboutLink": "Handla om",
-      "actions": "Åtgärder",
       "add": "Lägg till",
       "alignText": "Justera text",
       "alignTextCenter": "Justera texten till mitten",
@@ -46,8 +45,6 @@
       "alignTextRight": "Justera texten till höger",
       "contactLink": "Kontakta",
       "delimiter": "avgränsare",
-      "down": "Ner",
-      "emptyValueError": "Tomt värde är inte tillåtet",
       "format": "Formatera",
       "generalSettings": "Allmänna Inställningar",
       "label": "Märka",
@@ -60,14 +57,11 @@
       "maxWidthDesc": "Ställer in den maximala bredden som widgeten kan spänna i förhållande till skärmens bredd. Detta kan leda till att widgets visas mindre än tänkt om fönstret blir för litet.",
       "moveDown": "Flytta under andra element",
       "moveUp": "Flytta dig över andra element",
-      "off": "av",
       "offset": "Offset",
       "offsetDesc": "Offset flyttar widgeten uppåt eller nedåt och överlappar intilliggande widgets. Detta kan vara användbart för att få olika widgets närmare varandra.",
-      "on": "På",
       "order": "Ordning",
       "orderDesc": "Ändrar visningsordningen för widgets inom den position den är inställd på.",
       "padding": "Stoppning",
-      "placement": "Placering",
       "position": "Placera",
       "positionDesc": "Flytta widgeten till olika positioner på skärmen. Detta kan leda till att widgets överlappar varandra, justerar andra layoutinställningar för optimal visning.",
       "preview": "Förhandsvisning",
@@ -77,43 +71,15 @@
       "sizeDesc": "Justerar storleken på widgeten. Detta är relativt den globala storleken.",
       "supportLink": "Stöd",
       "timezone": "tidszon",
-      "up": "Upp",
       "version": "Version",
       "width": "bredd"
-    },
-    "covidData": {
-      "activeCases": "Totalt antal aktiva fall",
-      "addCountry": "Lägg till land",
-      "copyCountry": "Kopiera land",
-      "country": "Land",
-      "countryData": "Landsdata",
-      "countryFlag": "Landsflagga",
-      "countryName": "Lands namn",
-      "covidData": "COVID-19-data",
-      "deaths": "Totala dödsfall",
-      "deleteCountry": "Ta bort land",
-      "disclaimer": "COVID-data kommer från | Open Disease Data API | som i sig källor från flera platser för att ge dig en heltäckande bild. En fullständig lista med källor finns i | API-dokumentationen |. BlueCaret och dess produkt, CaretTab, tar inget ansvar för riktigheten i dessa uppgifter.",
-      "enable": "Aktivera COVID-19-data",
-      "hideOptions": "Dölj ytterligare alternativ",
-      "paddingDesc": "Ändrar avståndet mellan ett lands statistik",
-      "perOneMillion": "Per en miljon",
-      "perOneMillionDesc": "Visa statistik per en miljon",
-      "recoveredCases": "Totalt antal återkrav",
-      "selectCountry": "Välj ett land",
-      "showOptions": "Visa fler alternativ",
-      "todayCases": "Dagens fall"
     },
     "dashboard": {
       "contribute": "Bidra med kod",
       "credit": "CaretTab | är designad och kodad av | BlueCaret | och är licensierad under | MIT-licensen |.",
-      "donate": "Donera med PayPal",
-      "needHelp": "Om du behöver hjälp eller har ett förslag kan du kontakta utvecklaren | BlueCaret | på Twitter | @BlueCaret | eller visa CaretTab på | GitHub |.",
-      "new": "Vad är nytt?",
       "review": "Lämna recension",
       "share": "Dela med sig",
       "supportBox": "Behövs hjälp? Posta på | GitHub | eller mejla | bluecaret@outlook.com",
-      "supportDev": "Du kan hjälpa till att stödja och förbättra CaretTab",
-      "updated": "Uppdaterad",
       "whatsNew": "Vad är nytt?"
     },
     "date": {
@@ -140,12 +106,10 @@
     "design": {
       "bg": "Egen bakgrund",
       "brightness": "ljusstyrka",
-      "browseForImg": "Bläddra efter bild ...",
       "colors": "Färger",
       "customFontDesc": "Ange namnet på ett lokalt installerat typsnitt. Du måste installera teckensnittet på din dator för att det ska fungera.",
       "customFontName": "Anpassat typsnittsnamn",
       "customFontUsage": "För att använda ett anpassat teckensnitt måste du ange teckensnittsnamnet exakt. Anpassade teckensnitt måste | installeras lokalt på din dator |. Du kan få fler teckensnitt från | Google-teckensnitt | eller från | 1001 teckensnitt |",
-      "customWallpaper": "Anpassad tapet",
       "design": "Design",
       "dontSync": "Anpassade bilder synkroniseras inte över datorer.",
       "dynScale": "Dynamisk skalning",
@@ -160,8 +124,6 @@
       "globalSize": "Global storlek",
       "globalSizeDesc": "Justera storleken på alla element.",
       "hardToSee": "Bild för svår att se? Prova att byta filter.",
-      "removeWallpaper": "Klicka för att ta bort den valda bakgrunden",
-      "selectedWallpaper": "Vald tapet",
       "wallpaper": "Tapet"
     },
     "extra": {
@@ -172,7 +134,6 @@
       "exportSettings": "Exportera inställningar",
       "exportSettingsDesc": "Exportera alla CaretTab-inställningar till en fil. Klicka på knappen för att ladda ner en fil till din dator. Redigera inte den här filen för att säkerställa inga fel när du importerar om.",
       "extra": "Extra",
-      "hideLogo": "Dölj logotyp",
       "hideMenu": "Dölj inställningsknappen",
       "hideMenuDesc": "När den är aktiverad visas menyknappen när du svävar över det nedre högra hörnet.",
       "import": "Importera",
@@ -211,13 +172,8 @@
       "searchEngine": "Sökmotor"
     },
     "time": {
-      "actions": "Åtgärder",
       "addNewClock": "Lägg till ny klocka",
       "analog": "Analog",
-      "analogEnable": "Aktivera analog klocka",
-      "analogEnableDesc": "Visar klockan i analog stil istället för digital.",
-      "analogStyle": "Analog stil",
-      "analogStyleDesc": "Välj stil för den analoga klockan",
       "automatic": "automatisk",
       "binary": "Binär",
       "binaryDim": "Dim binär klocka",
@@ -225,8 +181,6 @@
       "binaryOffValue": "",
       "binaryOnValue": "",
       "binaryDimDesc": "Dim den binära klockan.",
-      "binaryEnable": "Aktivera binär klocka",
-      "binaryEnableDesc": "Visar klockan i binärt format.",
       "brackets": "Fästen",
       "bracketsDim": "Dimma fästen",
       "bracketsEnable": "Aktivera parenteser",
@@ -248,7 +202,6 @@
       "dimDelimiter": "Dim avgränsare",
       "enableDelimiter": "Aktivera avgränsare",
       "generalSettings": "Allmänna klockinställningar",
-      "hideOptions": "Dölj ytterligare alternativ",
       "label": "Märka",
       "labelDesc": "Visar en etikett bredvid klockan. Lämna tomt utan etikett.",
       "labelDim": "Dim etikett",
@@ -273,7 +226,6 @@
       "secondsEnable": "Aktivera sekunder",
       "secondsOffset": "Justera positionen för sekunderna uppåt eller nedåt",
       "secondsSize": "Justerar storleken på sekunderna i förhållande till klockan",
-      "showOptions": "Visa fler alternativ",
       "sizeDesc": "Ändra storleken på klockan.",
       "span": "bredd",
       "spanDesc": "Ändrar hur mycket utrymme klockan använder. Detta kan användas för att visa flera klockor på samma rad.",
@@ -342,95 +294,7 @@
     }
   },
   "splash": {
-    "back": "Tillbaka",
     "getStarted": "Komma igång!",
-    "letsGo": "Nu går vi!",
-    "new": "Vad är nytt?",
-    "next": "Nästa",
-    "no": "Nej",
-    "s1": {
-      "p1": "Låt oss gå igenom några grundläggande inställningar för att komma igång ...",
-      "welcome": "Välkommen till CaretTab | Din | nya | Sidan Ny flik!"
-    },
-    "s2": {
-      "title": "Välj språk"
-    },
-    "s3": {
-      "title": "Vill du visa en klocka?"
-    },
-    "s4": {
-      "title": "Vill du visa datumet?"
-    },
-    "s5": {
-      "title": "Visa ett bokmärkesfält?"
-    },
-    "s6": {
-      "title": "Välj dina favoritfärger"
-    },
-    "s7": {
-      "p1": "CaretTab kan anpassas helt! Du hittar många fler alternativ i inställningsmenyn.",
-      "p2": "Klicka på ikonen längst ned till höger för att öppna inställningsmenyn.",
-      "title": "Detta är bara toppen av isberget!"
-    },
-    "skip": "Hoppa",
-    "updatedTo": "CaretTab har uppdaterats till",
-    "v350": {
-      "b1": "Fixat fel som förhindrar att mönster visas i vissa situationer.",
-      "b2": "Fixat enstaka 404-fel för bakgrundsbilder.",
-      "b3": "Fixat problem där bokmärken inte skulle visas när bokmärkesfältet aktiverades.",
-      "b4": "Fixat displayfel i bokmärkesfältet.",
-      "b5": "Fixad möjlighet att söka med specialtecken",
-      "b6": "Ta bort GMT -tidszonsalternativen tillfälligt eftersom de var felaktiga. Rekommendera att välja en namngiven tidszon istället.",
-      "backupDesc": "Säkerhetskopiera och återställ dina inställningar med ett nytt alternativ för export / import!",
-      "backupTitle": "Säkerhetskopiering och återställning",
-      "binaryDesc": "Visa upp din nördstolthet och läs tiden som en maskin!",
-      "binaryTitle": "Binär klocka",
-      "covidDesc": "Nu kan du spåra COVID-statistik efter land på din nya flik.",
-      "covidTitle": "COVID-19 datavidget",
-      "dimDesc": "Lagt till alternativ för att dimma avgränsaren på det korta datumet.",
-      "dimTitle": "Avgränsning för datumavgränsning",
-      "duplicateDesc": "Vill du ha en andra klockinställning exakt på samma sätt men med en annan tidszon? Duplicera det!",
-      "duplicateTitle": "Dubbla klockor",
-      "m1": "Många storlekar har större räckvidd att välja mellan.",
-      "m2": "Lagt tilläggsversion nummer till inställningspanelen",
-      "m3": "Borttagen logotyp från hörnet",
-      "m4": "Justerade vissa standardinställningar",
-      "m5": "Förbättrad hjälptext för flera inställningar",
-      "m6": "Översättningsförbättringar",
-      "m7": "Lagt till förhandsgranskningsalternativ i inställningspanelen som döljer panelen medan du håller muspekaren över knappen.",
-      "messageDesc": "Du kan nu lägga till flera anpassade meddelanden i en lista och ha en slumpmässig visning på varje ny flik!",
-      "messageTitle": "Slumpmässigt meddelande",
-      "positionDesc": "Nya placeringsalternativ för alla widgets! Nu kan du placera varje widget på olika platser på skärmen. Placera snabblänkarna längst ner, flytta klockan till det övre hörnet, valet är ditt!",
-      "positionTitle": "Placera widgets var som helst",
-      "selectDesc": "Lagt till alternativ för att inaktivera textval! Inget mer oavsiktlig markering.",
-      "selectTitle": "Inaktivera val",
-      "weatherDesc": "Den efterfrågade, efterlängtade väderwidgeten är äntligen här! Få all väderinformation du behöver en överblick med både aktuellt väder och en prognos. Som alltid, massor av anpassningar tillgängliga!",
-      "weatherTitle": "Väder widget"
-    },
-    "v360": {
-      "m1": "Väderprognosen ökade till max 5 dagar.",
-      "m2": "Alternativ för att dölja den aktuella dagen i prognosen.",
-      "m3": "Vädervindens hastighet kan ändras mellan km/s, m/s, mph och ft/s.",
-      "m4": "Soluppgång/nedgång och månuppgång/nedgångstider i väderwidgeten kan visas i 24 -timmarsformat.",
-      "m5": "Fixade visningsfel i Cent -webbläsaren som gjorde fliken oanvändbar.",
-      "m6": "Fixat bakgrundsvisningsfel (förhoppningsvis)!",
-      "m7": "Tillagd knapp för att stödja CaretTab på Patreon!"
-    },
-    "v361": {
-      "m1": "Åtgärdade bakgrundsfärgfel i Cent Browser."
-    },
-    "v362": {
-      "m1": "Fixade tomma COVID -data genom att uppdatera API -samtal."
-    },
-    "v363": {
-      "m1": "Inga nya funktioner i den här uppdateringen, bara lite rensning av back-end-saker som inte längre behövs.",
-      "m2": "Migrera till manifest v3 för att stödja aktuella Chrome Web Store-krav.",
-      "m3": "Ta bort Google Analytics",
-      "m4": "Ta bort intäktsgenerering för sökningar och ändrade standardsökning till Google.",
-      "m5": "Ta bort stöd för Firefox. Jag är ledsen att säga det men jag tar bort CaretTab från Firefox tilläggsbutik. Tillägget fick helt enkelt aldrig tillräckligt många användare för att motivera utvecklingsresurser för problem.",
-      "m6": "Sekretesspolicy uppdaterad",
-      "m7": "CaretTab har tagit bort analyskod och en leverantör av intäktsgenerering för söktjänster; på grund av detta har integritetspolicyn uppdaterats. Läs igenom den nya policyn på"
-    },
     "v364": {
       "m1": "Fixade menyn \"Mest besökta\" så att den inte visas bakom annat innehåll.",
       "m2": "Fixade textfärgen på \"Mest besökta\"-menyn i mörkt läge.",
@@ -440,11 +304,7 @@
       "m6": "Förhindra sökning från att köras om ingen sökterm anges.",
       "m7": "Åtgärda sökning efter väderposition för att visa stad, region och land för att förhindra att felaktig plats väljs av misstag.",
       "m8": "Ändrade \"favicon\"-behörigheter till att vara valfria om ikoner är aktiverade för bokmärkesfältet eller snabblänkar."
-    },
-    "v365": {
-      "m1": "Sök efter fast väderposition. Resultaten visades inte när endast en enda plats hittades."
-    },
-    "yes": "Ja"
+    }
   },
   "tab": {
     "bookmarks": {

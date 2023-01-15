@@ -37,7 +37,6 @@
     },
     "common": {
       "aboutLink": "Über",
-      "actions": "Aktionen",
       "add": "Hinzufügen",
       "alignText": "Text ausrichten",
       "alignTextCenter": "Text zentriert ausrichten",
@@ -46,8 +45,6 @@
       "alignTextRight": "Text rechtsbündig ausrichten",
       "contactLink": "Kontakt",
       "delimiter": "Trennzeichen",
-      "down": "Nieder",
-      "emptyValueError": "Leerer Wert nicht erlaubt",
       "format": "Format",
       "generalSettings": "Allgemeine Einstellungen",
       "label": "Etikette",
@@ -60,14 +57,11 @@
       "maxWidthDesc": "Legt die maximale Breite fest, die das Widget relativ zur Breite des Bildschirms überspannen kann. Dies kann dazu führen, dass Widgets kleiner als beabsichtigt angezeigt werden, wenn das Fenster zu klein gemacht wird.",
       "moveDown": "Bewegen Sie sich unter andere Elemente",
       "moveUp": "Bewegen Sie sich über andere Elemente",
-      "off": "aus",
       "offset": "Versatz",
       "offsetDesc": "Offset verschiebt das Widget nach oben oder unten und überlappt benachbarte Widgets. Dies kann nützlich sein, um verschiedene Widgets näher zusammenzubringen.",
-      "on": "auf",
       "order": "Auftrag",
       "orderDesc": "Ändert die Anzeigereihenfolge von Widgets innerhalb der festgelegten Position.",
       "padding": "Polsterung",
-      "placement": "Platzierung",
       "position": "Position",
       "positionDesc": "Verschieben Sie das Widget an verschiedene Positionen auf dem Bildschirm. Dies könnte dazu führen, dass sich Widgets überlappen. Passen Sie andere Layouteinstellungen für eine optimale Anzeige an.",
       "preview": "Vorschau",
@@ -77,43 +71,15 @@
       "sizeDesc": "Passt die Größe des Widgets an. Dies ist relativ zur globalen Größe.",
       "supportLink": "Unterstützung",
       "timezone": "Zeitzone",
-      "up": "Oben",
       "version": "Ausführung",
       "width": "Breite"
-    },
-    "covidData": {
-      "activeCases": "Aktive Fälle insgesamt",
-      "addCountry": "Land hinzufügen",
-      "copyCountry": "Land kopieren",
-      "country": "Land",
-      "countryData": "Länderdaten",
-      "countryFlag": "Länderflagge",
-      "countryName": "Ländername",
-      "covidData": "COVID-19-Daten",
-      "deaths": "Gesamtzahl der Todesfälle",
-      "deleteCountry": "Land löschen",
-      "disclaimer": "COVID-Daten stammen aus der |Open Disease Data API| die selbst Quellen von mehreren Stellen bietet, um Ihnen einen umfassenden Überblick zu geben. Eine vollständige Liste der Quellen finden Sie in der |API-Dokumentation|. BlueCaret und sein Produkt CaretTab übernehmen keine Verantwortung für die Richtigkeit dieser Daten.",
-      "enable": "COVID-19-Daten aktivieren",
-      "hideOptions": "Zusätzliche Optionen ausblenden",
-      "paddingDesc": "Ändert den Abstand zwischen den Statistiken eines Landes",
-      "perOneMillion": "Pro eine Million",
-      "perOneMillionDesc": "Statistiken pro eine Million anzeigen",
-      "recoveredCases": "Gesamtzahl der wiederhergestellten Fälle",
-      "selectCountry": "Wähle ein Land",
-      "showOptions": "Mehr Optionen anzeigen",
-      "todayCases": "Die Fälle von heute"
     },
     "dashboard": {
       "contribute": "Code beitragen",
       "credit": "CaretTab| wurde von |BlueCaret| entwickelt und codiert und unterliegt der |MIT-Lizenz|.",
-      "donate": "Spenden Sie mit PayPal",
-      "needHelp": "Wenn Sie Hilfe benötigen oder einen Vorschlag haben, können Sie sich an den Entwickler |BlueCaret| wenden auf Twitter |@BlueCaret| oder sehen Sie sich CaretTab auf |GitHub| an.",
-      "new": "Was gibt's neues?",
       "review": "Eine Rezension hinterlassen",
       "share": "Aktie",
       "supportBox": "Brauchen Sie Hilfe? Auf |GitHub| Post posten oder senden Sie eine E-Mail an |bluecaret@outlook.com",
-      "supportDev": "Sie können CaretTab unterstützen und verbessern",
-      "updated": "Aktualisierte",
       "whatsNew": "Was gibt's neues?"
     },
     "date": {
@@ -140,12 +106,10 @@
     "design": {
       "bg": "Benutzerdefinierter Hintergrund",
       "brightness": "Helligkeit",
-      "browseForImg": "Nach Bild suchen ...",
       "colors": "Farben",
       "customFontDesc": "Geben Sie den Namen einer lokal installierten Schriftart ein. Sie müssen die Schriftart auf Ihrem Computer installieren, damit sie funktioniert.",
       "customFontName": "Name der benutzerdefinierten Schriftart",
       "customFontUsage": "Um eine benutzerdefinierte Schriftart zu verwenden, müssen Sie den Namen der Schriftart genau eingeben. Benutzerdefinierte Schriften müssen lokal auf Ihrem Computer installiert werden. Weitere Schriftarten finden Sie unter | Google Fonts | oder von | 1001 Free Fonts |.",
-      "customWallpaper": "Benutzerdefinierte Tapete",
       "design": "Design",
       "dontSync": "Benutzerdefinierte Bilder werden nicht zwischen Computern synchronisiert.",
       "dynScale": "Dynamische Skalierung",
@@ -160,8 +124,6 @@
       "globalSize": "Globale Größe",
       "globalSizeDesc": "Passen Sie die Größe aller Elemente an.",
       "hardToSee": "Bild zu schwer zu sehen? Versuchen Sie, den Filter zu wechseln.",
-      "removeWallpaper": "Klicken Sie hier, um das ausgewählte Hintergrundbild zu entfernen",
-      "selectedWallpaper": "Ausgewähltes Hintergrundbild",
       "wallpaper": "Tapete"
     },
     "extra": {
@@ -172,7 +134,6 @@
       "exportSettings": "Exporteinstellungen",
       "exportSettingsDesc": "Exportieren Sie alle CaretTab-Einstellungen in eine Datei. Wenn Sie auf die Schaltfläche klicken, wird eine Datei auf Ihren Computer heruntergeladen. Bearbeiten Sie diese Datei nicht, um sicherzustellen, dass beim erneuten Importieren keine Fehler auftreten.",
       "extra": "Extra",
-      "hideLogo": "Logo ausblenden",
       "hideMenu": "Schaltfläche Einstellungen einblenden",
       "hideMenuDesc": "Wenn diese Option aktiviert ist, wird die Menüschaltfläche angezeigt, wenn Sie den Mauszeiger über die untere rechte Ecke bewegen.",
       "import": "Einführen",
@@ -211,13 +172,8 @@
       "searchEngine": "Suchmaschine"
     },
     "time": {
-      "actions": "Aktionen",
       "addNewClock": "Neue Uhr hinzufügen",
       "analog": "Analog",
-      "analogEnable": "Aktivieren Sie die analoge Uhr",
-      "analogEnableDesc": "Zeigt die Uhr nicht digital, sondern analog an.",
-      "analogStyle": "Analoger Stil",
-      "analogStyleDesc": "Wählen Sie den Stil der Analoguhr",
       "automatic": "Automatik",
       "binary": "Binär",
       "binaryDim": "Binäre Uhr dimmen",
@@ -225,8 +181,6 @@
       "binaryOffValue": "",
       "binaryOnValue": "",
       "binaryDimDesc": "Dimmen Sie die binäre Uhr.",
-      "binaryEnable": "Binäre Uhr aktivieren",
-      "binaryEnableDesc": "Zeigt die Uhr im Binärformat an.",
       "brackets": "Klammern",
       "bracketsDim": "Klammern verdunkeln",
       "bracketsEnable": "Aktivieren Sie Klammern",
@@ -248,7 +202,6 @@
       "dimDelimiter": "Dim Delimiter",
       "enableDelimiter": "Trennzeichen aktivieren",
       "generalSettings": "Allgemeine Uhreinstellungen",
-      "hideOptions": "Zusätzliche Optionen ausblenden",
       "label": "Etikette",
       "labelDesc": "Zeigt eine Beschriftung neben der Uhr an. Leer lassen für kein Etikett.",
       "labelDim": "Etikett abdunkeln",
@@ -273,7 +226,6 @@
       "secondsEnable": "Sekunden aktivieren",
       "secondsOffset": "Passen Sie die Position der Sekunden nach oben oder unten an",
       "secondsSize": "Passt die Größe der Sekunden relativ zur Uhr an",
-      "showOptions": "Mehr Optionen anzeigen",
       "sizeDesc": "Ändern Sie die Größe der Uhr.",
       "span": "Breite",
       "spanDesc": "Ändert den Platzbedarf der Uhr. Dies kann verwendet werden, um mehrere Uhren in derselben Zeile anzuzeigen.",
@@ -342,95 +294,7 @@
     }
   },
   "splash": {
-    "back": "Zurück",
     "getStarted": "Loslegen!",
-    "letsGo": "Lass uns gehen!",
-    "new": "Was gibt's neues?",
-    "next": "Nächster",
-    "no": "Nein",
-    "s1": {
-      "p1": "Lassen Sie uns einige Grundeinstellungen durchgehen, um Ihnen den Einstieg zu erleichtern ...",
-      "welcome": "Willkommen bei CaretTab | Your | new | New Tab page!"
-    },
-    "s2": {
-      "title": "Wählen Sie eine Sprache aus"
-    },
-    "s3": {
-      "title": "Möchten Sie eine Uhr anzeigen?"
-    },
-    "s4": {
-      "title": "Möchten Sie das Datum anzeigen?"
-    },
-    "s5": {
-      "title": "Lesezeichenleiste anzeigen?"
-    },
-    "s6": {
-      "title": "Wählen Sie Ihre Lieblingsfarben"
-    },
-    "s7": {
-      "p1": "CaretTab kann vollständig angepasst werden! Im Einstellungsmenü finden Sie viele weitere Optionen.",
-      "p2": "Klicken Sie zum Öffnen des Einstellungsmenüs auf das Symbol in der unteren rechten Ecke.",
-      "title": "Dies ist nur die Spitze des Eisbergs!"
-    },
-    "skip": "Überspringen",
-    "updatedTo": "CaretTab wurde auf aktualisiert",
-    "v350": {
-      "b1": "Fehler behoben, der verhinderte, dass Muster in bestimmten Situationen angezeigt wurden.",
-      "b2": "Gelegentliche 404-Fehler für Hintergrundbilder behoben.",
-      "b3": "Problem behoben, bei dem Lesezeichen nicht angezeigt wurden, wenn die Lesezeichenleiste aktiviert wurde.",
-      "b4": "Anzeigefehler in der Lesezeichenleiste behoben.",
-      "b5": "Möglichkeit zum Suchen mit Sonderzeichen behoben",
-      "b6": "Entfernen Sie vorübergehend die GMT-Zeitzonenoptionen, da sie falsch waren. Empfehlen Sie stattdessen, eine benannte Zeitzone auszuwählen.",
-      "backupDesc": "Sichern und stellen Sie Ihre Einstellungen mit einer neuen Export/Import-Option wieder her!",
-      "backupTitle": "Sichern und Wiederherstellen",
-      "binaryDesc": "Führen Sie Ihren Nerdstolz vor und lesen Sie Zeit wie eine Maschine!",
-      "binaryTitle": "Binäre Uhr",
-      "covidDesc": "Jetzt können Sie COVID-Statistiken nach Land auf Ihrem neuen Tab verfolgen.",
-      "covidTitle": "COVID-19-Daten-Widget",
-      "dimDesc": "Option zum Dimmen des Trennzeichens für das kurze Datum hinzugefügt.",
-      "dimTitle": "Datumsbegrenzung dimmen",
-      "duplicateDesc": "Möchten Sie eine zweite Uhr genauso einrichten, aber mit einer anderen Zeitzone? Duplizieren Sie es!",
-      "duplicateTitle": "Doppelte Uhren",
-      "m1": "Viele Größenoptionen haben eine größere Auswahl zur Auswahl.",
-      "m2": "Versionsnummer der Erweiterung zum Einstellungsfeld hinzugefügt",
-      "m3": "Logo aus Ecke entfernt",
-      "m4": "Einige Standardeinstellungen angepasst",
-      "m5": "Verbesserter Hilfetext für verschiedene Einstellungen",
-      "m6": "Übersetzungsverbesserungen",
-      "m7": "Vorschauoption im Einstellungsfenster hinzugefügt, die das Bedienfeld ausblendet, während Sie mit der Maus über die Schaltfläche fahren.",
-      "messageDesc": "Sie können jetzt mehrere benutzerdefinierte Nachrichten zu einer Liste hinzufügen und auf jedem neuen Tab eine zufällige anzeigen lassen!",
-      "messageTitle": "Zufällige Nachricht",
-      "positionDesc": "Neue Positionsoptionen für alle Widgets! Jetzt können Sie jedes Widget an verschiedenen Stellen auf dem Bildschirm platzieren. Platzieren Sie die Quicklinks unten, bewegen Sie die Uhr in die obere Ecke, Sie haben die Wahl!",
-      "positionTitle": "Platzieren Sie Widgets überall",
-      "selectDesc": "Option zum Deaktivieren der Textauswahl hinzugefügt! Kein versehentliches Hervorheben mehr.",
-      "selectTitle": "Auswahl deaktivieren",
-      "weatherDesc": "Das lang ersehnte Wetter-Widget ist endlich da! Erhalten Sie alle benötigten Wetterdaten auf einen Blick mit aktuellem Wetter und einer Vorhersage. Wie immer viele Anpassungsmöglichkeiten!",
-      "weatherTitle": "Wetter-Widget"
-    },
-    "v360": {
-      "m1": "Die Wettervorhersage wurde auf maximal 5 Tage erhöht.",
-      "m2": "Option zum Ausblenden des aktuellen Tages in der Vorhersage.",
-      "m3": "Die Wetterwindgeschwindigkeit kann zwischen km/s, m/s, mph und ft/s geändert werden.",
-      "m4": "Die Zeiten für Sonnenaufgang/-untergang und Mondaufgang/-untergang im Wetter-Widget können im 24-Stunden-Format angezeigt werden.",
-      "m5": "Anzeigefehler im Cent-Browser behoben, der die Registerkarte unbrauchbar machte.",
-      "m6": "Fehler bei der Hintergrundanzeige behoben (hoffentlich)!",
-      "m7": "Schaltfläche hinzugefügt, um CaretTab auf Patreon zu unterstützen!"
-    },
-    "v361": {
-      "m1": "Fehler bei der Hintergrundfarbe im Cent-Browser behoben."
-    },
-    "v362": {
-      "m1": "Leere COVID-Daten durch Aktualisierung des API-Aufrufs behoben."
-    },
-    "v363": {
-      "m1": "Keine neuen Funktionen in diesem Update, nur einige Bereinigungen von nicht mehr benötigten Back-End-Dingen.",
-      "m2": "Migrieren Sie zu Manifest v3, um die aktuellen Chrome Web Store-Anforderungen zu unterstützen.",
-      "m3": "Google Analytics entfernt",
-      "m4": "Die Monetarisierung der Suche wurde entfernt und die Standardsuche auf Google geändert.",
-      "m5": "Unterstützung für Firefox entfernt. Es tut mir leid, das sagen zu müssen, aber ich ziehe CaretTab aus dem Firefox-Addon-Store. Die Erweiterung hat einfach nie genug Benutzer bekommen, um Entwicklungsressourcen für Probleme zu rechtfertigen.",
-      "m6": "Datenschutzrichtlinie aktualisiert",
-      "m7": "Bei CaretTab wurde der Analysecode und ein Suchmonetarisierungsanbieter entfernt; aus diesem Grund wurde die Datenschutzrichtlinie aktualisiert. Bitte lesen Sie die neue Richtlinie unter"
-    },
     "v364": {
       "m1": "Das „Meistbesucht“-Menü wurde korrigiert, sodass es nicht hinter anderen Inhalten angezeigt wird.",
       "m2": "Die Textfarbe des „Meistbesucht“-Menüs im Dunkelmodus wurde korrigiert.",
@@ -440,11 +304,7 @@
       "m6": "Verhindert, dass die Suche ausgeführt wird, wenn kein Suchbegriff angegeben wird.",
       "m7": "Korrigieren Sie die Suche nach Wetterstandorten, um Stadt, Region und Land anzuzeigen, um zu verhindern, dass versehentlich der falsche Standort ausgewählt wird.",
       "m8": "Die „Favicon“-Berechtigungen sind jetzt optional, wenn Symbole für die Lesezeichenleiste oder Quicklinks aktiviert sind."
-    },
-    "v365": {
-      "m1": "Wetterstandortsuche behoben. Ergebnisse wurden nicht angezeigt, wenn nur ein einziger Standort gefunden wurde."
-    },
-    "yes": "Ja"
+    }
   },
   "tab": {
     "bookmarks": {

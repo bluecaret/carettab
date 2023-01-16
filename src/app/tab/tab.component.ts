@@ -3,8 +3,9 @@ import { Title } from '@angular/platform-browser';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from '../_shared/shared.service';
+import { WallpaperService } from '../_shared/wallpaper.service';
 import { Storage } from '../_storage/storage.service';
-import { span, bgSize, bgBlend, patterns } from '../_shared/lists/lists';
+import { fontList, span, bgSize, bgBlend, patterns } from '../_shared/lists/lists';
 import { tab } from '../_shared/animations';
 
 @Component({
@@ -15,15 +16,22 @@ import { tab } from '../_shared/animations';
 })
 export class TabComponent implements OnInit, AfterViewInit {
   NEW_TAB_TEXT = 'New Tab';
+  fontList = fontList;
   span = span;
   bgSize = bgSize;
   bgBlend = bgBlend;
   patterns = patterns;
+  grid = [
+    'nw', 'n', 'ne',
+    'w', 'c', 'e',
+    'sw', 's', 'se',
+  ]
 
   constructor(
     public sanitizer: DomSanitizer,
     public shared: SharedService,
     public settings: Storage,
+    public wallpaper: WallpaperService,
     private titleService: Title,
     private translate: TranslateService
   ) {
@@ -32,18 +40,10 @@ export class TabComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    let localBgColor = this.settings.config.design.background;
-    this.shared.bgColor = localBgColor;
-    // localStorage.setItem('ct-background', localBgColor);
-    chrome.storage.local.set({ctBackground: localBgColor});
     this.translate.use(this.settings.config.i18n.lang);
     this.translate.get('title.newTab').subscribe((value) => {
       this.NEW_TAB_TEXT = value;
     });
-    this.shared.echo(
-      `Loaded with language set to:`,
-      this.translate.currentLang
-    );
 
     this.setTitle();
     this.setTitleOnInterval();
@@ -60,28 +60,37 @@ export class TabComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // Set background image
-    // Must be in setTimeout or else settings don't have time to load preventing image from being set.
     setTimeout(() => {
-      let savedImg = localStorage.getItem('bgImg');
-      if (savedImg != null || savedImg != undefined) {
-        this.shared.bg = savedImg;
-        this.shared.echo('Background image found in storage', savedImg.substr(0,20))
-      } else {
-        let patternId = this.settings.config.design.patternId;
-        let img = '0.png';
-
-        // Check for "900" is for backwards compatibility with an old bug
-        if (patternId !== null && patternId !== undefined && patternId !== 0 && patternId !== 99999 && patternId !== 900) {
-          img = patterns.find(p => p.id === patternId).pattern;
-          this.shared.echo('No background, use selected pattern:', patternId)
-        } else {
-          this.shared.echo('No background or pattern set', patternId)
-        }
-        let bg = './assets/patterns/' + img;
-        this.shared.bg = bg;
-      }
+      // Apply current wallpaper to the shared.bg variable.
+      this.wallpaper.applyBackgroundImageToSharedValue();
     }, 0);
+    setTimeout(() => {
+      // Migrate old pattern ids that were used prior to v3.6.0
+      if (this.settings.config.design.patternId === 99999 || this.settings.config.design.patternId === 900) {
+        this.settings.config.design.patternId = 0;
+        this.settings.setAll(this.settings.config.design, 'ct-design');
+      }
+
+      // If Unsplash list, Get next wallpaper when none is queued up.
+      this.requestNewWallpaper();
+    }, 500);
+  }
+
+  requestNewWallpaper() {
+    if (
+      this.shared.paid
+      && ['topics', 'collections'].includes(this.settings.config.design.wallpaperType)
+    ) {
+      let that = this;
+      chrome.storage.local.get('nextWallpaper', async function(result) {
+        if (result.nextWallpaper == null) {
+          let next = await that.wallpaper.getRandomPhotoFromUnsplashList(that.settings.config.design.wallpaperType, that.settings.config.design.unsplashId);
+          chrome.storage.local.set({nextWallpaper: next});
+          that.settings.config.design.wallpaperTimestamp = new Date().toLocaleString();
+          that.settings.setAll(that.settings.config.design, 'ct-design');
+        }
+      })
+    }
   }
 
   setTitleOnInterval() {
@@ -131,26 +140,6 @@ export class TabComponent implements OnInit, AfterViewInit {
 
   getClockSpan(clockSpan) {
     return this.span.find((s) => s.id === clockSpan).css;
-  }
-
-  getBgSize() {
-    let s = this.bgSize.find(
-      (x) => x.id === this.settings.config.design.imageSize
-    ).size;
-    return s;
-  }
-
-  getBgBlend() {
-    let m = this.bgBlend.find(
-      (x) => x.id === this.settings.config.design.imageBlend
-    ).mode;
-    return m;
-  }
-
-  getBrightness() {
-    let b = this.settings.config.design.brightness * 0.1;
-    let value = 'brightness(' + b + ')';
-    return this.sanitizer.bypassSecurityTrustStyle(value);
   }
 
   getAlignment(el): string {
@@ -298,22 +287,22 @@ export class TabComponent implements OnInit, AfterViewInit {
     return styles;
   }
 
-
-  setCovidCountryWrapStyles(c: any): Object {
+  setNotepadWrapStyles(): Object {
     const styles = {
-      'order': this.shared.getOrder(c.id, c.position)
+      'order': this.shared.getOrder(
+        this.settings.config.notepad.id,
+        this.settings.config.notepad.position
+      )
     };
     return styles;
   }
 
-  setCovidCountryStyles(c: any): Object {
+  setNotepadStyles(): Object {
     const styles = {
-      'font-size': this.shared.getFontSize(c.textScaling, 12),
-      'transform': this.shared.getOffset(c.offset),
-      'margin': this.shared.getMargin(c.marginHeight, c.marginWidth),
-      'max-width': this.shared.getMaxWidth(c.width),
-      'justify-content' : this.getAlignment(c.position),
-      'gap' : this.shared.getPadding(c.padding)
+      'transform' : this.shared.getOffsetLarge(this.settings.config.notepad.offset),
+      'width': this.shared.getMaxWidth(this.settings.config.notepad.width),
+      'height': this.shared.getMaxHeight(this.settings.config.notepad.height),
+      'margin' : this.shared.getMargin(this.settings.config.notepad.marginHeight, this.settings.config.notepad.marginWidth, .4),
     };
     return styles;
   }

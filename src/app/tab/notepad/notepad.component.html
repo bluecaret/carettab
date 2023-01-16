@@ -1,0 +1,33 @@
+<div
+  class="notepadEditorWrapper"
+  [ngStyle]="{
+    'font-size': shared.getFontSize(this.settings.config.notepad.scaling, 22.4),
+    'border-width': settings.config.notepad.showBorder ? '1px' : '0',
+    'border-color': !settings.config.notepad.overrideColors || settings.config.notepad.borderColor == undefined ? settings.config.design.foreground : settings.config.notepad.borderColor,
+    'border-radius': settings.config.notepad.borderRadius + 'px'
+  }"
+>
+  <div
+    *ngIf="settings.config.notepad.showBg"
+    class="notepadEditorBg"
+    [ngStyle]="{
+      'background-color': !settings.config.notepad.overrideColors || settings.config.notepad.background == undefined ? settings.config.design.background : settings.config.notepad.background,
+      'opacity': settings.config.notepad.bgOpacity ? (settings.config.notepad.bgOpacity * .01) : 100
+    }"
+    ></div>
+  <textarea
+    #notepadEditor
+    class="notepadEditor allowPointerEvent"
+    [ngStyle]="{
+      'color': !settings.config.notepad.overrideColors || settings.config.notepad.foreground == undefined ? settings.config.design.foreground : settings.config.notepad.foreground,
+      'padding': shared.getFontSize(settings.config.notepad.padding)
+    }"
+    (keyup)="saveNotes()"
+    (paste)="saveNotes()"
+    [(ngModel)]="notes"
+    autocomplete="off"
+    [spellcheck]="settings.config.notepad.spellCheck"
+    [maxlength]="settings.config.notepad.sync ? 2000 : 250000"
+  ></textarea>
+  <div *ngIf="settings.config.notepad.showCharLimit" class="notepadCharacterCount">{{ notes ? notes.length : '0' }} / {{ totalCount }}</div>
+</div>

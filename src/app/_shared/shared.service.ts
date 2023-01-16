@@ -4,6 +4,8 @@ import { Storage } from '../_storage/storage.service';
 
 @Injectable()
 export class SharedService {
+  private _loading = false;
+  private _paid = true;
   private _optionsToggle: boolean;
   private _optionsPreview: boolean;
   private _optionsPage: string;
@@ -11,10 +13,11 @@ export class SharedService {
   private _time: string;
   private _date: string;
   private _title: string = 'New Tab';
-  private _bg: string;
+  private _bg: string = '';
   private _bgColor: string;
   private _browser: string;
   private _status: string;
+  private _clearWhatsNewBox = true;
   private _updateType: "major" | "minor" | "quiet" | "hidden";
   private _allBookmarks: any;
   private _mostVisitedLinks: any;
@@ -22,6 +25,20 @@ export class SharedService {
   constructor(
     public settings: Storage
   ) {
+  }
+
+  get loading(): boolean {
+    return this._loading;
+  }
+  set loading(value: boolean) {
+    this._loading = value;
+  }
+
+  get paid(): boolean {
+    return this._paid;
+  }
+  set paid(value: boolean) {
+    this._paid = value;
   }
 
   get optionsToggle(): boolean {
@@ -101,6 +118,13 @@ export class SharedService {
     this._status = value;
   }
 
+  get clearWhatsNewBox(): boolean {
+    return this._clearWhatsNewBox;
+  }
+  set clearWhatsNewBox(value: boolean) {
+    this._clearWhatsNewBox = value;
+  }
+
   get updateType(): "major" | "minor" | "quiet" | "hidden" {
     return this._updateType;
   }
@@ -156,6 +180,18 @@ export class SharedService {
     }
   }
 
+  /**
+   * Get keys from AWS
+   * @returns {Object} Keys - {"weatherApiKey", "unsplashKey"}
+   */
+   public async getKeys() {
+    const awsEndpoint = 'https://d3v14xaicc.execute-api.us-west-2.amazonaws.com/default/caretTabKeys';
+    const getKeys = await fetch(awsEndpoint, { method: "post" });
+    const awsText = await getKeys.text();
+    const awsKeys = JSON.parse(awsText);
+    return awsKeys.message;
+  }
+
   public createID(prefix: string) {
     return prefix + '_' + (
       Number(String(Math.random()).slice(2)) +
@@ -164,7 +200,11 @@ export class SharedService {
     ).toString(36).toUpperCase();
   }
 
-  public getFont(font: number, custom: string) {
+  public getFontObject(font: number | string) {
+    return fontList.find(f => f.id === font);
+  }
+
+  public getFont(font: number | string, custom: string) {
     let fontName;
     if (font !== 0) {
       fontName = fontList.find(f => f.id === font).family;
@@ -174,7 +214,7 @@ export class SharedService {
     return '"' + fontName + '"';
   }
 
-  public getFontWeight(font: number, weight: number) {
+  public getFontWeight(font: number | string, weight: number) {
     let fontWeight;
     if (font !== 0) {
       fontWeight = fontList.find(f => f.id === font).weight;
@@ -197,6 +237,11 @@ export class SharedService {
   public getMaxWidth(size: number) {
     // Max width will always be based on viewport as opposed to scaling method.
     return (size * 1) + 'vw';
+  }
+
+  public getMaxHeight(size: number) {
+    // Max height will always be based on viewport as opposed to scaling method.
+    return (size * 1) + 'vh';
   }
 
   public getPercentWidth(size: number) {
@@ -515,12 +560,12 @@ export class SharedService {
     this.settings.setAll(this.settings.config.i18n, 'ct-i18n');
     this.settings.setAll(this.settings.config.messages, 'ct-message');
     this.settings.setAll(this.settings.config.misc, 'ct-misc');
-    this.settings.setAll(this.settings.config.covidData, 'ct-covid');
     this.settings.setAll(this.settings.config.order, 'ct-order');
     this.settings.setAll(this.settings.config.quickLink, 'ct-quick-link');
     this.settings.setAll(this.settings.config.search, 'ct-search');
     this.settings.setAll(this.settings.config.time, 'ct-time');
     this.settings.setAll(this.settings.config.weather, 'ct-weather');
+    this.settings.setAll(this.settings.config.notepad, 'ct-notepad');
   }
 
   public getRandomNumber(min,max): number {

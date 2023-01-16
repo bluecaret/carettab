@@ -21,7 +21,7 @@ $optionsToggleUpdateNoticeOffset: 16px;
   overflow: hidden;
   &:focus {
     outline: none;
-    box-shadow: 
+    box-shadow:
       inset 0 0 0 3px currentColor;
   }
   span {
@@ -68,16 +68,50 @@ $optionsToggleUpdateNoticeOffset: 16px;
       }
     }
   }
-  .quietUpdateNotice {
+  .updateNotice {
     position: absolute;
-    bottom: $optionsToggleUpdateNoticeOffset;
-    right: $optionsToggleUpdateNoticeOffset;
-    svg {
-      width: $optionsToggleUpdateNoticeSize;
-      height: $optionsToggleUpdateNoticeSize;
+    bottom: 13px;
+    right: 15px;
+    display: grid;
+    place-items: center;
+    border: 2px solid currentColor;
+    color: currentColor;
+    padding: 1px 3px;
+    border-radius: 6px;
+    &::before {
+      content: 'NEW';
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 8px;
     }
   }
   &.open .quietUpdateNotice {
     opacity: 0;
+  }
+}
+
+.highlightSettings {
+  position: fixed;
+  z-index: z('tabToggle');
+  bottom: 0;
+  right: 0;
+  width: $optionsToggleHeight;
+  height: $optionsToggleHeight;
+  cursor: pointer;
+  overflow: hidden;
+  border: 3px solid currentColor;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+  animation-direction: alternate;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+    scale: 1;
+  }
+  100% {
+    opacity: 1;
+    scale: 3;
   }
 }

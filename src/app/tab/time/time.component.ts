@@ -1,9 +1,10 @@
-import { Component, NgZone, Renderer2, ElementRef, ViewChild, ViewChildren, Input, OnInit, QueryList } from '@angular/core';
+import { Component, NgZone, Renderer2, ElementRef, ViewChild, ViewChildren, Input, OnInit, QueryList, Directive } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { Clock } from '../../_shared/models/clock';
 import { SharedService } from '../../_shared/shared.service';
 import { span } from '../../_shared/lists/lists';
 import * as moment from 'moment';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'tab-time',
@@ -14,16 +15,21 @@ export class TabTimeComponent implements OnInit {
   currentTime: Date;
   span = span;
   binaryMarkers: Array<any>;
+  analogHourRotation = '300deg';
+  analogMinuteRotation = '60deg';
+  analogSecondRotation = '210deg';
+  analogMinutesArray = Array(60)
 
   @Input() index: number;
   @Input() clock: Clock;
 
   constructor(
+    public sanitizer: DomSanitizer,
     public shared: SharedService,
     public settings: Storage,
     private zone: NgZone,
     private renderer: Renderer2
-  ) { 
+  ) {
     this.binaryMarkers = [
       [
         [false, false],
@@ -44,12 +50,33 @@ export class TabTimeComponent implements OnInit {
     if (this.settings.config.time.clocks.length > 0) {
       this.shared.zoneGuess = moment.tz.guess();
       this.setBinaryTime();
+      if (this.clock.analog.enabled) {
+        this.setAnalogTime();
+        // Sync up with current time every 5 min to ensure animation doesn't cause time to drift.
+        setInterval(() => {
+          this.setAnalogTime();
+        }, 300000);
+      }
       setInterval(() => {
         this.currentTime = new Date();
         this.setTitleTime();
         this.setBinaryTime();
       }, 500);
     }
+
+    this.settings.onChange().subscribe((data) => {
+      // set analog time on save
+      if (data['ct-time'] && this.clock.analog.enabled) {
+        this.setAnalogTime();
+      }
+    });
+  }
+
+  setAnalogTime() {
+    this.currentTime = new Date();
+    this.analogHourRotation = this.getAnalogHour(this.clock.timezone);
+    this.analogMinuteRotation = this.getAnalogMinute(this.clock.timezone);
+    this.analogSecondRotation = this.getAnalogSecond(this.clock.timezone);
   }
 
   setTitleTime() {
@@ -115,7 +142,7 @@ export class TabTimeComponent implements OnInit {
       column[(column.length - 1) - i] = false;
     }
   }
-  
+
   toBinary(v) {
     //makes a binary value from a number
     return (v).toString(2);
@@ -253,7 +280,7 @@ export class TabTimeComponent implements OnInit {
     zone = this.getZone(zone);
     let time = moment(this.currentTime).tz(zone);
     let second = time.seconds() * 6;
-    return 'rotateZ(' + second + 'deg)';
+    return second + 'deg';
   }
 
   getAnalogMinute(zone: string): string {
@@ -261,7 +288,7 @@ export class TabTimeComponent implements OnInit {
     let time = moment(this.currentTime).tz(zone);
     let second = time.seconds() * 6;
     let minute = time.minutes() * 6 + second / 60;
-    return 'rotateZ(' + minute + 'deg)';
+    return minute + 'deg';
   }
 
   getAnalogHour(zone: string): string {
@@ -270,7 +297,7 @@ export class TabTimeComponent implements OnInit {
     let second = time.seconds() * 6;
     let minute = time.minutes() * 6 + second / 60;
     let hour = ((time.hours() % 12) / 12) * 360 + minute / 12;
-    return 'rotateZ(' + hour + 'deg)';
+    return hour + 'deg';
   }
 
 }

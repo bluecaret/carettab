@@ -11,10 +11,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     }
   ],
   template: `
-    <div class="range">
-      <output [value]="range"></output>
+    <div class="panelRangeWrap">
+      <output class="panelOutput" [value]="range" [attr.data-disabled]="disabled ? true : undefined"></output>
       <input
+        class="panelRange"
         type="range"
+        [attr.aria-labelledby]="labelledby"
+        [attr.list]="name+'-tickmarks'"
         [id]="name+'Id'"
         [name]="name"
         [min]="min"
@@ -30,6 +33,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class RangeComponent implements ControlValueAccessor {
   _range: number;
 
+  @Input() labelledby: string;
   @Input() min: number;
   @Input() max: number;
   @Input() name: string;

@@ -1,151 +1,221 @@
-<h2>{{ "options.message.customMsg" | translate }}</h2>
+<h2 class="panelTitle">
+  <button
+    (click)="goTo.emit('Dashboard')"
+    class="panelBack matIcon"
+    attr.aria-label="{{'options.dashboard.backToDashboard' | translate}}"
+    title="{{'options.dashboard.backToDashboard' | translate}}"
+  >arrow_back</button>
+  {{ "options.message.customMsg" | translate }}
+</h2>
 <form #messageOptions="ngForm" novalidate>
-  <div class="input">
-    <label>{{'options.message.msg' | translate}}</label>
-    <options-toggle name="message" id="message" [(ngModel)]="settings.config.messages.enabled" (ngModelChange)="shared.toggleOrder(settings.config.messages.id, $event, settings.config.messages.position);"></options-toggle>
-  </div>
-  <div class="input" *ngIf="settings.config.messages.enabled">
-    <label>{{'options.message.randomMsg' | translate}}<tooltip text="{{'options.message.randomMsgDesc' | translate}}"></tooltip></label>
-    <options-toggle name="randomMessage" id="randomMessage" [(ngModel)]="settings.config.messages.random"></options-toggle>
+  <div class="panelGroup">
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="messageLabel" class="panelLabel">{{'options.message.msg' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle labelledby="messageLabel" name="message" id="message" [(ngModel)]="settings.config.messages.enabled" (ngModelChange)="shared.toggleOrder(settings.config.messages.id, $event, settings.config.messages.position);"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.messages.enabled">
+      <div class="panelFieldContent">
+        <label id="randomMessageLabel" class="panelLabel">{{'options.message.randomMsg' | translate}}</label>
+        <p class="panelDescription">{{'options.message.randomMsgDesc' | translate}}</p>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle labelledby="randomMessageLabel" name="randomMessage" id="randomMessage" [(ngModel)]="settings.config.messages.random"></options-toggle>
+      </div>
+    </div>
   </div>
 </form>
 <ng-container *ngIf="settings.config.messages.enabled">
-
-  <h3>{{'options.message.msgText' | translate}}</h3>
   <form #messageList="ngForm" novalidate>
-    <div class="mb15" [ngClass]="{'grid cols-19' : settings.config.messages.random}">
+    <h3 class="panelSubtitle">{{'options.message.msgText' | translate}}</h3>
+    <div class="panelGroup">
       <ng-container *ngFor="let message of settings.config.messages.messageList; let i = index; trackBy:trackByFn; let isFirst = first; let isLast = last">
         <ng-container *ngIf="settings.config.messages.random || isFirst">
-          <div [ngClass]="{'span-17' : settings.config.messages.random}">
+        </ng-container>
+        <div class="panelField">
+          <div class="panelFieldContent">
+            <label [for]="'message'+i" class="panelLabel">{{'options.message.msgText' | translate}}</label>
+            <p class="panelValidation" *ngIf="messageList.invalid && messageList.submitted">{{'options.message.messageValidation' | translate}}</p>
+          </div>
+          <div class="panelFieldInput">
             <input
-              attr.aria-label="{{'options.message.msgText' | translate}}"
+              class="panelInput"
               type="text"
+              [id]="'message'+i"
               [name]="'message'+i"
               #editText="ngModel"
               [(ngModel)]="message.text"
-
               autocomplete="off">
-            <div class="valMsg" *ngIf="messageList.invalid && messageList.submitted">{{'options.message.messageValidation' | translate}}</div>
-          </div>
-          <div class="span-2 compactBtnList" *ngIf="settings.config.messages.random">
             <button
+              *ngIf="settings.config.messages.random"
               type="button"
-              class="btn btnIcon"
+              class="panelBtn"
               [disabled]="settings.config.messages.messageList.length === 1"
+              attr.aria-label="{{'options.common.delete' | translate}}"
               (click)="removeMessage(i);">
-              <div class="icon" aria-hidden="true">delete</div>
+              <div class="matIcon" aria-hidden="true">delete</div>
             </button>
           </div>
-        </ng-container>
+        </div>
       </ng-container>
+      <form class="panelField" *ngIf="settings.config.messages.random" #newMessage="ngForm" novalidate (ngSubmit)="addMessage(newMessage, newMessage.valid);">
+        <div class="panelFieldContent">
+          <label for="newMessageText" class="panelLabel">{{'options.message.save' | translate}}</label>
+          <p class="panelValidation" *ngIf="newMessageTextRef.invalid && newMessage.submitted">{{'options.message.messageValidation' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <input
+            class="panelInput"
+            type="text"
+            id="newMessageText"
+            name="newMessageText"
+            placeholder="{{'options.message.save' | translate}}"
+            #newMessageTextRef="ngModel"
+            [(ngModel)]="newMessageText"
+            autocomplete="off"
+            required>
+          <button type="submit" class="panelBtn" title="{{'options.message.save' | translate}}">
+            <div class="matIcon" aria-hidden="true">add</div>{{'options.common.add' | translate}}
+          </button>
+        </div>
+      </form>
     </div>
   </form>
-  <form *ngIf="settings.config.messages.random" #newMessage="ngForm" novalidate (ngSubmit)="addMessage(newMessage, newMessage.valid);">
-    <div class="grid cols-19 mb1">
-      <div class="span-15">
-        <input
-          type="text"
-          name="newMessageText"
-          placeholder="Add new message"
-          #newMessageTextRef="ngModel"
-          [(ngModel)]="newMessageText"
-
-          autocomplete="off"
-          required>
-        <div class="valMsg" *ngIf="newMessageTextRef.invalid && newMessage.submitted">{{'options.message.messageValidation' | translate}}</div>
+  <form #messageLayoutOptions="ngForm" novalidate>
+    <h3 class="panelSubtitle">{{'options.common.layout' | translate}}</h3>
+    <div class="panelGroup">
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="messageSizeLabel" class="panelLabel">{{ "options.common.size" | translate }}</label>
+          <p class="panelDescription">{{'options.common.sizeDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-range
+            class="panelInputLg"
+            labelledby="messageSizeLabel"
+            name="messageSize"
+            id="messageSize"
+            min="1"
+            max="50"
+            [(ngModel)]="settings.config.messages.scaling"
+          ></options-range>
+        </div>
       </div>
-      <div class="span-4">
-        <button type="submit" class="btn" title="{{'options.message.save' | translate}}">
-          <div class="icon" aria-hidden="true">add</div>{{'options.common.add' | translate}}
-        </button>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="messageOrderLabel" class="panelLabel">{{'options.common.order' | translate}}</label>
+          <p class="panelDescription">{{'options.common.orderDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <div class="panelBtnGroup panelInputMd">
+            <button
+              type="button"
+              attr.aria-label="{{'options.common.moveUp' | translate}}"
+              title="{{'options.common.moveUp' | translate}}"
+              class="panelBtn"
+              [disabled]="shared.isFirst(settings.config.messages.id, settings.config.messages.position)"
+              (click)="shared.changeOrder(settings.config.messages.id, true, settings.config.messages.position);">
+              <div class="matIcon" aria-hidden="true">expand_less</div>
+            </button>
+            <button
+              type="button"
+              attr.aria-label="{{'options.common.moveDown' | translate}}"
+              title="{{'options.common.moveDown' | translate}}"
+              class="panelBtn"
+              [disabled]="shared.isLast(settings.config.messages.id, settings.config.messages.position)"
+              (click)="shared.changeOrder(settings.config.messages.id, false, settings.config.messages.position);">
+              <div class="matIcon" aria-hidden="true">expand_more</div>
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-  </form>
-
-  <form class="pt15" #messageLayoutOptions="ngForm" novalidate>
-    <!-- Layout -->
-    <h3>{{'options.common.layout' | translate}}</h3>
-    <div class="input">
-      <label>{{ "options.common.size" | translate }}<tooltip text="{{'options.common.sizeDesc' | translate}}"></tooltip></label>
-      <options-range
-        name="messageSize"
-        id="messageSize"
-        min="1"
-        max="50"
-        [(ngModel)]="settings.config.messages.scaling"
-      ></options-range>
-    </div>
-    <div class="input">
-      <label>{{'options.common.order' | translate}}<tooltip text="{{'options.common.orderDesc' | translate}}"></tooltip></label>
-      <div class="orderBtns">
-        <button
-          type="button"
-          attr.aria-label="{{'options.common.moveUp' | translate}}"
-          title="{{'options.common.moveUp' | translate}}"
-          class="btn"
-          [disabled]="shared.isFirst(settings.config.messages.id, settings.config.messages.position)"
-          (click)="shared.changeOrder(settings.config.messages.id, true, settings.config.messages.position);">
-          <div class="icon" aria-hidden="true">expand_less</div>
-        </button>
-        <button
-          type="button"
-          attr.aria-label="{{'options.common.moveDown' | translate}}"
-          title="{{'options.common.moveDown' | translate}}"
-          class="btn"
-          [disabled]="shared.isLast(settings.config.messages.id, settings.config.messages.position)"
-          (click)="shared.changeOrder(settings.config.messages.id, false, settings.config.messages.position);">
-          <div class="icon" aria-hidden="true">expand_more</div>
-        </button>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="messagePlacementLabel" class="panelLabel">{{'options.common.position' | translate}}</label>
+          <p class="panelDescription">{{'options.common.positionDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-position labelledby="messagePlacementLabel" id="messagePlacement" name="messagePlacement" [settingId]="settings.config.messages.id" [(ngModel)]="settings.config.messages.position"></options-position>
+        </div>
       </div>
-    </div>
-    <div class="input">
-      <label for="messagePlacement">{{'options.common.position' | translate}}<tooltip text="{{'options.common.positionDesc' | translate}}"></tooltip></label>
-      <options-position id="messagePlacement" name="messagePlacement" [settingId]="settings.config.messages.id" [(ngModel)]="settings.config.messages.position"></options-position>
-    </div>
-    <div class="input">
-      <label for="messageTextAlign">{{'options.common.alignText' | translate}}<tooltip text="{{'options.common.alignTextDesc' | translate}}"></tooltip></label>
-      <div id="messageTextAlign" class="connectedBtns">
-        <button
-          type="button"
-          class="btn btnIcon"
-          [ngClass]="{'active' : settings.config.messages.textAlign === 'left'}"
-          title="{{'options.common.alignTextLeft' | translate}}"
-          (click)="settings.config.messages.textAlign = 'left';">
-          <div class="icon" aria-hidden="true">format_align_left</div>
-        </button>
-        <button
-          type="button"
-          class="btn btnIcon"
-          [ngClass]="{'active' : settings.config.messages.textAlign === 'center'}"
-          title="{{'options.common.alignTextCenter' | translate}}"
-          (click)="settings.config.messages.textAlign = 'center';">
-          <div class="icon" aria-hidden="true">format_align_center</div>
-        </button>
-        <button
-          type="button"
-          class="btn btnIcon"
-          [ngClass]="{'active' : settings.config.messages.textAlign === 'right'}"
-          title="{{'options.common.alignTextRight' | translate}}"
-          (click)="settings.config.messages.textAlign = 'right';">
-          <div class="icon" aria-hidden="true">format_align_right</div>
-        </button>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="messageTextAlign" class="panelLabel">{{'options.common.alignText' | translate}}</label>
+          <p class="panelDescription">{{'options.common.alignTextDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <div class="panelBtnGroup panelInputLg">
+            <button
+              type="button"
+              attr.aria-label="{{'options.common.moveUp' | translate}}"
+              title="{{'options.common.moveUp' | translate}}"
+              class="panelBtn"
+              [ngClass]="{'active' : settings.config.messages.textAlign === 'left'}"
+              (click)="settings.config.messages.textAlign = 'left';">
+              <div class="matIcon" aria-hidden="true">format_align_left</div>
+            </button>
+            <button
+              type="button"
+              attr.aria-label="{{'options.common.alignTextCenter' | translate}}"
+              title="{{'options.common.alignTextCenter' | translate}}"
+              class="panelBtn"
+              [ngClass]="{'active' : settings.config.messages.textAlign === 'center'}"
+              (click)="settings.config.messages.textAlign = 'center';">
+              <div class="matIcon" aria-hidden="true">format_align_center</div>
+            </button>
+            <button
+              type="button"
+              attr.aria-label="{{'options.common.alignTextRight' | translate}}"
+              title="{{'options.common.alignTextRight' | translate}}"
+              class="panelBtn"
+              [ngClass]="{'active' : settings.config.messages.textAlign === 'right'}"
+              (click)="settings.config.messages.textAlign = 'right';">
+              <div class="matIcon" aria-hidden="true">format_align_right</div>
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="input">
-      <label>{{'options.common.maxWidth' | translate}}<tooltip text="{{'options.common.maxWidthDesc' | translate}}"></tooltip></label>
-      <options-range name="messageWidth" id="messageWidth" min="1" max="100" [(ngModel)]="settings.config.messages.width"></options-range>
-    </div>
-    <div class="input">
-      <label for="messageMarginHeight">{{'options.common.marginHeight' | translate}}<tooltip text="{{'options.common.marginHeightDesc' | translate}}"></tooltip></label>
-      <options-range name="messageMarginHeight" min="0" max="50" [(ngModel)]="settings.config.messages.marginHeight"></options-range>
-    </div>
-    <div class="input">
-      <label for="messageMarginWidth">{{'options.common.marginWidth' | translate}}<tooltip text="{{'options.common.marginWidthDesc' | translate}}"></tooltip></label>
-      <options-range name="messageMarginWidth" min="0" max="50" [(ngModel)]="settings.config.messages.marginWidth"></options-range>
-    </div>
-    <div class="input">
-      <label>{{'options.common.offset' | translate}}<tooltip text="{{'options.common.offsetDesc' | translate}}"></tooltip></label>
-      <options-range name="messageOffset" min="-50" max="50" [(ngModel)]="settings.config.messages.offset"></options-range>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="messageWidthLabel" class="panelLabel">{{'options.common.maxWidth' | translate}}</label>
+          <p class="panelDescription">{{'options.common.maxWidthDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-range labelledby="messageWidthLabel" class="panelInputLg" name="messageWidth" id="messageWidth" min="1" max="100" [(ngModel)]="settings.config.messages.width"></options-range>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="marginHeightLabel" class="panelLabel">{{'options.common.marginHeight' | translate}}</label>
+          <p class="panelDescription">{{'options.common.marginHeightDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-range labelledby="marginHeightLabel" class="panelInputLg" name="messageMarginHeight" min="0" max="50" [(ngModel)]="settings.config.messages.marginHeight"></options-range>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="marginWidthLabel" class="panelLabel">{{'options.common.marginWidth' | translate}}</label>
+          <p class="panelDescription">{{'options.common.marginWidthDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-range labelledby="marginWidthLabel" class="panelInputLg" name="messageMarginWidth" min="0" max="50" [(ngModel)]="settings.config.messages.marginWidth"></options-range>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="messageOffsetLabel" class="panelLabel">{{'options.common.offset' | translate}}</label>
+          <p class="panelDescription">{{'options.common.offsetDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-range labelledby="messageOffsetLabel" class="panelInputLg" name="messageOffset" min="-50" max="50" [(ngModel)]="settings.config.messages.offset"></options-range>
+        </div>
+      </div>
     </div>
   </form>
 </ng-container>
+
+<button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon" aria-hidden="true">arrow_back</i>{{'options.dashboard.backToDashboard' | translate}}</button>

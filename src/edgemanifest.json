@@ -3,8 +3,8 @@
   "name": "__MSG_appName__",
   "short_name": "CaretTab",
   "description": "__MSG_appDesc__",
-  "version": "3.6.5",
-  "version_name": "3.6.5",
+  "version": "3.7.0",
+  "version_name": "3.7.0",
   "default_locale": "en",
   "icons": {
     "16": "assets/img/icon16.png",
@@ -14,10 +14,17 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
+  "content_scripts": [
+    {
+      "matches": ["https://extensionpay.com/*"],
+      "js": ["js/import-ExtPay.js"],
+      "run_at": "document_start"
+    }
+  ],
   "background": {
-    "service_worker": "js/update.js"
+    "service_worker": "js/sw.js",
+    "type": "module"
   },
-  "offline_enabled": true,
   "permissions": [
     "storage"
   ],
@@ -25,5 +32,22 @@
     "favicon",
     "bookmarks",
     "topSites"
-  ]
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "js/ExtPay.js"
+      ],
+      "matches": [
+        "https://extensionpay.com/*"
+      ]
+    },
+    {
+      "resources": [
+        "js/init.js"
+      ],
+      "extension_ids": [ "bfpmncaohmjelebfobabccfjgmeolloe" ]
+    }
+  ],
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu+PLZMmTQvgiLK6HjTx3O1qWAMO2oJ89nk/fo8/J4Ejy2K3x5oNlJ7vBlrKFpg1MhuS9G5KFoiAL/+wtzneHZT/FrwPtjvFyWHGUFvoiH4dRO/xd4oiVrclgNyWZzGU0WskIFLbNy6HjAd0bB9pHkklYw8T7CzzCkiDaqwu/TigCwwWXl0+4f51ww8LqkjjUiyZWWoqUqWMrnAKz6ekdcRR/6q2pbgYvy/rBrx0FetugLUjM4jyB+S/prwm5k3kkHAAcwDLUVXMdMnwcMtbWDqsHAvOarFuG2vGniyiZ1g53YuY7FKEa326RX6lDZ+t/jv54qliDBAy0UbVAcwK4zwIDAQAB"
 }

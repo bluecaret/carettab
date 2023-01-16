@@ -46,8 +46,6 @@ export class TabQuickLinksComponent implements OnInit {
     this.isChrome = !!window.chrome;
 
     if (this.settings.config.quickLink.icons === true && this.settings.config.quickLink.enabled === true) {
-      console.log('quicklinks tab');
-
       this.checkFaviconPermission();
     }
     if (this.settings.config.quickLink.mostVisited === true) {
@@ -72,7 +70,6 @@ export class TabQuickLinksComponent implements OnInit {
         if (chrome.runtime.lastError) {
           that.shared.echo('Error checking Favicon permission', chrome.runtime.lastError, '', 'error');
         }
-        that.shared.echo('Permission check: Favicon allowed?', result);
         if (!result) {
           that.setFaviconPermission();
         }
@@ -87,7 +84,6 @@ export class TabQuickLinksComponent implements OnInit {
         if (chrome.runtime.lastError) {
           that.shared.echo('Error setting Favicon permission', chrome.runtime.lastError, '', 'error');
         }
-        that.shared.echo('Set Permission: Favicon', granted);
       });
     });
   }

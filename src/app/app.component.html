@@ -5,8 +5,11 @@
     [style.color]="settings.config.design.foreground"
     >
   </app-tab>
-  <app-options></app-options>
-  <app-splash 
-    *ngIf="(shared.status === 'installed') || (shared.status === 'updated' && shared.updateType === 'major') || (shared.status === 'updated' && shared.updateType === 'minor')"
-  ></app-splash>
+  <app-options [@options] (closedOptions)="closedOptions()" *ngIf="shared.optionsToggle"></app-options>
+  <div *ngIf="this.shared.status && this.shared.status === 'highlightSettings'" class="highlightSettings"></div>
+  <div *ngIf="shared.loading" class="app-loading">
+    <div class="loading" attr.aria-label="{{'options.common.loadingPleaseWait' | translate}}">
+      <div></div><div></div><div></div><div></div>
+    </div>
+  </div>
 </ng-container>

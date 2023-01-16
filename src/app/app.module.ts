@@ -11,30 +11,30 @@ import { AppComponent } from './app.component';
 import { Ng2ChromeStorageModule } from './_storage/storage.module';
 import { Settings } from './_storage/settings';
 import { SharedService, TranslateCut } from './_shared/shared.service';
+import { WallpaperService } from './_shared/wallpaper.service';
 import { PopupService } from './_shared/controls/popup.service';
 import { PositionComponent } from './_shared/controls/position.component';
 import { ToggleComponent } from './_shared/controls/toggle.component';
 import { RangeComponent } from './_shared/controls/range.component';
 import { SettingsToggleComponent } from './_shared/controls/settings-toggle.component';
 import { LogoComponent } from './_shared/controls/logo.component';
-import { TooltipComponent } from './_shared/controls/tooltip.component';
+import { PremiumLabelComponent } from './_shared/controls/premium-label.component';
+import { PremiumModalComponent } from './_shared/modals/premium-modal.component';
+import { IntroModalComponent } from './_shared/modals/intro-modal.component';
 import { MostVisitedMenuComponent } from './tab/bookmarks/most-visited-menu.component';
 import { WeatherService } from './tab/weather/weather.service';
 import * as moment from 'moment-timezone';
-
-// Intro Imports
-import { SplashComponent } from './splash/splash.component';
+import { SimpleModalModule, defaultSimpleModalOptions } from 'ngx-simple-modal';
 
 // Options Imports
-import { NavComponent } from './options/nav.component';
 import { OptionsComponent } from './options/options.component';
 import { OptionsBookmarksComponent } from './options/bookmarks/bookmarks.component';
-import { OptionsCovidComponent } from './options/covid/covid.component';
 import { OptionsDashboardComponent } from './options/dashboard/dashboard.component';
 import { OptionsDateComponent } from './options/date/date.component';
 import { OptionsDesignComponent } from './options/design/design.component';
 import { OptionsExtraComponent } from './options/extra/extra.component';
 import { OptionsMessageComponent } from './options/message/message.component';
+import { OptionsNotepadComponent } from './options/notepad/notepad.component';
 import { OptionsSearchComponent } from './options/search/search.component';
 import { OptionsTimeComponent } from './options/time/time.component';
 import { OptionsWeatherComponent } from './options/weather/weather.component';
@@ -48,8 +48,8 @@ import { TabQuickLinksComponent } from './tab/bookmarks/quickLinks.component';
 import { TabTimeComponent } from './tab/time/time.component';
 import { TabDateComponent } from './tab/date/date.component';
 import { TabMessageComponent } from './tab/message/message.component';
+import { TabNotepadComponent } from './tab/notepad/notepad.component';
 import { TabSearchComponent } from './tab/search/search.component';
-import { TabCovidComponent } from './tab/covid/covid.component';
 import { TabWeatherComponent } from './tab/weather/weather.component';
 
 @NgModule({
@@ -60,34 +60,33 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     PositionComponent,
     SettingsToggleComponent,
     LogoComponent,
-    TooltipComponent,
+    PremiumLabelComponent,
+    PremiumModalComponent,
+    IntroModalComponent,
     MostVisitedMenuComponent,
     TranslateCut,
 
-    SplashComponent,
-
     OptionsComponent,
     OptionsBookmarksComponent,
-    OptionsCovidComponent,
     OptionsDashboardComponent,
     OptionsDateComponent,
     OptionsDesignComponent,
     OptionsExtraComponent,
     OptionsMessageComponent,
+    OptionsNotepadComponent,
     OptionsSearchComponent,
     OptionsTimeComponent,
     OptionsWeatherComponent,
     TimezonePipe,
 
     TabComponent,
-    NavComponent,
     TabBookmarksComponent,
     TabQuickLinksComponent,
     TabTimeComponent,
     TabDateComponent,
     TabMessageComponent,
+    TabNotepadComponent,
     TabSearchComponent,
-    TabCovidComponent,
     TabWeatherComponent
   ],
   imports: [
@@ -96,6 +95,17 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     FormsModule,
     HttpClientModule,
     Ng2ChromeStorageModule,
+    SimpleModalModule.forRoot({container: document.body}, {
+      animationDuration: 0,
+      autoFocus: true,
+      bodyClass: 'modal-open',
+      closeOnClickOutside: true,
+      closeOnEscape: true,
+      wrapperClass: 'in',
+      wrapperDefaultClasses: 'modal',
+      draggable: false,
+      draggableClass: 'draggable',
+    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -105,17 +115,19 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     })
   ],
   exports: [
-    NavComponent
   ],
   providers: [
     SharedService,
+    WallpaperService,
     PopupService,
     TimezoneService,
     WeatherService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    MostVisitedMenuComponent
+    MostVisitedMenuComponent,
+    PremiumModalComponent,
+    IntroModalComponent
   ]
 })
 export class AppModule { }

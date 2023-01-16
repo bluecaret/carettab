@@ -14,4 +14,4 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     splashScreen.setAttribute('class', 'loaded');
     setTimeout(function() { splashScreen.remove(); }, 320);
   })
-  .catch(err => console.log(err));
+  .catch(err => console.error(err));

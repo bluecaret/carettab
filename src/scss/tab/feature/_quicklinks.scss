@@ -71,6 +71,9 @@ $qlRadius: 8px;
     flex: 0 0 auto;
     width: 1em;
     height: 1em;
+    &.matIcon {
+      font-size: 1em;
+    }
   }
   .quickLinksLabel {
     flex: 1 1 auto;

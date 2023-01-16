@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Storage } from '../../_storage/storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
-  API_KEY = '80e6d355c23b469d96a43532210606';
   private _locName: string;
+  private _API_KEY: string;
 
-  constructor(private httpClient: HttpClient, private settings: Storage) { }
+  constructor(private settings: Storage) { }
+
+  get API_KEY(): string {
+    return this._API_KEY;
+  }
+  set API_KEY(value: string) {
+    this._API_KEY = value;
+  }
 
   get locName(): string {
     return this._locName;
@@ -18,13 +24,30 @@ export class WeatherService {
     this._locName = value;
   }
 
-  public getWeather(loc: string, days: number) {
-    return this.httpClient.get(`https://api.weatherapi.com/v1/forecast.json?key=${this.API_KEY}&q=${loc}&days=${days}&aqi=no&alerts=no${this.getLang()}`);
+  public async getKeys() {
+    if (!this.API_KEY || this.API_KEY == '') {
+      const awsEndpoint = 'https://d3v14xaicc.execute-api.us-west-2.amazonaws.com/default/caretTabKeys';
+      let getKeys = await fetch(awsEndpoint, { method: "post" });
+      let awsJson = await getKeys.text();
+      let parsed = await JSON.parse(awsJson).message.weatherApiKey;
+      return JSON.parse(awsJson).message.weatherApiKey;
+    }
+    return this.API_KEY;
   }
 
-  public searchLocation(loc: string) {
+  public async getWeather(loc: string, days: number) {
+    let weatherKey = await this.getKeys();
+    let getWeather = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${weatherKey}&q=${loc}&days=${days}&aqi=no&alerts=no${this.getLang()}`, { method: "GET"});
+    let getWeatherJson = await getWeather.json();
+    return getWeatherJson;
+  }
+
+  public async searchLocation(loc: string) {
+    let weatherKey = await this.getKeys();
     let location = encodeURI(loc);
-    return this.httpClient.get(`https://api.weatherapi.com/v1/search.json?key=${this.API_KEY}&q=${location}${this.getLang()}`);
+    let getSearch = await fetch(`https://api.weatherapi.com/v1/search.json?key=${weatherKey}&q=${location}${this.getLang()}`, { method: "GET"});
+    let getSearchJson = await getSearch.json();
+    return getSearchJson;
   }
 
   private getLang(): string {
@@ -75,7 +98,7 @@ export class WeatherService {
       case "ur-PK":
         return "&lang=ur"
         break;
-    
+
       default:
         return ''
         break;

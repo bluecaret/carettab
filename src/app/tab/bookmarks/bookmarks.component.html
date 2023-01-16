@@ -1,6 +1,6 @@
 <!-- Bookmarks Bar-->
 <div
-  class="bookmarksBar"
+  class="bookmarksBar allowPointerEvent"
   [style.fontSize]="getBookmarkSize(settings.config.bookmark.scaling)"
   *ngIf="settings.config.bookmark.enabled">
 
@@ -22,19 +22,19 @@
       </li>
       <li class="barNode" *ngIf="settings.config.bookmark.chromeTab">
         <button title="{{'tab.bookmarks.links.chromeTab' | translate}}" class="barFolder" (click)="chromeTab();">
-          <img *ngIf="settings.config.bookmark.icons" src="/assets/img/tab.png" class="barIcon">
+          <i *ngIf="settings.config.bookmark.icons" class="barIcon matIcon" aria-hidden="true">tab</i>
           <div class="barLabel">{{'tab.bookmarks.links.chromeTab' | translate}}</div>
         </button>
       </li>
       <li class="barNode" *ngIf="settings.config.bookmark.history">
         <button title="{{'tab.bookmarks.links.history' | translate}}" class="barFolder" (click)="history();">
-          <img *ngIf="settings.config.bookmark.icons" src="/assets/img/history.png" class="barIcon">
+          <i *ngIf="settings.config.bookmark.icons" class="barIcon matIcon" aria-hidden="true">history</i>
           <div class="barLabel">{{'tab.bookmarks.links.history' | translate}}</div>
         </button>
       </li>
       <li class="barNode" *ngIf="settings.config.bookmark.bookmarksManager">
         <button title="{{'tab.bookmarks.links.bookmarksManager' | translate}}" class="barFolder" (click)="bookmarksManager();">
-          <img *ngIf="settings.config.bookmark.icons" src="/assets/img/bookmarks.png" class="barIcon">
+          <i *ngIf="settings.config.bookmark.icons" class="barIcon matIcon" aria-hidden="true">bookmarks</i>
           <div class="barLabel">{{'tab.bookmarks.links.bookmarksManager' | translate}}</div>
         </button>
       </li>

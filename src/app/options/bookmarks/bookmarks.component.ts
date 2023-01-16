@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone, HostBinding, Output, EventEmitter } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { fade } from '../../_shared/animations';
 import { SharedService } from '../../_shared/shared.service';
@@ -9,6 +9,8 @@ import { SharedService } from '../../_shared/shared.service';
   animations: [fade]
 })
 export class OptionsBookmarksComponent implements OnInit {
+  @HostBinding('class') hostClass: string = 'panelPlate panelPage';
+  @Output() goTo: EventEmitter<string> = new EventEmitter<string>();
   editMode: boolean[] = [];
   isInvalid = false;
   hasFaviconPermission: boolean;
@@ -58,7 +60,6 @@ export class OptionsBookmarksComponent implements OnInit {
         if (chrome.runtime.lastError) {
           that.shared.echo('Error checking Favicon permission', chrome.runtime.lastError, '', 'error');
         }
-        that.shared.echo('Permission check: Favicon allowed?', result);
         that.allowFavicon(result);
       });
     });
@@ -71,7 +72,6 @@ export class OptionsBookmarksComponent implements OnInit {
         if (chrome.runtime.lastError) {
           that.shared.echo('Error setting Favicon permission', chrome.runtime.lastError, '', 'error');
         }
-        that.shared.echo('Set Permission: Favicon', granted);
         that.allowFavicon(granted);
       });
     });
@@ -92,7 +92,6 @@ export class OptionsBookmarksComponent implements OnInit {
         if (chrome.runtime.lastError) {
           that.shared.echo('Error checking Bookmark permission', chrome.runtime.lastError, '', 'error');
         }
-        that.shared.echo('Permission check: Bookmark allowed?', result);
         that.allowBookmarks(result);
       });
     });
@@ -105,7 +104,6 @@ export class OptionsBookmarksComponent implements OnInit {
         if (chrome.runtime.lastError) {
           that.shared.echo('Error setting Bookmark permission', chrome.runtime.lastError, '', 'error');
         }
-        that.shared.echo('Set Permission: Bookmark', granted);
         that.allowBookmarks(granted);
       });
     });
@@ -136,7 +134,6 @@ export class OptionsBookmarksComponent implements OnInit {
         if (chrome.runtime.lastError) {
           that.shared.echo('Error checking TopSites permission', chrome.runtime.lastError, '', 'error');
         }
-        that.shared.echo('Permission check: TopSites allowed?', result);
         that.allowTopSites(result);
       });
     });
@@ -149,7 +146,6 @@ export class OptionsBookmarksComponent implements OnInit {
         if (chrome.runtime.lastError) {
           that.shared.echo('Error setting TopSites permission', chrome.runtime.lastError, '', 'error');
         }
-        that.shared.echo('Set Permission: TopSites', granted);
         that.allowTopSites(granted);
       });
     });
@@ -180,11 +176,6 @@ export class OptionsBookmarksComponent implements OnInit {
         label: label,
         url: url,
       });
-      this.shared.echo('New link added', '', {
-        id: id,
-        label: label,
-        url: url,
-      });
       this.resetEdit();
       model.resetForm();
     } else {
@@ -196,10 +187,6 @@ export class OptionsBookmarksComponent implements OnInit {
     if (isValid) {
       this.settings.config.quickLink.links[index].label = label;
       this.settings.config.quickLink.links[index].url = this.checkLink(url);
-      this.shared.echo('Link edited', '', {
-        label: label,
-        url: url,
-      });
       this.resetEdit();
     }
   }
@@ -219,7 +206,6 @@ export class OptionsBookmarksComponent implements OnInit {
 
   deleteLink(link: any[], index: number) {
     this.settings.config.quickLink.links.splice(index, 1);
-    this.shared.echo('Link deleted', '', link);
     this.resetEdit();
   }
 

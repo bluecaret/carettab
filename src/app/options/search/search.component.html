@@ -1,73 +1,138 @@
-<h2>{{'options.search.search' | translate}}</h2>
+<h2 class="panelTitle">
+  <button
+    (click)="goTo.emit('Dashboard')"
+    class="panelBack matIcon"
+    attr.aria-label="{{'options.dashboard.backToDashboard' | translate}}"
+    title="{{'options.dashboard.backToDashboard' | translate}}"
+  >arrow_back</button>
+  {{'options.search.search' | translate}}
+</h2>
 <form #searchOptions="ngForm" novalidate>
-  <div class="input">
-    <label>{{'options.search.searchBox' | translate}}</label>
-    <options-toggle name="searchBox" id="searchBox" [(ngModel)]="settings.config.search.enabled" (ngModelChange)="shared.toggleOrder(settings.config.search.id, $event, settings.config.search.position);"></options-toggle>
-  </div>
-  <ng-container *ngIf="settings.config.search.enabled">
-    <div class="input">
-      <label data-tooltip>{{'options.search.searchEngine' | translate}}</label>
-      <select name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine">
-        <option *ngFor="let e of engines" [ngValue]="e.id">{{e.label}}</option>
-      </select>
-    </div>
-    <div class="input">
-      <label>{{'options.search.label' | translate}}</label>
-      <input type="text" name="searchLabel" id="searchLabel" [(ngModel)]="settings.config.search.label">
-    </div>
-    <div class="input">
-      <label>{{'options.search.autocomplete' | translate}}<tooltip text="{{'options.search.autocompleteDesc' | translate}}"></tooltip></label>
-      <options-toggle name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete"></options-toggle>
-    </div>
-
-    <!-- Layout -->
-    <h3>{{'options.common.layout' | translate}}</h3>
-    <div class="input">
-      <label>{{ "options.common.size" | translate }}<tooltip text="{{'options.common.sizeDesc' | translate}}"></tooltip></label>
-      <options-range name="searchSize" id="searchSize" min="1" max="50" [(ngModel)]="settings.config.search.scaling"></options-range>
-    </div>
-    <div class="input">
-      <label>{{'options.common.order' | translate}}<tooltip text="{{'options.common.orderDesc' | translate}}"></tooltip></label>
-      <div class="orderBtns">
-        <button
-          type="button"
-          attr.aria-label="{{'options.common.moveUp' | translate}}"
-          title="{{'options.common.moveUp' | translate}}"
-          class="btn"
-          [disabled]="shared.isFirst(settings.config.search.id, settings.config.search.position)"
-          (click)="shared.changeOrder(settings.config.search.id, true, settings.config.search.position);">
-          <div class="icon" aria-hidden="true">expand_less</div>
-        </button>
-        <button
-          type="button"
-          attr.aria-label="{{'options.common.moveDown' | translate}}"
-          title="{{'options.common.moveDown' | translate}}"
-          class="btn"
-          [disabled]="shared.isLast(settings.config.search.id, settings.config.search.position)"
-          (click)="shared.changeOrder(settings.config.search.id, false, settings.config.search.position);">
-          <div class="icon" aria-hidden="true">expand_more</div>
-        </button>
+  <div class="panelGroup">
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="searchBoxLabel" class="panelLabel">{{'options.search.searchBox' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle labelledby="searchBoxLabel" name="searchBox" id="searchBox" [(ngModel)]="settings.config.search.enabled" (ngModelChange)="shared.toggleOrder(settings.config.search.id, $event, settings.config.search.position);"></options-toggle>
       </div>
     </div>
-    <div class="input">
-      <label for="searchPlacement">{{'options.common.position' | translate}}<tooltip text="{{'options.common.positionDesc' | translate}}"></tooltip></label>
-      <options-position id="searchPlacement" name="searchPlacement" [settingId]="settings.config.search.id" [(ngModel)]="settings.config.search.position"></options-position>
-    </div>
-    <div class="input">
-      <label>{{'options.common.width' | translate}}</label>
-      <options-range name="searchWidth" min="1" max="100" [(ngModel)]="settings.config.search.width"></options-range>
-    </div>
-    <div class="input">
-      <label for="searchMarginHeight">{{'options.common.marginHeight' | translate}}<tooltip text="{{'options.common.marginHeightDesc' | translate}}"></tooltip></label>
-      <options-range name="searchMarginHeight" min="0" max="50" [(ngModel)]="settings.config.search.marginHeight"></options-range>
-    </div>
-    <div class="input">
-      <label for="searchMarginWidth">{{'options.common.marginWidth' | translate}}<tooltip text="{{'options.common.marginWidthDesc' | translate}}"></tooltip></label>
-      <options-range name="searchMarginWidth" min="0" max="50" [(ngModel)]="settings.config.search.marginWidth"></options-range>
-    </div>
-    <div class="input">
-      <label>{{'options.common.offset' | translate}}<tooltip text="{{'options.common.offsetDesc' | translate}}"></tooltip></label>
-      <options-range name="searchOffset" min="-50" max="50" [(ngModel)]="settings.config.search.offset"></options-range>
+    <ng-container *ngIf="settings.config.search.enabled">
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label for="searchEngine" class="panelLabel">{{'options.search.searchEngine' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <select class="panelSelect panelInputLg" name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine">
+            <option *ngFor="let e of engines" [ngValue]="e.id">{{e.label}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label for="searchLabel" class="panelLabel">{{'options.search.label' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <input class="panelInput panelInputLg" type="text" name="searchLabel" id="searchLabel" [(ngModel)]="settings.config.search.label">
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="searchAutoCompleteLabel" class="panelLabel">{{'options.search.autocomplete' | translate}}</label>
+          <p class="panelDescription">{{'options.search.autocompleteDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-toggle labelledby="searchAutoCompleteLabel" name="autocomplete" id="autocomplete" [(ngModel)]="settings.config.search.autocomplete"></options-toggle>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <ng-container *ngIf="settings.config.search.enabled">
+    <h3 class="panelSubtitle">{{'options.common.layout' | translate}}</h3>
+    <div class="panelGroup">
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="searchSizeLabel" class="panelLabel">{{ "options.common.size" | translate }}</label>
+          <p class="panelDescription">{{'options.common.sizeDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-range labelledby="searchSizeLabel" class="panelInputLg" name="searchSize" id="searchSize" min="1" max="50" [(ngModel)]="settings.config.search.scaling"></options-range>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="" class="panelLabel">{{'options.common.order' | translate}}</label>
+          <p class="panelDescription">{{'options.common.orderDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <div class="panelBtnGroup panelInputMd">
+            <button
+              type="button"
+              attr.aria-label="{{'options.common.moveUp' | translate}}"
+              title="{{'options.common.moveUp' | translate}}"
+              class="panelBtn"
+              [disabled]="shared.isFirst(settings.config.search.id, settings.config.search.position)"
+              (click)="shared.changeOrder(settings.config.search.id, true, settings.config.search.position);">
+              <div class="matIcon" aria-hidden="true">expand_less</div>
+            </button>
+            <button
+              type="button"
+              attr.aria-label="{{'options.common.moveDown' | translate}}"
+              title="{{'options.common.moveDown' | translate}}"
+              class="panelBtn"
+              [disabled]="shared.isLast(settings.config.search.id, settings.config.search.position)"
+              (click)="shared.changeOrder(settings.config.search.id, false, settings.config.search.position);">
+              <div class="matIcon" aria-hidden="true">expand_more</div>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="searchPlacementLabel" class="panelLabel">{{'options.common.position' | translate}}</label>
+          <p class="panelDescription">{{'options.common.positionDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-position labelledby="searchPlacementLabel" id="searchPlacement" name="searchPlacement" [settingId]="settings.config.search.id" [(ngModel)]="settings.config.search.position"></options-position>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="searchWidthLabel" class="panelLabel">{{'options.common.width' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <options-range labelledby="searchWidthLabel" class="panelInputLg" name="searchWidth" min="1" max="100" [(ngModel)]="settings.config.search.width"></options-range>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="searchMarginHeightLabel" class="panelLabel">{{'options.common.marginHeight' | translate}}</label>
+          <p class="panelDescription">{{'options.common.marginHeightDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-range labelledby="searchMarginHeightLabel" class="panelInputLg" name="searchMarginHeight" min="0" max="50" [(ngModel)]="settings.config.search.marginHeight"></options-range>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="searchMarginWidthLabel" class="panelLabel">{{'options.common.marginWidth' | translate}}</label>
+          <p class="panelDescription">{{'options.common.marginWidthDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-range labelledby="searchMarginWidthLabel" class="panelInputLg" name="searchMarginWidth" min="0" max="50" [(ngModel)]="settings.config.search.marginWidth"></options-range>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="searchOffsetLabel" class="panelLabel">{{'options.common.offset' | translate}}</label>
+          <p class="panelDescription">{{'options.common.offsetDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-range labelledby="searchOffsetLabel" class="panelInputLg" name="searchOffset" min="-50" max="50" [(ngModel)]="settings.config.search.offset"></options-range>
+        </div>
+      </div>
     </div>
   </ng-container>
 </form>
+
+<button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon" aria-hidden="true">arrow_back</i>{{'options.dashboard.backToDashboard' | translate}}</button>

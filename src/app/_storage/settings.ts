@@ -32,13 +32,24 @@ export class DesignSettings {
     public font = 181,
     public customFont = 'Comic Sans MS',
     public customFontWeight = 40,
-    public background = '#ffffff',
-    public foreground = '#000000',
-    public colorsId = 0,
+    public background = '#333333',
+    public foreground = '#E6E6E6',
+    public colorsId = 2500,
     public patternId = 0,
+    public unsplashId = "",
+    public unsplashCredit = "",
+    public unsplashCreditLink = "",
+    public unsplashList = "",
+    public unsplashListLink = "",
+    public wallpaperType = null,
+    public wallpaperTimestamp = null,
     public imageSize = 10,
     public imageBlend = 10,
+    public imageBlur = 0,
+    public imageScale = 100,
     public brightness = 10,
+    public contrast = 10,
+    public saturation = 10,
     public hideMenu = false,
     public hideLogo = true,
   ) {}
@@ -122,12 +133,6 @@ export class QuickLinkSettings {
   ) {}
 }
 
-export class CovidSettings {
-  enabled = false;
-  countries = [
-  ]
-}
-
 export class TimeSettings {
   constructor(
     public clocks = [
@@ -189,7 +194,17 @@ export class TimeSettings {
         },
         analog: {
           enabled: false,
-          style: 10
+          faceStyle: 'dash',
+          handStyle: 'minimalMedium',
+          borderSize: 1,
+          dimBorder: false,
+          showMinuteMarks: true,
+          dimMinuteMarks: true,
+          showHourMarks: true,
+          dimHourMarks: false,
+          showQuarterMarks: true,
+          dimQuarterMarks: false,
+          smoothSeconds: false,
         },
         binary: {
           enabled: false,
@@ -326,6 +341,32 @@ export class WeatherSettings {
   ) {}
 }
 
+export class NotepadSettings {
+  constructor(
+    public id = 'NOTEPAD_KS096NVA56',
+    public enabled = false,
+    public sync = false,
+    public spellCheck = true,
+    public showCharLimit = true,
+    public position = 'c',
+    public scaling = 16,
+    public width = 30,
+    public height = 20,
+    public offset = 0,
+    public padding = 7,
+    public marginHeight = 3,
+    public marginWidth = 2,
+    public showBorder = true,
+    public borderRadius = 8,
+    public borderColor = '#3e3e3e',
+    public foreground = '#dedede',
+    public showBg = true,
+    public background = '#1f1f1f',
+    public bgOpacity = 100,
+    public overrideColors = false,
+  ) {}
+}
+
 export class MiscSettings {
   constructor(
     public schema = '1.1',
@@ -347,10 +388,10 @@ export class Settings {
     public bookmark = new BookmarkSettings(),
     public quickLink = new QuickLinkSettings(),
     public time = new TimeSettings(),
-    public covidData = new CovidSettings(),
     public date = new DateSettings(),
     public search = new SearchSettings(),
     public weather = new WeatherSettings(),
+    public notepad = new NotepadSettings(),
     public misc = new MiscSettings(),
   ) {}
 }

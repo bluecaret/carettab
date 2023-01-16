@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from "@angular/core";
+import { Component, ElementRef, HostBinding, Output, EventEmitter } from "@angular/core";
 import { Storage } from "../../_storage/storage.service";
 import { SharedService } from "../../_shared/shared.service";
 
@@ -7,6 +7,8 @@ import { SharedService } from "../../_shared/shared.service";
   templateUrl: "message.component.html",
 })
 export class OptionsMessageComponent {
+  @HostBinding('class') hostClass: string = 'panelPlate panelPage';
+  @Output() goTo: EventEmitter<string> = new EventEmitter<string>();
   public newMessageTextModel: ElementRef;
   constructor(
     public shared: SharedService,
@@ -20,10 +22,6 @@ export class OptionsMessageComponent {
       this.settings.config.messages.messageList.push({
         id: id,
         text: newText,
-      });
-      this.shared.echo('New message text added', '', {
-        id: id,
-        text: newText
       });
       model.resetForm();
     }

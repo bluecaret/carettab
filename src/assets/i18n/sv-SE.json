@@ -33,7 +33,8 @@
       "stackVert": "Stapla vertikalt",
       "stackVertDesc": "Visar länkar i en vertikal lista istället för horisontell.",
       "topSitesPermission": "Tillåt förlängning för att komma åt toppwebbplatser",
-      "url": "URL"
+      "url": "URL",
+      "faviconsDesc": "Favoritikoner använder webbläsarens temporära filer för att visa. Att rensa webbläsarens temporära filer kan resultera i att favoritikoner för dina länkar tas bort. För att återställa ikonerna, besök helt enkelt varje länk igen."
     },
     "common": {
       "aboutLink": "Handla om",

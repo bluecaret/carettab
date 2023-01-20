@@ -33,7 +33,8 @@
       "stackVert": "Xếp theo chiều dọc",
       "stackVertDesc": "Hiển thị các liên kết trong danh sách dọc thay vì ngang.",
       "topSitesPermission": "Cho phép tiện ích mở rộng truy cập các trang web hàng đầu",
-      "url": "URL"
+      "url": "URL",
+      "faviconsDesc": "Favicons sử dụng các tệp tạm thời của trình duyệt để hiển thị. Xóa các tệp tạm thời của trình duyệt có thể dẫn đến việc xóa các biểu tượng yêu thích cho các liên kết của bạn. Để khôi phục các biểu tượng, chỉ cần truy cập lại từng liên kết."
     },
     "common": {
       "aboutLink": "Về",

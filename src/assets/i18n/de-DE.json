@@ -33,7 +33,8 @@
       "stackVert": "Vertikal stapeln",
       "stackVertDesc": "Zeigt Links in einer vertikalen Liste anstelle einer horizontalen an.",
       "topSitesPermission": "Zugriff durch Erweiterung auf Top-Sites zulassen",
-      "url": "Url"
+      "url": "Url",
+      "faviconsDesc": "Favicons verwenden zur Anzeige die temporären Dateien des Browsers. Das Löschen der temporären Dateien des Browsers kann dazu führen, dass Favicons für Ihre Links entfernt werden. Um die Symbole wiederherzustellen, besuchen Sie einfach jeden Link erneut."
     },
     "common": {
       "aboutLink": "Über",

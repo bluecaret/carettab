@@ -33,7 +33,8 @@
       "stackVert": "Empiler verticalement",
       "stackVertDesc": "Affiche les liens dans une liste verticale au lieu d'horizontale.",
       "topSitesPermission": "Autoriser l'extension à accéder aux meilleurs sites",
-      "url": "URL"
+      "url": "URL",
+      "faviconsDesc": "Les favicons utilisent les fichiers temporaires du navigateur pour s'afficher. La suppression des fichiers temporaires du navigateur peut entraîner la suppression des favicons pour vos liens. Pour restaurer les icônes, il vous suffit de visiter à nouveau chaque lien."
     },
     "common": {
       "aboutLink": "sur",

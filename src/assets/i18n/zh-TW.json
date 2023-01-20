@@ -33,7 +33,8 @@
       "stackVert": "垂直堆疊",
       "stackVertDesc": "以垂直列表而不是水平列表顯示連結。",
       "topSitesPermission": "允許擴充套件存取熱門站點",
-      "url": "網址"
+      "url": "網址",
+      "faviconsDesc": "Favicons 使用瀏覽器的臨時文件來顯示。清除瀏覽器的臨時文件可能會導致刪除鏈接的圖標。要恢復圖標，只需再次訪問每個鏈接即可。"
     },
     "common": {
       "aboutLink": "關於",

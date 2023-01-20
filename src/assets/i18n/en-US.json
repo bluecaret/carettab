@@ -33,7 +33,8 @@
       "stackVert": "Stack vertically",
       "stackVertDesc": "Displays links in a vertical list instead of horizontal.",
       "topSitesPermission": "Allow extension to access Top Sites",
-      "url": "URL"
+      "url": "URL",
+      "faviconsDesc": "Favicons use the browser's temporary files to display. Clearing the browser's temporary files could result in the removal of favicons for your links. To restore the icons, simply visit each link again."
     },
     "common": {
       "aboutLink": "About",

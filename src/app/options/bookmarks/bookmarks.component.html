@@ -21,6 +21,7 @@
     <div class="panelField panelFieldInline" *ngIf="settings.config.bookmark.enabled">
       <div class="panelFieldContent">
         <label id="bookmarksBarIconsLabel" class="panelLabel">{{'options.bookmarks.favicons' | translate}}</label>
+        <p class="panelDescription" *ngIf="hasFaviconPermission">{{'options.bookmarks.faviconsDesc' | translate}}</p>
       </div>
       <div class="panelFieldInput">
         <button class="panelBtn" *ngIf="!hasFaviconPermission" (click)="setFaviconPermission()">{{'options.bookmarks.faviconPermission' | translate}}</button>
@@ -38,7 +39,6 @@
     <div class="panelField panelFieldInline" *ngIf="settings.config.bookmark.enabled">
       <div class="panelFieldContent">
         <label id="chromeTabBookmarksBarLabel" class="panelLabel">{{'options.bookmarks.chromeTabLink' | translate}}</label>
-        <p class="panelDescription"></p>
       </div>
       <div class="panelFieldInput">
         <options-toggle labelledby="chromeTabBookmarksBarLabel" name="chromeTabBookmarksBar" [(ngModel)]="settings.config.bookmark.chromeTab"></options-toggle>
@@ -55,7 +55,6 @@
     <div class="panelField panelFieldInline" *ngIf="settings.config.bookmark.enabled">
       <div class="panelFieldContent">
         <label id="bookmarksManagerBookmarksBarLabel" class="panelLabel">{{'options.bookmarks.managerLink' | translate}}</label>
-        <p class="panelDescription"></p>
       </div>
       <div class="panelFieldInput">
         <options-toggle labelledby="bookmarksManagerBookmarksBarLabel" name="bookmarksManagerBookmarksBar" [(ngModel)]="settings.config.bookmark.bookmarksManager"></options-toggle>
@@ -64,7 +63,6 @@
     <div class="panelField panelFieldInline" *ngIf="settings.config.bookmark.enabled">
       <div class="panelFieldContent">
         <label id="mostVisitedBookmarksBarLabel" class="panelLabel">{{'options.bookmarks.mostVisited' | translate}}</label>
-        <p class="panelDescription"></p>
       </div>
       <div class="panelFieldInput">
         <button class="panelBtn" *ngIf="!hasTopSitesPermission" (click)="setTopSitesPermission()">{{'options.bookmarks.topSitesPermission' | translate}}</button>
@@ -93,6 +91,7 @@
     <div class="panelField panelFieldInline" *ngIf="settings.config.quickLink.enabled">
       <div class="panelFieldContent">
         <label id="quickLinksIconsLabel" class="panelLabel">{{'options.bookmarks.favicons' | translate}}</label>
+        <p class="panelDescription" *ngIf="hasFaviconPermission">{{'options.bookmarks.faviconsDesc' | translate}}</p>
       </div>
       <div class="panelFieldInput">
         <button class="panelBtn" *ngIf="!hasFaviconPermission" (click)="setFaviconPermission()">{{'options.bookmarks.faviconPermission' | translate}}</button>
@@ -134,7 +133,6 @@
     <div class="panelField panelFieldInline" *ngIf="settings.config.quickLink.enabled">
       <div class="panelFieldContent">
         <label id="mostVisitedQuickLinksLabel" class="panelLabel">{{'options.bookmarks.mostVisited' | translate}}</label>
-        <p class="panelDescription"></p>
       </div>
       <div class="panelFieldInput">
         <button class="panelBtn" *ngIf="!hasTopSitesPermission" (click)="setTopSitesPermission()">{{'options.bookmarks.topSitesPermission' | translate}}</button>

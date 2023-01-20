@@ -481,7 +481,8 @@
       "notepad": "新的記事本小部件（僅限 Premium）。",
       "premiumAccess": "新的高級訪問訂閱！",
       "settings": "新的設置面板設計使小部件設置更易於使用和更靈活。",
-      "unsplash": "來自 Unsplash.com 的新壁紙；從列表中獲取單張照片或顯示隨機的每日照片（僅限 Premium）。"
+      "unsplash": "來自 Unsplash.com 的新壁紙；從列表中獲取單張照片或顯示隨機的每日照片（僅限 Premium）。",
+      "backgroundMigration": "修復了牆紙從舊版本遷移到新版本的問題。解決了牆紙在更新後無法在 3.7.0 版上呈現的問題。"
     }
   }
 }

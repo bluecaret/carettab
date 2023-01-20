@@ -481,7 +481,8 @@
       "notepad": "Ny widget för anteckningar (endast Premium).",
       "premiumAccess": "Ny Premium Access-prenumeration!",
       "settings": "Ny inställningspaneldesign för enklare användning och mer flexibilitet för widgetinställningar.",
-      "unsplash": "Nya bakgrundsbilder från Unsplash.com; få ett enda foto eller visa ett slumpmässigt dagligt foto från en lista (endast Premium)."
+      "unsplash": "Nya bakgrundsbilder från Unsplash.com; få ett enda foto eller visa ett slumpmässigt dagligt foto från en lista (endast Premium).",
+      "backgroundMigration": "Fast migrering av tapeter från gammal version till ny. Löser problem där tapeter inte skulle renderas på version 3.7.0 efter uppdatering."
     }
   }
 }

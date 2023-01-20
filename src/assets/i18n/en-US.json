@@ -481,7 +481,8 @@
       "notepad": "New notepad widget (Premium only).",
       "premiumAccess": "New Premium Access subscription!",
       "settings": "New settings panel design for easier use and more flexibility for widget settings.",
-      "unsplash": "New wallpapers from Unsplash.com; get a single photo or display a random daily photo from a list (Premium only)."
+      "unsplash": "New wallpapers from Unsplash.com; get a single photo or display a random daily photo from a list (Premium only).",
+      "backgroundMigration": "Fixed migration of wallpaper from old version to new. Resolves issue where wallpaper wouldn't render on version 3.7.0 after updating."
     }
   }
 }

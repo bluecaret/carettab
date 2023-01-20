@@ -481,7 +481,8 @@
       "notepad": "Nuovo widget del blocco note (solo Premium).",
       "premiumAccess": "Nuovo abbonamento Premium Access!",
       "settings": "Nuovo design del pannello delle impostazioni per un utilizzo più semplice e una maggiore flessibilità per le impostazioni dei widget.",
-      "unsplash": "Nuovi sfondi da Unsplash.com; ottenere una singola foto o visualizzare una foto giornaliera casuale da un elenco (solo Premium)."
+      "unsplash": "Nuovi sfondi da Unsplash.com; ottenere una singola foto o visualizzare una foto giornaliera casuale da un elenco (solo Premium).",
+      "backgroundMigration": "Risolto il problema con la migrazione dello sfondo dalla vecchia versione alla nuova. Risolve il problema per cui lo sfondo non veniva visualizzato nella versione 3.7.0 dopo l'aggiornamento."
     }
   }
 }

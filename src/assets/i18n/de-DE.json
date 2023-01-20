@@ -481,7 +481,8 @@
       "notepad": "Neues Notizblock-Widget (nur Premium).",
       "premiumAccess": "Neues Premium Access-Abonnement!",
       "settings": "Neues Design des Einstellungsfelds für eine einfachere Verwendung und mehr Flexibilität für Widget-Einstellungen.",
-      "unsplash": "Neue Hintergrundbilder von Unsplash.com; Holen Sie sich ein einzelnes Foto oder zeigen Sie ein zufälliges Tagesfoto aus einer Liste an (nur Premium)."
+      "unsplash": "Neue Hintergrundbilder von Unsplash.com; Holen Sie sich ein einzelnes Foto oder zeigen Sie ein zufälliges Tagesfoto aus einer Liste an (nur Premium).",
+      "backgroundMigration": "Die Migration des Hintergrundbilds von der alten Version zur neuen wurde behoben. Behebt ein Problem, bei dem das Hintergrundbild nach der Aktualisierung auf Version 3.7.0 nicht gerendert wurde."
     }
   }
 }

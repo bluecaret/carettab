@@ -481,7 +481,8 @@
       "notepad": "Nuevo widget de bloc de notas (solo Premium).",
       "premiumAccess": "¡Nueva suscripción Premium Access!",
       "settings": "Nuevo diseño del panel de configuración para un uso más fácil y más flexibilidad para la configuración de widgets.",
-      "unsplash": "Nuevos fondos de pantalla de Unsplash.com; obtenga una sola foto o muestre una foto diaria aleatoria de una lista (solo Premium)."
+      "unsplash": "Nuevos fondos de pantalla de Unsplash.com; obtenga una sola foto o muestre una foto diaria aleatoria de una lista (solo Premium).",
+      "backgroundMigration": "Se corrigió la migración del fondo de pantalla de la versión anterior a la nueva. Resuelve el problema por el que el fondo de pantalla no se renderizaba en la versión 3.7.0 después de la actualización."
     }
   }
 }

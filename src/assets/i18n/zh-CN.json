@@ -481,7 +481,8 @@
       "notepad": "新的记事本小部件（仅限 Premium）。",
       "premiumAccess": "新的高级访问订阅！",
       "settings": "新的设置面板设计使小部件设置更易于使用和更灵活。",
-      "unsplash": "来自 Unsplash.com 的新壁纸；从列表中获取单张照片或显示随机的每日照片（仅限 Premium）。"
+      "unsplash": "来自 Unsplash.com 的新壁纸；从列表中获取单张照片或显示随机的每日照片（仅限 Premium）。",
+      "backgroundMigration": "修复了墙纸从旧版本迁移到新版本的问题。解决了墙纸在更新后无法在 3.7.0 版上呈现的问题。"
     }
   }
 }

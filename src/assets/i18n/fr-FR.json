@@ -479,9 +479,10 @@
       "fixedWidgets": "Correction des widgets superposés empêchant les clics.",
       "fonts": "Nouvelles polices (Premium uniquement).",
       "notepad": "Nouveau widget bloc-notes (Premium uniquement).",
-      "premiumAccess": "Nouvel abonnement Premium Access !",
+      "premiumAccess": "Nouvel abonnement Premium Access !",
       "settings": "Nouvelle conception du panneau des paramètres pour une utilisation plus facile et plus de flexibilité pour les paramètres du widget.",
-      "unsplash": "Nouveaux fonds d'écran d'Unsplash.com; obtenir une seule photo ou afficher une photo quotidienne aléatoire à partir d'une liste (Premium uniquement)."
+      "unsplash": "Nouveaux fonds d'écran d'Unsplash.com; obtenir une seule photo ou afficher une photo quotidienne aléatoire à partir d'une liste (Premium uniquement).",
+      "backgroundMigration": "Correction de la migration du fond d'écran de l'ancienne version vers la nouvelle. Résout le problème où le fond d'écran ne s'affichait pas sur la version 3.7.0 après la mise à jour."
     }
   }
 }

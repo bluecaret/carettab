@@ -481,7 +481,8 @@
       "notepad": "Tiện ích notepad mới (chỉ dành cho Premium).",
       "premiumAccess": "Đăng ký truy cập cao cấp mới!",
       "settings": "Thiết kế bảng cài đặt mới để sử dụng dễ dàng hơn và linh hoạt hơn cho cài đặt widget.",
-      "unsplash": "Hình nền mới từ Unsplash.com; lấy một ảnh duy nhất hoặc hiển thị một ảnh ngẫu nhiên hàng ngày từ danh sách (chỉ dành cho Premium)."
+      "unsplash": "Hình nền mới từ Unsplash.com; lấy một ảnh duy nhất hoặc hiển thị một ảnh ngẫu nhiên hàng ngày từ danh sách (chỉ dành cho Premium).",
+      "backgroundMigration": "Đã sửa lỗi di chuyển hình nền từ phiên bản cũ sang mới. Khắc phục sự cố hình nền không hiển thị trên phiên bản 3.7.0 sau khi cập nhật."
     }
   }
 }

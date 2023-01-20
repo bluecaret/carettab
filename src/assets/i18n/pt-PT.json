@@ -481,7 +481,8 @@
       "notepad": "Novo widget de bloco de notas (somente Premium).",
       "premiumAccess": "Nova assinatura Premium Access!",
       "settings": "Novo design do painel de configurações para facilitar o uso e mais flexibilidade para as configurações do widget.",
-      "unsplash": "Novos papéis de parede de Unsplash.com; obtenha uma única foto ou exiba uma foto diária aleatória de uma lista (somente Premium)."
+      "unsplash": "Novos papéis de parede de Unsplash.com; obtenha uma única foto ou exiba uma foto diária aleatória de uma lista (somente Premium).",
+      "backgroundMigration": "Corrigida a migração do papel de parede da versão antiga para a nova. Resolve o problema em que o papel de parede não era renderizado na versão 3.7.0 após a atualização."
     }
   }
 }

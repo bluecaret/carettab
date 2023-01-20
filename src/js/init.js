@@ -26,6 +26,57 @@ const bgBlend = [
   { id: 160, label: 'Overlay', mode: 'overlay' },
 ];
 
+// REMOVE AFTER MIGRATION FROM OLD BACKGROUND IS NO LONGER NEEDED
+const patterns = [
+  { id: 200, pattern: 'checkered-pattern.png' },
+  { id: 300, pattern: 'escheresque-dark.png' },
+  { id: 400, pattern: '45-degree-fabric-dark.png' },
+  { id: 600, pattern: 'flowers.png' },
+  { id: 700, pattern: '60-lines.png' },
+  { id: 800, pattern: 'clean-gray-paper.png' },
+  { id: 1000, pattern: 'always-grey.png' },
+  { id: 1100, pattern: 'climpek.png' },
+  { id: 1200, pattern: 'gplay.png' },
+  { id: 1300, pattern: 'arabesque.png' },
+  { id: 1400, pattern: 'concrete-wall.png' },
+  { id: 1600, pattern: 'arches.png' },
+  { id: 1700, pattern: 'connected.png' },
+  { id: 1900, pattern: 'argyle.png' },
+  { id: 2000, pattern: 'crisp-paper-ruffles.png' },
+  { id: 2100, pattern: 'inspiration-geometry.png' },
+  { id: 2300, pattern: 'crissxcross.png' },
+  { id: 2400, pattern: 'lined-paper-2.png' },
+  { id: 2500, pattern: 'back-pattern.png' },
+  { id: 2600, pattern: 'cubes.png' },
+  { id: 2700, pattern: 'mirrored-squares.png' },
+  { id: 2800, pattern: 'batthern.png' },
+  { id: 2900, pattern: 'dark-brick-wall.png' },
+  { id: 3000, pattern: 'ps-neutral.png' },
+  { id: 3100, pattern: 'binding-dark.png' },
+  { id: 3300, pattern: 'purty-wood.png' },
+  { id: 3500, pattern: 'dark-geometric.png' },
+  { id: 3600, pattern: 'retina-wood.png' },
+  { id: 3700, pattern: 'black-thread-light.png' },
+  { id: 3800, pattern: 'dark-leather.png' },
+  { id: 3900, pattern: 'shattered.png' },
+  { id: 4000, pattern: 'brick-wall.png' },
+  { id: 4100, pattern: 'dark-mosaic.png' },
+  { id: 4200, pattern: 'skulls.png' },
+  { id: 4300, pattern: 'brick-wall-dark.png' },
+  { id: 4400, pattern: 'diagmonds.png' },
+  { id: 4500, pattern: 'tileable-wood.png' },
+  { id: 4600, pattern: 'bright-squares.png' },
+  { id: 4700, pattern: 'diagmonds-light.png' },
+  { id: 4800, pattern: 'tree-bark.png' },
+  { id: 4900, pattern: 'candyhole.png' },
+  { id: 5100, pattern: 'use-your-illusion.png' },
+  { id: 5300, pattern: 'diamond-upholstery.png' },
+  { id: 5400, pattern: 'white-diamond.png' },
+  { id: 5500, pattern: 'cartographer.png' },
+  { id: 5600, pattern: 'escheresque.png' },
+  { id: 5700, pattern: 'xv.png' }
+];
+
 let extpay = ExtPay("carettab");
 let extPayUser;
 let wallpaperDiv = document.getElementById('wallpaper');
@@ -89,14 +140,50 @@ function getFilters(design, paid) {
  * and images are refreshed daily within the tab component.
  */
 async function setBackground() {
-  let currentWallpaper, nextWallpaper, designSettings;
+  let currentWallpaper, nextWallpaper, designSettings, oldBg;
   currentWallpaper = await readStorage('currentWallpaper', 'local')
+  oldBg = localStorage.getItem('bgImg');
   nextWallpaper = await readStorage('nextWallpaper', 'local')
   extPayUser = await readStorage('user', 'local')
   try {
     designSettings = await readStorage('ct-design', 'sync')
   } catch (error) {
     console.error('Failed to get designSettings', error);
+  }
+
+  // Migrate old background settings to new for v3.7.0.
+  if ( designSettings &&
+    // If currentWallpaper hasn't been set yet
+    (currentWallpaper == undefined || currentWallpaper == null || currentWallpaper === '')
+    // And an oldBg exists OR a pattern is set
+    && (
+      (oldBg != undefined && oldBg != null && oldBg !== '')
+      || (designSettings.patternId != null && designSettings.patternId !== 0 && designSettings.patternId !== 9999)
+    )
+  ) {
+    let newBg = {base64: null};
+
+    if (designSettings.patternId != null && designSettings.patternId !== 0 && designSettings.patternId !== 9999) {
+      let patternLink = patterns.filter(p => designSettings.patternId === p.id)[0].pattern;
+      newBg.base64 = './assets/patterns/' + patternLink;
+      designSettings.wallpaperType = 'pattern';
+      console.log('set pattern');
+    } else {
+      newBg.base64 = oldBg;
+      designSettings.wallpaperType = 'upload';
+      console.log('set upload');
+    }
+
+    console.log('migrate old background:', designSettings.wallpaperType, newBg);
+
+    chrome.storage.local.set({currentWallpaper: newBg});
+    chrome.storage.local.set({nextWallpaper: null});
+    chrome.storage.sync.set({'ct-design': designSettings});
+
+    localStorage.removeItem('bgImg');
+
+    applyBackgroundStyles(designSettings, newBg.base64);
+    return;
   }
 
   if (designSettings) {
@@ -134,7 +221,7 @@ async function setBackground() {
 
           chrome.storage.local.set({currentWallpaper: currentWallpaper});
           chrome.storage.local.set({nextWallpaper: nextWallpaper});
-          chrome.storage.local.set({'ct-design': designSettings});
+          chrome.storage.sync.set({'ct-design': designSettings});
         }
 
         // Set background image

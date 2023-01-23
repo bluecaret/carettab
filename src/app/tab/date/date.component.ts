@@ -202,7 +202,7 @@ export class TabDateComponent implements OnInit {
   }
 
   getDelimiter() {
-    return this.settings.config.date.short.delimiter;
+    return this.settings.config.date.short.enableDelimiter ? this.settings.config.date.short.delimiter : '';
   }
 
   getWeekday(): string {

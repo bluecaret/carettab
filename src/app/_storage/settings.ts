@@ -239,6 +239,7 @@ export class DateSettings {
     public short = {
       enabled: false,
       delimiter: '/',
+      enableDelimiter: false,
       enableSuffix: false,
       dimSuffix: false,
       yearSuffix: 'year',

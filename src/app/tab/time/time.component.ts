@@ -13,6 +13,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class TabTimeComponent implements OnInit {
   currentTime: Date;
+  currentAnalogTime: Date;
   span = span;
   binaryMarkers: Array<any>;
   analogHourRotation = '300deg';
@@ -49,34 +50,60 @@ export class TabTimeComponent implements OnInit {
   ngOnInit() {
     if (this.settings.config.time.clocks.length > 0) {
       this.shared.zoneGuess = moment.tz.guess();
-      this.setBinaryTime();
-      if (this.clock.analog.enabled) {
-        this.setAnalogTime();
-        // Sync up with current time every 5 min to ensure animation doesn't cause time to drift.
-        setInterval(() => {
-          this.setAnalogTime();
-        }, 300000);
+      this.currentTime = new Date();
+      this.setAnalogTime();
+      if (this.clock.analog.enabled && this.clock.analog.smoothSeconds) {
+        this.setAnalogSeconds()
       }
+      this.setBinaryTime();
+
       setInterval(() => {
         this.currentTime = new Date();
         this.setTitleTime();
+        this.setAnalogTime();
         this.setBinaryTime();
       }, 500);
+
+      // If smooth seconds, use CSS animation, but seconds will need to be synced up
+      // every minute to ensure animation doesn't cause time to drift.
+      setInterval(() => {
+        if (this.clock.analog.smoothSeconds) {
+          this.setAnalogSeconds()
+        }
+      }, 60000);
     }
 
     this.settings.onChange().subscribe((data) => {
       // set analog time on save
       if (data['ct-time'] && this.clock.analog.enabled) {
         this.setAnalogTime();
+        if (this.clock.analog.smoothSeconds) {
+          this.setAnalogSeconds()
+        }
       }
     });
   }
 
+  // Analog time should be set every .5 seconds. Exception being if the seconds
+  // is set to be smooth, than only the seconds is not updated and instead uses
+  // CSS animation to keep time which is then synced every 5 min to prevent drift.
   setAnalogTime() {
-    this.currentTime = new Date();
-    this.analogHourRotation = this.getAnalogHour(this.clock.timezone);
-    this.analogMinuteRotation = this.getAnalogMinute(this.clock.timezone);
-    this.analogSecondRotation = this.getAnalogSecond(this.clock.timezone);
+    if (this.clock.analog && this.clock.analog.enabled) {
+      this.currentAnalogTime = new Date();
+      this.analogHourRotation = this.getAnalogHour(this.clock.timezone);
+      this.analogMinuteRotation = this.getAnalogMinute(this.clock.timezone);
+      if (!this.clock.analog.smoothSeconds) {
+        this.setAnalogSeconds()
+      }
+    }
+  }
+
+  setAnalogSeconds() {
+    console.log('sync analog seconds');
+
+    if (this.clock.analog.enabled) {
+      this.analogSecondRotation = this.getAnalogSecond(this.clock.timezone);
+    }
   }
 
   setTitleTime() {
@@ -278,14 +305,14 @@ export class TabTimeComponent implements OnInit {
 
   getAnalogSecond(zone: string): string {
     zone = this.getZone(zone);
-    let time = moment(this.currentTime).tz(zone);
+    let time = moment(this.currentAnalogTime).tz(zone);
     let second = time.seconds() * 6;
     return second + 'deg';
   }
 
   getAnalogMinute(zone: string): string {
     zone = this.getZone(zone);
-    let time = moment(this.currentTime).tz(zone);
+    let time = moment(this.currentAnalogTime).tz(zone);
     let second = time.seconds() * 6;
     let minute = time.minutes() * 6 + second / 60;
     return minute + 'deg';
@@ -293,7 +320,7 @@ export class TabTimeComponent implements OnInit {
 
   getAnalogHour(zone: string): string {
     zone = this.getZone(zone);
-    let time = moment(this.currentTime).tz(zone);
+    let time = moment(this.currentAnalogTime).tz(zone);
     let second = time.seconds() * 6;
     let minute = time.minutes() * 6 + second / 60;
     let hour = ((time.hours() % 12) / 12) * 360 + minute / 12;

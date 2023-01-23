@@ -102,7 +102,8 @@
       "topLeft": "In alto a sinistra",
       "topRight": "In alto a destra",
       "widthDesc": "Imposta la larghezza che il widget si estenderà rispetto alla larghezza dello schermo. Ciò potrebbe far sì che i widget vengano visualizzati più piccoli del previsto se la finestra è troppo piccola.",
-      "dim": "Dim"
+      "dim": "Dim",
+      "refresh": "RICARICARE"
     },
     "dashboard": {
       "contribute": "Contribuisci al codice",
@@ -406,7 +407,9 @@
       "wind": "vento",
       "windDirection": "La direzione del vento",
       "windUnits": "Unità di velocità del vento",
-      "noLocationFound": "Nessuna posizione trovata."
+      "noLocationFound": "Nessuna posizione trovata.",
+      "refreshWeatherData": "Aggiorna i dati meteo",
+      "weatherDesc": "Visualizza il meteo nella pagina Nuova scheda. Il meteo controlla automaticamente gli aggiornamenti ogni ora."
     },
     "notepad": {
       "backgroundOpacity": "Opacità dello sfondo",

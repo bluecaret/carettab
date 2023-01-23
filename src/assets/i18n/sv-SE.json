@@ -102,7 +102,8 @@
       "topLeft": "Övre vänstra",
       "topRight": "Överst till höger",
       "widthDesc": "Ställer in bredden som widgeten spänner över i förhållande till skärmens bredd. Detta kan göra att widgets visas mindre än vad som är tänkt om fönstret görs för litet.",
-      "dim": "Dämpa"
+      "dim": "Dämpa",
+      "refresh": "Uppdatera"
     },
     "dashboard": {
       "contribute": "Bidra med kod",
@@ -406,7 +407,9 @@
       "wind": "Vind",
       "windDirection": "Vindriktning",
       "windUnits": "Vindhastighetsenheter",
-      "noLocationFound": "Ingen plats hittades."
+      "noLocationFound": "Ingen plats hittades.",
+      "refreshWeatherData": "Uppdatera väderdata",
+      "weatherDesc": "Visa väder på den nya fliksidan. Vädret söker automatiskt efter uppdateringar varje timme."
     },
     "notepad": {
       "backgroundOpacity": "Bakgrundens opacitet",

@@ -102,7 +102,8 @@
       "topLeft": "左上",
       "topRight": "右上",
       "widthDesc": "画面の幅に対するウィジェットの幅を設定します。これにより、ウィンドウが小さすぎると、ウィジェットが意図したよりも小さく表示される可能性があります。",
-      "dim": "暗い"
+      "dim": "暗い",
+      "refresh": "リフレッシュ"
     },
     "dashboard": {
       "contribute": "コードを寄稿する",
@@ -406,7 +407,9 @@
       "wind": "風",
       "windDirection": "風向き",
       "windUnits": "風速単位",
-      "noLocationFound": "場所が見つかりません。"
+      "noLocationFound": "場所が見つかりません。",
+      "refreshWeatherData": "気象データを更新する",
+      "weatherDesc": "新しいタブ ページに天気を表示します。天気は 1 時間ごとに更新を自動的にチェックします。"
     },
     "notepad": {
       "backgroundOpacity": "背景の不透明度",

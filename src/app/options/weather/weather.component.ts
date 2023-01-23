@@ -22,6 +22,10 @@ export class OptionsWeatherComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  refreshWeather() {
+    this.weatherService.requestWeatherUpdate.emit();
+  }
+
   setLocation(loc) {
     this.settings.config.weather.location.url = loc;
     this.settings.setAll(this.settings.config.weather, 'ct-weather');

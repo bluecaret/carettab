@@ -31,6 +31,15 @@ export class TabWeatherComponent implements OnInit {
         this.setWeather();
       }
     });
+
+    this.weatherService.requestWeatherUpdate.subscribe(() => {
+      this.setWeather();
+    });
+
+    // update weather every hour
+    setInterval(() => {
+      this.setWeather();
+    }, 3600000); // 3,600,000 = 1 hour
   }
 
   async setWeather() {

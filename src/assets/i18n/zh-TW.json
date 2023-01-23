@@ -102,7 +102,8 @@
       "topLeft": "左上方",
       "topRight": "右上",
       "widthDesc": "設置小部件相對於屏幕寬度的寬度。如果窗口太小，這可能會導緻小部件顯示得比預期的小。",
-      "dim": "暗淡"
+      "dim": "暗淡",
+      "refresh": "刷新"
     },
     "dashboard": {
       "contribute": "貢獻代碼",
@@ -406,7 +407,9 @@
       "wind": "風",
       "windDirection": "風向",
       "windUnits": "風速單位",
-      "noLocationFound": "找不到位置。"
+      "noLocationFound": "找不到位置。",
+      "refreshWeatherData": "刷新天氣數據",
+      "weatherDesc": "在新標籤頁顯示天氣。天氣每小時自動檢查一次更新。"
     },
     "notepad": {
       "backgroundOpacity": "背景不透明度",

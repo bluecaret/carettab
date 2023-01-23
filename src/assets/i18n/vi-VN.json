@@ -102,7 +102,8 @@
       "topLeft": "Trên cùng bên trái",
       "topRight": "Trên cùng bên phải",
       "widthDesc": "Đặt chiều rộng mà tiện ích sẽ mở rộng so với chiều rộng của màn hình. Điều này có thể khiến các tiện ích hiển thị nhỏ hơn dự định nếu cửa sổ được làm quá nhỏ.",
-      "dim": "Lờ mờ"
+      "dim": "Lờ mờ",
+      "refresh": "Làm tươi"
     },
     "dashboard": {
       "contribute": "Đóng góp mã",
@@ -406,7 +407,9 @@
       "wind": "Gió",
       "windDirection": "Hướng gió",
       "windUnits": "Đơn vị tốc độ gió",
-      "noLocationFound": "Không tìm thấy vị trí nào."
+      "noLocationFound": "Không tìm thấy vị trí nào.",
+      "refreshWeatherData": "Làm mới dữ liệu thời tiết",
+      "weatherDesc": "Hiển thị thời tiết trên trang tab mới. Thời tiết tự động kiểm tra các bản cập nhật mỗi giờ."
     },
     "notepad": {
       "backgroundOpacity": "Độ mờ nền",

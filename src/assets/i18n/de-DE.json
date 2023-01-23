@@ -102,7 +102,8 @@
       "topLeft": "Oben links",
       "topRight": "Oben rechts",
       "widthDesc": "Legt die Breite fest, die das Widget relativ zur Breite des Bildschirms überspannt. Dies könnte dazu führen, dass Widgets kleiner als beabsichtigt angezeigt werden, wenn das Fenster zu klein gemacht wird.",
-      "dim": "Dim"
+      "dim": "Dim",
+      "refresh": "Aktualisierung"
     },
     "dashboard": {
       "contribute": "Code beitragen",
@@ -406,7 +407,9 @@
       "wind": "Wind",
       "windDirection": "Windrichtung",
       "windUnits": "Windgeschwindigkeitseinheiten",
-      "noLocationFound": "Kein Ort gefunden."
+      "noLocationFound": "Kein Ort gefunden.",
+      "refreshWeatherData": "Wetterdaten aktualisieren",
+      "weatherDesc": "Zeigen Sie das Wetter auf der neuen Registerkarte an. Wetter sucht automatisch stündlich nach Updates."
     },
     "notepad": {
       "backgroundOpacity": "Hintergrundopazität",

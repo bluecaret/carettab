@@ -102,7 +102,8 @@
       "topLeft": "Esquerda Superior",
       "topRight": "Canto superior direito",
       "widthDesc": "Define a largura que o widget abrangerá em relação à largura da tela. Isso pode fazer com que os widgets sejam exibidos menores do que o pretendido se a janela for muito pequena.",
-      "dim": "Escuro"
+      "dim": "Escuro",
+      "refresh": "REFRESH"
     },
     "dashboard": {
       "contribute": "Código de contribuição",
@@ -406,7 +407,9 @@
       "wind": "vento",
       "windDirection": "Direção do vento",
       "windUnits": "Unidades de velocidade do vento",
-      "noLocationFound": "Nenhum local encontrado."
+      "noLocationFound": "Nenhum local encontrado.",
+      "refreshWeatherData": "Atualizar dados meteorológicos",
+      "weatherDesc": "Exiba o clima na página da nova guia. O clima verifica automaticamente se há atualizações a cada hora."
     },
     "notepad": {
       "backgroundOpacity": "Opacidade de fundo",

@@ -102,7 +102,8 @@
       "topLeft": "Top left",
       "topRight": "Top right",
       "widthDesc": "Sets the width that the widget will span relative to the width of the screen. This could cause widgets to display smaller than intended if the window is made too small.",
-      "dim": "Dim"
+      "dim": "Dim",
+      "refresh": "Refresh"
     },
     "dashboard": {
       "contribute": "Contribute code",
@@ -406,7 +407,9 @@
       "wind": "Wind",
       "windDirection": "Wind direction",
       "windUnits": "Wind speed units",
-      "noLocationFound": "No location found."
+      "noLocationFound": "No location found.",
+      "refreshWeatherData": "Refresh weather data",
+      "weatherDesc": "Display weather on the new tab page. Weather automatically checks for updates every hour."
     },
     "notepad": {
       "backgroundOpacity": "Background opacity",

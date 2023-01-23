@@ -102,7 +102,8 @@
       "topLeft": "左上方",
       "topRight": "右上",
       "widthDesc": "设置小部件相对于屏幕宽度的宽度。如果窗口太小，这可能会导致小部件显示得比预期的小。",
-      "dim": "暗淡"
+      "dim": "暗淡",
+      "refresh": "刷新"
     },
     "dashboard": {
       "contribute": "贡献代码",
@@ -406,7 +407,9 @@
       "wind": "风",
       "windDirection": "风向",
       "windUnits": "风速单位",
-      "noLocationFound": "找不到位置。"
+      "noLocationFound": "找不到位置。",
+      "refreshWeatherData": "刷新天气数据",
+      "weatherDesc": "在新标签页显示天气。天气每小时自动检查一次更新。"
     },
     "notepad": {
       "backgroundOpacity": "背景不透明度",

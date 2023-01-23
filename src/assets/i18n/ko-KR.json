@@ -102,7 +102,8 @@
       "topLeft": "왼쪽 상단",
       "topRight": "오른쪽 상단",
       "widthDesc": "화면 너비를 기준으로 위젯이 확장되는 너비를 설정합니다. 이로 인해 창을 너무 작게 만들면 위젯이 의도한 것보다 작게 표시될 수 있습니다.",
-      "dim": "어둑한"
+      "dim": "어둑한",
+      "refresh": "새롭게 하다"
     },
     "dashboard": {
       "contribute": "기여 코드",
@@ -406,7 +407,9 @@
       "wind": "바람",
       "windDirection": "바람의 방향",
       "windUnits": "풍속 단위",
-      "noLocationFound": "위치를 찾을 수 없습니다."
+      "noLocationFound": "위치를 찾을 수 없습니다.",
+      "refreshWeatherData": "날씨 데이터 새로 고침",
+      "weatherDesc": "새 탭 페이지에 날씨를 표시합니다. Weather는 매시간 업데이트를 자동으로 확인합니다."
     },
     "notepad": {
       "backgroundOpacity": "배경 불투명도",

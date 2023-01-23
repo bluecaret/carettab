@@ -11,10 +11,18 @@
   <div class="panelField panelFieldInline">
     <div class="panelFieldContent">
       <label id="enableWeather" class="panelLabel">{{'options.weather.enable' | translate}}</label>
-      <p class="panelDescription">{{'options.common.requiresInternet' | translate}}</p>
+      <p class="panelDescription">{{'options.weather.weatherDesc' | translate}}</p>
     </div>
     <div class="panelFieldInput">
       <options-toggle labelledby="enableWeather" name="enableWeather" id="enableWeather" [(ngModel)]="settings.config.weather.enabled" (ngModelChange)="shared.toggleOrder(settings.config.weather.id, $event, settings.config.weather.position);"></options-toggle>
+    </div>
+  </div>
+  <div class="panelField panelFieldInline" *ngIf="settings.config.weather.enabled">
+    <div class="panelFieldContent">
+      <label id="refreshWeather" class="panelLabel">{{'options.weather.refreshWeatherData' | translate}}</label>
+    </div>
+    <div class="panelFieldInput">
+      <button class="panelBtn" type="button" (click)="refreshWeather();"><div class="matIcon" aria-hidden="true">refresh</div>{{'options.common.refresh' | translate}}</button>
     </div>
   </div>
 </form>

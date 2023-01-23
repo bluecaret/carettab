@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 
 @Injectable({
@@ -7,6 +7,7 @@ import { Storage } from '../../_storage/storage.service';
 export class WeatherService {
   private _locName: string;
   private _API_KEY: string;
+  public requestWeatherUpdate = new EventEmitter();
 
   constructor(private settings: Storage) { }
 

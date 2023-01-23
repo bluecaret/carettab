@@ -42,7 +42,14 @@ You can install CaretTab through the browser web stores
 Submit a Pull Request in GitHub if you would like to contribute. Always welcome help with translations especially :)
 
 ## Build
-Run `npm start` for a dev build. You can then run `npm run start:chrome` to start an instance of the dev build in Chrome.
+
+### First time installation:
+1. Make sure you have [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed 
+2. Run `npm install` for packages necessary to build the project
+
+### Development workflow:
+1. Run `npm start` for a dev build. This is where local changes will be compiled and built.
+2. Then, you can run `npm run start:chrome` to start an instance of the dev build in Chrome. Alternatively, you can use `npm run compile` and manually add the `dist` folder to your browser's installed extensions.
 
 ### For a production ready build
 

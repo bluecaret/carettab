@@ -148,7 +148,9 @@
       "year": "سال",
       "dayOfYear": "سال کا دن",
       "enableDayOfYear": "سال کے دن کو فعال کریں۔",
-      "leadingZero": "پہلے صفر دکھائیں۔"
+      "enableQuarter": "سہ ماہی کو فعال کریں۔",
+      "leadingZero": "پہلے صفر دکھائیں۔",
+      "quarter": "کوارٹر"
     },
     "design": {
       "bg": "حسب ضرورت پس منظر",

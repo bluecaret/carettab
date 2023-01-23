@@ -148,7 +148,9 @@
       "year": "год",
       "dayOfYear": "День года",
       "enableDayOfYear": "Включить день года",
-      "leadingZero": "Показать ведущие нули"
+      "enableQuarter": "Включить квартал",
+      "leadingZero": "Показать ведущие нули",
+      "quarter": "Квартал"
     },
     "design": {
       "bg": "Пользовательский Фон",

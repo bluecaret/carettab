@@ -148,7 +148,9 @@
       "year": "ano",
       "dayOfYear": "Dia do ano",
       "enableDayOfYear": "Ativar dia do ano",
-      "leadingZero": "Mostrar zeros à esquerda"
+      "enableQuarter": "Ativar trimestre",
+      "leadingZero": "Mostrar zeros à esquerda",
+      "quarter": "Trimestre"
     },
     "design": {
       "bg": "Fundo Personalizado",

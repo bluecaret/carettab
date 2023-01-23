@@ -148,7 +148,9 @@
       "year": "年",
       "dayOfYear": "年中日",
       "enableDayOfYear": "年中日を有効にする",
-      "leadingZero": "先行ゼロを表示"
+      "enableQuarter": "四半期を有効にする",
+      "leadingZero": "先行ゼロを表示",
+      "quarter": "四半期"
     },
     "design": {
       "bg": "カスタム背景",

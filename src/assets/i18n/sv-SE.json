@@ -148,7 +148,9 @@
       "year": "År",
       "dayOfYear": "Dag på året",
       "enableDayOfYear": "Aktivera dag på året",
-      "leadingZero": "Visa inledande nollor"
+      "enableQuarter": "Aktivera kvartal",
+      "leadingZero": "Visa inledande nollor",
+      "quarter": "Fjärdedel"
     },
     "design": {
       "bg": "Egen bakgrund",

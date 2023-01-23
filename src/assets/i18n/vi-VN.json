@@ -148,7 +148,9 @@
       "year": "Năm",
       "dayOfYear": "Ngày trong năm",
       "enableDayOfYear": "Kích hoạt ngày trong năm",
-      "leadingZero": "Hiển thị số 0 đứng đầu"
+      "enableQuarter": "Kích hoạt quý",
+      "leadingZero": "Hiển thị số 0 đứng đầu",
+      "quarter": "Một phần tư"
     },
     "design": {
       "bg": "Tùy chỉnh nền",

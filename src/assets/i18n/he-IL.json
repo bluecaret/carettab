@@ -148,7 +148,9 @@
       "year": "שנה",
       "dayOfYear": "יום בשנה",
       "enableDayOfYear": "אפשר יום בשנה",
-      "leadingZero": "הצג אפסים מובילים"
+      "enableQuarter": "אפשר רבעון",
+      "leadingZero": "הצג אפסים מובילים",
+      "quarter": "רובע"
     },
     "design": {
       "bg": "רקע מותאם אישית",

@@ -148,7 +148,9 @@
       "year": "年",
       "dayOfYear": "一年中的某一天",
       "enableDayOfYear": "啟用一年中的某一天",
-      "leadingZero": "顯示前導零"
+      "enableQuarter": "啟用季度",
+      "leadingZero": "顯示前導零",
+      "quarter": "四分之一"
     },
     "design": {
       "bg": "自訂背景",

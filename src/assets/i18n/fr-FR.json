@@ -148,7 +148,9 @@
       "year": "année",
       "dayOfYear": "Jour de l'année",
       "enableDayOfYear": "Activer le jour de l'année",
-      "leadingZero": "Afficher les zéros non significatifs"
+      "enableQuarter": "Activer le trimestre",
+      "leadingZero": "Afficher les zéros non significatifs",
+      "quarter": "Trimestre"
     },
     "design": {
       "bg": "Arrière-plan personnalisé",

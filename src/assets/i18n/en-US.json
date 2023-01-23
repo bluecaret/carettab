@@ -148,7 +148,9 @@
       "year": "Year",
       "dayOfYear": "Day of year",
       "enableDayOfYear": "Enable day of year",
-      "leadingZero": "Show leading zeros"
+      "enableQuarter": "Enable quarter",
+      "leadingZero": "Show leading zeros",
+      "quarter": "Quarter"
     },
     "design": {
       "bg": "Custom background",

@@ -148,7 +148,9 @@
       "year": "년",
       "dayOfYear": "연중일",
       "enableDayOfYear": "연도 활성화",
-      "leadingZero": "선행 0 표시"
+      "enableQuarter": "분기 활성화",
+      "leadingZero": "선행 0 표시",
+      "quarter": "4분의 1"
     },
     "design": {
       "bg": "맞춤 배경",

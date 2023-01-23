@@ -21,3 +21,9 @@
   [style.transform]="shared.getOffset(settings.config.date.dayOfYear.offset)">
   {{getDayOfYear()}} {{settings.config.date.dayOfYear.label}}
 </div>
+<div class="quarterLabel"
+  *ngIf="settings.config.date.quarter.enabled"
+  [style.fontSize]="shared.getFontSize(settings.config.date.quarter.scaling, 6)"
+  [style.transform]="shared.getOffset(settings.config.date.quarter.offset)">
+  {{getQuarterNumber()}} {{settings.config.date.quarter.label}}
+</div>

@@ -148,7 +148,9 @@
       "year": "Jahr",
       "dayOfYear": "Tag des Jahres",
       "enableDayOfYear": "Tag des Jahres aktivieren",
-      "leadingZero": "Führende Nullen anzeigen"
+      "enableQuarter": "Quartal aktivieren",
+      "leadingZero": "Führende Nullen anzeigen",
+      "quarter": "Quartal"
     },
     "design": {
       "bg": "Benutzerdefinierter Hintergrund",

@@ -148,7 +148,9 @@
       "year": "Anno",
       "dayOfYear": "Giorno dell'anno",
       "enableDayOfYear": "Abilita giorno dell'anno",
-      "leadingZero": "Mostra zeri iniziali"
+      "enableQuarter": "Abilita trimestre",
+      "leadingZero": "Mostra zeri iniziali",
+      "quarter": "Trimestre"
     },
     "design": {
       "bg": "Sfondo personalizzato",

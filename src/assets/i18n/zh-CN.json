@@ -148,7 +148,9 @@
       "year": "年",
       "dayOfYear": "一年中的某一天",
       "enableDayOfYear": "启用一年中的某一天",
-      "leadingZero": "显示前导零"
+      "enableQuarter": "启用季度",
+      "leadingZero": "显示前导零",
+      "quarter": "25美分硬币"
     },
     "design": {
       "bg": "自定义背景色",

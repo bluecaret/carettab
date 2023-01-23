@@ -180,6 +180,12 @@ export class TabDateComponent implements OnInit {
     return moment(this.currentDate).tz(this.getZone(this.settings.config.date.timezone)).format(format);
   }
 
+  getQuarterNumber() {
+    moment.locale(this.settings.config.i18n.lang);
+    let format = this.settings.config.date.quarter.format;
+    return moment(this.currentDate).tz(this.getZone(this.settings.config.date.timezone)).format(format);
+  }
+
   getZone(zone: string) {
     if (zone === 'Automatic') {
       zone = this.shared.zoneGuess;

@@ -271,6 +271,13 @@ export class DateSettings {
       offset: 0,
       format: 'DDDo'
     },
+    public quarter = {
+      enabled: false,
+      label: 'quarter',
+      scaling: 10,
+      offset: 0,
+      format: 'Qo'
+    },
   ) {}
 }
 

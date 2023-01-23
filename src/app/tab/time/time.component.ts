@@ -99,8 +99,6 @@ export class TabTimeComponent implements OnInit {
   }
 
   setAnalogSeconds() {
-    console.log('sync analog seconds');
-
     if (this.clock.analog.enabled) {
       this.analogSecondRotation = this.getAnalogSecond(this.clock.timezone);
     }

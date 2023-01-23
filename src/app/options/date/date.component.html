@@ -53,6 +53,68 @@
           </select>
         </div>
       </div>
+      <div class="panelField panelFieldMultipleWithToggle">
+        <div class="panelFieldContent">
+          <label id="yearEnabledLabel" class="panelLabel">{{'options.date.year' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <options-toggle labelledby="yearEnabledLabel" type="toggle" name="year" [(ngModel)]="settings.config.date.year.enabled"></options-toggle>
+        </div>
+        <div *ngIf="settings.config.date.year.enabled">
+          <div class="panelField panelFieldInline" style="width: 100%;">
+            <div class="panelFieldContent">
+              <label id="yearShortLabel" class="panelDescription">{{'options.date.twoDigit' | translate}}</label>
+            </div>
+            <div class="panelFieldInput">
+              <options-toggle labelledby="yearShortLabel" name="yearShort" [(ngModel)]="settings.config.date.year.twoDigit"></options-toggle>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panelField panelFieldMultipleWithToggle">
+        <div class="panelFieldContent">
+          <label id="enableMonthLabel" class="panelLabel">{{'options.date.month' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <options-toggle labelledby="enableMonthLabel" name="month" [(ngModel)]="settings.config.date.month.enabled"></options-toggle>
+        </div>
+        <div *ngIf="settings.config.date.month.enabled">
+          <div class="panelField panelFieldInline" style="width: 100%;" *ngIf="!settings.config.date.short.enabled">
+            <div class="panelFieldContent">
+              <label id="monthAbbrLabel" class="panelDescription">{{'options.date.abbr' | translate}}</label>
+            </div>
+            <div class="panelFieldInput">
+              <options-toggle labelledby="monthAbbrLabel" name="monthAbbr" [(ngModel)]="settings.config.date.month.abbr"></options-toggle>
+            </div>
+          </div>
+          <div class="panelField panelFieldInline" style="width: 100%;" *ngIf="settings.config.date.short.enabled">
+            <div class="panelFieldContent">
+              <label id="monthTwoDigitLabel" class="panelDescription">{{'options.date.twoDigit' | translate}}</label>
+            </div>
+            <div class="panelFieldInput">
+              <options-toggle labelledby="monthTwoDigitLabel" name="monthTwoDigit" [(ngModel)]="settings.config.date.month.twoDigit"></options-toggle>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panelField panelFieldMultipleWithToggle">
+        <div class="panelFieldContent">
+          <label id="enableDayLabel" class="panelLabel">{{'options.date.day' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <options-toggle labelledby="enableDayLabel" name="day" [(ngModel)]="settings.config.date.day.enabled"></options-toggle>
+        </div>
+        <div *ngIf="settings.config.date.day.enabled">
+          <div class="panelField panelFieldInline" style="width: 100%;">
+            <div class="panelFieldContent">
+              <label id="dayTwoDigitLabel" class="panelDescription">{{'options.date.twoDigit' | translate}}</label>
+            </div>
+            <div class="panelFieldInput">
+              <options-toggle labelledby="dayTwoDigitLabel" name="dayTwoDigit" [(ngModel)]="settings.config.date.day.twoDigit"></options-toggle>
+            </div>
+          </div>
+        </div>
+      </div>
     </ng-container>
   </div>
   <ng-container *ngIf="settings.config.date.enabled">
@@ -132,70 +194,6 @@
               <options-toggle labelledby="dimSuffixLabel" id="dimSuffix" name="dimSuffix" [(ngModel)]="settings.config.date.short.dimSuffix"></options-toggle>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <h3 class="panelSubtitle">{{'options.date.year' | translate}}</h3>
-    <div class="panelGroup">
-      <div class="panelField panelFieldInline">
-        <div class="panelFieldContent">
-          <label id="yearEnabledLabel" class="panelLabel">{{'options.date.enableYear' | translate}}</label>
-        </div>
-        <div class="panelFieldInput">
-          <options-toggle labelledby="yearEnabledLabel" type="toggle" name="year" [(ngModel)]="settings.config.date.year.enabled"></options-toggle>
-        </div>
-      </div>
-      <div class="panelField panelFieldInline" *ngIf="settings.config.date.year.enabled">
-        <div class="panelFieldContent">
-          <label id="yearShortLabel" class="panelLabel">{{'options.date.twoDigit' | translate}}</label>
-        </div>
-        <div class="panelFieldInput">
-          <options-toggle labelledby="yearShortLabel" name="yearShort" [(ngModel)]="settings.config.date.year.twoDigit"></options-toggle>
-        </div>
-      </div>
-    </div><h3 class="panelSubtitle">{{'options.date.month' | translate}}</h3>
-    <div class="panelGroup">
-      <div class="panelField panelFieldInline">
-        <div class="panelFieldContent">
-          <label id="enableMonthLabel" class="panelLabel">{{'options.date.enableMonth' | translate}}</label>
-        </div>
-        <div class="panelFieldInput">
-          <options-toggle labelledby="enableMonthLabel" name="month" [(ngModel)]="settings.config.date.month.enabled"></options-toggle>
-        </div>
-      </div>
-      <div class="panelField panelFieldInline" *ngIf="settings.config.date.month.enabled && !settings.config.date.short.enabled">
-        <div class="panelFieldContent">
-          <label id="monthAbbrLabel" class="panelLabel">{{'options.date.abbr' | translate}}</label>
-        </div>
-        <div class="panelFieldInput">
-          <options-toggle labelledby="monthAbbrLabel" name="monthAbbr" [(ngModel)]="settings.config.date.month.abbr"></options-toggle>
-        </div>
-      </div>
-      <div class="panelField panelFieldInline" *ngIf="settings.config.date.month.enabled && settings.config.date.short.enabled">
-        <div class="panelFieldContent">
-          <label id="monthTwoDigitLabel" class="panelLabel">{{'options.date.twoDigit' | translate}}</label>
-        </div>
-        <div class="panelFieldInput">
-          <options-toggle labelledby="monthTwoDigitLabel" name="monthTwoDigit" [(ngModel)]="settings.config.date.month.twoDigit"></options-toggle>
-        </div>
-      </div>
-    </div>
-    <h3 class="panelSubtitle">{{'options.date.day' | translate}}</h3>
-    <div class="panelGroup">
-      <div class="panelField panelFieldInline">
-        <div class="panelFieldContent">
-          <label id="enableDayLabel" class="panelLabel">{{'options.date.enableDay' | translate}}</label>
-        </div>
-        <div class="panelFieldInput">
-          <options-toggle labelledby="enableDayLabel" name="day" [(ngModel)]="settings.config.date.day.enabled"></options-toggle>
-        </div>
-      </div>
-      <div class="panelField panelFieldInline" *ngIf="settings.config.date.day.enabled">
-        <div class="panelFieldContent">
-          <label id="dayTwoDigitLabel" class="panelLabel">{{'options.date.twoDigit' | translate}}</label>
-        </div>
-        <div class="panelFieldInput">
-          <options-toggle labelledby="dayTwoDigitLabel" name="dayTwoDigit" [(ngModel)]="settings.config.date.day.twoDigit"></options-toggle>
         </div>
       </div>
     </div>

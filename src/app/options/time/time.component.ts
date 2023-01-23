@@ -3,7 +3,7 @@ import { Storage } from '../../_storage/storage.service';
 import { Clock } from '../../_shared/models/clock';
 import { TimezoneService, Timezone } from './timezone.service';
 import { SharedService } from '../../_shared/shared.service';
-import { analogFaceStyles, analogHandStyles, span } from '../../_shared/lists/lists';
+import { analogFaceStyles, analogHandStyles, span } from '../../../js/lists.js';
 
 @Component({
   selector: 'options-time',

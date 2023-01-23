@@ -1,6 +1,6 @@
 import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 import { SharedService } from './shared.service';
-import { bgSize, bgBlend } from './lists/lists';
+import { bgSize, bgBlend } from '../../js/lists.js';
 import { Storage } from '../_storage/storage.service';
 import { DomSanitizer } from '@angular/platform-browser';
 

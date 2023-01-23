@@ -2,7 +2,7 @@ import { Component, NgZone, Renderer2, ElementRef, ViewChild, ViewChildren, Inpu
 import { Storage } from '../../_storage/storage.service';
 import { Clock } from '../../_shared/models/clock';
 import { SharedService } from '../../_shared/shared.service';
-import { span } from '../../_shared/lists/lists';
+import { span } from '../../../js/lists.js';
 import * as moment from 'moment';
 import { DomSanitizer } from '@angular/platform-browser';
 

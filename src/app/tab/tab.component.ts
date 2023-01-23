@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from '../_shared/shared.service';
 import { WallpaperService } from '../_shared/wallpaper.service';
 import { Storage } from '../_storage/storage.service';
-import { fontList, span, bgSize, bgBlend, patterns } from '../_shared/lists/lists';
+import { fontList, span, bgSize, bgBlend, patterns } from '../../js/lists.js';
 import { tab } from '../_shared/animations';
 
 @Component({

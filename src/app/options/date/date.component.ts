@@ -2,7 +2,7 @@ import { Component, HostBinding, Output, EventEmitter } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { TimezoneService, Timezone } from '../time/timezone.service';
 import { SharedService } from '../../_shared/shared.service';
-import { dateFormat } from '../../_shared/lists/lists';
+import { dateFormat } from '../../../js/lists.js';
 
 @Component({
   selector: 'options-date',

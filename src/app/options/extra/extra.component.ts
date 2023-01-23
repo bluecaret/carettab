@@ -1,7 +1,7 @@
 import { Component, HostBinding, NgZone, Output, EventEmitter } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '../../_storage/storage.service';
-import { title, languages } from '../../_shared/lists/lists';
+import { title, languages } from '../../../js/lists.js';
 import { SharedService } from '../../_shared/shared.service';
 import { createViewChild } from '@angular/compiler/src/core';
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
-import { searchEngines } from '../../_shared/lists/lists';
+import { searchEngines } from '../../../js/lists.js';
 import { SharedService } from '../../_shared/shared.service';
 
 @Component({

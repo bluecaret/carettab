@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { SimpleModalComponent } from 'ngx-simple-modal';
 import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../shared.service';
-import { languages } from '../lists/lists';
+import { languages } from '../../../js/lists.js';
 
 export interface IntroModel {
 }

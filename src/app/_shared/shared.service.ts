@@ -1,5 +1,5 @@
 import { Injectable, Pipe, PipeTransform } from '@angular/core';
-import { fontList, customFontWeight } from './lists/lists';
+import { fontList, customFontWeight } from '../../js/lists.js';
 import { Storage } from '../_storage/storage.service';
 
 @Injectable()

@@ -2,7 +2,7 @@ import { Component, HostBinding, OnInit, Output, EventEmitter, Renderer2 } from 
 import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
 import { WallpaperService } from '../../_shared/wallpaper.service';
-import { fontList, colors, customFontWeight, patterns, bgSize, bgBlend } from '../../_shared/lists/lists';
+import { fontList, colors, customFontWeight, patterns, bgSize, bgBlend } from '../../../js/lists.js';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({

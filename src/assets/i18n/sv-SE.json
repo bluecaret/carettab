@@ -217,8 +217,13 @@
       "unsplashTopics": "Unsplash-ämnen",
       "uploadImage": "Ladda upp bild",
       "uploadedImage": "UPPLADD BILD",
+      "color": "Färg",
       "randomColorTheme": "Slumpmässigt färgtema",
-      "randomColorThemeDesc": "Varje gång en flik laddas kommer ett slumpmässigt tema från listan med förinställningar att väljas."
+      "randomColorThemeDesc": "Varje gång en flik laddas kommer ett slumpmässigt tema från listan med förinställningar att väljas.",
+      "shadow": "Skugga",
+      "shadowDesc": "Lägger till en skugga till widgets. Skuggor fungerar inte på alla widgets.",
+      "shadowXOffset": "X förskjutning",
+      "shadowYOffset": "Y Offset"
     },
     "extra": {
       "disableSelect": "Inaktivera textval",

@@ -217,8 +217,13 @@
       "unsplashTopics": "Unsplash-Themen",
       "uploadImage": "Bild hochladen",
       "uploadedImage": "HOCHGELADENES BILD",
+      "color": "Farbe",
       "randomColorTheme": "Zufälliges Farbthema",
-      "randomColorThemeDesc": "Jedes Mal, wenn ein Tab geladen wird, wird ein zufälliges Thema aus der Liste der Voreinstellungen ausgewählt."
+      "randomColorThemeDesc": "Jedes Mal, wenn ein Tab geladen wird, wird ein zufälliges Thema aus der Liste der Voreinstellungen ausgewählt.",
+      "shadow": "Schatten",
+      "shadowDesc": "Fügt Widgets einen Schatten hinzu. Schatten funktionieren nicht bei allen Widgets.",
+      "shadowXOffset": "X Versatz",
+      "shadowYOffset": "Y Versatz"
     },
     "extra": {
       "disableSelect": "Deaktivieren Sie die Textauswahl",

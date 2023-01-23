@@ -126,8 +126,8 @@
       </div>
       <div class="panelField panelFieldMultipleWithToggle">
         <div class="panelFieldContent">
-          <label id="shadowLabel" class="panelLabel">Shadow</label>
-          <p class="panelDescription">Adds a shadow to widgets. Shadows do not work on all widgets.</p>
+          <label id="shadowLabel" class="panelLabel">{{'options.design.shadow' | translate}}</label>
+          <p class="panelDescription">{{'options.design.shadowDesc' | translate}}</p>
         </div>
         <div class="panelFieldInput">
           <options-toggle labelledby="shadowLabel" id="shadow" name="shadow" [(ngModel)]="settings.config.design.shadow"></options-toggle>
@@ -135,7 +135,7 @@
         <div *ngIf="settings.config.design.shadow">
           <div class="panelField">
             <div class="panelFieldContent">
-              <label for="shadowX" class="panelDescription">X Offset</label>
+              <label for="shadowX" class="panelDescription">{{'options.design.shadowXOffset' | translate}}</label>
             </div>
             <div class="panelFieldInput">
               <input type="number" name="shadowX" id="shadowX" class="panelInput" [(ngModel)]="settings.config.design.shadowXOffset" />
@@ -143,7 +143,7 @@
           </div>
           <div class="panelField">
             <div class="panelFieldContent">
-              <label for="shadowY" class="panelDescription">Y Offset</label>
+              <label for="shadowY" class="panelDescription">{{'options.design.shadowYOffset' | translate}}</label>
             </div>
             <div class="panelFieldInput">
               <input type="number" name="shadowY" id="shadowY" class="panelInput" [(ngModel)]="settings.config.design.shadowYOffset" />
@@ -151,7 +151,7 @@
           </div>
           <div class="panelField">
             <div class="panelFieldContent">
-              <label for="shadowBlur" class="panelDescription">Blur</label>
+              <label for="shadowBlur" class="panelDescription">{{'options.design.blur' | translate}}</label>
             </div>
             <div class="panelFieldInput">
               <input type="number" name="shadowBlur" id="shadowBlur" class="panelInput" [(ngModel)]="settings.config.design.shadowBlur" />
@@ -159,7 +159,7 @@
           </div>
           <div class="panelField">
             <div class="panelFieldContent">
-              <label id="shadowColorLabel" class="panelDescription">Color</label>
+              <label id="shadowColorLabel" class="panelDescription">{{'options.design.color' | translate}}</label>
             </div>
             <div class="panelFieldInput">
               <input class="panelInput panelInputColor" type="color" aria-labelledby="shadowColorLabel" name="shadowColor"

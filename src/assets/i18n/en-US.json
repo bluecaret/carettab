@@ -217,8 +217,13 @@
       "unsplashTopics": "Unsplash Topics",
       "uploadImage": "Upload image",
       "uploadedImage": "Uploaded image",
+      "color": "Color",
       "randomColorTheme": "Random color theme",
-      "randomColorThemeDesc": "Every time a tab is loaded, a random theme from the list of presets will be chosen."
+      "randomColorThemeDesc": "Every time a tab is loaded, a random theme from the list of presets will be chosen.",
+      "shadow": "Shadow",
+      "shadowDesc": "Adds a shadow to widgets. Shadows do not work on all widgets.",
+      "shadowXOffset": "X Offset",
+      "shadowYOffset": "Y Offset"
     },
     "extra": {
       "disableSelect": "Disable text selection",

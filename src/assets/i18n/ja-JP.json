@@ -217,8 +217,13 @@
       "unsplashTopics": "トピックのスプラッシュを解除",
       "uploadImage": "画像をアップロード",
       "uploadedImage": "アップロードされた画像",
+      "color": "色",
       "randomColorTheme": "ランダムカラーテーマ",
-      "randomColorThemeDesc": "タブが読み込まれるたびに、プリセットのリストからランダムなテーマが選択されます。"
+      "randomColorThemeDesc": "タブが読み込まれるたびに、プリセットのリストからランダムなテーマが選択されます。",
+      "shadow": "影",
+      "shadowDesc": "ウィジェットに影を追加します。シャドウはすべてのウィジェットで機能するわけではありません。",
+      "shadowXOffset": "X オフセット",
+      "shadowYOffset": "Y オフセット"
     },
     "extra": {
       "disableSelect": "テキスト選択を無効にする",

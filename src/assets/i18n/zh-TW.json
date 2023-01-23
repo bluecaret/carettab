@@ -217,8 +217,13 @@
       "unsplashTopics": "不飛濺主題",
       "uploadImage": "上傳圖片",
       "uploadedImage": "上載的圖片",
+      "color": "顏色",
       "randomColorTheme": "隨機顏色主題",
-      "randomColorThemeDesc": "每次加載標籤時，都會從預設列表中選擇一個隨機主題。"
+      "randomColorThemeDesc": "每次加載標籤時，都會從預設列表中選擇一個隨機主題。",
+      "shadow": "陰影",
+      "shadowDesc": "為小部件添加陰影。陰影不適用於所有小部件。",
+      "shadowXOffset": "X 偏移",
+      "shadowYOffset": "Y 偏移量"
     },
     "extra": {
       "disableSelect": "禁止文字選取",

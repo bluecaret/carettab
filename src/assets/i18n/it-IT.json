@@ -217,8 +217,13 @@
       "unsplashTopics": "Argomenti Unsplash",
       "uploadImage": "Carica immagine",
       "uploadedImage": "Immagine caricata",
+      "color": "Colore",
       "randomColorTheme": "Tema di colore casuale",
-      "randomColorThemeDesc": "Ogni volta che viene caricata una scheda, verrà scelto un tema casuale dall'elenco dei preset."
+      "randomColorThemeDesc": "Ogni volta che viene caricata una scheda, verrà scelto un tema casuale dall'elenco dei preset.",
+      "shadow": "Ombra",
+      "shadowDesc": "Aggiunge un'ombra ai widget. Le ombre non funzionano su tutti i widget.",
+      "shadowXOffset": "X offset",
+      "shadowYOffset": "Offset Y"
     },
     "extra": {
       "disableSelect": "Disabilita la selezione del testo",

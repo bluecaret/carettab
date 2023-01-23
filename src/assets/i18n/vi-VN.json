@@ -217,8 +217,13 @@
       "unsplashTopics": "Chủ đề Unsplash",
       "uploadImage": "Tải lên hình ảnh",
       "uploadedImage": "HÌNH ẢNH ĐÃ TẢI LÊN",
+      "color": "Màu",
       "randomColorTheme": "Chủ đề màu sắc ngẫu nhiên",
-      "randomColorThemeDesc": "Mỗi khi một tab được tải, một chủ đề ngẫu nhiên từ danh sách cài đặt sẵn sẽ được chọn."
+      "randomColorThemeDesc": "Mỗi khi một tab được tải, một chủ đề ngẫu nhiên từ danh sách cài đặt sẵn sẽ được chọn.",
+      "shadow": "Bóng",
+      "shadowDesc": "Thêm bóng cho các vật dụng. Bóng không hoạt động trên tất cả các vật dụng.",
+      "shadowXOffset": "Độ lệch X",
+      "shadowYOffset": "Độ lệch Y"
     },
     "extra": {
       "disableSelect": "Tắt lựa chọn văn bản",

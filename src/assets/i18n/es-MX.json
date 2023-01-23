@@ -217,8 +217,13 @@
       "unsplashTopics": "Unsplash Temas",
       "uploadImage": "Cargar imagen",
       "uploadedImage": "Imagen subida",
+      "color": "Color",
       "randomColorTheme": "Tema de color aleatorio",
-      "randomColorThemeDesc": "Cada vez que se carga una pestaña, se elegirá un tema aleatorio de la lista de ajustes preestablecidos."
+      "randomColorThemeDesc": "Cada vez que se carga una pestaña, se elegirá un tema aleatorio de la lista de ajustes preestablecidos.",
+      "shadow": "Sombra",
+      "shadowDesc": "Agrega una sombra a los widgets. Las sombras no funcionan en todos los widgets.",
+      "shadowXOffset": "Desplazamiento X",
+      "shadowYOffset": "Desplazamiento Y"
     },
     "extra": {
       "disableSelect": "Deshabilitar la selección de texto",

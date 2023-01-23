@@ -217,8 +217,13 @@
       "unsplashTopics": "Unsplash נושאים",
       "uploadImage": "העלאת תמונה",
       "uploadedImage": "תמונה שהועלתה",
+      "color": "צבע",
       "randomColorTheme": "נושא צבע אקראי",
-      "randomColorThemeDesc": "בכל פעם שכרטיסייה נטענת, ייבחר ערכת נושא אקראית מרשימת הקביעות המוגדרות מראש."
+      "randomColorThemeDesc": "בכל פעם שכרטיסייה נטענת, ייבחר ערכת נושא אקראית מרשימת הקביעות המוגדרות מראש.",
+      "shadow": "צל",
+      "shadowDesc": "מוסיף צל לווידג'טים. צללים לא פועלים בכל הווידג'טים.",
+      "shadowXOffset": "X היסט",
+      "shadowYOffset": "Y offset"
     },
     "extra": {
       "disableSelect": "השבת את בחירת הטקסט",

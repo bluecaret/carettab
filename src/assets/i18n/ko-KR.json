@@ -217,8 +217,13 @@
       "unsplashTopics": "Unsplash 주제",
       "uploadImage": "이미지 업로드",
       "uploadedImage": "업로드 된 이미지",
+      "color": "색깔",
       "randomColorTheme": "임의 색상 테마",
-      "randomColorThemeDesc": "탭이 로드될 때마다 사전 설정 목록에서 임의의 테마가 선택됩니다."
+      "randomColorThemeDesc": "탭이 로드될 때마다 사전 설정 목록에서 임의의 테마가 선택됩니다.",
+      "shadow": "그림자",
+      "shadowDesc": "위젯에 그림자를 추가합니다. 그림자는 모든 위젯에서 작동하지 않습니다.",
+      "shadowXOffset": "X 오프셋",
+      "shadowYOffset": "Y 오프셋"
     },
     "extra": {
       "disableSelect": "텍스트 선택 비활성화",

@@ -217,8 +217,13 @@
       "unsplashTopics": "Sujets Unsplash",
       "uploadImage": "Télécharger une image",
       "uploadedImage": "Image téléchargée",
+      "color": "Couleur",
       "randomColorTheme": "Thème de couleur aléatoire",
-      "randomColorThemeDesc": "Chaque fois qu'un onglet est chargé, un thème aléatoire de la liste des préréglages sera choisi."
+      "randomColorThemeDesc": "Chaque fois qu'un onglet est chargé, un thème aléatoire de la liste des préréglages sera choisi.",
+      "shadow": "Ombre",
+      "shadowDesc": "Ajoute une ombre aux widgets. Les ombres ne fonctionnent pas sur tous les widgets.",
+      "shadowXOffset": "Décalage X",
+      "shadowYOffset": "Décalage Y"
     },
     "extra": {
       "disableSelect": "Désactiver la sélection de texte",

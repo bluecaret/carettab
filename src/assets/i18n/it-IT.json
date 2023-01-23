@@ -101,7 +101,8 @@
       "topCenter": "In alto al centro",
       "topLeft": "In alto a sinistra",
       "topRight": "In alto a destra",
-      "widthDesc": "Imposta la larghezza che il widget si estenderà rispetto alla larghezza dello schermo. Ciò potrebbe far sì che i widget vengano visualizzati più piccoli del previsto se la finestra è troppo piccola."
+      "widthDesc": "Imposta la larghezza che il widget si estenderà rispetto alla larghezza dello schermo. Ciò potrebbe far sì che i widget vengano visualizzati più piccoli del previsto se la finestra è troppo piccola.",
+      "dim": "Dim"
     },
     "dashboard": {
       "contribute": "Contribuisci al codice",
@@ -150,7 +151,11 @@
       "enableDayOfYear": "Abilita giorno dell'anno",
       "enableQuarter": "Abilita trimestre",
       "leadingZero": "Mostra zeri iniziali",
-      "quarter": "Trimestre"
+      "quarter": "Trimestre",
+      "suffix": "Suffisso",
+      "suffixDate": "Suffisso data",
+      "suffixMonth": "Suffisso del mese",
+      "suffixYear": "Suffisso dell'anno"
     },
     "design": {
       "bg": "Sfondo personalizzato",

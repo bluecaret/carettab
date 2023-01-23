@@ -101,7 +101,8 @@
       "topCenter": "Top Center",
       "topLeft": "Övre vänstra",
       "topRight": "Överst till höger",
-      "widthDesc": "Ställer in bredden som widgeten spänner över i förhållande till skärmens bredd. Detta kan göra att widgets visas mindre än vad som är tänkt om fönstret görs för litet."
+      "widthDesc": "Ställer in bredden som widgeten spänner över i förhållande till skärmens bredd. Detta kan göra att widgets visas mindre än vad som är tänkt om fönstret görs för litet.",
+      "dim": "Dämpa"
     },
     "dashboard": {
       "contribute": "Bidra med kod",
@@ -150,7 +151,11 @@
       "enableDayOfYear": "Aktivera dag på året",
       "enableQuarter": "Aktivera kvartal",
       "leadingZero": "Visa inledande nollor",
-      "quarter": "Fjärdedel"
+      "quarter": "Fjärdedel",
+      "suffix": "Ändelse",
+      "suffixDate": "Datumsuffix",
+      "suffixMonth": "Månadssuffix",
+      "suffixYear": "Årssuffix"
     },
     "design": {
       "bg": "Egen bakgrund",

@@ -101,7 +101,8 @@
       "topCenter": "Trung tâm hàng đầu",
       "topLeft": "Trên cùng bên trái",
       "topRight": "Trên cùng bên phải",
-      "widthDesc": "Đặt chiều rộng mà tiện ích sẽ mở rộng so với chiều rộng của màn hình. Điều này có thể khiến các tiện ích hiển thị nhỏ hơn dự định nếu cửa sổ được làm quá nhỏ."
+      "widthDesc": "Đặt chiều rộng mà tiện ích sẽ mở rộng so với chiều rộng của màn hình. Điều này có thể khiến các tiện ích hiển thị nhỏ hơn dự định nếu cửa sổ được làm quá nhỏ.",
+      "dim": "Lờ mờ"
     },
     "dashboard": {
       "contribute": "Đóng góp mã",
@@ -150,7 +151,11 @@
       "enableDayOfYear": "Kích hoạt ngày trong năm",
       "enableQuarter": "Kích hoạt quý",
       "leadingZero": "Hiển thị số 0 đứng đầu",
-      "quarter": "Một phần tư"
+      "quarter": "Một phần tư",
+      "suffix": "Hậu tố",
+      "suffixDate": "Hậu tố ngày",
+      "suffixMonth": "Hậu tố tháng",
+      "suffixYear": "Hậu tố năm"
     },
     "design": {
       "bg": "Tùy chỉnh nền",

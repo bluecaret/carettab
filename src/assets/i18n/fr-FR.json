@@ -101,7 +101,8 @@
       "topCenter": "Centre supérieur",
       "topLeft": "En haut à gauche",
       "topRight": "En haut à droite",
-      "widthDesc": "Définit la largeur que le widget s'étendra par rapport à la largeur de l'écran. Cela pourrait faire en sorte que les widgets s'affichent plus petits que prévu si la fenêtre est trop petite."
+      "widthDesc": "Définit la largeur que le widget s'étendra par rapport à la largeur de l'écran. Cela pourrait faire en sorte que les widgets s'affichent plus petits que prévu si la fenêtre est trop petite.",
+      "dim": "Faible"
     },
     "dashboard": {
       "contribute": "Code de contribution",
@@ -150,7 +151,11 @@
       "enableDayOfYear": "Activer le jour de l'année",
       "enableQuarter": "Activer le trimestre",
       "leadingZero": "Afficher les zéros non significatifs",
-      "quarter": "Trimestre"
+      "quarter": "Trimestre",
+      "suffix": "Suffixe",
+      "suffixDate": "Suffixe de date",
+      "suffixMonth": "Suffixe du mois",
+      "suffixYear": "Suffixe de l'année"
     },
     "design": {
       "bg": "Arrière-plan personnalisé",

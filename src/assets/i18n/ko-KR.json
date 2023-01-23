@@ -101,7 +101,8 @@
       "topCenter": "탑 센터",
       "topLeft": "왼쪽 상단",
       "topRight": "오른쪽 상단",
-      "widthDesc": "화면 너비를 기준으로 위젯이 확장되는 너비를 설정합니다. 이로 인해 창을 너무 작게 만들면 위젯이 의도한 것보다 작게 표시될 수 있습니다."
+      "widthDesc": "화면 너비를 기준으로 위젯이 확장되는 너비를 설정합니다. 이로 인해 창을 너무 작게 만들면 위젯이 의도한 것보다 작게 표시될 수 있습니다.",
+      "dim": "어둑한"
     },
     "dashboard": {
       "contribute": "기여 코드",
@@ -150,7 +151,11 @@
       "enableDayOfYear": "연도 활성화",
       "enableQuarter": "분기 활성화",
       "leadingZero": "선행 0 표시",
-      "quarter": "4분의 1"
+      "quarter": "4분의 1",
+      "suffix": "접미사",
+      "suffixDate": "날짜 접미사",
+      "suffixMonth": "월 접미사",
+      "suffixYear": "연도 접미사"
     },
     "design": {
       "bg": "맞춤 배경",

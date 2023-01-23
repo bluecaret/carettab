@@ -101,7 +101,8 @@
       "topCenter": "Oben in der Mitte",
       "topLeft": "Oben links",
       "topRight": "Oben rechts",
-      "widthDesc": "Legt die Breite fest, die das Widget relativ zur Breite des Bildschirms überspannt. Dies könnte dazu führen, dass Widgets kleiner als beabsichtigt angezeigt werden, wenn das Fenster zu klein gemacht wird."
+      "widthDesc": "Legt die Breite fest, die das Widget relativ zur Breite des Bildschirms überspannt. Dies könnte dazu führen, dass Widgets kleiner als beabsichtigt angezeigt werden, wenn das Fenster zu klein gemacht wird.",
+      "dim": "Dim"
     },
     "dashboard": {
       "contribute": "Code beitragen",
@@ -150,7 +151,11 @@
       "enableDayOfYear": "Tag des Jahres aktivieren",
       "enableQuarter": "Quartal aktivieren",
       "leadingZero": "Führende Nullen anzeigen",
-      "quarter": "Quartal"
+      "quarter": "Quartal",
+      "suffix": "Suffix",
+      "suffixDate": "Datumszusatz",
+      "suffixMonth": "Monatszusatz",
+      "suffixYear": "Jahreszusatz"
     },
     "design": {
       "bg": "Benutzerdefinierter Hintergrund",

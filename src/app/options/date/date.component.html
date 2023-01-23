@@ -79,7 +79,49 @@
           <label for="shortDelimiter" class="panelLabel">{{'options.common.delimiter' | translate}}</label>
         </div>
         <div class="panelFieldInput">
-          <input class="panelInput panelInputXs" type="text" maxlength="1" id="shortDelimiter" name="shortDelimiter" [(ngModel)]="settings.config.date.short.delimiter" autocomplete="off">
+          <input class="panelInput panelInputXs" type="text" maxlength="50" id="shortDelimiter" name="shortDelimiter" [(ngModel)]="settings.config.date.short.delimiter" autocomplete="off">
+        </div>
+      </div>
+      <div class="panelField panelFieldMultipleWithToggle" *ngIf="settings.config.date.short.enabled">
+        <div class="panelFieldContent">
+          <label id="enableSuffixLabel" class="panelLabel">{{'options.date.suffix' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <options-toggle labelledby="enableSuffixLabel" id="enableSuffix" name="enableSuffix" [(ngModel)]="settings.config.date.short.enableSuffix"></options-toggle>
+        </div>
+        <div *ngIf="settings.config.date.short.enableSuffix">
+          <div class="panelField">
+            <div class="panelFieldContent">
+              <label for="yearSuffix" class="panelDescription">{{'options.date.suffixYear' | translate}}</label>
+            </div>
+            <div class="panelFieldInput">
+              <input type="text" name="yearSuffix" id="yearSuffix" class="panelInput" [(ngModel)]="settings.config.date.short.yearSuffix" />
+            </div>
+          </div>
+          <div class="panelField">
+            <div class="panelFieldContent">
+              <label for="monthSuffix" class="panelDescription">{{'options.date.suffixMonth' | translate}}</label>
+            </div>
+            <div class="panelFieldInput">
+              <input type="text" name="monthSuffix" id="monthSuffix" class="panelInput" [(ngModel)]="settings.config.date.short.monthSuffix" />
+            </div>
+          </div>
+          <div class="panelField">
+            <div class="panelFieldContent">
+              <label for="dateSuffix" class="panelDescription">{{'options.date.suffixDate' | translate}}</label>
+            </div>
+            <div class="panelFieldInput">
+              <input type="text" name="dateSuffix" id="dateSuffix" class="panelInput" [(ngModel)]="settings.config.date.short.dateSuffix" />
+            </div>
+          </div>
+          <div class="panelField">
+            <div class="panelFieldContent">
+              <label for="dimSuffixLabel" class="panelDescription">{{'options.common.dim' | translate}}</label>
+            </div>
+            <div class="panelFieldInput">
+              <options-toggle labelledby="dimSuffixLabel" id="dimSuffix" name="dimSuffix" [(ngModel)]="settings.config.date.short.dimSuffix"></options-toggle>
+            </div>
+          </div>
         </div>
       </div>
     </div>

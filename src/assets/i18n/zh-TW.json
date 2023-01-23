@@ -101,7 +101,8 @@
       "topCenter": "頂級中心",
       "topLeft": "左上方",
       "topRight": "右上",
-      "widthDesc": "設置小部件相對於屏幕寬度的寬度。如果窗口太小，這可能會導緻小部件顯示得比預期的小。"
+      "widthDesc": "設置小部件相對於屏幕寬度的寬度。如果窗口太小，這可能會導緻小部件顯示得比預期的小。",
+      "dim": "暗淡"
     },
     "dashboard": {
       "contribute": "貢獻代碼",
@@ -150,7 +151,11 @@
       "enableDayOfYear": "啟用一年中的某一天",
       "enableQuarter": "啟用季度",
       "leadingZero": "顯示前導零",
-      "quarter": "四分之一"
+      "quarter": "四分之一",
+      "suffix": "後綴",
+      "suffixDate": "日期後綴",
+      "suffixMonth": "月份後綴",
+      "suffixYear": "年份後綴"
     },
     "design": {
       "bg": "自訂背景",

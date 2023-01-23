@@ -101,7 +101,8 @@
       "topCenter": "Top center",
       "topLeft": "Top left",
       "topRight": "Top right",
-      "widthDesc": "Sets the width that the widget will span relative to the width of the screen. This could cause widgets to display smaller than intended if the window is made too small."
+      "widthDesc": "Sets the width that the widget will span relative to the width of the screen. This could cause widgets to display smaller than intended if the window is made too small.",
+      "dim": "Dim"
     },
     "dashboard": {
       "contribute": "Contribute code",
@@ -150,7 +151,11 @@
       "enableDayOfYear": "Enable day of year",
       "enableQuarter": "Enable quarter",
       "leadingZero": "Show leading zeros",
-      "quarter": "Quarter"
+      "quarter": "Quarter",
+      "suffix": "Suffix",
+      "suffixDate": "Date suffix",
+      "suffixMonth": "Month suffix",
+      "suffixYear": "Year suffix"
     },
     "design": {
       "bg": "Custom background",

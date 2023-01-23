@@ -101,7 +101,8 @@
       "topCenter": "顶级中心",
       "topLeft": "左上方",
       "topRight": "右上",
-      "widthDesc": "设置小部件相对于屏幕宽度的宽度。如果窗口太小，这可能会导致小部件显示得比预期的小。"
+      "widthDesc": "设置小部件相对于屏幕宽度的宽度。如果窗口太小，这可能会导致小部件显示得比预期的小。",
+      "dim": "暗淡"
     },
     "dashboard": {
       "contribute": "贡献代码",
@@ -150,7 +151,11 @@
       "enableDayOfYear": "启用一年中的某一天",
       "enableQuarter": "启用季度",
       "leadingZero": "显示前导零",
-      "quarter": "25美分硬币"
+      "quarter": "25美分硬币",
+      "suffix": "后缀",
+      "suffixDate": "日期后缀",
+      "suffixMonth": "月份后缀",
+      "suffixYear": "年份后缀"
     },
     "design": {
       "bg": "自定义背景色",

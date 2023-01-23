@@ -101,7 +101,8 @@
       "topCenter": "Centro Superior",
       "topLeft": "Arriba a la izquierda",
       "topRight": "Parte superior derecha",
-      "widthDesc": "Establece el ancho que abarcará el widget en relación con el ancho de la pantalla. Esto podría hacer que los widgets se muestren más pequeños de lo previsto si la ventana se hace demasiado pequeña."
+      "widthDesc": "Establece el ancho que abarcará el widget en relación con el ancho de la pantalla. Esto podría hacer que los widgets se muestren más pequeños de lo previsto si la ventana se hace demasiado pequeña.",
+      "dim": "Oscuro"
     },
     "dashboard": {
       "contribute": "Código de contribución",
@@ -150,7 +151,11 @@
       "enableDayOfYear": "Habilitar día del año",
       "enableQuarter": "Habilitar trimestre",
       "leadingZero": "Mostrar ceros a la izquierda",
-      "quarter": "Trimestre"
+      "quarter": "Trimestre",
+      "suffix": "Sufijo",
+      "suffixDate": "Sufijo de fecha",
+      "suffixMonth": "Sufijo de mes",
+      "suffixYear": "Sufijo de año"
     },
     "design": {
       "bg": "Fondo personalizado",

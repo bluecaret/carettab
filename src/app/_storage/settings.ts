@@ -35,6 +35,7 @@ export class DesignSettings {
     public background = '#333333',
     public foreground = '#E6E6E6',
     public colorsId = 2500,
+    public randomColors = false,
     public patternId = 0,
     public unsplashId = "",
     public unsplashCredit = "",

@@ -211,7 +211,9 @@
       "unsplashTopic": "Раскрыть тему:",
       "unsplashTopics": "Скрыть темы",
       "uploadImage": "Загрузить изображение",
-      "uploadedImage": "ЗАГРУЖЕННОЕ ИЗОБРАЖЕНИЕ"
+      "uploadedImage": "ЗАГРУЖЕННОЕ ИЗОБРАЖЕНИЕ",
+      "randomColorTheme": "Случайная цветовая тема",
+      "randomColorThemeDesc": "При каждой загрузке вкладки будет выбираться случайная тема из списка пресетов."
     },
     "extra": {
       "disableSelect": "Отключить выделение текста",

@@ -211,7 +211,9 @@
       "unsplashTopic": "Unsplash موضوع:",
       "unsplashTopics": "انسپلیش موضوعات",
       "uploadImage": "تصویر انٹرنیٹ پر ڈالنا",
-      "uploadedImage": "اپلوڈ شدہ امیج"
+      "uploadedImage": "اپلوڈ شدہ امیج",
+      "randomColorTheme": "بے ترتیب رنگین تھیم",
+      "randomColorThemeDesc": "جب بھی کوئی ٹیب لوڈ ہوتا ہے، پیش سیٹ کی فہرست میں سے ایک بے ترتیب تھیم کا انتخاب کیا جائے گا۔"
     },
     "extra": {
       "disableSelect": "متن کا انتخاب غیر فعال کریں",

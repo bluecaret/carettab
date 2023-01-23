@@ -211,7 +211,9 @@
       "unsplashTopic": "Unsplash トピック:",
       "unsplashTopics": "トピックのスプラッシュを解除",
       "uploadImage": "画像をアップロード",
-      "uploadedImage": "アップロードされた画像"
+      "uploadedImage": "アップロードされた画像",
+      "randomColorTheme": "ランダムカラーテーマ",
+      "randomColorThemeDesc": "タブが読み込まれるたびに、プリセットのリストからランダムなテーマが選択されます。"
     },
     "extra": {
       "disableSelect": "テキスト選択を無効にする",

@@ -211,7 +211,9 @@
       "unsplashTopic": "Unsplash-Thema:",
       "unsplashTopics": "Unsplash-Themen",
       "uploadImage": "Bild hochladen",
-      "uploadedImage": "HOCHGELADENES BILD"
+      "uploadedImage": "HOCHGELADENES BILD",
+      "randomColorTheme": "Zufälliges Farbthema",
+      "randomColorThemeDesc": "Jedes Mal, wenn ein Tab geladen wird, wird ein zufälliges Thema aus der Liste der Voreinstellungen ausgewählt."
     },
     "extra": {
       "disableSelect": "Deaktivieren Sie die Textauswahl",

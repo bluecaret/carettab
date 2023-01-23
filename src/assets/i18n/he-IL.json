@@ -211,7 +211,9 @@
       "unsplashTopic": "נושא Unsplash:",
       "unsplashTopics": "Unsplash נושאים",
       "uploadImage": "העלאת תמונה",
-      "uploadedImage": "תמונה שהועלתה"
+      "uploadedImage": "תמונה שהועלתה",
+      "randomColorTheme": "נושא צבע אקראי",
+      "randomColorThemeDesc": "בכל פעם שכרטיסייה נטענת, ייבחר ערכת נושא אקראית מרשימת הקביעות המוגדרות מראש."
     },
     "extra": {
       "disableSelect": "השבת את בחירת הטקסט",

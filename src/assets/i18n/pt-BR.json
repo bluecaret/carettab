@@ -211,7 +211,9 @@
       "unsplashTopic": "Desbloquear Tópico:",
       "unsplashTopics": "Unsplash Tópicos",
       "uploadImage": "Enviar Imagem",
-      "uploadedImage": "IMAGEM CARREGADA"
+      "uploadedImage": "IMAGEM CARREGADA",
+      "randomColorTheme": "Tema de cor aleatória",
+      "randomColorThemeDesc": "Cada vez que uma aba for carregada, um tema aleatório da lista de presets será escolhido."
     },
     "extra": {
       "disableSelect": "Desativar seleção de texto",

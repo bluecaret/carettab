@@ -211,7 +211,9 @@
       "unsplashTopic": "不飞溅主题：",
       "unsplashTopics": "不飞溅主题",
       "uploadImage": "上传图片",
-      "uploadedImage": "上载的图片"
+      "uploadedImage": "上载的图片",
+      "randomColorTheme": "随机颜色主题",
+      "randomColorThemeDesc": "每次加载标签时，都会从预设列表中选择一个随机主题。"
     },
     "extra": {
       "disableSelect": "禁用文字选择",

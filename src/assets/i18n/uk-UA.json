@@ -211,7 +211,9 @@
       "unsplashTopic": "Unsplash Тема:",
       "unsplashTopics": "Unsplash Topics",
       "uploadImage": "Завантажити зображення",
-      "uploadedImage": "ЗАВАНТАЖЕНЕ ЗОБРАЖЕННЯ"
+      "uploadedImage": "ЗАВАНТАЖЕНЕ ЗОБРАЖЕННЯ",
+      "randomColorTheme": "Тема випадкового кольору",
+      "randomColorThemeDesc": "Щоразу, коли завантажується вкладка, вибирається випадкова тема зі списку попередньо налаштованих."
     },
     "extra": {
       "disableSelect": "Вимкнути виділення тексту",

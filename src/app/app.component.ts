@@ -10,6 +10,7 @@ import * as moment from 'moment';
 import * as Bowser from 'bowser';
 import { SimpleModalService } from 'ngx-simple-modal';
 import { IntroModalComponent } from './_shared/modals/intro-modal.component';
+import { colors } from "../js/lists.js";
 
 @Component({
   selector: 'app-root',
@@ -81,8 +82,22 @@ export class AppComponent implements OnInit {
           this.renderer.setStyle(wallpaper, 'background-repeat', [10, 50].includes(this.settings.config.design.imageSize) ? 'repeat' : 'no-repeat');
         });
       }
+      this.getColorTheme();
       this.migrate();
     }, 0);
+  }
+
+  getColorTheme() {
+    if (this.settings.config.design.randomColors) {
+      var c = colors[Math.floor(Math.random() * colors.length)];
+      this.settings.config.design.background = c.bg;
+      this.settings.config.design.foreground = c.fg;
+      this.settings.config.design.colorsId = c.id;
+
+      this.settings.setAll(this.settings.config.design, 'ct-design');
+    }
+    const wallpaper = document.getElementById('wallpaper');
+    this.renderer.setStyle(wallpaper, 'background-color', this.settings.config.design.background);
   }
 
   // Used to migrate settings or add new settings

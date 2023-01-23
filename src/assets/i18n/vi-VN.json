@@ -211,7 +211,9 @@
       "unsplashTopic": "Chủ đề Unsplash:",
       "unsplashTopics": "Chủ đề Unsplash",
       "uploadImage": "Tải lên hình ảnh",
-      "uploadedImage": "HÌNH ẢNH ĐÃ TẢI LÊN"
+      "uploadedImage": "HÌNH ẢNH ĐÃ TẢI LÊN",
+      "randomColorTheme": "Chủ đề màu sắc ngẫu nhiên",
+      "randomColorThemeDesc": "Mỗi khi một tab được tải, một chủ đề ngẫu nhiên từ danh sách cài đặt sẵn sẽ được chọn."
     },
     "extra": {
       "disableSelect": "Tắt lựa chọn văn bản",

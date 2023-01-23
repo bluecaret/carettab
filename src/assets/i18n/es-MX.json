@@ -211,7 +211,9 @@
       "unsplashTopic": "Unsplash Tema:",
       "unsplashTopics": "Unsplash Temas",
       "uploadImage": "Cargar imagen",
-      "uploadedImage": "Imagen subida"
+      "uploadedImage": "Imagen subida",
+      "randomColorTheme": "Tema de color aleatorio",
+      "randomColorThemeDesc": "Cada vez que se carga una pestaña, se elegirá un tema aleatorio de la lista de ajustes preestablecidos."
     },
     "extra": {
       "disableSelect": "Deshabilitar la selección de texto",

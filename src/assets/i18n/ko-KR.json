@@ -211,7 +211,9 @@
       "unsplashTopic": "Unsplash 주제:",
       "unsplashTopics": "Unsplash 주제",
       "uploadImage": "이미지 업로드",
-      "uploadedImage": "업로드 된 이미지"
+      "uploadedImage": "업로드 된 이미지",
+      "randomColorTheme": "임의 색상 테마",
+      "randomColorThemeDesc": "탭이 로드될 때마다 사전 설정 목록에서 임의의 테마가 선택됩니다."
     },
     "extra": {
       "disableSelect": "텍스트 선택 비활성화",

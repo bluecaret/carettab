@@ -111,8 +111,6 @@ async function setBackground() {
   }
 
   if (designSettings) {
-    // Set background color
-    wallpaperDiv.style.backgroundColor = designSettings.background;
 
     // If Unsplash image, and user has paid, apply background image
     if (['topics', 'collections', 'search'].includes(designSettings.wallpaperType)) {
@@ -120,15 +118,6 @@ async function setBackground() {
         let now = new Date();
         let then = new Date(designSettings.wallpaperTimestamp);
         let thenPlusOne = new Date(then.getFullYear(), then.getMonth(), then.getDate() + 1, 0, 0, 0, 0);
-        // console.log(
-        //   'Init: wallpaperTimestamp, then, thenPlusOne, now',
-        //   [
-        //     designSettings.wallpaperTimestamp,
-        //     then,
-        //     thenPlusOne,
-        //     now
-        //   ]
-        // );
 
         if (
           ['topics', 'collections'].includes(designSettings.wallpaperType)
@@ -163,7 +152,6 @@ async function setBackground() {
 }
 
 function applyBackgroundStyles(design, bg) {
-  wallpaperDiv.style.backgroundColor = design.background;
   wallpaperDiv.style.backgroundImage = `url(${bg})`;
   wallpaperDiv.style.filter = getFilters(design, (extPayUser && extPayUser.paid));
   wallpaperDiv.style.backgroundSize = getBgSize(design);

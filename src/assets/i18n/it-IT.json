@@ -211,7 +211,9 @@
       "unsplashTopic": "Argomento Unsplash:",
       "unsplashTopics": "Argomenti Unsplash",
       "uploadImage": "Carica immagine",
-      "uploadedImage": "Immagine caricata"
+      "uploadedImage": "Immagine caricata",
+      "randomColorTheme": "Tema di colore casuale",
+      "randomColorThemeDesc": "Ogni volta che viene caricata una scheda, verrà scelto un tema casuale dall'elenco dei preset."
     },
     "extra": {
       "disableSelect": "Disabilita la selezione del testo",

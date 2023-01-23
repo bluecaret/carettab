@@ -211,7 +211,9 @@
       "unsplashTopic": "Sujet Unsplash :",
       "unsplashTopics": "Sujets Unsplash",
       "uploadImage": "Télécharger une image",
-      "uploadedImage": "Image téléchargée"
+      "uploadedImage": "Image téléchargée",
+      "randomColorTheme": "Thème de couleur aléatoire",
+      "randomColorThemeDesc": "Chaque fois qu'un onglet est chargé, un thème aléatoire de la liste des préréglages sera choisi."
     },
     "extra": {
       "disableSelect": "Désactiver la sélection de texte",

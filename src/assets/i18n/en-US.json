@@ -211,7 +211,9 @@
       "unsplashTopic": "Unsplash Topic:",
       "unsplashTopics": "Unsplash Topics",
       "uploadImage": "Upload image",
-      "uploadedImage": "Uploaded image"
+      "uploadedImage": "Uploaded image",
+      "randomColorTheme": "Random color theme",
+      "randomColorThemeDesc": "Every time a tab is loaded, a random theme from the list of presets will be chosen."
     },
     "extra": {
       "disableSelect": "Disable text selection",

@@ -190,6 +190,15 @@
     <div class="panelGroup">
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
+          <label id="randomColorsLabel" class="panelLabel">{{'options.design.randomColorTheme' | translate}}</label>
+          <p class="panelDescription">{{'options.design.randomColorThemeDesc' | translate}}</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-toggle labelledby="randomColorsLabel" id="randomColors" name="randomColors" [(ngModel)]="settings.config.design.randomColors"></options-toggle>
+        </div>
+      </div>
+      <div *ngIf="!settings.config.design.randomColors" class="panelField panelFieldInline">
+        <div class="panelFieldContent">
           <label id="setForeground" class="panelLabel">{{'options.design.fg' | translate}}</label>
         </div>
         <div class="panelFieldInput">
@@ -201,7 +210,7 @@
           <input class="panelInput panelInputMd" type="text" aria-labelledby="setForeground" name="fg-code" [(ngModel)]="settings.config.design.foreground" (ngModelChange)="settings.config.design.colorsId = 0; " autocomplete="off">
         </div>
       </div>
-      <div class="panelField panelFieldInline">
+      <div *ngIf="!settings.config.design.randomColors" class="panelField panelFieldInline">
         <div class="panelFieldContent">
           <label id="setBackgroundLabel" class="panelLabel">{{'options.design.bg' | translate}}</label>
         </div>
@@ -216,7 +225,7 @@
             autocomplete="off">
         </div>
       </div>
-      <div class="panelField">
+      <div *ngIf="!settings.config.design.randomColors" class="panelField">
         <div class="panelThemeGrid">
           <button
             *ngFor="let color of colors;"

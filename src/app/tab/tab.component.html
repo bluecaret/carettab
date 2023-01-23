@@ -21,6 +21,7 @@
   <div
     class="tabGrid"
     [ngClass]="{ 'tabGridBookmarksBar': settings.config.bookmark.enabled }"
+    [style.textShadow]="setGlobalShadow()"
   >
     <article *ngFor="let gridBlock of grid;" [id]="gridBlock" class="gridPosition">
       <div

@@ -18,13 +18,14 @@
     transition: opacity .2s;
     font-family: inherit;
     font-weight: inherit;
+    text-shadow: inherit;
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
       -webkit-transition-delay: 111111s !important;
       -webkit-transition: color 11111s ease-out, background-color 111111s ease-out !important;
-    } 
+    }
     &:focus {
       outline: none;
       opacity: 1;
@@ -50,6 +51,7 @@
     transform: translateY(-50%);
     transition: opacity .2s;
     z-index: z('tabSearch');
+    text-shadow: inherit;
     &:focus,
     &:hover {
       outline: none;

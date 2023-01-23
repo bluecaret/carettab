@@ -124,6 +124,53 @@
           <options-toggle labelledby="scalingMethodLabel" id="scalingMethod" name="scalingMethod" [(ngModel)]="settings.config.design.scalingMethod"></options-toggle>
         </div>
       </div>
+      <div class="panelField panelFieldMultipleWithToggle">
+        <div class="panelFieldContent">
+          <label id="shadowLabel" class="panelLabel">Shadow</label>
+          <p class="panelDescription">Adds a shadow to widgets. Shadows do not work on all widgets.</p>
+        </div>
+        <div class="panelFieldInput">
+          <options-toggle labelledby="shadowLabel" id="shadow" name="shadow" [(ngModel)]="settings.config.design.shadow"></options-toggle>
+        </div>
+        <div *ngIf="settings.config.design.shadow">
+          <div class="panelField">
+            <div class="panelFieldContent">
+              <label for="shadowX" class="panelDescription">X Offset</label>
+            </div>
+            <div class="panelFieldInput">
+              <input type="number" name="shadowX" id="shadowX" class="panelInput" [(ngModel)]="settings.config.design.shadowXOffset" />
+            </div>
+          </div>
+          <div class="panelField">
+            <div class="panelFieldContent">
+              <label for="shadowY" class="panelDescription">Y Offset</label>
+            </div>
+            <div class="panelFieldInput">
+              <input type="number" name="shadowY" id="shadowY" class="panelInput" [(ngModel)]="settings.config.design.shadowYOffset" />
+            </div>
+          </div>
+          <div class="panelField">
+            <div class="panelFieldContent">
+              <label for="shadowBlur" class="panelDescription">Blur</label>
+            </div>
+            <div class="panelFieldInput">
+              <input type="number" name="shadowBlur" id="shadowBlur" class="panelInput" [(ngModel)]="settings.config.design.shadowBlur" />
+            </div>
+          </div>
+          <div class="panelField">
+            <div class="panelFieldContent">
+              <label id="shadowColorLabel" class="panelDescription">Color</label>
+            </div>
+            <div class="panelFieldInput">
+              <input class="panelInput panelInputColor" type="color" aria-labelledby="shadowColorLabel" name="shadowColor"
+                [(ngModel)]="settings.config.design.shadowColor"
+                [style.backgroundColor]="settings.config.design.shadowColor"
+              >
+              <input class="panelInput panelInputSm" type="text" aria-labelledby="shadowColorLabel" name="shadowColor" [(ngModel)]="settings.config.design.shadowColor" autocomplete="off">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </form>
   <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon" aria-hidden="true">arrow_back</i>{{'options.dashboard.backToDashboard' | translate}}</button>

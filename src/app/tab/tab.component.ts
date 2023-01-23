@@ -151,6 +151,15 @@ export class TabComponent implements OnInit, AfterViewInit {
     return 'center';
   }
 
+  setGlobalShadow(): string {
+    const x = (this.settings.config.design.shadowXOffset * .1) + 'rem';
+    const y = (this.settings.config.design.shadowYOffset * .1) + 'rem';
+    const blur = (this.settings.config.design.shadowBlur * .1) + 'rem';
+    const color = this.settings.config.design.shadowColor;
+    const styles = '' + x + ' ' + y + ' ' + blur + ' ' + color + '';
+    return this.settings.config.design.shadow === true ? styles : null;
+  }
+
   setTimeStyles(clock): Object {
     const styles = {
       'font-size' : this.shared.getFontSize(clock.scaling, 1.7),
@@ -303,6 +312,7 @@ export class TabComponent implements OnInit, AfterViewInit {
       'width': this.shared.getMaxWidth(this.settings.config.notepad.width),
       'height': this.shared.getMaxHeight(this.settings.config.notepad.height),
       'margin' : this.shared.getMargin(this.settings.config.notepad.marginHeight, this.settings.config.notepad.marginWidth, .4),
+      'box-shadow': this.settings.config.notepad.showBorder || this.settings.config.notepad.showBg ? this.setGlobalShadow() : 'none'
     };
     return styles;
   }

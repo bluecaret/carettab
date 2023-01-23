@@ -71,7 +71,7 @@ export class AppComponent implements OnInit {
         this.SimpleModalService.addModal(IntroModalComponent, {}).subscribe(()=>{
           chrome.storage.local.set({caretTabStatus: 'highlightSettings'});
           this.shared.status = 'highlightSettings';
-          this.shared.saveAll(); // Save
+          this.shared.saveAll();
 
           const wallpaper = document.getElementById('wallpaper');
           this.renderer.setStyle(wallpaper, 'background-color', this.settings.config.design.background);
@@ -81,7 +81,25 @@ export class AppComponent implements OnInit {
           this.renderer.setStyle(wallpaper, 'background-repeat', [10, 50].includes(this.settings.config.design.imageSize) ? 'repeat' : 'no-repeat');
         });
       }
+      this.migrate();
     }, 0);
+  }
+
+  // Used to migrate settings or add new settings
+  migrate() {
+    let that = this;
+    chrome.storage.sync.get(['ct-design'], function (result) {
+      if (result && result['ct-design']) {
+        let design = result['ct-design'];
+        // New as of 3.8.0
+        if (design.shadow == undefined) {that.settings.config.design.shadow = false}
+        if (design.shadowXOffset == undefined) {that.settings.config.design.shadowXOffset = 1}
+        if (design.shadowYOffset == undefined) {that.settings.config.design.shadowYOffset = 1}
+        if (design.shadowBlur == undefined) {that.settings.config.design.shadowBlur = 5}
+        if (design.shadowColor == undefined) {that.settings.config.design.shadowColor = "#000000"}
+        that.settings.setAll(that.settings.config.design, 'ct-design');
+      }
+    });
   }
 
   findBrowser() {

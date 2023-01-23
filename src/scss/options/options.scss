@@ -211,6 +211,19 @@ app-options {
     flex-direction: row;
     align-items: center;
   }
+  &.panelFieldMultipleWithToggle {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto;
+    *:nth-child(3) {
+      grid-column: 1 / 3;
+      display: flex;
+      gap: var(--size400) var(--size600);
+      .panelField {
+        padding: 0;
+      }
+    }
+  }
   .panelFieldContent {
     flex: 1 1 auto;
   }

@@ -62,6 +62,7 @@ $qlRadius: 8px;
     border: 0;
     cursor: pointer;
     transform: scale(1);
+    text-shadow: inherit;
     &:hover {
       text-decoration: none;
       transform: scale(1.1);

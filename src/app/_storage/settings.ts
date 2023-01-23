@@ -52,6 +52,11 @@ export class DesignSettings {
     public saturation = 10,
     public hideMenu = false,
     public hideLogo = true,
+    public shadow = false,
+    public shadowXOffset = 1,
+    public shadowYOffset = 1,
+    public shadowBlur = 5,
+    public shadowColor = '#000000'
   ) {}
 }
 

@@ -210,6 +210,53 @@
         </div>
       </div>
     </div>
+    <h3 class="panelSubtitle">{{'options.date.dayOfYear' | translate}}</h3>
+    <div class="panelGroup">
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="enableDayOfYearLabel" class="panelLabel">{{'options.date.enableDayOfYear' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <options-toggle labelledby="enableDayOfYearLabel" name="enableDayOfYear" [(ngModel)]="settings.config.date.dayOfYear.enabled"></options-toggle>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline" *ngIf="settings.config.date.dayOfYear.enabled">
+        <div class="panelFieldContent">
+          <label for="dayOfYearLabel" class="panelLabel">{{'options.common.label' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <input class="panelInput panelInputLg" type="text" id="dayOfYearLabel" name="dayOfYearLabel" [(ngModel)]="settings.config.date.dayOfYear.label" autocomplete="off">
+        </div>
+      </div>
+      <div class="panelField panelFieldInline" *ngIf="settings.config.date.dayOfYear.enabled">
+        <div class="panelFieldContent">
+          <label id="dayOfYearSizeLabel" class="panelLabel">{{'options.common.size' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <options-range class="panelInputLg" labelledby="dayOfYearSizeLabel" name="dayOfYearSize" min="1" max="50" [(ngModel)]="settings.config.date.dayOfYear.scaling"></options-range>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline" *ngIf="settings.config.date.dayOfYear.enabled">
+        <div class="panelFieldContent">
+          <label id="dayOfYearOffsetLabel" class="panelLabel">{{'options.common.offset' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <options-range class="panelInputLg" labelledby="dayOfYearOffsetLabel" name="dayOfYearOffset" min="-50" max="50" [(ngModel)]="settings.config.date.dayOfYear.offset"></options-range>
+        </div>
+      </div>
+      <div class="panelField panelFieldInline" *ngIf="settings.config.date.dayOfYear.enabled">
+        <div class="panelFieldContent">
+          <label for="dayOfYearFormat" class="panelLabel">{{'options.common.format' | translate}}</label>
+        </div>
+        <div class="panelFieldInput">
+          <select id="dayOfYearFormat" name="dayOfYearFormat" class="panelSelect panelInputLg" [(ngModel)]="settings.config.date.dayOfYear.format">
+            <option [ngValue]="'DDD'">1 2 ... 364 365</option>
+            <option [ngValue]="'DDDo'">1st 2nd ... 364th 365th</option>
+            <option [ngValue]="'DDDD'">001 002 ... 364 365</option>
+          </select>
+        </div>
+      </div>
+    </div>
     <h3 class="panelSubtitle">{{'options.common.layout' | translate}}</h3>
     <div class="panelGroup">
       <div class="panelField panelFieldInline">

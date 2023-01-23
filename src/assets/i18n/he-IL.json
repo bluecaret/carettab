@@ -145,7 +145,10 @@
       "weekIso": "מספר שבוע ISO",
       "weekIsoDesc": "השתמש במערכת תאריכי שבוע ISO מתוך תקן תאריך ושעה ISO 8601.",
       "weekNum": "מספר השבוע",
-      "year": "שנה"
+      "year": "שנה",
+      "dayOfYear": "יום בשנה",
+      "enableDayOfYear": "אפשר יום בשנה",
+      "leadingZero": "הצג אפסים מובילים"
     },
     "design": {
       "bg": "רקע מותאם אישית",

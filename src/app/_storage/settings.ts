@@ -264,6 +264,13 @@ export class DateSettings {
       offset: 0,
       iso: false
     },
+    public dayOfYear = {
+      enabled: false,
+      label: 'day of year',
+      scaling: 10,
+      offset: 0,
+      format: 'DDDo'
+    },
   ) {}
 }
 

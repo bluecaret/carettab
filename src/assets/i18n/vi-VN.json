@@ -145,7 +145,10 @@
       "weekIso": "Hệ thống ngày theo tuần của ISO",
       "weekIsoDesc": "Sử dụng hệ thống ngày theo tuần ISO từ tiêu chuẩn ngày và giờ ISO 8601.",
       "weekNum": "Số tuần",
-      "year": "Năm"
+      "year": "Năm",
+      "dayOfYear": "Ngày trong năm",
+      "enableDayOfYear": "Kích hoạt ngày trong năm",
+      "leadingZero": "Hiển thị số 0 đứng đầu"
     },
     "design": {
       "bg": "Tùy chỉnh nền",

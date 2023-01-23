@@ -145,7 +145,10 @@
       "weekIso": "ISO-Wochennummer",
       "weekIsoDesc": "Verwenden Sie das ISO-Wochendatumsystem nach ISO 8601 Datums- und Zeitstandard.",
       "weekNum": "Wochennummer",
-      "year": "Jahr"
+      "year": "Jahr",
+      "dayOfYear": "Tag des Jahres",
+      "enableDayOfYear": "Tag des Jahres aktivieren",
+      "leadingZero": "Führende Nullen anzeigen"
     },
     "design": {
       "bg": "Benutzerdefinierter Hintergrund",

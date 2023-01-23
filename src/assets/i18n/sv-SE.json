@@ -145,7 +145,10 @@
       "weekIso": "ISO-veckonummer",
       "weekIsoDesc": "Använd ISO-veckodatussystemet från ISO 8601-datum och tidsstandard.",
       "weekNum": "Veckans nummer",
-      "year": "År"
+      "year": "År",
+      "dayOfYear": "Dag på året",
+      "enableDayOfYear": "Aktivera dag på året",
+      "leadingZero": "Visa inledande nollor"
     },
     "design": {
       "bg": "Egen bakgrund",

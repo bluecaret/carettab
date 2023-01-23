@@ -145,7 +145,10 @@
       "weekIso": "ISO 周数",
       "weekIsoDesc": "使用 ISO 860 1日期和时间标准中的 ISO 周日期系统。",
       "weekNum": "周数",
-      "year": "年"
+      "year": "年",
+      "dayOfYear": "一年中的某一天",
+      "enableDayOfYear": "启用一年中的某一天",
+      "leadingZero": "显示前导零"
     },
     "design": {
       "bg": "自定义背景色",

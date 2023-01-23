@@ -15,3 +15,9 @@
   [style.transform]="shared.getOffset(settings.config.date.week.offset)">
   {{settings.config.date.week.label}} {{getWeekNumber()}}
 </div>
+<div class="dayOfYearLabel"
+  *ngIf="settings.config.date.dayOfYear.enabled"
+  [style.fontSize]="shared.getFontSize(settings.config.date.dayOfYear.scaling, 6)"
+  [style.transform]="shared.getOffset(settings.config.date.dayOfYear.offset)">
+  {{getDayOfYear()}} {{settings.config.date.dayOfYear.label}}
+</div>

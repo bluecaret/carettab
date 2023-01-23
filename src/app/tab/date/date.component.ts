@@ -174,6 +174,12 @@ export class TabDateComponent implements OnInit {
     return moment(this.currentDate).tz(this.getZone(this.settings.config.date.timezone)).format(format);
   }
 
+  getDayOfYear() {
+    moment.locale(this.settings.config.i18n.lang);
+    let format = this.settings.config.date.dayOfYear.format;
+    return moment(this.currentDate).tz(this.getZone(this.settings.config.date.timezone)).format(format);
+  }
+
   getZone(zone: string) {
     if (zone === 'Automatic') {
       zone = this.shared.zoneGuess;

@@ -31,7 +31,6 @@ export class TabSearchComponent implements AfterViewInit {
   }
 
   setEngine() {
-    console.log('paid?', this.shared.paid, this.settings.config.search.customEngine);
     if (this.shared.paid && this.settings.config.search.enableCustomEngine) {
 
       this.url = this.settings.config.search.customEngine;
@@ -45,7 +44,7 @@ export class TabSearchComponent implements AfterViewInit {
     if (!this.searchText || this.searchText.trim() == '') {
       return;
     }
-    let searchUrl = `${this.url.split('%s')[0]}${encodeURIComponent(this.searchText)}${this.url.split('%s')[1]}`
+    let searchUrl = `${this.url.split('%s')[0] ? this.url.split('%s')[0] : ''}${encodeURIComponent(this.searchText)}${this.url.split('%s')[1] ? this.url.split('%s')[1] : ''}`
     location.replace(searchUrl);
   }
 

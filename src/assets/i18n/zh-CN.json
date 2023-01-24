@@ -34,7 +34,8 @@
       "stackVertDesc": "以垂直列表而不是水平列表显示链接。",
       "topSitesPermission": "允许扩展访问热门站点",
       "url": "网址",
-      "faviconsDesc": "Favicons 使用浏览器的临时文件来显示。清除浏览器的临时文件可能会导致删除链接的图标。要恢复图标，只需再次访问每个链接即可。"
+      "faviconsDesc": "Favicons 使用浏览器的临时文件来显示。清除浏览器的临时文件可能会导致删除链接的图标。要恢复图标，只需再次访问每个链接即可。",
+      "openInNewTab": "在新标签页中打开链接"
     },
     "common": {
       "aboutLink": "关于",

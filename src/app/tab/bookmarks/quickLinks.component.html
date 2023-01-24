@@ -48,7 +48,8 @@
           href="{{item.url}}"
           class="link allowPointerEvent"
           title="{{getShortcut(i)}}"
-          attr.accesskey="{{i <= 9 ? i + 1 : null}}">
+          attr.accesskey="{{i <= 9 ? i + 1 : null}}"
+          [target]="settings.config.quickLink.openInNewTab ? '_blank' : '_self'">
           <img *ngIf="settings.config.quickLink.icons" [src]="getQuickLinksIcon(item.url)" class="quickLinksIcon">
           <div class="quickLinksLabel">{{item.label}}</div>
         </a>

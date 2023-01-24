@@ -110,19 +110,35 @@ export class TabQuickLinksComponent implements OnInit {
   }
 
   bookmarksManager() {
-    chrome.tabs.update({ url: 'chrome://bookmarks' });
+    if (this.settings.config.quickLink.openInNewTab) {
+      chrome.tabs.create({ url: 'chrome://bookmarks' });
+    } else {
+      chrome.tabs.update({ url: 'chrome://bookmarks' });
+    }
   }
 
   history() {
-    chrome.tabs.update({ url: 'chrome://history' });
+    if (this.settings.config.quickLink.openInNewTab) {
+      chrome.tabs.create({ url: 'chrome://history' });
+    } else {
+      chrome.tabs.update({ url: 'chrome://history' });
+    }
   }
 
   apps() {
-    chrome.tabs.update({ url: 'chrome://apps' });
+    if (this.settings.config.quickLink.openInNewTab) {
+      chrome.tabs.create({ url: 'chrome://apps' });
+    } else {
+      chrome.tabs.update({ url: 'chrome://apps' });
+    }
   }
 
   chromeTab() {
-    chrome.tabs.update({ url: 'chrome-search://local-ntp/local-ntp.html' });
+    if (this.settings.config.quickLink.openInNewTab) {
+      chrome.tabs.create({ url: 'chrome-search://local-ntp/local-ntp.html' });
+    } else {
+      chrome.tabs.update({ url: 'chrome-search://local-ntp/local-ntp.html' });
+    }
   }
 
   getShortcut(index: number): string {

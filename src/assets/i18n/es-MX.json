@@ -34,7 +34,8 @@
       "stackVertDesc": "Muestra enlaces en una lista vertical en lugar de horizontal.",
       "topSitesPermission": "Permitir que la extensión acceda a los sitios principales",
       "url": "Url",
-      "faviconsDesc": "Los Favicons utilizan los archivos temporales del navegador para mostrarse. Borrar los archivos temporales del navegador podría resultar en la eliminación de favicons para sus enlaces. Para restaurar los íconos, simplemente visite cada enlace nuevamente."
+      "faviconsDesc": "Los Favicons utilizan los archivos temporales del navegador para mostrarse. Borrar los archivos temporales del navegador podría resultar en la eliminación de favicons para sus enlaces. Para restaurar los íconos, simplemente visite cada enlace nuevamente.",
+      "openInNewTab": "Abrir enlaces en una pestaña nueva"
     },
     "common": {
       "aboutLink": "Acerca de",

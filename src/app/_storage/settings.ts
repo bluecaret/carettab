@@ -97,6 +97,7 @@ export class BookmarkSettings {
     public history = false,
     public apps = false,
     public chromeTab = false,
+    public openInNewTab = false,
   ) {}
 }
 
@@ -119,6 +120,7 @@ export class QuickLinkSettings {
     public history = false,
     public apps = false,
     public chromeTab = false,
+    public openInNewTab = false,
     public links = [
       {
         id: 'LINK_2OKQ6AXD3ZW',

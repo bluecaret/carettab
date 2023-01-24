@@ -34,7 +34,8 @@
       "stackVertDesc": "Visualizza i collegamenti in un elenco verticale anziché orizzontale.",
       "topSitesPermission": "Consenti all'estensione di accedere ai siti principali",
       "url": "URL",
-      "faviconsDesc": "Le favicon utilizzano i file temporanei del browser per la visualizzazione. La cancellazione dei file temporanei del browser potrebbe comportare la rimozione delle favicon per i tuoi link. Per ripristinare le icone, è sufficiente visitare di nuovo ogni collegamento."
+      "faviconsDesc": "Le favicon utilizzano i file temporanei del browser per la visualizzazione. La cancellazione dei file temporanei del browser potrebbe comportare la rimozione delle favicon per i tuoi link. Per ripristinare le icone, è sufficiente visitare di nuovo ogni collegamento.",
+      "openInNewTab": "Apri i collegamenti in una nuova scheda"
     },
     "common": {
       "aboutLink": "Di",

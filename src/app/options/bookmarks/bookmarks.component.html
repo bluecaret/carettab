@@ -69,6 +69,14 @@
         <options-toggle labelledby="mostVisitedBookmarksBarLabel" *ngIf="hasTopSitesPermission" name="mostVisitedBookmarksBar" [(ngModel)]="settings.config.bookmark.mostVisited"></options-toggle>
       </div>
     </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.bookmark.enabled">
+      <div class="panelFieldContent">
+        <label id="openInNewTabBookmarksBarLabel" class="panelLabel">{{'options.bookmarks.openInNewTab' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle labelledby="openInNewTabBookmarksBarLabel" name="openInNewTabBookmarksBar" [(ngModel)]="settings.config.bookmark.openInNewTab"></options-toggle>
+      </div>
+    </div>
   </div>
   <h2 class="panelTitle">
     <button
@@ -137,6 +145,14 @@
       <div class="panelFieldInput">
         <button class="panelBtn" *ngIf="!hasTopSitesPermission" (click)="setTopSitesPermission()">{{'options.bookmarks.topSitesPermission' | translate}}</button>
         <options-toggle labelledby="mostVisitedQuickLinksLabel" *ngIf="hasTopSitesPermission" name="mostVisitedQuickLinks" [(ngModel)]="settings.config.quickLink.mostVisited"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.quickLink.enabled">
+      <div class="panelFieldContent">
+        <label id="openInNewTabQuickLinksLabel" class="panelLabel">{{'options.bookmarks.openInNewTab' | translate}}</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle labelledby="openInNewTabQuickLinksLabel" name="openInNewTabQuickLinks" [(ngModel)]="settings.config.quickLink.openInNewTab"></options-toggle>
       </div>
     </div>
   </div>

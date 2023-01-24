@@ -58,7 +58,8 @@
             href="{{item.url}}"
             title="{{item.title}}
 {{item.url}}"
-            class="barLink">
+            class="barLink"
+            [target]="settings.config.bookmark.openInNewTab ? '_blank' : '_self'">
             <img *ngIf="settings.config.bookmark.icons" [src]="getQuickLinksIcon(item.url)" class="barIcon">
             <div class="barLabel">{{item.title}}</div>
           </a>
@@ -115,7 +116,8 @@
           href="{{item.url}}"
           title="{{item.title}}
 {{item.url}}"
-          class="barLink">
+          class="barLink"
+          [target]="settings.config.bookmark.openInNewTab ? '_blank' : '_self'">
           <img *ngIf="settings.config.bookmark.icons" [src]="getQuickLinksIcon(item.url)" class="barIcon">
           <div class="barLabel">{{item.title}}</div>
         </a>

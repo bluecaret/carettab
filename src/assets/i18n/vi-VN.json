@@ -270,7 +270,9 @@
       "label": "Nhãn",
       "search": "Tìm kiếm",
       "searchBox": "Hộp tìm kiếm",
-      "searchEngine": "Công cụ tìm kiếm"
+      "searchEngine": "Công cụ tìm kiếm",
+      "customSearchEngine": "Công cụ tìm kiếm tùy chỉnh",
+      "customSearchEngineDesc": "Nhập URL cho công cụ tìm kiếm với %s thay cho truy vấn tìm kiếm."
     },
     "time": {
       "addNewClock": "Thêm đồng hồ mới",

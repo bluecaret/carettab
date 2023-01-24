@@ -270,7 +270,9 @@
       "label": "لیبل لگائیں",
       "search": "تلاش کریں۔",
       "searchBox": "تلاش کا خانہ",
-      "searchEngine": "سرچ انجن"
+      "searchEngine": "سرچ انجن",
+      "customSearchEngine": "حسب ضرورت سرچ انجن",
+      "customSearchEngineDesc": "تلاش کے سوال کی جگہ %s کے ساتھ سرچ انجن کا URL درج کریں۔"
     },
     "time": {
       "addNewClock": "نئی گھڑی شامل کریں",

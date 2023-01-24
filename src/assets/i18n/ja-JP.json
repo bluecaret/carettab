@@ -270,7 +270,9 @@
       "label": "ラベル",
       "search": "サーチ",
       "searchBox": "検索ボックス",
-      "searchEngine": "検索エンジン"
+      "searchEngine": "検索エンジン",
+      "customSearchEngine": "カスタム検索エンジン",
+      "customSearchEngineDesc": "検索クエリの代わりに %s を使用して、検索エンジンの URL を入力します。"
     },
     "time": {
       "addNewClock": "新しい時計を追加",

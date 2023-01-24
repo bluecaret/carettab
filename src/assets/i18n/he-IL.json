@@ -270,7 +270,9 @@
       "label": "תווית",
       "search": "לחפש",
       "searchBox": "תיבת חיפוש",
-      "searchEngine": "מנוע חיפוש"
+      "searchEngine": "מנוע חיפוש",
+      "customSearchEngine": "מנוע חיפוש מותאם אישית",
+      "customSearchEngineDesc": "הזן את כתובת האתר של מנוע החיפוש עם %s במקום שאילתת החיפוש."
     },
     "time": {
       "addNewClock": "הוסף שעון חדש",

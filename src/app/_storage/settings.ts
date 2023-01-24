@@ -298,6 +298,8 @@ export class SearchSettings {
     public position = 'c',
     public width = 21,
     public engine = 10,
+    public enableCustomEngine = false,
+    public customEngine = "https://www.google.com/search?q=%s",
     public autocomplete = true,
     public label = 'Search the web...',
   ) {}

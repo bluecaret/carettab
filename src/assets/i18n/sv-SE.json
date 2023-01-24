@@ -270,7 +270,9 @@
       "label": "Märka",
       "search": "Sök",
       "searchBox": "Sökruta",
-      "searchEngine": "Sökmotor"
+      "searchEngine": "Sökmotor",
+      "customSearchEngine": "Anpassad sökmotor",
+      "customSearchEngineDesc": "Ange webbadressen för sökmotorn med %s istället för sökfrågan."
     },
     "time": {
       "addNewClock": "Lägg till ny klocka",

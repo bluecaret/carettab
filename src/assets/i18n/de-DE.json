@@ -270,7 +270,9 @@
       "label": "Etikette",
       "search": "Suche",
       "searchBox": "Suchbox",
-      "searchEngine": "Suchmaschine"
+      "searchEngine": "Suchmaschine",
+      "customSearchEngine": "Benutzerdefinierte Suchmaschine",
+      "customSearchEngineDesc": "Geben Sie die URL für die Suchmaschine mit %s anstelle der Suchanfrage ein."
     },
     "time": {
       "addNewClock": "Neue Uhr hinzufügen",

@@ -270,7 +270,9 @@
       "label": "Label",
       "search": "Search",
       "searchBox": "Search box",
-      "searchEngine": "Search engine"
+      "searchEngine": "Search engine",
+      "customSearchEngine": "Custom search engine",
+      "customSearchEngineDesc": "Enter the URL for the search engine with %s in place of search query."
     },
     "time": {
       "addNewClock": "Add New Clock",

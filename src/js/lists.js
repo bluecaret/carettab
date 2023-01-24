@@ -139,15 +139,15 @@ export const dateFormat = [
 ];
 
 export const searchEngines = [
-  { id: 10, label: 'Google', url: 'https://www.google.com/search', param: 'q' },
-  { id: 20, label: 'Bing', url: 'https://www.bing.com/search', param: 'q' },
-  { id: 30, label: 'Baidu', url: 'https://www.baidu.com/s', param: 'wd' },
-  { id: 40, label: 'Yahoo', url: 'https://search.yahoo.com/search', param: 'p' },
-  { id: 50, label: 'Ask.com', url: 'https://www.ask.com/web', param: 'q' },
-  { id: 60, label: 'DuckDuckGo', url: 'https://www.duckduckgo.com/', param: 'q' },
-  { id: 70, label: 'Wolframalpha', url: 'https://www.wolframalpha.com/input/', param: 'i' },
-  { id: 80, label: 'GitHub', url: 'https://www.github.com/search', param: 'q' },
-  { id: 90, label: 'Yandex', url: 'https://yandex.com/search/', param: 'text' }
+  { id: 10, label: 'Google', url: 'https://www.google.com/search?q=%s' },
+  { id: 20, label: 'Bing', url: 'https://www.bing.com/search?q=%s' },
+  { id: 30, label: 'Baidu', url: 'https://www.baidu.com/s?wd=%s' },
+  { id: 40, label: 'Yahoo', url: 'https://search.yahoo.com/search?p=%s' },
+  { id: 50, label: 'Ask.com', url: 'https://www.ask.com/web?q=%s' },
+  { id: 60, label: 'DuckDuckGo', url: 'https://www.duckduckgo.com/?q=%s' },
+  { id: 70, label: 'Wolframalpha', url: 'https://www.wolframalpha.com/input/?i=%s' },
+  { id: 80, label: 'GitHub', url: 'https://www.github.com/search?q=%s' },
+  { id: 90, label: 'Yandex', url: 'https://yandex.com/search/?text=%s' }
 ];
 
 export const bgBlend = [

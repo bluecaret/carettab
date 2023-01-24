@@ -270,7 +270,9 @@
       "label": "Etiqueta",
       "search": "Buscar",
       "searchBox": "Caja de búsqeda",
-      "searchEngine": "Buscador"
+      "searchEngine": "Buscador",
+      "customSearchEngine": "Motor de búsqueda personalizado",
+      "customSearchEngineDesc": "Introduzca la URL del motor de búsqueda con %s en lugar de la consulta de búsqueda."
     },
     "time": {
       "addNewClock": "Agregar nuevo reloj",

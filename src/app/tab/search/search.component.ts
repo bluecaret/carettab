@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { searchEngines } from '../../../js/lists.js';
 import { SharedService } from '../../_shared/shared.service';
@@ -8,10 +8,9 @@ import { SharedService } from '../../_shared/shared.service';
   templateUrl: 'search.component.html',
   host: {'class': 'search'}
 })
-export class TabSearchComponent implements OnInit {
+export class TabSearchComponent implements AfterViewInit {
   engines = searchEngines;
   url: string;
-  param: string;
   searchText: string;
 
   constructor(
@@ -25,26 +24,29 @@ export class TabSearchComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.setEngine();
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.setEngine();
+    }, 0);
   }
 
   setEngine() {
+    console.log('paid?', this.shared.paid, this.settings.config.search.customEngine);
+    if (this.shared.paid && this.settings.config.search.enableCustomEngine) {
+
+      this.url = this.settings.config.search.customEngine;
+      return;
+    }
     let engine = this.engines.find(e => e.id === this.settings.config.search.engine);
     this.url = engine.url;
-    this.param = engine.param;
   }
 
   performSearch() {
     if (!this.searchText || this.searchText.trim() == '') {
       return;
     }
-    let searchUrl = `${this.url}?${this.param}=${encodeURIComponent(this.searchText)}`
+    let searchUrl = `${this.url.split('%s')[0]}${encodeURIComponent(this.searchText)}${this.url.split('%s')[1]}`
     location.replace(searchUrl);
-  }
-
-  findEngine(engine) {
-    return this.engines.find(x => x.id === engine)
   }
 
 }

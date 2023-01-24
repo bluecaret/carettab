@@ -270,7 +270,9 @@
       "label": "rótulo",
       "search": "Procurar",
       "searchBox": "Caixa de pesquisa",
-      "searchEngine": "Motor de pesquisa"
+      "searchEngine": "Motor de pesquisa",
+      "customSearchEngine": "Mecanismo de pesquisa personalizado",
+      "customSearchEngineDesc": "Insira a URL do mecanismo de pesquisa com %s no lugar da consulta de pesquisa."
     },
     "time": {
       "addNewClock": "Adicionar Novo Relógio",

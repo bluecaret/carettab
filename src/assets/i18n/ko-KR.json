@@ -270,7 +270,9 @@
       "label": "상표",
       "search": "수색",
       "searchBox": "검색 창",
-      "searchEngine": "검색 엔진"
+      "searchEngine": "검색 엔진",
+      "customSearchEngine": "맞춤 검색 엔진",
+      "customSearchEngineDesc": "검색어 대신 %s를 사용하여 검색 엔진의 URL을 입력하십시오."
     },
     "time": {
       "addNewClock": "새 시계 추가",

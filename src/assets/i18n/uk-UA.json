@@ -270,7 +270,9 @@
       "label": "Мітка",
       "search": "Пошук",
       "searchBox": "Вікно пошуку",
-      "searchEngine": "Пошукова система"
+      "searchEngine": "Пошукова система",
+      "customSearchEngine": "Користувальницька пошукова система",
+      "customSearchEngineDesc": "Введіть URL-адресу пошукової системи з %s замість пошукового запиту."
     },
     "time": {
       "addNewClock": "Додати новий годинник",

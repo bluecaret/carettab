@@ -270,7 +270,9 @@
       "label": "標籤",
       "search": "搜尋",
       "searchBox": "搜尋欄",
-      "searchEngine": "搜尋引擎"
+      "searchEngine": "搜尋引擎",
+      "customSearchEngine": "自定義搜索引擎",
+      "customSearchEngineDesc": "輸入搜索引擎的 URL，用 %s 代替搜索查詢。"
     },
     "time": {
       "addNewClock": "添加新時鐘",

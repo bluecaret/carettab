@@ -270,7 +270,9 @@
       "label": "Étiquette",
       "search": "Chercher",
       "searchBox": "Barre de recherche",
-      "searchEngine": "Moteur de recherche"
+      "searchEngine": "Moteur de recherche",
+      "customSearchEngine": "Moteur de recherche personnalisé",
+      "customSearchEngineDesc": "Entrez l'URL du moteur de recherche avec %s à la place de la requête de recherche."
     },
     "time": {
       "addNewClock": "Ajouter une nouvelle horloge",

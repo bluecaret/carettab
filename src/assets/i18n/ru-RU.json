@@ -270,7 +270,9 @@
       "label": "этикетка",
       "search": "Поиск",
       "searchBox": "Поисковая строка",
-      "searchEngine": "Поисковый движок"
+      "searchEngine": "Поисковый движок",
+      "customSearchEngine": "Система пользовательского поиска",
+      "customSearchEngineDesc": "Введите URL поисковой системы с %s вместо поискового запроса."
     },
     "time": {
       "addNewClock": "Добавить новые часы",

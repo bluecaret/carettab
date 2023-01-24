@@ -18,7 +18,7 @@
       </div>
     </div>
     <ng-container *ngIf="settings.config.search.enabled">
-      <div class="panelField panelFieldInline">
+      <div class="panelField panelFieldInline" *ngIf="(!shared.paid) || shared.paid && !settings.config.search.enableCustomEngine">
         <div class="panelFieldContent">
           <label for="searchEngine" class="panelLabel">{{'options.search.searchEngine' | translate}}</label>
         </div>
@@ -26,6 +26,27 @@
           <select class="panelSelect panelInputLg" name="searchEngine" id="searchEngine" [(ngModel)]="settings.config.search.engine">
             <option *ngFor="let e of engines" [ngValue]="e.id">{{e.label}}</option>
           </select>
+        </div>
+      </div>
+      <div class="panelField panelFieldMultipleWithToggle {{shared.paid ? '' : 'panelFieldDisabled'}}">
+        <div class="panelFieldContent">
+          <div class="panelPremiumLabel">
+            <premium-label></premium-label>
+            <label id="enableCustomEngineLabel" class="panelLabel">{{'options.search.customSearchEngine' | translate}}</label>
+          </div>
+        </div>
+        <div class="panelFieldInput">
+          <options-toggle [disabled]="!shared.paid" labelledby="enableCustomEngineLabel" id="enableCustomEngine" name="enableCustomEngine" [(ngModel)]="settings.config.search.enableCustomEngine"></options-toggle>
+        </div>
+        <div *ngIf="settings.config.search.enableCustomEngine">
+          <div class="panelField {{shared.paid ? '' : 'panelFieldDisabled'}}">
+            <div class="panelFieldContent">
+              <label for="customEngine" class="panelDescription">{{'options.search.customSearchEngineDesc' | translate}}</label>
+            </div>
+            <div class="panelFieldInput">
+              <input [disabled]="!shared.paid" type="text" name="customEngine" id="customEngine" class="panelInput" placeholder="https://www.google.com/search?q=%s" [(ngModel)]="settings.config.search.customEngine" />
+            </div>
+          </div>
         </div>
       </div>
       <div class="panelField panelFieldInline">

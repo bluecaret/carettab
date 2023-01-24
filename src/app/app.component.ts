@@ -86,7 +86,7 @@ export class AppComponent implements OnInit {
       this.migrate();
 
       chrome.commands.onCommand.addListener((command) => {
-        if (command.startsWith('goto-link-', 0)) {
+        if (command.startsWith('goto-link-', 0) && !document.hidden) {
           this.goToLink(command.split('goto-link-')[1]);
         }
       });

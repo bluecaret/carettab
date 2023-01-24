@@ -489,20 +489,18 @@
   "updates": {
     "fixesAndOthers": "Korrekturen und andere Änderungen",
     "newFeatures": "Neue Eigenschaften",
-    "v370": {
-      "analogOptions": "Neue Anzeigeoptionen für analoge Uhren",
-      "analogStyles": "Neue analoge Zifferblätter und Zeigerstile (nur Premium).",
-      "bgEffects": "Neue Hintergrundoptionen, einschließlich Kontrast, Sättigung, Unschärfe und Skalierung (nur Premium).",
-      "binaryOption": "Neue Option für die Binäruhr zur Anzeige von Zahlen anstelle von Punkten.",
-      "bts": "Aufräumarbeiten und Verbesserungen hinter den Kulissen.",
-      "covid": "Das COVID-Widget wurde entfernt. Die verwendete Datenquelle wurde geschlossen und es gibt keine gute Quelle für diese Daten mehr.",
-      "fixedWidgets": "Überlappende Widgets, die Klicks verhinderten, wurden behoben.",
-      "fonts": "Neue Schriftarten (nur Premium).",
-      "notepad": "Neues Notizblock-Widget (nur Premium).",
-      "premiumAccess": "Neues Premium Access-Abonnement!",
-      "settings": "Neues Design des Einstellungsfelds für eine einfachere Verwendung und mehr Flexibilität für Widget-Einstellungen.",
-      "unsplash": "Neue Hintergrundbilder von Unsplash.com; Holen Sie sich ein einzelnes Foto oder zeigen Sie ein zufälliges Tagesfoto aus einer Liste an (nur Premium).",
-      "backgroundMigration": "Die Migration des Hintergrundbilds von der alten Version zur neuen wurde behoben. Behebt ein Problem, bei dem das Hintergrundbild nach der Aktualisierung auf Version 3.7.0 nicht gerendert wurde."
+    "v380": {
+      "dayOfYear": "Dem Datums-Widget wurde eine Option für den Tag des Jahres (Julian) hinzugefügt.",
+      "delimiter": "Möglichkeit hinzugefügt, kurze Datumstrennzeichen zu deaktivieren.",
+      "open": "Option zum Öffnen von Schnelllinks und Lesezeichen in einem neuen Tab hinzugefügt.",
+      "quarter": "Dem Datums-Widget wurde eine Quartalsoption hinzugefügt.",
+      "randomColor": "Holen Sie sich ein zufälliges Farbthema auf jedem neuen Tab (zu finden in den Designeinstellungen).",
+      "search": "Option für benutzerdefinierte Suchmaschine hinzugefügt (nur Premium-Zugriff).",
+      "shadows": "Schatten zu Widgets hinzufügen (zu finden in den Designeinstellungen).",
+      "shortcuts": "Schnellverknüpfungen wurden korrigiert, sodass sie auch dann funktionieren, wenn die Adressleiste im Fokus ist. Bitte beachten Sie, dass nur den Links 1-4 automatisch eine Verknüpfung zugewiesen wird. Die Links 5-9 können in Ihren Browsereinstellungen manuell zugewiesen werden.",
+      "suffix": "Suffix-Option zum kurzen Datums-Widget hinzugefügt.",
+      "timeDrift": "Drift der analogen Zeit behoben",
+      "weather": "Die Wetterdaten werden jetzt stündlich automatisch aktualisiert. Den Einstellungen wurde auch eine manuelle Aktualisierungsschaltfläche hinzugefügt."
     }
   }
 }

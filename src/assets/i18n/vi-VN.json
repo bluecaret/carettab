@@ -489,20 +489,18 @@
   "updates": {
     "fixesAndOthers": "Bản sửa lỗi và các thay đổi khác",
     "newFeatures": "Các tính năng mới",
-    "v370": {
-      "analogOptions": "Tùy chọn hiển thị đồng hồ analog mới",
-      "analogStyles": "Kiểu mặt và kim đồng hồ analog mới (chỉ dành cho Premium).",
-      "bgEffects": "Các tùy chọn hình nền mới bao gồm độ tương phản, độ bão hòa, độ mờ và tỷ lệ (chỉ dành cho Premium).",
-      "binaryOption": "Tùy chọn đồng hồ nhị phân mới để hiển thị số thay vì dấu chấm.",
-      "bts": "Dọn dẹp hậu trường và cải tiến.",
-      "covid": "Tiện ích COVID đã bị xóa. Nguồn dữ liệu được sử dụng đã bị tắt và không còn nguồn tốt cho dữ liệu này nữa.",
-      "fixedWidgets": "Đã sửa lỗi các tiện ích chồng chéo ngăn nhấp chuột.",
-      "fonts": "Phông chữ mới (Chỉ cao cấp).",
-      "notepad": "Tiện ích notepad mới (chỉ dành cho Premium).",
-      "premiumAccess": "Đăng ký truy cập cao cấp mới!",
-      "settings": "Thiết kế bảng cài đặt mới để sử dụng dễ dàng hơn và linh hoạt hơn cho cài đặt widget.",
-      "unsplash": "Hình nền mới từ Unsplash.com; lấy một ảnh duy nhất hoặc hiển thị một ảnh ngẫu nhiên hàng ngày từ danh sách (chỉ dành cho Premium).",
-      "backgroundMigration": "Đã sửa lỗi di chuyển hình nền từ phiên bản cũ sang mới. Khắc phục sự cố hình nền không hiển thị trên phiên bản 3.7.0 sau khi cập nhật."
+    "v380": {
+      "dayOfYear": "Đã thêm tùy chọn ngày trong năm (Julian) vào tiện ích ngày.",
+      "delimiter": "Đã thêm khả năng vô hiệu hóa các dấu phân cách ngày ngắn.",
+      "open": "Đã thêm tùy chọn để mở liên kết nhanh và dấu trang trong tab mới.",
+      "quarter": "Đã thêm tùy chọn một phần tư vào tiện ích ngày.",
+      "randomColor": "Nhận một chủ đề màu ngẫu nhiên trên mỗi tab mới (tìm thấy trong Cài đặt thiết kế).",
+      "search": "Đã thêm tùy chọn công cụ tìm kiếm tùy chỉnh (chỉ dành cho Quyền truy cập cao cấp).",
+      "shadows": "Thêm bóng cho các vật dụng (tìm thấy trong Cài đặt thiết kế).",
+      "shortcuts": "Đã sửa các phím tắt liên kết nhanh để chúng hoạt động ngay cả khi thanh địa chỉ được lấy nét. Xin lưu ý rằng chỉ các liên kết 1-4 sẽ tự động được gán một phím tắt. Liên kết 5-9 có thể được chỉ định thủ công trong cài đặt trình duyệt của bạn.",
+      "suffix": "Đã thêm tùy chọn hậu tố vào tiện ích ngày ngắn.",
+      "timeDrift": "Đã sửa lỗi trôi thời gian tương tự",
+      "weather": "Dữ liệu thời tiết sẽ tự động làm mới mỗi giờ. Một nút làm mới thủ công cũng đã được thêm vào cài đặt."
     }
   }
 }

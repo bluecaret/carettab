@@ -33953,10 +33953,10 @@
 								</translations>
 							</concept_node>
 							<folder_node>
-								<name>v370</name>
+								<name>v380</name>
 								<children>
 									<concept_node>
-										<name>analogOptions</name>
+										<name>dayOfYear</name>
 										<description/>
 										<comment/>
 										<default_text/>
@@ -34032,7 +34032,7 @@
 										</translations>
 									</concept_node>
 									<concept_node>
-										<name>analogStyles</name>
+										<name>delimiter</name>
 										<description/>
 										<comment/>
 										<default_text/>
@@ -34108,7 +34108,7 @@
 										</translations>
 									</concept_node>
 									<concept_node>
-										<name>backgroundMigration</name>
+										<name>open</name>
 										<description/>
 										<comment/>
 										<default_text/>
@@ -34184,7 +34184,7 @@
 										</translations>
 									</concept_node>
 									<concept_node>
-										<name>bgEffects</name>
+										<name>quarter</name>
 										<description/>
 										<comment/>
 										<default_text/>
@@ -34260,7 +34260,7 @@
 										</translations>
 									</concept_node>
 									<concept_node>
-										<name>binaryOption</name>
+										<name>randomColor</name>
 										<description/>
 										<comment/>
 										<default_text/>
@@ -34336,7 +34336,7 @@
 										</translations>
 									</concept_node>
 									<concept_node>
-										<name>bts</name>
+										<name>search</name>
 										<description/>
 										<comment/>
 										<default_text/>
@@ -34412,7 +34412,7 @@
 										</translations>
 									</concept_node>
 									<concept_node>
-										<name>covid</name>
+										<name>shadows</name>
 										<description/>
 										<comment/>
 										<default_text/>
@@ -34488,7 +34488,7 @@
 										</translations>
 									</concept_node>
 									<concept_node>
-										<name>fixedWidgets</name>
+										<name>shortcuts</name>
 										<description/>
 										<comment/>
 										<default_text/>
@@ -34564,7 +34564,7 @@
 										</translations>
 									</concept_node>
 									<concept_node>
-										<name>fonts</name>
+										<name>suffix</name>
 										<description/>
 										<comment/>
 										<default_text/>
@@ -34640,7 +34640,7 @@
 										</translations>
 									</concept_node>
 									<concept_node>
-										<name>notepad</name>
+										<name>timeDrift</name>
 										<description/>
 										<comment/>
 										<default_text/>
@@ -34716,159 +34716,7 @@
 										</translations>
 									</concept_node>
 									<concept_node>
-										<name>premiumAccess</name>
-										<description/>
-										<comment/>
-										<default_text/>
-										<translations>
-											<translation>
-												<language>de-DE</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>en-US</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>es-MX</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>fr-FR</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>he-IL</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>it-IT</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>ja-JP</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>ko-KR</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>pt-BR</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>pt-PT</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>ru-RU</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>sv-SE</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>uk-UA</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>ur-PK</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>vi-VN</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>zh-CN</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>zh-TW</language>
-												<approved>false</approved>
-											</translation>
-										</translations>
-									</concept_node>
-									<concept_node>
-										<name>settings</name>
-										<description/>
-										<comment/>
-										<default_text/>
-										<translations>
-											<translation>
-												<language>de-DE</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>en-US</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>es-MX</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>fr-FR</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>he-IL</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>it-IT</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>ja-JP</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>ko-KR</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>pt-BR</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>pt-PT</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>ru-RU</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>sv-SE</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>uk-UA</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>ur-PK</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>vi-VN</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>zh-CN</language>
-												<approved>false</approved>
-											</translation>
-											<translation>
-												<language>zh-TW</language>
-												<approved>false</approved>
-											</translation>
-										</translations>
-									</concept_node>
-									<concept_node>
-										<name>unsplash</name>
+										<name>weather</name>
 										<description/>
 										<comment/>
 										<default_text/>

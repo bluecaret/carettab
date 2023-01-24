@@ -489,20 +489,18 @@
   "updates": {
     "fixesAndOthers": "Correções e outras alterações",
     "newFeatures": "Novas características",
-    "v370": {
-      "analogOptions": "Novas opções de exibição de relógio analógico",
-      "analogStyles": "Novos estilos de mostrador e ponteiro do relógio analógico (somente Premium).",
-      "bgEffects": "Novas opções de papel de parede, incluindo contraste, saturação, desfoque e dimensionamento (somente Premium).",
-      "binaryOption": "Nova opção de relógio binário para exibir números em vez de pontos.",
-      "bts": "Limpeza e melhorias nos bastidores.",
-      "covid": "O widget COVID foi removido. A fonte de dados usada foi encerrada e não há mais uma boa fonte para esses dados.",
-      "fixedWidgets": "Widgets sobrepostos corrigidos impedindo cliques.",
-      "fonts": "Novas fontes (somente Premium).",
-      "notepad": "Novo widget de bloco de notas (somente Premium).",
-      "premiumAccess": "Nova assinatura Premium Access!",
-      "settings": "Novo design do painel de configurações para facilitar o uso e mais flexibilidade para as configurações do widget.",
-      "unsplash": "Novos papéis de parede de Unsplash.com; obtenha uma única foto ou exiba uma foto diária aleatória de uma lista (somente Premium).",
-      "backgroundMigration": "Corrigida a migração do papel de parede da versão antiga para a nova. Resolve o problema em que o papel de parede não era renderizado na versão 3.7.0 após a atualização."
+    "v380": {
+      "dayOfYear": "Adicionada uma opção de dia do ano (juliano) ao widget de data.",
+      "delimiter": "Adicionada capacidade de desabilitar delimitadores de datas curtas.",
+      "open": "Adicionada opção para abrir links rápidos e favoritos em uma nova guia.",
+      "quarter": "Adicionada uma opção de trimestre ao widget de data.",
+      "randomColor": "Obtenha um tema de cores aleatório em cada nova guia (encontrado nas configurações de design).",
+      "search": "Adicionada opção de mecanismo de pesquisa personalizado (somente Acesso Premium).",
+      "shadows": "Adicione sombras aos widgets (encontrados nas configurações de Design).",
+      "shortcuts": "Atalhos de link rápido corrigidos para que funcionem mesmo quando a barra de endereços estiver em foco. Observe que apenas os links 1-4 receberão automaticamente um atalho. Os links 5-9 podem ser atribuídos manualmente nas configurações do seu navegador.",
+      "suffix": "Adicionada uma opção de sufixo ao widget de data abreviada.",
+      "timeDrift": "Desvio de tempo analógico fixo",
+      "weather": "Os dados meteorológicos agora serão atualizados automaticamente a cada hora. Um botão de atualização manual também foi adicionado às configurações."
     }
   }
 }

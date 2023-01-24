@@ -489,20 +489,18 @@
   "updates": {
     "fixesAndOthers": "Fixar och andra ändringar",
     "newFeatures": "Nya egenskaper",
-    "v370": {
-      "analogOptions": "Nya alternativ för visning av analog klocka",
-      "analogStyles": "Nya analoga urtavlor och visare (endast Premium).",
-      "bgEffects": "Nya bakgrundsalternativ inklusive kontrast, mättnad, oskärpa och skalning (endast Premium).",
-      "binaryOption": "Nytt alternativ för binär klocka för att visa siffror istället för punkter.",
-      "bts": "Bakom kulisserna städning och förbättringar.",
-      "covid": "COVID-widgeten har tagits bort. Datakällan som användes har stängts ner och det finns inte längre en bra källa för denna data.",
-      "fixedWidgets": "Fixade överlappande widgets som förhindrade klick.",
-      "fonts": "Nya typsnitt (endast Premium).",
-      "notepad": "Ny widget för anteckningar (endast Premium).",
-      "premiumAccess": "Ny Premium Access-prenumeration!",
-      "settings": "Ny inställningspaneldesign för enklare användning och mer flexibilitet för widgetinställningar.",
-      "unsplash": "Nya bakgrundsbilder från Unsplash.com; få ett enda foto eller visa ett slumpmässigt dagligt foto från en lista (endast Premium).",
-      "backgroundMigration": "Fast migrering av tapeter från gammal version till ny. Löser problem där tapeter inte skulle renderas på version 3.7.0 efter uppdatering."
+    "v380": {
+      "dayOfYear": "Lade till en dag på året (Julian) till datumwidgeten.",
+      "delimiter": "Tillagd möjlighet att inaktivera korta datumavgränsare.",
+      "open": "Tillagt alternativ för att öppna snabblänkar och bokmärken på en ny flik.",
+      "quarter": "Lade till ett kvartsalternativ till datumwidgeten.",
+      "randomColor": "Få ett slumpmässigt färgtema på varje ny flik (finns i Designinställningar).",
+      "search": "Tillagt anpassad sökmotoralternativ (endast Premium Access).",
+      "shadows": "Lägg till skuggor till widgets (finns i Designinställningar).",
+      "shortcuts": "Fixade snabblänksgenvägar så att de fungerar även när adressfältet är i fokus. Observera att endast länkarna 1-4 automatiskt tilldelas en genväg. Länkarna 5-9 kan tilldelas manuellt i din webbläsarinställningar.",
+      "suffix": "Lade till ett suffixalternativ till widgeten för kort datum.",
+      "timeDrift": "Fast analog tidsdrift",
+      "weather": "Väderdata uppdateras nu automatiskt varje timme. En manuell uppdateringsknapp har också lagts till i inställningarna."
     }
   }
 }

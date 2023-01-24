@@ -489,20 +489,18 @@
   "updates": {
     "fixesAndOthers": "Fixes and other changes",
     "newFeatures": "New features",
-    "v370": {
-      "analogOptions": "New analog clock display options",
-      "analogStyles": "New analog clock face and hand styles (Premium only).",
-      "bgEffects": "New wallpaper options including contrast, saturation, blur, and scaling (Premium only).",
-      "binaryOption": "New binary clock option for displaying numbers instead of dots.",
-      "bts": "Behind-the-scenes cleanup and improvements.",
-      "covid": "COVID widget has been removed. The data source that was used has been shut down and there is no longer a good source for this data.",
-      "fixedWidgets": "Fixed overlapping widgets preventing clicks.",
-      "fonts": "New fonts (Premium only).",
-      "notepad": "New notepad widget (Premium only).",
-      "premiumAccess": "New Premium Access subscription!",
-      "settings": "New settings panel design for easier use and more flexibility for widget settings.",
-      "unsplash": "New wallpapers from Unsplash.com; get a single photo or display a random daily photo from a list (Premium only).",
-      "backgroundMigration": "Fixed migration of wallpaper from old version to new. Resolves issue where wallpaper wouldn't render on version 3.7.0 after updating."
+    "v380": {
+      "dayOfYear": "Added a day of year (Julian) option to the date widget.",
+      "delimiter": "Added ability to disable short date delimiters.",
+      "open": "Added option to open quick links and bookmarks in a new tab.",
+      "quarter": "Added a quarter option to the date widget.",
+      "randomColor": "Get a random color theme on each new tab (found in Design settings).",
+      "search": "Added custom search engine option (Premium Access only).",
+      "shadows": "Add shadows to widgets (found in Design settings).",
+      "shortcuts": "Fixed quick link shortcuts so they will work even when the address bar is in focus. Please note only links 1-4 will automatically be assigned a shortcut. Links 5-9 can be manually assigned in your browser settings.",
+      "suffix": "Added a suffix option to the short date widget.",
+      "timeDrift": "Fixed analog time drift",
+      "weather": "Weather data will now auto refresh every hour. A manual refresh button has also been added to the settings."
     }
   }
 }

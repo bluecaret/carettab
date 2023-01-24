@@ -489,20 +489,18 @@
   "updates": {
     "fixesAndOthers": "Correctifs et autres modifications",
     "newFeatures": "Nouvelles fonctionnalités",
-    "v370": {
-      "analogOptions": "Nouvelles options d'affichage de l'horloge analogique",
-      "analogStyles": "Nouveaux styles de cadran et d'aiguille d'horloge analogique (Premium uniquement).",
-      "bgEffects": "Nouvelles options de fond d'écran, notamment contraste, saturation, flou et mise à l'échelle (Premium uniquement).",
-      "binaryOption": "Nouvelle option d'horloge binaire pour afficher des nombres au lieu de points.",
-      "bts": "Nettoyage et améliorations des coulisses.",
-      "covid": "Le widget COVID a été supprimé. La source de données utilisée a été fermée et il n'existe plus de bonne source pour ces données.",
-      "fixedWidgets": "Correction des widgets superposés empêchant les clics.",
-      "fonts": "Nouvelles polices (Premium uniquement).",
-      "notepad": "Nouveau widget bloc-notes (Premium uniquement).",
-      "premiumAccess": "Nouvel abonnement Premium Access !",
-      "settings": "Nouvelle conception du panneau des paramètres pour une utilisation plus facile et plus de flexibilité pour les paramètres du widget.",
-      "unsplash": "Nouveaux fonds d'écran d'Unsplash.com; obtenir une seule photo ou afficher une photo quotidienne aléatoire à partir d'une liste (Premium uniquement).",
-      "backgroundMigration": "Correction de la migration du fond d'écran de l'ancienne version vers la nouvelle. Résout le problème où le fond d'écran ne s'affichait pas sur la version 3.7.0 après la mise à jour."
+    "v380": {
+      "dayOfYear": "Ajout d'une option de jour de l'année (julien) au widget de date.",
+      "delimiter": "Ajout de la possibilité de désactiver les délimiteurs de dates courtes.",
+      "open": "Ajout d'une option pour ouvrir des liens rapides et des signets dans un nouvel onglet.",
+      "quarter": "Ajout d'une option de trimestre au widget de date.",
+      "randomColor": "Obtenez un thème de couleur aléatoire sur chaque nouvel onglet (trouvé dans les paramètres de conception).",
+      "search": "Ajout d'une option de moteur de recherche personnalisé (accès Premium uniquement).",
+      "shadows": "Ajoutez des ombres aux widgets (trouvé dans les paramètres de conception).",
+      "shortcuts": "Correction des raccourcis de liens rapides afin qu'ils fonctionnent même lorsque la barre d'adresse est au point. Veuillez noter que seuls les liens 1 à 4 se verront automatiquement attribuer un raccourci. Les liens 5 à 9 peuvent être attribués manuellement dans les paramètres de votre navigateur.",
+      "suffix": "Ajout d'une option de suffixe au widget de date courte.",
+      "timeDrift": "Dérive de temps analogique fixe",
+      "weather": "Les données météo seront désormais automatiquement actualisées toutes les heures. Un bouton d'actualisation manuelle a également été ajouté aux paramètres."
     }
   }
 }

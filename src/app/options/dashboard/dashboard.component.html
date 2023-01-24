@@ -7,32 +7,27 @@
     <h3 class="newUpdateHeading">
       <div class="matIcon newUpdateIcon" aria-hidden="true">notifications_active</div>
       <div class="newUpdateContent">
-        <div class="newUpdateTitle">{{'options.dashboard.updatedTo' | translate}} v3.7.1</div>
+        <div class="newUpdateTitle">{{'options.dashboard.updatedTo' | translate}} v3.8.0</div>
         <button *ngIf="!showWhatsNew" type="button" class="panelBtn newUpdateCloseRead" (click)="showWhatsNew = true">{{'options.dashboard.whatsNew' | translate}}</button>
         <button type="button" class="panelBtn newUpdateClose" (click)="handleClearWhatsNew()"><div class="matIcon" aria-hidden="true">close</div>{{'options.dashboard.closeMessage' | translate}}</button>
       </div>
     </h3>
-    <h4 *ngIf="showWhatsNew" class="panelGroupTitle">v3.7.1</h4>
+    <h4 *ngIf="showWhatsNew" class="panelGroupTitle">v3.8.0 {{'updates.newFeatures' | translate}}</h4>
     <ul *ngIf="showWhatsNew" class="panelList">
-      <li>{{'updates.v370.backgroundMigration' | translate}}</li>
+      <li>{{'updates.v380.shadows' | translate}}</li>
+      <li>{{'updates.v380.randomColor' | translate}}</li>
+      <li>{{'updates.v380.dayOfYear' | translate}}</li>
+      <li>{{'updates.v380.quarter' | translate}}</li>
+      <li>{{'updates.v380.suffix' | translate}}</li>
+      <li>{{'updates.v380.delimiter' | translate}}</li>
+      <li>{{'updates.v380.search' | translate}}</li>
+      <li>{{'updates.v380.open' | translate}}</li>
     </ul>
-    <h4 *ngIf="showWhatsNew" class="panelGroupTitle">v3.7.0 {{'updates.newFeatures' | translate}}</h4>
+    <h4 *ngIf="showWhatsNew" class="panelGroupTitle">v3.8.0 {{'updates.fixesAndOthers' | translate}}</h4>
     <ul *ngIf="showWhatsNew" class="panelList">
-      <li>{{'updates.v370.premiumAccess' | translate}}</li>
-      <li>{{'updates.v370.notepad' | translate}}</li>
-      <li>{{'updates.v370.unsplash' | translate}}</li>
-      <li>{{'updates.v370.bgEffects' | translate}}</li>
-      <li>{{'updates.v370.analogOptions' | translate}}</li>
-      <li>{{'updates.v370.analogStyles' | translate}}</li>
-      <li>{{'updates.v370.binaryOption' | translate}}</li>
-      <li>{{'updates.v370.fonts' | translate}}</li>
-      <li>{{'updates.v370.settings' | translate}}</li>
-    </ul>
-    <h4 *ngIf="showWhatsNew" class="panelGroupTitle">v3.7.0 {{'updates.fixesAndOthers' | translate}}</h4>
-    <ul *ngIf="showWhatsNew" class="panelList">
-      <li>{{'updates.v370.fixedWidgets' | translate}}</li>
-      <li>{{'updates.v370.bts' | translate}}</li>
-      <li>{{'updates.v370.covid' | translate}}</li>
+      <li>{{'updates.v380.timeDrift' | translate}}</li>
+      <li>{{'updates.v380.weather' | translate}}</li>
+      <li>{{'updates.v380.shortcuts' | translate}}</li>
     </ul>
   </div>
 </div>

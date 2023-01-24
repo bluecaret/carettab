@@ -84,7 +84,21 @@ export class AppComponent implements OnInit {
       }
       this.getColorTheme();
       this.migrate();
+
+      chrome.commands.onCommand.addListener((command) => {
+        if (command.startsWith('goto-link-', 0)) {
+          this.goToLink(command.split('goto-link-')[1]);
+        }
+      });
     }, 0);
+  }
+
+  goToLink(link) {
+    if (this.settings.config.quickLink.enabled) {
+      if (this.settings.config.quickLink.links[parseInt(link) - 1]) {
+        location.replace(this.settings.config.quickLink.links[parseInt(link) - 1].url);
+      }
+    }
   }
 
   getColorTheme() {

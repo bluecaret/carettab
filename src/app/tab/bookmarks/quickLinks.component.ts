@@ -133,14 +133,13 @@ export class TabQuickLinksComponent implements OnInit {
   getShortcut(index: number): string {
     let i: number;
 
-    if (index > 9) return null;
-    if (index === 9) i = 0;
-    if (index < 9) i = index + 1;
+    if (index > 3) return null;
+    if (index <= 3) i = index + 1;
 
     if (this.os === 'macOS') {
-      return `Shortcut: [control]+[alt]+${i}`;
+      return `Shortcut: [command]+[shift]+${i}`;
     }
-    return `Shortcut: [alt]+${i}`;
+    return `Shortcut: [ctrl]+[shift]+${i}`;
   }
 
 }

@@ -33,6 +33,51 @@
     "bookmarks",
     "topSites"
   ],
+  "commands": {
+    "goto-link-1": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+1",
+        "mac": "Command+Shift+1"
+      },
+      "description": "Load Quick Link 1"
+    },
+    "goto-link-2": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+2",
+        "mac": "Command+Shift+2"
+      },
+      "description": "Load Quick Link 2"
+    },
+    "goto-link-3": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+3",
+        "mac": "Command+Shift+3"
+      },
+      "description": "Load Quick Link 3"
+    },
+    "goto-link-4": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+4",
+        "mac": "Command+Shift+4"
+      },
+      "description": "Load Quick Link 4"
+    },
+    "goto-link-5": {
+      "description": "Load Quick Link 5"
+    },
+    "goto-link-6": {
+      "description": "Load Quick Link 6"
+    },
+    "goto-link-7": {
+      "description": "Load Quick Link 7"
+    },
+    "goto-link-8": {
+      "description": "Load Quick Link 8"
+    },
+    "goto-link-9": {
+      "description": "Load Quick Link 9"
+    }
+  },
   "web_accessible_resources": [
     {
       "resources": [

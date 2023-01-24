@@ -36,29 +36,25 @@
   "commands": {
     "goto-link-1": {
       "suggested_key": {
-        "default": "Ctrl+Shift+1",
-        "mac": "Command+Shift+1"
+        "default": "Alt+1"
       },
       "description": "Load Quick Link 1"
     },
     "goto-link-2": {
       "suggested_key": {
-        "default": "Ctrl+Shift+2",
-        "mac": "Command+Shift+2"
+        "default": "Alt+2"
       },
       "description": "Load Quick Link 2"
     },
     "goto-link-3": {
       "suggested_key": {
-        "default": "Ctrl+Shift+3",
-        "mac": "Command+Shift+3"
+        "default": "Alt+3"
       },
       "description": "Load Quick Link 3"
     },
     "goto-link-4": {
       "suggested_key": {
-        "default": "Ctrl+Shift+4",
-        "mac": "Command+Shift+4"
+        "default": "Alt+4"
       },
       "description": "Load Quick Link 4"
     },

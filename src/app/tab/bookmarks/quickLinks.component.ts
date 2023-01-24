@@ -4,7 +4,6 @@ import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
 import { MostVisitedMenuComponent } from './most-visited-menu.component';
 import { PopupService } from '../../_shared/controls/popup.service';
-import * as Bowser from 'bowser';
 
 @Component({
   selector: 'tab-quickLinks',
@@ -18,10 +17,6 @@ export class TabQuickLinksComponent implements OnInit {
   toggleMvMenu = false;
   isChrome = false;
   iconTemp = {};
-
-  // Get browser for favicons
-  browser = Bowser.getParser(window.navigator.userAgent).getBrowserName();
-  os = Bowser.getParser(window.navigator.userAgent).getOSName();
 
   @ViewChild('quickLinkMostVisitedBtn', {static: false}) quickLinkMostVisitedBtn: ElementRef;
 
@@ -136,10 +131,7 @@ export class TabQuickLinksComponent implements OnInit {
     if (index > 3) return null;
     if (index <= 3) i = index + 1;
 
-    if (this.os === 'macOS') {
-      return `Shortcut: [command]+[shift]+${i}`;
-    }
-    return `Shortcut: [ctrl]+[shift]+${i}`;
+    return `Shortcut: [alt]+${i}`;
   }
 
 }

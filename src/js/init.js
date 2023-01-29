@@ -111,6 +111,9 @@ async function setBackground() {
   }
 
   if (designSettings) {
+    if (!designSettings.randomColors) {
+      wallpaperDiv.style.backgroundColor = designSettings.background;
+    }
 
     // If Unsplash image, and user has paid, apply background image
     if (['topics', 'collections', 'search'].includes(designSettings.wallpaperType)) {

@@ -501,6 +501,9 @@
       "suffix": "Added a suffix option to the short date widget.",
       "timeDrift": "Fixed analog time drift",
       "weather": "Weather data will now auto refresh every hour. A manual refresh button has also been added to the settings."
+    },
+    "v381": {
+      "graybg": "Fixed issue where background color would sometimes load incorrectly"
     }
   }
 }

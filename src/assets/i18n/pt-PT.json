@@ -501,6 +501,9 @@
       "suffix": "Adicionada uma opção de sufixo ao widget de data abreviada.",
       "timeDrift": "Desvio de tempo analógico fixo",
       "weather": "Os dados meteorológicos agora serão atualizados automaticamente a cada hora. Um botão de atualização manual também foi adicionado às configurações."
+    },
+    "v381": {
+      "graybg": "Corrigido o problema em que a cor de fundo às vezes carregava incorretamente"
     }
   }
 }

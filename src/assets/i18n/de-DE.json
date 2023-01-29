@@ -501,6 +501,9 @@
       "suffix": "Suffix-Option zum kurzen Datums-Widget hinzugefügt.",
       "timeDrift": "Drift der analogen Zeit behoben",
       "weather": "Die Wetterdaten werden jetzt stündlich automatisch aktualisiert. Den Einstellungen wurde auch eine manuelle Aktualisierungsschaltfläche hinzugefügt."
+    },
+    "v381": {
+      "graybg": "Problem behoben, bei dem die Hintergrundfarbe manchmal falsch geladen wurde"
     }
   }
 }

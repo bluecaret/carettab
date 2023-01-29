@@ -501,6 +501,9 @@
       "suffix": "Đã thêm tùy chọn hậu tố vào tiện ích ngày ngắn.",
       "timeDrift": "Đã sửa lỗi trôi thời gian tương tự",
       "weather": "Dữ liệu thời tiết sẽ tự động làm mới mỗi giờ. Một nút làm mới thủ công cũng đã được thêm vào cài đặt."
+    },
+    "v381": {
+      "graybg": "Đã khắc phục sự cố trong đó màu nền đôi khi tải không chính xác"
     }
   }
 }

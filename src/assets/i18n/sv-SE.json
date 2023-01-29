@@ -501,6 +501,9 @@
       "suffix": "Lade till ett suffixalternativ till widgeten för kort datum.",
       "timeDrift": "Fast analog tidsdrift",
       "weather": "Väderdata uppdateras nu automatiskt varje timme. En manuell uppdateringsknapp har också lagts till i inställningarna."
+    },
+    "v381": {
+      "graybg": "Fixat problem där bakgrundsfärgen ibland laddades felaktigt"
     }
   }
 }

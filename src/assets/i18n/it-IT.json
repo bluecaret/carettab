@@ -501,6 +501,9 @@
       "suffix": "Aggiunta un'opzione di suffisso al widget data breve.",
       "timeDrift": "Corretta la deriva del tempo analogico",
       "weather": "I dati meteorologici ora si aggiorneranno automaticamente ogni ora. È stato inoltre aggiunto un pulsante di aggiornamento manuale alle impostazioni."
+    },
+    "v381": {
+      "graybg": "Risolto il problema per cui il colore di sfondo a volte veniva caricato in modo errato"
     }
   }
 }

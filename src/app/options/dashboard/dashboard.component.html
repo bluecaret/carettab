@@ -7,11 +7,15 @@
     <h3 class="newUpdateHeading">
       <div class="matIcon newUpdateIcon" aria-hidden="true">notifications_active</div>
       <div class="newUpdateContent">
-        <div class="newUpdateTitle">{{'options.dashboard.updatedTo' | translate}} v3.8.0</div>
+        <div class="newUpdateTitle">{{'options.dashboard.updatedTo' | translate}} v3.8.1</div>
         <button *ngIf="!showWhatsNew" type="button" class="panelBtn newUpdateCloseRead" (click)="showWhatsNew = true">{{'options.dashboard.whatsNew' | translate}}</button>
         <button type="button" class="panelBtn newUpdateClose" (click)="handleClearWhatsNew()"><div class="matIcon" aria-hidden="true">close</div>{{'options.dashboard.closeMessage' | translate}}</button>
       </div>
     </h3>
+    <h4 *ngIf="showWhatsNew" class="panelGroupTitle">v3.8.1 {{'updates.fixesAndOthers' | translate}}</h4>
+    <ul *ngIf="showWhatsNew" class="panelList">
+      <li>{{'updates.v381.graybg' | translate}}</li>
+    </ul>
     <h4 *ngIf="showWhatsNew" class="panelGroupTitle">v3.8.0 {{'updates.newFeatures' | translate}}</h4>
     <ul *ngIf="showWhatsNew" class="panelList">
       <li>{{'updates.v380.shadows' | translate}}</li>

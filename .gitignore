@@ -13,3 +13,5 @@ packages/
 carettab.zip
 
 yarn.lock
+
+.vscode/*

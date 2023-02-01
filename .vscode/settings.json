@@ -1,7 +1,7 @@
 {
   "i18n-ally.localesPaths": [
-    "src/assets/i18n",
     "dist-chrome/assets/i18n",
-    "dist-edge/assets/i18n"
+    "dist-edge/assets/i18n",
+    "src/assets/i18n"
   ]
 }

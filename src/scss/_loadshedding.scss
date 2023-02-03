@@ -1,0 +1,12 @@
+.loadsheddingLocationListItem {
+  display: flex;
+  border-bottom: 1px solid var(--panelGroupItemBorder);
+  padding-bottom: var(--size400);
+  &:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.loadshedding {
+}

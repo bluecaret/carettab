@@ -1,0 +1,128 @@
+<h2 class="panelTitle">
+  <button (click)="goTo.emit('Dashboard')" class="panelBack matIcon"
+    attr.aria-label="{{'options.dashboard.backToDashboard' | translate}}"
+    title="{{'options.dashboard.backToDashboard' | translate}}">arrow_back</button>
+  Loadshedding Status for the South Africa
+</h2>
+<form #loadshedding="ngForm" novalidate>
+  <div class="panelGroup">
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <div class="panelDescription" style="margin-top: 0">This widget is used for displaying the current Loadshedding status for citizens of South Africa during the energy crisis currently happening there. Read more about the <a href="https://en.wikipedia.org/wiki/South_African_energy_crisis" rel="noreferrer" target="_blank">South African energy crisis on Wikipedia</a>. Please note that this widget is only intended for citizens of South Africa, if you are not a citizen there please refrain from using it to prevent the API from being overused and thus stay available to those that need it. The data is provided by <a href="https://eskomsepush.gumroad.com/l/api" rel="noreferrer" target="_blank">EskomSePush</a>. CaretTab takes no responsibility for the accuracy or reliability of this data.</div>
+      </div>
+    </div>
+  </div>
+  <div class="panelGroup">
+    <div class="panelField panelFieldInline">
+      <div class="panelFieldContent">
+        <label id="loadsheddingEnableLabel" class="panelLabel">Loadshedding</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle name="loadshedding" labelledby="loadsheddingEnableLabel" [(ngModel)]="settings.config.loadshedding.enabled"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField panelFieldInline" *ngIf="settings.config.loadshedding.enabled">
+      <div class="panelFieldContent">
+        <label id="loadsheddingCitizenLabel" class="panelLabel">Are you living or working in South Africa?</label>
+      </div>
+      <div class="panelFieldInput">
+        <options-toggle name="citizen" labelledby="loadsheddingCitizenLabel" [(ngModel)]="settings.config.loadshedding.citizen"></options-toggle>
+      </div>
+    </div>
+    <div class="panelField" *ngIf="!hasPermission && settings.config.loadshedding.enabled && settings.config.loadshedding.citizen">
+      <div class="panelFieldContent">
+        <label id="loadsheddingLicense" class="panelLabel">Permission to access API</label>
+        <div class="panelDescription">In order for the extension to have access to the API, you must provide permission for access to read the site "https://developer.sepush.co.za/".</div>
+      </div>
+      <div class="panelFieldInput">
+        <button class="panelBtn" type="button" (click)="setPermission()">Request permission</button>
+      </div>
+    </div>
+    <ng-container *ngIf="hasPermission && settings.config.loadshedding.enabled && settings.config.loadshedding.citizen">
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <div class="panelLabel">Instructions</div>
+          <div class="panelDescription">In order to get loadshedding data from Eskom, you must sign up to the EskomSePush API yourself and provide your license key below. It is free to sign up. Go to <a href="https://eskomsepush.gumroad.com/l/api" rel="noreferrer" target="_blank">https://eskomsepush.gumroad.com/l/api</a> to register, takes just a couple minutes.</div>
+        </div>
+      </div>
+      <div class="panelField">
+        <div class="panelFieldContent">
+          <label id="loadsheddingLicense" class="panelLabel">EskomSePush License Key</label>
+        </div>
+        <div class="panelFieldInput">
+          <input class="panelInput" type="text" maxlength="50" id="loadsheddingLicense" name="loadsheddingLicense"
+            [(ngModel)]="settings.config.loadshedding.license" autocomplete="off">
+        </div>
+        <div class="panelFieldContent">
+          <div class="panelDescription"><button class="panelLink" type="button" (click)="checkAllowance()">Check number of requests used for the day</button><ng-container *ngIf="allowance && allowance.count">: {{allowance.count}} out of {{allowance.limit}} {{allowance.type}}</ng-container></div>
+        </div>
+        <div class="panelFieldContent" *ngIf="apiError">
+          <div class="panelValidation">{{ apiError }}</div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="(settings.config.loadshedding.areas && settings.config.loadshedding.areas.length >= 1)">
+      <div class="panelField">
+        <div class="panelFieldContent">
+          <label id="setLocationLabel" class="panelLabel">Saved locations</label>
+        </div>
+        <div class="loadsheddingLocationListItem panelFieldInline" *ngFor="let loc of settings.config.loadshedding.areas">
+          <div class="panelFieldContent">
+            <p class="panelDescription">{{loc.name}}</p>
+            <p class="panelDescription">{{loc.region}}</p>
+          </div>
+          <div class="panelFieldInput">
+            <button class="panelBtn" type="button" (click)="removeLocation(loc);"
+              attr.aria-label="Remove location: {{loc.name}}">
+              <div class="matIcon" aria-hidden="true">delete</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="settings.config.loadshedding.enabled && settings.config.loadshedding.citizen && settings.config.loadshedding.license">
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label for="loadsheddingArea" class="panelLabel">Add location</label>
+        </div>
+        <div class="panelFieldInput">
+          <input type="text" class="panelInput panelInputXl" id="loadsheddingArea" name="loadsheddingArea"
+            [(ngModel)]="loadsheddingService.areaSearchKeyword" />
+          <button class="panelBtn" type="button" (click)="getLocation();"
+            attr.aria-label="{{'options.weather.search' | translate}}">
+            <div class="matIcon" aria-hidden="true">search</div>
+          </button>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="hasSearched && (!locationList || locationList.length < 1)">
+      <div class="panelField panelFieldInline">
+        <div class="panelFieldContent">
+          <label id="setLocationLabel" class="panelLabel">No location found</label>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="hasSearched && (locationList && locationList.length >= 1)">
+      <div class="panelField">
+        <div class="panelFieldContent">
+          <div class="panelLabel">Locations results found</div>
+        </div>
+        <div class="loadsheddingLocationListItem panelFieldInline" *ngFor="let loc of locationList">
+          <div class="panelFieldContent">
+            <p class="panelDescription">{{loc.name}}</p>
+            <p class="panelDescription">{{loc.region}}</p>
+          </div>
+          <div class="panelFieldInput">
+            <button class="panelBtn" type="button" (click)="setLocation(loc);"
+              attr.aria-label="Select location: {{loc.name}}">
+              <div class="matIcon" aria-hidden="true">check</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</form>
+
+<button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon"
+    aria-hidden="true">arrow_back</i>{{'options.dashboard.backToDashboard' | translate}}</button>

@@ -1,0 +1,16 @@
+Test
+<div *ngFor="let area of cachedAreaInfo">
+  <h2>{{area.info.name}}</h2>
+  <p>{{area.info.region}}</p>
+  <p>{{area.schedule.source}}</p>
+  <h3>Currently: {{area.events[0].note}}</h3>
+  <p>{{area.events[0].start}} - {{area.events[0].end}}</p>
+  <ng-container *ngFor="let day of area.schedule.days">
+    <h3>{{day.name}} ({{day.date}})</h3>
+    <ul>
+      <li *ngFor="let stage of day.stages; let i = index">
+        Stage {{i + 1}}: <ng-container *ngFor="let time of stage">{{time}}, </ng-container>
+      </li>
+    </ul>
+  </ng-container>
+</div>

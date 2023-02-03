@@ -97,6 +97,15 @@
       >
         <tab-notepad [ngStyle]="setNotepadStyles()"></tab-notepad>
       </div>
+      <div
+        class="forceLineBreak"
+        *ngIf="
+          settings.config.loadshedding.position === gridBlock &&
+          settings.config.loadshedding.enabled
+        "
+      >
+        <tab-loadshedding></tab-loadshedding>
+      </div>
     </article>
   </div>
 

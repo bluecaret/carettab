@@ -566,6 +566,7 @@ export class SharedService {
     this.settings.setAll(this.settings.config.time, 'ct-time');
     this.settings.setAll(this.settings.config.weather, 'ct-weather');
     this.settings.setAll(this.settings.config.notepad, 'ct-notepad');
+    this.settings.setAll(this.settings.config.loadshedding, 'ct-loadshedding');
   }
 
   public getRandomNumber(min,max): number {

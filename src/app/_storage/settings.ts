@@ -409,6 +409,17 @@ export class MiscSettings {
   ) {}
 }
 
+export class LoadsheddingSettings {
+  constructor(
+    public id = 'LOADSHEDDING_KS676NVA99',
+    public position = 'c',
+    public enabled = false,
+    public citizen = false,
+    public license = '',
+    public areas = [],
+  ) { }
+}
+
 export class Settings {
   constructor(
     public order = new OrderSettings(),
@@ -423,5 +434,6 @@ export class Settings {
     public weather = new WeatherSettings(),
     public notepad = new NotepadSettings(),
     public misc = new MiscSettings(),
+    public loadshedding = new LoadsheddingSettings(),
   ) {}
 }

@@ -39,12 +39,25 @@ app-options {
   &.panelPreview {
     opacity: 0;
   }
-  a:not(.panelBtn) {
+  a:not(.panelBtn),
+  .panelLink {
     color: var(--panelColor);
     &:focus-visible {
       outline: 1px solid var(--panelColor);
       outline-offset: 2px;
     }
+  }
+  .panelLink {
+    background-color: transparent;
+    border: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    text-decoration: underline;
+    line-height: inherit;
+    display: inline;
+    padding: 0;
+    font-family: inherit;
+    cursor: pointer;
   }
 }
 
@@ -962,4 +975,3 @@ $btnRadius: var(--size300);
     transform: scale(0);
   }
 }
-

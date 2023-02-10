@@ -51,7 +51,7 @@
         </div>
         <div class="panelFieldInput">
           <input class="panelInput" type="text" maxlength="50" id="loadsheddingLicense" name="loadsheddingLicense"
-            [(ngModel)]="settings.config.loadshedding.license" autocomplete="off">
+            [(ngModel)]="settings.config.loadshedding.license" autocomplete="off" (change)="onLicenseUpdated($event)">
         </div>
         <div class="panelFieldContent">
           <div class="panelDescription"><button class="panelLink" type="button" (click)="checkAllowance()">Check number of requests used for the day</button><ng-container *ngIf="allowance && allowance.count">: {{allowance.count}} out of {{allowance.limit}} {{allowance.type}}</ng-container></div>

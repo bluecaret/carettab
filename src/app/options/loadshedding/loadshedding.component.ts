@@ -1,4 +1,4 @@
-import { Component, HostBinding, Output, EventEmitter, NgZone } from '@angular/core';
+import { Component, HostBinding, Output, EventEmitter, NgZone, SimpleChanges } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
 import { LoadsheddingService } from '../../tab/loadshedding/loadshedding.service';
@@ -23,6 +23,15 @@ export class OptionsLoadsheddingComponent {
     private zone: NgZone,
   ) {
     this.checkPermissions()
+  }
+
+  onLicenseUpdated(e) {
+    if (this.hasPermission && e.target.value.length.trim()>=35) {
+      //get the national status so long
+      this.loadsheddingService.getSatus().then(x => {
+        chrome.storage.local.set({ "loadshedding_national_status": { cachedAt: (new Date()).getTime().toString(), data: x } });
+      })
+    }
   }
 
   async getLocation() {
@@ -67,8 +76,14 @@ export class OptionsLoadsheddingComponent {
   }
 
   setLocation(loc) {
-    this.settings.config.loadshedding.areas.push({id: loc.id, name: loc.name, region: loc.region});
+    this.settings.config.loadshedding.areas.push({ id: loc.id, name: loc.name, region: loc.region });
     this.settings.setAll(this.settings.config.loadshedding, 'ct-loadshedding');
+    //get the current schedule for this area
+    this.loadsheddingService.getAreaInfo(loc.id).then(x => {
+      var myDate = (new Date()).getTime().toString();
+      chrome.storage.local.set({ ["loadshedding_" + loc.id]: { cachedAt: myDate, data: x } });
+    })
+
     this.apiError = null
   }
 

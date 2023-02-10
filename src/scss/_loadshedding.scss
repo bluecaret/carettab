@@ -1,5 +1,6 @@
 .loadsheddingLocationListItem {
   display: flex;
+  flex-direction: column;
   border-bottom: 1px solid var(--panelGroupItemBorder);
   padding-bottom: var(--size400);
   &:last-child {
@@ -9,4 +10,61 @@
 }
 
 .loadshedding {
+  display: flex;
+  justify-content: center;
+  color: currentColor;
+  flex-direction: row;
+  width: max-content;
+}
+
+.nationalStatus {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid white;
+  border-radius: 3px;
+  margin: 10px;
+}
+.dayName{
+  font-weight: bold;
+}
+.stages{
+  display: flex;
+  flex-direction: column;
+}
+
+.entity{
+  margin: 0px 10px;
+}
+.header{
+  padding: 0px 5px 5px 5px;
+  font-weight: bold;
+} 
+
+.suburb{
+  display: flex;
+  flex-direction: row;
+  border: 2px dotted white;
+  margin:10px;
+  padding:10px;
+}
+
+.suburbs{
+  display: flex;
+  flex-direction: row;
+  width:100vw;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.schedules{
+  display: flex;
+  flex-direction: row;
+}
+.daySchedule{
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px;
+}
+
+.daySchedule .dayName:only-child{
+  display: none;
 }

@@ -316,4 +316,21 @@ export class TabComponent implements OnInit, AfterViewInit {
     };
     return styles;
   }
+  setLoadsheddingWrapStyles(){
+    const styles = {
+      'order': this.shared.getOrder(
+        this.settings.config.loadshedding.id,
+        this.settings.config.loadshedding.position
+      )
+    };
+    return styles;
+  }
+  setLoadsheddingStyles(){
+    const styles = {
+      'font-size' : this.shared.getFontSize(this.settings.config.loadshedding.scaling, 12),
+      'transform' : this.shared.getOffsetLarge(this.settings.config.loadshedding.offset),
+      'margin' : this.shared.getMargin(this.settings.config.loadshedding.marginHeight, this.settings.config.notepad.marginWidth, .4),
+       };
+    return styles;
+  }
 }

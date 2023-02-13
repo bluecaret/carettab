@@ -417,6 +417,10 @@ export class LoadsheddingSettings {
     public citizen = false,
     public license = '',
     public areas = [],
+    public scaling = 6,
+    public offset = 0,
+    public marginHeight = 0,
+    public marginWidth = 10,
   ) { }
 }
 

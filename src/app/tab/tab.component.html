@@ -103,8 +103,9 @@
           settings.config.loadshedding.position === gridBlock &&
           settings.config.loadshedding.enabled
         "
+        [ngStyle]="setLoadsheddingWrapStyles()"
       >
-        <tab-loadshedding></tab-loadshedding>
+        <tab-loadshedding [ngStyle]="setLoadsheddingStyles()"></tab-loadshedding>
       </div>
     </article>
   </div>

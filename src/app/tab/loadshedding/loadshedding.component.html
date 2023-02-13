@@ -1,25 +1,28 @@
-<div class="suburbs">
-  <div class="suburb">
-    <div class="header">{{nationalStatus.data.status.eskom.name}}</div>
-    <div class="stages">
-      <span className="">{{nationalStatus.data.status.eskom.stage}} - Current</span>
-      <ng-container *ngFor="let stage of nationalStatus.data.status.eskom.next_stages">
-        <span className="stage">{{stage.stage}} - {{stage.stage_start_timestamp | date: 'dd MMM HH:mm a'}}</span>
-      </ng-container>
+<div class='loadsheddingContainer'
+[style.fontSize]="shared.getFontSize(settings.config.loadshedding.scaling, 3)">
+<!-- <pre>{{settings.config.loadshedding|json}}</pre>   -->
+ <div class="suburbs">
+    <div class="suburb">
+      <div class="header">{{nationalStatus.data.status.eskom.name}}</div>
+      <div class="stages">
+        <span className="">{{nationalStatus.data.status.eskom.stage}} - Current</span>
+        <ng-container *ngFor="let stage of nationalStatus.data.status.eskom.next_stages">
+          <span className="stage">{{stage.stage}} - {{stage.stage_start_timestamp | date: 'dd MMM HH:mm a'}}</span>
+        </ng-container>
+      </div>
     </div>
-  </div>
-  <div class="suburb">
-    <div class="header">{{nationalStatus.data.status.capetown.name}}
+    <div class="suburb">
+      <div class="header">{{nationalStatus.data.status.capetown.name}}
+      </div>
+      <div class="stages">
+        <span className="">{{nationalStatus.data.status.capetown.stage}} - Current</span>
+        <ng-container *ngFor="let stage of nationalStatus.data.status.capetown.next_stages">
+          <span className="stage">{{stage.stage}} - {{stage.stage_start_timestamp | date: 'dd MMM HH:mm a'}}</span>
+        </ng-container>
+      </div>
     </div>
-    <div class="stages">
-      <span className="">{{nationalStatus.data.status.capetown.stage}} - Current</span>
-      <ng-container *ngFor="let stage of nationalStatus.data.status.capetown.next_stages">
-        <span className="stage">{{stage.stage}} - {{stage.stage_start_timestamp | date: 'dd MMM HH:mm a'}}</span>
-      </ng-container>
-    </div>
-  </div>
 
-  <ng-container *ngFor="let area of cachedAreaInfo">
+    <ng-container *ngFor="let area of cachedAreaInfo">
       <div class="suburb">
         <div class="header">
           <h2>{{area.data.info.name}}</h2>
@@ -36,7 +39,8 @@
             </div>
           </ng-container>
         </div>
-        
+
       </div>
     </ng-container>
+  </div>
 </div>

@@ -26,7 +26,7 @@ export class TabLoadsheddingComponent implements OnInit {
       this.nationalStatus = ns["loadshedding_national_status"];
       var cacheUntilTime = +(this.nationalStatus.cachedAt) + this.cacheTimePeriod // this is getTime already 
       if ((new Date()).getTime() - cacheUntilTime > this.cacheTimePeriod) {
-        console.log("WE NEED NEW DATA");
+        console.error("WE NEED NEW DATA");
       }
       else {
         console.log("Data is still fine for " + ((new Date()).getTime() - cacheUntilTime));
@@ -37,7 +37,7 @@ export class TabLoadsheddingComponent implements OnInit {
 
         var cacheUntilTime = +(x["loadshedding_" + area.id].cachedAt) + this.cacheTimePeriod // this is getTime already 
         if ((new Date()).getTime() - cacheUntilTime > this.cacheTimePeriod) {
-          console.log("WE NEED NEW DATA");
+          console.error("WE NEED NEW DATA");
         }
         else {
           this.cachedAreaInfo.push(x["loadshedding_" + area.id])
@@ -46,14 +46,13 @@ export class TabLoadsheddingComponent implements OnInit {
     });
   }
   showData(x) {
-    //return x.date;
     //get all the stages declared for today National (ESKOM)
     var data = []
     if (new Date(x.date).toDateString() === new Date().toDateString()) {
       // use the current stage
       var d = +this.nationalStatus.data.status.eskom.stage;
 
-      data = x.stages[d].filter(t => {
+      return x.stages[d].filter(t => {
         var h = t.substr(0, 2);
         var mh = new Date().getHours();
         return h > mh;

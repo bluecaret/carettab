@@ -25,8 +25,8 @@ export class OptionsLoadsheddingComponent {
     this.checkPermissions()
   }
 
-  onLicenseUpdated(e) {
-    if (this.hasPermission && e.target.value.length.trim()>=35) {
+  onLicenseUpdated() {
+    if (this.hasPermission && this.settings.config.loadshedding.license.trim().length >= 35) {
       //get the national status so long
       this.loadsheddingService.getSatus().then(x => {
         chrome.storage.local.set({ "loadshedding_national_status": { cachedAt: (new Date()).getTime().toString(), data: x } });

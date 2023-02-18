@@ -17,54 +17,43 @@
   width: max-content;
 }
 
-.nationalStatus {
-  display: flex;
-  flex-direction: row;
-  border: 1px solid white;
-  border-radius: 3px;
-  margin: 10px;
-}
 .dayName{
   font-weight: bold;
-}
-.stages{
-  display: flex;
-  flex-direction: column;
+  font-style: italic;
 }
 
-.entity{
-  margin: 0px 10px;
-}
 .header{
-  padding: 0px 5px 5px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   font-weight: bold;
+  h2{
+    margin-bottom:0px;
+  }
 } 
 
 .suburb{
   display: flex;
-  flex-direction: row;
-  border: 2px dotted white;
-  margin:10px;
-  padding:10px;
+  flex-direction: column;
 }
 
-.suburbs{
-  display: flex;
-  flex-direction: row;
-  width:100vw;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
 .schedules{
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-auto-flow: column; 
+  grid-template-columns: auto;
+  padding-bottom: 10px;
 }
 .daySchedule{
   display: flex;
   flex-direction: column;
-  padding: 0px 10px;
+  padding-right: 10px;
 }
 
 .daySchedule .dayName:only-child{
   display: none;
+}
+
+.dim{
+    font-size: 0.75em;
 }

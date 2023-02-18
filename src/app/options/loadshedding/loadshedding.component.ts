@@ -15,6 +15,8 @@ export class OptionsLoadsheddingComponent {
   locationList
   allowance = {}
   apiError
+  selected: number = 999;
+  locationItem = {};
 
   constructor(
     public shared: SharedService,
@@ -34,6 +36,27 @@ export class OptionsLoadsheddingComponent {
     }
   }
 
+  /** Track array by index */
+  trackByFn(index: any, item: any) {
+    return index;
+  }
+
+  /** Sets item as selected */
+  setSelected(i: number) {
+    if (this.selected !== i) {
+      this.selected = i;
+      this.locationItem = this.getLocationItem(i);
+      this.shared.optionsPage = 'EditLocation';
+    } else {
+      this.selected = null;
+      this.locationItem = this.getLocationItem(i);
+      this.shared.optionsPage = 'Loadshedding';
+    }
+  }
+  getLocationItem(i) {
+    var area = this.settings.config.loadshedding.areas[i];
+    return area;
+  }
   async getLocation() {
     this.shared.loading = true
     this.loadsheddingService.searchAreas(this.loadsheddingService.areaSearchKeyword).then(data => {
@@ -58,7 +81,7 @@ export class OptionsLoadsheddingComponent {
 
   async checkAllowance() {
     this.shared.loading = true
-    this.loadsheddingService.checkAllowance(this.loadsheddingService.areaSearchKeyword).then(data => {
+    this.loadsheddingService.checkAllowance().then(data => {
       if (data.error) {
         this.apiError = data.error
         this.allowance = [];
@@ -76,7 +99,8 @@ export class OptionsLoadsheddingComponent {
   }
 
   setLocation(loc) {
-    this.settings.config.loadshedding.areas.push({ id: loc.id, name: loc.name, region: loc.region });
+    let area = { id: loc.id, name: loc.name, region: loc.region,location:'c', scaling: 6, offset: 0, marginHeight: 0, marginWidth: 10 };
+    this.settings.config.loadshedding.areas.push(area);
     this.settings.setAll(this.settings.config.loadshedding, 'ct-loadshedding');
     //get the current schedule for this area
     this.loadsheddingService.getAreaInfo(loc.id).then(x => {

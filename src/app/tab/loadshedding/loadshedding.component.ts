@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
 import { LoadsheddingService } from './loadshedding.service'
@@ -10,14 +10,18 @@ import { LoadsheddingService } from './loadshedding.service'
 })
 
 export class TabLoadsheddingComponent implements OnInit {
-  cachedAreaInfo = [];
+
+  @Input() index: number;
+  @Input() area;
+
+  cachedAreaInfo: any = {};
   nationalStatus: any = {};
   cacheTimePeriod = 7200000; // 2 hours; 60000 =1min
 
   constructor(
     public shared: SharedService,
     public settings: Storage,
-    private loadsheddingService: LoadsheddingService
+    public loadsheddingService: LoadsheddingService,
   ) { }
   ngOnInit() {
     let that = this
@@ -32,49 +36,67 @@ export class TabLoadsheddingComponent implements OnInit {
         console.log("Data is still fine for " + ((new Date()).getTime() - cacheUntilTime));
       }
     })
-    this.settings.config.loadshedding.areas.forEach(area => {
-      chrome.storage.local.get("loadshedding_" + [area.id], (x) => {
 
-        var cacheUntilTime = +(x["loadshedding_" + area.id].cachedAt) + this.cacheTimePeriod // this is getTime already 
-        if ((new Date()).getTime() - cacheUntilTime > this.cacheTimePeriod) {
-          console.error("WE NEED NEW DATA");
-        }
-        else {
-          this.cachedAreaInfo.push(x["loadshedding_" + area.id])
-        }
-      })
-    });
+    chrome.storage.local.get("loadshedding_" + [this.area.id], (x) => {
+      var cacheUntilTime = +(x["loadshedding_" + this.area.id].cachedAt) + this.cacheTimePeriod // this is getTime already 
+      if ((new Date()).getTime() - cacheUntilTime > this.cacheTimePeriod) {
+        //get the current schedule for this area
+        this.loadsheddingService.getAreaInfo(this.area.id).then(newAreaData => {
+          var myDate = (new Date()).getTime().toString();
+          chrome.storage.local.set({ ["loadshedding_" + this.area.id]: { cachedAt: myDate, data: newAreaData } });
+          this.cachedAreaInfo = newAreaData;
+        })
+      }
+      else {
+        this.cachedAreaInfo = x["loadshedding_" + this.area.id];
+        console.log(this.cachedAreaInfo);
+      }
+    })
   }
+
   showData(x) {
-    //get all the stages declared for today National (ESKOM)
-    var data = []
-    if (new Date(x.date).toDateString() === new Date().toDateString()) {
-      // use the current stage
-      var d = +this.nationalStatus.data.status.eskom.stage;
-
-      return x.stages[d].filter(t => {
-        var h = t.substr(0, 2);
-        var mh = new Date().getHours();
-        return h > mh;
-      });
+    if (!x.stages) {
+      return false;
     }
-    else if (new Date(x.date) > new Date()) {
+    try {
+      //get all the stages declared for today National (ESKOM)
+      var data = []
+      if (new Date(x.date).toDateString() === new Date().toDateString()) {
+        // use the current stage
+        var d = +this.nationalStatus.data.status.eskom.stage;
+        var stages = x.stages[d];
+        if (!stages) {
+          return false;
+        }
+        return stages &&
+          stages.filter(t => {
+            var stageStart = t.substr(0, 2);
+            var stageEnd = t.substr(6, 2);
+            var currentHour = new Date().getHours();
+            return (stageStart < currentHour && (stageEnd > currentHour || stageEnd === '00'));
+          });
+      }
+      else if (new Date(x.date) > new Date()) {
 
-      var stagesForFutureDay = this.nationalStatus.data.status.eskom.next_stages.filter(sst => new Date(sst.stage_start_timestamp) > new Date(new Date(x.date).toDateString()) && new Date(sst.stage_start_timestamp).getDate() === new Date(new Date(x.date).toDateString()).getDate())
-      stagesForFutureDay.forEach(stg => {
-        var c = x.stages[stg.stage].filter(t => {
-          var h = t.substr(0, 2);
-          var mh = new Date(stg.stage_start_timestamp).getHours()
-          return h > mh;
+        var stagesForFutureDay = this.nationalStatus.data.status.eskom.next_stages.filter(sst => new Date(sst.stage_start_timestamp) > new Date(new Date(x.date).toDateString()) && new Date(sst.stage_start_timestamp).getDate() === new Date(new Date(x.date).toDateString()).getDate())
+        stagesForFutureDay.forEach(stg => {
+          let stages = x.stages[stg.stage];
+          if (!stages) {
+            return false;
+          }
+          data = data.concat(stages);
         });
-        data = data.concat(c);
-      });
 
-      var s = new Set(data);
+        var s = new Set(data);
 
-      return [...s];
+        return [...s];
+      }
+    }
+    catch (err) {
+      debugger;
     }
   }
+
   async setAreaInfo() {
     // for (const area of this.settings.config.loadshedding.areas) {
     //   let getInfo = await this.loadsheddingService.getAreaInfo(area.id)

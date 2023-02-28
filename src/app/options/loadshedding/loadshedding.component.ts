@@ -99,7 +99,7 @@ export class OptionsLoadsheddingComponent {
   }
 
   setLocation(loc) {
-    let area = { id: loc.id, name: loc.name, region: loc.region,location:'c', scaling: 6, offset: 0, marginHeight: 0, marginWidth: 10 };
+    let area = { id: loc.id, name: loc.name, region: loc.region,position:'c', scaling: 6, offset: 0, marginHeight: 0, marginWidth: 10 };
     this.settings.config.loadshedding.areas.push(area);
     this.settings.setAll(this.settings.config.loadshedding, 'ct-loadshedding');
     //get the current schedule for this area

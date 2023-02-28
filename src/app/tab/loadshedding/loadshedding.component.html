@@ -1,8 +1,8 @@
 <div class='loadsheddingContainer'>
    <div class="suburb">
     <div class="header">
-      <h2>{{cachedAreaInfo?.data.info.name}} </h2>
-      <label class="dim">{{cachedAreaInfo?.data.info.region}}</label>
+      <h2>{{cachedAreaInfo?.data?.info?.name}} </h2>
+      <label class="dim">{{cachedAreaInfo?.data?.info?.region}}</label>
     </div>
     <div class="schedules">
       <ng-container *ngFor="let day of cachedAreaInfo.data?.schedule?.days">

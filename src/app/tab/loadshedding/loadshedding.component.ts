@@ -79,6 +79,9 @@ export class TabLoadsheddingComponent implements OnInit {
       else if (new Date(x.date) > new Date()) {
 
         var stagesForFutureDay = this.nationalStatus.data.status.eskom.next_stages.filter(sst => new Date(sst.stage_start_timestamp) > new Date(new Date(x.date).toDateString()) && new Date(sst.stage_start_timestamp).getDate() === new Date(new Date(x.date).toDateString()).getDate())
+        if(!stagesForFutureDay || stagesForFutureDay.length ===0){
+          stagesForFutureDay = [this.nationalStatus.data.status.eskom];
+        }
         stagesForFutureDay.forEach(stg => {
           let stages = x.stages[stg.stage];
           if (!stages) {

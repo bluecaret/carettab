@@ -153,7 +153,8 @@
       "suffix": "Suffix",
       "suffixDate": "Date suffix",
       "suffixMonth": "Month suffix",
-      "suffixYear": "Year suffix"
+      "suffixYear": "Year suffix",
+      "quarterStart": "Start of fiscal/academic year"
     },
     "design": {
       "bg": "Custom background",

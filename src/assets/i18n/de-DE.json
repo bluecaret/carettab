@@ -153,7 +153,8 @@
       "suffix": "Suffix",
       "suffixDate": "Datumszusatz",
       "suffixMonth": "Monatszusatz",
-      "suffixYear": "Jahreszusatz"
+      "suffixYear": "Jahreszusatz",
+      "quarterStart": "Beginn des Geschäftsjahres/Studienjahres"
     },
     "design": {
       "bg": "Benutzerdefinierter Hintergrund",

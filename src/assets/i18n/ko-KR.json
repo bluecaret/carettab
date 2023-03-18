@@ -153,7 +153,8 @@
       "suffix": "접미사",
       "suffixDate": "날짜 접미사",
       "suffixMonth": "월 접미사",
-      "suffixYear": "연도 접미사"
+      "suffixYear": "연도 접미사",
+      "quarterStart": "회계연도 시작"
     },
     "design": {
       "bg": "맞춤 배경",

@@ -153,7 +153,8 @@
       "suffix": "Sufixo",
       "suffixDate": "Sufixo de data",
       "suffixMonth": "Sufixo do mês",
-      "suffixYear": "Sufixo de ano"
+      "suffixYear": "Sufixo de ano",
+      "quarterStart": "Início do ano fiscal/acadêmico"
     },
     "design": {
       "bg": "Fundo Personalizado",

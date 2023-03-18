@@ -153,7 +153,8 @@
       "suffix": "サフィックス",
       "suffixDate": "日付サフィックス",
       "suffixMonth": "月サフィックス",
-      "suffixYear": "年号"
+      "suffixYear": "年号",
+      "quarterStart": "年度・学年の開始"
     },
     "design": {
       "bg": "カスタム背景",

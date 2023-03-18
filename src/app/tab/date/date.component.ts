@@ -183,7 +183,8 @@ export class TabDateComponent implements OnInit {
   getQuarterNumber() {
     moment.locale(this.settings.config.i18n.lang);
     let format = this.settings.config.date.quarter.format;
-    return moment(this.currentDate).tz(this.getZone(this.settings.config.date.timezone)).format(format);
+    return moment(this.currentDate).subtract(this.settings.config.date.quarter.start ? this.settings.config.date.quarter.start : 0, 'months').tz(this.getZone(this.settings.config.date.timezone)).format(format);
+
   }
 
   getZone(zone: string) {

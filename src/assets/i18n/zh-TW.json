@@ -153,7 +153,8 @@
       "suffix": "後綴",
       "suffixDate": "日期後綴",
       "suffixMonth": "月份後綴",
-      "suffixYear": "年份後綴"
+      "suffixYear": "年份後綴",
+      "quarterStart": "財政/學年開始"
     },
     "design": {
       "bg": "自訂背景",

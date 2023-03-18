@@ -153,7 +153,8 @@
       "suffix": "后缀",
       "suffixDate": "日期后缀",
       "suffixMonth": "月份后缀",
-      "suffixYear": "年份后缀"
+      "suffixYear": "年份后缀",
+      "quarterStart": "财政/学年开始"
     },
     "design": {
       "bg": "自定义背景色",

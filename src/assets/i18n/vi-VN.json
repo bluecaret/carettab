@@ -153,7 +153,8 @@
       "suffix": "Hậu tố",
       "suffixDate": "Hậu tố ngày",
       "suffixMonth": "Hậu tố tháng",
-      "suffixYear": "Hậu tố năm"
+      "suffixYear": "Hậu tố năm",
+      "quarterStart": "Bắt đầu năm tài chính/năm học"
     },
     "design": {
       "bg": "Tùy chỉnh nền",

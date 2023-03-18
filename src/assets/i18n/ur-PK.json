@@ -153,7 +153,8 @@
       "suffix": "لاحقہ",
       "suffixDate": "تاریخ کا لاحقہ",
       "suffixMonth": "مہینے کا لاحقہ",
-      "suffixYear": "سال کا لاحقہ"
+      "suffixYear": "سال کا لاحقہ",
+      "quarterStart": "مالی/تعلیمی سال کا آغاز"
     },
     "design": {
       "bg": "حسب ضرورت پس منظر",

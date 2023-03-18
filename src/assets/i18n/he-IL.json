@@ -153,7 +153,8 @@
       "suffix": "סיומת",
       "suffixDate": "סיומת תאריך",
       "suffixMonth": "סיומת חודש",
-      "suffixYear": "סיומת שנה"
+      "suffixYear": "סיומת שנה",
+      "quarterStart": "תחילת שנת הכספים/הלימודים"
     },
     "design": {
       "bg": "רקע מותאם אישית",

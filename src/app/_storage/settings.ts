@@ -284,7 +284,8 @@ export class DateSettings {
       label: 'quarter',
       scaling: 10,
       offset: 0,
-      format: 'Qo'
+      format: 'Qo',
+      start: 0
     },
   ) { }
 }

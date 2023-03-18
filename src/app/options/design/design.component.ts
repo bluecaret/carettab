@@ -132,59 +132,43 @@ export class OptionsDesignComponent implements OnInit {
     let reader = e.target;
     let uploadSrc = reader.result;
     setTimeout(() => {
-      try {
-        this.settings.config.design.patternId = 0;
-        this.settings.config.design.imageSize = 20;
-        this.settings.config.design.wallpaperTimestamp = '';
-        this.settings.config.design.wallpaperType = 'upload';
-        this.wallpaperType = 'upload';
-        this.settings.config.design.unsplashId = '';
-        this.settings.config.design.unsplashList = '';
-        this.settings.config.design.unsplashListLink = '';
-        this.settings.config.design.unsplashCredit = '';
-        this.settings.config.design.unsplashCreditLink = '';
-
-        this.shared.bg = uploadSrc;
-        let newBg = {base64: uploadSrc}
-        chrome.storage.local.set({currentWallpaper: newBg});
-        chrome.storage.local.set({nextWallpaper: null});
-
-        this.updateBackgroundStyles();
-        this.updateBackgroundImage();
-
-        this.settings.setAll(this.settings.config.design, 'ct-design');
-      } catch (e) {
-        if (this.isQuotaExceeded(e)) {
+      let newBg = {base64: uploadSrc}
+      chrome.storage.local.set({currentWallpaper: newBg}, () => {
+        if (chrome.runtime.lastError && chrome.runtime.lastError.message.startsWith('QUOTA_BYTES')) {
           let msg = 'Sorry, the file size of your image is too big.';
           msg += ' Try a smaller image or resize your image at';
           msg += ' https://www.reduceimages.com/';
           alert(msg);
-          this.shared.echo('Background image failed, image file too large', uploadSrc.substr(0,20), null, 'error')
+          this.shared.echo('Background image failed, image file too large', chrome.runtime.lastError.message, uploadSrc.substr(0,20), 'error')
+          return;
+        } else if (chrome.runtime.lastError) {
+          let msg = 'Sorry, image failed to save. Please try again.';
+          alert(msg);
+          this.shared.echo('Background image failed for unknown reason', chrome.runtime.lastError.message, uploadSrc.substr(0,20), 'error')
+          return;
         } else {
-          this.shared.echo('Background image failed for unknown reason', uploadSrc.substr(0,20), null, 'error')
-        }
-      }
-    }, 100);
-  }
+          this.settings.config.design.patternId = 0;
+          this.settings.config.design.imageSize = 20;
+          this.settings.config.design.wallpaperTimestamp = '';
+          this.settings.config.design.wallpaperType = 'upload';
+          this.wallpaperType = 'upload';
+          this.settings.config.design.unsplashId = '';
+          this.settings.config.design.unsplashList = '';
+          this.settings.config.design.unsplashListLink = '';
+          this.settings.config.design.unsplashCredit = '';
+          this.settings.config.design.unsplashCreditLink = '';
 
-  isQuotaExceeded(e) {
-    let quotaExceeded = false;
-    if (e) {
-      if (e.code) {
-        switch (e.code) {
-          case 22:
-            quotaExceeded = true;
-            break;
-          case 1014:
-            // Firefox
-            if (e.name === 'NS_ERROR_DOM_QUOTA_REACHED') {
-              quotaExceeded = true;
-            }
-            break;
+          this.shared.bg = uploadSrc;
+          chrome.storage.local.set({nextWallpaper: null});
+
+          this.updateBackgroundStyles();
+          this.updateBackgroundImage();
+
+          this.settings.setAll(this.settings.config.design, 'ct-design');
         }
-      }
-    }
-    return quotaExceeded;
+      });
+
+    }, 100);
   }
 
   /**

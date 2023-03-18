@@ -44,6 +44,7 @@
 <options-weather *ngIf="shared.optionsPage === 'Weather'" (goTo)="goTo($event)"></options-weather>
 <options-notepad *ngIf="shared.optionsPage === 'Notepad'" (goTo)="goTo($event)"></options-notepad>
 <options-extra *ngIf="shared.optionsPage === 'Extra'" (goTo)="goTo($event)"></options-extra>
+<options-loadshedding *ngIf="['Loadshedding', 'EditLoadshedding'].includes(shared.optionsPage)" (goTo)="goTo($event)"></options-loadshedding>
 <footer class="panelPlate panelFooter">
   <p>
     <a href="{{getReviewLink(false)}}" class="supportBtn">{{'options.dashboard.review' | translate}}</a> |

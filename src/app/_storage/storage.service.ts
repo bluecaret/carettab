@@ -20,6 +20,7 @@ import {
   TimeSettings,
   WeatherSettings,
   NotepadSettings,
+  LoadsheddingSettings,
 } from './settings';
 import { Observable } from 'rxjs/internal/Observable';
 
@@ -45,6 +46,7 @@ export class Storage {
     this.config.time = new TimeSettings();
     this.config.weather = new WeatherSettings();
     this.config.notepad = new NotepadSettings();
+    this.config.loadshedding = new LoadsheddingSettings();
   }
 
   get loadTracker(): number {
@@ -113,6 +115,11 @@ export class Storage {
 
     this.getChrome('ct-notepad', this.config.notepad).then((data: any) => {
       this.config.notepad = data;
+      this.loadTracker++;
+    });
+
+    this.getChrome('ct-loadshedding', this.config.loadshedding).then((data: any) => {
+      this.config.loadshedding = data;
       this.loadTracker++;
     });
 

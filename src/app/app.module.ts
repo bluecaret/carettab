@@ -23,6 +23,7 @@ import { PremiumModalComponent } from './_shared/modals/premium-modal.component'
 import { IntroModalComponent } from './_shared/modals/intro-modal.component';
 import { MostVisitedMenuComponent } from './tab/bookmarks/most-visited-menu.component';
 import { WeatherService } from './tab/weather/weather.service';
+import { LoadsheddingService } from './tab/loadshedding/loadshedding.service';
 import * as moment from 'moment-timezone';
 import { SimpleModalModule, defaultSimpleModalOptions } from 'ngx-simple-modal';
 
@@ -38,6 +39,7 @@ import { OptionsNotepadComponent } from './options/notepad/notepad.component';
 import { OptionsSearchComponent } from './options/search/search.component';
 import { OptionsTimeComponent } from './options/time/time.component';
 import { OptionsWeatherComponent } from './options/weather/weather.component';
+import { OptionsLoadsheddingComponent } from './options/loadshedding/loadshedding.component';
 import { TimezonePipe } from './options/time/timezone.pipe';
 import { TimezoneService } from './options/time/timezone.service';
 
@@ -51,6 +53,7 @@ import { TabMessageComponent } from './tab/message/message.component';
 import { TabNotepadComponent } from './tab/notepad/notepad.component';
 import { TabSearchComponent } from './tab/search/search.component';
 import { TabWeatherComponent } from './tab/weather/weather.component';
+import { TabLoadsheddingComponent } from './tab/loadshedding/loadshedding.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +80,7 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     OptionsSearchComponent,
     OptionsTimeComponent,
     OptionsWeatherComponent,
+    OptionsLoadsheddingComponent,
     TimezonePipe,
 
     TabComponent,
@@ -87,7 +91,8 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     TabMessageComponent,
     TabNotepadComponent,
     TabSearchComponent,
-    TabWeatherComponent
+    TabWeatherComponent,
+    TabLoadsheddingComponent
   ],
   imports: [
     BrowserModule,
@@ -121,7 +126,8 @@ import { TabWeatherComponent } from './tab/weather/weather.component';
     WallpaperService,
     PopupService,
     TimezoneService,
-    WeatherService
+    WeatherService,
+    LoadsheddingService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

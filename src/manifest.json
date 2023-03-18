@@ -33,6 +33,9 @@
     "bookmarks",
     "topSites"
   ],
+  "optional_host_permissions": [
+    "https://developer.sepush.co.za/*"
+  ],
   "commands": {
     "goto-link-1": {
       "suggested_key": {

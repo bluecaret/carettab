@@ -412,15 +412,10 @@ export class MiscSettings {
 export class LoadsheddingSettings {
   constructor(
     public id = 'LOADSHEDDING_KS676NVA99',
-    public position = 'c',
     public enabled = false,
     public citizen = false,
     public license = '',
     public areas = [],
-    public scaling = 6,
-    public offset = 0,
-    public marginHeight = 0,
-    public marginWidth = 10,
   ) { }
 }
 
@@ -430,7 +425,7 @@ export class AreaSetting {
     public position = 'c',
     public name = '',
     public region = '',
-    public scaling = 6,
+    public scaling = 5,
     public offset = 0,
     public marginHeight = 0,
     public marginWidth = 10,

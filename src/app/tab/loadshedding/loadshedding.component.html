@@ -1,19 +1,19 @@
 <div class='loadsheddingContainer'>
-   <div class="suburb">
-    <div class="header">
+   <div class="loadsheddingSuburb">
+    <div class="loadsheddingHeader">
       <h2>{{cachedAreaInfo?.data?.info?.name}} </h2>
-      <label class="dim">{{cachedAreaInfo?.data?.info?.region}}</label>
+      <div class="loadsheddingDim dim">{{cachedAreaInfo?.data?.info?.region}}</div>
     </div>
-    <div class="schedules">
+    <div class="loadsheddingSchedules">
       <ng-container *ngFor="let day of cachedAreaInfo.data?.schedule?.days">
-        <div class="daySchedule" *ngIf="showData(day) && showData(day).length >0">
-          <span class="dayName">{{day.date |date:'E dd MMM'}}</span>
+        <div class="loadsheddingDaySchedule" *ngIf="showData(day) && showData(day).length >0">
+          <div class="loadsheddingDayName">{{day.date |date:'E dd MMM'}}</div>
           <ng-container *ngFor="let timeSlot of showData(day)">
-            <span>{{timeSlot}} </span>
+            <div>{{timeSlot}} </div>
           </ng-container>
         </div>
       </ng-container>
     </div>
-    <div class="dim">Last refreshed: {{cachedAreaInfo.cachedAt | date: 'dd MMM HH:mm a'}}</div>
+    <div class="loadsheddingDim dim" title="Last refreshed: {{cachedAreaInfo.cachedAt | date: 'dd MMM HH:mm a'}}">Last refreshed: {{cachedAreaInfo.cachedAt | date: 'dd MMM HH:mm a'}}</div>
   </div>
 </div>

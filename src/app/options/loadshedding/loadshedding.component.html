@@ -83,7 +83,7 @@
         <div class="panelFieldContent">
           <label id="setLocationLabel" class="panelLabel">Saved locations</label>
         </div>
-        <div class="loadsheddingLocationListItem panelFieldInline"
+        <div class="loadsheddingLocationListItem"
           *ngFor="let loc of settings.config.loadshedding.areas; let i = index; trackBy:trackByFn; ">
           <div class="panelFieldContent">
             <p class="panelDescription">{{loc.name}}</p>
@@ -151,7 +151,7 @@
          <button (click)="goTo.emit('Loadshedding'); selected = null;" class="panelBack matIcon"
           attr.aria-label="Back to all locations"
           title="{{'options.loadshedding.backToAllLocations' | translate}}">arrow_back</button>
-        {{locationItem.name}} #{{selected + 1}}  
+        {{locationItem.name}} #{{selected + 1}}
       </h2>
       <h3 class="panelSubtitle">{{'options.common.layout' | translate}}</h3>
       <div class="panelGroup">
@@ -233,7 +233,7 @@
               max="50" [(ngModel)]="locationItem.offset"></options-range>
           </div>
         </div>
-      </div>  
+      </div>
     </div>
   </ng-container>
 </form>

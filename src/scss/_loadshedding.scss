@@ -1,6 +1,5 @@
 .loadsheddingLocationListItem {
   display: flex;
-  flex-direction: column;
   border-bottom: 1px solid var(--panelGroupItemBorder);
   padding-bottom: var(--size400);
   &:last-child {
@@ -31,7 +30,7 @@
   h2{
     margin-bottom:0px;
   }
-} 
+}
 
 .suburb{
   display: flex;
@@ -40,7 +39,7 @@
 
 .schedules{
   display: grid;
-  grid-auto-flow: column; 
+  grid-auto-flow: column;
   grid-template-columns: auto;
   padding-bottom: 10px;
 }

@@ -22,7 +22,7 @@ export class OrderSettings {
     public sw = [],
     public s = [],
     public se = [],
-  ) {}
+  ) { }
 }
 
 export class DesignSettings {
@@ -58,7 +58,7 @@ export class DesignSettings {
     public shadowYOffset = 1,
     public shadowBlur = 5,
     public shadowColor = '#000000'
-  ) {}
+  ) { }
 }
 
 export class MessageSettings {
@@ -79,13 +79,13 @@ export class MessageSettings {
         text: "Hello world!"
       }
     ],
-  ) {}
+  ) { }
 }
 
 export class I18nSettings {
   constructor(
     public lang = 'en-US',
-  ) {}
+  ) { }
 }
 
 export class BookmarkSettings {
@@ -98,7 +98,7 @@ export class BookmarkSettings {
     public apps = false,
     public chromeTab = false,
     public openInNewTab = false,
-  ) {}
+  ) { }
 }
 
 export class QuickLinkSettings {
@@ -138,7 +138,7 @@ export class QuickLinkSettings {
         url: 'https://www.youtube.com/'
       }
     ],
-  ) {}
+  ) { }
 }
 
 export class TimeSettings {
@@ -286,7 +286,7 @@ export class DateSettings {
       offset: 0,
       format: 'Qo'
     },
-  ) {}
+  ) { }
 }
 
 export class SearchSettings {
@@ -304,7 +304,7 @@ export class SearchSettings {
     public customEngine = "https://www.google.com/search?q=%s",
     public autocomplete = true,
     public label = 'Search the web...',
-  ) {}
+  ) { }
 }
 
 export class WeatherSettings {
@@ -368,7 +368,7 @@ export class WeatherSettings {
         degree: true
       }
     },
-  ) {}
+  ) { }
 }
 
 export class NotepadSettings {
@@ -394,7 +394,7 @@ export class NotepadSettings {
     public background = '#1f1f1f',
     public bgOpacity = 100,
     public overrideColors = false,
-  ) {}
+  ) { }
 }
 
 export class MiscSettings {
@@ -406,7 +406,7 @@ export class MiscSettings {
       text: 'Hello world!',
       clockUsed: 1
     },
-  ) {}
+  ) { }
 }
 
 export class LoadsheddingSettings {
@@ -417,7 +417,24 @@ export class LoadsheddingSettings {
     public citizen = false,
     public license = '',
     public areas = [],
+    public scaling = 6,
+    public offset = 0,
+    public marginHeight = 0,
+    public marginWidth = 10,
   ) { }
+}
+
+export class AreaSetting {
+  constructor(
+    public id = 'LOADSHEDDING_AREA_KS676NVA99',
+    public position = 'c',
+    public name = '',
+    public region = '',
+    public scaling = 6,
+    public offset = 0,
+    public marginHeight = 0,
+    public marginWidth = 10,
+  ){}
 }
 
 export class Settings {
@@ -435,5 +452,5 @@ export class Settings {
     public notepad = new NotepadSettings(),
     public misc = new MiscSettings(),
     public loadshedding = new LoadsheddingSettings(),
-  ) {}
+  ) { }
 }

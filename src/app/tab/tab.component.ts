@@ -316,4 +316,14 @@ export class TabComponent implements OnInit, AfterViewInit {
     };
     return styles;
   }
+  
+  setLoadsheddingStyles(area){
+    const styles = {
+      'font-size' : this.shared.getFontSize(area.scaling, 6),
+      'transform' : this.shared.getOffsetLarge(area.offset),
+      'order': this.shared.getOrder(area.id,area.position),
+      'margin' : this.shared.getMargin(area.marginHeight, area.marginWidth, .4)
+       };
+    return styles;
+  }
 }

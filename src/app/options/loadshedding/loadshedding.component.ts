@@ -1,4 +1,4 @@
-import { Component, HostBinding, Output, EventEmitter, NgZone } from '@angular/core';
+import { Component, HostBinding, Output, EventEmitter, NgZone, SimpleChanges } from '@angular/core';
 import { Storage } from '../../_storage/storage.service';
 import { SharedService } from '../../_shared/shared.service';
 import { LoadsheddingService } from '../../tab/loadshedding/loadshedding.service';
@@ -15,6 +15,8 @@ export class OptionsLoadsheddingComponent {
   locationList
   allowance = {}
   apiError
+  selected: number = 999;
+  locationItem = {};
 
   constructor(
     public shared: SharedService,
@@ -25,6 +27,36 @@ export class OptionsLoadsheddingComponent {
     this.checkPermissions()
   }
 
+  onLicenseUpdated() {
+    if (this.hasPermission && this.settings.config.loadshedding.license.trim().length >= 35) {
+      //get the national status so long
+      this.loadsheddingService.getSatus().then(x => {
+        chrome.storage.local.set({ "loadshedding_national_status": { cachedAt: (new Date()).getTime().toString(), data: x } });
+      })
+    }
+  }
+
+  /** Track array by index */
+  trackByFn(index: any, item: any) {
+    return index;
+  }
+
+  /** Sets item as selected */
+  setSelected(i: number) {
+    if (this.selected !== i) {
+      this.selected = i;
+      this.locationItem = this.getLocationItem(i);
+      this.shared.optionsPage = 'EditLocation';
+    } else {
+      this.selected = null;
+      this.locationItem = this.getLocationItem(i);
+      this.shared.optionsPage = 'Loadshedding';
+    }
+  }
+  getLocationItem(i) {
+    var area = this.settings.config.loadshedding.areas[i];
+    return area;
+  }
   async getLocation() {
     this.shared.loading = true
     this.loadsheddingService.searchAreas(this.loadsheddingService.areaSearchKeyword).then(data => {
@@ -49,7 +81,7 @@ export class OptionsLoadsheddingComponent {
 
   async checkAllowance() {
     this.shared.loading = true
-    this.loadsheddingService.checkAllowance(this.loadsheddingService.areaSearchKeyword).then(data => {
+    this.loadsheddingService.checkAllowance().then(data => {
       if (data.error) {
         this.apiError = data.error
         this.allowance = [];
@@ -67,8 +99,15 @@ export class OptionsLoadsheddingComponent {
   }
 
   setLocation(loc) {
-    this.settings.config.loadshedding.areas.push({id: loc.id, name: loc.name, region: loc.region});
+    let area = { id: loc.id, name: loc.name, region: loc.region,position:'c', scaling: 6, offset: 0, marginHeight: 0, marginWidth: 10 };
+    this.settings.config.loadshedding.areas.push(area);
     this.settings.setAll(this.settings.config.loadshedding, 'ct-loadshedding');
+    //get the current schedule for this area
+    this.loadsheddingService.getAreaInfo(loc.id).then(x => {
+      var myDate = (new Date()).getTime().toString();
+      chrome.storage.local.set({ ["loadshedding_" + loc.id]: { cachedAt: myDate, data: x } });
+    })
+
     this.apiError = null
   }
 

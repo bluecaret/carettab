@@ -1,16 +1,19 @@
-Test
-<div *ngFor="let area of cachedAreaInfo">
-  <h2>{{area.info.name}}</h2>
-  <p>{{area.info.region}}</p>
-  <p>{{area.schedule.source}}</p>
-  <h3>Currently: {{area.events[0].note}}</h3>
-  <p>{{area.events[0].start}} - {{area.events[0].end}}</p>
-  <ng-container *ngFor="let day of area.schedule.days">
-    <h3>{{day.name}} ({{day.date}})</h3>
-    <ul>
-      <li *ngFor="let stage of day.stages; let i = index">
-        Stage {{i + 1}}: <ng-container *ngFor="let time of stage">{{time}}, </ng-container>
-      </li>
-    </ul>
-  </ng-container>
+<div class='loadsheddingContainer'>
+   <div class="suburb">
+    <div class="header">
+      <h2>{{cachedAreaInfo?.data?.info?.name}} </h2>
+      <label class="dim">{{cachedAreaInfo?.data?.info?.region}}</label>
+    </div>
+    <div class="schedules">
+      <ng-container *ngFor="let day of cachedAreaInfo.data?.schedule?.days">
+        <div class="daySchedule" *ngIf="showData(day).length >0">
+          <span class="dayName">{{day.date |date:'E dd MMM'}}</span>
+          <ng-container *ngFor="let timeSlot of showData(day)">
+            <span>{{timeSlot}} </span>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+    <div class="dim">Last refreshed: {{cachedAreaInfo.cachedAt | date: 'dd MMM HH:mm a'}}</div>
+  </div> 
 </div>

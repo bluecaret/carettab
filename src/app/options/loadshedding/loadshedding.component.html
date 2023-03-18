@@ -1,24 +1,33 @@
-<h2 class="panelTitle">
-  <button (click)="goTo.emit('Dashboard')" class="panelBack matIcon"
-    attr.aria-label="{{'options.dashboard.backToDashboard' | translate}}"
-    title="{{'options.dashboard.backToDashboard' | translate}}">arrow_back</button>
-  Loadshedding Status for the South Africa
-</h2>
+
 <form #loadshedding="ngForm" novalidate>
-  <div class="panelGroup">
+  <h2 class="panelTitle" *ngIf="shared.optionsPage === 'Loadshedding'">
+    <button (click)="goTo.emit('Dashboard')" class="panelBack matIcon"
+      attr.aria-label="{{'options.dashboard.backToDashboard' | translate}}"
+      title="{{'options.dashboard.backToDashboard' | translate}}">arrow_back</button>
+    Loadshedding Status for the South Africa
+  </h2>
+  <div class="panelGroup" *ngIf="shared.optionsPage === 'Loadshedding'">
     <div class="panelField panelFieldInline">
       <div class="panelFieldContent">
-        <div class="panelDescription" style="margin-top: 0">This widget is used for displaying the current Loadshedding status for citizens of South Africa during the energy crisis currently happening there. Read more about the <a href="https://en.wikipedia.org/wiki/South_African_energy_crisis" rel="noreferrer" target="_blank">South African energy crisis on Wikipedia</a>. Please note that this widget is only intended for citizens of South Africa, if you are not a citizen there please refrain from using it to prevent the API from being overused and thus stay available to those that need it. The data is provided by <a href="https://eskomsepush.gumroad.com/l/api" rel="noreferrer" target="_blank">EskomSePush</a>. CaretTab takes no responsibility for the accuracy or reliability of this data.</div>
+        <div class="panelDescription" style="margin-top: 0">This widget is used for displaying the current Loadshedding
+          status for citizens of South Africa during the energy crisis currently happening there. Read more about the <a
+            href="https://en.wikipedia.org/wiki/South_African_energy_crisis" rel="noreferrer" target="_blank">South
+            African energy crisis on Wikipedia</a>. Please note that this widget is only intended for citizens of South
+          Africa, if you are not a citizen there please refrain from using it to prevent the API from being overused and
+          thus stay available to those that need it. The data is provided by <a
+            href="https://eskomsepush.gumroad.com/l/api" rel="noreferrer" target="_blank">EskomSePush</a>. CaretTab
+          takes no responsibility for the accuracy or reliability of this data.</div>
       </div>
     </div>
   </div>
-  <div class="panelGroup">
+  <div class="panelGroup" *ngIf="shared.optionsPage === 'Loadshedding'">
     <div class="panelField panelFieldInline">
       <div class="panelFieldContent">
         <label id="loadsheddingEnableLabel" class="panelLabel">Loadshedding</label>
       </div>
       <div class="panelFieldInput">
-        <options-toggle name="loadshedding" labelledby="loadsheddingEnableLabel" [(ngModel)]="settings.config.loadshedding.enabled"></options-toggle>
+        <options-toggle name="loadshedding" labelledby="loadsheddingEnableLabel"
+          [(ngModel)]="settings.config.loadshedding.enabled"></options-toggle>
       </div>
     </div>
     <div class="panelField panelFieldInline" *ngIf="settings.config.loadshedding.enabled">
@@ -26,13 +35,16 @@
         <label id="loadsheddingCitizenLabel" class="panelLabel">Are you living or working in South Africa?</label>
       </div>
       <div class="panelFieldInput">
-        <options-toggle name="citizen" labelledby="loadsheddingCitizenLabel" [(ngModel)]="settings.config.loadshedding.citizen"></options-toggle>
+        <options-toggle name="citizen" labelledby="loadsheddingCitizenLabel"
+          [(ngModel)]="settings.config.loadshedding.citizen"></options-toggle>
       </div>
     </div>
-    <div class="panelField" *ngIf="!hasPermission && settings.config.loadshedding.enabled && settings.config.loadshedding.citizen">
+    <div class="panelField"
+      *ngIf="!hasPermission && settings.config.loadshedding.enabled && settings.config.loadshedding.citizen">
       <div class="panelFieldContent">
         <label id="loadsheddingLicense" class="panelLabel">Permission to access API</label>
-        <div class="panelDescription">In order for the extension to have access to the API, you must provide permission for access to read the site "https://developer.sepush.co.za/".</div>
+        <div class="panelDescription">In order for the extension to have access to the API, you must provide permission
+          for access to read the site "https://developer.sepush.co.za/".</div>
       </div>
       <div class="panelFieldInput">
         <button class="panelBtn" type="button" (click)="setPermission()">Request permission</button>
@@ -42,7 +54,10 @@
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
           <div class="panelLabel">Instructions</div>
-          <div class="panelDescription">In order to get loadshedding data from Eskom, you must sign up to the EskomSePush API yourself and provide your license key below. It is free to sign up. Go to <a href="https://eskomsepush.gumroad.com/l/api" rel="noreferrer" target="_blank">https://eskomsepush.gumroad.com/l/api</a> to register, takes just a couple minutes.</div>
+          <div class="panelDescription">In order to get loadshedding data from Eskom, you must sign up to the
+            EskomSePush API yourself and provide your license key below. It is free to sign up. Go to <a
+              href="https://eskomsepush.gumroad.com/l/api" rel="noreferrer"
+              target="_blank">https://eskomsepush.gumroad.com/l/api</a> to register, takes just a couple minutes.</div>
         </div>
       </div>
       <div class="panelField">
@@ -51,10 +66,12 @@
         </div>
         <div class="panelFieldInput">
           <input class="panelInput" type="text" maxlength="50" id="loadsheddingLicense" name="loadsheddingLicense"
-            [(ngModel)]="settings.config.loadshedding.license" autocomplete="off">
+            [(ngModel)]="settings.config.loadshedding.license" autocomplete="off" (change)="onLicenseUpdated()">
         </div>
         <div class="panelFieldContent">
-          <div class="panelDescription"><button class="panelLink" type="button" (click)="checkAllowance()">Check number of requests used for the day</button><ng-container *ngIf="allowance && allowance.count">: {{allowance.count}} out of {{allowance.limit}} {{allowance.type}}</ng-container></div>
+          <div class="panelDescription"><button class="panelLink" type="button" (click)="checkAllowance()">Check number
+              of requests used for the day</button><ng-container *ngIf="allowance && allowance.count">:
+              {{allowance.count}} out of {{allowance.limit}} {{allowance.type}}</ng-container></div>
         </div>
         <div class="panelFieldContent" *ngIf="apiError">
           <div class="panelValidation">{{ apiError }}</div>
@@ -66,21 +83,27 @@
         <div class="panelFieldContent">
           <label id="setLocationLabel" class="panelLabel">Saved locations</label>
         </div>
-        <div class="loadsheddingLocationListItem panelFieldInline" *ngFor="let loc of settings.config.loadshedding.areas">
+        <div class="loadsheddingLocationListItem panelFieldInline"
+          *ngFor="let loc of settings.config.loadshedding.areas; let i = index; trackBy:trackByFn; ">
           <div class="panelFieldContent">
             <p class="panelDescription">{{loc.name}}</p>
             <p class="panelDescription">{{loc.region}}</p>
           </div>
           <div class="panelFieldInput">
+            <button type="button" class="panelBtn" title="Edit location"
+              (click)="setSelected(i);">
+              <i class="matIcon">edit</i>
+            </button>
             <button class="panelBtn" type="button" (click)="removeLocation(loc);"
-              attr.aria-label="Remove location: {{loc.name}}">
+              attr.aria-label="Remove location: {{loc.name}}" title="Remove location: {{loc.name}}">
               <div class="matIcon" aria-hidden="true">delete</div>
             </button>
           </div>
         </div>
       </div>
     </ng-container>
-    <ng-container *ngIf="settings.config.loadshedding.enabled && settings.config.loadshedding.citizen && settings.config.loadshedding.license">
+    <ng-container
+      *ngIf="settings.config.loadshedding.enabled && settings.config.loadshedding.citizen && settings.config.loadshedding.license">
       <div class="panelField panelFieldInline">
         <div class="panelFieldContent">
           <label for="loadsheddingArea" class="panelLabel">Add location</label>
@@ -122,6 +145,97 @@
       </div>
     </ng-container>
   </div>
+  <ng-container  >
+    <div *ngIf="shared.optionsPage === 'EditLocation'" class="panelPlate panelPage">
+      <h2 class="panelTitle">
+         <button (click)="goTo.emit('Loadshedding'); selected = null;" class="panelBack matIcon"
+          attr.aria-label="Back to all locations"
+          title="{{'options.loadshedding.backToAllLocations' | translate}}">arrow_back</button>
+        {{locationItem.name}} #{{selected + 1}}  
+      </h2>
+      <h3 class="panelSubtitle">{{'options.common.layout' | translate}}</h3>
+      <div class="panelGroup">
+        <div class="panelField panelFieldInline">
+          <div class="panelFieldContent">
+            <label id="loadsheddingSizeLabel" class="panelLabel">{{'options.common.size' | translate}}</label>
+            <p class="panelDescription">{{'options.common.sizeDesc' | translate}}</p>
+          </div>
+          <div class="panelFieldInput">
+            <options-range class="panelInputLg" labelledby="loadsheddingSizeLabel" name="loadsheddingSize" min="1"
+              max="50" [(ngModel)]="locationItem.scaling"></options-range>
+          </div>
+        </div>
+        <div class="panelField panelFieldInline">
+          <div class="panelFieldContent">
+            <label id="loadsheddingOrderLabel" class="panelLabel">{{'options.common.order' | translate}}</label>
+            <p class="panelDescription">{{'options.common.orderDesc' | translate}}</p>
+          </div>
+          <div class="panelFieldInput">
+            <div class="panelBtnGroup panelInputMd">
+              <button type="button" aria-labelledby="loadsheddingOrderLabel"
+                attr.aria-label="{{'options.common.moveUp' | translate}}"
+                title="{{'options.common.moveUp' | translate}}" class="panelBtn"
+                [disabled]="shared.isFirst(locationItem.id, locationItem.position)"
+                (click)="shared.changeOrder(locationItem.id, true, locationItem.position);">
+                <div class="matIcon" aria-hidden="true">expand_less</div>
+              </button>
+              <button type="button" aria-labelledby="loadsheddingOrderLabel"
+                attr.aria-label="{{'options.common.moveDown' | translate}}"
+                title="{{'options.common.moveDown' | translate}}" class="panelBtn"
+                [disabled]="shared.isLast(locationItem.id, locationItem.position)"
+                (click)="shared.changeOrder(locationItem.id, false, locationItem.position);">
+                <div class="matIcon" aria-hidden="true">expand_more</div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="panelField panelFieldInline">
+          <div class="panelFieldContent">
+            <label for="loadsheddingPosition" class="panelLabel">{{'options.common.position' | translate}}</label>
+            <p class="panelDescription">{{'options.common.positionDesc' | translate}}</p>
+          </div>
+          <div class="panelFieldInput">
+            <options-position id="loadsheddingPosition" name="loadsheddingPosition"
+              [settingId]="locationItem.id"
+              [(ngModel)]="locationItem.position"></options-position>
+          </div>
+        </div>
+        <div class="panelField panelFieldInline">
+          <div class="panelFieldContent">
+            <label id="loadsheddingMarginHeightLabel" class="panelLabel">{{'options.common.marginHeight' |
+              translate}}</label>
+            <p class="panelDescription">{{'options.common.marginHeightDesc' | translate}}</p>
+          </div>
+          <div class="panelFieldInput">
+            <options-range class="panelInputLg" labelledby="loadsheddingMarginHeightLabel"
+              name="loadsheddingMarginHeight" min="0" max="50"
+              [(ngModel)]="locationItem.marginHeight"></options-range>
+          </div>
+        </div>
+        <div class="panelField panelFieldInline">
+          <div class="panelFieldContent">
+            <label id="loadsheddingMarginWidthLabel" class="panelLabel">{{'options.common.marginWidth' |
+              translate}}</label>
+            <p class="panelDescription">{{'options.common.marginWidthDesc' | translate}}</p>
+          </div>
+          <div class="panelFieldInput">
+            <options-range class="panelInputLg" labelledby="loadsheddingMarginWidthLabel" name="loadsheddingMarginWidth"
+              min="0" max="50" [(ngModel)]="locationItem.marginWidth"></options-range>
+          </div>
+        </div>
+        <div class="panelField panelFieldInline">
+          <div class="panelFieldContent">
+            <label id="loadsheddingOffsetLabel" class="panelLabel">{{'options.common.offset' | translate}}</label>
+            <p class="panelDescription">{{'options.common.offsetDesc' | translate}}</p>
+          </div>
+          <div class="panelFieldInput">
+            <options-range class="panelInputLg" labelledby="loadsheddingOffsetLabel" name="loadsheddingOffset" min="-50"
+              max="50" [(ngModel)]="locationItem.offset"></options-range>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </ng-container>
 </form>
 
 <button class="panelBtn panelBackToDashLink" (click)="goTo.emit('Dashboard')"><i class="matIcon"

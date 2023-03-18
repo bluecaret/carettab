@@ -1,5 +1,6 @@
 .loadsheddingLocationListItem {
   display: flex;
+  flex-direction: column;
   border-bottom: 1px solid var(--panelGroupItemBorder);
   padding-bottom: var(--size400);
   &:last-child {
@@ -9,4 +10,50 @@
 }
 
 .loadshedding {
+  display: flex;
+  justify-content: center;
+  color: currentColor;
+  flex-direction: row;
+  width: max-content;
+}
+
+.dayName{
+  font-weight: bold;
+  font-style: italic;
+}
+
+.header{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-weight: bold;
+  h2{
+    margin-bottom:0px;
+  }
+} 
+
+.suburb{
+  display: flex;
+  flex-direction: column;
+}
+
+.schedules{
+  display: grid;
+  grid-auto-flow: column; 
+  grid-template-columns: auto;
+  padding-bottom: 10px;
+}
+.daySchedule{
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+}
+
+.daySchedule .dayName:only-child{
+  display: none;
+}
+
+.dim{
+    font-size: 0.75em;
 }

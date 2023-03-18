@@ -28,17 +28,10 @@ export class TabLoadsheddingComponent implements OnInit {
     // read the national status
     chrome.storage.local.get("loadshedding_national_status", (ns) => {
       this.nationalStatus = ns["loadshedding_national_status"];
-      var cacheUntilTime = +(this.nationalStatus.cachedAt) + this.cacheTimePeriod // this is getTime already 
-      if ((new Date()).getTime() - cacheUntilTime > this.cacheTimePeriod) {
-        console.error("WE NEED NEW DATA");
-      }
-      else {
-        console.log("Data is still fine for " + ((new Date()).getTime() - cacheUntilTime));
-      }
     })
 
     chrome.storage.local.get("loadshedding_" + [this.area.id], (x) => {
-      var cacheUntilTime = +(x["loadshedding_" + this.area.id].cachedAt) + this.cacheTimePeriod // this is getTime already 
+      var cacheUntilTime = +(x["loadshedding_" + this.area.id].cachedAt) + this.cacheTimePeriod // this is getTime already
       if ((new Date()).getTime() - cacheUntilTime > this.cacheTimePeriod) {
         //get the current schedule for this area
         this.loadsheddingService.getAreaInfo(this.area.id).then(newAreaData => {
@@ -49,7 +42,6 @@ export class TabLoadsheddingComponent implements OnInit {
       }
       else {
         this.cachedAreaInfo = x["loadshedding_" + this.area.id];
-        console.log(this.cachedAreaInfo);
       }
     })
   }

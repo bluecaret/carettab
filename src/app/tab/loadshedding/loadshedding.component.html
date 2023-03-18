@@ -6,7 +6,7 @@
     </div>
     <div class="schedules">
       <ng-container *ngFor="let day of cachedAreaInfo.data?.schedule?.days">
-        <div class="daySchedule" *ngIf="showData(day).length >0">
+        <div class="daySchedule" *ngIf="showData(day) && showData(day).length >0">
           <span class="dayName">{{day.date |date:'E dd MMM'}}</span>
           <ng-container *ngFor="let timeSlot of showData(day)">
             <span>{{timeSlot}} </span>
@@ -15,5 +15,5 @@
       </ng-container>
     </div>
     <div class="dim">Last refreshed: {{cachedAreaInfo.cachedAt | date: 'dd MMM HH:mm a'}}</div>
-  </div> 
+  </div>
 </div>

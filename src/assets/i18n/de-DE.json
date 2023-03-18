@@ -490,21 +490,11 @@
   "updates": {
     "fixesAndOthers": "Korrekturen und andere Änderungen",
     "newFeatures": "Neue Eigenschaften",
-    "v380": {
-      "dayOfYear": "Dem Datums-Widget wurde eine Option für den Tag des Jahres (Julian) hinzugefügt.",
-      "delimiter": "Möglichkeit hinzugefügt, kurze Datumstrennzeichen zu deaktivieren.",
-      "open": "Option zum Öffnen von Schnelllinks und Lesezeichen in einem neuen Tab hinzugefügt.",
-      "quarter": "Dem Datums-Widget wurde eine Quartalsoption hinzugefügt.",
-      "randomColor": "Holen Sie sich ein zufälliges Farbthema auf jedem neuen Tab (zu finden in den Designeinstellungen).",
-      "search": "Option für benutzerdefinierte Suchmaschine hinzugefügt (nur Premium-Zugriff).",
-      "shadows": "Schatten zu Widgets hinzufügen (zu finden in den Designeinstellungen).",
-      "shortcuts": "Schnellverknüpfungen wurden korrigiert, sodass sie auch dann funktionieren, wenn die Adressleiste im Fokus ist. Bitte beachten Sie, dass nur den Links 1-4 automatisch eine Verknüpfung zugewiesen wird. Die Links 5-9 können in Ihren Browsereinstellungen manuell zugewiesen werden.",
-      "suffix": "Suffix-Option zum kurzen Datums-Widget hinzugefügt.",
-      "timeDrift": "Drift der analogen Zeit behoben",
-      "weather": "Die Wetterdaten werden jetzt stündlich automatisch aktualisiert. Den Einstellungen wurde auch eine manuelle Aktualisierungsschaltfläche hinzugefügt."
-    },
-    "v381": {
-      "graybg": "Problem behoben, bei dem die Hintergrundfarbe manchmal falsch geladen wurde"
+    "v390": {
+      "fiscalyear": "",
+      "loadshedding": "",
+      "seconds": "",
+      "wallpapersize": ""
     }
   }
 }

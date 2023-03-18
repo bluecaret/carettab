@@ -490,21 +490,11 @@
   "updates": {
     "fixesAndOthers": "Bản sửa lỗi và các thay đổi khác",
     "newFeatures": "Các tính năng mới",
-    "v380": {
-      "dayOfYear": "Đã thêm tùy chọn ngày trong năm (Julian) vào tiện ích ngày.",
-      "delimiter": "Đã thêm khả năng vô hiệu hóa các dấu phân cách ngày ngắn.",
-      "open": "Đã thêm tùy chọn để mở liên kết nhanh và dấu trang trong tab mới.",
-      "quarter": "Đã thêm tùy chọn một phần tư vào tiện ích ngày.",
-      "randomColor": "Nhận một chủ đề màu ngẫu nhiên trên mỗi tab mới (tìm thấy trong Cài đặt thiết kế).",
-      "search": "Đã thêm tùy chọn công cụ tìm kiếm tùy chỉnh (chỉ dành cho Quyền truy cập cao cấp).",
-      "shadows": "Thêm bóng cho các vật dụng (tìm thấy trong Cài đặt thiết kế).",
-      "shortcuts": "Đã sửa các phím tắt liên kết nhanh để chúng hoạt động ngay cả khi thanh địa chỉ được lấy nét. Xin lưu ý rằng chỉ các liên kết 1-4 sẽ tự động được gán một phím tắt. Liên kết 5-9 có thể được chỉ định thủ công trong cài đặt trình duyệt của bạn.",
-      "suffix": "Đã thêm tùy chọn hậu tố vào tiện ích ngày ngắn.",
-      "timeDrift": "Đã sửa lỗi trôi thời gian tương tự",
-      "weather": "Dữ liệu thời tiết sẽ tự động làm mới mỗi giờ. Một nút làm mới thủ công cũng đã được thêm vào cài đặt."
-    },
-    "v381": {
-      "graybg": "Đã khắc phục sự cố trong đó màu nền đôi khi tải không chính xác"
+    "v390": {
+      "fiscalyear": "",
+      "loadshedding": "",
+      "seconds": "",
+      "wallpapersize": ""
     }
   }
 }

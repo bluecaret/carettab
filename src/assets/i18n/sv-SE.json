@@ -490,21 +490,11 @@
   "updates": {
     "fixesAndOthers": "Fixar och andra ändringar",
     "newFeatures": "Nya egenskaper",
-    "v380": {
-      "dayOfYear": "Lade till en dag på året (Julian) till datumwidgeten.",
-      "delimiter": "Tillagd möjlighet att inaktivera korta datumavgränsare.",
-      "open": "Tillagt alternativ för att öppna snabblänkar och bokmärken på en ny flik.",
-      "quarter": "Lade till ett kvartsalternativ till datumwidgeten.",
-      "randomColor": "Få ett slumpmässigt färgtema på varje ny flik (finns i Designinställningar).",
-      "search": "Tillagt anpassad sökmotoralternativ (endast Premium Access).",
-      "shadows": "Lägg till skuggor till widgets (finns i Designinställningar).",
-      "shortcuts": "Fixade snabblänksgenvägar så att de fungerar även när adressfältet är i fokus. Observera att endast länkarna 1-4 automatiskt tilldelas en genväg. Länkarna 5-9 kan tilldelas manuellt i din webbläsarinställningar.",
-      "suffix": "Lade till ett suffixalternativ till widgeten för kort datum.",
-      "timeDrift": "Fast analog tidsdrift",
-      "weather": "Väderdata uppdateras nu automatiskt varje timme. En manuell uppdateringsknapp har också lagts till i inställningarna."
-    },
-    "v381": {
-      "graybg": "Fixat problem där bakgrundsfärgen ibland laddades felaktigt"
+    "v390": {
+      "fiscalyear": "",
+      "loadshedding": "",
+      "seconds": "",
+      "wallpapersize": ""
     }
   }
 }

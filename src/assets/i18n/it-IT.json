@@ -490,21 +490,11 @@
   "updates": {
     "fixesAndOthers": "Correzioni e altre modifiche",
     "newFeatures": "Nuove Caratteristiche",
-    "v380": {
-      "dayOfYear": "Aggiunta un'opzione per il giorno dell'anno (giuliano) al widget della data.",
-      "delimiter": "Aggiunta la possibilità di disabilitare i delimitatori di date brevi.",
-      "open": "Aggiunta opzione per aprire collegamenti rapidi e segnalibri in una nuova scheda.",
-      "quarter": "Aggiunta un'opzione di un quarto al widget della data.",
-      "randomColor": "Ottieni un tema di colore casuale in ogni nuova scheda (disponibile nelle impostazioni di progettazione).",
-      "search": "Aggiunta l'opzione del motore di ricerca personalizzato (solo Accesso Premium).",
-      "shadows": "Aggiungi ombre ai widget (disponibili in Impostazioni design).",
-      "shortcuts": "Risolti i collegamenti rapidi ai collegamenti in modo che funzionino anche quando la barra degli indirizzi è attiva. Tieni presente che solo ai collegamenti 1-4 verrà assegnata automaticamente una scorciatoia. I collegamenti 5-9 possono essere assegnati manualmente nelle impostazioni del browser.",
-      "suffix": "Aggiunta un'opzione di suffisso al widget data breve.",
-      "timeDrift": "Corretta la deriva del tempo analogico",
-      "weather": "I dati meteorologici ora si aggiorneranno automaticamente ogni ora. È stato inoltre aggiunto un pulsante di aggiornamento manuale alle impostazioni."
-    },
-    "v381": {
-      "graybg": "Risolto il problema per cui il colore di sfondo a volte veniva caricato in modo errato"
+    "v390": {
+      "fiscalyear": "",
+      "loadshedding": "",
+      "seconds": "",
+      "wallpapersize": ""
     }
   }
 }

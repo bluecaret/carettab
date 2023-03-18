@@ -490,21 +490,11 @@
   "updates": {
     "fixesAndOthers": "Fixes and other changes",
     "newFeatures": "New features",
-    "v380": {
-      "dayOfYear": "Added a day of year (Julian) option to the date widget.",
-      "delimiter": "Added ability to disable short date delimiters.",
-      "open": "Added option to open quick links and bookmarks in a new tab.",
-      "quarter": "Added a quarter option to the date widget.",
-      "randomColor": "Get a random color theme on each new tab (found in Design settings).",
-      "search": "Added custom search engine option (Premium Access only).",
-      "shadows": "Add shadows to widgets (found in Design settings).",
-      "shortcuts": "Fixed quick link shortcuts so they will work even when the address bar is in focus. Please note only links 1-4 will automatically be assigned a shortcut. Links 5-9 can be manually assigned in your browser settings.",
-      "suffix": "Added a suffix option to the short date widget.",
-      "timeDrift": "Fixed analog time drift",
-      "weather": "Weather data will now auto refresh every hour. A manual refresh button has also been added to the settings."
-    },
-    "v381": {
-      "graybg": "Fixed issue where background color would sometimes load incorrectly"
+    "v390": {
+      "fiscalyear": "Added option to choose start of fiscal year when using the Quarter option in the date widget.",
+      "loadshedding": "New widget: Loadshedding status for the South African energy crisis (for users in South Africa only).",
+      "seconds": "Fixed bug where disabling seconds on a clock would prevent you from reenabling it.",
+      "wallpapersize": "Fixed issue where some images do not work. This is due to a size limitation in the browser, a message has been reapplied to let you know if an image is too large."
     }
   }
 }

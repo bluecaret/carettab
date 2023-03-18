@@ -490,21 +490,11 @@
   "updates": {
     "fixesAndOthers": "Arreglos y otros cambios",
     "newFeatures": "Nuevas características",
-    "v380": {
-      "dayOfYear": "Se agregó una opción de día del año (juliano) al widget de fecha.",
-      "delimiter": "Se agregó la capacidad de deshabilitar los delimitadores de fechas cortas.",
-      "open": "Opción agregada para abrir enlaces rápidos y marcadores en una nueva pestaña.",
-      "quarter": "Se agregó una opción de trimestre al widget de fecha.",
-      "randomColor": "Obtenga un tema de color aleatorio en cada pestaña nueva (que se encuentra en la configuración de Diseño).",
-      "search": "Se agregó la opción de motor de búsqueda personalizado (solo Acceso Premium).",
-      "shadows": "Agregue sombras a los widgets (que se encuentran en la configuración de Diseño).",
-      "shortcuts": "Se corrigieron los accesos directos de enlaces rápidos para que funcionen incluso cuando la barra de direcciones esté enfocada. Tenga en cuenta que solo a los enlaces 1-4 se les asignará automáticamente un acceso directo. Los enlaces 5-9 se pueden asignar manualmente en la configuración de su navegador.",
-      "suffix": "Se agregó una opción de sufijo al widget de fecha corta.",
-      "timeDrift": "Deriva fija del tiempo analógico",
-      "weather": "Los datos meteorológicos ahora se actualizarán automáticamente cada hora. También se ha agregado un botón de actualización manual a la configuración."
-    },
-    "v381": {
-      "graybg": "Se solucionó el problema por el cual el color de fondo a veces se cargaba incorrectamente"
+    "v390": {
+      "fiscalyear": "",
+      "loadshedding": "",
+      "seconds": "",
+      "wallpapersize": ""
     }
   }
 }

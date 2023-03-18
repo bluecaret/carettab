@@ -46,7 +46,7 @@ export class OptionsLoadsheddingComponent {
     if (this.selected !== i) {
       this.selected = i;
       this.locationItem = this.getLocationItem(i);
-      this.shared.optionsPage = 'EditLocation';
+      this.shared.optionsPage = 'EditLoadshedding';
     } else {
       this.selected = null;
       this.locationItem = this.getLocationItem(i);

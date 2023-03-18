@@ -524,8 +524,8 @@
     </div>
   </div>
   <!-- Seconds -->
-  <h3 class="panelSubtitle" *ngIf="settings.config.time.clocks[selected].seconds.enabled && !settings.config.time.clocks[selected].analog.enabled && !settings.config.time.clocks[selected].binary.enabled">{{'options.time.seconds' | translate}}</h3>
-  <div class="panelGroup" *ngIf="settings.config.time.clocks[selected].seconds.enabled && !settings.config.time.clocks[selected].analog.enabled && !settings.config.time.clocks[selected].binary.enabled">
+  <h3 class="panelSubtitle" *ngIf="!settings.config.time.clocks[selected].analog.enabled && !settings.config.time.clocks[selected].binary.enabled">{{'options.time.seconds' | translate}}</h3>
+  <div class="panelGroup" *ngIf="!settings.config.time.clocks[selected].analog.enabled && !settings.config.time.clocks[selected].binary.enabled">
     <div class="panelField panelFieldInline">
       <div class="panelFieldContent">
         <label id="secondsEnableLabel" class="panelLabel">{{'options.time.secondsEnable' | translate}}</label>

@@ -490,6 +490,25 @@
   "updates": {
     "fixesAndOthers": "Korrekturen und andere Änderungen",
     "newFeatures": "Neue Eigenschaften",
+    "futureOf": {
+      "p1": "Das Wichtigste zuerst, ich möchte allen für Ihre Nutzung von CaretTab danken, insbesondere denen, die sich für Premium angemeldet haben. Es bedeutet mir sehr viel, die Anzahl der Benutzer zu sehen, die CaretTab hat, und all die positiven Bewertungen, die es erhält!",
+      "p10": "Zusätzliche Premium Access-Pläne (jährlich, lebenslang?) sind für einen späteren Zeitpunkt geplant.",
+      "p11": "Und das ist erst der Anfang! Ich hoffe, Sie sind so gespannt auf die Zukunft von CaretTab wie ich! Wenn Sie diese Entwicklung unterstützen möchten, melden Sie sich für Premium Access an und erhalten Sie zusätzliche Vorteile!",
+      "p12": "Vielen Dank!",
+      "p2": "Die Zukunft von CaretTab ist rosig! Ich habe viele, viele Pläne für diese Erweiterung. Zu viele zu bauen, während dies ein Hobby bleibt. Aus diesem Grund haben Sie die Einführung von Premium Access gesehen. Ich hoffe, dass die Mittel von Premium CaretTab schließlich zu meinem Vollzeitjob machen können.",
+      "p3": "Um CaretTab wirklich großartig zu machen, muss der Code etwas aufgeräumt werden. Ich habe diese Erweiterung während meiner gesamten Programmierkarriere erstellt und seit ihren Anfängen viel gelernt. Die nächste Phase von CaretTab beinhaltet einen kompletten Neuaufbau der Erweiterung von Grund auf neu. Ich habe zum Zeitpunkt dieser Nachricht bereits einen großen Teil dieses Umbaus durchgeführt, aber ich muss noch mehr vervollständigen. Ich bitte Sie um Geduld für zukünftige Updates, während ich daran arbeite. Sobald die nächste Phase startet, sollten Updates und neue Funktionen häufiger werden.",
+      "p4": "Leider hat diese neue Phase eine Kehrseite; Es erfordert eine neue Struktur zum Speichern von Einstellungen, sodass ich vorhandene Einstellungen nicht angemessen migrieren kann. Ich verspreche, das Update wird den Aufwand wert sein! Ich werde Sie auf jeden Fall benachrichtigen, bevor das Update veröffentlicht wird, damit Sie bei Bedarf Ihre vorhandenen Einstellungen exportieren können.",
+      "p5": "Nachfolgend finden Sie eine kurze Liste der Funktionen, die die nächste Phase enthalten wird.",
+      "p6": "Eine neue Methode zum Platzieren von Widgets, mit der Sie genau auswählen können, wo ein Widget angezeigt werden soll, sollte ebenfalls viel einfacher zu verwalten sein.",
+      "p7": "Fügen Sie ein Vielfaches der meisten Widgets hinzu! Endlich können Sie mehrere Datums-Widgets, Wetter, Nachrichten, Suchleisten und mehr hinzufügen!",
+      "p8": "Weitere Widgets, darunter eine To-do-Liste und gesundheitsbezogene Widgets wie Atemübungen.",
+      "p9": "Die Anpassungsmöglichkeiten werden drastisch erhöht, sodass Sie die Farben und Schriftarten jedes Widgets individuell festlegen können!",
+      "readmore": "Weiterlesen",
+      "t1": "Nachricht vom Entwickler von CaretTab",
+      "t2": "Nächste Schritte",
+      "t3": "Sneak Peak der geplanten Funktionen",
+      "title": "Zukunft von CaretTab"
+    },
     "v390": {
       "fiscalyear": "",
       "loadshedding": "",

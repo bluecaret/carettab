@@ -10,6 +10,7 @@ import { PremiumModalComponent } from '../../_shared/modals/premium-modal.compon
 export class OptionsDashboardComponent implements OnInit {
   status: string;
   showWhatsNew = false;
+  showFutureOf = false;
   @HostBinding('class') hostClass: string = 'panelPlate panelPage';
   @Output() goTo: EventEmitter<string> = new EventEmitter<string>();
 
@@ -30,6 +31,11 @@ export class OptionsDashboardComponent implements OnInit {
     chrome.storage.local.set({clearWhatsNewBox: true});
     this.shared.status = 'existing';
     this.shared.clearWhatsNewBox = true;
+  }
+
+  handleClearFutureOf() {
+    chrome.storage.local.set({clearFutureOf: true});
+    this.shared.clearFutureOf = true;
   }
 
   goToPage(page: string) {

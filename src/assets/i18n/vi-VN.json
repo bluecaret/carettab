@@ -490,6 +490,25 @@
   "updates": {
     "fixesAndOthers": "Bản sửa lỗi và các thay đổi khác",
     "newFeatures": "Các tính năng mới",
+    "futureOf": {
+      "p1": "Trước tiên, tôi muốn cảm ơn tất cả mọi người vì đã sử dụng CaretTab và đặc biệt là những người đã đăng ký Premium, điều đó có ý nghĩa rất lớn đối với tôi khi thấy lượng người dùng CaretTab có và tất cả các đánh giá tích cực mà nó nhận được!",
+      "p10": "Các gói Truy cập Cao cấp bổ sung (hàng năm, trọn đời?) được lên kế hoạch cho một ngày sau đó.",
+      "p11": "Và đó mới chỉ là khởi đầu! Tôi hy vọng điều này sẽ khiến bạn hào hứng như tôi vì tương lai của CaretTab! Nếu bạn muốn giúp hỗ trợ sự phát triển này, hãy đăng ký Quyền truy cập cao cấp và nhận thêm lợi ích!",
+      "p12": "Cảm ơn bạn!",
+      "p2": "Tương lai của CaretTab là một tương lai tươi sáng! Tôi có rất nhiều kế hoạch cho phần mở rộng này. Quá nhiều để xây dựng trong khi điều này vẫn là một sở thích. Đây là lý do tại sao bạn thấy phần giới thiệu Quyền truy cập cao cấp. Tôi hy vọng rằng cuối cùng số tiền từ Premium có thể biến CaretTab thành công việc toàn thời gian của tôi.",
+      "p3": "Để làm cho CaretTab thực sự tuyệt vời, cần phải dọn dẹp một số mã. Tôi đã xây dựng phần mở rộng này trong suốt sự nghiệp lập trình của mình và đã học được rất nhiều điều kể từ khi bắt đầu. Giai đoạn tiếp theo của CaretTab liên quan đến việc xây dựng lại hoàn toàn phần mở rộng từ đầu. Tôi đã thực hiện một phần lớn công việc xây dựng lại này kể từ thông báo này nhưng tôi vẫn còn nhiều việc phải hoàn thành. Tôi yêu cầu sự kiên nhẫn của bạn để cập nhật trong tương lai khi tôi làm việc này. Khi giai đoạn tiếp theo ra mắt, các bản cập nhật và tính năng mới sẽ trở nên thường xuyên hơn.",
+      "p4": "Thật không may, có một nhược điểm đối với giai đoạn mới này; nó sẽ yêu cầu một cấu trúc mới để lưu cài đặt, do đó tôi sẽ không thể di chuyển các cài đặt hiện có một cách thích hợp. Tôi hứa bản cập nhật sẽ có giá trị rắc rối! Tôi chắc chắn sẽ đưa ra thông báo trước khi hết bản cập nhật để bạn có cơ hội xuất các cài đặt hiện có của mình nếu cần.",
+      "p5": "Dưới đây là danh sách ngắn các tính năng mà giai đoạn tiếp theo sẽ bao gồm.",
+      "p6": "Phương pháp đặt widget mới, cho phép bạn chọn chính xác nơi bạn muốn widget hiển thị, cũng sẽ dễ quản lý hơn rất nhiều.",
+      "p7": "Thêm bội số của hầu hết các vật dụng! Cuối cùng, bạn sẽ có thể thêm nhiều tiện ích ngày, thời tiết, tin nhắn, thanh tìm kiếm, v.v.!",
+      "p8": "Nhiều tiện ích khác bao gồm danh sách việc cần làm và các tiện ích liên quan đến sức khỏe như bài tập thở.",
+      "p9": "Khả năng tùy chỉnh sẽ được tăng lên đáng kể, cho phép bạn đặt riêng màu sắc và phông chữ của từng tiện ích con!",
+      "readmore": "Đọc thêm",
+      "t1": "Thông báo từ nhà phát triển CaretTab",
+      "t2": "Bước tiếp theo",
+      "t3": "Đỉnh cao của các tính năng được lên kế hoạch",
+      "title": "Tương lai của CaretTab"
+    },
     "v390": {
       "fiscalyear": "",
       "loadshedding": "",

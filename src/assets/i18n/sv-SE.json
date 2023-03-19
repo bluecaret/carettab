@@ -490,6 +490,25 @@
   "updates": {
     "fixesAndOthers": "Fixar och andra ändringar",
     "newFeatures": "Nya egenskaper",
+    "futureOf": {
+      "p1": "Först och främst vill jag tacka alla för er användning av CaretTab och speciellt de som har registrerat sig för Premium, det betyder mycket för mig att se hur många användare CaretTab har och alla positiva recensioner som den får!",
+      "p10": "Ytterligare Premium Access-planer (år, livstid?) är planerade för ett senare datum.",
+      "p11": "Och det är bara början! Jag hoppas att detta gör dig lika exalterad som jag är inför CaretTabs framtid! Om du vill hjälpa till att stödja denna utveckling, registrera dig för Premium Access och få extra förmåner!",
+      "p12": "Tack!",
+      "p2": "Framtiden för CaretTab är ljus! Jag har många, många planer för denna förlängning. För många att bygga samtidigt som detta är en hobby. Det är därför du såg introduktionen av Premium Access. Det är min förhoppning att medlen från Premium så småningom kan göra CaretTab till mitt heltidsjobb.",
+      "p3": "För att göra CaretTab riktigt bra, finns det en del rensning i koden som behövs. Jag har byggt denna förlängning under hela min programmeringskarriär och har lärt mig mycket sedan dess början. Nästa fas av CaretTab innebär en fullständig ombyggnad av tillägget från grunden. Jag har redan gjort en stor del av den här ombyggnaden från och med detta meddelande men jag har fortfarande mer att slutföra. Jag ber ert tålamod för framtida uppdateringar medan jag arbetar med detta. När nästa fas lanseras bör uppdateringar och nya funktioner bli mer frekventa.",
+      "p4": "Tyvärr finns det en baksida med denna nya fas; det kommer att kräva en ny struktur för att spara inställningar, så att jag inte kommer att kunna migrera befintliga inställningar på lämpligt sätt. Jag lovar att uppdateringen kommer att vara värt besväret! Jag kommer att se till att meddela innan uppdateringen går ut för att ge dig en chans att exportera dina befintliga inställningar om det behövs.",
+      "p5": "Nedan är en kort lista över funktioner som nästa fas kommer att innehålla.",
+      "p6": "Ny metod för att placera widgets, så att du kan välja exakt var du vill att en widget ska visas, borde också vara mycket lättare att hantera.",
+      "p7": "Lägg till multiplar av de flesta widgets! Du kommer äntligen att kunna lägga till flera datumwidgets, väder, meddelanden, sökfält och mer!",
+      "p8": "Fler widgets inklusive en att göra-lista och hälsorelaterade widgets som andningsövningar.",
+      "p9": "Anpassningen kommer att öka dramatiskt, så att du kan ställa in färger och teckensnitt för varje widget individuellt!",
+      "readmore": "Läs mer",
+      "t1": "Meddelande från utvecklaren av CaretTab",
+      "t2": "Nästa steg",
+      "t3": "Sneak peak av planerade funktioner",
+      "title": "CaretTabs framtid"
+    },
     "v390": {
       "fiscalyear": "",
       "loadshedding": "",

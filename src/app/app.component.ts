@@ -91,6 +91,19 @@ export class AppComponent implements OnInit {
         }
       });
     }, 0);
+
+    // Show "future of" message
+    chrome.storage.local.get(['clearFutureOf'], function (result) {
+      if (result) {
+        console.log(result.clearFutureOf);
+
+        if (result.clearFutureOf === undefined || result.clearFutureOf === false) {
+          that.shared.clearFutureOf = false;
+        } else {
+          that.shared.clearFutureOf = true;
+        }
+      }
+    });
   }
 
   goToLink(link) {

@@ -2,6 +2,48 @@
   <i class="matIcon" aria-hidden="true">widgets</i>
   {{'options.dashboard.dashboard' | translate}}
 </h2>
+<div *ngIf="!shared.clearFutureOf" class="panelGroup">
+  <div class="panelGroupItem">
+    <h3 class="newUpdateHeading">
+      <div class="matIcon newUpdateIcon" aria-hidden="true">info</div>
+      <div class="newUpdateContent">
+        <div class="newUpdateTitle">{{'updates.futureOf.title' | translate}}</div>
+        <button *ngIf="!showFutureOf" type="button" class="panelBtn newUpdateCloseRead" (click)="showFutureOf = true">{{'updates.futureOf.readmore' | translate}}</button>
+        <button type="button" class="panelBtn newUpdateClose" (click)="handleClearFutureOf()"><div class="matIcon" aria-hidden="true">close</div>{{'options.dashboard.closeMessage' | translate}}</button>
+      </div>
+    </h3>
+    <h4 *ngIf="showFutureOf" class="panelGroupTitle">{{'updates.futureOf.t1' | translate}}</h4>
+    <p *ngIf="showFutureOf" class="panelParagraph">
+      {{'updates.futureOf.p1' | translate}}
+    </p>
+    <p *ngIf="showFutureOf" class="panelParagraph">
+      {{'updates.futureOf.p2' | translate}}
+    </p>
+    <h4 *ngIf="showFutureOf" class="panelGroupTitle">{{'updates.futureOf.t2' | translate}}</h4>
+    <p *ngIf="showFutureOf" class="panelParagraph">
+      {{'updates.futureOf.p3' | translate}}
+    </p>
+    <p *ngIf="showFutureOf" class="panelParagraph">
+      {{'updates.futureOf.p4' | translate}}
+    </p>
+    <h4 *ngIf="showFutureOf" class="panelGroupTitle">{{'updates.futureOf.t3' | translate}}</h4>
+    <p *ngIf="showFutureOf" class="panelParagraph">
+      {{'updates.futureOf.p5' | translate}}
+    </p>
+    <ul *ngIf="showFutureOf" class="panelParagraphList">
+      <li>{{'updates.futureOf.p6' | translate}}</li>
+      <li>{{'updates.futureOf.p7' | translate}}</li>
+      <li>{{'updates.futureOf.p8' | translate}}</li>
+      <li>{{'updates.futureOf.p9' | translate}}</li>
+      <li>{{'updates.futureOf.p10' | translate}}</li>
+    </ul>
+    <p *ngIf="showFutureOf" class="panelParagraph">
+      {{'updates.futureOf.p11' | translate}}
+    </p>
+    <p *ngIf="showFutureOf" class="panelGroupTitle">{{'updates.futureOf.p12' | translate}}</p>
+    <p *ngIf="showFutureOf" class="panelParagraph">- BlueCaret</p>
+  </div>
+</div>
 <div *ngIf="!shared.clearWhatsNewBox" class="panelGroup">
   <div class="panelGroupItem">
     <h3 class="newUpdateHeading">

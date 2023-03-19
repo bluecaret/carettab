@@ -490,6 +490,25 @@
   "updates": {
     "fixesAndOthers": "Fixes and other changes",
     "newFeatures": "New features",
+    "futureOf": {
+      "p1": "First things first, I want to thank everyone for your use of CaretTab and especially those that have signed up for Premium, it means a lot to me seeing the amount of users CaretTab has and all the positive reviews it receives!",
+      "p10": "Additional Premium Access plans (yearly, lifetime?) is planned for a later date.",
+      "p11": "And that's just the start! I hope this gets you as excited as I am for the future of CaretTab! If you would like to help support this development, sign up for Premium Access and receive extra benefits!",
+      "p12": "THANK YOU!",
+      "p2": "The future of CaretTab is a bright one! I have many, many plans for this extension. Too many to build while this remains a hobby. This is why you saw the introduction of Premium Access. It is my hope that eventually the funds from Premium can make CaretTab my full time job.",
+      "p3": "In order to make CaretTab truly great, there's some cleanup in the code that is needed. I've built this extension throughout my programming career and have learned a lot since its beginnings. The next phase of CaretTab involves a complete rebuild of the extension from scratch. I have already done a large chunk of this rebuild as of this message but I still have more to complete. I ask your patience for future updates as I work on this. Once the next phase launches, updates and new features should become more frequent.",
+      "p4": "Unfortunately there is a downside to this new phase; it will require a new structure for saving settings, such that I won't be able to appropriately migrate existing settings over. I promise the update will be worth the hassle! I will be sure to give notice before the update goes out to give you a chance to export your existing settings if needed.",
+      "p5": "Below is a short list of features the next phase will include.",
+      "p6": "New method of placing widgets, allowing you to pick exactly where you want a widget to display, should also be a lot easier to manage as well.",
+      "p7": "Add multiples of most widgets! You will finally be able to add multiple date widgets, weather, messages, search bars, and more!",
+      "p8": "More widgets including a to-do list, and health related widgets such as breathing exercises.",
+      "p9": "Customization will be increased dramatically, allowing you to individually set the colors and fonts of each widget!",
+      "readmore": "Read more",
+      "t1": "Message from the developer of CaretTab",
+      "t2": "Next steps",
+      "t3": "Sneak peak of planned features",
+      "title": "Future of CaretTab"
+    },
     "v390": {
       "fiscalyear": "Added option to choose start of fiscal year when using the Quarter option in the date widget.",
       "loadshedding": "New widget: Loadshedding status for the South African energy crisis (for users in South Africa only).",

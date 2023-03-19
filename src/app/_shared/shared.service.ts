@@ -18,6 +18,7 @@ export class SharedService {
   private _browser: string;
   private _status: string;
   private _clearWhatsNewBox = true;
+  private _clearFutureOf = true;
   private _updateType: "major" | "minor" | "quiet" | "hidden";
   private _allBookmarks: any;
   private _mostVisitedLinks: any;
@@ -123,6 +124,13 @@ export class SharedService {
   }
   set clearWhatsNewBox(value: boolean) {
     this._clearWhatsNewBox = value;
+  }
+
+  get clearFutureOf(): boolean {
+    return this._clearFutureOf;
+  }
+  set clearFutureOf(value: boolean) {
+    this._clearFutureOf = value;
   }
 
   get updateType(): "major" | "minor" | "quiet" | "hidden" {

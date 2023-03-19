@@ -490,6 +490,25 @@
   "updates": {
     "fixesAndOthers": "Correctifs et autres modifications",
     "newFeatures": "Nouvelles fonctionnalités",
+    "futureOf": {
+      "p1": "Tout d'abord, je tiens à remercier tout le monde pour votre utilisation de CaretTab et en particulier ceux qui se sont inscrits à Premium, cela signifie beaucoup pour moi de voir le nombre d'utilisateurs de CaretTab et toutes les critiques positives qu'il reçoit !",
+      "p10": "Des plans d'accès Premium supplémentaires (annuels, à vie ?) sont prévus pour une date ultérieure.",
+      "p11": "Et ce n'est que le début ! J'espère que cela vous excite autant que moi pour l'avenir de CaretTab ! Si vous souhaitez aider à soutenir ce développement, inscrivez-vous à l'Accès Premium et recevez des avantages supplémentaires !",
+      "p12": "Je vous remercie!",
+      "p2": "L'avenir de CaretTab est prometteur ! J'ai beaucoup, beaucoup de plans pour cette extension. Trop nombreux à construire alors que cela reste un passe-temps. C'est pourquoi vous avez vu l'introduction de l'Accès Premium. J'espère qu'éventuellement les fonds de Premium pourront faire de CaretTab mon travail à plein temps.",
+      "p3": "Afin de rendre CaretTab vraiment génial, il y a un peu de nettoyage dans le code qui est nécessaire. J'ai construit cette extension tout au long de ma carrière de programmeur et j'ai beaucoup appris depuis ses débuts. La prochaine phase de CaretTab implique une reconstruction complète de l'extension à partir de zéro. J'ai déjà fait une grande partie de cette reconstruction à partir de ce message, mais j'ai encore plus à terminer. Je demande votre patience pour les futures mises à jour pendant que je travaille sur ce sujet. Une fois la prochaine phase lancée, les mises à jour et les nouvelles fonctionnalités devraient devenir plus fréquentes.",
+      "p4": "Malheureusement, il y a un inconvénient à cette nouvelle phase; cela nécessitera une nouvelle structure pour enregistrer les paramètres, de sorte que je ne pourrai pas migrer correctement les paramètres existants. Je promets que la mise à jour en vaudra la peine ! Je ne manquerai pas de vous avertir avant la sortie de la mise à jour pour vous donner la possibilité d'exporter vos paramètres existants si nécessaire.",
+      "p5": "Vous trouverez ci-dessous une courte liste des fonctionnalités que la prochaine phase comprendra.",
+      "p6": "La nouvelle méthode de placement des widgets, vous permettant de choisir exactement où vous voulez qu'un widget s'affiche, devrait également être beaucoup plus facile à gérer.",
+      "p7": "Ajoutez des multiples de la plupart des widgets ! Vous pourrez enfin ajouter plusieurs widgets de date, météo, messages, barres de recherche, et plus encore !",
+      "p8": "Plus de widgets, y compris une liste de tâches et des widgets liés à la santé tels que des exercices de respiration.",
+      "p9": "La personnalisation sera considérablement augmentée, vous permettant de définir individuellement les couleurs et les polices de chaque widget !",
+      "readmore": "Lire la suite",
+      "t1": "Message du développeur de CaretTab",
+      "t2": "Prochaines étapes",
+      "t3": "Aperçu des fonctionnalités prévues",
+      "title": "L'avenir de CaretTab"
+    },
     "v390": {
       "fiscalyear": "",
       "loadshedding": "",

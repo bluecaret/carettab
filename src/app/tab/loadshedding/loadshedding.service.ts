@@ -6,7 +6,7 @@ import { Storage } from '../../_storage/storage.service';
 })
 export class LoadsheddingService {
   private _areaSearchKeyword: string;
-
+  private _baseUrl: string = 'https://developer.sepush.co.za/business/2.0';
   constructor(private settings: Storage) { }
 
   get areaSearchKeyword(): string {
@@ -17,11 +17,11 @@ export class LoadsheddingService {
   }
 
   isEnabled() {
-    let enabled = true
-    if (!this.settings.config.loadshedding.enabled) enabled = false
-    if (!this.settings.config.loadshedding.citizen) enabled = false
-    if (!this.settings.config.loadshedding.license) enabled = false
-    return enabled
+    let enabled = true;
+    if (!this.settings.config.loadshedding.enabled) { enabled = false; }
+    if (!this.settings.config.loadshedding.citizen) { enabled = false; }
+    if (!this.settings.config.loadshedding.license) { enabled = false; }
+    return enabled;
   }
 
   public async checkAllowance() {
@@ -31,12 +31,12 @@ export class LoadsheddingService {
       const headers = new Headers();
       headers.append('Access-Control-Allow-Origin', 'https://developer.sepush.co.za/*');
       headers.append('token', `${license}`);
-      let response = await fetch('https://developer.sepush.co.za/business/2.0/api_allowance', { method: 'GET', mode: 'cors', headers });
+      let response = await fetch(`${this._baseUrl}/api_allowance`, { method: 'GET', mode: 'cors', headers });
       const json = await response.json();
 
       return json;
     }
-    return
+    return;
   }
 
   public async searchAreas(search: string) {
@@ -49,12 +49,12 @@ export class LoadsheddingService {
       const headers = new Headers();
       headers.append('Access-Control-Allow-Origin', 'https://developer.sepush.co.za/*');
       headers.append('token', `${license}`);
-      let response = await fetch(`https://developer.sepush.co.za/business/2.0/areas_search?text=${area}`, { method: 'GET', mode: 'cors', headers });
+      let response = await fetch(`${this._baseUrl}/areas_search?text=${area}`, { method: 'GET', mode: 'cors', headers });
       const json = await response.json();
 
       return json;
     }
-    return
+    return;
   }
 
   public async getAreaInfo(areaId: string) {
@@ -65,22 +65,22 @@ export class LoadsheddingService {
       const headers = new Headers();
       headers.append('Access-Control-Allow-Origin', 'https://developer.sepush.co.za/*');
       headers.append('token', `${license}`);
-      let response = await fetch(`https://developer.sepush.co.za/business/2.0/area?id=${areaId}`, { method: 'GET', mode: 'cors', headers });
+      let response = await fetch(`${this._baseUrl}/area?id=${areaId}`, { method: 'GET', mode: 'cors', headers });
       const json = await response.json();
 
       return json;
     }
-    return
+    return;
   }
 
-  public async getSatus(){
+  public async getSatus() {
     if (this.isEnabled) {
       let license = this.settings.config.loadshedding.license;
 
       const headers = new Headers();
       headers.append('Access-Control-Allow-Origin', 'https://developer.sepush.co.za/*');
       headers.append('token', `${license}`);
-      let response = await fetch(`https://developer.sepush.co.za/business/2.0/status`, { method: 'GET', mode: 'cors', headers });
+      let response = await fetch(`${this._baseUrl}/status`, { method: 'GET', mode: 'cors', headers });
       const json = await response.json();
 
       return json;

@@ -3,8 +3,8 @@
   "name": "__MSG_appName__",
   "short_name": "CaretTab",
   "description": "__MSG_appDesc__",
-  "version": "3.9.0",
-  "version_name": "3.9.0",
+  "version": "3.9.1",
+  "version_name": "3.9.1",
   "default_locale": "en",
   "icons": {
     "16": "assets/img/icon16.png",
@@ -25,17 +25,9 @@
     "service_worker": "js/sw.js",
     "type": "module"
   },
-  "permissions": [
-    "storage"
-  ],
-  "optional_permissions": [
-    "favicon",
-    "bookmarks",
-    "topSites"
-  ],
-  "optional_host_permissions": [
-    "https://developer.sepush.co.za/*"
-  ],
+  "permissions": ["storage"],
+  "optional_permissions": ["favicon", "bookmarks", "topSites"],
+  "optional_host_permissions": ["https://developer.sepush.co.za/*"],
   "commands": {
     "goto-link-1": {
       "suggested_key": {
@@ -79,18 +71,12 @@
   },
   "web_accessible_resources": [
     {
-      "resources": [
-        "js/ExtPay.js"
-      ],
-      "matches": [
-        "https://extensionpay.com/*"
-      ]
+      "resources": ["js/ExtPay.js"],
+      "matches": ["https://extensionpay.com/*"]
     },
     {
-      "resources": [
-        "js/init.js"
-      ],
-      "extension_ids": [ "bfpmncaohmjelebfobabccfjgmeolloe" ]
+      "resources": ["js/init.js"],
+      "extension_ids": ["bfpmncaohmjelebfobabccfjgmeolloe"]
     }
   ]
 }

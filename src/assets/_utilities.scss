@@ -1,0 +1,18 @@
+@for $i from 1 through 30 {
+  .w#{$i} {
+    width: #{$i}rem !important;
+    flex: 0 0 auto;
+  }
+}
+
+.mla {
+  margin-left: auto !important;
+}
+
+.mra {
+  margin-right: auto !important;
+}
+
+.fa-fw {
+  width: 1.25em !important;
+}

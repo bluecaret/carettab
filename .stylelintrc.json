@@ -1,0 +1,12 @@
+{
+  "extends": ["stylelint-config-recommended-vue/scss"],
+  "overrides": [
+    {
+      "files": ["*.vue", "**/*.vue", "*.css", "**/*.css", "*.scss", "**/*.scss"],
+      "rules": {
+        "indentation": 2,
+        "length-zero-no-unit": true
+      }
+    }
+  ]
+}

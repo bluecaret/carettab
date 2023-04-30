@@ -1,0 +1,2 @@
+# Ignore third party libraries:
+src/assets/ExtPay.js

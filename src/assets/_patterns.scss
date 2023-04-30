@@ -1,0 +1,370 @@
+.wallpaperPattern,
+.patternPreview {
+  --p1: 50%;
+  --p2: 40%;
+  --p3: 30%;
+}
+
+.wallpaperPattern {
+  filter: brightness(max(20%, calc(var(--bgLight) * 2)));
+}
+
+.patternPreview {
+  filter: brightness(max(20%, calc(var(--bgLight) * 2)));
+}
+
+[class*='pattern-'] {
+  background-position: unset !important;
+}
+
+.pattern-wavy {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      hsl(var(--bgHue) var(--bgSat) var(--p1)) 10px
+    ),
+    repeating-linear-gradient(hsl(var(--bgHue) var(--bgSat) var(--p2)), hsl(var(--bgHue) var(--bgSat) var(--p3))) !important;
+}
+
+.pattern-rhombus {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: linear-gradient(135deg, hsl(var(--bgHue) var(--bgSat) var(--p2)) 25%, transparent 25%),
+    linear-gradient(225deg, hsl(var(--bgHue) var(--bgSat) var(--p2)) 25%, transparent 25%),
+    linear-gradient(45deg, hsl(var(--bgHue) var(--bgSat) var(--p2)) 25%, transparent 25%),
+    linear-gradient(315deg, hsl(var(--bgHue) var(--bgSat) var(--p2)) 25%, hsl(var(--bgHue) var(--bgSat) var(--p1)) 25%) !important;
+  background-position: 10px 0, 10px 0, 0 0, 0 0 !important;
+  background-size: 10px 10px !important;
+  background-repeat: repeat !important;
+}
+
+.pattern-zigzag {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: linear-gradient(135deg, hsl(var(--bgHue) var(--bgSat) var(--p2)) 25%, transparent 25%),
+    linear-gradient(225deg, hsl(var(--bgHue) var(--bgSat) var(--p2)) 25%, transparent 25%),
+    linear-gradient(45deg, hsl(var(--bgHue) var(--bgSat) var(--p2)) 25%, transparent 25%),
+    linear-gradient(315deg, hsl(var(--bgHue) var(--bgSat) var(--p2)) 25%, hsl(var(--bgHue) var(--bgSat) var(--p1)) 25%) !important;
+  background-position: 10px 0, 10px 0, 0 0, 0 0 !important;
+  background-size: 20px 20px !important;
+  background-repeat: repeat !important;
+}
+
+.pattern-zigzag3d {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background: linear-gradient(135deg, hsl(var(--bgHue) var(--bgSat) var(--p1)) 25%, transparent 25%) -10px 0px / 20px 20px,
+    linear-gradient(225deg, hsl(var(--bgHue) var(--bgSat) var(--p3)) 20%, transparent 25%) -10px 0px / 20px 20px,
+    linear-gradient(315deg, hsl(var(--bgHue) var(--bgSat) var(--p1)) 25%, transparent 25%) 0px 0px / 20px 20px,
+    linear-gradient(45deg, hsl(var(--bgHue) var(--bgSat) var(--p3)) 20%, hsl(var(--bgHue) var(--bgSat) var(--p2)) 25%)
+      0px 0px / 20px 20px !important;
+}
+
+.pattern-moon {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: radial-gradient(
+    ellipse farthest-corner at 10px 10px,
+    hsl(var(--bgHue) var(--bgSat) var(--p2)),
+    hsl(var(--bgHue) var(--bgSat) var(--p2)) 50%,
+    hsl(var(--bgHue) var(--bgSat) var(--p1)) 50%
+  ) !important;
+  background-size: 10px 10px !important;
+  background-repeat: repeat !important;
+}
+
+.pattern-ripple {
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: radial-gradient(
+      circle at center center,
+      hsl(var(--bgHue) var(--bgSat) var(--p2)),
+      hsl(var(--bgHue) var(--bgSat) var(--p1))
+    ),
+    repeating-radial-gradient(
+      circle at center center,
+      hsl(var(--bgHue) var(--bgSat) var(--p2)),
+      hsl(var(--bgHue) var(--bgSat) var(--p1)),
+      10px,
+      transparent 20px,
+      transparent 10px
+    ) !important;
+  background-blend-mode: darken !important;
+}
+
+.pattern-diagonal {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: repeating-linear-gradient(
+    45deg,
+    hsl(var(--bgHue) var(--bgSat) var(--p2)),
+    hsl(var(--bgHue) var(--bgSat) var(--p2)) 5px,
+    hsl(var(--bgHue) var(--bgSat) var(--p1)) 5px,
+    hsl(var(--bgHue) var(--bgSat) var(--p1)) 25px
+  ) !important;
+}
+
+.pattern-diagonal2 {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    hsl(var(--bgHue) var(--bgSat) var(--p2)),
+    hsl(var(--bgHue) var(--bgSat) var(--p2)) 5px,
+    hsl(var(--bgHue) var(--bgSat) var(--p1)) 5px,
+    hsl(var(--bgHue) var(--bgSat) var(--p1)) 25px
+  ) !important;
+}
+
+.pattern-diagonal3 {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-size: 10px 10px !important;
+  background-image: repeating-linear-gradient(
+    45deg,
+    hsl(var(--bgHue) var(--bgSat) var(--p2)) 0,
+    hsl(var(--bgHue) var(--bgSat) var(--p2)) 1px,
+    hsl(var(--bgHue) var(--bgSat) var(--p1)) 0,
+    hsl(var(--bgHue) var(--bgSat) var(--p1)) 50%
+  ) !important;
+  background-repeat: repeat !important;
+}
+
+.pattern-paper {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: linear-gradient(hsl(var(--bgHue) var(--bgSat) var(--p2)) 2px, transparent 2px),
+    linear-gradient(90deg, hsl(var(--bgHue) var(--bgSat) var(--p2)) 2px, transparent 2px),
+    linear-gradient(hsl(var(--bgHue) var(--bgSat) var(--p2)) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--bgHue) var(--bgSat) var(--p2)) 1px, hsl(var(--bgHue) var(--bgSat) var(--p1)) 1px) !important;
+  background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px !important;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px !important;
+  background-repeat: repeat !important;
+}
+
+.pattern-isometric {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: linear-gradient(
+      30deg,
+      hsl(var(--bgHue) var(--bgSat) var(--p2)) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      hsl(var(--bgHue) var(--bgSat) var(--p2)) 87.5%,
+      hsl(var(--bgHue) var(--bgSat) var(--p2))
+    ),
+    linear-gradient(
+      150deg,
+      hsl(var(--bgHue) var(--bgSat) var(--p2)) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      hsl(var(--bgHue) var(--bgSat) var(--p2)) 87.5%,
+      hsl(var(--bgHue) var(--bgSat) var(--p2))
+    ),
+    linear-gradient(
+      30deg,
+      hsl(var(--bgHue) var(--bgSat) var(--p2)) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      hsl(var(--bgHue) var(--bgSat) var(--p2)) 87.5%,
+      hsl(var(--bgHue) var(--bgSat) var(--p2))
+    ),
+    linear-gradient(
+      150deg,
+      hsl(var(--bgHue) var(--bgSat) var(--p2)) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      hsl(var(--bgHue) var(--bgSat) var(--p2)) 87.5%,
+      hsl(var(--bgHue) var(--bgSat) var(--p2))
+    ),
+    linear-gradient(
+      60deg,
+      hsl(var(--bgHue) var(--bgSat) var(--p2) / 0.7) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      hsl(var(--bgHue) var(--bgSat) var(--p2) / 0.7) 75%,
+      hsl(var(--bgHue) var(--bgSat) var(--p2) / 0.7)
+    ),
+    linear-gradient(
+      60deg,
+      hsl(var(--bgHue) var(--bgSat) var(--p2) / 0.7) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      hsl(var(--bgHue) var(--bgSat) var(--p2) / 0.7) 75%,
+      hsl(var(--bgHue) var(--bgSat) var(--p2) / 0.7)
+    ) !important;
+  background-size: 20px 35px !important;
+  background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px !important;
+  background-repeat: repeat !important;
+}
+
+.pattern-lines {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: linear-gradient(
+    0deg,
+    hsl(var(--bgHue) var(--bgSat) var(--p1)) 50%,
+    hsl(var(--bgHue) var(--bgSat) var(--p2)) 50%
+  ) !important;
+  background-size: 10px 10px !important;
+  background-repeat: repeat !important;
+}
+
+.pattern-lines2 {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: linear-gradient(
+    to right,
+    hsl(var(--bgHue) var(--bgSat) var(--p2)),
+    hsl(var(--bgHue) var(--bgSat) var(--p2)) 5px,
+    hsl(var(--bgHue) var(--bgSat) var(--p1)) 5px,
+    hsl(var(--bgHue) var(--bgSat) var(--p1))
+  ) !important;
+  background-size: 10px 100% !important;
+  background-repeat: repeat !important;
+}
+
+.pattern-lines3 {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-size: 20px 20px !important;
+  background-image: repeating-linear-gradient(
+    0deg,
+    hsl(var(--bgHue) var(--bgSat) var(--p2)),
+    hsl(var(--bgHue) var(--bgSat) var(--p2)) 1px,
+    hsl(var(--bgHue) var(--bgSat) var(--p1)) 1px,
+    hsl(var(--bgHue) var(--bgSat) var(--p1))
+  ) !important;
+  background-repeat: repeat !important;
+}
+
+.pattern-lines4 {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-size: 20px 20px !important;
+  background-image: repeating-linear-gradient(
+    to right,
+    hsl(var(--bgHue) var(--bgSat) var(--p2)),
+    hsl(var(--bgHue) var(--bgSat) var(--p2)) 1px,
+    hsl(var(--bgHue) var(--bgSat) var(--p1)) 1px,
+    hsl(var(--bgHue) var(--bgSat) var(--p1))
+  ) !important;
+  background-repeat: repeat !important;
+}
+
+.pattern-boxes {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: linear-gradient(hsl(var(--bgHue) var(--bgSat) var(--p2)) 1px, transparent 1px),
+    linear-gradient(
+      to right,
+      hsl(var(--bgHue) var(--bgSat) var(--p2)) 1px,
+      hsl(var(--bgHue) var(--bgSat) var(--p1)) 1px
+    ) !important;
+  background-size: 20px 20px !important;
+  background-repeat: repeat !important;
+}
+
+.pattern-triangles {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: linear-gradient(
+    45deg,
+    hsl(var(--bgHue) var(--bgSat) var(--p2)) 50%,
+    hsl(var(--bgHue) var(--bgSat) var(--p1)) 50%
+  ) !important;
+  background-size: 10px 10px !important;
+  background-repeat: repeat !important;
+}
+
+.pattern-triangles2 {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: linear-gradient(
+    -45deg,
+    hsl(var(--bgHue) var(--bgSat) var(--p1)),
+    hsl(var(--bgHue) var(--bgSat) var(--p1)) 50%,
+    hsl(var(--bgHue) var(--bgSat) var(--p2)) 50%,
+    hsl(var(--bgHue) var(--bgSat) var(--p2))
+  ) !important;
+  background-size: 10px 10px !important;
+  background-repeat: repeat !important;
+}
+
+.pattern-rectangles {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: repeating-linear-gradient(
+      45deg,
+      hsl(var(--bgHue) var(--bgSat) var(--p2)) 25%,
+      transparent 25%,
+      transparent 75%,
+      hsl(var(--bgHue) var(--bgSat) var(--p2)) 75%,
+      hsl(var(--bgHue) var(--bgSat) var(--p2))
+    ),
+    repeating-linear-gradient(
+      45deg,
+      hsl(var(--bgHue) var(--bgSat) var(--p2)) 25%,
+      hsl(var(--bgHue) var(--bgSat) var(--p1)) 25%,
+      hsl(var(--bgHue) var(--bgSat) var(--p1)) 75%,
+      hsl(var(--bgHue) var(--bgSat) var(--p2)) 75%,
+      hsl(var(--bgHue) var(--bgSat) var(--p2))
+    ) !important;
+  background-position: 0 0, 10px 10px !important;
+  background-size: 20px 20px !important;
+  background-repeat: repeat !important;
+}
+
+.pattern-cross {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background: radial-gradient(
+      circle,
+      transparent 20%,
+      hsl(var(--bgHue) var(--bgSat) var(--p1)) 20%,
+      hsl(var(--bgHue) var(--bgSat) var(--p1)) 80%,
+      transparent 80%,
+      transparent
+    ),
+    radial-gradient(
+        circle,
+        transparent 20%,
+        hsl(var(--bgHue) var(--bgSat) var(--p1)) 20%,
+        hsl(var(--bgHue) var(--bgSat) var(--p1)) 80%,
+        transparent 80%,
+        transparent
+      )
+      25px 25px,
+    linear-gradient(hsl(var(--bgHue) var(--bgSat) var(--p2)) 2px, transparent 2px) 0 -1px,
+    linear-gradient(90deg, hsl(var(--bgHue) var(--bgSat) var(--p2)) 2px, hsl(var(--bgHue) var(--bgSat) var(--p1)) 2px) -1px
+      0 !important;
+  background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px !important;
+}
+
+.pattern-polka {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: radial-gradient(
+    hsl(var(--bgHue) var(--bgSat) var(--p3)) 0.9500000000000001px,
+    hsl(var(--bgHue) var(--bgSat) var(--p1)) 0.9500000000000001px
+  ) !important;
+  background-size: 19px 19px !important;
+  background-repeat: repeat !important;
+}
+
+.pattern-polka2 {
+  // Created by @d__raptis - https://twitter.com/d__raptis - https://www.magicpattern.design/tools/css-backgrounds
+  background-color: hsl(var(--bgHue) var(--bgSat) var(--p1)) !important;
+  background-image: radial-gradient(
+      hsl(var(--bgHue) var(--bgSat) var(--p3)) 0.9500000000000001px,
+      transparent 0.9500000000000001px
+    ),
+    radial-gradient(
+      hsl(var(--bgHue) var(--bgSat) var(--p3)) 0.9500000000000001px,
+      hsl(var(--bgHue) var(--bgSat) var(--p1)) 0.9500000000000001px
+    ) !important;
+  background-size: 38px 38px !important;
+  background-position: 0 0, 19px 19px !important;
+  background-repeat: repeat !important;
+}

@@ -1,17 +1,12 @@
-
-.DS_Store
-
 node_modules
-npm-debug.log
+
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
 
 artifacts/
 dist/
 dist-chrome/
 dist-ff/
 dist-edge/
-packages/
 carettab.zip
-
-yarn.lock
-
-.vscode/*

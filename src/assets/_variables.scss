@@ -1,0 +1,111 @@
+:root {
+  color-scheme: light;
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+
+  // sizes
+  --s1: 0.1rem;
+  --s2: 0.2rem;
+  --s3: 0.4rem;
+  --s4: 0.8rem;
+  --s5: 1.6rem;
+  --s6: 2.4rem;
+  --s7: 3.2rem;
+  --s8: 4rem;
+  --s9: 4.8rem;
+  --radius: var(--s3);
+
+  // greys
+  --cGrey1: hsl(225 5% 83%);
+  @media (prefers-color-scheme: dark) {
+    --cGrey1: hsl(225 5% 17%);
+  }
+  --cGrey1Alt: hsl(225 5% 75%);
+  @media (prefers-color-scheme: dark) {
+    --cGrey1Alt: hsl(225 5% 10%);
+  }
+  --cGrey2: hsl(225 6% 87%);
+  @media (prefers-color-scheme: dark) {
+    --cGrey2: hsl(225 6% 13%);
+  }
+  --cGrey2Alt: hsl(225 6% 66%);
+  @media (prefers-color-scheme: dark) {
+    --cGrey2Alt: hsl(225 6% 33%);
+  }
+  --cGrey3: hsl(225 18% 94%);
+  @media (prefers-color-scheme: dark) {
+    --cGrey3: hsl(225 18% 6%);
+  }
+  --cGrey3Alt: hsl(225 18% 80%);
+  @media (prefers-color-scheme: dark) {
+    --cGrey3Alt: hsl(225 18% 20%);
+  }
+
+  // blues
+  --cBlue1: hsl(210deg 80% 20%);
+  @media (prefers-color-scheme: dark) {
+    --cBlue1: hsl(210 80% 80%);
+  }
+  --cBlue2: hsl(205deg 100% 18%);
+  @media (prefers-color-scheme: dark) {
+    --cBlue2: hsl(205deg 100% 18%);
+  }
+  --cBlue3: hsl(210deg 80% 30%);
+  @media (prefers-color-scheme: dark) {
+    --cBlue3: hsl(210 80% 30%);
+  }
+  --cBlue4: hsl(225deg 90% 80%);
+  @media (prefers-color-scheme: dark) {
+    --cBlue4: hsl(210 80% 30%);
+  }
+  --cBlue5: hsl(210deg 30% 50%);
+  @media (prefers-color-scheme: dark) {
+    --cBlue5: hsl(210 30% 50%);
+  }
+  --cBlue5Faded: hsl(210deg 30% 50% / 0.3);
+  @media (prefers-color-scheme: dark) {
+    --cBlue5Faded: hsl(210 30% 50% / 0.3);
+  }
+  --cBlue6: hsl(210deg 10% 40%);
+  @media (prefers-color-scheme: dark) {
+    --cBlue6: hsl(210 10% 20%);
+  }
+  --cBlue7: hsl(210deg 10% 50%);
+  @media (prefers-color-scheme: dark) {
+    --cBlue7: hsl(210 10% 50%);
+  }
+  --cBlue8: hsl(210deg 10% 70%);
+  @media (prefers-color-scheme: dark) {
+    --cBlue8: hsl(210 10% 30%);
+  }
+  --cBlue9: hsl(205deg 100% 95%);
+  @media (prefers-color-scheme: dark) {
+    --cBlue9: hsl(205deg 100% 95%);
+  }
+
+  // element colors
+  --cError: hsl(10deg 90% 51%);
+  --cSuccess: hsl(138, 56%, 60%);
+  --cBackdrop: hsl(0 0% 5% / 0.5);
+  --cArrow: hsl(210 30% 50%);
+  @media (prefers-color-scheme: dark) {
+    --cArrow: hsl(210 30% 50%);
+  }
+  --cArrowFade: hsl(210 30% 50% / 0.3);
+  @media (prefers-color-scheme: dark) {
+    --cArrowFade: hsl(210 30% 50% / 0.3);
+  }
+  --cText: hsl(225 10% 20%);
+  @media (prefers-color-scheme: dark) {
+    --cText: hsl(225 10% 80%);
+  }
+  --cTextSubtle: hsl(225 10% 40%);
+  @media (prefers-color-scheme: dark) {
+    --cTextSubtle: hsl(225 10% 60%);
+  }
+  --cShadow: hsl(0 0% 0% / 0.5);
+  @media (prefers-color-scheme: dark) {
+    --cShadow: hsl(0 0% 0% / 0.5);
+  }
+}

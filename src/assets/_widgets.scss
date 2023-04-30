@@ -1,0 +1,89 @@
+// Widget container
+.widget {
+  position: absolute;
+  margin: auto;
+  width: max-content;
+  height: max-content;
+  display: grid;
+}
+
+.widgetInner {
+  width: 100%;
+}
+
+// Widget positions
+.nw {
+  inset: 0 auto auto 0;
+}
+
+.n {
+  inset: 0 0 auto 0;
+}
+
+.ne {
+  inset: 0 0 auto auto;
+}
+
+.w {
+  inset: 0 auto 0 0;
+}
+
+.c {
+  inset: 0;
+}
+
+.e {
+  inset: 0 0 0 auto;
+}
+
+.sw {
+  inset: auto auto 0 0;
+}
+
+.s {
+  inset: auto 0 0 0;
+}
+
+.se {
+  inset: auto 0 0 auto;
+}
+
+// Widget positions
+.container-nw {
+  place-items: start start;
+}
+
+.container-n {
+  place-items: start center;
+  text-align: center;
+}
+
+.container-ne {
+  place-items: start end;
+}
+
+.container-w {
+  place-items: center start;
+}
+
+.container-c {
+  place-items: center center;
+  text-align: center;
+}
+
+.container-e {
+  place-items: center end;
+}
+
+.container-sw {
+  place-items: end start;
+}
+
+.container-s {
+  place-items: end center;
+  text-align: center;
+}
+
+.container-se {
+  place-items: end end;
+}

@@ -17,12 +17,12 @@
   "content_scripts": [
     {
       "matches": ["https://extensionpay.com/*", "https://fonts.googleapis.com/*"],
-      "js": ["public/import-ExtPay.js"],
+      "js": ["import-ExtPay.js"],
       "run_at": "document_start"
     }
   ],
   "background": {
-    "service_worker": "public/service_worker.js",
+    "service_worker": "src/service_worker.js",
     "type": "module"
   },
   "permissions": ["storage"],
@@ -73,6 +73,10 @@
     {
       "resources": ["src/assets/ExtPay.js"],
       "matches": ["https://extensionpay.com/*"]
+    },
+    {
+      "resources": ["fonts/*.woff2"],
+      "extension_ids": []
     }
   ]
 }

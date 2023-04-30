@@ -1,4 +1,4 @@
-import { ExtPay } from '../src/assets/ExtPay.js'
+import { ExtPay } from './assets/ExtPay.js'
 
 const extpay = ExtPay('carettab')
 extpay.startBackground()

@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, computed, watch, ref, onMounted } from 'vue'
+import { computed, watch, ref, onMounted } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { DateTime } from 'luxon'
 import { fontList } from '@/assets/lists.js'

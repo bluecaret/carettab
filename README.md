@@ -1,9 +1,13 @@
 # CaretTab
+
 A New Tab page extension with all the options for displaying time, date, search, favorite links, and more!
 
 For more information visit the website for [CaretTab](http://www.carettab.com)
 
+For help or feature suggestions visit the [CaretTab Support page](https://github.com/bluecaret/carettab/discussions)
+
 ## Features
+
 - Display time and date on new tab page.
 - Digital/Analog/Binary clock options.
 - Add additional clocks with labels.
@@ -27,9 +31,17 @@ Have any suggestions? Let me know on Twitter @BlueCaret
 
 [View the changelog on the wiki](https://github.com/bluecaret/carettab/wiki/Changelog)
 
+## Explanation of permissions:
+
+- **Storage:** Used to store your settings.
+- Replace the page you see when opening a new tab: Used to replace the New Tab page with this extension.
+- (Optional) **Read the icons of the websites you visit:** Used to display the favicons (logos) of the website you add to your bookmarks bar or quick links.
+- (Optional) **Read a list of your most frequently visited websites:** Used to display the "most visited" menu on the bookmarks bar or quick links, when enabled.
+- (Optional) **Read and change your bookmarks:** Used to display your bookmarks on a bookmarks bar, when enabled.
+
 ## Install
 
-You can install CaretTab through the browser web stores
+You can install CaretTab through the browser web stores.
 
 **Chrome:**
 [https://chrome.google.com/webstore/detail/carettab-new-tab-page/cojpndognjdcakkimaloeealehpkljna](https://chrome.google.com/webstore/detail/carettab-new-tab-page/cojpndognjdcakkimaloeealehpkljna)
@@ -37,25 +49,10 @@ You can install CaretTab through the browser web stores
 **Edge:**
 [https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe](https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe)
 
-## Contribute
-
-Submit a Pull Request in GitHub if you would like to contribute. Always welcome help with translations especially :)
-
-## Build
-
-### First time installation:
-1. Make sure you have [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed 
-2. Run `npm install` for packages necessary to build the project
-
-### Development workflow:
-1. Run `npm start` for a dev build. This is where local changes will be compiled and built.
-2. Then, you can run `npm run start:chrome` to start an instance of the dev build in Chrome. Alternatively, you can use `npm run compile` and manually add the `dist` folder to your browser's installed extensions.
-
-### For a production ready build
-
-Run `npm run compile:all` to build the project and package for all browsers. The build artifacts will be stored in the `artifacts/` directory.
+**Note:** Since this is built for chromium browsers, it is possible to install CaretTab on other browsers, however, only Chrome and Edge are officially supported.
 
 ## Credit
+
 CaretTab was designed and developed by BlueCaret (John W Hancock)
 [http://www.carettab.com](http://www.carettab.com)
 [http://www.bluecaret.com](http://www.bluecaret.com)

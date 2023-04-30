@@ -1,0 +1,51 @@
+html {
+  font-size: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.6rem;
+  overflow: hidden;
+}
+
+p {
+  line-height: 1.4;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+img {
+  vertical-align: middle;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+  height: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cGrey1);
+  border: solid 4px transparent;
+  // border-radius: 0 10px 10px 0;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 10px 10px var(--cGrey2Alt);
+  border: solid 4px transparent;
+  border-radius: 10px;
+}
+
+.allowPointerEvent {
+  pointer-events: all;
+}

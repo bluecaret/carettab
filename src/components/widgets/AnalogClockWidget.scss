@@ -1,0 +1,708 @@
+//*****************************************************************************
+//*****************************************************************************
+// Analog clock base
+//*****************************************************************************
+//*****************************************************************************
+
+.analog {
+  --faceShadow: none;
+  --faceTextShadow: none;
+  --handShadow: none;
+  --analogBorderSize: 0.001em;
+  --analogBorderColor: hsl(0deg 0% 0% / 1);
+  --analogMarkMargin: 0;
+  --analogQuarterMarkColor: hsl(0deg 0% 0% / 1);
+  --analogHourMarkColor: hsl(0deg 0% 0% / 1);
+  --analogMinuteMarkColor: hsl(0deg 0% 0% / 1);
+  --analogHourColor: currentColor;
+  --analogHourWidth: 0.007em;
+  --analogHourHeight: 0.11em;
+  --analogHourRadius: calc(var(--analogHourWidth) / 2);
+  --analogMinuteColor: currentColor;
+  --analogMinuteWidth: 0.005em;
+  --analogMinuteHeight: 0.15em;
+  --analogMinuteRadius: calc(var(--analogMinuteWidth) / 2);
+  --analogSecondColor: currentColor;
+  --analogSecondWidth: 0.003em;
+  --analogSecondHeight: 0.2em;
+  --analogSecondRadius: calc(var(--analogSecondWidth) / 2);
+  --analogCenterSize: 0.02em;
+  --analogCenterRadius: 50%;
+  --analogCurrentHour: 0deg;
+  --analogCurrentMinute: 0deg;
+  --analogCurrentSecond: 0deg;
+  position: relative;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  place-items: center;
+  width: 0.4em;
+  height: 0.4em;
+  margin: 0 auto;
+  border-radius: 50%;
+  .analogFace,
+  .analogHands {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    display: grid;
+    place-items: center;
+    grid-template: 1fr / 1fr;
+  }
+
+  .analogFace {
+    font-size: 0.01em; // Move decimal of ems for markers for ease of development
+    filter: drop-shadow(var(--faceShadow));
+    text-shadow: var(--faceShadow);
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      outline: var(--analogBorderSize) solid var(--analogBorderColor);
+      border-radius: 50%;
+    }
+  }
+
+  .analogIndicator {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    position: absolute;
+    display: grid;
+    place-items: start center;
+    width: 100%;
+    height: 100%;
+
+    @for $i from 1 through 60 {
+      &:nth-child(#{$i}) {
+        rotate: #{$i * 6}deg;
+      }
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      background-color: currentColor;
+      margin: var(--analogMarkMargin);
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+    &::after {
+      content: '';
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      color: currentColor;
+      display: block;
+    }
+
+    &.analogIndicatorQuarter {
+      text-shadow: none;
+      &::before {
+        width: var(--analogQuarterMarkWidth);
+        height: var(--analogQuarterMarkHeight);
+        border-radius: var(--analogQuarterMarkRadius);
+        background-color: var(--analogQuarterMarkColor);
+      }
+      &::after {
+        color: var(--analogQuarterMarkColor);
+      }
+    }
+
+    &.analogIndicatorHour {
+      text-shadow: none;
+      &::before {
+        width: var(--analogHourMarkWidth);
+        height: var(--analogHourMarkHeight);
+        border-radius: var(--analogHourMarkRadius);
+        background-color: var(--analogHourMarkColor);
+      }
+      &::after {
+        color: var(--analogHourMarkColor);
+      }
+    }
+
+    &.analogIndicatorMinute {
+      text-shadow: none;
+      &::before {
+        width: var(--analogMinuteMarkWidth);
+        height: var(--analogMinuteMarkHeight);
+        border-radius: var(--analogMinuteMarkRadius);
+        background-color: var(--analogMinuteMarkColor);
+      }
+      &::after {
+        color: var(--analogMinuteMarkColor);
+      }
+    }
+  }
+
+  .analogHands {
+    filter: drop-shadow(var(--handShadow));
+  }
+
+  .analogHour,
+  .analogMinute,
+  .analogSecond,
+  .analogCenter {
+    background-color: currentColor;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .analogHour {
+    width: 0.03em;
+    height: 0.4em;
+    rotate: var(--analogCurrentHour);
+    color: var(--analogHourColor);
+  }
+
+  .analogMinute {
+    width: 0.03em;
+    height: 0.4em;
+    rotate: var(--analogCurrentMinute);
+    color: var(--analogMinuteColor);
+  }
+
+  .analogSecond {
+    width: 0.03em;
+    height: 0.4em;
+    rotate: var(--analogCurrentSecond);
+    color: var(--analogSecondColor);
+    &.smooth {
+      animation: rotate-second 60s linear infinite;
+    }
+  }
+
+  .analogCenter {
+    width: var(--analogCenterSize);
+    height: var(--analogCenterSize);
+    border-radius: var(--analogCenterRadius);
+    color: var(--analogCenterColor);
+    z-index: +1;
+  }
+}
+
+@keyframes rotate-second {
+  from {
+    rotate: var(--analogCurrentSecond);
+  }
+  to {
+    rotate: calc(var(--analogCurrentSecond) + 360deg);
+  }
+}
+
+//*****************************************************************************
+//*****************************************************************************
+// Analog clock hands
+//*****************************************************************************
+//*****************************************************************************
+
+.handStyle_swiss {
+  .analogHour {
+    //                  R   B    L   B    L   T    L   T
+    clip-path: polygon(75% 65%, 25% 65%, 35% 20%, 65% 20%);
+  }
+  .analogMinute {
+    clip-path: polygon(75% 65%, 25% 65%, 35% 1%, 65% 1%);
+  }
+  .analogSecond {
+    background-color: transparent;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      clip-path: polygon(57% 18%, 43% 18%, 43% 65%, 57% 65%);
+    }
+    &::after {
+      width: 0.03em;
+      height: 0.03em;
+      border-radius: 50%;
+      content: '';
+      display: block;
+      position: absolute;
+      top: 11%;
+      left: -3%;
+      background-color: currentColor;
+    }
+  }
+}
+
+.handStyle_modern {
+  --analogCenterSize: 0.015em;
+  .analogHour {
+    //                  R   B    L   B    L   T    L   T
+    clip-path: polygon(85% 50%, 50% 60%, 15% 50%, 50% 20%);
+  }
+  .analogMinute {
+    clip-path: polygon(85% 50%, 50% 60%, 15% 50%, 50% 10%);
+  }
+  .analogSecond {
+    background-color: transparent;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      clip-path: polygon(55% 10%, 45% 10%, 45% 62%, 55% 62%);
+    }
+    &::after {
+      width: 0.02em;
+      height: 0.02em;
+      border-radius: 50%;
+      content: '';
+      display: block;
+      position: absolute;
+      top: 62%;
+      left: 8%;
+      border: 0.003em solid currentColor;
+      background-color: transparent;
+    }
+  }
+}
+
+.handStyle_modern2 {
+  --analogCenterSize: 0.015em;
+  .analogHour {
+    //                  R   B    L   B    L   T    L   T
+    clip-path: polygon(85% 55%, 50% 55%, 15% 55%, 50% 20%);
+  }
+  .analogMinute {
+    clip-path: polygon(85% 55%, 50% 55%, 15% 55%, 50% 10%);
+  }
+  .analogSecond {
+    background-color: transparent;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      clip-path: polygon(55% 10%, 45% 10%, 45% 62%, 55% 62%);
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0.008em;
+      height: 0.04em;
+      top: 53%;
+      left: 36%;
+      clip-path: polygon(100% 100%, 0% 100%, 50% 0%);
+      background-color: currentColor;
+    }
+  }
+}
+
+.handStyle_minimalThin {
+  --analogCenterSize: 0.015em;
+  .analogHour {
+    //                  R   B    L   B    L   T    L   T
+    clip-path: polygon(55% 50%, 45% 50%, 45% 23%, 55% 23%);
+  }
+  .analogMinute {
+    clip-path: polygon(55% 50%, 45% 50%, 45% 13%, 55% 13%);
+  }
+  .analogSecond {
+    background-color: transparent;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      clip-path: polygon(53% 50%, 47% 50%, 47% 10%, 53% 10%);
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0.008em;
+      height: 0.04em;
+      top: 53%;
+      left: 36%;
+      clip-path: polygon(100% 100%, 0% 100%, 50% 0%);
+      background-color: transparent;
+    }
+  }
+}
+
+.handStyle_minimalMedium {
+  --analogCenterSize: 0.015em;
+  .analogHour {
+    //                  R   B    L   B    L   T    L   T
+    clip-path: polygon(60% 50%, 40% 50%, 40% 23%, 60% 23%);
+  }
+  .analogMinute {
+    clip-path: polygon(60% 50%, 40% 50%, 40% 13%, 60% 13%);
+  }
+  .analogSecond {
+    background-color: transparent;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      clip-path: polygon(53% 50%, 47% 50%, 47% 10%, 53% 10%);
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0.008em;
+      height: 0.04em;
+      top: 53%;
+      left: 36%;
+      clip-path: polygon(100% 100%, 0% 100%, 50% 0%);
+      background-color: transparent;
+    }
+  }
+}
+
+.handStyle_minimalThick {
+  --analogCenterSize: 0.02em;
+  .analogHour {
+    //                  R   B    L   B    L   T    L   T
+    clip-path: polygon(70% 50%, 30% 50%, 30% 23%, 70% 23%);
+  }
+  .analogMinute {
+    clip-path: polygon(70% 50%, 30% 50%, 30% 13%, 70% 13%);
+  }
+  .analogSecond {
+    background-color: transparent;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      clip-path: polygon(55% 50%, 45% 50%, 45% 10%, 55% 10%);
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0.008em;
+      height: 0.04em;
+      top: 53%;
+      left: 36%;
+      clip-path: polygon(100% 100%, 0% 100%, 50% 0%);
+      background-color: transparent;
+    }
+  }
+}
+
+.handStyle_pointed {
+  --analogCenterSize: 0.015em;
+  .analogHour {
+    //                  R   B    L   B    L   T    C   T    L   T
+    clip-path: polygon(60% 50%, 40% 50%, 40% 26%, 50% 25%, 60% 26%);
+  }
+  .analogMinute {
+    clip-path: polygon(60% 50%, 40% 50%, 40% 13%, 50% 12%, 60% 13%);
+  }
+  .analogSecond {
+    background-color: transparent;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      clip-path: polygon(53% 55%, 47% 55%, 47% 10%, 53% 10%);
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0.008em;
+      height: 0.04em;
+      top: 53%;
+      left: 36%;
+      clip-path: polygon(100% 100%, 0% 100%, 50% 0%);
+      background-color: transparent;
+    }
+  }
+}
+
+//*****************************************************************************
+//*****************************************************************************
+// Analog clock faces
+//*****************************************************************************
+//*****************************************************************************
+
+.faceStyle_none {
+  .analogIndicatorQuarter {
+    display: none;
+  }
+
+  .analogIndicatorFive {
+    display: none;
+  }
+
+  .analogIndicatorMinute {
+    display: none;
+  }
+}
+
+.faceStyle_dash {
+  --analogMarkMargin: 0.6em;
+
+  --analogQuarterMarkWidth: 0.5em;
+  --analogQuarterMarkHeight: 2em;
+  --analogQuarterMarkRadius: 0.25em;
+
+  --analogHourMarkWidth: 0.3em;
+  --analogHourMarkHeight: 1em;
+  --analogHourMarkRadius: 0.15em;
+
+  --analogMinuteMarkWidth: 0.2em;
+  --analogMinuteMarkHeight: 0.5em;
+  --analogMinuteMarkRadius: 0.1em;
+}
+
+.faceStyle_dot {
+  --analogMarkMargin: 0.6em;
+
+  --analogQuarterMarkWidth: 0.5em;
+  --analogQuarterMarkHeight: 0.5em;
+  --analogQuarterMarkRadius: 50%;
+
+  --analogHourMarkWidth: 0.5em;
+  --analogHourMarkHeight: 0.5em;
+  --analogHourMarkRadius: 50%;
+
+  --analogMinuteMarkWidth: 0.2em;
+  --analogMinuteMarkHeight: 0.2em;
+  --analogMinuteMarkRadius: 50%;
+  .analogIndicatorMinute {
+    --analogMarkMargin: 0.75em;
+  }
+}
+
+.faceStyle_romanDashHour {
+  --analogMarkMargin: 0.6em;
+
+  --analogQuarterMarkWidth: 0.5em;
+  --analogQuarterMarkHeight: 0.8em;
+  --analogQuarterMarkRadius: 0.15em;
+
+  --analogHourMarkWidth: 0.3em;
+  --analogHourMarkHeight: 0.8em;
+  --analogHourMarkRadius: 0.1em;
+
+  --analogMinuteMarkWidth: 0.2em;
+  --analogMinuteMarkHeight: 0.4em;
+  --analogMinuteMarkRadius: 0em;
+
+  .analogIndicator:not(.analogIndicatorMinute) {
+    &::after {
+      translate: 0 0.6em;
+      font-family: 'EB Garamond', serif;
+      font-size: 2.4em;
+    }
+    &:nth-child(5)::after {
+      content: 'I';
+    }
+    &:nth-child(10)::after {
+      content: 'II';
+    }
+    &:nth-child(15)::after {
+      content: 'III';
+    }
+    &:nth-child(20)::after {
+      content: 'IIII';
+    }
+    &:nth-child(25)::after {
+      content: 'V';
+    }
+    &:nth-child(30)::after {
+      content: 'VI';
+    }
+    &:nth-child(35)::after {
+      content: 'VII';
+    }
+    &:nth-child(40)::after {
+      content: 'VIII';
+    }
+    &:nth-child(45)::after {
+      content: 'IX';
+    }
+    &:nth-child(50)::after {
+      content: 'X';
+    }
+    &:nth-child(55)::after {
+      content: 'XI';
+    }
+    &:nth-child(60)::after {
+      content: 'XII';
+    }
+  }
+}
+
+.faceStyle_romanDashQuarter {
+  --analogMarkMargin: 0.6em;
+
+  --analogQuarterMarkWidth: 0.5em;
+  --analogQuarterMarkHeight: 0.8em;
+  --analogQuarterMarkRadius: 0.15em;
+
+  --analogHourMarkWidth: 0.3em;
+  --analogHourMarkHeight: 0.8em;
+  --analogHourMarkRadius: 0.1em;
+
+  --analogMinuteMarkWidth: 0.2em;
+  --analogMinuteMarkHeight: 0.4em;
+  --analogMinuteMarkRadius: 0em;
+
+  .analogIndicator:not(.analogIndicatorMinute) {
+    &::after {
+      translate: 0 0.6em;
+      font-family: 'EB Garamond', serif;
+      font-size: 2.4em;
+    }
+    &:nth-child(15)::after {
+      content: 'III';
+    }
+    &:nth-child(30)::after {
+      content: 'VI';
+    }
+    &:nth-child(45)::after {
+      content: 'IX';
+    }
+    &:nth-child(60)::after {
+      content: 'XII';
+    }
+  }
+}
+
+.faceStyle_arabicDashHour {
+  --analogMarkMargin: 0.6em;
+
+  --analogQuarterMarkWidth: 0.5em;
+  --analogQuarterMarkHeight: 0.8em;
+  --analogQuarterMarkRadius: 0.15em;
+
+  --analogHourMarkWidth: 0.3em;
+  --analogHourMarkHeight: 0.8em;
+  --analogHourMarkRadius: 0.1em;
+
+  --analogMinuteMarkWidth: 0.2em;
+  --analogMinuteMarkHeight: 0.4em;
+  --analogMinuteMarkRadius: 0em;
+
+  .analogIndicator:not(.analogIndicatorMinute) {
+    &::after {
+      translate: 0 0.6em;
+      font-family: 'Quicksand', serif;
+      font-size: 2.4em;
+    }
+    &:nth-child(5)::after {
+      content: '1';
+      rotate: -30deg;
+    }
+    &:nth-child(10)::after {
+      content: '2';
+      rotate: -60deg;
+    }
+    &:nth-child(15)::after {
+      content: '3';
+      rotate: -90deg;
+    }
+    &:nth-child(20)::after {
+      content: '4';
+      rotate: -120deg;
+    }
+    &:nth-child(25)::after {
+      content: '5';
+      rotate: -150deg;
+    }
+    &:nth-child(30)::after {
+      content: '6';
+      rotate: -180deg;
+    }
+    &:nth-child(35)::after {
+      content: '7';
+      rotate: -210deg;
+    }
+    &:nth-child(40)::after {
+      content: '8';
+      rotate: -240deg;
+    }
+    &:nth-child(45)::after {
+      content: '9';
+      rotate: -270deg;
+    }
+    &:nth-child(50)::after {
+      content: '10';
+      rotate: -300deg;
+    }
+    &:nth-child(55)::after {
+      content: '11';
+      rotate: -330deg;
+    }
+    &:nth-child(60)::after {
+      content: '12';
+      rotate: -360deg;
+    }
+  }
+}
+
+.faceStyle_arabicDashQuarter {
+  --analogMarkMargin: 0.6em;
+
+  --analogQuarterMarkWidth: 0.5em;
+  --analogQuarterMarkHeight: 0.8em;
+  --analogQuarterMarkRadius: 0.15em;
+
+  --analogHourMarkWidth: 0.3em;
+  --analogHourMarkHeight: 0.8em;
+  --analogHourMarkRadius: 0.1em;
+
+  --analogMinuteMarkWidth: 0.2em;
+  --analogMinuteMarkHeight: 0.4em;
+  --analogMinuteMarkRadius: 0em;
+
+  .analogIndicator:not(.analogIndicatorMinute) {
+    &::after {
+      translate: 0 0.6em;
+      font-family: 'Quicksand', serif;
+      font-size: 2.4em;
+    }
+    &:nth-child(15)::after {
+      content: '3';
+      rotate: -90deg;
+    }
+    &:nth-child(30)::after {
+      content: '6';
+      rotate: -180deg;
+    }
+    &:nth-child(45)::after {
+      content: '9';
+      rotate: -270deg;
+    }
+    &:nth-child(60)::after {
+      content: '12';
+      rotate: -360deg;
+    }
+  }
+}
+
+.faceStyle_swiss {
+  --analogMarkMargin: 0em;
+
+  --analogQuarterMarkWidth: 1em;
+  --analogQuarterMarkHeight: 3em;
+  --analogQuarterMarkRadius: 0%;
+
+  --analogHourMarkWidth: 1em;
+  --analogHourMarkHeight: 3em;
+  --analogHourMarkRadius: 0%;
+
+  --analogMinuteMarkWidth: 0.3em;
+  --analogMinuteMarkHeight: 1.5em;
+  --analogMinuteMarkRadius: 0%;
+}

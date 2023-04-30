@@ -3,8 +3,6 @@
 import { useSettingsStore } from '@/store.js'
 // import { languages } from '@/assets/lists.js';
 
-const emit = defineEmits(['back'])
-
 if (typeof browser === 'undefined') {
   var browser = chrome
 }
@@ -57,7 +55,7 @@ const handleRemoveImage = () => {
     },
   })
   store.save()
-  emit('back')
+  store.goTo('dashboard')
 }
 
 const handlePatternSelect = (id) => {
@@ -85,7 +83,7 @@ const handlePatternSelect = (id) => {
 <template>
   <div class="page">
     <h2 class="title">
-      <button class="back" title="Back to Global settings" @click="emit('back')">
+      <button class="back" title="Back to Global settings" @click="store.goTo('dashboard')">
         <fa icon="fa-circle-left" size="xl" fixed-width></fa>
       </button>
       Patterns

@@ -3,7 +3,8 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { storeToRefs } from 'pinia'
 import DashboardSettings from '@/components/settings/DashboardSettings.vue'
-import GlobalSettings from '@/components/settings/GlobalSettings.vue'
+import PatternsList from '@/components/settings/PatternsList.vue'
+import UnsplashList from '@/components/settings/UnsplashList.vue'
 import AnalogClockSettings from '@/components/settings/AnalogClockSettings.vue'
 import DigitalClockSettings from '@/components/settings/DigitalClockSettings.vue'
 
@@ -86,7 +87,8 @@ const getReviewLink = () => {
       </div>
     </header>
     <DashboardSettings v-if="['dashboard'].includes(settingsPage)"></DashboardSettings>
-    <GlobalSettings v-if="['global'].includes(settingsPage)"></GlobalSettings>
+    <PatternsList v-if="['patterns'].includes(settingsPage)"></PatternsList>
+    <UnsplashList v-if="['unsplash'].includes(settingsPage)"></UnsplashList>
     <AnalogClockSettings v-if="['analogClock'].includes(settingsPage)"></AnalogClockSettings>
     <DigitalClockSettings v-if="['digitalClock'].includes(settingsPage)"></DigitalClockSettings>
     <footer class="footer">

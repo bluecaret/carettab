@@ -67,8 +67,9 @@ const handleShadowSet = () => {
   <DropdownMenu>
     <template #button>
       <button :id="tagId" aria-label="Select color" class="btn pickerButton" :class="!enable && 'pickerButtonDisable'">
-        <div></div>
-        <div></div>
+        <div :class="{ text: props.text }"></div>
+        <div :class="{ text: props.text }"></div>
+        <fa class="disabled" icon="fa-ban"></fa>
       </button>
     </template>
     <template #menu>
@@ -202,7 +203,7 @@ const handleShadowSet = () => {
   place-items: center;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  padding: 0.2rem;
+  padding: 0;
   overflow: hidden;
 
   > div {
@@ -212,31 +213,50 @@ const handleShadowSet = () => {
     width: 100%;
     height: 100%;
 
-    &:first-child {
-      background-color: black;
+    &:nth-child(1) {
+      color: hsl(0deg 0% 85%);
+      background-color: hsl(0deg 0% 10%);
     }
 
-    &:last-child {
-      background-color: white;
+    &:nth-child(2) {
+      color: hsl(0deg 0% 10%);
+      background-color: hsl(0deg 0% 85%);
     }
   }
 
-  > div::before {
+  > div:not(.text)::before {
     content: '';
-    width: 60%;
+    width: 50%;
     height: 30%;
-    background-color: white;
+    background-color: hsl(0deg 0% 85%);
     box-shadow: v-bind(currentShadow);
   }
 
-  > div:last-child::before {
-    background-color: black;
+  > div:not(.text):nth-child(2)::before {
+    background-color: hsl(0deg 0% 10%);
+  }
+
+  > div.text::before {
+    content: 'A';
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-shadow: v-bind(currentTextShadow);
+  }
+
+  > div.text:nth-child(2)::before {
+  }
+
+  .disabled {
+    display: none;
   }
 
   &.pickerButtonDisable {
-    div::before,
-    div::after {
-      box-shadow: none;
+    grid-template-columns: 1fr;
+    div {
+      display: none;
+    }
+    .disabled {
+      display: block;
     }
   }
 }
@@ -261,11 +281,11 @@ const handleShadowSet = () => {
     padding: 0 2rem;
 
     &:first-child {
-      background-color: black;
+      background-color: hsl(0deg 0% 10%);
     }
 
     &:last-child {
-      background-color: white;
+      background-color: hsl(0deg 0% 85%);
     }
   }
 
@@ -273,23 +293,23 @@ const handleShadowSet = () => {
     content: '';
     width: 60%;
     height: 30%;
-    background-color: white;
+    background-color: hsl(0deg 0% 85%);
     box-shadow: v-bind(currentBoxShadow);
   }
 
   > div::after {
     content: 'ABC';
     font-weight: 700;
-    color: white;
+    color: hsl(0deg 0% 85%);
     text-shadow: v-bind(currentTextShadow);
   }
 
   > div:last-child::before {
-    background-color: black;
+    background-color: hsl(0deg 0% 10%);
   }
 
   > div:last-child::after {
-    color: black;
+    color: hsl(0deg 0% 10%);
   }
 }
 

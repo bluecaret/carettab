@@ -84,8 +84,9 @@ defineExpose({ close })
   position: sticky;
   z-index: 1000;
   box-shadow: 0 0 10px 0 var(--cShadow);
-  background-color: var(--cGrey3);
+  background-color: var(--cGrey1);
   border: 0.1rem solid var(--cGrey3Alt);
   border-radius: var(--s3);
+  overflow: hidden;
 }
 </style>

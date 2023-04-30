@@ -73,6 +73,7 @@ import {
   faRotateLeft,
   faImages,
   faCircleHalfStroke,
+  faBan,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faItalic,
@@ -125,7 +126,8 @@ library.add(
   faGlobe,
   faRotateLeft,
   faImages,
-  faCircleHalfStroke
+  faCircleHalfStroke,
+  faBan
 )
 
 const getAccess = async () => {

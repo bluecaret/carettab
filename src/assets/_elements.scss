@@ -47,6 +47,10 @@
   font-size: 1.6rem;
   font-weight: 400;
   text-decoration: none;
+  transition: box-shadow .3s;
+  &:hover {
+    box-shadow: 0 0 .5rem 0 var(--cBlue5);
+  }
 
   .append {
     margin-left: auto;

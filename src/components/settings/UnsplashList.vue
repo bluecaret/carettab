@@ -5,7 +5,6 @@ import { useSettingsStore } from '@/store.js'
 import { getList, getSelectedUnsplashImage } from '@/helpers/unsplash.js'
 
 const access = inject('access')
-const emit = defineEmits(['back'])
 
 if (typeof browser === 'undefined') {
   var browser = chrome
@@ -43,7 +42,7 @@ const handleUnsplashPhotoSearch = () => {
 <template>
   <div class="page">
     <h2 class="title">
-      <button class="back" title="Back to Global settings" @click="emit('back')">
+      <button class="back" title="Back to Global settings" @click="store.goTo('dashboard')">
         <fa icon="fa-circle-left" size="xl" fixed-width></fa>
       </button>
       Unsplash.com Photos

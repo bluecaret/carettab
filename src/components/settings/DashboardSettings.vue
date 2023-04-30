@@ -5,6 +5,7 @@ import { useSettingsStore, setStorage } from '@/store.js'
 import { storeToRefs } from 'pinia'
 import PremiumModal from '@/components/PremiumModal.vue'
 import { widgetTypes } from '@/assets/lists.js'
+import GlobalSettings from '@/components/settings/GlobalSettings.vue'
 
 const user = inject('user')
 const store = useSettingsStore()
@@ -14,6 +15,7 @@ const showWhatsNew = ref(false)
 const drag = ref(false)
 const showPremiumModal = ref(false)
 const newWidgetMenu = ref(null)
+const openDefault = ref(false)
 
 onMounted(async () => {
   if (status === 'updated' || status === 'highlightSettings') {
@@ -110,31 +112,9 @@ const handleNewWidgetClick = (type) => {
         </div>
       </button>
     </PremiumModal>
-    <h2 class="title">
-      <fa icon="fa-shapes" fixed-width></fa>
+    <h3 class="subtitle">
       <span class="mra">Widgets</span>
-      <DropdownMenu ref="newWidgetMenu">
-        <template #button>
-          <button type="button" class="btn">
-            <fa icon="fa-plus"></fa>
-            Add widget
-          </button>
-        </template>
-        <template #menu>
-          <ul class="addWidgetMenu">
-            <li v-for="widget in widgetTypes" :key="widget.type">
-              <button type="button" class="btn btnBlock" @click="handleNewWidgetClick(widget.type)">
-                <fa class="fa-fw" :icon="widget.icon" />{{ widget.name }}
-              </button>
-            </li>
-          </ul>
-        </template>
-      </DropdownMenu>
-      <button type="button" class="btn" @click="store.goTo('global')">
-        <fa icon="fa-globe"></fa>
-        Edit global settings
-      </button>
-    </h2>
+    </h3>
     <draggable
       class="blockContainer"
       :list="store.config.layers"
@@ -174,39 +154,36 @@ const handleNewWidgetClick = (type) => {
           </div>
         </div>
       </template>
+      <template #footer>
+        <div class="block">
+          <div class="group fill">
+            <DropdownMenu ref="newWidgetMenu" style="width: auto">
+              <template #button>
+                <button type="button" class="btn">
+                  <fa icon="fa-plus"></fa>
+                  Add new widget
+                </button>
+              </template>
+              <template #menu>
+                <ul class="addWidgetMenu">
+                  <li v-for="widget in widgetTypes" :key="widget.type">
+                    <button type="button" class="btn fit btnBlock" @click="handleNewWidgetClick(widget.type)">
+                      <fa class="fa-fw" :icon="widget.icon" />{{ widget.name }}
+                    </button>
+                  </li>
+                </ul>
+              </template>
+            </DropdownMenu>
+            <button class="btn mla" type="button" :class="{ active: openDefault }" @click="openDefault = !openDefault">
+              <fa icon="fa-pen" fixed-width></fa>
+              Edit default widget styles
+            </button>
+          </div>
+        </div>
+      </template>
     </draggable>
 
-    <h3 class="subtitle">{{ $t('options.dashboard.moreFromBluecaret') }}</h3>
-    <div class="blockContainer">
-      <div class="block">
-        <div class="group stack">
-          <h4 id="tsfLink" class="label">Two Steps Forward</h4>
-          <p class="desc">{{ $t('options.dashboard.tsfDesc') }}</p>
-        </div>
-        <a
-          href="https://chrome.google.com/webstore/detail/two-steps-forward-a-new-t/ehfogconngjcielhngfamnbdgfomlimb"
-          class="btn mla"
-          aria-pressed="true"
-          :aria-label="$t('options.dashboard.tsfLink')"
-        >
-          <fa icon="fa-arrow-up-right-from-square" fixed-width></fa>
-        </a>
-      </div>
-      <div class="block">
-        <div class="group stack">
-          <h4 id="tsfLink" class="label">RMS (Run My Script)</h4>
-          <p class="desc">{{ $t('options.dashboard.rmsDesc') }}</p>
-        </div>
-        <a
-          href="https://chrome.google.com/webstore/detail/rms-run-my-script-script/bifnofbpdbdmgopjoidbicngijjmlogj"
-          class="btn mla"
-          aria-pressed="true"
-          :aria-label="$t('options.dashboard.rmsLink')"
-        >
-          <fa icon="fa-arrow-up-right-from-square" fixed-width></fa>
-        </a>
-      </div>
-    </div>
+    <GlobalSettings :open-default="openDefault"></GlobalSettings>
   </div>
 </template>
 
@@ -223,11 +200,11 @@ const handleNewWidgetClick = (type) => {
 
 .addWidgetMenu {
   list-style: none;
-  margin: var(--s4);
-  padding: 0;
   display: grid;
   grid-template: auto / 1fr 1fr;
+  margin: 0;
   gap: var(--s4);
+  padding: var(--s5);
 }
 
 .getPremiumAd {

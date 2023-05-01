@@ -16,19 +16,15 @@ const updatePosition = () => {
     const btn = ddBtn.value.getBoundingClientRect()
     const menu = ddMenu.value.getBoundingClientRect()
     const margin = 20
+    const pad = 5
 
-    if (btn.top + btn.height + menu.height > window.innerHeight - margin) {
-      if (btn.left + btn.width + menu.width > window.innerWidth - margin) {
-        ddMenu.value.style.translate = `-${menu.width - btn.width}px -${menu.height + 4}px`
-      } else {
-        ddMenu.value.style.translate = `0 -${menu.height + 4}px`
-      }
-    } else {
-      if (btn.left + btn.width + menu.width > window.innerWidth - margin) {
-        ddMenu.value.style.translate = `-${menu.width - btn.width}px ${btn.height + 4}px`
-      } else {
-        ddMenu.value.style.translate = `0 ${btn.height + 4}px`
-      }
+    ddMenu.value.style.left = `${btn.left}px`
+    if (btn.left + menu.width > window.innerWidth - margin) {
+      ddMenu.value.style.left = `${btn.left + btn.width - menu.width}px`
+    }
+    ddMenu.value.style.top = `${btn.top + btn.height + pad}px`
+    if (btn.top + menu.height > window.innerHeight - margin) {
+      ddMenu.value.style.top = `${btn.top - menu.height - pad}px`
     }
   }
 }
@@ -56,11 +52,13 @@ defineExpose({ close })
     <div ref="ddBtn" class="dropdownButtonWrapper" @click="toggleDropdown">
       <slot name="button"> </slot>
     </div>
-    <div v-show="showDropdown" ref="ddMenu" class="dropdownMenuWrapper">
-      <div class="dropdown">
-        <slot name="menu"> </slot>
+    <Teleport to="#dropdowns">
+      <div v-show="showDropdown" ref="ddMenu" class="dropdownMenuWrapper">
+        <div class="dropdown">
+          <slot name="menu"> </slot>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </div>
 </template>
 
@@ -81,8 +79,6 @@ defineExpose({ close })
 }
 
 .dropdown {
-  position: sticky;
-  z-index: 1000;
   box-shadow: 0 0 10px 0 var(--cShadow);
   background-color: var(--cGrey1);
   border: 0.1rem solid var(--cGrey3Alt);

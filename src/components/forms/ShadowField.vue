@@ -17,25 +17,16 @@ const lightness = ref(val[6])
 const opacity = ref(val[7])
 
 const currentHue = computed(() => {
-  return `hsl(${hue.value}deg 100% 50%)`
+  return `--rangeInputThumb: hsl(${hue.value}deg 100% 50%)`
 })
 const currentSat = computed(() => {
-  return `hsl(${hue.value}deg ${saturation.value}% 50%)`
-})
-const currentSatGradient = computed(() => {
-  return `linear-gradient(to right, hsl(${hue.value}deg 0% 50%), hsl(${hue.value}deg 100% 50%))`
+  return `--rangeInputThumb: hsl(${hue.value}deg ${saturation.value}% 50%); --rangeInputTrack: linear-gradient(to right, hsl(${hue.value}deg 0% 50%), hsl(${hue.value}deg 100% 50%));`
 })
 const currentLight = computed(() => {
-  return `hsl(${hue.value}deg ${saturation.value}% ${lightness.value}%)`
-})
-const currentLightGradient = computed(() => {
-  return `linear-gradient(to right, hsl(${hue.value}deg ${saturation.value}% 0%), hsl(${hue.value}deg ${saturation.value}% 50%), hsl(${hue.value}deg ${saturation.value}% 100%))`
+  return `--rangeInputThumb: hsl(${hue.value}deg ${saturation.value}% ${lightness.value}%); --rangeInputTrack: linear-gradient(to right, hsl(${hue.value}deg ${saturation.value}% 0%), hsl(${hue.value}deg ${saturation.value}% 50%), hsl(${hue.value}deg ${saturation.value}% 100%));`
 })
 const currentOp = computed(() => {
-  return `linear-gradient(hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value}), hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})), repeating-conic-gradient(#808080 0% 25%, transparent 0% 50%) 50% / 6px 6px, black`
-})
-const currentOpGradient = computed(() => {
-  return `linear-gradient(to right, hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / 0), hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / 1)), repeating-conic-gradient(#808080 0% 25%, transparent 0% 50%) 50% / 6px 6px`
+  return `--rangeInputThumb: linear-gradient(hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value}), hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})), repeating-conic-gradient(#808080 0% 25%, transparent 0% 50%) 50% / 6px 6px, black; --rangeInputTrack: linear-gradient(to right, hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / 0), hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / 1)), repeating-conic-gradient(#808080 0% 25%, transparent 0% 50%) 50% / 6px 6px;`
 })
 const currentShadow = computed(() => {
   return `${x.value}px ${y.value}px ${blur.value}px ${props.text ? '' : '0'} hsl(${hue.value}deg ${saturation.value}% ${
@@ -92,6 +83,7 @@ const handleShadowSet = () => {
                   v-model="hue"
                   type="range"
                   class="rangeInput rangeHue"
+                  :style="currentHue"
                   min="0"
                   max="360"
                   @input="handleShadowSet()"
@@ -106,6 +98,7 @@ const handleShadowSet = () => {
                   v-model="saturation"
                   type="range"
                   class="rangeInput rangeSat"
+                  :style="currentSat"
                   min="0"
                   max="100"
                   @input="handleShadowSet()"
@@ -122,6 +115,7 @@ const handleShadowSet = () => {
                   v-model="lightness"
                   type="range"
                   class="rangeInput rangeLight"
+                  :style="currentLight"
                   min="0"
                   max="100"
                   @input="handleShadowSet()"
@@ -136,6 +130,7 @@ const handleShadowSet = () => {
                   v-model="opacity"
                   type="range"
                   class="rangeInput rangeOp"
+                  :style="currentOp"
                   min="0"
                   max="1"
                   step=".01"
@@ -330,43 +325,17 @@ const handleShadowSet = () => {
 .rangeInput {
   &::-webkit-slider-runnable-track {
     height: 0.8rem;
+    background: var(--rangeInputTrack);
   }
 
   &::-webkit-slider-thumb {
     translate: 0 -0.6rem;
     box-shadow: 0 0 0 1px hsl(0deg 0% 30%);
+    background: var(--rangeInputThumb);
   }
 
   &.rangeHue::-webkit-slider-runnable-track {
     background: linear-gradient(to right, red, yellow, lime, aqua, blue, magenta, red);
-  }
-
-  &.rangeHue::-webkit-slider-thumb {
-    background: v-bind(currentHue);
-  }
-
-  &.rangeSat::-webkit-slider-runnable-track {
-    background: v-bind(currentSatGradient);
-  }
-
-  &.rangeSat::-webkit-slider-thumb {
-    background: v-bind(currentSat);
-  }
-
-  &.rangeLight::-webkit-slider-runnable-track {
-    background: v-bind(currentLightGradient);
-  }
-
-  &.rangeLight::-webkit-slider-thumb {
-    background: v-bind(currentLight);
-  }
-
-  &.rangeOp::-webkit-slider-runnable-track {
-    background: v-bind(currentOpGradient);
-  }
-
-  &.rangeOp::-webkit-slider-thumb {
-    background: v-bind(currentOp);
   }
 }
 </style>

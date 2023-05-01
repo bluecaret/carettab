@@ -84,6 +84,7 @@ const buildFontLink = computed(() => {
     <NewTab></NewTab>
     <SettingsPanel v-if="settingsOpen"></SettingsPanel>
     <div id="modals"></div>
+    <div id="dropdowns"></div>
     <LoadingOverlay v-if="isLoading"></LoadingOverlay>
   </div>
 </template>

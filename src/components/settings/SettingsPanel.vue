@@ -34,6 +34,14 @@ const getReviewLink = () => {
   }
   return 'https://chrome.google.com/webstore/detail/carettab-new-tab-clock-an/cojpndognjdcakkimaloeealehpkljna'
 }
+
+const handleSave = () => {
+  store.save()
+  store.isLoading = true
+  setTimeout(() => {
+    store.isLoading = false
+  }, 500)
+}
 </script>
 
 <template>
@@ -82,7 +90,7 @@ const getReviewLink = () => {
           class="btn"
           :aria-label="$t('options.common.saveAndClose')"
           :title="$t('options.common.saveAndClose')"
-          @click="store.settingsOpen = false"
+          @click="handleSave"
         >
           <fa icon="fa-floppy-disk"></fa>
           {{ $t('options.common.save') }}
@@ -158,9 +166,9 @@ const getReviewLink = () => {
             <div class="group stack" style="gap: 1.6rem">
               <div class="group">
                 <div>
-                  <a href="https://www.carettab.com/">CaretTab</a> is created by
-                  <a href="https://www.bluecaret.com">BlueCaret</a> and licensed by
-                  <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL 3.0</a
+                  <a href="https://www.carettab.com/" class="link">CaretTab</a> is created by
+                  <a href="https://www.bluecaret.com" class="link">BlueCaret</a> and licensed by
+                  <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="link">GPL 3.0</a
                   >{{ store.tSplit($t('options.dashboard.credit'))[5] }}
                 </div>
               </div>

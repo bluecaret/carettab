@@ -58,22 +58,10 @@
 }
 
 .range {
-  --rangeTrack: var(--cBlue3);
-  @media (prefers-color-scheme: dark) {
     --rangeTrack: var(--cGrey3);
-  }
-  --rangeTrackDisabled: var(--cBlue6);
-  @media (prefers-color-scheme: dark) {
     --rangeTrackDisabled: var(--cGrey3Alt);
-  }
-  --rangeThumb: var(--cBlue4);
-  @media (prefers-color-scheme: dark) {
     --rangeThumb: var(--cBlue4);
-  }
-  --rangeThumbDisabled: var(--cBlue6);
-  @media (prefers-color-scheme: dark) {
     --rangeThumbDisabled: var(--cBlue6);
-  }
 
   position: relative;
   display: grid;

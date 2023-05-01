@@ -27,7 +27,7 @@ const wrapStyles = computed(() => {
             ? 'Thank you for subscribing to Premium. Enjoy the benefits!'
             : 'Sign up for Premium to access this feature'
         "
-        @click="showPremiumModal = true"
+        @click.stop="showPremiumModal = true"
       >
         <fa icon="fa-gem"></fa>
       </button>
@@ -43,7 +43,7 @@ const wrapStyles = computed(() => {
 }
 
 .premiumLabel {
-  color: var(--cBlue2);
+  color: var(--cBlue5);
   display: inline-flex;
   align-items: center;
   border: 0;

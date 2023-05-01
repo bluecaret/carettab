@@ -1,23 +1,24 @@
 <script setup>
-import { ref, onMounted, inject } from 'vue'
+import { ref, onMounted } from 'vue'
 import draggable from 'vuedraggable'
-import { useSettingsStore, setStorage } from '@/store.js'
+import { useSettingsStore, setStorage, getStorage } from '@/store.js'
 import { storeToRefs } from 'pinia'
-import PremiumModal from '@/components/PremiumModal.vue'
 import { widgetTypes } from '@/assets/lists.js'
 import GlobalSettings from '@/components/settings/GlobalSettings.vue'
 
-const user = inject('user')
 const store = useSettingsStore()
-const { status, clearWhatsNewBox } = storeToRefs(store)
+const { status } = storeToRefs(store)
 
 const showWhatsNew = ref(false)
+const whatsNewModal = ref(false)
 const drag = ref(false)
-const showPremiumModal = ref(false)
 const newWidgetMenu = ref(null)
 const openDefault = ref(false)
 
 onMounted(async () => {
+  const whatsNew = await getStorage('clearWhatsNewBox', 'local')
+  store.clearWhatsNewBox = whatsNew.clearWhatsNewBox
+
   if (status === 'updated' || status === 'highlightSettings') {
     await setStorage({ caretTabStatus: 'existing' }, 'local')
     store.status = 'existing'
@@ -27,7 +28,7 @@ onMounted(async () => {
 const handleClearWhatsNew = async () => {
   await setStorage({ caretTabStatus: 'existing' }, 'local')
   await setStorage({ updateTimestamp: null }, 'local')
-  await setStorage({ clearWhatsNewBox: true }, 'local').ca
+  await setStorage({ clearWhatsNewBox: true }, 'local')
   store.status = 'existing'
   store.clearWhatsNewBox = true
 }
@@ -59,59 +60,66 @@ const handleNewWidgetClick = (type) => {
 
 <template>
   <div class="page">
-    <div v-if="!clearWhatsNewBox" class="blockContainer whatsNewBox">
-      <div class="block">
-        <h3 class="newUpdateHeading">
-          <fa class="newUpdateIcon" icon="fa-bell"></fa>
-          <div class="newUpdateContent">
-            <div class="newUpdateTitle">{{ $t('options.dashboard.updatedTo') }} v3.8.0</div>
-            <button v-if="!showWhatsNew" type="button" class="btn newUpdateCloseRead" @click="showWhatsNew = true">
-              {{ $t('options.dashboard.whatsNew') }}
+    <ModalWindow v-if="!store.clearWhatsNewBox" :show="whatsNewModal">
+      <template #button>
+        <div class="whatsNewBox" @click="whatsNewModal = true">
+          <div class="group fill">
+            <fa class="whatsNewIcon" icon="fa-bell"></fa>
+            <h3 class="newUpdateTitle fill">NEW UPDATE &mdash; Version 4.0.0</h3>
+            <button type="button" class="btn fit" @click="whatsNewModal = true">
+              <div class="fit">Read what's new!</div>
             </button>
-            <button type="button" class="btn newUpdateClose" @click="handleClearWhatsNew">
-              <fa icon="fa-xmark"></fa>{{ $t('options.dashboard.closeMessage') }}
+            <button
+              type="button"
+              class="btn fit btnText"
+              title="Dismiss"
+              aria-label="Dismiss"
+              @click.stop="handleClearWhatsNew"
+            >
+              <fa icon="fa-xmark"></fa>
             </button>
           </div>
-        </h3>
-        <template v-if="showWhatsNew">
-          <h4 class="label">v3.8.0 {{ $t('updates.newFeatures') }}</h4>
-          <ul class="ul">
-            <li>{{ $t('updates.v380.shadows') }}</li>
-            <li>{{ $t('updates.v380.randomColor') }}</li>
-            <li>{{ $t('updates.v380.dayOfYear') }}</li>
-            <li>{{ $t('updates.v380.quarter') }}</li>
-            <li>{{ $t('updates.v380.suffix') }}</li>
-            <li>{{ $t('updates.v380.delimiter') }}</li>
-            <li>{{ $t('updates.v380.search') }}</li>
-            <li>{{ $t('updates.v380.open') }}</li>
-          </ul>
-          <h4 class="label">v3.8.0 {{ $t('updates.fixesAndOthers') }}</h4>
-          <ul class="ul">
-            <li>{{ $t('updates.v380.timeDrift') }}</li>
-            <li>{{ $t('updates.v380.weather') }}</li>
-            <li>{{ $t('updates.v380.shortcuts') }}</li>
-          </ul>
-        </template>
-      </div>
-    </div>
-    <PremiumModal :show="showPremiumModal" @close="showPremiumModal = false">
-      <button
-        type="button"
-        class="getPremiumAd"
-        :class="{ getPremiumAdManage: user.paid }"
-        @click="showPremiumModal = true"
-      >
-        <fa icon="fa-gem"></fa>
-        <div v-if="user.paid">
-          <h2>{{ $t('options.dashboard.youHavePremium') }}</h2>
-          <p>{{ $t('options.dashboard.clickToManageSubscription') }}</p>
         </div>
-        <div v-if="!user.paid">
-          <h2>{{ $t('options.dashboard.getPremiumAccess') }}</h2>
-          <p>{{ $t('options.dashboard.getPremiumAccessDesc') }}</p>
+      </template>
+      <template #window>
+        <div class="block whatsNewModal">
+          <button
+            class="btn btnText mla whatsNewModalClose"
+            type="button"
+            aria-label="{{'options.common.close' | translate}}"
+            @click="whatsNewModal = false"
+          >
+            <fa icon="fa-close" />
+          </button>
+          <div class="whatsNewModalContent">
+            <h3>What's new in version 4.0.0</h3>
+            <div class="group">
+              <div class="fill">
+                <h4>{{ $t('updates.newFeatures') }}</h4>
+                <ul class="ul">
+                  <li>{{ $t('updates.v380.shadows') }}</li>
+                  <li>{{ $t('updates.v380.randomColor') }}</li>
+                  <li>{{ $t('updates.v380.dayOfYear') }}</li>
+                  <li>{{ $t('updates.v380.quarter') }}</li>
+                  <li>{{ $t('updates.v380.suffix') }}</li>
+                  <li>{{ $t('updates.v380.delimiter') }}</li>
+                  <li>{{ $t('updates.v380.search') }}</li>
+                  <li>{{ $t('updates.v380.open') }}</li>
+                </ul>
+              </div>
+              <div class="fill">
+                <h4>{{ $t('updates.fixesAndOthers') }}</h4>
+                <ul class="ul">
+                  <li>{{ $t('updates.v380.timeDrift') }}</li>
+                  <li>{{ $t('updates.v380.weather') }}</li>
+                  <li>{{ $t('updates.v380.shortcuts') }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </button>
-    </PremiumModal>
+      </template>
+    </ModalWindow>
     <h3 class="subtitle">
       <span class="mra">Widgets</span>
     </h3>
@@ -207,111 +215,54 @@ const handleNewWidgetClick = (type) => {
   padding: var(--s5);
 }
 
-.getPremiumAd {
-  --getPremiumAdBg: hsla(215, 20%, 78%, 1);
-  --getPremiumAdBg2: hsla(215, 40%, 78%, 1);
-  --getPremiumAdColor: hsla(205, 100%, 10%, 1);
-  @media (prefers-color-scheme: dark) {
-    --getPremiumAdBg: hsla(205, 100%, 18%, 1);
-    --getPremiumAdBg2: hsla(205, 100%, 30%, 1);
-    --getPremiumAdColor: hsla(205, 100%, 90%, 1);
-  }
-  border-radius: var(--s4);
-  border: 0;
-  overflow: hidden;
-  background-color: var(--getPremiumAdBg);
-  background-image: radial-gradient(80% 85% at 0% 0%, var(--getPremiumAdBg2) 0%, var(--getPremiumAdBg) 100%);
-  user-select: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  text-align: left;
-  color: var(--getPremiumAdColor);
-  padding-left: 0;
-
-  > .svg-inline--fa {
-    display: grid;
-    place-items: center;
-    width: 5.8rem;
-    color: var(--getPremiumAdColor);
-    font-size: 3rem;
-  }
-
-  > div {
-    padding: var(--s4);
-    padding-left: 0;
-    flex: 1 1 100%;
-  }
-
-  h2 {
-    font-size: 1.8rem;
-    line-height: 1.3;
-    font-weight: 600;
-    margin: 0;
-  }
-
-  p {
-    margin: 0;
-    font-size: 1.4rem;
-    line-height: 1.3;
-  }
-}
-
-.getPremiumAdManage {
-  background-image: none;
-  background-color: var(--cGrey2);
-  color: var(--cText);
-
-  > .svg-inline--fa {
-    width: 5.8rem;
-    font-size: 2.4rem;
-    color: var(--cText);
-  }
-
-  h2 {
-    font-size: 1.6rem;
-  }
-}
-
 .whatsNewBox {
-  margin-block-start: var(--s5);
+  color: var(--cText);
+  background-color: var(--cBlue2);
+  margin-inline: -1.6rem;
   margin-block-end: var(--s5);
+  border-top-left-radius: var(--s4);
+  border-top-right-radius: var(--s4);
+  padding: var(--s5);
+  cursor: pointer;
+
+  .whatsNewIcon {
+    font-size: 2.4rem;
+  }
+  h3 {
+    display: block;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin: 0;
+  }
 }
 
-.newUpdateHeading {
-  display: flex;
-  align-items: center;
-  margin: 0;
-  gap: 1.4rem;
-}
-
-.newUpdateIcon.svg-inline--fa {
-  font-size: 2.4rem;
-}
-
-.newUpdateContent {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.newUpdateTitle {
-  display: block;
-  width: 100%;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 600;
-  font-size: 1.8rem;
-  margin-right: auto;
-}
-
-.newUpdateClose {
-  border: 0;
-  font-size: 1.4rem;
-
-  .svg-inline--fa {
-    font-size: 1.6rem;
+.whatsNewModal {
+  position: relative;
+  .whatsNewModalClose {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: transparent;
+    padding: 1rem;
+    border: 0;
+    cursor: pointer;
+    .svg-inline--fa {
+      font-size: 2.4rem;
+      color: var(--getPremiumModalColor);
+    }
+  }
+  h3 {
+    margin: 0 0 var(--s5) 0;
+    font-size: 2.4rem;
+  }
+  h4 {
+    margin: 0 0 var(--s4) 0;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+  .group {
+    align-items: start;
   }
 }
 </style>

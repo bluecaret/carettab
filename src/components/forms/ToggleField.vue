@@ -34,12 +34,12 @@ function handleToggled() {
 .toggle {
   --toggleBtnBorder: var(--cGrey3);
   --toggleBtnBg: var(--cGrey3);
-  --toggleBtnIndicator: var(--cBlue8);
+  --toggleBtnIndicator: var(--cBlue6);
   --toggleBtnColor: var(--cText);
 
   --toggleBtnPressedBorder: var(--cGrey3);
   --toggleBtnPressedBg: var(--cGrey3);
-  --toggleBtnPressedIndicator: var(--cBlue4);
+  --toggleBtnPressedIndicator: var(--cBlue3);
   --toggleBtnPressedColor: var(--cText);
 
   --toggleBtnBorderDisabled: var(--cGrey3Alt);
@@ -51,27 +51,6 @@ function handleToggled() {
   --toggleBtnPressedBgDisabled: var(--cGrey3Alt);
   --toggleBtnPressedIndicatorDisabled: var(--cGrey3Alt);
   --toggleBtnPressedColorDisabled: var(--cText);
-  @media (prefers-color-scheme: dark) {
-    --toggleBtnBorder: var(--cGrey3);
-    --toggleBtnBg: var(--cGrey3);
-    --toggleBtnIndicator: var(--cBlue6);
-    --toggleBtnColor: var(--cText);
-
-    --toggleBtnPressedBorder: var(--cGrey3);
-    --toggleBtnPressedBg: var(--cGrey3);
-    --toggleBtnPressedIndicator: var(--cBlue3);
-    --toggleBtnPressedColor: var(--cText);
-
-    --toggleBtnBorderDisabled: var(--cGrey3Alt);
-    --toggleBtnBgDisabled: var(--cGrey3Alt);
-    --toggleBtnIndicatorDisabled: var(--cGrey3Alt);
-    --toggleBtnColorDisabled: var(--cText);
-
-    --toggleBtnPressedBorderDisabled: var(--cGrey3Alt);
-    --toggleBtnPressedBgDisabled: var(--cGrey3Alt);
-    --toggleBtnPressedIndicatorDisabled: var(--cGrey3Alt);
-    --toggleBtnPressedColorDisabled: var(--cText);
-  }
 
   flex: 0 0 auto;
   position: relative;

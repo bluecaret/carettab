@@ -23,7 +23,7 @@ const getTextColor = computed(() => {
 })
 
 const getBgColor = computed(() => {
-  if (store.config.global.bg && store.config.global.bg[0]) {
+  if (store.config.global.bg) {
     return `hsl(${store.config.global.bg[0]}deg ${store.config.global.bg[1]}% ${store.config.global.bg[2]}% / ${store.config.global.bg[3]})`
   }
   return 'black'

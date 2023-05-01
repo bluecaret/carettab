@@ -170,7 +170,7 @@ export const useSettingsStore = defineStore('settings', () => {
     let newLayer = new Layer()
     newLayer.id = id
     newLayer.widget = type
-    config.layers.push(newLayer)
+    config.layers.unshift(newLayer)
   }
 
   const newWidget = (type) => {
@@ -193,7 +193,7 @@ export const useSettingsStore = defineStore('settings', () => {
 
       newWidget.id = newId
       createLayer(newId, type)
-      config[widget.store].push(newWidget)
+      config[widget.store].unshift(newWidget)
     }
   }
 

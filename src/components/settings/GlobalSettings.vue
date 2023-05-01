@@ -166,9 +166,8 @@ const handleImageAdjustmentReset = () => {
 </script>
 
 <template>
-  <div class="blockContainer">
+  <div v-if="props.openDefault" class="blockContainer">
     <WidgetFontField
-      v-if="props.openDefault"
       v-model:cl="store.config.global.cl"
       v-model:ts="store.config.global.ts"
       v-model:fs="store.config.global.fs"
@@ -183,7 +182,6 @@ const handleImageAdjustmentReset = () => {
     >
     </WidgetFontField>
     <WidgetBoxField
-      v-if="props.openDefault"
       v-model:rounded="store.config.global.crd"
       v-model:bs="store.config.global.cbs"
       v-model:bc="store.config.global.cbc"

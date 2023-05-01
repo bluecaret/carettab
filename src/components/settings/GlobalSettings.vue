@@ -195,6 +195,12 @@ const handleImageAdjustmentReset = () => {
   <h3 class="subtitle">General settings</h3>
   <div class="blockContainer">
     <div class="block">
+      <label for="lang" class="label mra">Language</label>
+      <select id="lang" v-model="store.config.global.lang" class="select w25" name="lang">
+        <option v-for="lang in languages" :key="lang.id" :value="lang.id">{{ lang.label }}</option>
+      </select>
+    </div>
+    <div class="block">
       <div class="group fill">
         <div class="label mra">
           <label for="">Wallpaper</label>
@@ -394,12 +400,6 @@ const handleImageAdjustmentReset = () => {
           </div>
         </div>
       </div>
-    </div>
-    <div class="block">
-      <label for="lang" class="label mra">Language</label>
-      <select id="lang" v-model="store.config.global.lang" class="select w25" name="lang">
-        <option v-for="lang in languages" :key="lang.id" :value="lang.id">{{ lang.label }}</option>
-      </select>
     </div>
   </div>
 </template>

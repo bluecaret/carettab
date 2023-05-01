@@ -92,48 +92,73 @@ const getReviewLink = () => {
     <AnalogClockSettings v-if="['analogClock'].includes(settingsPage)"></AnalogClockSettings>
     <DigitalClockSettings v-if="['digitalClock'].includes(settingsPage)"></DigitalClockSettings>
     <footer class="footer">
-      <p>
-        <a :href="getReviewLink" class="supportBtn">{{ $t('options.dashboard.review') }}</a>
-        |
-        <a href="https://github.com/bluecaret/carettab" class="supportBtn">{{ $t('options.dashboard.contribute') }}</a>
-        |
-        {{ $t('options.dashboard.share') }}:
-        <a href="https://twitter.com/intent/tweet?url=https://www.carettab.com/" class="supportBtn">Twitter</a>,
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.carettab.com/" class="supportBtn">Facebook</a
-        >,
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.carettab.com/" class="supportBtn"
-          >LinkedIn</a
-        >,
-        <a href="mailto:?body=https://www.carettab.com/" class="supportBtn">Email</a>
-        <br />
-        <a href="https://github.com/bluecaret/carettab">{{ $t('options.common.supportLink') }}</a>
-        |
-        <a href="https://github.com/bluecaret/carettab/wiki/Changelog">Changelog</a>
-        |
-        <a href="https://www.bluecaret.com/about">{{ $t('options.common.aboutLink') }}</a>
-        |
-        <a href="https://www.bluecaret.com/contact">{{ $t('options.common.contactLink') }}</a>
-        | <a href="https://www.bluecaret.com/privacy">Privacy Policy</a> |
-        <a href="https://www.bluecaret.com/terms">Terms of Use</a>
-      </p>
-      <p>
-        {{ store.tSplit($t('options.dashboard.supportBox'))[0]
-        }}<a href="https://github.com/bluecaret/carettab" class="supportBtn">{{
-          store.tSplit($t('options.dashboard.supportBox'))[1]
-        }}</a
-        >{{ store.tSplit($t('options.dashboard.supportBox'))[2]
-        }}<a href="mailto:bluecaret@outlook.com" class="supportBtn">{{
-          store.tSplit($t('options.dashboard.supportBox'))[3]
-        }}</a>
-      </p>
-      <p>
-        <a href="https://www.carettab.com/">{{ store.tSplit($t('options.dashboard.credit'))[0] }}</a
-        >{{ store.tSplit($t('options.dashboard.credit'))[1]
-        }}<a href="https://www.bluecaret.com">{{ store.tSplit($t('options.dashboard.credit'))[2] }}</a
-        >{{ store.tSplit($t('options.dashboard.credit'))[3]
-        }}<a href="https://opensource.org/licenses/MIT">{{ store.tSplit($t('options.dashboard.credit'))[4] }}</a
-        >{{ store.tSplit($t('options.dashboard.credit'))[5] }}
-      </p>
+      <div class="group compact">
+        <DropdownMenu ref="newWidgetMenu" style="width: auto">
+          <template #button>
+            <button class="btn" type="button">
+              <fa icon="fa-share" fixed-width></fa>
+              {{ $t('options.dashboard.share') }}
+            </button>
+          </template>
+          <template #menu>
+            <div class="block">
+              <div class="group stack">
+                <div class="label">Share on...</div>
+                <div class="group compact fit">
+                  <a
+                    href="mailto:?subject=Check%20out%20this%20New%20Tab%20extension!&body=I%20found%20this%20browser%20extension%20that%20replaces%20the%20New%20Tab%20page%20with%20tons%20of%20customization.%20I%20thought%20you'd%20like%20it.%20%0A%0ACaretTab%20-%20https%3A%2F%2Fwww.carettab.com%2F"
+                    class="btn"
+                    >Email</a
+                  >
+                  <a href="https://twitter.com/intent/tweet?url=https://www.carettab.com/" class="btn">Twitter</a>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.carettab.com/" class="btn"
+                    >Facebook</a
+                  >
+                  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.carettab.com/" class="btn"
+                    >LinkedIn</a
+                  >
+                </div>
+              </div>
+            </div>
+          </template>
+        </DropdownMenu>
+        <a :href="getReviewLink" class="btn" target="_blank">
+          <fa icon="fa-star-half-stroke" fixed-width></fa>
+          {{ $t('options.dashboard.review') }}
+        </a>
+        <a href="https://github.com/bluecaret/carettab/discussions" class="btn mla" target="_blank">
+          <fa icon="fa-question" fixed-width></fa>
+          Help
+        </a>
+        <DropdownMenu ref="newWidgetMenu" style="width: auto">
+          <template #button>
+            <button class="btn" type="button">
+              <fa icon="fa-info" fixed-width></fa>
+              Info
+            </button>
+          </template>
+          <template #menu>
+            <div class="block">
+              <div class="group stack" style="gap: 1.6rem">
+                <div class="group">
+                  <div>
+                    <a href="https://www.carettab.com/">CaretTab</a> is created by
+                    <a href="https://www.bluecaret.com">BlueCaret</a> and licensed by
+                    <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL 3.0</a
+                    >{{ store.tSplit($t('options.dashboard.credit'))[5] }}
+                  </div>
+                </div>
+                <div class="group compact">
+                  <a class="btn fit" href="https://github.com/bluecaret/carettab/wiki/Changelog">Changelog</a>
+                  <a class="btn fit" href="https://www.bluecaret.com/about">{{ $t('options.common.aboutLink') }}</a>
+                  <a class="btn fit" href="https://www.bluecaret.com/privacy">Privacy Policy</a>
+                  <a class="btn fit" href="https://www.bluecaret.com/terms">Terms of Use</a>
+                </div>
+              </div>
+            </div>
+          </template>
+        </DropdownMenu>
+      </div>
     </footer>
   </div>
 </template>

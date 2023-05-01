@@ -9,7 +9,6 @@ import GlobalSettings from '@/components/settings/GlobalSettings.vue'
 const store = useSettingsStore()
 const { status } = storeToRefs(store)
 
-const showWhatsNew = ref(false)
 const whatsNewModal = ref(false)
 const drag = ref(false)
 const newWidgetMenu = ref(null)
@@ -133,6 +132,15 @@ const handleNewWidgetClick = (type) => {
       @start="drag = true"
       @end="drag = false"
     >
+      <template v-if="store.config.layers.length < 1" #header>
+        <div class="block">
+          <div class="group stack fill widgetHeader">
+            <fa icon="fa-shapes"></fa>
+            <h3>You have no widgets yet</h3>
+            <p>Click "Add" to start creating your own New Tab page</p>
+          </div>
+        </div>
+      </template>
       <template #item="{ element }">
         <div class="block" :class="{ outliner: store.showOutliner }">
           <button type="button" class="drag">
@@ -263,6 +271,30 @@ const handleNewWidgetClick = (type) => {
   }
   .group {
     align-items: start;
+  }
+}
+
+.widgetHeader {
+  padding: var(--s4);
+  gap: var(--s3);
+  h3,
+  p {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    color: var(--cBlue8);
+  }
+  h3 {
+    font-weight: 600;
+  }
+  p {
+    font-weight: 300;
+    font-size: 1.4rem;
+  }
+  .svg-inline--fa {
+    margin: 0 auto;
+    font-size: 4rem;
+    color: var(--cBlue8);
   }
 }
 </style>

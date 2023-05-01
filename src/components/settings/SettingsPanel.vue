@@ -144,7 +144,7 @@ const getReviewLink = () => {
       </PremiumModal>
       <a href="https://github.com/bluecaret/carettab/discussions" class="btn footerBtn" target="_blank">
         <fa icon="fa-question" fixed-width></fa>
-        Help
+        Support
       </a>
       <DropdownMenu ref="newWidgetMenu" style="width: auto">
         <template #button>
@@ -182,6 +182,7 @@ const getReviewLink = () => {
 .header {
   position: sticky;
   top: 0;
+  margin-inline: -0.8rem;
   z-index: +1;
   display: grid;
   grid-template: 6rem / 1fr auto auto;
@@ -219,9 +220,12 @@ const getReviewLink = () => {
 }
 
 .footer {
+  position: sticky;
+  bottom: 0;
   margin-top: auto;
+  margin-inline: -0.8rem;
   display: flex;
-  padding: var(--s5);
+  padding: var(--s4) var(--s5);
   gap: var(--s2);
   border-radius: var(--s4) var(--s4) 0 0;
   font-size: 1.4rem;

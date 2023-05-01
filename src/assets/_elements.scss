@@ -19,6 +19,11 @@
   line-height: 1.3;
 }
 
+a.link {
+  color: var(--cText);
+  text-decoration: underline;
+}
+
 .ul {
   display: flex;
   flex-direction: column;
@@ -136,15 +141,26 @@
 }
 
 .back {
-  background: none;
-  border: 0;
-  padding: 0;
+  background: var(--cGrey2);
+  border: 1px solid var(--cBlue3);
+  border-left: 0;
+  border-radius: 0 var(--s6) var(--s6) 0;
+  padding: var(--s4) var(--s3) var(--s4) 1.4rem;
   cursor: pointer;
   font-size: 1.4rem;
   display: flex;
   align-items: center;
-  gap: var(--s3);
-  color: var(--cBlue1);
+  gap: var(--s4);
+  color: var(--cText);
+  margin-left: -1.6rem;
+  margin-right: .8rem;
+  transition: color .3s;
+  &:hover {
+    color: var(--cBlue1);
+  }
+  .svg-inline--fa {
+    font-size: 3.2rem;
+  }
 }
 
 .tabs {
@@ -208,6 +224,7 @@
 .page,
 .header,
 .footer {
+  position: relative;
   padding: 0 var(--s5);
   background-color: var(--cGrey1);
   box-shadow: 0 0 var(--s3) 0 var(--cShadow);

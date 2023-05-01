@@ -44,11 +44,11 @@ const selectFont = (font) => {
     <h2 class="title">
       <button
         class="back"
-        :aria-label="$t('options.dashboard.backToDashboard')"
-        title="Back to Layers"
+        aria-label="Go back to previous page"
+        title="Go back to previous page"
         @click="store.goTo('dashboard')"
       >
-        <fa icon="fa-circle-left" size="xl" fixed-width></fa>
+        <fa icon="fa-circle-left" fixed-width></fa>
       </button>
       Digital clock <span style="font-size: 0.7em; opacity: 0.7">({{ store.config.digitalClocks[ci].id }})</span>
     </h2>

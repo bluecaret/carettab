@@ -142,7 +142,7 @@ const handleNewWidgetClick = (type) => {
         </div>
       </template>
       <template #item="{ element }">
-        <div class="block" :class="{ outliner: store.showOutliner }">
+        <div class="block" :class="{ outliner: store.showOutliner, outlinerHidden: !element.on }">
           <button type="button" class="drag">
             <fa icon="fa-grip-vertical" size="xs" fixed-width></fa>
           </button>
@@ -204,6 +204,21 @@ const handleNewWidgetClick = (type) => {
 </template>
 
 <style lang="scss" scoped>
+.outliner {
+  position: relative;
+
+  &::before,
+  &::after {
+    outline-offset: -6px;
+  }
+  &.outlinerHidden {
+    &::before,
+    &::after {
+      outline: none;
+    }
+  }
+}
+
 .widgetDragGhost {
   background: transparent;
   outline: var(--s4) solid var(--cGrey2);

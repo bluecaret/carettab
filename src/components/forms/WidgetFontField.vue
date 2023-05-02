@@ -97,9 +97,6 @@ const resetOverride = () => {
         >
         </ToggleField>
       </div>
-      <button v-if="!props.noOverride && props.override" type="button" class="btn" @click="resetOverride">
-        Reset styles
-      </button>
     </div>
     <div v-if="props.noOverride || props.override" class="group fill">
       <div class="group stack fill">

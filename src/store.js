@@ -3,6 +3,7 @@ import { ref, reactive } from 'vue'
 import { defineStore } from 'pinia'
 import { DigitalClock } from '@/classes/DigitalClock.js'
 import { AnalogClock } from '@/classes/AnalogClock.js'
+import { DateWidget } from '@/classes/Date.js'
 import { Layer } from '@/classes/Layer.js'
 import { widgetTypes } from '@/assets/lists.js'
 
@@ -119,6 +120,7 @@ export const useSettingsStore = defineStore('settings', () => {
     layers: [],
     analogClocks: [],
     digitalClocks: [],
+    dates: [],
   })
 
   const load = async () => {
@@ -143,10 +145,19 @@ export const useSettingsStore = defineStore('settings', () => {
         })
       }
 
+      let allDates = []
+      let filterDates = keys.filter((k) => k.startsWith('dt-'))
+      if (filterDates.length > 0) {
+        filterDates.forEach((k) => {
+          allDates.push(store[k])
+        })
+      }
+
       if (store.global) config.global = store.global
       if (store.layers) config.layers = store.layers
       if (allAnalogClocks) config.analogClocks = allAnalogClocks
       if (allDigitalClocks) config.digitalClocks = allDigitalClocks
+      if (allDates) config.dates = allDates
     }
   }
 
@@ -156,12 +167,21 @@ export const useSettingsStore = defineStore('settings', () => {
     newStore['global'] = JSON.parse(JSON.stringify(config.global))
     newStore['layers'] = JSON.parse(JSON.stringify(config.layers))
 
-    config.analogClocks.forEach((c) => {
-      newStore[c.id] = JSON.parse(JSON.stringify(c))
-    })
-    config.digitalClocks.forEach((c) => {
-      newStore[c.id] = JSON.parse(JSON.stringify(c))
-    })
+    if (config.analogClocks.length > 0) {
+      config.analogClocks.forEach((c) => {
+        newStore[c.id] = JSON.parse(JSON.stringify(c))
+      })
+    }
+    if (config.digitalClocks.length > 0) {
+      config.digitalClocks.forEach((c) => {
+        newStore[c.id] = JSON.parse(JSON.stringify(c))
+      })
+    }
+    if (config.dates.length > 0) {
+      config.dates.forEach((c) => {
+        newStore[c.id] = JSON.parse(JSON.stringify(c))
+      })
+    }
 
     setStorage(newStore, 'sync')
   }
@@ -186,6 +206,9 @@ export const useSettingsStore = defineStore('settings', () => {
         case 'analogClock':
           newWidget = new AnalogClock()
           break
+        case 'date':
+          newWidget = new DateWidget()
+          break
 
         default:
           break
@@ -197,8 +220,12 @@ export const useSettingsStore = defineStore('settings', () => {
     }
   }
 
-  const deleteWidget = (id, type) => {
-    if (confirm('Are you sure you want to delete this widget?') == true) {
+  const deleteWidget = async (id, type) => {
+    if (
+      confirm(
+        'Are you sure you want to delete this widget? Settings will be saved immediately, you will not be able to undo this.'
+      ) == true
+    ) {
       let layerIndex = config.layers.findIndex((l) => l.id === id)
       config.layers.splice(layerIndex, 1)
 
@@ -207,6 +234,14 @@ export const useSettingsStore = defineStore('settings', () => {
         let widgetIndex = config[widget.store].findIndex((w) => w.id === id)
         config[widget.store].splice(widgetIndex, 1)
       }
+
+      chrome.storage.sync.remove(id, function () {
+        if (chrome.runtime.lastError) {
+          console.error('Failed to remove storage', chrome.runtime.lastError)
+        } else {
+          save()
+        }
+      })
     }
   }
 

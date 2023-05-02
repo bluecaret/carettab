@@ -42,6 +42,7 @@ const getBgColor = computed(() => {
           :style="`z-index: ${store.config.layers.length - index}`"
         >
         </AnalogClockWidget>
+        <div v-if="!layer.on && layer.widget === 'analogClock'"></div>
         <DigitalClockWidget
           v-if="layer.on && layer.widget === 'digitalClock'"
           :class="{ outliner: store.showOutliner }"
@@ -49,6 +50,7 @@ const getBgColor = computed(() => {
           :style="`z-index: ${store.config.layers.length - index}`"
         >
         </DigitalClockWidget>
+        <div v-if="!layer.on && layer.widget === 'digitalClock'"></div>
       </template>
     </div>
     <ToggleSettings></ToggleSettings>
@@ -63,6 +65,7 @@ const getBgColor = computed(() => {
     position: absolute;
     inset: 0;
     outline: 5px solid hsl(0deg 100% 50% / 50%);
+    pointer-events: none;
   }
   &::after {
     outline: 1px solid hsl(0deg 0% 100% / 80%);

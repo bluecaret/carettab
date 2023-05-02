@@ -73,7 +73,6 @@ const resetOverride = () => {
           @update:model-value="handleOverrideUpdate"
         >
         </ToggleField>
-        <button v-if="props.override" type="button" class="btn" @click="resetOverride">Reset styles</button>
       </div>
     </div>
     <div v-if="props.override" class="group fill">

@@ -1,7 +1,7 @@
 export const widgetTypes = [
   { id: 'ac', type: 'analogClock', store: 'analogClocks', name: 'Analog Clock', icon: 'fa-clock' },
   { id: 'dc', type: 'digitalClock', store: 'digitalClocks', name: 'Digital Clock', icon: 'fa-hashtag' },
-  // { id: 'dt', type: 'date', name: 'Date', icon: 'fa-calendar-day' },
+  { id: 'dt', type: 'date', store: 'dates', name: 'Date', icon: 'fa-calendar-day' },
   // { id: 'ql', type: 'ql', name: 'Quick Links', icon: 'fa-link' },
   // { id: 'bm', type: 'bookmarks', name: 'Bookmarks', icon: 'fa-bookmark' },
   // { id: 'wr', type: 'weather', name: 'Weather', icon: 'fa-cloud-sun' },

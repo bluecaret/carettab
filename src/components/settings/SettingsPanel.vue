@@ -7,6 +7,7 @@ import PatternsList from '@/components/settings/PatternsList.vue'
 import UnsplashList from '@/components/settings/UnsplashList.vue'
 import AnalogClockSettings from '@/components/settings/AnalogClockSettings.vue'
 import DigitalClockSettings from '@/components/settings/DigitalClockSettings.vue'
+import DateSettings from '@/components/settings/DateSettings.vue'
 import PremiumModal from '@/components/PremiumModal.vue'
 
 const user = inject('user')
@@ -102,6 +103,7 @@ const handleSave = () => {
     <UnsplashList v-if="['unsplash'].includes(settingsPage)"></UnsplashList>
     <AnalogClockSettings v-if="['analogClock'].includes(settingsPage)"></AnalogClockSettings>
     <DigitalClockSettings v-if="['digitalClock'].includes(settingsPage)"></DigitalClockSettings>
+    <DateSettings v-if="['date'].includes(settingsPage)"></DateSettings>
     <footer class="footer">
       <DropdownMenu ref="newWidgetMenu" style="width: auto">
         <template #button>

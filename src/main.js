@@ -79,6 +79,7 @@ import {
   faShare,
   faStarHalfStroke,
   faInfoCircle,
+  faArrowRightToBracket,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faItalic,
@@ -137,7 +138,8 @@ library.add(
   faQuestion,
   faShare,
   faStarHalfStroke,
-  faInfoCircle
+  faInfoCircle,
+  faArrowRightToBracket
 )
 
 const getAccess = async () => {

@@ -156,12 +156,10 @@ const handleNewWidgetClick = (type) => {
             <span style="font-size: 0.8em; opacity: 0.7">{{ element.id }}</span>
           </div>
           <div class="group mla">
+            <ToggleField :model-value="element.on" @update:model-value="toggleWidget(element.id)"></ToggleField>
             <div class="btnGroup">
               <button type="button" class="btn" @click="openWidget(element.id, element.widget)">
                 <fa icon="fa-pen" fixed-width></fa>Edit
-              </button>
-              <button type="button" class="btn" :class="{ active: element.on }" @click="toggleWidget(element.id)">
-                <fa :icon="element.on ? 'fa-eye' : 'fa-eye-slash'" fixed-width></fa>
               </button>
               <button type="button" class="btn" @click="deleteWidget(element.id, element.widget)">
                 <fa icon="fa-trash" fixed-width></fa>

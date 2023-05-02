@@ -211,6 +211,10 @@ a.link {
     opacity: 0;
   }
 
+  &.panelMove {
+    inset: 0 auto 0 0;
+  }
+
   a:not(.btn) {
     color: var(--cText);
 

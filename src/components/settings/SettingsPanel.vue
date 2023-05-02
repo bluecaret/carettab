@@ -28,6 +28,7 @@ onUnmounted(() => {
 
 const togglePanelPreview = ref(false)
 const showPremiumModal = ref(false)
+const panelMove = ref(false)
 
 const getReviewLink = () => {
   if (navigator.userAgent.match(/edg/i)) {
@@ -46,7 +47,7 @@ const handleSave = () => {
 </script>
 
 <template>
-  <div id="settings" class="panel" :class="{ panelPreview: togglePanelPreview }">
+  <div id="settings" class="panel" :class="{ panelPreview: togglePanelPreview, panelMove }">
     <header class="header">
       <h1 class="appName">
         <svg
@@ -85,6 +86,15 @@ const handleSave = () => {
             @click="store.showOutliner = !store.showOutliner"
           >
             <fa icon="fa-vector-square" fixed-width></fa>
+          </button>
+          <button
+            class="btn"
+            :class="{ active: panelMove }"
+            title="Temporarily move the settings panel to the opposite side of the screen."
+            @click="panelMove = !panelMove"
+          >
+            <fa v-if="!panelMove" icon="fa-arrow-right-to-bracket" rotation="180" fixed-width></fa>
+            <fa v-if="panelMove" icon="fa-arrow-right-to-bracket" fixed-width></fa>
           </button>
         </div>
         <button

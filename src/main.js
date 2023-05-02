@@ -202,7 +202,7 @@ quickUserCheck().then(async (user) => {
   let access = await getAccess()
 
   if (access.license !== '' && access.license === access.userLicense) {
-    console.log('%c* Thank you for being a loyal user of CaretTab! Enjoy the perks! *', 'color:green;font-weight:bold;')
+    console.log('%c* You have free access to CaretTab Premium *', 'color:green;font-weight:bold;')
     user.paid = true
   }
 

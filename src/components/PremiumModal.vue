@@ -29,9 +29,7 @@ const handleLicenseKey = async () => {
   let cachedAccess = await getStorage(['userLicense'], 'local')
   let prompt = window.prompt('Enter your license key.', cachedAccess.userLicense ? cachedAccess.userLicense : '')
   if (access.license !== '' && access.license === prompt) {
-    await window.alert(
-      "IT'S DANGEROUS TO GO ALONE! TAKE THIS.\n\nThank you for being a loyal user of CaretTab! Enjoy the extra access!\n\n*Please do not share this license key*"
-    )
+    await window.alert('Enjoy your free access to CaretTab Premium!\n\n*Please do not share this license key*')
     await setStorage({ userLicense: prompt }, 'local')
     location.reload()
   } else {

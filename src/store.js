@@ -3,6 +3,7 @@ import { ref, reactive } from 'vue'
 import { defineStore } from 'pinia'
 import { DigitalClock } from '@/classes/DigitalClock.js'
 import { AnalogClock } from '@/classes/AnalogClock.js'
+import { BinaryClock } from '@/classes/BinaryClock.js'
 import { DateWidget } from '@/classes/Date.js'
 import { Layer } from '@/classes/Layer.js'
 import { widgetTypes } from '@/assets/lists.js'
@@ -119,6 +120,7 @@ export const useSettingsStore = defineStore('settings', () => {
     },
     layers: [],
     analogClocks: [],
+    binaryClocks: [],
     digitalClocks: [],
     dates: [],
   })
@@ -134,6 +136,14 @@ export const useSettingsStore = defineStore('settings', () => {
       if (filterAnalogClocks.length > 0) {
         filterAnalogClocks.forEach((k) => {
           allAnalogClocks.push(store[k])
+        })
+      }
+
+      let allBinaryClocks = []
+      let filterBinaryClocks = keys.filter((k) => k.startsWith('bc-'))
+      if (filterBinaryClocks.length > 0) {
+        filterBinaryClocks.forEach((k) => {
+          allBinaryClocks.push(store[k])
         })
       }
 
@@ -156,6 +166,7 @@ export const useSettingsStore = defineStore('settings', () => {
       if (store.global) config.global = store.global
       if (store.layers) config.layers = store.layers
       if (allAnalogClocks) config.analogClocks = allAnalogClocks
+      if (allBinaryClocks) config.binaryClocks = allBinaryClocks
       if (allDigitalClocks) config.digitalClocks = allDigitalClocks
       if (allDates) config.dates = allDates
     }
@@ -169,6 +180,11 @@ export const useSettingsStore = defineStore('settings', () => {
 
     if (config.analogClocks.length > 0) {
       config.analogClocks.forEach((c) => {
+        newStore[c.id] = JSON.parse(JSON.stringify(c))
+      })
+    }
+    if (config.binaryClocks.length > 0) {
+      config.binaryClocks.forEach((c) => {
         newStore[c.id] = JSON.parse(JSON.stringify(c))
       })
     }
@@ -205,6 +221,9 @@ export const useSettingsStore = defineStore('settings', () => {
           break
         case 'analogClock':
           newWidget = new AnalogClock()
+          break
+        case 'binaryClock':
+          newWidget = new BinaryClock()
           break
         case 'date':
           newWidget = new DateWidget()

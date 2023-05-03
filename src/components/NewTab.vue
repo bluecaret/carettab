@@ -5,6 +5,7 @@ import WallpaperLayer from '@/components/WallpaperLayer.vue'
 import ToggleSettings from '@/components/settings/ToggleSettings.vue'
 import DigitalClockWidget from '@/components/widgets/DigitalClockWidget.vue'
 import AnalogClockWidget from '@/components/widgets/AnalogClockWidget.vue'
+import BinaryClockWidget from '@/components/widgets/BinaryClockWidget.vue'
 import DateWidget from '@/components/widgets/DateWidget.vue'
 
 const store = useSettingsStore()
@@ -44,6 +45,14 @@ const getBgColor = computed(() => {
         >
         </AnalogClockWidget>
         <div v-if="!layer.on && layer.widget === 'analogClock'"></div>
+        <BinaryClockWidget
+          v-if="layer.on && layer.widget === 'binaryClock'"
+          :class="{ outliner: store.showOutliner }"
+          :clock="store.config.binaryClocks.find((c) => c.id === layer.id)"
+          :style="`z-index: ${store.config.layers.length - index}`"
+        >
+        </BinaryClockWidget>
+        <div v-if="!layer.on && layer.widget === 'binaryClock'"></div>
         <DigitalClockWidget
           v-if="layer.on && layer.widget === 'digitalClock'"
           :class="{ outliner: store.showOutliner }"

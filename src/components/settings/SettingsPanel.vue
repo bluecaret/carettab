@@ -6,6 +6,7 @@ import DashboardSettings from '@/components/settings/DashboardSettings.vue'
 import PatternsList from '@/components/settings/PatternsList.vue'
 import UnsplashList from '@/components/settings/UnsplashList.vue'
 import AnalogClockSettings from '@/components/settings/AnalogClockSettings.vue'
+import BinaryClockSettings from '@/components/settings/BinaryClockSettings.vue'
 import DigitalClockSettings from '@/components/settings/DigitalClockSettings.vue'
 import DateSettings from '@/components/settings/DateSettings.vue'
 import PremiumModal from '@/components/PremiumModal.vue'
@@ -112,6 +113,7 @@ const handleSave = () => {
     <PatternsList v-if="['patterns'].includes(settingsPage)"></PatternsList>
     <UnsplashList v-if="['unsplash'].includes(settingsPage)"></UnsplashList>
     <AnalogClockSettings v-if="['analogClock'].includes(settingsPage)"></AnalogClockSettings>
+    <BinaryClockSettings v-if="['binaryClock'].includes(settingsPage)"></BinaryClockSettings>
     <DigitalClockSettings v-if="['digitalClock'].includes(settingsPage)"></DigitalClockSettings>
     <DateSettings v-if="['date'].includes(settingsPage)"></DateSettings>
     <footer class="footer">

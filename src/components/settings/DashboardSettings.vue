@@ -181,7 +181,7 @@ const handleNewWidgetClick = (type) => {
               <template #menu>
                 <ul class="addWidgetMenu">
                   <li v-for="widget in widgetTypes" :key="widget.type">
-                    <button type="button" class="btn fit btnBlock" @click="handleNewWidgetClick(widget.type)">
+                    <button type="button" class="btn fit fill btnBlock" @click="handleNewWidgetClick(widget.type)">
                       <fa class="fa-fw" :icon="widget.icon" />{{ widget.name }}
                     </button>
                   </li>

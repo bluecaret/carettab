@@ -14,6 +14,7 @@ import SizeAndPositionField from '@/components/forms/SizeAndPositionField.vue'
 import WidgetFontField from '@/components/forms/WidgetFontField.vue'
 import WidgetBoxField from '@/components/forms/WidgetBoxField.vue'
 import PremiumLabel from '@/components/PremiumLabel.vue'
+import FontLink from '@/components/FontLink.vue'
 import { getStorage, setStorage } from '@/store.js'
 import { accessAws } from '@/helpers/data.js'
 
@@ -224,6 +225,7 @@ quickUserCheck().then(async (user) => {
   app.component('WidgetFontField', WidgetFontField)
   app.component('WidgetBoxField', WidgetBoxField)
   app.component('PremiumLabel', PremiumLabel)
+  app.component('FontLink', FontLink)
   app.use(createPinia())
 
   app.mount('#app')

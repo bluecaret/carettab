@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { DateTime } from 'luxon'
-import { fontList } from '@/assets/lists.js'
+import { setWidgetContainerStyles, setWidgetSegmentStyles } from '@/helpers/widgets.js'
 
 const store = useSettingsStore()
 
@@ -14,85 +14,12 @@ const props = defineProps({
 })
 
 const containerStyles = computed(() => {
-  const box = props.widget.w.cor ? props.widget.w : store.config.global
-  const font = props.widget.w.orf ? props.widget.w : store.config.global
-
-  let fontFamilyLabel = 'Source Sans Pro'
-  let ff = fontList.find((f) => f.id === font.ff)
-  if (font.ff && ff) {
-    fontFamilyLabel = `'${ff.label}'`
-  }
-
-  // Font styles
-  const fontFamily = `font-family: ${fontFamilyLabel}; `
-  const fontWeight = `font-weight: ${font.fb}; `
-  const color = `color: hsl(${font.cl[0]}deg ${font.cl[1]}% ${font.cl[2]}% / ${font.cl[3]}); `
-  const textShadow = font.ts[0]
-    ? `text-shadow: ${font.ts[1]}px ${font.ts[2]}px ${font.ts[3]}px hsl(${font.ts[4]}deg ${font.ts[5]}% ${font.ts[6]}% / ${font.ts[7]}); `
-    : ''
-  const fontItalic = font.fi ? 'font-style: italic; ' : ''
-  // const fontUnderline = font.fu ? 'text-decoration: underline; ' : '';
-
-  // Container box styles
-  const radius = `border-radius: ${box.crd}px; `
-  const borderColor = `hsl(${box.cbc[0]}deg ${box.cbc[1]}% ${box.cbc[2]}%)`
-  const border = `border: ${box.cbs}px solid ${borderColor}; `
-  const backgroundColor = `background-color: hsl(${box.cbg[0]}deg ${box.cbg[1]}% ${box.cbg[2]}% / ${box.cbg[3]}); `
-  const padding = `padding: ${box.cpd}px; `
-  const shadow = box.csh[0]
-    ? `box-shadow: ${box.csh[1]}px ${box.csh[2]}px ${box.csh[3]}px 0px hsl(${box.csh[4]}deg ${box.csh[5]}% ${box.csh[6]}% / ${box.csh[7]}); `
-    : ''
-
-  let styles = `${fontFamily}${fontWeight}${color}${textShadow}${fontItalic}${radius}${border}${backgroundColor}${padding}${shadow}`
-
-  return styles
+  return setWidgetContainerStyles(props.widget, store.config.global)
 })
 
-const segmentStyles = (s, lsUsesMargin = false) => {
-  const segment = s.or ? s : props.widget.w
-
-  // Font styles
-  const fontSize = `font-size: ${segment.fs}px; `
-  const letterSpacing = lsUsesMargin ? `margin-inline: ${segment.ls}px; ` : `letter-spacing: ${segment.ls}px; `
-  const translate = `translate: ${segment.oy * -1}px ${segment.ox * -1}px; `
-  const color = `color: hsl(${segment.cl[0]}deg ${segment.cl[1]}% ${segment.cl[2]}% / ${segment.cl[3]}); `
-  const textShadow = segment.ts[0]
-    ? `text-shadow: ${segment.ts[1]}px ${segment.ts[2]}px ${segment.ts[3]}px hsl(${segment.ts[4]}deg ${segment.ts[5]}% ${segment.ts[6]}% / ${segment.ts[7]}); `
-    : ''
-
-  let styles = `${fontSize}${letterSpacing}${color}${textShadow}${translate}`
-
-  return styles
+const segmentStyles = (type, lsUsesMargin = false) => {
+  return setWidgetSegmentStyles(props.widget, type, lsUsesMargin)
 }
-
-const buildFontLink = computed(() => {
-  const base = 'https://fonts.googleapis.com/css2?family='
-  const post = '&display=swap'
-  let wght = '400'
-  if (props.widget.w.fb < 400) {
-    wght = `${props.widget.w.fb};400`
-  } else if (props.widget.w.fb > 400) {
-    wght = `400;${props.widget.w.fb}`
-  }
-  return `${base}${props.widget.w.ff}:wght@${wght}${post}`
-})
-
-const offset = computed(() => {
-  return `${props.widget.w.x}px ${-props.widget.w.y}px`
-})
-
-const width = computed(() => {
-  return props.widget.w.as ? 'max-content' : `${props.widget.w.w}px`
-})
-
-const height = computed(() => {
-  return props.widget.w.as ? 'max-content' : `${props.widget.w.h}px`
-})
-
-const fontSize = computed(() => {
-  const config = props.widget.w.orf ? props.widget.w : store.config.global
-  return config.fs ? `${config.fs}px` : '0'
-})
 
 const fontUnderline = computed(() => {
   const config = props.widget.w.orf ? props.widget.w : store.config.global
@@ -104,9 +31,9 @@ const fontCase = computed(() => {
   return config.tt ? config.tt : 'none'
 })
 
-const letterSpacing = computed(() => {
+const fontItalic = computed(() => {
   const config = props.widget.w.orf ? props.widget.w : store.config.global
-  return config.ls ? `${config.ls * 0.01}em` : '0'
+  return config.fi ? config.fi : 'normal'
 })
 
 const getFormattedDate = computed(() => {
@@ -203,51 +130,44 @@ const getQuarterOffset = () => {
   const offsetMonth = month - offset
   const offsetDate = date.set({ month: offsetMonth })
   return offsetDate.toFormat('q')
-
-  // moment.locale(this.settings.config.i18n.lang)
-  // let format = this.settings.config.date.quarter.format
-  // return moment(this.currentDate)
-  //   .subtract(this.settings.config.date.quarter.start ? this.settings.config.date.quarter.start : 0, 'months')
-  //   .tz(this.getZone(this.settings.config.date.timezone))
-  //   .format(format)
 }
 </script>
 
 <template>
   <div class="date widget" :class="[props.widget.w.a, `container-${props.widget.w.ca}`]" :style="containerStyles">
-    <link
-      v-if="props.widget.w.orf"
-      :id="`google-font-link-${props.widget.id}`"
-      rel="stylesheet"
-      :href="buildFontLink"
-    />
+    <FontLink v-if="props.widget.w.orf" :widget="props.widget"></FontLink>
     <div class="widgetInner">
       <div class="dateWrapper">
-        <div v-if="props.widget.dl.on" :class="`datePart delimiter-1`">
-          <span :style="segmentStyles(props.widget.dl, false)">{{
-            props.widget.sd ? props.widget.dl[`ss1`] : props.widget.dl[`ls1`]
-          }}</span>
+        <!-- eslint-disable-next-line max-len -->
+        <div v-if="props.widget.dl.on" :class="`datePart delimiter-1`" :style="segmentStyles('dl')">
+          <span>{{ props.widget.sd ? props.widget.dl[`ss1`] : props.widget.dl[`ls1`] }}</span>
         </div>
         <template v-for="(part, index) in getDateParts" :key="part.type">
-          <div v-if="props.widget[part.type].on" :class="`datePart datePart-${part.type}`">
-            <span class="dateDigit" :style="segmentStyles(props.widget[part.type], false)">{{ part.value }}</span>
+          <div
+            v-if="props.widget[part.type].on"
+            :class="`datePart datePart-${part.type}`"
+            :style="segmentStyles(part.type)"
+          >
+            {{ part.value }}
           </div>
-          <div v-if="props.widget[part.type].on && props.widget.dl.on" :class="`datePart delimiter-${index + 2}`">
-            <span :style="segmentStyles(props.widget.dl, false)">{{
-              props.widget.sd ? props.widget.dl[`ss${index + 2}`] : props.widget.dl[`ls${index + 2}`]
-            }}</span>
+          <div
+            v-if="props.widget[part.type].on && props.widget.dl.on"
+            :class="`datePart delimiter-${index + 2}`"
+            :style="segmentStyles('dl')"
+          >
+            <span>{{ props.widget.sd ? props.widget.dl[`ss${index + 2}`] : props.widget.dl[`ls${index + 2}`] }}</span>
           </div>
         </template>
       </div>
-      <div v-if="props.widget.doy.on" class="textWrapper" :style="segmentStyles(props.widget.doy)">
+      <div v-if="props.widget.doy.on" class="textWrapper" :style="segmentStyles('doy')">
         {{ props.widget.doy.lbp }}{{ getFormattedDate.toFormat(props.widget.doy.td ? 'ooo' : 'o')
         }}{{ props.widget.doy.lbs }}
       </div>
-      <div v-if="props.widget.wk.on" class="textWrapper" :style="segmentStyles(props.widget.wk)">
+      <div v-if="props.widget.wk.on" class="textWrapper" :style="segmentStyles('wk')">
         {{ props.widget.wk.lbp }}{{ getFormattedDate.toFormat(props.widget.doy.td ? 'WW' : 'W')
         }}{{ props.widget.wk.lbs }}
       </div>
-      <div v-if="props.widget.qr.on" class="textWrapper" :style="segmentStyles(props.widget.qr)">
+      <div v-if="props.widget.qr.on" class="textWrapper" :style="segmentStyles('qr')">
         {{ props.widget.qr.lbp }}{{ getQuarterOffset() }}{{ props.widget.qr.lbs }}
       </div>
     </div>
@@ -255,29 +175,18 @@ const getQuarterOffset = () => {
 </template>
 
 <style lang="scss" scoped>
-.date {
-  width: v-bind(width);
-  height: v-bind(height);
-  translate: v-bind(offset);
-}
-
 .dateWrapper {
   display: inline-flex;
+  white-space: pre;
 }
 
 .datePart {
   display: inline-flex;
-  font-size: v-bind(fontSize);
   text-align: center;
   text-decoration: v-bind(fontUnderline);
   text-transform: v-bind(fontCase);
+  font-style: v-bind(fontItalic);
   white-space: pre;
-}
-
-.dateDigit {
-  display: inline-block;
-  text-align: center;
-  margin-inline: v-bind(letterSpacing);
 }
 
 .textWrapper {

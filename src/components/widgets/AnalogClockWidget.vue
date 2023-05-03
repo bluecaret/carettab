@@ -2,7 +2,7 @@
 import { computed, watch, ref, onMounted } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { DateTime } from 'luxon'
-import { fontList } from '@/assets/lists.js'
+import { setWidgetContainerStyles, setWidgetSegmentStyles } from '@/helpers/widgets.js'
 
 const store = useSettingsStore()
 
@@ -47,82 +47,12 @@ const timeUpdate = () => {
 }
 
 const containerStyles = computed(() => {
-  const box = props.clock.w.cor ? props.clock.w : store.config.global
-  const font = props.clock.w.orf ? props.clock.w : store.config.global
-
-  let fontFamilyLabel = 'Source Sans Pro'
-  let ff = fontList.find((f) => f.id === font.ff)
-  if (font.ff && ff) {
-    fontFamilyLabel = `'${ff.label}'`
-  }
-
-  // Font styles
-  const fontFamily = `font-family: ${fontFamilyLabel}; `
-  const fontWeight = `font-weight: ${font.fb}; `
-  const color = `color: hsl(${font.cl[0]}deg ${font.cl[1]}% ${font.cl[2]}% / ${font.cl[3]}); `
-  const textShadow = font.ts[0]
-    ? `text-shadow: ${font.ts[1]}px ${font.ts[2]}px ${font.ts[3]}px hsl(${font.ts[4]}deg ${font.ts[5]}% ${font.ts[6]}% / ${font.ts[7]}); `
-    : 'text-shadow: none;'
-  const fontItalic = font.fi ? 'font-style: italic; ' : ''
-  const fontUnderline = font.fu ? 'text-decoration: underline; ' : ''
-  const fontCase = font.tt ? `text-transform: ${font.tt}; ` : ''
-  const letterSpacing = `letter-spacing: ${font.ls * 0.01}em; `
-
-  // Container box styles
-  const radius = `border-radius: ${box.crd}px; `
-  const borderColor = `hsl(${box.cbc[0]}deg ${box.cbc[1]}% ${box.cbc[2]}% / ${box.cbc[3]})`
-  const border = `border: ${box.cbs}px solid ${borderColor}; `
-  const backgroundColor = `background-color: hsl(${box.cbg[0]}deg ${box.cbg[1]}% ${box.cbg[2]}% / ${box.cbg[3]}); `
-  const padding = `padding: ${box.cpd}px; `
-  const shadow = box.csh[0]
-    ? `box-shadow: ${box.csh[1]}px ${box.csh[2]}px ${box.csh[3]}px 0px hsl(${box.csh[4]}deg ${box.csh[5]}% ${box.csh[6]}% / ${box.csh[7]}); `
-    : ''
-
-  let styles = `${fontFamily}${fontWeight}${color}${fontUnderline}${letterSpacing}${fontCase}${textShadow}${fontItalic}${radius}${border}${backgroundColor}${padding}${shadow}`
-
-  return styles
+  return setWidgetContainerStyles(props.clock, store.config.global)
 })
 
-const segmentStyles = (s, lsUsesMargin = false) => {
-  const segment = s.or ? s : props.clock.w
-
-  // Font styles
-  const fontSize = `font-size: ${segment.fs}px; `
-  const letterSpacing = lsUsesMargin ? `margin-inline: ${segment.ls}px; ` : `letter-spacing: ${segment.ls}px; `
-  const translate = `translate: ${segment.oy * -1}px ${segment.ox * -1}px; `
-  const color = `color: hsl(${segment.cl[0]}deg ${segment.cl[1]}% ${segment.cl[2]}% / ${segment.cl[3]}); `
-  const textShadow = segment.ts[0]
-    ? `text-shadow: ${segment.ts[1]}px ${segment.ts[2]}px ${segment.ts[3]}px hsl(${segment.ts[4]}deg ${segment.ts[5]}% ${segment.ts[6]}% / ${segment.ts[7]}); `
-    : 'text-shadow: none;'
-
-  let styles = `${fontSize}${letterSpacing}${color}${textShadow}${translate}`
-
-  return styles
+const segmentStyles = (type, lsUsesMargin = false) => {
+  return setWidgetSegmentStyles(props.clock, type, lsUsesMargin)
 }
-
-const buildFontLink = computed(() => {
-  const base = 'https://fonts.googleapis.com/css2?family='
-  const post = '&display=swap'
-  let wght = '400'
-  if (props.clock.w.fb < 400) {
-    wght = `${props.clock.w.fb};400`
-  } else if (props.clock.w.fb > 400) {
-    wght = `400;${props.clock.w.fb}`
-  }
-  return `${base}${props.clock.w.ff}:wght@${wght}${post}`
-})
-
-const offset = computed(() => {
-  return `${props.clock.w.x}px ${-props.clock.w.y}px`
-})
-
-const width = computed(() => {
-  return props.clock.w.as ? 'max-content' : `${props.clock.w.w}px`
-})
-
-const height = computed(() => {
-  return props.clock.w.as ? 'max-content' : `${props.clock.w.h}px`
-})
 
 const fontSize = computed(() => {
   return props.clock.sz ? `${props.clock.sz * 10}px` : '0'
@@ -180,7 +110,7 @@ const getAnalogHour = () => {
 
 <template>
   <div class="clock widget" :class="[props.clock.w.a, `container-${props.clock.w.ca}`]" :style="containerStyles">
-    <link v-if="props.clock.w.orf" :id="`google-font-link-${props.clock.id}`" rel="stylesheet" :href="buildFontLink" />
+    <FontLink v-if="props.clock.w.orf" :widget="props.clock"></FontLink>
     <div class="widgetInner">
       <div class="analog">
         <div
@@ -301,10 +231,10 @@ const getAnalogHour = () => {
           ></div>
         </div>
       </div>
-      <div v-if="props.clock.lb.on" class="labelWrapper" :style="segmentStyles(props.clock.lb)">
+      <div v-if="props.clock.lb.on" class="labelWrapper" :style="segmentStyles('lb')">
         {{ props.clock.lb.lb }}
       </div>
-      <div v-if="props.clock.rt.on" class="relativeTimeWrapper" :style="segmentStyles(props.clock.rt)">
+      <div v-if="props.clock.rt.on" class="relativeTimeWrapper" :style="segmentStyles('rt')">
         {{ getRelativeTime }}
       </div>
     </div>
@@ -313,12 +243,6 @@ const getAnalogHour = () => {
 
 <style lang="scss" scoped>
 @import './AnalogClockWidget';
-
-.clock {
-  width: v-bind(width);
-  height: v-bind(height);
-  translate: v-bind(offset);
-}
 
 .analog {
   font-size: v-bind(fontSize);

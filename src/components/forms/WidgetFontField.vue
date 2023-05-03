@@ -72,6 +72,7 @@ const handleTtUpdate = (str) => {
 }
 
 const resetOverride = () => {
+  console.log('reset to global')
   emit('update:cl', store.config.global.cl)
   emit('update:ts', store.config.global.ts)
   emit('update:ff', store.config.global.ff)

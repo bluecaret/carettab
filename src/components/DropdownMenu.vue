@@ -2,7 +2,6 @@
 import { ref, watch, nextTick } from 'vue'
 import { useDetectOutsideClick } from '../helpers/outsideClick'
 
-const ddWrapper = ref()
 const ddBtn = ref()
 const ddMenu = ref()
 const showDropdown = ref(false)
@@ -31,14 +30,23 @@ const updatePosition = () => {
 
 watch(showDropdown, async () => {
   await nextTick()
-  if (showDropdown.value) {
-    updatePosition()
-  }
+  nextTick(() => {
+    if (showDropdown.value) {
+      updatePosition()
+      ddMenu.value.focus()
+    } else {
+      ddBtn.value.querySelector('button').focus()
+    }
+  })
 })
 
-useDetectOutsideClick(ddWrapper, () => {
-  if (showDropdown.value) showDropdown.value = false
-})
+useDetectOutsideClick(
+  ddBtn,
+  () => {
+    if (showDropdown.value) showDropdown.value = false
+  },
+  ddMenu
+)
 
 const close = () => {
   showDropdown.value = false
@@ -48,12 +56,12 @@ defineExpose({ close })
 </script>
 
 <template>
-  <div ref="ddWrapper" class="dropdownWrapper">
-    <div ref="ddBtn" class="dropdownButtonWrapper" @click="toggleDropdown">
+  <div class="dropdownWrapper">
+    <div ref="ddBtn" tabindex="-1" class="dropdownButtonWrapper" @click="toggleDropdown" @keyup.esc="close">
       <slot name="button"> </slot>
     </div>
     <Teleport to="#dropdowns">
-      <div v-show="showDropdown" ref="ddMenu" class="dropdownMenuWrapper">
+      <div v-show="showDropdown" ref="ddMenu" class="dropdownMenuWrapper" tabindex="-1" @keyup.esc="close">
         <div class="dropdown">
           <slot name="menu"> </slot>
         </div>

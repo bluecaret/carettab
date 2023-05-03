@@ -6,12 +6,16 @@ export class DateWidget {
   dl = {
     // Delimiter
     on: true, // on
-    ss1: ':', // symbol
-    ss2: ':', // symbol
-    ss3: '', // symbol
-    ls1: ' ', // symbol
-    ls2: ', ', // symbol
-    ls3: '', // symbol
+    ss1: '', // symbol
+    ss2: ' ', // symbol
+    ss3: '/', // symbol
+    ss4: '/', // symbol
+    ss5: '', // symbol
+    ls1: '', // symbol
+    ls2: ' ', // symbol
+    ls3: ' ', // symbol
+    ls4: ' ', // symbol
+    ls5: '', // symbol
     or: false, // override widget styles
     cl: [0, 0, 100, 1], // color
     ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
@@ -67,8 +71,9 @@ export class DateWidget {
   }
   doy = {
     on: true, // on
-    lb: 'day of year', // Label text
-    ft: 'DDDo', // format
+    lbp: 'Day of year: ', // Label prefix
+    lbs: '', // Label suffix
+    td: false, // three-digit
     or: false, // override widget styles
     cl: [0, 0, 100, 1], // color
     ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
@@ -79,8 +84,9 @@ export class DateWidget {
   }
   wk = {
     on: true, // on
-    lb: 'Week', // Label text
-    iso: false, // ISO format
+    lbp: 'Week: ', // Label prefix
+    lbs: '', // Label suffix
+    td: false, // two-digit
     or: false, // override widget styles
     cl: [0, 0, 100, 1], // color
     ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
@@ -91,8 +97,8 @@ export class DateWidget {
   }
   qr = {
     on: true, // on
-    lb: 'quarter', // Label text
-    ft: 'Qo', // format
+    lbp: 'Quarter: ', // Label prefix
+    lbs: '', // Label suffix
     st: '0', // start
     or: false, // override widget styles
     cl: [0, 0, 100, 1], // color

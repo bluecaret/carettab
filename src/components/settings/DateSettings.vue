@@ -178,6 +178,44 @@ const selectFont = (font) => {
             maxlength="20"
           />
         </div>
+        <div class="group compact">
+          <label for="dlSym4" class="desc">4th</label>
+          <input
+            v-if="store.config.dates[ci].sd"
+            id="dlSym4"
+            v-model="store.config.dates[ci].dl.ss4"
+            type="text"
+            class="input w5"
+            maxlength="20"
+          />
+          <input
+            v-if="!store.config.dates[ci].sd"
+            id="dlSym4"
+            v-model="store.config.dates[ci].dl.ls4"
+            type="text"
+            class="input w5"
+            maxlength="20"
+          />
+        </div>
+        <div class="group compact">
+          <label for="dlSym5" class="desc">5th</label>
+          <input
+            v-if="store.config.dates[ci].sd"
+            id="dlSym5"
+            v-model="store.config.dates[ci].dl.ss5"
+            type="text"
+            class="input w5"
+            maxlength="20"
+          />
+          <input
+            v-if="!store.config.dates[ci].sd"
+            id="dlSym5"
+            v-model="store.config.dates[ci].dl.ls5"
+            type="text"
+            class="input w5"
+            maxlength="20"
+          />
+        </div>
       </div>
       <DigitalClockSegmentFont
         v-if="store.config.dates[ci].dl.on"
@@ -322,19 +360,31 @@ const selectFont = (font) => {
             <label for="enableDoy" class="desc">Enable</label>
             <ToggleField v-model="store.config.dates[ci].doy.on" tag-id="enableDoy"></ToggleField>
           </div>
+          <div v-if="store.config.dates[ci].doy.on" class="group compact">
+            <label for="doyTd" class="desc">Three digit</label>
+            <ToggleField v-model="store.config.dates[ci].doy.td" tag-id="doyTd"></ToggleField>
+          </div>
         </div>
         <div v-if="store.config.dates[ci].doy.on" class="group fill">
           <div class="group stack fill">
-            <label for="doyLabel" class="desc">Label</label>
-            <input v-model="store.config.dates[ci].doy.lb" maxlength="50" type="text" tag-id="doyLabel" class="input" />
+            <label for="doyPLabel" class="desc">Prefix label</label>
+            <input
+              v-model="store.config.dates[ci].doy.lbp"
+              maxlength="50"
+              type="text"
+              tag-id="doyPLabel"
+              class="input"
+            />
           </div>
           <div class="group stack fill">
-            <label for="doyFormat" class="desc">Format</label>
-            <select id="doyFormat" v-model="store.config.dates[ci].doy.ft" name="doyFormat" class="select">
-              <option value="DDD">1 2...364 365</option>
-              <option value="DDDo">1st 2nd...364th 365th</option>
-              <option value="DDDD">001 002...364 365</option>
-            </select>
+            <label for="doySLabel" class="desc">Suffix label</label>
+            <input
+              v-model="store.config.dates[ci].doy.lbs"
+              maxlength="50"
+              type="text"
+              tag-id="doySLabel"
+              class="input"
+            />
           </div>
         </div>
       </div>
@@ -356,20 +406,24 @@ const selectFont = (font) => {
     <div class="blockContainer">
       <div class="block">
         <div class="group fill">
-          <div class="label mra">Week</div>
+          <div class="label mra">Week number (ISO standard)</div>
           <div class="group compact">
             <label for="enableWeek" class="desc">Enable</label>
             <ToggleField v-model="store.config.dates[ci].wk.on" tag-id="enableWeek"></ToggleField>
           </div>
+          <div v-if="store.config.dates[ci].wk.on" class="group compact">
+            <label for="wkTwoDigit" class="desc">Two digit</label>
+            <ToggleField v-model="store.config.dates[ci].wk.td" tag-id="wkTwoDigit"></ToggleField>
+          </div>
         </div>
         <div v-if="store.config.dates[ci].wk.on" class="group fill">
           <div class="group stack fill">
-            <label for="wkLabel" class="desc">Label</label>
-            <input v-model="store.config.dates[ci].wk.lb" maxlength="50" type="text" tag-id="wkLabel" class="input" />
+            <label for="wkPLabel" class="desc">Prefix label</label>
+            <input v-model="store.config.dates[ci].wk.lbp" maxlength="50" type="text" tag-id="wkPLabel" class="input" />
           </div>
-          <div class="group stack">
-            <label for="enableIso" class="desc fit">ISO 8601 standard</label>
-            <ToggleField v-model="store.config.dates[ci].wk.iso" tag-id="enableIso"></ToggleField>
+          <div class="group stack fill">
+            <label for="wkSLabel" class="desc">Suffix label</label>
+            <input v-model="store.config.dates[ci].wk.lbs" maxlength="50" type="text" tag-id="wkSLabel" class="input" />
           </div>
         </div>
       </div>
@@ -399,15 +453,12 @@ const selectFont = (font) => {
         </div>
         <div v-if="store.config.dates[ci].qr.on" class="group fill">
           <div class="group stack fill">
-            <label for="qrLabel" class="desc">Label</label>
-            <input v-model="store.config.dates[ci].qr.lb" maxlength="50" type="text" tag-id="qrLabel" class="input" />
+            <label for="qrPLabel" class="desc">Prefix label</label>
+            <input v-model="store.config.dates[ci].qr.lbp" maxlength="50" type="text" tag-id="qrPLabel" class="input" />
           </div>
           <div class="group stack fill">
-            <label for="qrFormat" class="desc">Format</label>
-            <select id="qrFormat" v-model="store.config.dates[ci].qr.ft" name="qrFormat" class="select">
-              <option value="Q">1 2 3 4</option>
-              <option value="Qo">1st 2nd 3rd 4th</option>
-            </select>
+            <label for="qrSLabel" class="desc">Suffix label</label>
+            <input v-model="store.config.dates[ci].qr.lbs" maxlength="50" type="text" tag-id="qrSLabel" class="input" />
           </div>
           <div class="group stack fill">
             <label for="qrStart" class="desc">Start on</label>

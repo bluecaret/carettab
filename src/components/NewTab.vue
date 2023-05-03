@@ -5,6 +5,7 @@ import WallpaperLayer from '@/components/WallpaperLayer.vue'
 import ToggleSettings from '@/components/settings/ToggleSettings.vue'
 import DigitalClockWidget from '@/components/widgets/DigitalClockWidget.vue'
 import AnalogClockWidget from '@/components/widgets/AnalogClockWidget.vue'
+import DateWidget from '@/components/widgets/DateWidget.vue'
 
 const store = useSettingsStore()
 
@@ -51,6 +52,14 @@ const getBgColor = computed(() => {
         >
         </DigitalClockWidget>
         <div v-if="!layer.on && layer.widget === 'digitalClock'"></div>
+        <DateWidget
+          v-if="layer.on && layer.widget === 'date'"
+          :class="{ outliner: store.showOutliner }"
+          :widget="store.config.dates.find((c) => c.id === layer.id)"
+          :style="`z-index: ${store.config.layers.length - index}`"
+        >
+        </DateWidget>
+        <div v-if="!layer.on && layer.widget === 'date'"></div>
       </template>
     </div>
     <ToggleSettings></ToggleSettings>

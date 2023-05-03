@@ -180,7 +180,7 @@ const getAnalogHour = () => {
 
 <template>
   <div class="clock widget" :class="[props.clock.w.a, `container-${props.clock.w.ca}`]" :style="containerStyles">
-    <link v-if="props.clock.w.orf" id="google-font-link-props.clock.id" rel="stylesheet" :href="buildFontLink" />
+    <link v-if="props.clock.w.orf" :id="`google-font-link-${props.clock.id}`" rel="stylesheet" :href="buildFontLink" />
     <div class="widgetInner">
       <div class="analog">
         <div

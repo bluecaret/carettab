@@ -50,40 +50,56 @@
 
 // Widget positions
 .container-nw {
-  place-items: start start;
+  align-items: start;
+  justify-content: start;
+  text-align: left;
 }
 
 .container-n {
-  place-items: start center;
+  align-items: start;
+  justify-content: center;
   text-align: center;
 }
 
-.container-ne {
-  place-items: start end;
+.container-ne,
+.container-ne > .widgetInner {
+  align-items: start;
+  justify-content: end;
+  text-align: right;
 }
 
 .container-w {
-  place-items: center start;
+  align-items: center;
+  justify-content: start;
+  text-align: left;
 }
 
 .container-c {
-  place-items: center center;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
 .container-e {
-  place-items: center end;
+  align-items: center;
+  justify-content: end;
+  text-align: right;
 }
 
 .container-sw {
-  place-items: end start;
+  align-items: end;
+  justify-content: start;
+  text-align: left;
 }
 
 .container-s {
-  place-items: end center;
+  align-items: end;
+  justify-content: center;
   text-align: center;
 }
 
 .container-se {
-  place-items: end end;
+  align-items: end;
+  justify-content: end;
+  text-align: right;
 }

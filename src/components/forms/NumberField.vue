@@ -15,11 +15,20 @@ function handleUpdate(event) {
 function handleArrowUpdate(up) {
   let num = isNaN(props.modelValue) ? 0 : props.modelValue
   let inc = props.increment ?? 1
+  let updated = num
+  let hasMin = props.min || props.min === 0
+  let hasMax = props.max || props.max === 0
   if (up) {
-    emit('update:modelValue', parseFloat((num + inc).toFixed(1)))
+    updated = num + inc
+    if ((hasMax && updated.toFixed(1) <= props.max) || !hasMax) {
+      emit('update:modelValue', parseFloat(updated.toFixed(1)))
+    }
     return
   }
-  emit('update:modelValue', parseFloat((num - inc).toFixed(1)))
+  updated = num - inc
+  if ((hasMin && updated.toFixed(1) >= props.min) || !hasMin) {
+    emit('update:modelValue', parseFloat(updated.toFixed(1)))
+  }
 }
 </script>
 

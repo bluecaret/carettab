@@ -23,11 +23,11 @@ export const setWidgetContainerStyles = (widget, global) => {
   const letterSpacing = `letter-spacing: ${font.ls * 0.01}em; `
 
   // Container box styles
-  const width = `width: ${box.as ? 'max-content' : box.w + 'px'}`
-  const height = `height: ${box.as ? 'max-content' : box.h + 'px'}`
-  const translate = `translate: ${box.x}px ${-box.y}px`
+  const width = `width: ${widget.w.as ? 'max-content' : widget.w.w + 'px'};`
+  const height = `height: ${widget.w.as ? 'max-content' : widget.w.h + 'px'};`
+  const translate = `translate: ${widget.w.x}px ${-widget.w.y}px;`
   const radius = `border-radius: ${box.crd}px; `
-  const borderColor = `hsl(${box.cbc[0]}deg ${box.cbc[1]}% ${box.cbc[2]}% / ${box.cbc[3]})`
+  const borderColor = `hsl(${box.cbc[0]}deg ${box.cbc[1]}% ${box.cbc[2]}% / ${box.cbc[3]});`
   const border = `border: ${box.cbs}px solid ${borderColor}; `
   const backgroundColor = `background-color: hsl(${box.cbg[0]}deg ${box.cbg[1]}% ${box.cbg[2]}% / ${box.cbg[3]}); `
   const padding = `padding: ${box.cpd}px; `

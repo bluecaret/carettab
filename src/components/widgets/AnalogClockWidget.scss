@@ -32,12 +32,11 @@
   --analogCurrentMinute: 0deg;
   --analogCurrentSecond: 0deg;
   position: relative;
-  display: grid;
+  display: inline-grid;
   grid-template: 1fr / 1fr;
   place-items: center;
   width: 0.4em;
   height: 0.4em;
-  margin: 0 auto;
   border-radius: 50%;
   .analogFace,
   .analogHands {

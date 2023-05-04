@@ -2,15 +2,19 @@ export class BinaryClock {
   id = '' // id
   tz = 'America/Los_Angeles' // timezone
   ind = {
-    sz: 100, // size
-    dot: true, // use dots
-    isz: 100, // size
+    sz: 50, // size
+    dot: false, // use dots
+    se: false, // show unused dots
+    ss: true, // show seconds
     lboff: '0', // off label
     lbon: '1', // on label
     pd: 10, // padding
-    or: false, // override global styles
-    onc: [0, 0, 100, 1], // color
-    offc: [0, 0, 100, 1], // color
+    hronc: [0, 0, 100, 1], // color
+    hroffc: [0, 0, 100, 0.5], // color
+    minonc: [0, 0, 100, 1], // color
+    minoffc: [0, 0, 100, 0.5], // color
+    seconc: [0, 0, 100, 1], // color
+    secoffc: [0, 0, 100, 0.5], // color
     sh: [false, 1, 1, 5, 0, 0, 0, 0.8], // shadow
   }
   lb = {

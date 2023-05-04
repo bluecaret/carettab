@@ -21,10 +21,19 @@ const currentLight = computed(() => {
   return `--rangeInputThumb: hsl(${hue.value}deg ${saturation.value}% ${lightness.value}%); --rangeInputTrack: linear-gradient(to right, hsl(${hue.value}deg ${saturation.value}% 0%), hsl(${hue.value}deg ${saturation.value}% 50%), hsl(${hue.value}deg ${saturation.value}% 100%));`
 })
 const currentOp = computed(() => {
-  return `--rangeInputThumb: linear-gradient(hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value}), hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})), repeating-conic-gradient(#808080 0% 25%, transparent 0% 50%) 50% / 6px 6px, black;--rangeInputTrack: linear-gradient(to right, hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / 0), hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / 1)), repeating-conic-gradient(#808080 0% 25%, transparent 0% 50%) 50% / 6px 6px;`
+  return `--rangeInputThumb: linear-gradient(hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value}), hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})), repeating-conic-gradient(#555 0% 25%, transparent 0% 50%) 50% / 8px 8px, #DDD;--rangeInputTrack: linear-gradient(to right, hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / 0), hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / 1)), repeating-conic-gradient(#555 0% 25%, transparent 0% 50%) 50% / 8px 8px, #DDD;`
 })
 const currentColor = computed(() => {
   return `hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})`
+})
+const currentGradient = computed(() => {
+  return `
+    linear-gradient(
+      hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value}), 
+      hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})
+    ), 
+    repeating-conic-gradient(#555 0% 25%, transparent 0% 50%) 50% / 8px 8px, #DDD
+  `
 })
 
 const handleColorSet = () => {
@@ -120,6 +129,7 @@ const handleColorSet = () => {
 <style lang="scss" scoped>
 .pickerButton {
   background-color: v-bind(currentColor);
+  background: v-bind(currentGradient);
   color: currentColor;
   border-color: var(--cGrey1);
   width: 100%;

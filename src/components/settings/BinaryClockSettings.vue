@@ -31,12 +31,6 @@ const selectFont = (font) => {
     store.$patch({ config: { binaryClocks: newClocks } })
   }
 }
-
-const resetDotColors = () => {
-  store.config.binaryClocks[ci.value].ind.sh = store.config.binaryClocks[ci.value].w.ts
-  store.config.binaryClocks[ci.value].ind.onc = store.config.binaryClocks[ci.value].w.cl
-  store.config.binaryClocks[ci.value].ind.offc = store.config.binaryClocks[ci.value].w.cl
-}
 </script>
 
 <template>
@@ -76,8 +70,6 @@ const resetDotColors = () => {
         v-model:tt="store.config.binaryClocks[ci].w.tt"
         :ff="store.config.binaryClocks[ci].w.ff"
         @update:ff="selectFont($event)"
-        @update:cl="resetDotColors"
-        @update:ts="resetDotColors"
       >
       </WidgetFontField>
       <WidgetBoxField
@@ -91,7 +83,7 @@ const resetDotColors = () => {
       >
       </WidgetBoxField>
     </div>
-    <h3 class="subtitle">Clock options</h3>
+    <h3 class="subtitle">Clock and indicator options</h3>
     <div class="blockContainer">
       <div class="block">
         <div class="label">
@@ -108,38 +100,40 @@ const resetDotColors = () => {
       </div>
       <div class="block">
         <div class="group fill">
-          <div class="label mra">Size</div>
+          <div class="label mra">Sizing</div>
           <div class="group compact">
-            <label for="clockSize" class="desc">Clock size</label>
+            <label for="indicatorSize" class="desc">Indicator</label>
             <NumberField
               v-model="store.config.binaryClocks[ci].ind.sz"
-              :increment="10"
+              :increment="5"
+              :min="0"
               class="w10 mla"
-              tag-id="clockSize"
+              tag-id="indicatorSize"
             >
             </NumberField>
           </div>
           <div class="group compact">
-            <label for="indicatorSize" class="desc">Indicator size</label>
+            <label for="clockSize" class="desc">Padding</label>
             <NumberField
-              v-model="store.config.binaryClocks[ci].ind.isz"
-              :increment="10"
+              v-model="store.config.binaryClocks[ci].ind.pd"
+              :increment="5"
+              :min="0"
               class="w10 mla"
-              tag-id="indicatorSize"
+              tag-id="clockSize"
             >
             </NumberField>
           </div>
         </div>
       </div>
       <div class="block">
-        <div class="label">Indicators</div>
+        <div class="label mra">Options</div>
         <div class="group compact mla">
-          <label for="dotOverride" class="desc">Override colors</label>
-          <ToggleField
-            v-model="store.config.binaryClocks[ci].ind.or"
-            tag-id="dotOverride"
-            @update:model-value="resetDotColors"
-          ></ToggleField>
+          <label for="showSec" class="desc">Seconds</label>
+          <ToggleField v-model="store.config.binaryClocks[ci].ind.ss" tag-id="showSec"></ToggleField>
+        </div>
+        <div class="group compact">
+          <label for="hideExtra" class="desc">Extras</label>
+          <ToggleField v-model="store.config.binaryClocks[ci].ind.se" tag-id="hideExtra"></ToggleField>
         </div>
         <div class="group compact">
           <label for="useDots" class="desc">Dots</label>
@@ -164,18 +158,37 @@ const resetDotColors = () => {
             placeholder="off"
           />
         </div>
-        <div v-if="store.config.binaryClocks[ci].ind.or" class="group fill">
+      </div>
+      <div class="block">
+        <div class="label mra">Colors</div>
+        <div class="group fill">
           <div class="group fill stack">
             <label for="indShadow" class="desc">Shadow</label>
             <ShadowField v-model="store.config.binaryClocks[ci].ind.sh" class="" tag-id="indShadow"> </ShadowField>
           </div>
           <div class="group fill stack">
-            <label for="onc" class="desc">On color</label>
-            <ColorPickerField v-model="store.config.binaryClocks[ci].ind.onc" tag-id="onc"></ColorPickerField>
+            <label for="onc" class="desc">Hour - on</label>
+            <ColorPickerField v-model="store.config.binaryClocks[ci].ind.hronc" tag-id="onc"></ColorPickerField>
           </div>
           <div class="group fill stack">
-            <label for="offc" class="desc">Off color</label>
-            <ColorPickerField v-model="store.config.binaryClocks[ci].ind.offc" tag-id="offc"></ColorPickerField>
+            <label for="offc" class="desc">Hour - off</label>
+            <ColorPickerField v-model="store.config.binaryClocks[ci].ind.hroffc" tag-id="offc"></ColorPickerField>
+          </div>
+          <div class="group fill stack">
+            <label for="onc" class="desc">Min. - on</label>
+            <ColorPickerField v-model="store.config.binaryClocks[ci].ind.minonc" tag-id="onc"></ColorPickerField>
+          </div>
+          <div class="group fill stack">
+            <label for="offc" class="desc">Min. - off</label>
+            <ColorPickerField v-model="store.config.binaryClocks[ci].ind.minoffc" tag-id="offc"></ColorPickerField>
+          </div>
+          <div class="group fill stack">
+            <label for="onc" class="desc">Sec. - on</label>
+            <ColorPickerField v-model="store.config.binaryClocks[ci].ind.seconc" tag-id="onc"></ColorPickerField>
+          </div>
+          <div class="group fill stack">
+            <label for="offc" class="desc">Sec. - off</label>
+            <ColorPickerField v-model="store.config.binaryClocks[ci].ind.secoffc" tag-id="offc"></ColorPickerField>
           </div>
         </div>
       </div>

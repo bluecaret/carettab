@@ -48,7 +48,7 @@ const getBgColor = computed(() => {
         <BinaryClockWidget
           v-if="layer.on && layer.widget === 'binaryClock'"
           :class="{ outliner: store.showOutliner }"
-          :clock="store.config.binaryClocks.find((c) => c.id === layer.id)"
+          :widget="store.config.binaryClocks.find((c) => c.id === layer.id)"
           :style="`z-index: ${store.config.layers.length - index}`"
         >
         </BinaryClockWidget>

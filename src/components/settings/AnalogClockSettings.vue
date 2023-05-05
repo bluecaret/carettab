@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 import { DateTime } from 'luxon'
 import { useSettingsStore } from '@/store.js'
 import DigitalClockSegmentFont from '@/components/forms/DigitalClockSegmentFont.vue'
@@ -8,6 +8,7 @@ import { analogFaceStyles, analogHandStyles } from '@/assets/lists.js'
 const store = useSettingsStore()
 
 const ci = ref(store.config.analogClocks.findIndex((c) => c.id === store.editing))
+const widget = reactive(store.config.analogClocks[ci.value])
 
 const allTimezones = []
 for (const zone of Intl.supportedValuesOf('timeZone')) {
@@ -20,25 +21,25 @@ for (const zone of Intl.supportedValuesOf('timeZone')) {
 const selectTimezone = (tz) => {
   if (tz) {
     let newClocks = [...store.config.analogClocks]
-    newClocks[newClocks.findIndex((c) => c.id === store.config.analogClocks[ci.value].id)].tz = tz.id
+    newClocks[newClocks.findIndex((c) => c.id === widget.id)].tz = tz.id
     store.$patch({ config: { analogClocks: newClocks } })
   }
 }
 
 const resetFaceColors = () => {
-  store.config.analogClocks[ci.value].face.sh = store.config.analogClocks[ci.value].w.ts
-  store.config.analogClocks[ci.value].face.bc = store.config.analogClocks[ci.value].w.cl
-  store.config.analogClocks[ci.value].face.qmc = store.config.analogClocks[ci.value].w.cl
-  store.config.analogClocks[ci.value].face.hmc = store.config.analogClocks[ci.value].w.cl
-  store.config.analogClocks[ci.value].face.mmc = store.config.analogClocks[ci.value].w.cl
+  widget.face.sh = widget.w.ts
+  widget.face.bc = widget.w.cl
+  widget.face.qmc = widget.w.cl
+  widget.face.hmc = widget.w.cl
+  widget.face.mmc = widget.w.cl
 }
 
 const resetHandColors = () => {
-  store.config.analogClocks[ci.value].hand.sh = store.config.analogClocks[ci.value].w.ts
-  store.config.analogClocks[ci.value].hr.cl = store.config.analogClocks[ci.value].w.cl
-  store.config.analogClocks[ci.value].min.cl = store.config.analogClocks[ci.value].w.cl
-  store.config.analogClocks[ci.value].sec.cl = store.config.analogClocks[ci.value].w.cl
-  store.config.analogClocks[ci.value].cr.cl = store.config.analogClocks[ci.value].w.cl
+  widget.hand.sh = widget.w.ts
+  widget.hr.cl = widget.w.cl
+  widget.min.cl = widget.w.cl
+  widget.sec.cl = widget.w.cl
+  widget.cr.cl = widget.w.cl
 }
 
 const updateClockParts = () => {
@@ -49,42 +50,42 @@ const updateClockParts = () => {
 
 <template>
   <div class="page">
-    <PageHeading title="Analog clock" :widget-id="store.config.analogClocks[ci].id"></PageHeading>
+    <PageHeading title="Analog clock" :widget-id="widget.id"></PageHeading>
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
       <SizeAndPositionField
-        v-model:width="store.config.analogClocks[ci].w.w"
-        v-model:height="store.config.analogClocks[ci].w.h"
-        v-model:autoSize="store.config.analogClocks[ci].w.as"
-        v-model:align="store.config.analogClocks[ci].w.a"
-        v-model:calign="store.config.analogClocks[ci].w.ca"
-        v-model:x="store.config.analogClocks[ci].w.x"
-        v-model:y="store.config.analogClocks[ci].w.y"
+        v-model:width="widget.w.w"
+        v-model:height="widget.w.h"
+        v-model:autoSize="widget.w.as"
+        v-model:align="widget.w.a"
+        v-model:calign="widget.w.ca"
+        v-model:x="widget.w.x"
+        v-model:y="widget.w.y"
       >
       </SizeAndPositionField>
       <WidgetFontField
-        v-model:override="store.config.analogClocks[ci].w.orf"
-        v-model:cl="store.config.analogClocks[ci].w.cl"
-        v-model:fs="store.config.analogClocks[ci].w.fs"
-        v-model:fb="store.config.analogClocks[ci].w.fb"
-        v-model:fi="store.config.analogClocks[ci].w.fi"
-        v-model:fu="store.config.analogClocks[ci].w.fu"
-        v-model:ls="store.config.analogClocks[ci].w.ls"
-        v-model:ts="store.config.analogClocks[ci].w.ts"
-        v-model:tt="store.config.analogClocks[ci].w.tt"
-        v-model:ff="store.config.analogClocks[ci].w.ff"
+        v-model:override="widget.w.orf"
+        v-model:cl="widget.w.cl"
+        v-model:fs="widget.w.fs"
+        v-model:fb="widget.w.fb"
+        v-model:fi="widget.w.fi"
+        v-model:fu="widget.w.fu"
+        v-model:ls="widget.w.ls"
+        v-model:ts="widget.w.ts"
+        v-model:tt="widget.w.tt"
+        v-model:ff="widget.w.ff"
         @update:cl="updateClockParts"
         @update:ts="updateClockParts"
       >
       </WidgetFontField>
       <WidgetBoxField
-        v-model:override="store.config.analogClocks[ci].w.cor"
-        v-model:rounded="store.config.analogClocks[ci].w.crd"
-        v-model:bs="store.config.analogClocks[ci].w.cbs"
-        v-model:bc="store.config.analogClocks[ci].w.cbc"
-        v-model:bg="store.config.analogClocks[ci].w.cbg"
-        v-model:shadow="store.config.analogClocks[ci].w.csh"
-        v-model:padding="store.config.analogClocks[ci].w.cpd"
+        v-model:override="widget.w.cor"
+        v-model:rounded="widget.w.crd"
+        v-model:bs="widget.w.cbs"
+        v-model:bc="widget.w.cbc"
+        v-model:bg="widget.w.cbg"
+        v-model:shadow="widget.w.csh"
+        v-model:padding="widget.w.cpd"
       >
       </WidgetBoxField>
     </div>
@@ -99,66 +100,56 @@ const updateClockParts = () => {
           tag-id="clockTimezone"
           class="mla w23"
           :list="allTimezones"
-          :selected="store.config.analogClocks[ci].tz"
+          :selected="widget.tz"
           @selected="(item) => selectTimezone(item)"
         ></AutocompleteField>
       </div>
       <div class="block">
         <label for="clockSize" class="label">Clock size</label>
-        <NumberField v-model="store.config.analogClocks[ci].sz" :increment="10" class="w10 mla" tag-id="clockSize">
-        </NumberField>
+        <NumberField v-model="widget.sz" :increment="10" class="w10 mla" tag-id="clockSize"> </NumberField>
       </div>
       <div class="block">
         <div class="label">Clock face</div>
         <div class="group compact mla">
           <label for="hourOverride" class="desc">Override colors</label>
           <ToggleField
-            v-model="store.config.analogClocks[ci].face.or"
+            v-model="widget.face.or"
             tag-id="hourOverride"
             @update:model-value="resetFaceColors"
           ></ToggleField>
         </div>
         <div class="group stack">
           <label for="faceStyle" class="desc">Style</label>
-          <select id="faceStyle" v-model="store.config.analogClocks[ci].face.st" name="faceStyle" class="select w16">
-            <option
-              v-for="st in analogFaceStyles"
-              :key="st.id"
-              :selected="st.id === store.config.analogClocks[ci].face.st"
-              :value="st.id"
-            >
+          <select id="faceStyle" v-model="widget.face.st" name="faceStyle" class="select w16">
+            <option v-for="st in analogFaceStyles" :key="st.id" :selected="st.id === widget.face.st" :value="st.id">
               {{ st.label }}
             </option>
           </select>
         </div>
         <div class="group stack">
           <label for="faceBorderSize" class="desc">Border size</label>
-          <NumberField v-model="store.config.analogClocks[ci].face.bs" class="w8" tag-id="faceBorderSize">
-          </NumberField>
+          <NumberField v-model="widget.face.bs" class="w8" tag-id="faceBorderSize"> </NumberField>
         </div>
-        <div v-if="store.config.analogClocks[ci].face.or" class="group fill">
+        <div v-if="widget.face.or" class="group fill">
           <div class="group fill stack">
             <label for="faceShadow" class="desc">Shadow</label>
-            <ShadowField v-model="store.config.analogClocks[ci].face.sh" class="" tag-id="faceShadow"> </ShadowField>
+            <ShadowField v-model="widget.face.sh" class="" tag-id="faceShadow"> </ShadowField>
           </div>
           <div class="group fill stack">
             <label for="faceBorderColor" class="desc">Border color</label>
-            <ColorPickerField
-              v-model="store.config.analogClocks[ci].face.bc"
-              tag-id="faceBorderColor"
-            ></ColorPickerField>
+            <ColorPickerField v-model="widget.face.bc" tag-id="faceBorderColor"></ColorPickerField>
           </div>
           <div class="group fill stack">
             <label for="qmc" class="desc">Quarter mark</label>
-            <ColorPickerField v-model="store.config.analogClocks[ci].face.qmc" tag-id="qmc"></ColorPickerField>
+            <ColorPickerField v-model="widget.face.qmc" tag-id="qmc"></ColorPickerField>
           </div>
           <div class="group fill stack">
             <label for="hmc" class="desc">Hour mark</label>
-            <ColorPickerField v-model="store.config.analogClocks[ci].face.hmc" tag-id="hmc"></ColorPickerField>
+            <ColorPickerField v-model="widget.face.hmc" tag-id="hmc"></ColorPickerField>
           </div>
           <div class="group fill stack">
             <label for="mmc" class="desc">Minute mark</label>
-            <ColorPickerField v-model="store.config.analogClocks[ci].face.mmc" tag-id="mmc"></ColorPickerField>
+            <ColorPickerField v-model="widget.face.mmc" tag-id="mmc"></ColorPickerField>
           </div>
         </div>
       </div>
@@ -167,7 +158,7 @@ const updateClockParts = () => {
         <div class="group compact mla">
           <label for="hourOverride" class="desc">Override colors</label>
           <ToggleField
-            v-model="store.config.analogClocks[ci].hand.or"
+            v-model="widget.hand.or"
             tag-id="hourOverride"
             @update:model-value="resetHandColors"
           ></ToggleField>
@@ -175,31 +166,25 @@ const updateClockParts = () => {
         <div class="group">
           <div class="group stack">
             <label for="handStyle" class="desc">Style</label>
-            <select id="handStyle" v-model="store.config.analogClocks[ci].hand.st" name="handStyle" class="select w16">
-              <option
-                v-for="st in analogHandStyles"
-                :key="st.id"
-                :selected="st.id === store.config.analogClocks[ci].hand.st"
-                :value="st.id"
-              >
+            <select id="handStyle" v-model="widget.hand.st" name="handStyle" class="select w16">
+              <option v-for="st in analogHandStyles" :key="st.id" :selected="st.id === widget.hand.st" :value="st.id">
                 {{ st.label }}
               </option>
             </select>
           </div>
         </div>
         <div class="group fill">
-          <div v-if="store.config.analogClocks[ci].hand.or" class="group stack fill">
+          <div v-if="widget.hand.or" class="group stack fill">
             <label for="handShadow" class="desc">Shadow</label>
-            <ShadowField v-model="store.config.analogClocks[ci].hand.sh" tag-id="handShadow" class="fill">
-            </ShadowField>
+            <ShadowField v-model="widget.hand.sh" tag-id="handShadow" class="fill"> </ShadowField>
           </div>
           <div class="group stack fill">
             <label for="enableCenter" class="desc">Center</label>
             <div class="group compact">
-              <ToggleField v-model="store.config.analogClocks[ci].cr.on" tag-id="enableCenter"></ToggleField>
+              <ToggleField v-model="widget.cr.on" tag-id="enableCenter"></ToggleField>
               <ColorPickerField
-                v-if="store.config.analogClocks[ci].hand.or && store.config.analogClocks[ci].cr.on"
-                v-model="store.config.analogClocks[ci].cr.cl"
+                v-if="widget.hand.or && widget.cr.on"
+                v-model="widget.cr.cl"
                 aria-label="Center dot color"
                 class="w4"
               ></ColorPickerField>
@@ -208,10 +193,10 @@ const updateClockParts = () => {
           <div class="group stack fill">
             <label for="enableHour" class="desc">Hour hand</label>
             <div class="group compact">
-              <ToggleField v-model="store.config.analogClocks[ci].hr.on" tag-id="enableHour"></ToggleField>
+              <ToggleField v-model="widget.hr.on" tag-id="enableHour"></ToggleField>
               <ColorPickerField
-                v-if="store.config.analogClocks[ci].hand.or && store.config.analogClocks[ci].hr.on"
-                v-model="store.config.analogClocks[ci].hr.cl"
+                v-if="widget.hand.or && widget.hr.on"
+                v-model="widget.hr.cl"
                 aria-label="Hour hand color"
                 class="w4"
               ></ColorPickerField>
@@ -220,10 +205,10 @@ const updateClockParts = () => {
           <div class="group stack fill">
             <label for="enableMinute" class="desc">Minute hand</label>
             <div class="group compact">
-              <ToggleField v-model="store.config.analogClocks[ci].min.on" tag-id="enableMinute"></ToggleField>
+              <ToggleField v-model="widget.min.on" tag-id="enableMinute"></ToggleField>
               <ColorPickerField
-                v-if="store.config.analogClocks[ci].hand.or && store.config.analogClocks[ci].min.on"
-                v-model="store.config.analogClocks[ci].min.cl"
+                v-if="widget.hand.or && widget.min.on"
+                v-model="widget.min.cl"
                 aria-label="Minute hand color"
                 class="w4"
               ></ColorPickerField>
@@ -232,16 +217,16 @@ const updateClockParts = () => {
           <div class="group stack fill">
             <label for="enableSecond" class="desc">Second hand</label>
             <div class="group compact">
-              <ToggleField v-model="store.config.analogClocks[ci].sec.on" tag-id="enableSecond"></ToggleField>
+              <ToggleField v-model="widget.sec.on" tag-id="enableSecond"></ToggleField>
               <ColorPickerField
-                v-if="store.config.analogClocks[ci].hand.or && store.config.analogClocks[ci].sec.on"
-                v-model="store.config.analogClocks[ci].sec.cl"
+                v-if="widget.hand.or && widget.sec.on"
+                v-model="widget.sec.cl"
                 aria-label="Second hand color"
                 class="w4"
               ></ColorPickerField>
             </div>
           </div>
-          <div v-if="store.config.analogClocks[ci].sec.on" class="group stack fill">
+          <div v-if="widget.sec.on" class="group stack fill">
             <label
               for="secondSmooth"
               class="desc"
@@ -249,7 +234,7 @@ const updateClockParts = () => {
               aria-label="Smooth second hand movement"
               >Smooth</label
             >
-            <ToggleField v-model="store.config.analogClocks[ci].sec.ss" tag-id="secondSmooth"></ToggleField>
+            <ToggleField v-model="widget.sec.ss" tag-id="secondSmooth"></ToggleField>
           </div>
         </div>
       </div>
@@ -258,23 +243,23 @@ const updateClockParts = () => {
     <div class="blockContainer">
       <div class="block">
         <label for="enableLabel" class="label">Enable label</label>
-        <ToggleField v-model="store.config.analogClocks[ci].lb.on" tag-id="enableLabel" class="mla"></ToggleField>
+        <ToggleField v-model="widget.lb.on" tag-id="enableLabel" class="mla"></ToggleField>
       </div>
-      <div v-if="store.config.analogClocks[ci].lb.on" class="block">
+      <div v-if="widget.lb.on" class="block">
         <label for="labelText" class="label">Label text</label>
-        <input id="labelText" v-model="store.config.analogClocks[ci].lb.lb" type="text" class="input w20 mla" />
+        <input id="labelText" v-model="widget.lb.lb" type="text" class="input w20 mla" />
       </div>
       <DigitalClockSegmentFont
-        v-if="store.config.analogClocks[ci].lb.on"
-        v-model:override="store.config.analogClocks[ci].lb.or"
-        v-model:cl="store.config.analogClocks[ci].lb.cl"
-        v-model:ts="store.config.analogClocks[ci].lb.ts"
-        v-model:ls="store.config.analogClocks[ci].lb.ls"
-        v-model:fs="store.config.analogClocks[ci].lb.fs"
-        v-model:ox="store.config.analogClocks[ci].lb.ox"
-        v-model:oy="store.config.analogClocks[ci].lb.oy"
+        v-if="widget.lb.on"
+        v-model:override="widget.lb.or"
+        v-model:cl="widget.lb.cl"
+        v-model:ts="widget.lb.ts"
+        v-model:ls="widget.lb.ls"
+        v-model:fs="widget.lb.fs"
+        v-model:ox="widget.lb.ox"
+        v-model:oy="widget.lb.oy"
         type="label"
-        :clock="store.config.analogClocks[ci]"
+        :clock="widget"
       >
       </DigitalClockSegmentFont>
     </div>
@@ -286,20 +271,20 @@ const updateClockParts = () => {
             <label for="enableRt">Enable relative time</label>
             <div class="desc">Shows the difference in time compared to your computer's time.</div>
           </div>
-          <ToggleField v-model="store.config.analogClocks[ci].rt.on" tag-id="enableRt"></ToggleField>
+          <ToggleField v-model="widget.rt.on" tag-id="enableRt"></ToggleField>
         </div>
       </div>
       <DigitalClockSegmentFont
-        v-if="store.config.analogClocks[ci].rt.on"
-        v-model:override="store.config.analogClocks[ci].rt.or"
-        v-model:cl="store.config.analogClocks[ci].rt.cl"
-        v-model:ts="store.config.analogClocks[ci].rt.ts"
-        v-model:ls="store.config.analogClocks[ci].rt.ls"
-        v-model:fs="store.config.analogClocks[ci].rt.fs"
-        v-model:ox="store.config.analogClocks[ci].rt.ox"
-        v-model:oy="store.config.analogClocks[ci].rt.oy"
+        v-if="widget.rt.on"
+        v-model:override="widget.rt.or"
+        v-model:cl="widget.rt.cl"
+        v-model:ts="widget.rt.ts"
+        v-model:ls="widget.rt.ls"
+        v-model:fs="widget.rt.fs"
+        v-model:ox="widget.rt.ox"
+        v-model:oy="widget.rt.oy"
         type="rt"
-        :clock="store.config.analogClocks[ci]"
+        :clock="widget"
       >
       </DigitalClockSegmentFont>
     </div>

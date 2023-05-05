@@ -1,4 +1,7 @@
 <script setup>
+import { useSettingsStore } from '@/store.js'
+
+const store = useSettingsStore()
 const props = defineProps({
   title: {
     type: String,

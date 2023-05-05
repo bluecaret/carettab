@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 import { DateTime } from 'luxon'
 import { useSettingsStore } from '@/store.js'
 import DigitalClockSegmentFont from '@/components/forms/DigitalClockSegmentFont.vue'
@@ -7,6 +7,7 @@ import DigitalClockSegmentFont from '@/components/forms/DigitalClockSegmentFont.
 const store = useSettingsStore()
 
 const ci = ref(store.config.binaryClocks.findIndex((c) => c.id === store.editing))
+const widget = reactive(store.config.binaryClocks[ci.value])
 
 const allTimezones = []
 for (const zone of Intl.supportedValuesOf('timeZone')) {
@@ -19,7 +20,7 @@ for (const zone of Intl.supportedValuesOf('timeZone')) {
 const selectTimezone = (tz) => {
   if (tz) {
     let newClocks = [...store.config.binaryClocks]
-    newClocks[newClocks.findIndex((c) => c.id === store.config.binaryClocks[ci.value].id)].tz = tz.id
+    newClocks[newClocks.findIndex((c) => c.id === widget.id)].tz = tz.id
     store.$patch({ config: { binaryClocks: newClocks } })
   }
 }
@@ -27,40 +28,40 @@ const selectTimezone = (tz) => {
 
 <template>
   <div class="page">
-    <PageHeading title="Binary clock" :widget-id="store.config.binaryClocks[ci].id"></PageHeading>
+    <PageHeading title="Binary clock" :widget-id="widget.id"></PageHeading>
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
       <SizeAndPositionField
-        v-model:width="store.config.binaryClocks[ci].w.w"
-        v-model:height="store.config.binaryClocks[ci].w.h"
-        v-model:autoSize="store.config.binaryClocks[ci].w.as"
-        v-model:align="store.config.binaryClocks[ci].w.a"
-        v-model:calign="store.config.binaryClocks[ci].w.ca"
-        v-model:x="store.config.binaryClocks[ci].w.x"
-        v-model:y="store.config.binaryClocks[ci].w.y"
+        v-model:width="widget.w.w"
+        v-model:height="widget.w.h"
+        v-model:autoSize="widget.w.as"
+        v-model:align="widget.w.a"
+        v-model:calign="widget.w.ca"
+        v-model:x="widget.w.x"
+        v-model:y="widget.w.y"
       >
       </SizeAndPositionField>
       <WidgetFontField
-        v-model:override="store.config.binaryClocks[ci].w.orf"
-        v-model:cl="store.config.binaryClocks[ci].w.cl"
-        v-model:fs="store.config.binaryClocks[ci].w.fs"
-        v-model:fb="store.config.binaryClocks[ci].w.fb"
-        v-model:fi="store.config.binaryClocks[ci].w.fi"
-        v-model:fu="store.config.binaryClocks[ci].w.fu"
-        v-model:ls="store.config.binaryClocks[ci].w.ls"
-        v-model:ts="store.config.binaryClocks[ci].w.ts"
-        v-model:tt="store.config.binaryClocks[ci].w.tt"
-        v-model:ff="store.config.binaryClocks[ci].w.ff"
+        v-model:override="widget.w.orf"
+        v-model:cl="widget.w.cl"
+        v-model:fs="widget.w.fs"
+        v-model:fb="widget.w.fb"
+        v-model:fi="widget.w.fi"
+        v-model:fu="widget.w.fu"
+        v-model:ls="widget.w.ls"
+        v-model:ts="widget.w.ts"
+        v-model:tt="widget.w.tt"
+        v-model:ff="widget.w.ff"
       >
       </WidgetFontField>
       <WidgetBoxField
-        v-model:override="store.config.binaryClocks[ci].w.cor"
-        v-model:rounded="store.config.binaryClocks[ci].w.crd"
-        v-model:bs="store.config.binaryClocks[ci].w.cbs"
-        v-model:bc="store.config.binaryClocks[ci].w.cbc"
-        v-model:bg="store.config.binaryClocks[ci].w.cbg"
-        v-model:shadow="store.config.binaryClocks[ci].w.csh"
-        v-model:padding="store.config.binaryClocks[ci].w.cpd"
+        v-model:override="widget.w.cor"
+        v-model:rounded="widget.w.crd"
+        v-model:bs="widget.w.cbs"
+        v-model:bc="widget.w.cbc"
+        v-model:bg="widget.w.cbg"
+        v-model:shadow="widget.w.csh"
+        v-model:padding="widget.w.cpd"
       >
       </WidgetBoxField>
     </div>
@@ -75,7 +76,7 @@ const selectTimezone = (tz) => {
           tag-id="clockTimezone"
           class="mla w23"
           :list="allTimezones"
-          :selected="store.config.binaryClocks[ci].tz"
+          :selected="widget.tz"
           @selected="(item) => selectTimezone(item)"
         ></AutocompleteField>
       </div>
@@ -84,24 +85,12 @@ const selectTimezone = (tz) => {
           <div class="label mra">Sizing</div>
           <div class="group compact">
             <label for="indicatorSize" class="desc">Indicator</label>
-            <NumberField
-              v-model="store.config.binaryClocks[ci].ind.sz"
-              :increment="5"
-              :min="0"
-              class="w10 mla"
-              tag-id="indicatorSize"
-            >
+            <NumberField v-model="widget.ind.sz" :increment="5" :min="0" class="w10 mla" tag-id="indicatorSize">
             </NumberField>
           </div>
           <div class="group compact">
             <label for="clockSize" class="desc">Padding</label>
-            <NumberField
-              v-model="store.config.binaryClocks[ci].ind.pd"
-              :increment="5"
-              :min="0"
-              class="w10 mla"
-              tag-id="clockSize"
-            >
+            <NumberField v-model="widget.ind.pd" :increment="5" :min="0" class="w10 mla" tag-id="clockSize">
             </NumberField>
           </div>
         </div>
@@ -110,20 +99,20 @@ const selectTimezone = (tz) => {
         <div class="label mra">Options</div>
         <div class="group compact mla">
           <label for="showSec" class="desc">Seconds</label>
-          <ToggleField v-model="store.config.binaryClocks[ci].ind.ss" tag-id="showSec"></ToggleField>
+          <ToggleField v-model="widget.ind.ss" tag-id="showSec"></ToggleField>
         </div>
         <div class="group compact">
           <label for="hideExtra" class="desc">Extras</label>
-          <ToggleField v-model="store.config.binaryClocks[ci].ind.se" tag-id="hideExtra"></ToggleField>
+          <ToggleField v-model="widget.ind.se" tag-id="hideExtra"></ToggleField>
         </div>
         <div class="group compact">
           <label for="useDots" class="desc">Dots</label>
-          <ToggleField v-model="store.config.binaryClocks[ci].ind.dot" tag-id="useDots"></ToggleField>
+          <ToggleField v-model="widget.ind.dot" tag-id="useDots"></ToggleField>
         </div>
-        <div v-if="!store.config.binaryClocks[ci].ind.dot" class="group compact">
+        <div v-if="!widget.ind.dot" class="group compact">
           <label for="dotOverride" class="desc">Indicators</label>
           <input
-            v-model="store.config.binaryClocks[ci].ind.lbon"
+            v-model="widget.ind.lbon"
             type="text"
             class="input w4"
             maxlength="20"
@@ -131,7 +120,7 @@ const selectTimezone = (tz) => {
             placeholder="on"
           />
           <input
-            v-model="store.config.binaryClocks[ci].ind.lboff"
+            v-model="widget.ind.lboff"
             type="text"
             class="input w4"
             maxlength="20"
@@ -145,31 +134,31 @@ const selectTimezone = (tz) => {
         <div class="group fill">
           <div class="group fill stack">
             <label for="indShadow" class="desc">Shadow</label>
-            <ShadowField v-model="store.config.binaryClocks[ci].ind.sh" class="" tag-id="indShadow"> </ShadowField>
+            <ShadowField v-model="widget.ind.sh" class="" tag-id="indShadow"> </ShadowField>
           </div>
           <div class="group fill stack">
             <label for="onc" class="desc">Hour - on</label>
-            <ColorPickerField v-model="store.config.binaryClocks[ci].ind.hronc" tag-id="onc"></ColorPickerField>
+            <ColorPickerField v-model="widget.ind.hronc" tag-id="onc"></ColorPickerField>
           </div>
           <div class="group fill stack">
             <label for="offc" class="desc">Hour - off</label>
-            <ColorPickerField v-model="store.config.binaryClocks[ci].ind.hroffc" tag-id="offc"></ColorPickerField>
+            <ColorPickerField v-model="widget.ind.hroffc" tag-id="offc"></ColorPickerField>
           </div>
           <div class="group fill stack">
             <label for="onc" class="desc">Min. - on</label>
-            <ColorPickerField v-model="store.config.binaryClocks[ci].ind.minonc" tag-id="onc"></ColorPickerField>
+            <ColorPickerField v-model="widget.ind.minonc" tag-id="onc"></ColorPickerField>
           </div>
           <div class="group fill stack">
             <label for="offc" class="desc">Min. - off</label>
-            <ColorPickerField v-model="store.config.binaryClocks[ci].ind.minoffc" tag-id="offc"></ColorPickerField>
+            <ColorPickerField v-model="widget.ind.minoffc" tag-id="offc"></ColorPickerField>
           </div>
           <div class="group fill stack">
             <label for="onc" class="desc">Sec. - on</label>
-            <ColorPickerField v-model="store.config.binaryClocks[ci].ind.seconc" tag-id="onc"></ColorPickerField>
+            <ColorPickerField v-model="widget.ind.seconc" tag-id="onc"></ColorPickerField>
           </div>
           <div class="group fill stack">
             <label for="offc" class="desc">Sec. - off</label>
-            <ColorPickerField v-model="store.config.binaryClocks[ci].ind.secoffc" tag-id="offc"></ColorPickerField>
+            <ColorPickerField v-model="widget.ind.secoffc" tag-id="offc"></ColorPickerField>
           </div>
         </div>
       </div>
@@ -178,23 +167,23 @@ const selectTimezone = (tz) => {
     <div class="blockContainer">
       <div class="block">
         <label for="enableLabel" class="label">Enable label</label>
-        <ToggleField v-model="store.config.binaryClocks[ci].lb.on" tag-id="enableLabel" class="mla"></ToggleField>
+        <ToggleField v-model="widget.lb.on" tag-id="enableLabel" class="mla"></ToggleField>
       </div>
-      <div v-if="store.config.binaryClocks[ci].lb.on" class="block">
+      <div v-if="widget.lb.on" class="block">
         <label for="labelText" class="label">Label text</label>
-        <input id="labelText" v-model="store.config.binaryClocks[ci].lb.lb" type="text" class="input w20 mla" />
+        <input id="labelText" v-model="widget.lb.lb" type="text" class="input w20 mla" />
       </div>
       <DigitalClockSegmentFont
-        v-if="store.config.binaryClocks[ci].lb.on"
-        v-model:override="store.config.binaryClocks[ci].lb.or"
-        v-model:cl="store.config.binaryClocks[ci].lb.cl"
-        v-model:ts="store.config.binaryClocks[ci].lb.ts"
-        v-model:ls="store.config.binaryClocks[ci].lb.ls"
-        v-model:fs="store.config.binaryClocks[ci].lb.fs"
-        v-model:ox="store.config.binaryClocks[ci].lb.ox"
-        v-model:oy="store.config.binaryClocks[ci].lb.oy"
+        v-if="widget.lb.on"
+        v-model:override="widget.lb.or"
+        v-model:cl="widget.lb.cl"
+        v-model:ts="widget.lb.ts"
+        v-model:ls="widget.lb.ls"
+        v-model:fs="widget.lb.fs"
+        v-model:ox="widget.lb.ox"
+        v-model:oy="widget.lb.oy"
         type="label"
-        :clock="store.config.binaryClocks[ci]"
+        :clock="widget"
       >
       </DigitalClockSegmentFont>
     </div>
@@ -206,20 +195,20 @@ const selectTimezone = (tz) => {
             <label for="enableRt">Enable relative time</label>
             <div class="desc">Shows the difference in time compared to your computer's time.</div>
           </div>
-          <ToggleField v-model="store.config.binaryClocks[ci].rt.on" tag-id="enableRt"></ToggleField>
+          <ToggleField v-model="widget.rt.on" tag-id="enableRt"></ToggleField>
         </div>
       </div>
       <DigitalClockSegmentFont
-        v-if="store.config.binaryClocks[ci].rt.on"
-        v-model:override="store.config.binaryClocks[ci].rt.or"
-        v-model:cl="store.config.binaryClocks[ci].rt.cl"
-        v-model:ts="store.config.binaryClocks[ci].rt.ts"
-        v-model:ls="store.config.binaryClocks[ci].rt.ls"
-        v-model:fs="store.config.binaryClocks[ci].rt.fs"
-        v-model:ox="store.config.binaryClocks[ci].rt.ox"
-        v-model:oy="store.config.binaryClocks[ci].rt.oy"
+        v-if="widget.rt.on"
+        v-model:override="widget.rt.or"
+        v-model:cl="widget.rt.cl"
+        v-model:ts="widget.rt.ts"
+        v-model:ls="widget.rt.ls"
+        v-model:fs="widget.rt.fs"
+        v-model:ox="widget.rt.ox"
+        v-model:oy="widget.rt.oy"
         type="rt"
-        :clock="store.config.binaryClocks[ci]"
+        :clock="widget"
       >
       </DigitalClockSegmentFont>
     </div>

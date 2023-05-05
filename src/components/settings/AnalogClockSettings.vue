@@ -137,19 +137,19 @@ const updateClockParts = () => {
           </div>
           <div class="group fill stack">
             <label for="faceBorderColor" class="desc">Border color</label>
-            <ColorPickerField v-model="widget.face.bc" tag-id="faceBorderColor"></ColorPickerField>
+            <ColorField v-model="widget.face.bc" tag-id="faceBorderColor"></ColorField>
           </div>
           <div class="group fill stack">
             <label for="qmc" class="desc">Quarter mark</label>
-            <ColorPickerField v-model="widget.face.qmc" tag-id="qmc"></ColorPickerField>
+            <ColorField v-model="widget.face.qmc" tag-id="qmc"></ColorField>
           </div>
           <div class="group fill stack">
             <label for="hmc" class="desc">Hour mark</label>
-            <ColorPickerField v-model="widget.face.hmc" tag-id="hmc"></ColorPickerField>
+            <ColorField v-model="widget.face.hmc" tag-id="hmc"></ColorField>
           </div>
           <div class="group fill stack">
             <label for="mmc" class="desc">Minute mark</label>
-            <ColorPickerField v-model="widget.face.mmc" tag-id="mmc"></ColorPickerField>
+            <ColorField v-model="widget.face.mmc" tag-id="mmc"></ColorField>
           </div>
         </div>
       </div>
@@ -182,48 +182,48 @@ const updateClockParts = () => {
             <label for="enableCenter" class="desc">Center</label>
             <div class="group compact">
               <ToggleField v-model="widget.cr.on" tag-id="enableCenter"></ToggleField>
-              <ColorPickerField
+              <ColorField
                 v-if="widget.hand.or && widget.cr.on"
                 v-model="widget.cr.cl"
                 aria-label="Center dot color"
                 class="w4"
-              ></ColorPickerField>
+              ></ColorField>
             </div>
           </div>
           <div class="group stack fill">
             <label for="enableHour" class="desc">Hour hand</label>
             <div class="group compact">
               <ToggleField v-model="widget.hr.on" tag-id="enableHour"></ToggleField>
-              <ColorPickerField
+              <ColorField
                 v-if="widget.hand.or && widget.hr.on"
                 v-model="widget.hr.cl"
                 aria-label="Hour hand color"
                 class="w4"
-              ></ColorPickerField>
+              ></ColorField>
             </div>
           </div>
           <div class="group stack fill">
             <label for="enableMinute" class="desc">Minute hand</label>
             <div class="group compact">
               <ToggleField v-model="widget.min.on" tag-id="enableMinute"></ToggleField>
-              <ColorPickerField
+              <ColorField
                 v-if="widget.hand.or && widget.min.on"
                 v-model="widget.min.cl"
                 aria-label="Minute hand color"
                 class="w4"
-              ></ColorPickerField>
+              ></ColorField>
             </div>
           </div>
           <div class="group stack fill">
             <label for="enableSecond" class="desc">Second hand</label>
             <div class="group compact">
               <ToggleField v-model="widget.sec.on" tag-id="enableSecond"></ToggleField>
-              <ColorPickerField
+              <ColorField
                 v-if="widget.hand.or && widget.sec.on"
                 v-model="widget.sec.cl"
                 aria-label="Second hand color"
                 class="w4"
-              ></ColorPickerField>
+              ></ColorField>
             </div>
           </div>
           <div v-if="widget.sec.on" class="group stack fill">

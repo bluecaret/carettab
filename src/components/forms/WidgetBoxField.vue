@@ -111,13 +111,13 @@ const resetOverride = () => {
       </div>
       <div class="group stack">
         <label for="boxBc" class="desc"> Border color </label>
-        <ColorPickerField tag-id="boxBc" class="w8" :model-value="props.bc" @update:model-value="handleBcUpdate">
-        </ColorPickerField>
+        <ColorField tag-id="boxBc" class="w8" :model-value="props.bc" @update:model-value="handleBcUpdate">
+        </ColorField>
       </div>
       <div class="group stack">
         <label for="boxBg" class="desc"> Background </label>
-        <ColorPickerField tag-id="boxBg" class="w8" :model-value="props.bg" @update:model-value="handleBgUpdate">
-        </ColorPickerField>
+        <ColorField tag-id="boxBg" class="w8" :model-value="props.bg" @update:model-value="handleBgUpdate">
+        </ColorField>
       </div>
       <div class="group stack">
         <label for="boxShadow" class="desc"> Shadow </label>

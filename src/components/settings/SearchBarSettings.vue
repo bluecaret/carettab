@@ -127,15 +127,15 @@ const widget = reactive(store.config.searchBars[ci.value])
         <div class="group fill">
           <div class="group stack fill">
             <label for="color" class="desc">Color</label>
-            <ColorPickerField id="color" v-model="widget.cl" name="color"></ColorPickerField>
+            <ColorField id="color" v-model="widget.cl" name="color"></ColorField>
           </div>
           <div class="group stack fill">
             <label for="bg" class="desc">Background</label>
-            <ColorPickerField id="bg" v-model="widget.bg" name="bg"></ColorPickerField>
+            <ColorField id="bg" v-model="widget.bg" name="bg"></ColorField>
           </div>
           <div class="group stack fill">
             <label for="bc" class="desc">Border</label>
-            <ColorPickerField id="bc" v-model="widget.bc" name="bc"></ColorPickerField>
+            <ColorField id="bc" v-model="widget.bc" name="bc"></ColorField>
           </div>
           <div class="group stack fill">
             <label for="ts" class="desc">Text shadow</label>

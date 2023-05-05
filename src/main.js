@@ -5,7 +5,7 @@ import { i18n } from './i18n.js'
 import App from './App.vue'
 import DropdownMenu from '@/components/elements/DropdownMenu.vue'
 import ModalWindow from '@/components/elements/ModalWindow.vue'
-import ColorPickerField from '@/components/forms/ColorPickerField.vue'
+import ColorField from '@/components/forms/ColorField.vue'
 import ShadowField from '@/components/forms/ShadowField.vue'
 import ToggleField from '@/components/forms/ToggleField.vue'
 import NumberField from '@/components/forms/NumberField.vue'
@@ -217,7 +217,7 @@ quickUserCheck().then(async (user) => {
   app.use(i18n)
   app.component('DropdownMenu', DropdownMenu)
   app.component('ModalWindow', ModalWindow)
-  app.component('ColorPickerField', ColorPickerField)
+  app.component('ColorField', ColorField)
   app.component('ShadowField', ShadowField)
   app.component('ToggleField', ToggleField)
   app.component('NumberField', NumberField)

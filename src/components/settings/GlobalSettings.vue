@@ -215,8 +215,7 @@ const handleLangSelect = (event) => {
         <div class="group">
           <div class="group stack">
             <label for="backgroundColor" class="desc">Color</label>
-            <ColorPickerField v-model="store.config.global.bg" tag-id="backgroundColor" class="w10 mra">
-            </ColorPickerField>
+            <ColorField v-model="store.config.global.bg" tag-id="backgroundColor" class="w10 mra"> </ColorField>
           </div>
           <div v-if="store.config.global.it && store.config.global.it !== 'none'" class="group stack">
             <div class="desc">

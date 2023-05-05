@@ -6,7 +6,8 @@
       "rules": {
         "indentation": 2,
         "length-zero-no-unit": true,
-        "no-descending-specificity": null
+        "no-descending-specificity": null,
+        "declaration-block-no-shorthand-property-overrides": null
       }
     }
   ]

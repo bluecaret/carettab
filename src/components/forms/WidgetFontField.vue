@@ -180,13 +180,8 @@ const resetOverride = () => {
       </div>
       <div class="group stack">
         <label for="widgetFontColor" class="desc"> Color </label>
-        <ColorPickerField
-          tag-id="widgetFontColor"
-          class="w8"
-          :model-value="props.cl"
-          @update:model-value="handleClUpdate"
-        >
-        </ColorPickerField>
+        <ColorField tag-id="widgetFontColor" class="w8" :model-value="props.cl" @update:model-value="handleClUpdate">
+        </ColorField>
       </div>
       <div class="group stack">
         <label for="widgetFontColor" class="desc"> Shadow </label>

@@ -114,8 +114,8 @@ const resetOverride = () => {
       </div>
       <div class="group stack w6">
         <label :for="`${type}-fontColor`" class="desc"> Color </label>
-        <ColorPickerField :tag-id="`${type}-fontColor`" :model-value="props.cl" @update:model-value="handleClUpdate">
-        </ColorPickerField>
+        <ColorField :tag-id="`${type}-fontColor`" :model-value="props.cl" @update:model-value="handleClUpdate">
+        </ColorField>
       </div>
       <div class="group stack w6">
         <label :for="`${type}-fontColor`" class="desc"> Shadow </label>

@@ -86,7 +86,7 @@ const handlePatternSelect = (id) => {
     <div class="blockContainer">
       <div class="block">
         <label for="backgroundColor" class="label mra">Wallpaper color</label>
-        <ColorPickerField v-model="store.config.global.bg" tag-id="backgroundColor" class="w10"> </ColorPickerField>
+        <ColorField v-model="store.config.global.bg" tag-id="backgroundColor" class="w10"> </ColorField>
       </div>
       <div class="block">
         <div class="group fill">

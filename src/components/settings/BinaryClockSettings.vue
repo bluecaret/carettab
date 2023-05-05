@@ -138,27 +138,27 @@ const selectTimezone = (tz) => {
           </div>
           <div class="group fill stack">
             <label for="onc" class="desc">Hour - on</label>
-            <ColorPickerField v-model="widget.ind.hronc" tag-id="onc"></ColorPickerField>
+            <ColorField v-model="widget.ind.hronc" tag-id="onc"></ColorField>
           </div>
           <div class="group fill stack">
             <label for="offc" class="desc">Hour - off</label>
-            <ColorPickerField v-model="widget.ind.hroffc" tag-id="offc"></ColorPickerField>
+            <ColorField v-model="widget.ind.hroffc" tag-id="offc"></ColorField>
           </div>
           <div class="group fill stack">
             <label for="onc" class="desc">Min. - on</label>
-            <ColorPickerField v-model="widget.ind.minonc" tag-id="onc"></ColorPickerField>
+            <ColorField v-model="widget.ind.minonc" tag-id="onc"></ColorField>
           </div>
           <div class="group fill stack">
             <label for="offc" class="desc">Min. - off</label>
-            <ColorPickerField v-model="widget.ind.minoffc" tag-id="offc"></ColorPickerField>
+            <ColorField v-model="widget.ind.minoffc" tag-id="offc"></ColorField>
           </div>
           <div class="group fill stack">
             <label for="onc" class="desc">Sec. - on</label>
-            <ColorPickerField v-model="widget.ind.seconc" tag-id="onc"></ColorPickerField>
+            <ColorField v-model="widget.ind.seconc" tag-id="onc"></ColorField>
           </div>
           <div class="group fill stack">
             <label for="offc" class="desc">Sec. - off</label>
-            <ColorPickerField v-model="widget.ind.secoffc" tag-id="offc"></ColorPickerField>
+            <ColorField v-model="widget.ind.secoffc" tag-id="offc"></ColorField>
           </div>
         </div>
       </div>

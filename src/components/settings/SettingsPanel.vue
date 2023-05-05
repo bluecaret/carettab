@@ -9,6 +9,7 @@ import AnalogClockSettings from '@/components/settings/AnalogClockSettings.vue'
 import BinaryClockSettings from '@/components/settings/BinaryClockSettings.vue'
 import DigitalClockSettings from '@/components/settings/DigitalClockSettings.vue'
 import DateSettings from '@/components/settings/DateSettings.vue'
+import SearchBarSettings from '@/components/settings/SearchBarSettings.vue'
 import PremiumModal from '@/components/PremiumModal.vue'
 
 const user = inject('user')
@@ -116,6 +117,7 @@ const handleSave = () => {
     <BinaryClockSettings v-if="['binaryClock'].includes(settingsPage)"></BinaryClockSettings>
     <DigitalClockSettings v-if="['digitalClock'].includes(settingsPage)"></DigitalClockSettings>
     <DateSettings v-if="['date'].includes(settingsPage)"></DateSettings>
+    <SearchBarSettings v-if="['searchBar'].includes(settingsPage)"></SearchBarSettings>
     <footer class="footer">
       <DropdownMenu ref="newWidgetMenu" style="width: auto">
         <template #button>

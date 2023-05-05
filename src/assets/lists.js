@@ -8,7 +8,7 @@ export const widgetTypes = [
   // { id: 'wr', type: 'weather', name: 'Weather', icon: 'fa-cloud-sun' },
   // { id: 'np', type: 'notepad', name: 'Notepad', icon: 'fa-note-sticky' },
   // { id: 'qt', type: 'quote', name: 'Quotes', icon: 'fa-quote-left' },
-  // { id: 'se', type: 'search', name: 'Search', icon: 'fa-magnifying-glass' },
+  { id: 'sb', type: 'searchBar', store: 'searchBars', name: 'Search Bar', icon: 'fa-magnifying-glass' },
 ]
 
 export const languages = [

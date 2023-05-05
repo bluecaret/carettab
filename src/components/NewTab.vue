@@ -7,6 +7,7 @@ import DigitalClockWidget from '@/components/widgets/DigitalClockWidget.vue'
 import AnalogClockWidget from '@/components/widgets/AnalogClockWidget.vue'
 import BinaryClockWidget from '@/components/widgets/BinaryClockWidget.vue'
 import DateWidget from '@/components/widgets/DateWidget.vue'
+import SearchBarWidget from '@/components/widgets/SearchBarWidget.vue'
 
 const store = useSettingsStore()
 
@@ -69,6 +70,14 @@ const getBgColor = computed(() => {
         >
         </DateWidget>
         <div v-if="!layer.on && layer.widget === 'date'"></div>
+        <SearchBarWidget
+          v-if="layer.on && layer.widget === 'searchBar'"
+          :class="{ outliner: store.showOutliner }"
+          :widget="store.config.searchBars.find((c) => c.id === layer.id)"
+          :style="`z-index: ${store.config.layers.length - index}`"
+        >
+        </SearchBarWidget>
+        <div v-if="!layer.on && layer.widget === 'searchBar'"></div>
       </template>
     </div>
     <ToggleSettings></ToggleSettings>

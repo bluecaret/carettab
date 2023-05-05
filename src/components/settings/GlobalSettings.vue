@@ -21,16 +21,6 @@ const store = useSettingsStore()
 const uploadImageField = ref(null)
 const { locale } = useI18n({ useScope: 'global' })
 
-// console.log($root.$i18n)
-
-const selectFont = (font) => {
-  if (font) {
-    let newGlobal = { ...store.config.global }
-    newGlobal.ff = font
-    store.$patch({ config: { global: newGlobal } })
-  }
-}
-
 const handleUploadBtnClick = () => {
   uploadImageField.value.click()
 }
@@ -185,9 +175,8 @@ const handleLangSelect = (event) => {
       v-model:fu="store.config.global.fu"
       v-model:ls="store.config.global.ls"
       v-model:tt="store.config.global.tt"
+      v-model:ff="store.config.global.ff"
       no-override
-      :ff="store.config.global.ff"
-      @update:ff="selectFont($event)"
     >
     </WidgetFontField>
     <WidgetBoxField

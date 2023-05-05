@@ -29,14 +29,6 @@ const selectTimezone = (tz) => {
     store.$patch({ config: { digitalClocks: newClocks } })
   }
 }
-
-const selectFont = (font) => {
-  if (font) {
-    let newClocks = [...store.config.digitalClocks]
-    newClocks[newClocks.findIndex((c) => c.id === store.config.digitalClocks[ci.value].id)].w.ff = font
-    store.$patch({ config: { digitalClocks: newClocks } })
-  }
-}
 </script>
 
 <template>
@@ -64,8 +56,7 @@ const selectFont = (font) => {
         v-model:ls="store.config.digitalClocks[ci].w.ls"
         v-model:ts="store.config.digitalClocks[ci].w.ts"
         v-model:tt="store.config.digitalClocks[ci].w.tt"
-        :ff="store.config.digitalClocks[ci].w.ff"
-        @update:ff="selectFont($event)"
+        v-model:ff="store.config.digitalClocks[ci].w.ff"
       >
       </WidgetFontField>
       <WidgetBoxField

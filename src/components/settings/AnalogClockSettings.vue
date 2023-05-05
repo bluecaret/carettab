@@ -25,14 +25,6 @@ const selectTimezone = (tz) => {
   }
 }
 
-const selectFont = (font) => {
-  if (font) {
-    let newClocks = [...store.config.analogClocks]
-    newClocks[newClocks.findIndex((c) => c.id === store.config.analogClocks[ci.value].id)].w.ff = font
-    store.$patch({ config: { analogClocks: newClocks } })
-  }
-}
-
 const resetFaceColors = () => {
   store.config.analogClocks[ci.value].face.sh = store.config.analogClocks[ci.value].w.ts
   store.config.analogClocks[ci.value].face.bc = store.config.analogClocks[ci.value].w.cl
@@ -80,8 +72,7 @@ const updateClockParts = () => {
         v-model:ls="store.config.analogClocks[ci].w.ls"
         v-model:ts="store.config.analogClocks[ci].w.ts"
         v-model:tt="store.config.analogClocks[ci].w.tt"
-        :ff="store.config.analogClocks[ci].w.ff"
-        @update:ff="selectFont($event)"
+        v-model:ff="store.config.analogClocks[ci].w.ff"
         @update:cl="updateClockParts"
         @update:ts="updateClockParts"
       >

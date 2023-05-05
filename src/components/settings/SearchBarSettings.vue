@@ -5,14 +5,6 @@ import { useSettingsStore } from '@/store.js'
 const store = useSettingsStore()
 
 const ci = ref(store.config.searchBars.findIndex((c) => c.id === store.editing))
-
-const selectFont = (font) => {
-  if (font) {
-    let newSearchBars = [...store.config.searchBars]
-    newSearchBars[newSearchBars.findIndex((c) => c.id === store.config.searchBars[ci.value].id)].w.ff = font
-    store.$patch({ config: { searchBars: newSearchBars } })
-  }
-}
 </script>
 
 <template>
@@ -40,8 +32,7 @@ const selectFont = (font) => {
         v-model:ls="store.config.searchBars[ci].w.ls"
         v-model:ts="store.config.searchBars[ci].w.ts"
         v-model:tt="store.config.searchBars[ci].w.tt"
-        :ff="store.config.searchBars[ci].w.ff"
-        @update:ff="selectFont($event)"
+        v-model:ff="store.config.searchBars[ci].w.ff"
       >
       </WidgetFontField>
       <WidgetBoxField

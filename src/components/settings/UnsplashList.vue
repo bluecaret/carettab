@@ -41,17 +41,7 @@ const handleUnsplashPhotoSearch = () => {
 
 <template>
   <div class="page">
-    <h2 class="title">
-      <button
-        class="back"
-        aria-label="Go back to previous page"
-        title="Go back to previous page"
-        @click="store.goTo('dashboard')"
-      >
-        <fa icon="fa-circle-left" fixed-width></fa>
-      </button>
-      Unsplash.com Photos
-    </h2>
+    <PageHeading title="Unsplash.com photos"></PageHeading>
     <div class="tabs">
       <button
         class="btn tab"

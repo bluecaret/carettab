@@ -35,17 +35,7 @@ const selectFont = (font) => {
 
 <template>
   <div class="page">
-    <h2 class="title">
-      <button
-        class="back"
-        aria-label="Go back to previous page"
-        title="Go back to previous page"
-        @click="store.goTo('dashboard')"
-      >
-        <fa icon="fa-circle-left" fixed-width></fa>
-      </button>
-      Date <span style="font-size: 0.7em; opacity: 0.7">({{ store.config.dates[ci].id }})</span>
-    </h2>
+    <PageHeading title="Date" :widget-id="store.config.dates[ci].id"></PageHeading>
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
       <SizeAndPositionField

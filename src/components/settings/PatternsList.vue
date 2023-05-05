@@ -82,17 +82,7 @@ const handlePatternSelect = (id) => {
 
 <template>
   <div class="page">
-    <h2 class="title">
-      <button
-        class="back"
-        aria-label="Go back to previous page"
-        title="Go back to previous page"
-        @click="store.goTo('dashboard')"
-      >
-        <fa icon="fa-circle-left" fixed-width></fa>
-      </button>
-      Patterns
-    </h2>
+    <PageHeading title="Patterns"></PageHeading>
     <div class="blockContainer">
       <div class="block">
         <label for="backgroundColor" class="label mra">Wallpaper color</label>

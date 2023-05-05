@@ -17,17 +17,7 @@ const selectFont = (font) => {
 
 <template>
   <div class="page">
-    <h2 class="title">
-      <button
-        class="back"
-        aria-label="Go back to previous page"
-        title="Go back to previous page"
-        @click="store.goTo('dashboard')"
-      >
-        <fa icon="fa-circle-left" fixed-width></fa>
-      </button>
-      Search Bar <span style="font-size: 0.7em; opacity: 0.7">({{ store.config.searchBars[ci].id }})</span>
-    </h2>
+    <PageHeading title="Search Bar" :widget-id="store.config.searchBars[ci].id"></PageHeading>
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
       <SizeAndPositionField

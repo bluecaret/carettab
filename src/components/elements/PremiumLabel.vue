@@ -56,7 +56,7 @@ const wrapStyles = computed(() => {
   }
 
   &.premiumLabelPaid {
-    opacity: 0.7;
+    color: var(--cGrey4);
     .svg-inline--fa {
       font-size: 1.2rem;
       line-height: 1;

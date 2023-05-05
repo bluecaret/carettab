@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch, nextTick } from 'vue'
-import { useDetectOutsideClick } from '../helpers/outsideClick'
+import { useDetectOutsideClick } from '@/helpers/outsideClick'
 
 const ddBtn = ref()
 const ddMenu = ref()

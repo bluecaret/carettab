@@ -1,5 +1,6 @@
 <!-- eslint-disable no-undef -->
 <script setup>
+import { useI18n } from 'vue-i18n'
 import { ref, inject } from 'vue'
 import { useSettingsStore, getStorage, setStorage } from '@/store.js'
 import { languages } from '@/assets/lists.js'
@@ -18,6 +19,9 @@ const props = defineProps({
 const access = inject('access')
 const store = useSettingsStore()
 const uploadImageField = ref(null)
+const { locale } = useI18n({ useScope: 'global' })
+
+// console.log($root.$i18n)
 
 const selectFont = (font) => {
   if (font) {
@@ -163,6 +167,11 @@ const handleImageAdjustmentReset = () => {
     },
   })
 }
+
+const handleLangSelect = (event) => {
+  console.log(event.target.value)
+  locale.value = event.target.value
+}
 </script>
 
 <template>
@@ -196,9 +205,18 @@ const handleImageAdjustmentReset = () => {
   <div class="blockContainer">
     <div class="block">
       <label for="lang" class="label mra">Language</label>
-      <select id="lang" v-model="store.config.global.lang" class="select w25" name="lang">
+      <select
+        id="lang"
+        v-model="store.config.global.lang"
+        class="select w25"
+        name="lang"
+        @change="handleLangSelect($event)"
+      >
         <option v-for="lang in languages" :key="lang.id" :value="lang.id">{{ lang.label }}</option>
       </select>
+      <!-- <select id="locale" v-model="$i18n.locale" style="position: fixed; z-index: 9999; bottom: 0">
+        <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{ locale }}</option>
+      </select> -->
     </div>
     <div class="block">
       <div class="group fill">

@@ -1,4 +1,5 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
 import { computed, onMounted, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { storeToRefs } from 'pinia'
@@ -8,14 +9,16 @@ import LoadingOverlay from '@/components/LoadingOverlay.vue'
 import { fontList } from '@/assets/lists.js'
 import { ExtPay } from '@/assets/ExtPay.js'
 
+const { locale } = useI18n({ useScope: 'global' })
 const extpay = ExtPay('carettab')
 const user = inject('user')
 const store = useSettingsStore()
 const { isLoading, settingsOpen } = storeToRefs(store)
 
-onMounted(() => {
-  store.load()
+onMounted(async () => {
+  await store.load()
   updateTime()
+  locale.value = store.config.global.lang
 
   // Run a full user check against the server now that the app has loaded
   const refreshUserCheck = () => {
@@ -77,9 +80,6 @@ const buildFontLink = computed(() => {
 
 <template>
   <div class="appInner">
-    <select id="locale" v-model="$i18n.locale" style="position: fixed; z-index: 9999; bottom: 0">
-      <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{ locale }}</option>
-    </select>
     <link id="google-font-link" rel="stylesheet" :href="buildFontLink" />
     <NewTab></NewTab>
     <SettingsPanel v-if="settingsOpen"></SettingsPanel>

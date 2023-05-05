@@ -80,7 +80,7 @@ export const useSettingsStore = defineStore('settings', () => {
 
   const config = reactive({
     global: {
-      lang: 'en-US', // language
+      lang: 'enUS', // language
       hsb: false, // hide settings button
       dts: false, // disable text selection
       tabt: '', // tab title

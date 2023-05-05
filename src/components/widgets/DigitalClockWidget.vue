@@ -38,7 +38,7 @@ const blink = computed(() => {
 })
 
 const containerStyles = computed(() => {
-  return setWidgetContainerStyles(props.widget, store.config.global)
+  return setWidgetContainerStyles(props.clock, store.config.global)
 })
 
 const segmentStyles = (type, lsUsesMargin = false) => {

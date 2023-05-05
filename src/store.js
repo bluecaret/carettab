@@ -240,7 +240,7 @@ export const useSettingsStore = defineStore('settings', () => {
           newWidget = new DateWidget()
           break
         case 'searchBar':
-          newWidget = new SearchBarWidget()
+          newWidget = new SearchBar()
           break
 
         default:

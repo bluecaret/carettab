@@ -36,8 +36,9 @@ const currentShadow = computed(() => {
 const currentTextShadow = computed(() => {
   return `${x.value}px ${y.value}px ${blur.value}px hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})`
 })
-const currentBoxShadow = computed(() => {
-  return `${x.value}px ${y.value}px ${blur.value}px 0px hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})`
+const currentShadowPreview = computed(() => {
+  return `--shadowPreviewBox: ${x.value}px ${y.value}px ${blur.value}px 0px hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value});
+  --shadowPreviewText: ${x.value}px ${y.value}px ${blur.value}px hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})`
 })
 
 const handleShadowSet = () => {
@@ -178,8 +179,8 @@ const handleShadowSet = () => {
           <div class="group stack fill">
             <label for="" class="label">Preview</label>
             <div class="shadowPreview">
-              <div></div>
-              <div></div>
+              <div :style="currentShadowPreview"></div>
+              <div :style="currentShadowPreview"></div>
             </div>
           </div>
         </div>
@@ -238,9 +239,6 @@ const handleShadowSet = () => {
     text-shadow: v-bind(currentTextShadow);
   }
 
-  > div.text:nth-child(2)::before {
-  }
-
   .disabled {
     display: none;
   }
@@ -289,14 +287,14 @@ const handleShadowSet = () => {
     width: 60%;
     height: 30%;
     background-color: hsl(0deg 0% 85%);
-    box-shadow: v-bind(currentBoxShadow);
+    box-shadow: var(--shadowPreviewBox);
   }
 
   > div::after {
     content: 'ABC';
     font-weight: 700;
     color: hsl(0deg 0% 85%);
-    text-shadow: v-bind(currentTextShadow);
+    text-shadow: var(--shadowPreviewText);
   }
 
   > div:last-child::before {

@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useSettingsStore } from '@/store.js'
-import WallpaperLayer from '@/components/WallpaperLayer.vue'
+import WallpaperLayer from '@/components/elements/WallpaperLayer.vue'
 import ToggleSettings from '@/components/settings/ToggleSettings.vue'
 import DigitalClockWidget from '@/components/widgets/DigitalClockWidget.vue'
 import AnalogClockWidget from '@/components/widgets/AnalogClockWidget.vue'

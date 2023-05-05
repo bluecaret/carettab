@@ -5,7 +5,7 @@ import { useSettingsStore } from '@/store.js'
 import { storeToRefs } from 'pinia'
 import NewTab from '@/components/NewTab.vue'
 import SettingsPanel from '@/components/settings/SettingsPanel.vue'
-import LoadingOverlay from '@/components/LoadingOverlay.vue'
+import LoadingOverlay from '@/components/elements/LoadingOverlay.vue'
 import { fontList } from '@/assets/lists.js'
 import { ExtPay } from '@/assets/ExtPay.js'
 

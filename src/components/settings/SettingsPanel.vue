@@ -10,7 +10,7 @@ import BinaryClockSettings from '@/components/settings/BinaryClockSettings.vue'
 import DigitalClockSettings from '@/components/settings/DigitalClockSettings.vue'
 import DateSettings from '@/components/settings/DateSettings.vue'
 import SearchBarSettings from '@/components/settings/SearchBarSettings.vue'
-import PremiumModal from '@/components/PremiumModal.vue'
+import PremiumModal from '@/components/elements/PremiumModal.vue'
 
 const user = inject('user')
 const store = useSettingsStore()

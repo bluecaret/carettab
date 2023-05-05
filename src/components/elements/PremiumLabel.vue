@@ -1,6 +1,6 @@
 <script setup>
 import { inject, computed, ref } from 'vue'
-import PremiumModal from '@/components/PremiumModal.vue'
+import PremiumModal from '@/components/elements/PremiumModal.vue'
 
 const props = defineProps({ right: Boolean, left: Boolean })
 

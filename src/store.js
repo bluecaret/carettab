@@ -5,6 +5,7 @@ import { DigitalClock } from '@/classes/DigitalClock.js'
 import { AnalogClock } from '@/classes/AnalogClock.js'
 import { BinaryClock } from '@/classes/BinaryClock.js'
 import { DateWidget } from '@/classes/Date.js'
+import { SearchBar } from '@/classes/SearchBar.js'
 import { Layer } from '@/classes/Layer.js'
 import { widgetTypes } from '@/assets/lists.js'
 
@@ -123,6 +124,7 @@ export const useSettingsStore = defineStore('settings', () => {
     binaryClocks: [],
     digitalClocks: [],
     dates: [],
+    searchBars: [],
   })
 
   const load = async () => {
@@ -163,12 +165,21 @@ export const useSettingsStore = defineStore('settings', () => {
         })
       }
 
+      let allSearchBars = []
+      let filterSearchBars = keys.filter((k) => k.startsWith('sb-'))
+      if (filterSearchBars.length > 0) {
+        filterSearchBars.forEach((k) => {
+          allSearchBars.push(store[k])
+        })
+      }
+
       if (store.global) config.global = store.global
       if (store.layers) config.layers = store.layers
       if (allAnalogClocks) config.analogClocks = allAnalogClocks
       if (allBinaryClocks) config.binaryClocks = allBinaryClocks
       if (allDigitalClocks) config.digitalClocks = allDigitalClocks
       if (allDates) config.dates = allDates
+      if (allSearchBars) config.searchBars = allSearchBars
     }
   }
 
@@ -193,8 +204,8 @@ export const useSettingsStore = defineStore('settings', () => {
         newStore[c.id] = JSON.parse(JSON.stringify(c))
       })
     }
-    if (config.dates.length > 0) {
-      config.dates.forEach((c) => {
+    if (config.searchBars.length > 0) {
+      config.searchBars.forEach((c) => {
         newStore[c.id] = JSON.parse(JSON.stringify(c))
       })
     }
@@ -227,6 +238,9 @@ export const useSettingsStore = defineStore('settings', () => {
           break
         case 'date':
           newWidget = new DateWidget()
+          break
+        case 'searchBar':
+          newWidget = new SearchBarWidget()
           break
 
         default:

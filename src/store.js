@@ -84,12 +84,12 @@ export const useSettingsStore = defineStore('settings', () => {
       lang: 'enUS', // language
       hsb: false, // hide settings button
       dts: false, // disable text selection
-      tabt: '', // tab title
-      bg: [0, 0, 20, 1], // background color
-      cl: [0, 0, 100, 1], // color
+      tabt: 'New Tab', // tab title
+      bg: [220, 15, 15, 1], // background color
+      cl: [220, 15, 85, 1], // color
       ts: [true, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-      ff: 'Source+Sans+Pro', // Font family
-      fs: 72, // Font size
+      ff: 'Source Sans Pro', // Font family
+      fs: 20, // Font size
       fb: 400, // Font Bold
       fi: false, // Font Italic
       fu: false, // Font Underline
@@ -98,9 +98,9 @@ export const useSettingsStore = defineStore('settings', () => {
       crd: 0, // Container rounded radius
       cbs: 0, // Container border size
       cbc: [0, 0, 100, 1], // Container border color
-      cbg: [0, 0, 10, 0.8], // Container background color
-      csh: [true, 1, 1, 5, 0, 0, 0, 0.8], // Container shadow
-      cpd: 20, // Container padding
+      cbg: [0, 0, 10, 0], // Container background color
+      csh: [false, 1, 1, 5, 0, 0, 0, 0.8], // Container shadow
+      cpd: 0, // Container padding
       it: 'none', // Image type
       iid: '', // Image ID
       its: '', // Image timestamp
@@ -248,6 +248,24 @@ export const useSettingsStore = defineStore('settings', () => {
       }
 
       newWidget.id = newId
+      newWidget.w.cl = [...config.global.cl]
+      newWidget.w.ff = config.global.ff
+      console.log(newWidget.w.fs)
+      console.log(config.global.fs)
+      newWidget.w.fs = config.global.fs
+      console.log(newWidget.w.fs)
+      newWidget.w.fb = config.global.fb
+      newWidget.w.fi = config.global.fi
+      newWidget.w.fu = config.global.fu
+      newWidget.w.ls = config.global.ls
+      newWidget.w.ts = [...config.global.ts]
+      newWidget.w.tt = config.global.tt
+      newWidget.w.crd = config.global.crd
+      newWidget.w.cbs = config.global.cbs
+      newWidget.w.cbc = [...config.global.cbc]
+      newWidget.w.cbg = [...config.global.cbg]
+      newWidget.w.csh = [...config.global.csh]
+      newWidget.w.cpd = config.global.cpd
       createLayer(newId, type)
       config[widget.store].unshift(newWidget)
     }

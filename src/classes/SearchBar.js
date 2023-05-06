@@ -7,10 +7,10 @@ export class SearchBar {
   ceu = 'https://www.google.com/search?q=%s' // custom engine url
   ac = true // autocomplete
   ic = true // show icon
-  el = true // engine label
+  el = false // engine label
   ed = false // engine dropdown
-  pd = 10 // padding
-  sz = 50 // size
+  pd = 5 // padding
+  sz = 500 // size
   bsz = 1 // border size
   bb = true // border bottom
   br = 0 // border radius

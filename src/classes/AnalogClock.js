@@ -3,11 +3,11 @@ import { defaultWidgetStyles } from './DefaultWidgetStyles.js'
 export class AnalogClock {
   id = '' // id
   tz = 'America/Los_Angeles' // timezone
-  sz = 100 // size
+  sz = 50 // size
   face = {
     st: 'dash', // style
-    sh: [false, 1, 1, 5, 0, 0, 0, 0.8], // shadow
-    bs: 0, // border size
+    sh: [true, 1, 1, 5, 0, 0, 0, 0.8], // shadow
+    bs: 1, // border size
     or: false, // override global styles
     bc: [0, 0, 100, 1], // border color
     qmc: [0, 0, 100, 1], // quarter mark color
@@ -43,7 +43,7 @@ export class AnalogClock {
   lb = {
     // Label
     lb: 'Clock', // Label text
-    on: true, // on
+    on: false, // on
     or: false, // override widget styles
     cl: [0, 0, 100, 1], // color
     ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow

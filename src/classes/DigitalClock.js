@@ -4,15 +4,15 @@ export class DigitalClock {
   id = '' // id
   tz = 'America/Los_Angeles' // timezone
   ms = true // monospace
-  sb = 5 // spacing between digits
+  sb = 0 // spacing between digits
   lb = {
     // Label
     lb: 'Clock', // Label text
-    on: true, // on
+    on: false, // on
     or: false, // override clock styles
     cl: [0, 0, 100, 1], // color
     ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
+    fs: 20, // font size
     ls: 0, // Letter spacing
     ox: 0, // offset X
     oy: 0, // offset Y
@@ -20,12 +20,12 @@ export class DigitalClock {
   hr = {
     // Hour
     on: true, // on
-    td: true, // two-digit
-    tf: true, // 24-hour
+    td: false, // two-digit
+    tf: false, // 24-hour
     or: false, // override clock styles
     cl: [0, 0, 100, 1], // color
     ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
+    fs: 20, // font size
     ls: 0, // Letter spacing
     ox: 0, // offset X
     oy: 0, // offset Y
@@ -37,7 +37,7 @@ export class DigitalClock {
     or: false, // override clock styles
     cl: [0, 0, 100, 1], // color
     ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
+    fs: 20, // font size
     ls: 0, // Letter spacing
     ox: 0, // offset X
     oy: 0, // offset Y
@@ -49,7 +49,7 @@ export class DigitalClock {
     or: false, // override clock styles
     cl: [0, 0, 100, 1], // color
     ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
+    fs: 20, // font size
     ls: 0, // Letter spacing
     ox: 0, // offset X
     oy: 0, // offset Y
@@ -62,7 +62,7 @@ export class DigitalClock {
     or: false, // override clock styles
     cl: [0, 0, 100, 1], // color
     ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
+    fs: 20, // font size
     ls: 0, // Letter spacing
     ox: 0, // offset X
     oy: 0, // offset Y
@@ -77,7 +77,7 @@ export class DigitalClock {
     or: false, // override clock styles
     cl: [0, 0, 100, 1], // color
     ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
+    fs: 20, // font size
     ls: 0, // Letter spacing
     ox: 0, // offset X
     oy: 0, // offset Y
@@ -88,7 +88,7 @@ export class DigitalClock {
     or: false, // override clock styles
     cl: [0, 0, 100, 1], // color
     ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
+    fs: 20, // font size
     ls: 0, // Letter spacing
     ox: 0, // offset X
     oy: 0, // offset Y

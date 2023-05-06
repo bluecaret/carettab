@@ -9,14 +9,14 @@ export class DateWidget {
     // Delimiter
     on: true, // on
     ss1: '', // symbol
-    ss2: ' ', // symbol
+    ss2: ', ', // symbol
     ss3: '/', // symbol
     ss4: '/', // symbol
     ss5: '', // symbol
     ls1: '', // symbol
-    ls2: ' ', // symbol
+    ls2: ', ', // symbol
     ls3: ' ', // symbol
-    ls4: ' ', // symbol
+    ls4: ', ', // symbol
     ls5: '', // symbol
     or: false, // override widget styles
     cl: [0, 0, 100, 1], // color
@@ -72,7 +72,7 @@ export class DateWidget {
     oy: 0, // offset Y
   }
   doy = {
-    on: true, // on
+    on: false, // on
     lbp: 'Day of year: ', // Label prefix
     lbs: '', // Label suffix
     td: false, // three-digit
@@ -85,7 +85,7 @@ export class DateWidget {
     oy: 0, // offset Y
   }
   wk = {
-    on: true, // on
+    on: false, // on
     lbp: 'Week: ', // Label prefix
     lbs: '', // Label suffix
     td: false, // two-digit
@@ -98,7 +98,7 @@ export class DateWidget {
     oy: 0, // offset Y
   }
   qr = {
-    on: true, // on
+    on: false, // on
     lbp: 'Quarter: ', // Label prefix
     lbs: '', // Label suffix
     st: '0', // start

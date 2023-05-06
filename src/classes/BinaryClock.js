@@ -4,7 +4,7 @@ export class BinaryClock {
   id = '' // id
   tz = 'America/Los_Angeles' // timezone
   ind = {
-    sz: 50, // size
+    sz: 30, // size
     dot: false, // use dots
     se: false, // show unused dots
     ss: true, // show seconds
@@ -17,7 +17,7 @@ export class BinaryClock {
     minoffc: [0, 0, 100, 0.5], // color
     seconc: [0, 0, 100, 1], // color
     secoffc: [0, 0, 100, 0.5], // color
-    sh: [false, 1, 1, 5, 0, 0, 0, 0.8], // shadow
+    sh: [true, 1, 1, 5, 0, 0, 0, 0.8], // shadow
   }
   lb = {
     // Label
@@ -26,7 +26,7 @@ export class BinaryClock {
     or: false, // override widget styles
     cl: [0, 0, 100, 1], // color
     ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
+    fs: 20, // font size
     ls: 0, // Letter spacing
     ox: 0, // offset X
     oy: 0, // offset Y
@@ -37,7 +37,7 @@ export class BinaryClock {
     or: false, // override widget styles
     cl: [0, 0, 100, 1], // color
     ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
+    fs: 20, // font size
     ls: 0, // Letter spacing
     ox: 0, // offset X
     oy: 0, // offset Y

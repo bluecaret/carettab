@@ -85,15 +85,17 @@ function handleKeyDown(event) {
     case 'ArrowDown':
       event.preventDefault()
       selectedIndex.value = (selectedIndex.value + 1) % filteredList.value.length
-      listEl.value.children[selectedIndex.value].scrollIntoView({
-        block: 'center',
+      listEl.value.children[selectedIndex.value + 2].scrollIntoView({
+        block: 'nearest',
+        inline: 'center',
       })
       break
     case 'ArrowUp':
       event.preventDefault()
       selectedIndex.value = selectedIndex.value <= 0 ? filteredList.value.length - 1 : selectedIndex.value - 1
       listEl.value.children[selectedIndex.value].scrollIntoView({
-        block: 'center',
+        block: 'nearest',
+        inline: 'center',
       })
       break
     case 'Enter':

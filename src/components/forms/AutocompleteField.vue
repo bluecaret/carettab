@@ -85,10 +85,16 @@ function handleKeyDown(event) {
     case 'ArrowDown':
       event.preventDefault()
       selectedIndex.value = (selectedIndex.value + 1) % filteredList.value.length
+      listEl.value.children[selectedIndex.value].scrollIntoView({
+        block: 'center',
+      })
       break
     case 'ArrowUp':
       event.preventDefault()
       selectedIndex.value = selectedIndex.value <= 0 ? filteredList.value.length - 1 : selectedIndex.value - 1
+      listEl.value.children[selectedIndex.value].scrollIntoView({
+        block: 'center',
+      })
       break
     case 'Enter':
       event.preventDefault()
@@ -135,12 +141,14 @@ onUnmounted(() => {
       ref="inputEl"
       v-model="inputValue"
       class="autocompleteInput"
+      autocomplete="off"
       @input="updateList"
       @focus="showList = true"
       @keydown="handleKeyDown"
     />
     <button class="autocompleteClear" type="button" @click="clearInput">
       <fa icon="fa fa-close"></fa>
+      Clear
     </button>
     <ul v-if="showList" ref="listEl" class="autocompleteList" tabindex="-1" :style="left && 'right: auto; left: 0;'">
       <li class="autocompleteItem">
@@ -193,7 +201,9 @@ onUnmounted(() => {
     place-items: center;
     z-index: +1;
     padding: 0;
-    width: 2rem;
+    gap: 0.3em;
+    justify-content: center;
+    width: 6rem;
     height: 2.8rem;
     background-color: var(--cGrey3);
     border: 0;
@@ -203,8 +213,11 @@ onUnmounted(() => {
   }
 
   &:focus-within {
+    .autocompleteInput {
+      padding-right: 6.1rem;
+    }
     .autocompleteClear {
-      display: grid;
+      display: flex;
     }
   }
 

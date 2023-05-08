@@ -92,5 +92,9 @@ defineExpose({ close })
   border: 0.1rem solid var(--cGrey3Alt);
   border-radius: var(--s3);
   overflow: hidden;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--cText);
 }
 </style>

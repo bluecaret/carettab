@@ -88,6 +88,7 @@ export const useSettingsStore = defineStore('settings', () => {
   const showOutliner = ref(false)
   const currentTime = ref('Sat Jan 01 2000 00:00:00 GMT-0800 (Pacific Standard Time)')
   const wallpaper = ref('none')
+  const palette = ref([[], [], [], [], [], [], [], []])
   const unsplashStatus = ref('default')
   const unsplashSearchTerm = ref('')
   const unsplashTab = ref('search')
@@ -209,6 +210,12 @@ export const useSettingsStore = defineStore('settings', () => {
       if (allDates) config.dates = allDates
       if (allSearchBars) config.searchBars = allSearchBars
       if (allWeathers) config.weathers = allWeathers
+    }
+
+    const colors = await getStorage('palette', 'local')
+    if (colors && colors.palette && colors.palette.length > 0) {
+      console.log(colors.palette)
+      palette.value = [...colors.palette]
     }
   }
 
@@ -348,6 +355,7 @@ export const useSettingsStore = defineStore('settings', () => {
     showOutliner,
     currentTime,
     wallpaper,
+    palette,
     unsplashStatus,
     unsplashSearchTerm,
     unsplashTab,

@@ -45,12 +45,7 @@ const handleLicenseKey = async () => {
     </template>
     <template #window>
       <div class="premiumModalContent">
-        <button
-          class="premiumModalClose"
-          type="button"
-          aria-label="{{'options.common.close' | translate}}"
-          @click="emit('close')"
-        >
+        <button class="premiumModalClose" type="button" aria-label="Close modal" @click="emit('close')">
           <fa icon="fa-close" />
         </button>
         <fa icon="fa-gem" class="premiumModalIcon" />

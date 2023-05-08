@@ -1,8 +1,17 @@
 <script setup>
+import { computed } from 'vue'
 const props = defineProps({
   show: {
     type: Boolean,
   },
+  size: {
+    type: String,
+    default: '800px',
+  },
+})
+
+const modalWidth = computed(() => {
+  return `min(90%, ${props.size})`
 })
 </script>
 
@@ -27,7 +36,7 @@ const props = defineProps({
 .modalWindowWrapper {
   position: fixed;
   inset: 0;
-  z-index: 2000;
+  z-index: 90;
   display: grid;
   place-items: center;
 }
@@ -41,7 +50,7 @@ const props = defineProps({
 }
 
 .modal {
-  width: min(90%, 800px);
+  width: v-bind(modalWidth);
   max-height: 90dvh;
   overflow-y: auto;
   box-shadow: 0 0 10px 0 var(--cShadow);

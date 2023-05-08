@@ -6,6 +6,7 @@ import { AnalogClock } from '@/classes/AnalogClock.js'
 import { BinaryClock } from '@/classes/BinaryClock.js'
 import { DateWidget } from '@/classes/Date.js'
 import { SearchBar } from '@/classes/SearchBar.js'
+import { Weather } from '@/classes/Weather.js'
 import { Layer } from '@/classes/Layer.js'
 import { widgetTypes } from '@/assets/lists.js'
 
@@ -51,6 +52,24 @@ export const setStorage = async (keyValue, area = 'local') => {
           reject()
           console.error('Failed to set storage')
         })
+    } else {
+      resolve()
+      console.warn('No storage available')
+    }
+  })
+}
+
+export const removeStorage = async (key, area = 'local') => {
+  return new Promise((resolve, reject) => {
+    if (chrome && chrome.storage) {
+      chrome.storage[area].remove(key, function (result) {
+        if (chrome.runtime.lastError) {
+          console.error('Failed to remove storage', chrome.runtime.lastError)
+          reject()
+        } else {
+          resolve(result)
+        }
+      })
     } else {
       resolve()
       console.warn('No storage available')
@@ -125,6 +144,7 @@ export const useSettingsStore = defineStore('settings', () => {
     digitalClocks: [],
     dates: [],
     searchBars: [],
+    weathers: [],
   })
 
   const load = async () => {
@@ -173,6 +193,14 @@ export const useSettingsStore = defineStore('settings', () => {
         })
       }
 
+      let allWeathers = []
+      let filterWeathers = keys.filter((k) => k.startsWith('wr-'))
+      if (filterWeathers.length > 0) {
+        filterWeathers.forEach((k) => {
+          allWeathers.push(store[k])
+        })
+      }
+
       if (store.global) config.global = store.global
       if (store.layers) config.layers = store.layers
       if (allAnalogClocks) config.analogClocks = allAnalogClocks
@@ -180,6 +208,7 @@ export const useSettingsStore = defineStore('settings', () => {
       if (allDigitalClocks) config.digitalClocks = allDigitalClocks
       if (allDates) config.dates = allDates
       if (allSearchBars) config.searchBars = allSearchBars
+      if (allWeathers) config.weathers = allWeathers
     }
   }
 
@@ -206,6 +235,11 @@ export const useSettingsStore = defineStore('settings', () => {
     }
     if (config.searchBars.length > 0) {
       config.searchBars.forEach((c) => {
+        newStore[c.id] = JSON.parse(JSON.stringify(c))
+      })
+    }
+    if (config.weathers.length > 0) {
+      config.weathers.forEach((c) => {
         newStore[c.id] = JSON.parse(JSON.stringify(c))
       })
     }
@@ -242,6 +276,9 @@ export const useSettingsStore = defineStore('settings', () => {
         case 'searchBar':
           newWidget = new SearchBar()
           break
+        case 'weather':
+          newWidget = new Weather()
+          break
 
         default:
           break
@@ -250,10 +287,7 @@ export const useSettingsStore = defineStore('settings', () => {
       newWidget.id = newId
       newWidget.w.cl = [...config.global.cl]
       newWidget.w.ff = config.global.ff
-      console.log(newWidget.w.fs)
-      console.log(config.global.fs)
       newWidget.w.fs = config.global.fs
-      console.log(newWidget.w.fs)
       newWidget.w.fb = config.global.fb
       newWidget.w.fi = config.global.fi
       newWidget.w.fu = config.global.fu
@@ -286,13 +320,11 @@ export const useSettingsStore = defineStore('settings', () => {
         config[widget.store].splice(widgetIndex, 1)
       }
 
-      chrome.storage.sync.remove(id, function () {
-        if (chrome.runtime.lastError) {
-          console.error('Failed to remove storage', chrome.runtime.lastError)
-        } else {
-          save()
-        }
-      })
+      await removeStorage(id, 'local')
+      if (type === 'weather') {
+        await removeStorage(`weather-${id}`, 'local')
+      }
+      save()
     }
   }
 

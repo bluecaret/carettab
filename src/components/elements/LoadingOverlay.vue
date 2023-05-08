@@ -13,7 +13,7 @@
 .app-loading {
   position: fixed;
   inset: 0;
-  z-index: 90;
+  z-index: 100;
   display: grid;
   place-items: center;
   background: hsl(0deg 0% 0% / 0.7);

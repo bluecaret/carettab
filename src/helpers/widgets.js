@@ -11,6 +11,7 @@ export const setWidgetContainerStyles = (widget, global) => {
   }
 
   // Font styles
+  const fontSize = `font-size: ${font.fs}px; `
   const fontFamily = `font-family: ${fontFamilyLabel}; `
   const fontWeight = `font-weight: ${font.fb}; `
   const color = `color: hsl(${font.cl[0]}deg ${font.cl[1]}% ${font.cl[2]}% / ${font.cl[3]}); `
@@ -35,7 +36,7 @@ export const setWidgetContainerStyles = (widget, global) => {
     ? `box-shadow: ${box.csh[1]}px ${box.csh[2]}px ${box.csh[3]}px 0px hsl(${box.csh[4]}deg ${box.csh[5]}% ${box.csh[6]}% / ${box.csh[7]}); `
     : 'box-shadow: none;'
 
-  let styles = `${fontFamily}${fontWeight}${color}${fontUnderline}${letterSpacing}${fontCase}${textShadow}${fontItalic}${width}${height}${translate}${radius}${border}${backgroundColor}${padding}${shadow}`
+  let styles = `${fontSize}${fontFamily}${fontWeight}${color}${fontUnderline}${letterSpacing}${fontCase}${textShadow}${fontItalic}${width}${height}${translate}${radius}${border}${backgroundColor}${padding}${shadow}`
 
   return styles
 }
@@ -55,4 +56,14 @@ export const setWidgetSegmentStyles = (widget, type, lsUsesMargin = false) => {
   let styles = `${fontSize}${letterSpacing}${color}${textShadow}${translate}`
 
   return styles
+}
+
+export const hsl = (hsl) => {
+  return `hsl(${hsl[0]}deg ${hsl[1]}% ${hsl[2]}% / ${hsl[3]})`
+}
+
+export const shadow = (shadow) => {
+  return shadow[0]
+    ? `${shadow[1]}px ${shadow[2]}px ${shadow[3]}px 0px hsl(${shadow[4]}deg ${shadow[5]}% ${shadow[6]}% / ${shadow[7]})`
+    : 'none'
 }

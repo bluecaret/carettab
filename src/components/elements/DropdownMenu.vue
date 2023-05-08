@@ -83,7 +83,7 @@ defineExpose({ close })
 
 .dropdownMenuWrapper {
   position: absolute;
-  z-index: 999;
+  z-index: 95;
 }
 
 .dropdown {

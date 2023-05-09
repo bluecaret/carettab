@@ -10,6 +10,7 @@ import ToggleField from '@/components/forms/ToggleField.vue'
 import NumberField from '@/components/forms/NumberField.vue'
 import AutocompleteField from '@/components/forms/AutocompleteField.vue'
 import SizeAndPositionField from '@/components/forms/SizeAndPositionField.vue'
+import WidgetElementField from '@/components/forms/WidgetElementField.vue'
 import WidgetFontField from '@/components/forms/WidgetFontField.vue'
 import WidgetBoxField from '@/components/forms/WidgetBoxField.vue'
 import PremiumLabel from '@/components/elements/PremiumLabel.vue'
@@ -223,6 +224,7 @@ quickUserCheck().then(async (user) => {
   app.component('NumberField', NumberField)
   app.component('AutocompleteField', AutocompleteField)
   app.component('SizeAndPositionField', SizeAndPositionField)
+  app.component('WidgetElementField', WidgetElementField)
   app.component('WidgetFontField', WidgetFontField)
   app.component('WidgetBoxField', WidgetBoxField)
   app.component('PremiumLabel', PremiumLabel)

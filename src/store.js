@@ -214,7 +214,6 @@ export const useSettingsStore = defineStore('settings', () => {
 
     const colors = await getStorage('palette', 'local')
     if (colors && colors.palette && colors.palette.length > 0) {
-      console.log(colors.palette)
       palette.value = [...colors.palette]
     }
   }
@@ -310,6 +309,7 @@ export const useSettingsStore = defineStore('settings', () => {
       createLayer(newId, type)
       config[widget.store].unshift(newWidget)
     }
+    save()
   }
 
   const deleteWidget = async (id, type) => {
@@ -327,7 +327,7 @@ export const useSettingsStore = defineStore('settings', () => {
         config[widget.store].splice(widgetIndex, 1)
       }
 
-      await removeStorage(id, 'local')
+      await removeStorage(id, 'sync')
       if (type === 'weather') {
         await removeStorage(`weather-${id}`, 'local')
       }

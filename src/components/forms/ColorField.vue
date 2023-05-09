@@ -3,18 +3,28 @@ import { ref, computed, toRaw } from 'vue'
 import { useSettingsStore, setStorage } from '@/store.js'
 
 const store = useSettingsStore()
-const props = defineProps({ modelValue: Array, tagId: String })
+const props = defineProps({ modelValue: Array, tagId: String, shadow: Boolean, text: Boolean })
 const emit = defineEmits(['update:modelValue'])
 
-// hue, saturation, lightness, opacity
-const val = props.modelValue ?? [0, 0, 0, 0.8]
+// color: hue, saturation, lightness, opacity
+// shadow: enable, x, y, blur, hue, saturation, lightness, opacity
+let val
+if (props.shadow) {
+  val = props.modelValue ? toRaw(props.modelValue) : [false, 1, 1, 5, 0, 0, 0, 0.8]
+} else {
+  val = props.modelValue ? [false, 0, 0, 0, ...props.modelValue] : [false, 0, 0, 0, 0, 0, 0, 0.8]
+}
 
 const editPalette = ref(false)
 
-const hue = ref(val[0])
-const saturation = ref(val[1])
-const lightness = ref(val[2])
-const opacity = ref(val[3])
+const enable = ref(val[0])
+const x = ref(val[1])
+const y = ref(val[2])
+const blur = ref(val[3])
+const hue = ref(val[4])
+const saturation = ref(val[5])
+const lightness = ref(val[6])
+const opacity = ref(val[7])
 
 const currentHue = computed(() => {
   return `--rangeInputThumb: hsl(${hue.value}deg 100% 50%)`
@@ -28,17 +38,35 @@ const currentLight = computed(() => {
 const currentOp = computed(() => {
   return `--rangeInputThumb: linear-gradient(hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value}), hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})), repeating-conic-gradient(#555 0% 25%, transparent 0% 50%) 50% / 8px 8px, #DDD;--rangeInputTrack: linear-gradient(to right, hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / 0), hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / 1)), repeating-conic-gradient(#555 0% 25%, transparent 0% 50%) 50% / 8px 8px, #DDD;`
 })
-const currentColor = computed(() => {
-  return `hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})`
+
+const shadowPreview = computed(() => {
+  return `--shadowPreviewBox: ${x.value}px ${y.value}px ${blur.value}px 0px hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value});
+  --shadowPreviewText: ${x.value}px ${y.value}px ${blur.value}px hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})`
 })
-const currentGradient = computed(() => {
-  return `
+
+const pickerColor = computed(() => {
+  return props.shadow
+    ? 'var(--cGrey1)'
+    : `hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})`
+})
+const pickerBg = computed(() => {
+  return props.shadow
+    ? 'var(--cGrey1)'
+    : `
     linear-gradient(
       hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value}), 
       hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})
     ), 
     repeating-conic-gradient(#555 0% 25%, transparent 0% 50%) 50% / 8px 8px, #DDD
   `
+})
+const pickerShadow = computed(() => {
+  return `${x.value}px ${y.value}px ${blur.value}px ${props.text ? '' : '0'} hsl(${hue.value}deg ${saturation.value}% ${
+    lightness.value
+  }% / ${opacity.value})`
+})
+const pickerTextShadow = computed(() => {
+  return `${x.value}px ${y.value}px ${blur.value}px hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})`
 })
 
 const constructPaletteColor = (color) => {
@@ -52,7 +80,6 @@ const constructPaletteColor = (color) => {
 }
 
 const handlePaletteColorClick = (color, index) => {
-  console.log('color click', color)
   if (editPalette.value) {
     store.palette[index] = []
     let newPalette = [...store.palette]
@@ -62,7 +89,7 @@ const handlePaletteColorClick = (color, index) => {
     saturation.value = color[1]
     lightness.value = color[2]
     opacity.value = color[3]
-    handleColorSet()
+    handleUpdate()
   } else {
     let saveColor = [
       parseInt(hue.value),
@@ -71,84 +98,111 @@ const handlePaletteColorClick = (color, index) => {
       parseFloat(opacity.value),
     ]
     store.palette[index] = saveColor
-    console.log('save palette', toRaw(store.palette), store.palette)
     let newPalette = toRaw(store.palette)
     setStorage({ palette: newPalette }, 'local')
   }
 }
 
-const handleColorSet = () => {
-  emit('update:modelValue', [
-    parseInt(hue.value),
-    parseInt(saturation.value),
-    parseInt(lightness.value),
-    parseFloat(opacity.value),
-  ])
+const handleUpdate = () => {
+  emit(
+    'update:modelValue',
+    props.shadow
+      ? [
+          enable.value,
+          x.value,
+          y.value,
+          blur.value,
+          parseInt(hue.value),
+          parseInt(saturation.value),
+          parseInt(lightness.value),
+          parseFloat(opacity.value),
+        ]
+      : [parseInt(hue.value), parseInt(saturation.value), parseInt(lightness.value), parseFloat(opacity.value)]
+  )
 }
 </script>
 
 <template>
   <DropdownMenu>
     <template #button>
-      <button :id="tagId" aria-label="Select color" class="btn pickerButton"></button>
+      <button
+        :id="tagId"
+        :aria-label="`Select ${props.shadow ? 'shadow' : 'color'}`"
+        class="btn pickerButton"
+        :class="props.shadow && !enable && 'pickerButtonDisable'"
+      >
+        <div v-if="props.shadow" :class="{ text: props.text }"></div>
+        <div v-if="props.shadow" :class="{ text: props.text }"></div>
+        <fa v-if="props.shadow" class="disabled" icon="fa-ban"></fa>
+      </button>
     </template>
     <template #menu>
       <div class="colorMenu">
         <div class="block">
-          <h3 class="label">Color</h3>
+          <div class="group fill">
+            <h3 class="label">{{ props.shadow ? 'Shadow' : 'Color' }}</h3>
+            <div v-if="props.shadow" class="group compact mla">
+              <label for="toggleShadow" class="desc">Enable</label>
+              <ToggleField v-model="enable" tag-id="toggleShadow" @update:model-value="handleUpdate()"> </ToggleField>
+            </div>
+          </div>
           <div class="group fill">
             <div class="group stack">
-              <label for="" class="desc">Hue</label>
+              <label for="hue" class="desc">Hue</label>
               <div class="range">
                 <output class="output">{{ hue }}&deg;</output>
                 <input
+                  id="hue"
                   v-model="hue"
                   type="range"
                   class="rangeInput rangeHue"
                   :style="currentHue"
                   min="0"
                   max="360"
-                  @input="handleColorSet()"
+                  @input="handleUpdate()"
                 />
               </div>
             </div>
             <div class="group stack">
-              <label for="" class="desc">Saturation</label>
+              <label for="saturation" class="desc">Saturation</label>
               <div class="range">
                 <output class="output">{{ saturation }}%</output>
                 <input
+                  id="saturation"
                   v-model="saturation"
                   type="range"
                   class="rangeInput rangeSat"
                   :style="currentSat"
                   min="0"
                   max="100"
-                  @input="handleColorSet()"
+                  @input="handleUpdate()"
                 />
               </div>
             </div>
           </div>
           <div class="group fill">
             <div class="group stack">
-              <label for="" class="desc">Lightness</label>
+              <label for="lightness" class="desc">Lightness</label>
               <div class="range">
                 <output class="output">{{ lightness }}%</output>
                 <input
+                  id="lightness"
                   v-model="lightness"
                   type="range"
                   class="rangeInput rangeLight"
                   :style="currentLight"
                   min="0"
                   max="100"
-                  @input="handleColorSet()"
+                  @input="handleUpdate()"
                 />
               </div>
             </div>
             <div class="group stack">
-              <label for="" class="desc">Opacity</label>
+              <label for="opacity" class="desc">Opacity</label>
               <div class="range">
                 <output class="output">{{ parseFloat(opacity * 100).toFixed(0) }}%</output>
                 <input
+                  id="opacity"
                   v-model="opacity"
                   type="range"
                   class="rangeInput rangeOp"
@@ -156,7 +210,7 @@ const handleColorSet = () => {
                   min="0"
                   max="1"
                   step=".01"
-                  @input="handleColorSet()"
+                  @input="handleUpdate()"
                 />
               </div>
             </div>
@@ -189,6 +243,49 @@ const handleColorSet = () => {
               </li>
             </ul>
           </div>
+          <div v-if="props.shadow" class="group fill">
+            <div class="group stack">
+              <label for="shadowX" class="desc">X</label>
+              <NumberField
+                v-model="x"
+                tag-id="shadowX"
+                aria-label="Offset shadow direction x coordinates"
+                :increment="1"
+                @update:model-value="handleUpdate()"
+              >
+              </NumberField>
+            </div>
+            <div class="group stack">
+              <label for="shadowY" class="desc">Y</label>
+              <NumberField
+                v-model="y"
+                tag-id="shadowY"
+                aria-label="Offset shadow direction y coordinates"
+                :increment="1"
+                @update:model-value="handleUpdate()"
+              >
+              </NumberField>
+            </div>
+            <div class="group stack">
+              <label for="shadowBlur" class="desc">Blur</label>
+              <NumberField
+                v-model="blur"
+                tag-id="shadowBlur"
+                aria-label="Shadow blur radius"
+                :increment="1"
+                :min="0"
+                @update:model-value="handleUpdate()"
+              >
+              </NumberField>
+            </div>
+          </div>
+          <div v-if="props.shadow" class="group stack fill">
+            <div class="label">Preview</div>
+            <div class="shadowPreview">
+              <div :style="shadowPreview"></div>
+              <div :style="shadowPreview"></div>
+            </div>
+          </div>
         </div>
       </div>
     </template>
@@ -201,8 +298,9 @@ const handleColorSet = () => {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   gap: 0.4rem;
-  padding: 0;
+  padding: 0.6rem;
   margin: 0;
+  background-color: var(--cGrey2);
   border-radius: var(--s3);
   list-style: none;
   .btn {
@@ -216,7 +314,7 @@ const handleColorSet = () => {
       font-size: 1.2rem;
     }
     &.paletteBtn {
-      border: 1px solid var(--cGrey2);
+      border: 1px solid var(--cGrey1);
       background-color: transparent;
       color: var(--cText);
       .svg-inline--fa {
@@ -233,12 +331,69 @@ const handleColorSet = () => {
 }
 
 .pickerButton {
-  background-color: v-bind(currentColor);
-  background: v-bind(currentGradient);
+  background-color: v-bind(pickerColor);
+  background: v-bind(pickerBg);
   color: currentColor;
   border-color: var(--cGrey1);
   width: 100%;
   min-width: 3.6rem;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+
+  > div {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+
+    &:nth-child(1) {
+      color: hsl(0deg 0% 85%);
+      background-color: hsl(0deg 0% 10%);
+    }
+
+    &:nth-child(2) {
+      color: hsl(0deg 0% 10%);
+      background-color: hsl(0deg 0% 85%);
+    }
+  }
+
+  > div:not(.text)::before {
+    content: '';
+    width: 50%;
+    height: 30%;
+    background-color: hsl(0deg 0% 85%);
+    box-shadow: v-bind(pickerShadow);
+  }
+
+  > div:not(.text):nth-child(2)::before {
+    background-color: hsl(0deg 0% 10%);
+  }
+
+  > div.text::before {
+    content: 'A';
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-shadow: v-bind(pickerTextShadow);
+  }
+
+  .disabled {
+    display: none;
+  }
+
+  &.pickerButtonDisable {
+    grid-template-columns: 1fr;
+    div {
+      display: none;
+    }
+    .disabled {
+      display: block;
+    }
+  }
 }
 
 .colorMenu {
@@ -252,7 +407,6 @@ const handleColorSet = () => {
 
 .range {
   grid-template-columns: 2.2em auto;
-  width: 15.5rem;
 }
 
 .rangeInput {
@@ -269,6 +423,58 @@ const handleColorSet = () => {
 
   &.rangeHue::-webkit-slider-runnable-track {
     background: linear-gradient(to right, red, yellow, lime, aqua, blue, magenta, red);
+  }
+}
+
+.shadowPreview {
+  width: 100%;
+  height: 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-radius: var(--s3);
+  overflow: hidden;
+  font-size: 2rem;
+
+  > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    padding: 0 2rem;
+
+    &:first-child {
+      background-color: hsl(0deg 0% 10%);
+    }
+
+    &:last-child {
+      background-color: hsl(0deg 0% 85%);
+    }
+  }
+
+  > div::before {
+    content: '';
+    width: 60%;
+    height: 30%;
+    background-color: hsl(0deg 0% 85%);
+    box-shadow: var(--shadowPreviewBox);
+  }
+
+  > div::after {
+    content: 'ABC';
+    font-weight: 700;
+    color: hsl(0deg 0% 85%);
+    text-shadow: var(--shadowPreviewText);
+  }
+
+  > div:last-child::before {
+    background-color: hsl(0deg 0% 10%);
+  }
+
+  > div:last-child::after {
+    color: hsl(0deg 0% 10%);
   }
 }
 </style>

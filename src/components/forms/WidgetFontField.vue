@@ -72,8 +72,8 @@ const handleTtUpdate = (str) => {
 }
 
 const resetOverride = () => {
-  emit('update:cl', store.config.global.cl)
-  emit('update:ts', store.config.global.ts)
+  emit('update:cl', [...store.config.global.cl])
+  emit('update:ts', [...store.config.global.ts])
   emit('update:ff', store.config.global.ff)
   emit('update:fs', store.config.global.fs)
   emit('update:fb', store.config.global.fb)
@@ -184,15 +184,16 @@ const resetOverride = () => {
         </ColorField>
       </div>
       <div class="group stack">
-        <label for="widgetFontColor" class="desc"> Shadow </label>
-        <ShadowField
+        <label for="widgetFontShadow" class="desc"> Shadow </label>
+        <ColorField
+          shadow
           text
           tag-id="widgetFontShadow"
           class="w8"
           :model-value="props.ts"
           @update:model-value="handleTsUpdate"
         >
-        </ShadowField>
+        </ColorField>
       </div>
     </div>
   </div>

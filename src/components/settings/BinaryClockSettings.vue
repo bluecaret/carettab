@@ -134,7 +134,7 @@ const selectTimezone = (tz) => {
         <div class="group fill">
           <div class="group fill stack">
             <label for="indShadow" class="desc">Shadow</label>
-            <ShadowField v-model="widget.ind.sh" class="" tag-id="indShadow"> </ShadowField>
+            <ColorField v-model="widget.ind.sh" shadow class="" tag-id="indShadow"> </ColorField>
           </div>
           <div class="group fill stack">
             <label for="onc" class="desc">Hour - on</label>

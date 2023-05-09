@@ -133,7 +133,7 @@ const updateClockParts = () => {
         <div v-if="widget.face.or" class="group fill">
           <div class="group fill stack">
             <label for="faceShadow" class="desc">Shadow</label>
-            <ShadowField v-model="widget.face.sh" class="" tag-id="faceShadow"> </ShadowField>
+            <ColorField v-model="widget.face.sh" shadow class="" tag-id="faceShadow"> </ColorField>
           </div>
           <div class="group fill stack">
             <label for="faceBorderColor" class="desc">Border color</label>
@@ -176,7 +176,7 @@ const updateClockParts = () => {
         <div class="group fill">
           <div v-if="widget.hand.or" class="group stack fill">
             <label for="handShadow" class="desc">Shadow</label>
-            <ShadowField v-model="widget.hand.sh" tag-id="handShadow" class="fill"> </ShadowField>
+            <ColorField v-model="widget.hand.sh" shadow tag-id="handShadow" class="fill"> </ColorField>
           </div>
           <div class="group stack fill">
             <label for="enableCenter" class="desc">Center</label>

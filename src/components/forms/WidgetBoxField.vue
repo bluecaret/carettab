@@ -54,9 +54,9 @@ const handlePaddingUpdate = (num) => {
 const resetOverride = () => {
   emit('update:rounded', store.config.global.crd)
   emit('update:bs', store.config.global.cbs)
-  emit('update:bc', store.config.global.cbc)
-  emit('update:bg', store.config.global.cbg)
-  emit('update:shadow', store.config.global.csh)
+  emit('update:bc', [...store.config.global.cbc])
+  emit('update:bg', [...store.config.global.cbg])
+  emit('update:shadow', [...store.config.global.csh])
   emit('update:padding', store.config.global.cpd)
 }
 </script>
@@ -121,8 +121,14 @@ const resetOverride = () => {
       </div>
       <div class="group stack">
         <label for="boxShadow" class="desc"> Shadow </label>
-        <ShadowField tag-id="boxShadow" class="w8" :model-value="props.shadow" @update:model-value="handleShadowUpdate">
-        </ShadowField>
+        <ColorField
+          shadow
+          tag-id="boxShadow"
+          class="w8"
+          :model-value="props.shadow"
+          @update:model-value="handleShadowUpdate"
+        >
+        </ColorField>
       </div>
     </div>
   </div>

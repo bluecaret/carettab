@@ -159,7 +159,6 @@ const handleImageAdjustmentReset = () => {
 }
 
 const handleLangSelect = (event) => {
-  console.log(event.target.value)
   locale.value = event.target.value
 }
 </script>

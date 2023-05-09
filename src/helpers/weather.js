@@ -7,12 +7,9 @@ export const getLocation = async (query, access, lang) => {
   let locationData
   const endpoint = `${endpointBase}${endpointLocation}${access}&q=${encodeURI(query)}${language}`
 
-  console.log('endpoint: ' + endpoint)
-
   const wapiResponse = await fetch(endpoint, { method: 'GET' })
   locationData = await wapiResponse.json()
 
-  console.log(locationData)
   return locationData
 }
 

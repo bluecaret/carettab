@@ -139,11 +139,11 @@ const widget = reactive(store.config.searchBars[ci.value])
           </div>
           <div class="group stack fill">
             <label for="ts" class="desc">Text shadow</label>
-            <ShadowField id="ts" v-model="widget.ts" name="ts" text></ShadowField>
+            <ColorField id="ts" v-model="widget.ts" shadow name="ts" text></ColorField>
           </div>
           <div class="group stack fill">
             <label for="bs" class="desc">Bar shadow</label>
-            <ShadowField id="bs" v-model="widget.bs" name="bs"></ShadowField>
+            <ColorField id="bs" v-model="widget.bs" shadow name="bs"></ColorField>
           </div>
         </div>
       </div>

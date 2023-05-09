@@ -2,7 +2,7 @@ $font-src: '/fonts';
 
 /* source-sans-pro-300 - cyrillic_latin_vietnamese */
 @font-face {
-  font-display: optional; 
+  font-display: swap; 
   font-family: 'Source Sans Pro';
   font-style: normal;
   font-weight: 300;
@@ -10,7 +10,7 @@ $font-src: '/fonts';
 }
 /* source-sans-pro-regular - cyrillic_latin_vietnamese */
 @font-face {
-  font-display: optional; 
+  font-display: swap; 
   font-family: 'Source Sans Pro';
   font-style: normal;
   font-weight: 400;
@@ -18,7 +18,7 @@ $font-src: '/fonts';
 }
 /* source-sans-pro-600 - cyrillic_latin_vietnamese */
 @font-face {
-  font-display: optional;
+  font-display: swap;
   font-family: 'Source Sans Pro';
   font-style: normal;
   font-weight: 600;

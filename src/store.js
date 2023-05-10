@@ -253,6 +253,11 @@ export const useSettingsStore = defineStore('settings', () => {
         newStore[c.id] = JSON.parse(JSON.stringify(c))
       })
     }
+    if (config.dates.length > 0) {
+      config.dates.forEach((c) => {
+        newStore[c.id] = JSON.parse(JSON.stringify(c))
+      })
+    }
     if (config.searchBars.length > 0) {
       config.searchBars.forEach((c) => {
         newStore[c.id] = JSON.parse(JSON.stringify(c))
@@ -322,8 +327,8 @@ export const useSettingsStore = defineStore('settings', () => {
       newWidget.base.container.padding = config.global.container.padding
       createLayer(newId, type)
       config[widget.store].unshift(newWidget)
+      save()
     }
-    save()
   }
 
   const deleteWidget = async (id, type) => {

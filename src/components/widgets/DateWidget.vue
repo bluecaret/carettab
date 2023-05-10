@@ -22,22 +22,22 @@ const segmentStyles = (type, lsUsesMargin = false) => {
 }
 
 const fontUnderline = computed(() => {
-  const config = props.widget.w.orf ? props.widget.w : store.config.global
-  return config.fu ? 'underline' : 'none'
+  const config = props.widget.base.font.override ? props.widget.base.font : store.config.global.font
+  return config.underline ? 'underline' : 'none'
 })
 
 const fontCase = computed(() => {
-  const config = props.widget.w.orf ? props.widget.w : store.config.global
-  return config.tt ? config.tt : 'none'
+  const config = props.widget.base.font.override ? props.widget.base.font : store.config.global.font
+  return config.transform ? config.transform : 'none'
 })
 
 const fontItalic = computed(() => {
-  const config = props.widget.w.orf ? props.widget.w : store.config.global
-  return config.fi ? config.fi : 'normal'
+  const config = props.widget.base.font.override ? props.widget.base.font : store.config.global.font
+  return config.italic ? config.italic : 'normal'
 })
 
 const getFormattedDate = computed(() => {
-  return DateTime.fromJSDate(store.currentTime).setZone(props.widget.tz ? props.widget.tz : 'default')
+  return DateTime.fromJSDate(store.currentTime).setZone(props.widget.timezone ? props.widget.timezone : 'default')
 })
 
 const getDateParts = computed(() => {
@@ -46,8 +46,8 @@ const getDateParts = computed(() => {
     mh = '',
     dy = ''
 
-  if (props.widget.dow.on) {
-    if (props.widget.dow.ab) {
+  if (props.widget.dayOfWeek.on) {
+    if (props.widget.dayOfWeek.abbreviated) {
       dow = getFormattedDate.value.toFormat('ccc') // Mon
     } else {
       dow = getFormattedDate.value.toFormat('cccc') // Monday
@@ -56,8 +56,8 @@ const getDateParts = computed(() => {
     dow = ''
   }
 
-  if (props.widget.yr.on) {
-    if (props.widget.yr.td) {
+  if (props.widget.year.on) {
+    if (props.widget.year.twoDigit) {
       yr = getFormattedDate.value.toFormat('yy') // 23
     } else {
       yr = getFormattedDate.value.toFormat('y') // 2023
@@ -66,15 +66,15 @@ const getDateParts = computed(() => {
     yr = ''
   }
 
-  if (props.widget.mh.on) {
-    if (props.widget.sd) {
-      if (props.widget.mh.td) {
+  if (props.widget.month.on) {
+    if (props.widget.short) {
+      if (props.widget.month.twoDigit) {
         mh = getFormattedDate.value.toFormat('LL') // 08
       } else {
         mh = getFormattedDate.value.toFormat('L') // 8
       }
     } else {
-      if (props.widget.mh.ab) {
+      if (props.widget.month.abbreviated) {
         mh = getFormattedDate.value.toFormat('LLL') // Aug
       } else {
         mh = getFormattedDate.value.toFormat('LLLL') // August
@@ -84,8 +84,8 @@ const getDateParts = computed(() => {
     mh = ''
   }
 
-  if (props.widget.dy.on) {
-    if (props.widget.dy.td) {
+  if (props.widget.day.on) {
+    if (props.widget.day.twoDigit) {
       dy = getFormattedDate.value.toFormat('dd') // 06
     } else {
       dy = getFormattedDate.value.toFormat('d') // 6
@@ -94,28 +94,28 @@ const getDateParts = computed(() => {
     dy = ''
   }
 
-  if (props.widget.ft === 'little') {
+  if (props.widget.format === 'little') {
     return [
-      { type: 'dow', value: dow },
-      { type: 'dy', value: dy },
-      { type: 'mh', value: mh },
-      { type: 'yr', value: yr },
+      { type: 'dayOfWeek', value: dow },
+      { type: 'day', value: dy },
+      { type: 'month', value: mh },
+      { type: 'year', value: yr },
     ]
   }
-  if (props.widget.ft === 'middle') {
+  if (props.widget.format === 'middle') {
     return [
-      { type: 'dow', value: dow },
-      { type: 'mh', value: mh },
-      { type: 'dy', value: dy },
-      { type: 'yr', value: yr },
+      { type: 'dayOfWeek', value: dow },
+      { type: 'month', value: mh },
+      { type: 'day', value: dy },
+      { type: 'year', value: yr },
     ]
   }
-  if (props.widget.ft === 'big') {
+  if (props.widget.format === 'big') {
     return [
-      { type: 'dow', value: dow },
-      { type: 'yr', value: yr },
-      { type: 'mh', value: mh },
-      { type: 'dy', value: dy },
+      { type: 'dayOfWeek', value: dow },
+      { type: 'year', value: yr },
+      { type: 'month', value: mh },
+      { type: 'day', value: dy },
     ]
   }
 
@@ -124,7 +124,7 @@ const getDateParts = computed(() => {
 
 // Function that offsets the date's quarter by the user's preference
 const getQuarterOffset = () => {
-  const offset = props.widget.qr.st
+  const offset = props.widget.quarter.start
   const date = getFormattedDate.value
   const month = date.month
   const offsetMonth = month - offset
@@ -134,13 +134,19 @@ const getQuarterOffset = () => {
 </script>
 
 <template>
-  <div class="date widget" :class="[props.widget.w.a, `container-${props.widget.w.ca}`]" :style="containerStyles">
-    <FontLink v-if="props.widget.w.orf" :widget="props.widget"></FontLink>
+  <div
+    class="date widget"
+    :class="[props.widget.base.alignment, `container-${props.widget.base.container.alignment}`]"
+    :style="containerStyles"
+  >
+    <FontLink v-if="props.widget.base.font.override" :widget="props.widget"></FontLink>
     <div class="widgetInner">
       <div class="dateWrapper">
         <!-- eslint-disable-next-line max-len -->
-        <div v-if="props.widget.dl.on" :class="`datePart delimiter-1`" :style="segmentStyles('dl')">
-          <span>{{ props.widget.sd ? props.widget.dl[`ss1`] : props.widget.dl[`ls1`] }}</span>
+        <div v-if="props.widget.delimiter.on" :class="`datePart delimiter-1`" :style="segmentStyles('delimiter')">
+          <span>{{
+            props.widget.short ? props.widget.delimiter[`shortSymbol1`] : props.widget.delimiter[`longSymbol1`]
+          }}</span>
         </div>
         <template v-for="(part, index) in getDateParts" :key="part.type">
           <div
@@ -151,24 +157,29 @@ const getQuarterOffset = () => {
             {{ part.value }}
           </div>
           <div
-            v-if="props.widget[part.type].on && props.widget.dl.on"
+            v-if="props.widget[part.type].on && props.widget.delimiter.on"
             :class="`datePart delimiter-${index + 2}`"
-            :style="segmentStyles('dl')"
+            :style="segmentStyles('delimiter')"
           >
-            <span>{{ props.widget.sd ? props.widget.dl[`ss${index + 2}`] : props.widget.dl[`ls${index + 2}`] }}</span>
+            <span>{{
+              props.widget.short
+                ? props.widget.delimiter[`shortSymbol${index + 2}`]
+                : props.widget.delimiter[`longSymbol${index + 2}`]
+            }}</span>
           </div>
         </template>
       </div>
-      <div v-if="props.widget.doy.on" class="textWrapper" :style="segmentStyles('doy')">
-        {{ props.widget.doy.lbp }}{{ getFormattedDate.toFormat(props.widget.doy.td ? 'ooo' : 'o')
-        }}{{ props.widget.doy.lbs }}
+      <div v-if="props.widget.dayOfYear.on" class="textWrapper" :style="segmentStyles('dayOfYear')">
+        {{ props.widget.dayOfYear.prefixLabel
+        }}{{ getFormattedDate.toFormat(props.widget.dayOfYear.threeDigit ? 'ooo' : 'o')
+        }}{{ props.widget.dayOfYear.suffixLabel }}
       </div>
-      <div v-if="props.widget.wk.on" class="textWrapper" :style="segmentStyles('wk')">
-        {{ props.widget.wk.lbp }}{{ getFormattedDate.toFormat(props.widget.doy.td ? 'WW' : 'W')
-        }}{{ props.widget.wk.lbs }}
+      <div v-if="props.widget.week.on" class="textWrapper" :style="segmentStyles('week')">
+        {{ props.widget.week.prefixLabel }}{{ getFormattedDate.toFormat(props.widget.dayOfYear.threeDigit ? 'WW' : 'W')
+        }}{{ props.widget.week.suffixLabel }}
       </div>
-      <div v-if="props.widget.qr.on" class="textWrapper" :style="segmentStyles('qr')">
-        {{ props.widget.qr.lbp }}{{ getQuarterOffset() }}{{ props.widget.qr.lbs }}
+      <div v-if="props.widget.quarter.on" class="textWrapper" :style="segmentStyles('quarter')">
+        {{ props.widget.quarter.prefixLabel }}{{ getQuarterOffset() }}{{ props.widget.quarter.suffixLabel }}
       </div>
     </div>
   </div>

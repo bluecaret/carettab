@@ -11,15 +11,15 @@ const toggleSettings = () => {
 }
 
 const getShadow = computed(() => {
-  if (store.config.global.ts && store.config.global.ts[0]) {
-    return `${store.config.global.ts[1]}px ${store.config.global.ts[2]}px ${store.config.global.ts[3]}px 0px hsl(${store.config.global.ts[4]}deg ${store.config.global.ts[5]}% ${store.config.global.ts[6]}% / ${store.config.global.ts[7]})`
+  if (store.config.global.font.shadow && store.config.global.font.shadow[0]) {
+    return `${store.config.global.font.shadow[1]}px ${store.config.global.font.shadow[2]}px ${store.config.global.font.shadow[3]}px 0px hsl(${store.config.global.font.shadow[4]}deg ${store.config.global.font.shadow[5]}% ${store.config.global.font.shadow[6]}% / ${store.config.global.font.shadow[7]})`
   }
   return 'none'
 })
 
 const getTextColor = computed(() => {
-  if (store.config.global.cl && store.config.global.cl[0]) {
-    return `hsl(${store.config.global.cl[0]}deg ${store.config.global.cl[1]}% ${store.config.global.cl[2]}% / ${store.config.global.cl[3]})`
+  if (store.config.global.font.color && store.config.global.font.color[0]) {
+    return `hsl(${store.config.global.font.color[0]}deg ${store.config.global.font.color[1]}% ${store.config.global.font.color[2]}% / ${store.config.global.font.color[3]})`
   }
   return 'white'
 })

@@ -40,7 +40,7 @@ onBeforeUnmount(() => {
 })
 
 const updateWeather = async () => {
-  let data = await getWeather(props.widget.loc.url, access.items.w, store.config.global.lang)
+  let data = await getWeather(props.widget.location.url, access.items.w, store.config.global.lang)
   weatherData.value = data
   await setStorage({ ['weather-' + props.widget.id]: data }, 'local')
 }
@@ -50,15 +50,15 @@ const containerStyles = computed(() => {
 })
 
 const round = (num) => {
-  return props.widget.pd ? num : Math.round(num)
+  return props.widget.precise ? num : Math.round(num)
 }
 
 const getWind = (wind) => {
   let num
-  if (props.widget.unit && !props.widget.wu) {
+  if (props.widget.unit && !props.widget.windUnit) {
     // imperial - mph >> ft/s
     num = Math.round(wind * 1.467 * 100) / 100
-  } else if (!props.widget.unit && !props.widget.wu) {
+  } else if (!props.widget.unit && !props.widget.windUnit) {
     // metric - kph >> m/s
     num = Math.round((wind / 3.6) * 100) / 100
   } else {
@@ -71,44 +71,70 @@ const getWindUnit = (wind) => {
   let res
   if (props.widget.unit) {
     // imperial - mph >> ft/s
-    res = props.widget.wu ? round(getWind(wind)) + ' mph' : round(getWind(wind)) + ' ft/s'
+    res = props.widget.windUnit ? round(getWind(wind)) + ' mph' : round(getWind(wind)) + ' ft/s'
   } else {
     // metric - kph >> m/s
-    res = props.widget.wu ? round(getWind(wind)) + ' kph' : round(getWind(wind)) + ' m/s'
+    res = props.widget.windUnit ? round(getWind(wind)) + ' kph' : round(getWind(wind)) + ' m/s'
   }
   return res
 }
 </script>
 
 <template>
-  <div class="weather widget" :class="[props.widget.w.a, `container-${props.widget.w.ca}`]" :style="containerStyles">
-    <FontLink v-if="props.widget.w.orf" :widget="props.widget"></FontLink>
+  <div
+    class="weather widget"
+    :class="[props.widget.base.alignment, `container-${props.widget.base.container.alignment}`]"
+    :style="containerStyles"
+  >
+    <FontLink v-if="props.widget.base.font.override" :widget="props.widget"></FontLink>
     <div class="widgetInner">
-      <div v-if="weatherData" class="weatherContainer" :class="{ weatherHorz: props.widget.hz }">
-        <div v-if="props.widget.c.on" class="current" :class="{ currentIconEnabled: props.widget.c.ic.on }">
+      <div v-if="weatherData" class="weatherContainer" :class="{ weatherHorz: props.widget.horizontal }">
+        <div
+          v-if="props.widget.current.on"
+          class="current"
+          :class="{ currentIconEnabled: props.widget.current.icon.on }"
+        >
           <i
-            v-if="props.widget.c.ic.on"
+            v-if="props.widget.current.icon.on"
             class="currentIcon"
             :class="`w-code-${weatherData.current.condition.code}${weatherData.current.is_day === 1 ? '' : 'n'}`"
-            :style="`font-size: ${props.widget.c.ic.sz * 0.5}em; color: ${hsl(props.widget.c.ic.cl)}`"
+            :style="`font-size: ${props.widget.current.icon.size * 0.5}em; color: ${hsl(
+              props.widget.current.icon.color
+            )}`"
           ></i>
           <div class="currentData">
-            <div v-if="props.widget.c.tp.cur || props.widget.c.tp.fl" class="currentTemp">
-              <div v-if="props.widget.c.tp.cur" class="currentTempDeg" :style="`color: ${hsl(props.widget.c.tp.ccl)}`">
+            <div
+              v-if="props.widget.current.temperature.currently || props.widget.current.temperature.feelsLike"
+              class="currentTemp"
+            >
+              <div
+                v-if="props.widget.current.temperature.currently"
+                class="currentTempDeg"
+                :style="`color: ${hsl(props.widget.current.temperature.currentlyColor)}`"
+              >
                 {{ props.widget.scale ? round(weatherData.current.temp_f) : round(weatherData.current.temp_c)
-                }}{{ props.widget.c.tp.de ? '°' : '' }}
+                }}{{ props.widget.current.temperature.degree ? '°' : '' }}
               </div>
-              <div v-if="props.widget.c.tp.fl" class="currentTempFeels" :style="`color: ${hsl(props.widget.c.tp.fcl)}`">
+              <div
+                v-if="props.widget.current.temperature.feelsLike"
+                class="currentTempFeels"
+                :style="`color: ${hsl(props.widget.current.temperature.feelsLikeColor)}`"
+              >
                 Feels like
                 {{ props.widget.scale ? round(weatherData.current.feelslike_f) : round(weatherData.current.feelslike_c)
-                }}{{ props.widget.c.tp.de ? '°' : '' }}
+                }}{{ props.widget.current.temperature.degree ? '°' : '' }}
               </div>
             </div>
-            <div v-if="props.widget.c.cd" class="currentCondition">
+            <div v-if="props.widget.current.condition" class="currentCondition">
               {{ weatherData.current.condition.text }}
             </div>
-            <div v-if="props.widget.c.wd.on || props.widget.c.hy.on || props.widget.c.pr.on" class="group">
-              <div v-if="props.widget.c.wd.on" class="currentItem currentWind">
+            <div
+              v-if="
+                props.widget.current.wind.on || props.widget.current.humidity.on || props.widget.current.pressure.on
+              "
+              class="group"
+            >
+              <div v-if="props.widget.current.wind.on" class="currentItem currentWind">
                 <i class="w-wind-deg" :class="weatherData.current.wind_dir"></i>
                 {{
                   props.widget.unit
@@ -116,38 +142,38 @@ const getWindUnit = (wind) => {
                     : getWindUnit(weatherData.current.wind_kph)
                 }}
               </div>
-              <div v-if="props.widget.c.hy.on" class="currentItem currentHumidity">
+              <div v-if="props.widget.current.humidity.on" class="currentItem currentHumidity">
                 <i class="w-humidity"></i>
                 {{ round(weatherData.current.humidity) }}%
               </div>
-              <div v-if="props.widget.c.pr.on" class="currentItem currentPressure">
+              <div v-if="props.widget.current.pressure.on" class="currentItem currentPressure">
                 <i class="w-barometer"></i>
                 {{
                   props.widget.unit
-                    ? round(weatherData.current.pressure_in) + ' in'
-                    : round(weatherData.current.pressure_mb) + ' mb'
+                    ? round(weatherData.current.pressureessure_in) + ' in'
+                    : round(weatherData.current.pressureessure_mb) + ' mb'
                 }}
               </div>
             </div>
-            <div v-if="props.widget.c.ao.sr || props.widget.c.ao.ss" class="group">
-              <div v-if="props.widget.c.ao.sr" class="currentItem currentSunrise">
+            <div v-if="props.widget.current.astro.sunrise || props.widget.current.astro.sunset" class="group">
+              <div v-if="props.widget.current.astro.sunrise" class="currentItem currentSunrise">
                 <i class="w-sunrise"></i>
                 {{
                   DateTime.fromFormat(weatherData.forecast.forecastday[0].astro.sunrise, 'hh:mm a').toFormat(
-                    props.widget.tf ? 'HH:mm' : 'h:mm a'
+                    props.widget.twentyFour ? 'HH:mm' : 'h:mm a'
                   )
                 }}
               </div>
-              <div v-if="props.widget.c.ao.ss" class="currentItem currentSunset">
+              <div v-if="props.widget.current.astro.sunset" class="currentItem currentSunset">
                 <i class="w-sunset"></i>
                 {{
                   DateTime.fromFormat(weatherData.forecast.forecastday[0].astro.sunset, 'hh:mm a').toFormat(
-                    props.widget.tf ? 'HH:mm' : 'h:mm a'
+                    props.widget.twentyFour ? 'HH:mm' : 'h:mm a'
                   )
                 }}
               </div>
             </div>
-            <div v-if="props.widget.c.ao.mp" class="currentItem currentMoon">
+            <div v-if="props.widget.current.astro.moonPhase" class="currentItem currentMoon">
               <i
                 :class="{
                   'w-moon-waxing-crescent': weatherData.forecast.forecastday[0].astro.moon_phase === 'Waxing Crescent',
@@ -164,40 +190,59 @@ const getWindUnit = (wind) => {
             </div>
           </div>
         </div>
-        <div v-if="props.widget.f.on" class="forecast">
-          <template v-for="(day, index) in weatherData.forecast.forecastday.slice(0, props.widget.f.ds)">
+        <div v-if="props.widget.forecast.on" class="forecast">
+          <template v-for="(day, index) in weatherData.forecast.forecastday.slice(0, props.widget.forecast.days)">
             <div
-              v-if="!props.widget.f.ht || (props.widget.f.ht && index !== 0)"
+              v-if="!props.widget.forecast.hideToday || (props.widget.forecast.hideToday && index !== 0)"
               :key="index"
               class="forecastDay"
-              :class="{ forecastIconEnabled: props.widget.f.ic.on, forecastHorz: props.widget.f.hz }"
+              :class="{
+                forecastIconEnabled: props.widget.forecast.icon.on,
+                forecastHorz: props.widget.forecast.horizontal,
+              }"
             >
               <i
-                v-if="props.widget.f.ic.on"
+                v-if="props.widget.forecast.icon.on"
                 class="forecastIcon"
                 :class="`w-code-${day.day.condition.code}`"
-                :style="`font-size: ${props.widget.f.ic.sz * 0.5}em; color: ${hsl(props.widget.f.ic.cl)}`"
+                :style="`font-size: ${props.widget.forecast.icon.size * 0.5}em; color: ${hsl(
+                  props.widget.forecast.icon.color
+                )}`"
               ></i>
-              <div v-if="props.widget.f.dy.on || props.widget.f.tp.h || props.widget.f.tp.l" class="forecastData">
-                <div v-if="props.widget.f.dy.on" class="forecastDate" :style="`color: ${hsl(props.widget.f.dy.cl)}`">
+              <div
+                v-if="
+                  props.widget.forecast.day.on ||
+                  props.widget.forecast.temperature.high ||
+                  props.widget.forecast.temperature.low
+                "
+                class="forecastData"
+              >
+                <div
+                  v-if="props.widget.forecast.day.on"
+                  class="forecastDate"
+                  :style="`color: ${hsl(props.widget.forecast.day.color)}`"
+                >
                   {{ DateTime.fromFormat(day.date, 'yyyy-MM-dd').toFormat('ccc') }}
                 </div>
-                <div v-if="props.widget.f.tp.h || props.widget.f.tp.l" class="forecastTemp">
+                <div
+                  v-if="props.widget.forecast.temperature.high || props.widget.forecast.temperature.low"
+                  class="forecastTemp"
+                >
                   <div
-                    v-if="props.widget.f.tp.h"
+                    v-if="props.widget.forecast.temperature.high"
                     class="forecastTempHigh"
-                    :style="`color: ${hsl(props.widget.f.tp.hcl)}`"
+                    :style="`color: ${hsl(props.widget.forecast.temperature.highColor)}`"
                   >
                     {{ props.widget.scale ? round(day.day.maxtemp_f) : round(day.day.maxtemp_c)
-                    }}{{ props.widget.f.tp.de ? '°' : '' }}
+                    }}{{ props.widget.forecast.temperature.degree ? '°' : '' }}
                   </div>
                   <div
-                    v-if="props.widget.f.tp.l"
+                    v-if="props.widget.forecast.temperature.low"
                     class="forecastTempLow"
-                    :style="`color: ${hsl(props.widget.f.tp.lcl)}`"
+                    :style="`color: ${hsl(props.widget.forecast.temperature.lowColor)}`"
                   >
                     {{ props.widget.scale ? round(day.day.mintemp_f) : round(day.day.mintemp_c)
-                    }}{{ props.widget.f.tp.de ? '°' : '' }}
+                    }}{{ props.widget.forecast.temperature.degree ? '°' : '' }}
                   </div>
                 </div>
               </div>

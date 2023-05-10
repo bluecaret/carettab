@@ -7,7 +7,7 @@ import { setWidgetContainerStyles, setWidgetSegmentStyles } from '@/helpers/widg
 const store = useSettingsStore()
 
 const props = defineProps({
-  clock: {
+  widget: {
     type: Object,
     required: true,
   },
@@ -21,7 +21,7 @@ watch(
   () => {
     // If smooth seconds, use CSS animation, but seconds will need to be synced up
     // every minute to ensure animation doesn't cause time to drift.
-    if (props.clock.dl.bl) {
+    if (props.widget.delimiter.blink) {
       blinkStatus.value = true
       if (timeout) {
         clearTimeout(timeout)
@@ -38,53 +38,53 @@ const blink = computed(() => {
 })
 
 const containerStyles = computed(() => {
-  return setWidgetContainerStyles(props.clock, store.config.global)
+  return setWidgetContainerStyles(props.widget, store.config.global)
 })
 
 const segmentStyles = (type, lsUsesMargin = false) => {
-  return setWidgetSegmentStyles(props.clock, type, lsUsesMargin)
+  return setWidgetSegmentStyles(props.widget, type, lsUsesMargin)
 }
 
 const fontSize = computed(() => {
-  const config = props.clock.w.orf ? props.clock.w : store.config.global
-  return config.fs ? `${config.fs}px` : '0'
+  const config = props.widget.base.font.override ? props.widget.base.font : store.config.global.font
+  return config.size ? `${config.size}px` : '0'
 })
 
 const fontUnderline = computed(() => {
-  const config = props.clock.w.orf ? props.clock.w : store.config.global
-  return config.fu ? 'underline' : 'none'
+  const config = props.widget.base.font.override ? props.widget.base.font : store.config.global.font
+  return config.underline ? 'underline' : 'none'
 })
 
 const fontCase = computed(() => {
-  const config = props.clock.w.orf ? props.clock.w : store.config.global
-  return config.tt ? config.tt : 'none'
+  const config = props.widget.base.font.override ? props.widget.base.font : store.config.global.font
+  return config.transform ? config.transform : 'none'
 })
 
 const fontItalic = computed(() => {
-  const config = props.clock.w.orf ? props.clock.w : store.config.global
-  return config.fi ? config.fi : 'normal'
+  const config = props.widget.base.font.override ? props.widget.base.font : store.config.global.font
+  return config.italic ? config.italic : 'normal'
 })
 
 const spaceBetween = computed(() => {
-  let sb = props.clock.sb ? props.clock.sb / 2 : 0
+  let sb = props.widget.spaceBetween ? props.widget.spaceBetween / 2 : 0
   return `${sb * 0.01}em`
 })
 
 const letterSpacing = computed(() => {
-  const config = props.clock.w.orf ? props.clock.w : store.config.global
-  return config.ls ? `${config.ls * 0.01}em` : '0'
+  const config = props.widget.base.font.override ? props.widget.base.font : store.config.global.font
+  return config.letterSpacing ? `${config.letterSpacing * 0.01}em` : '0'
 })
 
 const monospace = computed(() => {
-  return props.clock.ms ? '1ch' : 'auto'
+  return props.widget.monospace ? '1ch' : 'auto'
 })
 
 const getFormattedTime = computed(() => {
-  return DateTime.fromJSDate(store.currentTime).setZone(props.clock.tz ? props.clock.tz : 'default')
+  return DateTime.fromJSDate(store.currentTime).setZone(props.widget.timezone ? props.widget.timezone : 'default')
 })
 
 const getRelativeTime = computed(() => {
-  let zone = props.clock.tz ? props.clock.tz : 'default'
+  let zone = props.widget.timezone ? props.widget.timezone : 'default'
   let here = DateTime.fromJSDate(store.currentTime).offset
   let there = DateTime.fromJSDate(store.currentTime).setZone(zone).offset
   let offset = (there - here) / 60
@@ -103,40 +103,44 @@ const getRelativeTime = computed(() => {
 </script>
 
 <template>
-  <div class="clock widget" :class="[props.clock.w.a, `container-${props.clock.w.ca}`]" :style="containerStyles">
-    <FontLink v-if="props.clock.w.orf" :widget="props.clock"></FontLink>
+  <div
+    class="clock widget"
+    :class="[props.widget.base.alignment, `container-${props.widget.base.container.alignment}`]"
+    :style="containerStyles"
+  >
+    <FontLink v-if="props.widget.base.font.override" :widget="props.widget"></FontLink>
     <div class="widgetInner">
       <div class="timeWrapper">
-        <div v-if="props.clock.hr.on" class="clockPart hour">
+        <div v-if="props.widget.hour.on" class="clockPart hour">
           <span
             v-for="(hr, index) in getFormattedTime
-              .toFormat(props.clock.hr.tf ? 'H' : 'h')
+              .toFormat(props.widget.hour.twentyFour ? 'H' : 'h')
               .toString()
-              .padStart(props.clock.hr.td ? 2 : 1, '0')
+              .padStart(props.widget.hour.twoDigit ? 2 : 1, '0')
               .split('')"
             :key="index"
             class="clockDigit"
-            :style="segmentStyles('hr', true)"
+            :style="segmentStyles('hour', true)"
             >{{ hr }}</span
           >
         </div>
         <div
-          v-if="props.clock.dl.on && props.clock.hr.on && (props.clock.sec.on || props.clock.min.on)"
+          v-if="props.widget.delimiter.on && props.widget.hour.on && (props.widget.sec.on || props.widget.min.on)"
           class="clockPart delimiter"
         >
           <span
-            v-for="(dl, index) in props.clock.dl.sym1.split('')"
+            v-for="(dl, index) in props.widget.delimiter.symbol1.split('')"
             :key="index"
             class="clockCharacter"
-            :style="segmentStyles('dl', true)"
+            :style="segmentStyles('delimiter', true)"
             >{{ dl }}</span
           >
         </div>
-        <div v-if="props.clock.min.on" class="clockPart minute">
+        <div v-if="props.widget.min.on" class="clockPart minute">
           <span
             v-for="(min, index) in getFormattedTime.minute
               .toString()
-              .padStart(props.clock.min.td ? 2 : 1, '0')
+              .padStart(props.widget.min.twoDigit ? 2 : 1, '0')
               .split('')"
             :key="index"
             class="clockDigit"
@@ -144,20 +148,20 @@ const getRelativeTime = computed(() => {
             >{{ min }}</span
           >
         </div>
-        <div v-if="props.clock.dl.on && props.clock.min.on && props.clock.sec.on" class="clockPart delimiter">
+        <div v-if="props.widget.delimiter.on && props.widget.min.on && props.widget.sec.on" class="clockPart delimiter">
           <span
-            v-for="(dl, index) in props.clock.dl.sym2.split('')"
+            v-for="(dl, index) in props.widget.delimiter.symbol2.split('')"
             :key="index"
             class="clockCharacter"
-            :style="segmentStyles('dl', true)"
+            :style="segmentStyles('delimiter', true)"
             >{{ dl }}</span
           >
         </div>
-        <div v-if="props.clock.sec.on" class="clockPart second">
+        <div v-if="props.widget.sec.on" class="clockPart second">
           <span
             v-for="(sec, index) in getFormattedTime.second
               .toString()
-              .padStart(props.clock.sec.td ? 2 : 1, '0')
+              .padStart(props.widget.sec.twoDigit ? 2 : 1, '0')
               .split('')"
             :key="index"
             class="clockDigit"
@@ -165,31 +169,34 @@ const getRelativeTime = computed(() => {
             >{{ sec }}</span
           >
         </div>
-        <div v-if="props.clock.dl.on && props.clock.dl.sym3 && props.clock.sec.on" class="clockPart delimiter">
+        <div
+          v-if="props.widget.delimiter.on && props.widget.delimiter.symbol3 && props.widget.sec.on"
+          class="clockPart delimiter"
+        >
           <span
-            v-for="(dl, index) in props.clock.dl.sym3.split('')"
+            v-for="(dl, index) in props.widget.delimiter.symbol3.split('')"
             :key="index"
             class="clockCharacter"
-            :style="segmentStyles('dl', true)"
+            :style="segmentStyles('delimiter', true)"
             >{{ dl }}</span
           >
         </div>
-        <div v-if="props.clock.md.on" class="clockPart meridiem">
+        <div v-if="props.widget.meridiem.on" class="clockPart meridiem">
           <span
             v-for="(md, index) in getFormattedTime.toFormat('a') === 'AM'
-              ? props.clock.md.am.split('')
-              : props.clock.md.pm.split('')"
+              ? props.widget.meridiem.am.split('')
+              : props.widget.meridiem.pm.split('')"
             :key="index"
             class="clockCharacter"
-            :style="segmentStyles('md', true)"
+            :style="segmentStyles('meridiem', true)"
             >{{ md }}</span
           >
         </div>
       </div>
-      <div v-if="props.clock.lb.on" class="labelWrapper" :style="segmentStyles('lb')">
-        {{ props.clock.lb.lb }}
+      <div v-if="props.widget.label.on" class="labelWrapper" :style="segmentStyles('label')">
+        {{ props.widget.label.label }}
       </div>
-      <div v-if="props.clock.rt.on" class="relativeTimeWrapper" :style="segmentStyles('rt')">
+      <div v-if="props.widget.relative.on" class="relativeTimeWrapper" :style="segmentStyles('relative')">
         {{ getRelativeTime }}
       </div>
     </div>

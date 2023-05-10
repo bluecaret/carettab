@@ -1,67 +1,61 @@
 import { defaultWidgetStyles } from './DefaultWidgetStyles.js'
 
 export class AnalogClock {
-  id = '' // id
-  tz = 'America/Los_Angeles' // timezone
-  sz = 50 // size
+  id = ''
+  timezone = 'America/Los_Angeles'
+  size = 50
   face = {
-    st: 'dash', // style
-    sh: [true, 1, 1, 5, 0, 0, 0, 0.8], // shadow
-    bs: 1, // border size
-    or: false, // override global styles
-    bc: [0, 0, 100, 1], // border color
-    qmc: [0, 0, 100, 1], // quarter mark color
-    hmc: [0, 0, 100, 1], // hour mark color
-    mmc: [0, 0, 100, 1], // minute mark color
+    style: 'dash',
+    shadow: [true, 1, 1, 5, 0, 0, 0, 0.8],
+    borderSize: 1,
+    override: false,
+    borderColor: [0, 0, 100, 1],
+    quarterColor: [0, 0, 100, 1],
+    hourColor: [0, 0, 100, 1],
+    minuteColor: [0, 0, 100, 1],
   }
   hand = {
-    st: 'minimalMedium', // style
-    or: false, // override global styles
-    sh: [false, 1, 1, 5, 0, 0, 0, 0.8], // shadow
+    style: 'minimalMedium',
+    override: false,
+    shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
   }
-  hr = {
-    // Hour
-    on: true, // on
-    cl: [0, 0, 100, 1], // color
+  hour = {
+    on: true,
+    color: [0, 0, 100, 1],
   }
   min = {
-    // Minute
-    on: true, // on
-    cl: [0, 0, 100, 1], // color
+    on: true,
+    color: [0, 0, 100, 1],
   }
   sec = {
-    // Seconds
-    on: true, // on
-    ss: false, // smooth seconds
-    cl: [0, 0, 100, 1], // color
+    on: true,
+    smoothSeconds: false,
+    color: [0, 0, 100, 1],
   }
-  cr = {
-    // Center
-    on: true, // on
-    cl: [0, 0, 100, 1], // color
+  center = {
+    on: true,
+    color: [0, 0, 100, 1],
   }
-  lb = {
-    // Label
-    lb: 'Clock', // Label text
-    on: false, // on
-    or: false, // override widget styles
-    cl: [0, 0, 100, 1], // color
-    ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
-    ls: 0, // Letter spacing
-    ox: 0, // offset X
-    oy: 0, // offset Y
+  label = {
+    label: 'Clock',
+    on: false,
+    override: false,
+    color: [0, 0, 100, 1],
+    shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
+    size: 24,
+    letterSpacing: 0,
+    x: 0,
+    y: 0,
   }
-  rt = {
-    // Relative time
-    on: false, // on
-    or: false, // override widget styles
-    cl: [0, 0, 100, 1], // color
-    ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
-    ls: 0, // Letter spacing
-    ox: 0, // offset X
-    oy: 0, // offset Y
+  relative = {
+    on: false,
+    override: false,
+    color: [0, 0, 100, 1],
+    shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
+    size: 24,
+    letterSpacing: 0,
+    x: 0,
+    y: 0,
   }
-  w = { ...defaultWidgetStyles }
+  base = { ...defaultWidgetStyles }
 }

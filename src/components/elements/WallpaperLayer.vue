@@ -15,18 +15,18 @@ onMounted(async () => {
 })
 
 const filter = computed(() => {
-  return `brightness(${store.config.global.ibr * 0.1}) saturate(${store.config.global.isa * 0.1}) contrast(${
-    store.config.global.ico * 0.1
-  }) blur(${store.config.global.ibl}px)`
+  return `brightness(${store.config.global.wallpaper.brightness * 0.1}) saturate(${
+    store.config.global.wallpaper.saturation * 0.1
+  }) contrast(${store.config.global.wallpaper.contrast * 0.1}) blur(${store.config.global.wallpaper.blur}px)`
 })
 
 const blendMode = computed(() => {
-  return store.config.global.ifi
+  return store.config.global.wallpaper.filter
 })
 
 const bgSize = computed(() => {
   let size = 'cover'
-  switch (store.config.global.isz) {
+  switch (store.config.global.wallpaper.size) {
     case 'cover':
       size = 'cover'
       break
@@ -34,17 +34,17 @@ const bgSize = computed(() => {
       size = 'contain'
       break
     case 'scale':
-      if (store.config.global.it === 'pattern') {
+      if (store.config.global.wallpaper.type === 'pattern') {
         size = 'cover'
       } else {
-        size = `${store.config.global.isc}%`
+        size = `${store.config.global.wallpaper.scale}%`
       }
       break
     case 'scaleRepeat':
-      if (store.config.global.it === 'pattern') {
+      if (store.config.global.wallpaper.type === 'pattern') {
         size = 'cover'
       } else {
-        size = `${store.config.global.isc}%`
+        size = `${store.config.global.wallpaper.scale}%`
       }
       break
     default:
@@ -57,11 +57,11 @@ const bgSize = computed(() => {
 const bgScale = computed(() => {
   let scale = '1'
   if (
-    (store.config.global.isz === 'scale' || store.config.global.isz === 'scaleRepeat') &&
-    store.config.global.it === 'pattern'
+    (store.config.global.wallpaper.size === 'scale' || store.config.global.wallpaper.size === 'scaleRepeat') &&
+    store.config.global.wallpaper.type === 'pattern'
   ) {
-    if (store.config.global.it === 'pattern') {
-      scale = `max(1, ${store.config.global.isc * 0.01})`
+    if (store.config.global.wallpaper.type === 'pattern') {
+      scale = `max(1, ${store.config.global.wallpaper.scale * 0.01})`
     } else {
       scale = '1'
     }
@@ -71,7 +71,7 @@ const bgScale = computed(() => {
 
 const bgRepeat = computed(() => {
   let repeat = 'cover'
-  switch (store.config.global.isz) {
+  switch (store.config.global.wallpaper.size) {
     case 'repeat':
       repeat = 'repeat'
       break
@@ -88,11 +88,15 @@ const bgRepeat = computed(() => {
 const loadWallpaper = async () => {
   const globalStorage = await getStorage('global', 'sync')
   let imageType = ''
-  if (globalStorage.global && globalStorage.global.it) imageType = globalStorage.global.it
+  if (globalStorage.global && globalStorage.global.wallpaper.type) imageType = globalStorage.global.wallpaper.type
 
   loadCurrentWallpaper(imageType)
   if (user.paid) {
-    getNextWallpaper(globalStorage.global.it, globalStorage.global.its, globalStorage.global.iid)
+    getNextWallpaper(
+      globalStorage.global.wallpaper.type,
+      globalStorage.global.wallpaper.timestamp,
+      globalStorage.global.wallpaper.id
+    )
   }
 }
 
@@ -122,7 +126,13 @@ const getNextWallpaper = async (type, timestamp, id) => {
       let nextWallpaper = await getStorage('nextWallpaper', 'local')
       if (nextWallpaper.nextWallpaper) {
         let nextImage = prepareWallpaperObj(nextWallpaper.nextWallpaper)
-        saveUnsplashInfoToGlobal(type, id, nextImage, store.config.global.unli, store.config.global.unll)
+        saveUnsplashInfoToGlobal(
+          type,
+          id,
+          nextImage,
+          store.config.global.unsplash.listName,
+          store.config.global.unsplash.listLink
+        )
 
         setStorage({ currentWallpaper: nextImage }, 'local')
         store.wallpaper = nextImage
@@ -155,7 +165,11 @@ watch(
 <template>
   <div
     class="wallpaper"
-    :class="store.config.global.it === 'pattern' ? `wallpaperPattern pattern-${store.config.global.iid}` : ''"
+    :class="
+      store.config.global.wallpaper.type === 'pattern'
+        ? `wallpaperPattern pattern-${store.config.global.wallpaper.id}`
+        : ''
+    "
   >
     <div class="wallpaperBackdrop"></div>
   </div>

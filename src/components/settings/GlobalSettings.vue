@@ -75,16 +75,20 @@ const processImage = (imgSrc) => {
     store.$patch({
       config: {
         global: {
-          it: 'upload',
-          iid: '', // Image ID
-          its: '', // Image timestamp
-          unpt: '', // Unsplash photo title
-          unpl: '', // Unsplash photo link
-          unalt: '', // Unsplash alt description
-          unau: '', // Unsplash author
-          unal: '', // Unsplash author link
-          unli: '', // Unsplash list
-          unll: '', // Unsplash list link
+          wallpaper: {
+            type: 'upload',
+            id: '', // Image ID
+            timestamp: '', // Image timestamp
+          },
+          unsplash: {
+            photoTitle: '', // Unsplash photo title
+            photoLink: '', // Unsplash photo link
+            photoAlt: '', // Unsplash alt description
+            authorName: '', // Unsplash author
+            authorLink: '', // Unsplash author link
+            listName: '', // Unsplash list
+            listLink: '', // Unsplash list link
+          },
         },
       },
     })
@@ -99,16 +103,20 @@ const handleRemoveImage = () => {
   store.$patch({
     config: {
       global: {
-        it: 'none',
-        iid: '', // Image ID
-        its: '', // Image timestamp
-        unpt: '', // Unsplash photo title
-        unpl: '', // Unsplash photo link
-        unalt: '', // Unsplash alt description
-        unau: '', // Unsplash author
-        unal: '', // Unsplash author link
-        unli: '', // Unsplash list
-        unll: '', // Unsplash list link
+        wallpaper: {
+          type: 'none',
+          id: '', // Image ID
+          timestamp: '', // Image timestamp
+        },
+        unsplash: {
+          photoTitle: '', // Unsplash photo title
+          photoLink: '', // Unsplash photo link
+          photoAlt: '', // Unsplash alt description
+          authorName: '', // Unsplash author
+          authorLink: '', // Unsplash author link
+          listName: '', // Unsplash list
+          listLink: '', // Unsplash list link
+        },
       },
     },
   })
@@ -120,11 +128,11 @@ const handleRefreshImage = async () => {
   if (nextWallpaper.nextWallpaper) {
     let nextImage = prepareWallpaperObj(nextWallpaper.nextWallpaper)
     saveUnsplashInfoToGlobal(
-      store.config.global.it,
-      store.config.global.iid,
+      store.config.global.wallpaper.type,
+      store.config.global.wallpaper.id,
       nextImage,
-      store.config.global.unli,
-      store.config.global.unll
+      store.config.global.unsplash.listName,
+      store.config.global.unsplash.listLink
     )
 
     setStorage({ currentWallpaper: nextImage }, 'local')
@@ -134,8 +142,8 @@ const handleRefreshImage = async () => {
   // Retrieve new 'next' wallpaper
   let newRandomPhoto = await getRandomPhotoFromUnsplashList(
     access.items.us,
-    store.config.global.it,
-    store.config.global.iid
+    store.config.global.wallpaper.type,
+    store.config.global.wallpaper.id
   )
   if (newRandomPhoto) {
     setStorage({ nextWallpaper: newRandomPhoto }, 'local')
@@ -146,13 +154,15 @@ const handleImageAdjustmentReset = () => {
   store.$patch({
     config: {
       global: {
-        isz: 'cover', // Image size
-        ifi: 'normal', // Image filter
-        ibr: 10, // Image brightness
-        isa: 10, // Image saturation
-        ico: 10, // Image contrast
-        ibl: 0, // Image blur
-        isc: 100, // Image scale
+        wallpaper: {
+          size: 'cover',
+          filter: 'normal',
+          brightness: 10,
+          saturation: 10,
+          contrast: 10,
+          blur: 0,
+          scale: 100,
+        },
       },
     },
   })
@@ -166,25 +176,25 @@ const handleLangSelect = (event) => {
 <template>
   <div v-if="props.openDefault" class="blockContainer">
     <WidgetFontField
-      v-model:cl="store.config.global.cl"
-      v-model:ts="store.config.global.ts"
-      v-model:fs="store.config.global.fs"
-      v-model:fb="store.config.global.fb"
-      v-model:fi="store.config.global.fi"
-      v-model:fu="store.config.global.fu"
-      v-model:ls="store.config.global.ls"
-      v-model:tt="store.config.global.tt"
-      v-model:ff="store.config.global.ff"
+      v-model:cl="store.config.global.font.color"
+      v-model:ts="store.config.global.font.shadow"
+      v-model:fs="store.config.global.font.size"
+      v-model:fb="store.config.global.font.bold"
+      v-model:fi="store.config.global.font.italic"
+      v-model:fu="store.config.global.font.underline"
+      v-model:ls="store.config.global.font.letterSpacing"
+      v-model:tt="store.config.global.font.transform"
+      v-model:ff="store.config.global.font.family"
       no-override
     >
     </WidgetFontField>
     <WidgetBoxField
-      v-model:rounded="store.config.global.crd"
-      v-model:bs="store.config.global.cbs"
-      v-model:bc="store.config.global.cbc"
-      v-model:bg="store.config.global.cbg"
-      v-model:shadow="store.config.global.csh"
-      v-model:padding="store.config.global.cpd"
+      v-model:rounded="store.config.global.container.radius"
+      v-model:bs="store.config.global.container.borderSize"
+      v-model:bc="store.config.global.container.borderColor"
+      v-model:bg="store.config.global.container.background"
+      v-model:shadow="store.config.global.container.shadow"
+      v-model:padding="store.config.global.container.padding"
       no-override
     >
     </WidgetBoxField>
@@ -214,34 +224,40 @@ const handleLangSelect = (event) => {
         <div class="group">
           <div class="group stack">
             <label for="backgroundColor" class="desc">Color</label>
-            <ColorField v-model="store.config.global.bg" tag-id="backgroundColor" class="w10 mra"> </ColorField>
+            <ColorField v-model="store.config.global.wallpaper.background" tag-id="backgroundColor" class="w10 mra">
+            </ColorField>
           </div>
-          <div v-if="store.config.global.it && store.config.global.it !== 'none'" class="group stack">
+          <div
+            v-if="store.config.global.wallpaper.type && store.config.global.wallpaper.type !== 'none'"
+            class="group stack"
+          >
             <div class="desc">
               <span>
-                {{ store.config.global.it === 'none' ? 'Image' : '' }}
-                {{ store.config.global.it === 'upload' ? 'Uploaded image' : '' }}
-                {{ store.config.global.it === 'pattern' ? `Pattern: ${store.config.global.iid}` : '' }}
-                {{ store.config.global.it === 'unphoto' ? 'Unsplash.com Photo' : '' }}
-                {{ store.config.global.it === 'untopic' ? 'Unsplash.com Topic: ' : '' }}
-                {{ store.config.global.it === 'uncollection' ? 'Unsplash.com Collection: ' : '' }}
+                {{ store.config.global.wallpaper.type === 'none' ? 'Image' : '' }}
+                {{ store.config.global.wallpaper.type === 'upload' ? 'Uploaded image' : '' }}
+                {{
+                  store.config.global.wallpaper.type === 'pattern' ? `Pattern: ${store.config.global.wallpaper.id}` : ''
+                }}
+                {{ store.config.global.wallpaper.type === 'unphoto' ? 'Unsplash.com Photo' : '' }}
+                {{ store.config.global.wallpaper.type === 'untopic' ? 'Unsplash.com Topic: ' : '' }}
+                {{ store.config.global.wallpaper.type === 'uncollection' ? 'Unsplash.com Collection: ' : '' }}
                 <a
-                  v-if="store.config.global.it === 'untopic'"
+                  v-if="store.config.global.wallpaper.type === 'untopic'"
                   target="_blank"
-                  :href="store.config.global.unll + '?utm_source=carettab&utm_medium=referral'"
-                  >{{ store.config.global.unli }}</a
+                  :href="store.config.global.unsplash.listLink + '?utm_source=carettab&utm_medium=referral'"
+                  >{{ store.config.global.unsplash.listName }}</a
                 >
                 <a
-                  v-if="store.config.global.it === 'uncollection'"
+                  v-if="store.config.global.wallpaper.type === 'uncollection'"
                   target="_blank"
-                  :href="store.config.global.unll + '?utm_source=carettab&utm_medium=referral'"
-                  >{{ store.config.global.unli }}</a
+                  :href="store.config.global.unsplash.listLink + '?utm_source=carettab&utm_medium=referral'"
+                  >{{ store.config.global.unsplash.listName }}</a
                 >
               </span>
             </div>
             <div class="btnGroup">
               <button
-                v-if="store.config.global.it === 'pattern'"
+                v-if="store.config.global.wallpaper.type === 'pattern'"
                 class="btn"
                 type="button"
                 @click="store.goTo('patterns')"
@@ -249,7 +265,7 @@ const handleLangSelect = (event) => {
                 Select pattern
               </button>
               <button
-                v-if="['unphoto', 'untopic', 'uncollection'].includes(store.config.global.it)"
+                v-if="['unphoto', 'untopic', 'uncollection'].includes(store.config.global.wallpaper.type)"
                 class="btn"
                 type="button"
                 @click="store.goTo('unsplash')"
@@ -257,7 +273,7 @@ const handleLangSelect = (event) => {
                 Search Unsplash
               </button>
               <button
-                v-if="['untopic', 'uncollection'].includes(store.config.global.it)"
+                v-if="['untopic', 'uncollection'].includes(store.config.global.wallpaper.type)"
                 class="btn"
                 type="button"
                 @click="handleRefreshImage()"
@@ -267,7 +283,10 @@ const handleLangSelect = (event) => {
               <button class="btn" type="button" @click="handleRemoveImage()">Remove</button>
             </div>
           </div>
-          <div v-if="!store.config.global.it || store.config.global.it === 'none'" class="group stack">
+          <div
+            v-if="!store.config.global.wallpaper.type || store.config.global.wallpaper.type === 'none'"
+            class="group stack"
+          >
             <input
               id="uploadImg"
               ref="uploadImageField"
@@ -286,21 +305,27 @@ const handleLangSelect = (event) => {
           </div>
         </div>
       </div>
-      <DropdownMenu v-if="['unphoto', 'untopic', 'uncollection'].includes(store.config.global.it)" style="width: 100%">
+      <DropdownMenu
+        v-if="['unphoto', 'untopic', 'uncollection'].includes(store.config.global.wallpaper.type)"
+        style="width: 100%"
+      >
         <template #button>
           <button type="button" class="imageDetails">
             <fa icon="fa-images" fixed-width></fa>
             <span>
               Photo taken by
-              <a target="_blank" :href="store.config.global.unal + '?utm_source=carettab&utm_medium=referral'">
-                {{ store.config.global.unau }}
+              <a
+                target="_blank"
+                :href="store.config.global.unsplash.authorLink + '?utm_source=carettab&utm_medium=referral'"
+              >
+                {{ store.config.global.unsplash.authorName }}
               </a>
             </span>
             <a
               class="imageDetailsPhotoLink"
               target="_blank"
               title="Open link to photo"
-              :href="store.config.global.unpl + '?utm_source=carettab&utm_medium=referral'"
+              :href="store.config.global.unsplash.photoLink + '?utm_source=carettab&utm_medium=referral'"
             >
               <fa icon="fa-arrow-up-right-from-square" fixed-width></fa>
             </a>
@@ -309,22 +334,37 @@ const handleLangSelect = (event) => {
         <template #menu>
           <div class="imageDetailsDescription">
             <h3 class="label">Photo details:</h3>
-            <p v-if="store.config.global.unpt && store.config.global.unpt.trim() !== ''" class="paragraph">
-              {{ store.config.global.unpt }}
+            <p
+              v-if="store.config.global.unsplash.photoTitle && store.config.global.unsplash.photoTitle.trim() !== ''"
+              class="paragraph"
+            >
+              {{ store.config.global.unsplash.photoTitle }}
             </p>
-            <p v-if="store.config.global.unalt && store.config.global.unalt.trim() !== ''" class="paragraph">
-              {{ store.config.global.unalt }}
+            <p
+              v-if="store.config.global.unsplash.photoAlt && store.config.global.unsplash.photoAlt.trim() !== ''"
+              class="paragraph"
+            >
+              {{ store.config.global.unsplash.photoAlt }}
             </p>
           </div>
         </template>
       </DropdownMenu>
-      <div v-if="store.config.global.it && store.config.global.it !== 'none'" class="group fill stack">
+      <div
+        v-if="store.config.global.wallpaper.type && store.config.global.wallpaper.type !== 'none'"
+        class="group fill stack"
+      >
         <div class="group fill">
           <div class="group stack">
             <div class="desc">Brightness</div>
             <div class="range">
-              <output class="output">{{ store.config.global.ibr }}</output>
-              <input v-model="store.config.global.ibr" type="range" class="rangeInput" min="0" max="30" />
+              <output class="output">{{ store.config.global.wallpaper.brightness }}</output>
+              <input
+                v-model="store.config.global.wallpaper.brightness"
+                type="range"
+                class="rangeInput"
+                min="0"
+                max="30"
+              />
             </div>
           </div>
           <div class="group stack">
@@ -332,8 +372,14 @@ const handleLangSelect = (event) => {
               <div><PremiumLabel />Contrast</div>
             </div>
             <div class="range">
-              <output class="output">{{ store.config.global.ico }}</output>
-              <input v-model="store.config.global.ico" type="range" class="rangeInput" min="0" max="30" />
+              <output class="output">{{ store.config.global.wallpaper.contrast }}</output>
+              <input
+                v-model="store.config.global.wallpaper.contrast"
+                type="range"
+                class="rangeInput"
+                min="0"
+                max="30"
+              />
             </div>
           </div>
           <div class="group stack">
@@ -341,8 +387,14 @@ const handleLangSelect = (event) => {
               <div><PremiumLabel />Saturation</div>
             </div>
             <div class="range">
-              <output class="output">{{ store.config.global.isa }}</output>
-              <input v-model="store.config.global.isa" type="range" class="rangeInput" min="0" max="30" />
+              <output class="output">{{ store.config.global.wallpaper.saturation }}</output>
+              <input
+                v-model="store.config.global.wallpaper.saturation"
+                type="range"
+                class="rangeInput"
+                min="0"
+                max="30"
+              />
             </div>
           </div>
           <div class="group stack">
@@ -350,15 +402,15 @@ const handleLangSelect = (event) => {
               <div><PremiumLabel />Blur</div>
             </div>
             <div class="range">
-              <output class="output">{{ store.config.global.ibl }}</output>
-              <input v-model="store.config.global.ibl" type="range" class="rangeInput" min="0" max="50" />
+              <output class="output">{{ store.config.global.wallpaper.blur }}</output>
+              <input v-model="store.config.global.wallpaper.blur" type="range" class="rangeInput" min="0" max="50" />
             </div>
           </div>
         </div>
         <div class="group fill">
           <div class="group stack fill">
             <label for="imageFilter" class="desc">Filter</label>
-            <select id="imageFilter" v-model="store.config.global.ifi" name="imageFilter" class="select">
+            <select id="imageFilter" v-model="store.config.global.wallpaper.filter" name="imageFilter" class="select">
               <option value="normal">Normal</option>
               <option value="multiply">Multiply</option>
               <option value="screen">Screen</option>
@@ -379,7 +431,7 @@ const handleLangSelect = (event) => {
           </div>
           <div class="group stack fill">
             <label for="imageFill" class="desc">Fill</label>
-            <select id="imageFill" v-model="store.config.global.isz" name="imageFill" class="select">
+            <select id="imageFill" v-model="store.config.global.wallpaper.size" name="imageFill" class="select">
               <option value="cover">Cover</option>
               <option value="contain">Contain</option>
               <option value="repeat">Repeat</option>
@@ -388,13 +440,15 @@ const handleLangSelect = (event) => {
             </select>
           </div>
           <div
-            v-if="store.config.global.isz === 'scale' || store.config.global.isz === 'scaleRepeat'"
+            v-if="
+              store.config.global.wallpaper.size === 'scale' || store.config.global.wallpaper.size === 'scaleRepeat'
+            "
             class="group stack"
           >
             <div class="desc">Scale</div>
             <div class="range w12">
-              <output class="output">{{ store.config.global.isc }}</output>
-              <input v-model="store.config.global.isc" type="range" class="rangeInput" min="0" max="200" />
+              <output class="output">{{ store.config.global.wallpaper.scale }}</output>
+              <input v-model="store.config.global.wallpaper.scale" type="range" class="rangeInput" min="0" max="200" />
             </div>
           </div>
           <div class="group stack">

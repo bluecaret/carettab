@@ -115,7 +115,7 @@ const handleUnsplashPhotoSearch = () => {
               aria-labelledby="unsplashSelect"
               type="button"
               class="unsplashBtn"
-              :class="store.config.global.iid === photo.id ? 'active' : ''"
+              :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
               @click="getSelectedUnsplashImage(access.items.us, photo.id, photo.title, photo.links.html)"
             >
               <div
@@ -176,7 +176,7 @@ const handleUnsplashPhotoSearch = () => {
               aria-labelledby="unsplashSelect"
               type="button"
               class="unsplashBtn"
-              :class="store.config.global.iid === photo.id ? 'active' : ''"
+              :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
               @click="getSelectedUnsplashImage(access.items.us, photo.id, photo.title, photo.links.html)"
             >
               <div v-if="photo.preview_photos && photo.preview_photos.length > 0" class="unsplashPreviewList">
@@ -231,7 +231,7 @@ const handleUnsplashPhotoSearch = () => {
               aria-labelledby="unsplashSelect"
               type="button"
               class="unsplashBtn"
-              :class="store.config.global.iid === photo.id ? 'active' : ''"
+              :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
               @click="getSelectedUnsplashImage(access.items.us, photo.id, photo.title, photo.links.html)"
             >
               <div v-if="photo.preview_photos && photo.preview_photos.length > 0" class="unsplashPreviewList">

@@ -15,36 +15,36 @@ const widget = reactive(store.config.searchBars[ci.value])
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
       <SizeAndPositionField
-        v-model:width="widget.w.w"
-        v-model:height="widget.w.h"
-        v-model:autoSize="widget.w.as"
-        v-model:align="widget.w.a"
-        v-model:calign="widget.w.ca"
-        v-model:x="widget.w.x"
-        v-model:y="widget.w.y"
+        v-model:width="widget.base.width"
+        v-model:height="widget.base.height"
+        v-model:autoSize="widget.base.autoSize"
+        v-model:align="widget.base.alignment"
+        v-model:calign="widget.base.container.alignment"
+        v-model:x="widget.base.x"
+        v-model:y="widget.base.y"
       >
       </SizeAndPositionField>
       <WidgetFontField
-        v-model:override="widget.w.orf"
-        v-model:cl="widget.w.cl"
-        v-model:fs="widget.w.fs"
-        v-model:fb="widget.w.fb"
-        v-model:fi="widget.w.fi"
-        v-model:fu="widget.w.fu"
-        v-model:ls="widget.w.ls"
-        v-model:ts="widget.w.ts"
-        v-model:tt="widget.w.tt"
-        v-model:ff="widget.w.ff"
+        v-model:override="widget.base.font.override"
+        v-model:cl="widget.base.font.color"
+        v-model:fs="widget.base.font.size"
+        v-model:fb="widget.base.font.bold"
+        v-model:fi="widget.base.font.italic"
+        v-model:fu="widget.base.font.underline"
+        v-model:ls="widget.base.font.letterSpacing"
+        v-model:ts="widget.base.font.shadow"
+        v-model:tt="widget.base.font.transform"
+        v-model:ff="widget.base.font.family"
       >
       </WidgetFontField>
       <WidgetBoxField
-        v-model:override="widget.w.cor"
-        v-model:rounded="widget.w.crd"
-        v-model:bs="widget.w.cbs"
-        v-model:bc="widget.w.cbc"
-        v-model:bg="widget.w.cbg"
-        v-model:shadow="widget.w.csh"
-        v-model:padding="widget.w.cpd"
+        v-model:override="widget.base.container.override"
+        v-model:rounded="widget.base.container.radius"
+        v-model:bs="widget.base.container.borderSize"
+        v-model:bc="widget.base.container.borderColor"
+        v-model:bg="widget.base.container.background"
+        v-model:shadow="widget.base.container.shadow"
+        v-model:padding="widget.base.container.padding"
       >
       </WidgetBoxField>
     </div>
@@ -57,15 +57,15 @@ const widget = reactive(store.config.searchBars[ci.value])
             <label for="custom" class="desc">
               <div><PremiumLabel />Custom</div>
             </label>
-            <ToggleField id="custom" v-model="widget.ce" name="custom"></ToggleField>
+            <ToggleField id="custom" v-model="widget.customEngine" name="custom"></ToggleField>
           </div>
-          <select v-if="!widget.ce" id="engine" v-model="widget.en" name="engine" class="select w25">
+          <select v-if="!widget.customEngine" id="engine" v-model="widget.engine" name="engine" class="select w25">
             <option v-for="engine in searchEngines" :key="engine.id" :value="engine.id">{{ engine.label }}</option>
           </select>
           <input
-            v-if="widget.ce"
+            v-if="widget.customEngine"
             id="engine"
-            v-model="widget.ceu"
+            v-model="widget.customEngineUrl"
             type="text"
             name="engine"
             class="input w25"
@@ -76,7 +76,7 @@ const widget = reactive(store.config.searchBars[ci.value])
       <div class="block">
         <div class="group fill">
           <label for="label" class="label mra">Placeholder</label>
-          <input id="label" v-model="widget.lb" type="text" name="label" class="input w25" />
+          <input id="label" v-model="widget.label" type="text" name="label" class="input w25" />
         </div>
       </div>
       <div class="block">
@@ -84,19 +84,19 @@ const widget = reactive(store.config.searchBars[ci.value])
           <label for="searchOptions" class="label mra">Search options</label>
           <div class="group stack">
             <label for="autocomplete" class="desc">Autocomplete</label>
-            <ToggleField id="autocomplete" v-model="widget.ac" name="autocomplete"></ToggleField>
+            <ToggleField id="autocomplete" v-model="widget.autocomplete" name="autocomplete"></ToggleField>
           </div>
           <div class="group stack">
             <label for="icon" class="desc">Search icon</label>
-            <ToggleField id="icon" v-model="widget.ic" name="icon"></ToggleField>
+            <ToggleField id="icon" v-model="widget.icon" name="icon"></ToggleField>
           </div>
           <div class="group stack">
             <label for="icon" class="desc">Engine name</label>
-            <ToggleField id="icon" v-model="widget.el" name="icon"></ToggleField>
+            <ToggleField id="icon" v-model="widget.engineLabel" name="icon"></ToggleField>
           </div>
           <div class="group stack">
             <label for="icon" class="desc">Engine selection</label>
-            <ToggleField id="icon" v-model="widget.ed" name="icon"></ToggleField>
+            <ToggleField id="icon" v-model="widget.dropdown" name="icon"></ToggleField>
           </div>
         </div>
       </div>
@@ -105,45 +105,45 @@ const widget = reactive(store.config.searchBars[ci.value])
         <div class="group fill">
           <div class="group stack w10">
             <label for="size" class="desc">Width</label>
-            <NumberField id="size" v-model="widget.sz" name="size" :min="0" :step="1"></NumberField>
+            <NumberField id="size" v-model="widget.size" name="size" :min="0" :step="1"></NumberField>
           </div>
           <div class="group stack w10">
             <label for="padding" class="desc">Padding</label>
-            <NumberField id="padding" v-model="widget.pd" name="padding" :min="0" :step="1"></NumberField>
+            <NumberField id="padding" v-model="widget.padding" name="padding" :min="0" :step="1"></NumberField>
           </div>
           <div class="group stack w10">
             <label for="bradius" class="desc">Rounded</label>
-            <NumberField id="bradius" v-model="widget.br" name="bradius" :min="0" :step="1"></NumberField>
+            <NumberField id="bradius" v-model="widget.radius" name="bradius" :min="0" :step="1"></NumberField>
           </div>
           <div class="group stack w10">
             <label for="bsize" class="desc">Border size</label>
-            <NumberField id="bsize" v-model="widget.bsz" name="bsize" :min="0" :step="1"></NumberField>
+            <NumberField id="bsize" v-model="widget.borderSize" name="bsize" :min="0" :step="1"></NumberField>
           </div>
           <div class="group stack">
             <label for="bbottom" class="desc">Bottom border</label>
-            <ToggleField id="bbottom" v-model="widget.bb" name="bbottom"></ToggleField>
+            <ToggleField id="bbottom" v-model="widget.borderBottom" name="bbottom"></ToggleField>
           </div>
         </div>
         <div class="group fill">
           <div class="group stack fill">
             <label for="color" class="desc">Color</label>
-            <ColorField id="color" v-model="widget.cl" name="color"></ColorField>
+            <ColorField id="color" v-model="widget.color" name="color"></ColorField>
           </div>
           <div class="group stack fill">
             <label for="bg" class="desc">Background</label>
-            <ColorField id="bg" v-model="widget.bg" name="bg"></ColorField>
+            <ColorField id="bg" v-model="widget.background" name="bg"></ColorField>
           </div>
           <div class="group stack fill">
             <label for="bc" class="desc">Border</label>
-            <ColorField id="bc" v-model="widget.bc" name="bc"></ColorField>
+            <ColorField id="bc" v-model="widget.borderColor" name="bc"></ColorField>
           </div>
           <div class="group stack fill">
             <label for="ts" class="desc">Text shadow</label>
-            <ColorField id="ts" v-model="widget.ts" shadow name="ts" text></ColorField>
+            <ColorField id="ts" v-model="widget.shadow" shadow name="ts" text></ColorField>
           </div>
           <div class="group stack fill">
             <label for="bs" class="desc">Bar shadow</label>
-            <ColorField id="bs" v-model="widget.bs" shadow name="bs"></ColorField>
+            <ColorField id="bs" v-model="widget.boxShadow" shadow name="bs"></ColorField>
           </div>
         </div>
       </div>

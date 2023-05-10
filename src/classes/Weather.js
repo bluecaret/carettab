@@ -1,9 +1,8 @@
 import { defaultWidgetStyles } from './DefaultWidgetStyles.js'
 
 export class Weather {
-  id = '' // id
-  loc = {
-    // location
+  id = ''
+  location = {
     country: 'United States of America',
     id: 2670971,
     lat: 47.61,
@@ -12,79 +11,67 @@ export class Weather {
     region: 'Washington',
     url: 'seattle-washington-united-states-of-america',
   }
-  scale = true // scale: fahrenheit, celsius
-  unit = true // units: imperial, metric
-  wu = true // wind units: mph, kph | m/s, ft/s
-  pd = false // precise digits
-  tf = false // twenty four
-  hz = true // horizontal
-  lb = {
-    // name label
-    on: true, // on
-    cl: [0, 0, 100, 1], // color
+  scale = true // fahrenheit, celsius
+  unit = true // imperial, metric
+  windUnit = true // mph, kph | ft/s, m/s
+  precise = false
+  twentyFour = false
+  horizontal = true
+  label = {
+    on: true,
+    color: [0, 0, 100, 1],
   }
-  c = {
-    // current weather
-    on: true, // on
-    cd: true, // condition
-    ic: {
-      // icon
-      on: true, // on
-      sz: 12, // size
-      cl: [0, 0, 100, 1], // color
+  current = {
+    on: true,
+    condition: true,
+    icon: {
+      on: true,
+      size: 12,
+      color: [0, 0, 100, 1],
     },
-    tp: {
-      // temperature
-      cur: true, // currently
-      fl: true, // feels like
-      de: true, // degree
-      ccl: [0, 0, 100, 1], // color
-      fcl: [0, 0, 100, 1], // color
+    temperature: {
+      currently: true,
+      feelsLike: true,
+      degree: true,
+      currentlyColor: [0, 0, 100, 1],
+      feelsLikeColor: [0, 0, 100, 1],
     },
-    wd: {
-      // wind
-      on: true, // on
+    wind: {
+      on: true,
     },
-    hy: {
-      // humidity
-      on: true, // on
+    humidity: {
+      on: true,
     },
-    pr: {
-      // pressure
-      on: true, // on
+    pressure: {
+      on: true,
     },
-    ao: {
-      // astro
-      mp: false, // moon phase
-      sr: false, // sunrise
-      ss: false, // sunset
+    astro: {
+      moonPhase: false,
+      sunrise: false,
+      sunset: false,
     },
   }
-  f = {
-    // forecast
-    on: true, // on
-    ds: 3, // days
-    ht: true, // hide today
-    hz: true, // horizontal
-    ic: {
-      // icon
-      on: true, // on
-      sz: 6, // size
-      cl: [0, 0, 100, 1], // color
+  forecast = {
+    on: true,
+    days: 3,
+    hideToday: true,
+    horizontal: true,
+    icon: {
+      on: true,
+      size: 6,
+      color: [0, 0, 100, 1],
     },
-    dy: {
-      // day
-      on: true, // on
-      cl: [0, 0, 100, 1], // color
+    day: {
+      on: true,
+      color: [0, 0, 100, 1],
     },
-    tp: {
-      // temperature
-      h: true, // high
-      l: true, // low
-      de: true, // degree
-      hcl: [0, 0, 100, 1], // color
-      lcl: [0, 0, 100, 1], // color
+    temperature: {
+      high: true,
+      low: true,
+      de: true,
+      highColor: [0, 0, 100, 1],
+      lowColor: [0, 0, 100, 1],
     },
   }
-  w = { ...defaultWidgetStyles }
+  base = { ...defaultWidgetStyles }
 }

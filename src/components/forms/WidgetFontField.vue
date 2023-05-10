@@ -72,15 +72,15 @@ const handleTtUpdate = (str) => {
 }
 
 const resetOverride = () => {
-  emit('update:cl', [...store.config.global.cl])
-  emit('update:ts', [...store.config.global.ts])
-  emit('update:ff', store.config.global.ff)
-  emit('update:fs', store.config.global.fs)
-  emit('update:fb', store.config.global.fb)
-  emit('update:fi', store.config.global.fi)
-  emit('update:fu', store.config.global.fu)
-  emit('update:ls', store.config.global.ls)
-  emit('update:tt', store.config.global.tt)
+  emit('update:cl', [...store.config.global.font.color])
+  emit('update:ts', [...store.config.global.font.shadow])
+  emit('update:ff', store.config.global.font.family)
+  emit('update:fs', store.config.global.font.size)
+  emit('update:fb', store.config.global.font.bold)
+  emit('update:fi', store.config.global.font.italic)
+  emit('update:fu', store.config.global.font.underline)
+  emit('update:ls', store.config.global.font.letterSpacing)
+  emit('update:tt', store.config.global.font.transform)
 }
 </script>
 
@@ -118,7 +118,7 @@ const resetOverride = () => {
           class="w12"
           aria-label="Font size"
           :increment="1"
-          :model-value="props.fs"
+          :model-value="props.size"
           :min="1"
           @update:model-value="handleFsUpdate"
         ></NumberField>
@@ -130,7 +130,7 @@ const resetOverride = () => {
           class="w12"
           aria-label="Letter spacing"
           :increment="0.2"
-          :model-value="props.ls"
+          :model-value="props.letterSpacing"
           @update:model-value="handleLsUpdate"
         >
         </NumberField>
@@ -180,7 +180,7 @@ const resetOverride = () => {
       </div>
       <div class="group stack">
         <label for="widgetFontColor" class="desc"> Color </label>
-        <ColorField tag-id="widgetFontColor" class="w8" :model-value="props.cl" @update:model-value="handleClUpdate">
+        <ColorField tag-id="widgetFontColor" class="w8" :model-value="props.color" @update:model-value="handleClUpdate">
         </ColorField>
       </div>
       <div class="group stack">
@@ -190,7 +190,7 @@ const resetOverride = () => {
           text
           tag-id="widgetFontShadow"
           class="w8"
-          :model-value="props.ts"
+          :model-value="props.shadow"
           @update:model-value="handleTsUpdate"
         >
         </ColorField>

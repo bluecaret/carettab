@@ -41,16 +41,20 @@ const handleRemoveImage = () => {
   store.$patch({
     config: {
       global: {
-        it: 'none',
-        iid: '', // Image ID
-        its: '', // Image timestamp
-        unpt: '', // Unsplash photo title
-        unpl: '', // Unsplash photo link
-        unalt: '', // Unsplash alt description
-        unau: '', // Unsplash author
-        unal: '', // Unsplash author link
-        unli: '', // Unsplash list
-        unll: '', // Unsplash list link
+        wallpaper: {
+          type: 'none',
+          id: '',
+          timestamp: '',
+        },
+        unsplash: {
+          photoTitle: '',
+          photoLink: '',
+          photoAlt: '',
+          authorName: '',
+          authorLink: '',
+          listName: '',
+          listLink: '',
+        },
       },
     },
   })
@@ -63,16 +67,20 @@ const handlePatternSelect = (id) => {
   store.$patch({
     config: {
       global: {
-        it: 'pattern',
-        iid: id, // Image ID
-        its: '', // Image timestamp
-        unpt: '', // Unsplash photo title
-        unpl: '', // Unsplash photo link
-        unalt: '', // Unsplash alt description
-        unau: '', // Unsplash author
-        unal: '', // Unsplash author link
-        unli: '', // Unsplash list
-        unll: '', // Unsplash list link
+        wallpaper: {
+          type: 'pattern',
+          id: id,
+          timestamp: '',
+        },
+        unsplash: {
+          photoTitle: '',
+          photoLink: '',
+          photoAlt: '',
+          authorName: '',
+          authorLink: '',
+          listName: '',
+          listLink: '',
+        },
       },
     },
   })
@@ -86,12 +94,18 @@ const handlePatternSelect = (id) => {
     <div class="blockContainer">
       <div class="block">
         <label for="backgroundColor" class="label mra">Wallpaper color</label>
-        <ColorField v-model="store.config.global.bg" tag-id="backgroundColor" class="w10"> </ColorField>
+        <ColorField v-model="store.config.global.wallpaper.background" tag-id="backgroundColor" class="w10">
+        </ColorField>
       </div>
       <div class="block">
         <div class="group fill">
           <label id="patternSelect" class="label mra">Choose a pattern</label>
-          <button v-if="store.config.global.it === 'pattern'" class="btn" type="button" @click="handleRemoveImage()">
+          <button
+            v-if="store.config.global.wallpaper.type === 'pattern'"
+            class="btn"
+            type="button"
+            @click="handleRemoveImage()"
+          >
             Remove pattern
           </button>
         </div>
@@ -103,7 +117,7 @@ const handlePatternSelect = (id) => {
               aria-labelledby="patternSelect"
               type="button"
               class="patternBtn"
-              :class="store.config.global.iid === pattern.id ? 'active' : ''"
+              :class="store.config.global.wallpaper.id === pattern.id ? 'active' : ''"
               @click="handlePatternSelect(pattern.id)"
             >
               <div class="patternPreview" :class="`pattern-${pattern.id}`"></div>

@@ -37,29 +37,29 @@ const updateTime = () => {
 }
 
 const getBgHue = computed(() => {
-  if (store.config.global.bg && store.config.global.bg[0]) {
-    return `${store.config.global.bg[0]}deg`
+  if (store.config.global.wallpaper.background && store.config.global.wallpaper.background[0]) {
+    return `${store.config.global.wallpaper.background[0]}deg`
   }
   return '0deg'
 })
 
 const getBgSaturation = computed(() => {
-  if (store.config.global.bg && store.config.global.bg[1]) {
-    return `${store.config.global.bg[1]}%`
+  if (store.config.global.wallpaper.background && store.config.global.wallpaper.background[1]) {
+    return `${store.config.global.wallpaper.background[1]}%`
   }
   return '0%'
 })
 
 const getBgLightness = computed(() => {
-  if (store.config.global.bg && store.config.global.bg[2]) {
-    return `${store.config.global.bg[2]}%`
+  if (store.config.global.wallpaper.background && store.config.global.wallpaper.background[2]) {
+    return `${store.config.global.wallpaper.background[2]}%`
   }
   return '0%'
 })
 
 const getFontFamily = computed(() => {
-  let ff = fontList.find((font) => font.id === store.config.global.ff)
-  if (store.config.global.ff && ff) {
+  let ff = fontList.find((font) => font.id === store.config.global.font.family)
+  if (store.config.global.font.family && ff) {
     return `'${ff.label}'`
   }
   return 'Source Sans Pro'
@@ -69,12 +69,12 @@ const buildFontLink = computed(() => {
   const base = 'https://fonts.googleapis.com/css2?family='
   const post = '&display=swap'
   let wght = '400'
-  if (store.config.global.fb < 400) {
-    wght = `${store.config.global.fb};400`
-  } else if (store.config.global.fb > 400) {
-    wght = `400;${store.config.global.fb}`
+  if (store.config.global.font.bold < 400) {
+    wght = `${store.config.global.font.bold};400`
+  } else if (store.config.global.font.bold > 400) {
+    wght = `400;${store.config.global.font.bold}`
   }
-  return `${base}${store.config.global.ff}:wght@${wght}${post}`
+  return `${base}${store.config.global.font.family}:wght@${wght}${post}`
 })
 </script>
 
@@ -92,7 +92,7 @@ const buildFontLink = computed(() => {
 <style>
 .appInner {
   font-family: v-bind(getFontFamily);
-  font-weight: v-bind('store.config.global.fb');
+  font-weight: v-bind('store.config.global.font.bold');
   --bgHue: v-bind(getBgHue);
   --bgSat: v-bind(getBgSaturation);
   --bgLight: v-bind(getBgLightness);

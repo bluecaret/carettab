@@ -93,16 +93,20 @@ export const saveUnsplashInfoToGlobal = (type, id, image, title, link) => {
   store.$patch({
     config: {
       global: {
-        it: type,
-        iid: id, // Image ID
-        its: new Date().toString(), // Image timestamp
-        unpt: image.description, // Unsplash photo title
-        unpl: image.links.html, // Unsplash photo link
-        unalt: image.alt_description, // Unsplash alt description
-        unau: image.user.name, // Unsplash author
-        unal: image.user.links.html, // Unsplash author link
-        unli: type === 'search' || type === 'unphoto' ? '' : title, // Unsplash list
-        unll: type === 'search' || type === 'unphoto' ? '' : link, // Unsplash list link
+        wallpaper: {
+          type: type,
+          id: id,
+          timestamp: new Date().toString(),
+        },
+        unsplash: {
+          photoTitle: image.description,
+          photoLink: image.links.html,
+          photoAlt: image.alt_description,
+          authorName: image.user.name,
+          authorLink: image.user.links.html,
+          listName: type === 'search' || type === 'unphoto' ? '' : title,
+          listLink: type === 'search' || type === 'unphoto' ? '' : link,
+        },
       },
     },
   })

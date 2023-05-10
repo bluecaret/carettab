@@ -26,7 +26,7 @@ for (const zone of Intl.supportedValuesOf('timeZone')) {
 const selectTimezone = (tz) => {
   if (tz) {
     let newClocks = [...store.config.digitalClocks]
-    newClocks[newClocks.findIndex((c) => c.id === store.config.digitalClocks[ci.value].id)].tz = tz.id
+    newClocks[newClocks.findIndex((c) => c.id === store.config.digitalClocks[ci.value].id)].timezone = tz.id
     store.$patch({ config: { digitalClocks: newClocks } })
   }
 }
@@ -38,36 +38,36 @@ const selectTimezone = (tz) => {
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
       <SizeAndPositionField
-        v-model:width="widget.w.w"
-        v-model:height="widget.w.h"
-        v-model:autoSize="widget.w.as"
-        v-model:align="widget.w.a"
-        v-model:calign="widget.w.ca"
-        v-model:x="widget.w.x"
-        v-model:y="widget.w.y"
+        v-model:width="widget.base.width"
+        v-model:height="widget.base.height"
+        v-model:autoSize="widget.base.autoSize"
+        v-model:align="widget.base.alignment"
+        v-model:calign="widget.base.container.alignment"
+        v-model:x="widget.base.x"
+        v-model:y="widget.base.y"
       >
       </SizeAndPositionField>
       <WidgetFontField
-        v-model:override="widget.w.orf"
-        v-model:cl="widget.w.cl"
-        v-model:fs="widget.w.fs"
-        v-model:fb="widget.w.fb"
-        v-model:fi="widget.w.fi"
-        v-model:fu="widget.w.fu"
-        v-model:ls="widget.w.ls"
-        v-model:ts="widget.w.ts"
-        v-model:tt="widget.w.tt"
-        v-model:ff="widget.w.ff"
+        v-model:override="widget.base.font.override"
+        v-model:cl="widget.base.font.color"
+        v-model:fs="widget.base.font.size"
+        v-model:fb="widget.base.font.bold"
+        v-model:fi="widget.base.font.italic"
+        v-model:fu="widget.base.font.underline"
+        v-model:ls="widget.base.font.letterSpacing"
+        v-model:ts="widget.base.font.shadow"
+        v-model:tt="widget.base.font.transform"
+        v-model:ff="widget.base.font.family"
       >
       </WidgetFontField>
       <WidgetBoxField
-        v-model:override="widget.w.cor"
-        v-model:rounded="widget.w.crd"
-        v-model:bs="widget.w.cbs"
-        v-model:bc="widget.w.cbc"
-        v-model:bg="widget.w.cbg"
-        v-model:shadow="widget.w.csh"
-        v-model:padding="widget.w.cpd"
+        v-model:override="widget.base.container.override"
+        v-model:rounded="widget.base.container.radius"
+        v-model:bs="widget.base.container.borderSize"
+        v-model:bc="widget.base.container.borderColor"
+        v-model:bg="widget.base.container.background"
+        v-model:shadow="widget.base.container.shadow"
+        v-model:padding="widget.base.container.padding"
       >
       </WidgetBoxField>
     </div>
@@ -82,7 +82,7 @@ const selectTimezone = (tz) => {
           tag-id="clockTimezone"
           class="mla w20"
           :list="allTimezones"
-          :selected="widget.tz"
+          :selected="widget.timezone"
           @selected="(item) => selectTimezone(item)"
         ></AutocompleteField>
       </div>
@@ -93,37 +93,37 @@ const selectTimezone = (tz) => {
             Make each digit within the clock equal widths (e.g. "1" will be the same width as "9").
           </div>
         </div>
-        <ToggleField v-model="widget.ms" class="mla" tag-id="monospace"></ToggleField>
+        <ToggleField v-model="widget.monospace" class="mla" tag-id="monospace"></ToggleField>
       </div>
       <div class="block">
         <div class="label">
           <label for="spaceBetween">Spacing between digit segments</label>
           <div class="desc">The spacing between segments such as hour, minute and delimiters.</div>
         </div>
-        <NumberField v-model="widget.sb" class="mla w6" tag-id="spaceBetween"> </NumberField>
+        <NumberField v-model="widget.spaceBetween" class="mla w6" tag-id="spaceBetween"> </NumberField>
       </div>
     </div>
     <h3 class="subtitle">Label</h3>
     <div class="blockContainer">
       <div class="block">
         <label for="enableLabel" class="label">Enable label</label>
-        <ToggleField v-model="widget.lb.on" tag-id="enableLabel" class="mla"></ToggleField>
+        <ToggleField v-model="widget.label.on" tag-id="enableLabel" class="mla"></ToggleField>
       </div>
-      <div v-if="widget.lb.on" class="block">
+      <div v-if="widget.label.on" class="block">
         <label for="labelText" class="label">Label text</label>
-        <input id="labelText" v-model="widget.lb.lb" type="text" class="input mla w20" />
+        <input id="labelText" v-model="widget.label.label" type="text" class="input mla w20" />
       </div>
       <DigitalClockSegmentFont
-        v-if="widget.lb.on"
-        v-model:override="widget.lb.or"
-        v-model:cl="widget.lb.cl"
-        v-model:ts="widget.lb.ts"
-        v-model:ls="widget.lb.ls"
-        v-model:fs="widget.lb.fs"
-        v-model:ox="widget.lb.ox"
-        v-model:oy="widget.lb.oy"
+        v-if="widget.label.on"
+        v-model:override="widget.label.override"
+        v-model:cl="widget.label.color"
+        v-model:ts="widget.label.shadow"
+        v-model:ls="widget.label.letterSpacing"
+        v-model:fs="widget.label.size"
+        v-model:x="widget.label.x"
+        v-model:y="widget.label.y"
         type="label"
-        :clock="widget"
+        :widget="widget"
       >
       </DigitalClockSegmentFont>
     </div>
@@ -131,33 +131,33 @@ const selectTimezone = (tz) => {
     <div class="blockContainer">
       <div class="block">
         <label for="enableHour" class="label mra">Enable hour</label>
-        <ToggleField v-model="widget.hr.on" tag-id="enableHour"></ToggleField>
+        <ToggleField v-model="widget.hour.on" tag-id="enableHour"></ToggleField>
       </div>
-      <div v-if="widget.hr.on" class="block">
+      <div v-if="widget.hour.on" class="block">
         <div class="label mra">
           <label for="twentyFour">24-hour</label>
           <div class="desc">Displays hour in 24-hour format (military time).</div>
         </div>
-        <ToggleField v-model="widget.hr.tf" tag-id="twentyFour"></ToggleField>
+        <ToggleField v-model="widget.hour.twentyFour" tag-id="twentyFour"></ToggleField>
       </div>
-      <div v-if="widget.hr.on" class="block">
+      <div v-if="widget.hour.on" class="block">
         <div class="label mra">
           <label for="hourTwoDigit">Two digit</label>
           <div class="desc">Will display a leading zero if number is less than 10.</div>
         </div>
-        <ToggleField v-model="widget.hr.td" tag-id="hourTwoDigit"></ToggleField>
+        <ToggleField v-model="widget.hour.twoDigit" tag-id="hourTwoDigit"></ToggleField>
       </div>
       <DigitalClockSegmentFont
-        v-if="widget.hr.on"
-        v-model:override="widget.hr.or"
-        v-model:cl="widget.hr.cl"
-        v-model:ts="widget.hr.ts"
-        v-model:ls="widget.hr.ls"
-        v-model:fs="widget.hr.fs"
-        v-model:ox="widget.hr.ox"
-        v-model:oy="widget.hr.oy"
+        v-if="widget.hour.on"
+        v-model:override="widget.hour.override"
+        v-model:cl="widget.hour.color"
+        v-model:ts="widget.hour.shadow"
+        v-model:ls="widget.hour.letterSpacing"
+        v-model:fs="widget.hour.size"
+        v-model:x="widget.hour.x"
+        v-model:y="widget.hour.y"
         type="hour"
-        :clock="widget"
+        :widget="widget"
       >
       </DigitalClockSegmentFont>
     </div>
@@ -172,19 +172,19 @@ const selectTimezone = (tz) => {
           <label for="minTwoDigit">Two digit</label>
           <div class="desc">Will display a leading zero if number is less than 10.</div>
         </div>
-        <ToggleField v-model="widget.min.td" tag-id="minTwoDigit"></ToggleField>
+        <ToggleField v-model="widget.min.twoDigit" tag-id="minTwoDigit"></ToggleField>
       </div>
       <DigitalClockSegmentFont
         v-if="widget.min.on"
-        v-model:override="widget.min.or"
-        v-model:cl="widget.min.cl"
-        v-model:ts="widget.min.ts"
-        v-model:ls="widget.min.ls"
-        v-model:fs="widget.min.fs"
-        v-model:ox="widget.min.ox"
-        v-model:oy="widget.min.oy"
+        v-model:override="widget.min.override"
+        v-model:cl="widget.min.color"
+        v-model:ts="widget.min.shadow"
+        v-model:ls="widget.min.letterSpacing"
+        v-model:fs="widget.min.size"
+        v-model:x="widget.min.x"
+        v-model:y="widget.min.y"
         type="min"
-        :clock="widget"
+        :widget="widget"
       >
       </DigitalClockSegmentFont>
     </div>
@@ -199,19 +199,19 @@ const selectTimezone = (tz) => {
           <label for="secTwoDigit">Two digit</label>
           <div class="desc">Will display a leading zero if number is less than 10.</div>
         </div>
-        <ToggleField v-model="widget.sec.td" tag-id="secTwoDigit"></ToggleField>
+        <ToggleField v-model="widget.sec.twoDigit" tag-id="secTwoDigit"></ToggleField>
       </div>
       <DigitalClockSegmentFont
         v-if="widget.sec.on"
-        v-model:override="widget.sec.or"
-        v-model:cl="widget.sec.cl"
-        v-model:ts="widget.sec.ts"
-        v-model:ls="widget.sec.ls"
-        v-model:fs="widget.sec.fs"
-        v-model:ox="widget.sec.ox"
-        v-model:oy="widget.sec.oy"
+        v-model:override="widget.sec.override"
+        v-model:cl="widget.sec.color"
+        v-model:ts="widget.sec.shadow"
+        v-model:ls="widget.sec.letterSpacing"
+        v-model:fs="widget.sec.size"
+        v-model:x="widget.sec.x"
+        v-model:y="widget.sec.y"
         type="sec"
-        :clock="widget"
+        :widget="widget"
       >
       </DigitalClockSegmentFont>
     </div>
@@ -222,30 +222,30 @@ const selectTimezone = (tz) => {
           <label for="enableMeridiem">Enable meridiem</label>
           <div class="desc">Displays "a.m." or "p.m." if using 12-hour format.</div>
         </div>
-        <ToggleField v-model="widget.md.on" tag-id="enableMeridiem"></ToggleField>
+        <ToggleField v-model="widget.meridiem.on" tag-id="enableMeridiem"></ToggleField>
       </div>
-      <div v-if="widget.md.on" class="block">
+      <div v-if="widget.meridiem.on" class="block">
         <label for="" class="label mra">Meridiem labels</label>
         <div class="group compact">
           <label for="mdAm" class="desc">A.M.</label>
-          <input id="mdAm" v-model="widget.md.am" type="text" class="input w8" maxlength="20" />
+          <input id="mdAm" v-model="widget.meridiem.am" type="text" class="input w8" maxlength="20" />
         </div>
         <div class="group compact">
           <label for="mdPm" class="desc">P.M.</label>
-          <input id="mdPm" v-model="widget.md.pm" type="text" class="input w8" maxlength="20" />
+          <input id="mdPm" v-model="widget.meridiem.pm" type="text" class="input w8" maxlength="20" />
         </div>
       </div>
       <DigitalClockSegmentFont
-        v-if="widget.md.on"
-        v-model:override="widget.md.or"
-        v-model:cl="widget.md.cl"
-        v-model:ts="widget.md.ts"
-        v-model:ls="widget.md.ls"
-        v-model:fs="widget.md.fs"
-        v-model:ox="widget.md.ox"
-        v-model:oy="widget.md.oy"
-        type="md"
-        :clock="widget"
+        v-if="widget.meridiem.on"
+        v-model:override="widget.meridiem.override"
+        v-model:cl="widget.meridiem.color"
+        v-model:ts="widget.meridiem.shadow"
+        v-model:ls="widget.meridiem.letterSpacing"
+        v-model:fs="widget.meridiem.size"
+        v-model:x="widget.meridiem.x"
+        v-model:y="widget.meridiem.y"
+        type="meridiem"
+        :widget="widget"
       >
       </DigitalClockSegmentFont>
     </div>
@@ -253,41 +253,41 @@ const selectTimezone = (tz) => {
     <div class="blockContainer">
       <div class="block">
         <label for="enableDl" class="label mra">Enable delimiter</label>
-        <ToggleField v-model="widget.dl.on" tag-id="enableDl"></ToggleField>
+        <ToggleField v-model="widget.delimiter.on" tag-id="enableDl"></ToggleField>
       </div>
-      <div v-if="widget.dl.on" class="block">
+      <div v-if="widget.delimiter.on" class="block">
         <label id="dlSymLabel" for="dlSym1" class="label mra">Symbol</label>
         <div class="group compact">
           <label for="dlSym1" class="desc">1st</label>
-          <input id="dlSym1" v-model="widget.dl.sym1" type="text" class="input w5" maxlength="20" />
+          <input id="dlSym1" v-model="widget.delimiter.symbol1" type="text" class="input w5" maxlength="20" />
         </div>
         <div class="group compact">
           <label for="dlSym2" class="desc">2nd</label>
-          <input id="dlSym2" v-model="widget.dl.sym2" type="text" class="input w5" maxlength="20" />
+          <input id="dlSym2" v-model="widget.delimiter.symbol2" type="text" class="input w5" maxlength="20" />
         </div>
         <div class="group compact">
           <label for="dlSym3" class="desc">3rd</label>
-          <input id="dlSym3" v-model="widget.dl.sym3" type="text" class="input w5" maxlength="20" />
+          <input id="dlSym3" v-model="widget.delimiter.symbol3" type="text" class="input w5" maxlength="20" />
         </div>
       </div>
-      <div v-if="widget.dl.on" class="block">
+      <div v-if="widget.delimiter.on" class="block">
         <div class="label mra">
           <label for="dlBlink">Blink</label>
           <div class="desc">Every second the delimiter will blink similar to a some real digital clocks.</div>
         </div>
-        <ToggleField v-model="widget.dl.bl" tag-id="dlBlink"></ToggleField>
+        <ToggleField v-model="widget.delimiter.blink" tag-id="dlBlink"></ToggleField>
       </div>
       <DigitalClockSegmentFont
-        v-if="widget.dl.on"
-        v-model:override="widget.dl.or"
-        v-model:cl="widget.dl.cl"
-        v-model:ts="widget.dl.ts"
-        v-model:ls="widget.dl.ls"
-        v-model:fs="widget.dl.fs"
-        v-model:ox="widget.dl.ox"
-        v-model:oy="widget.dl.oy"
-        type="dl"
-        :clock="widget"
+        v-if="widget.delimiter.on"
+        v-model:override="widget.delimiter.override"
+        v-model:cl="widget.delimiter.color"
+        v-model:ts="widget.delimiter.shadow"
+        v-model:ls="widget.delimiter.letterSpacing"
+        v-model:fs="widget.delimiter.size"
+        v-model:x="widget.delimiter.x"
+        v-model:y="widget.delimiter.y"
+        type="delimiter"
+        :widget="widget"
       >
       </DigitalClockSegmentFont>
     </div>
@@ -298,19 +298,19 @@ const selectTimezone = (tz) => {
           <label for="enableRt">Enable relative time</label>
           <div class="desc">Shows the difference in time compared to your computer's time.</div>
         </div>
-        <ToggleField v-model="widget.rt.on" tag-id="enableRt"></ToggleField>
+        <ToggleField v-model="widget.relative.on" tag-id="enableRt"></ToggleField>
       </div>
       <DigitalClockSegmentFont
-        v-if="widget.rt.on"
-        v-model:override="widget.rt.or"
-        v-model:cl="widget.rt.cl"
-        v-model:ts="widget.rt.ts"
-        v-model:ls="widget.rt.ls"
-        v-model:fs="widget.rt.fs"
-        v-model:ox="widget.rt.ox"
-        v-model:oy="widget.rt.oy"
-        type="rt"
-        :clock="widget"
+        v-if="widget.relative.on"
+        v-model:override="widget.relative.override"
+        v-model:cl="widget.relative.color"
+        v-model:ts="widget.relative.shadow"
+        v-model:ls="widget.relative.letterSpacing"
+        v-model:fs="widget.relative.size"
+        v-model:x="widget.relative.x"
+        v-model:y="widget.relative.y"
+        type="relative"
+        :widget="widget"
       >
       </DigitalClockSegmentFont>
     </div>

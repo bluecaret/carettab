@@ -15,39 +15,39 @@ const props = defineProps({
 
 const engineMenu = ref(null)
 const searchText = ref('')
-const engine = computed(() => searchEngines.find((e) => e.id === props.widget.en))
+const engine = computed(() => searchEngines.find((e) => e.id === props.widget.engine))
 const customEngine = computed(() => {
   return {
     id: 'custom',
     label: 'Custom',
-    url: props.widget.ceu,
+    url: props.widget.customEngineUrl,
   }
 })
-const currentEngine = ref(props.widget.ce ? customEngine.value : engine.value)
+const currentEngine = ref(props.widget.customEngine ? customEngine.value : engine.value)
 const placeholderText = computed(() => {
-  return props.widget.lb.split('%e').length > 1
-    ? `${props.widget.lb.split('%e')[0] ? props.widget.lb.split('%e')[0] : ''}${currentEngine.value.label}${
-        props.widget.lb.split('%e')[1] ? props.widget.lb.split('%e')[1] : ''
+  return props.widget.label.split('%e').length > 1
+    ? `${props.widget.label.split('%e')[0] ? props.widget.label.split('%e')[0] : ''}${currentEngine.value.label}${
+        props.widget.label.split('%e')[1] ? props.widget.label.split('%e')[1] : ''
       }`
-    : props.widget.lb
+    : props.widget.label
 })
 
 watch(
-  () => props.widget.en,
+  () => props.widget.engine,
   () => {
-    currentEngine.value = props.widget.ce ? customEngine.value : engine.value
+    currentEngine.value = props.widget.customEngine ? customEngine.value : engine.value
   }
 )
 watch(
-  () => props.widget.ce,
+  () => props.widget.customEngine,
   () => {
-    currentEngine.value = props.widget.ce ? customEngine.value : engine.value
+    currentEngine.value = props.widget.customEngine ? customEngine.value : engine.value
   }
 )
 watch(
-  () => props.widget.ceu,
+  () => props.widget.customEngineUrl,
   () => {
-    currentEngine.value = props.widget.ce ? customEngine.value : engine.value
+    currentEngine.value = props.widget.customEngine ? customEngine.value : engine.value
   }
 )
 
@@ -75,38 +75,44 @@ const performSearch = () => {
 
 const setBarStyles = computed(() => {
   return `
-    width: ${props.widget.sz}px;
+    width: ${props.widget.size}px;
     border-style: solid;
     border-width: 0;
-    border${props.widget.bb ? '-bottom' : ''}-width: ${props.widget.bsz}px;
-    border-color: hsl(${props.widget.bc[0]}deg ${props.widget.bc[1]}% ${props.widget.bc[2]}% / ${props.widget.bc[3]});
+    border${props.widget.borderBottom ? '-bottom' : ''}-width: ${props.widget.borderSize}px;
+    border-color: hsl(${props.widget.borderColor[0]}deg ${props.widget.borderColor[1]}% ${
+    props.widget.borderColor[2]
+  }% / ${props.widget.borderColor[3]});
     background-color:
-      hsl(${props.widget.bg[0]}deg ${props.widget.bg[1]}% ${props.widget.bg[2]}% / ${props.widget.bg[3]});
-    border-radius: ${props.widget.br}px;
-    font-size: ${props.widget.w.fs}px;
+      hsl(${props.widget.background[0]}deg ${props.widget.background[1]}% ${props.widget.background[2]}% / ${
+    props.widget.background[3]
+  });
+    border-radius: ${props.widget.radius}px;
+    font-size: ${props.widget.base.font.size}px;
     text-shadow: ${
-      props.widget.ts[0]
-        ? `${props.widget.ts[1]}px ${props.widget.ts[2]}px ${props.widget.ts[3]}px
-        hsl(${props.widget.ts[4]}deg ${props.widget.ts[5]}% ${props.widget.ts[6]}% / ${props.widget.ts[7]})`
+      props.widget.shadow[0]
+        ? `${props.widget.shadow[1]}px ${props.widget.shadow[2]}px ${props.widget.shadow[3]}px
+        hsl(${props.widget.shadow[4]}deg ${props.widget.shadow[5]}% ${props.widget.shadow[6]}% / ${props.widget.shadow[7]})`
         : 'none'
     };
     box-shadow: ${
-      props.widget.bs[0]
-        ? `${props.widget.bs[1]}px ${props.widget.bs[2]}px ${props.widget.bs[3]}px 0px
-        hsl(${props.widget.bs[4]}deg ${props.widget.bs[5]}% ${props.widget.bs[6]}% / ${props.widget.bs[7]})`
+      props.widget.boxShadow[0]
+        ? `${props.widget.boxShadow[1]}px ${props.widget.boxShadow[2]}px ${props.widget.boxShadow[3]}px 0px
+        hsl(${props.widget.boxShadow[4]}deg ${props.widget.boxShadow[5]}% ${props.widget.boxShadow[6]}% / ${props.widget.boxShadow[7]})`
         : 'none'
     };
-    color: hsl(${props.widget.cl[0]}deg ${props.widget.cl[1]}% ${props.widget.cl[2]}% / ${props.widget.cl[3]});
-    --elementPadding: ${props.widget.pd}px;
+    color: hsl(${props.widget.color[0]}deg ${props.widget.color[1]}% ${props.widget.color[2]}% / ${
+    props.widget.color[3]
+  });
+    --elementPadding: ${props.widget.padding}px;
   `
 })
 
 const elementStyles = computed(() => {
   return `
     filter: drop-shadow(${
-      props.widget.ts[0]
-        ? `${props.widget.ts[1]}px ${props.widget.ts[2]}px ${props.widget.ts[3]}px
-        hsl(${props.widget.ts[4]}deg ${props.widget.ts[5]}% ${props.widget.ts[6]}% / ${props.widget.ts[7]})`
+      props.widget.shadow[0]
+        ? `${props.widget.shadow[1]}px ${props.widget.shadow[2]}px ${props.widget.shadow[3]}px
+        hsl(${props.widget.shadow[4]}deg ${props.widget.shadow[5]}% ${props.widget.shadow[6]}% / ${props.widget.shadow[7]})`
         : 'none'
     })
   `
@@ -114,8 +120,12 @@ const elementStyles = computed(() => {
 </script>
 
 <template>
-  <div class="searchBar widget" :class="[props.widget.w.a, `container-${props.widget.w.ca}`]" :style="containerStyles">
-    <FontLink v-if="props.widget.w.orf" :widget="props.widget"></FontLink>
+  <div
+    class="searchBar widget"
+    :class="[props.widget.base.alignment, `container-${props.widget.base.container.alignment}`]"
+    :style="containerStyles"
+  >
+    <FontLink v-if="props.widget.base.font.override" :widget="props.widget"></FontLink>
     <div class="widgetInner">
       <form novalidate class="searchBarWrapper" :style="setBarStyles" @submit.prevent="performSearch">
         <input
@@ -123,15 +133,15 @@ const elementStyles = computed(() => {
           v-model="searchText"
           name="search-box"
           type="text"
-          :autocomplete="props.widget.ac ? 'on' : 'off'"
+          :autocomplete="props.widget.autocomplete ? 'on' : 'off'"
           :placeholder="placeholderText"
           :style="elementStyles"
         />
-        <button v-if="props.widget.ic || props.widget.el" type="submit" :style="elementStyles">
-          <fa v-if="props.widget.ic" icon="fa-magnifying-glass" fixed-width></fa>
-          {{ props.widget.el ? currentEngine.label : '' }}
+        <button v-if="props.widget.icon || props.widget.engineLabel" type="submit" :style="elementStyles">
+          <fa v-if="props.widget.icon" icon="fa-magnifying-glass" fixed-width></fa>
+          {{ props.widget.engineLabel ? currentEngine.label : '' }}
         </button>
-        <DropdownMenu v-if="props.widget.ed" ref="engineMenu">
+        <DropdownMenu v-if="props.widget.dropdown" ref="engineMenu">
           <template #button>
             <button type="button" :style="elementStyles">
               <fa icon="fa-caret-down" fixed-width></fa>
@@ -141,7 +151,7 @@ const elementStyles = computed(() => {
             <div class="block">
               <div class="group compact stack">
                 <button
-                  v-if="props.widget.ce"
+                  v-if="props.widget.customEngine"
                   class="btn btnBlock w20"
                   :class="{ active: currentEngine.id === 'custom' }"
                   @click="setEngine(customEngine)"

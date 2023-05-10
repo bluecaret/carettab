@@ -1,114 +1,113 @@
 import { defaultWidgetStyles } from './DefaultWidgetStyles.js'
 
 export class DateWidget {
-  id = '' // id
-  tz = 'America/Los_Angeles' // timezone
-  ft = 'middle' // format
-  sd = false // short date
-  dl = {
-    // Delimiter
-    on: true, // on
-    ss1: '', // symbol
-    ss2: ', ', // symbol
-    ss3: '/', // symbol
-    ss4: '/', // symbol
-    ss5: '', // symbol
-    ls1: '', // symbol
-    ls2: ', ', // symbol
-    ls3: ' ', // symbol
-    ls4: ', ', // symbol
-    ls5: '', // symbol
-    or: false, // override widget styles
-    cl: [0, 0, 100, 1], // color
-    ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
-    ls: 0, // Letter spacing
-    ox: 0, // offset X
-    oy: 0, // offset Y
+  id = ''
+  timezone = 'America/Los_Angeles'
+  format = 'middle'
+  short = false
+  delimiter = {
+    on: true,
+    shortSymbol1: '',
+    shortSymbol2: ', ',
+    shortSymbol3: '/',
+    shortSymbol4: '/',
+    shortSymbol5: '',
+    longSymbol1: '',
+    longSymbol2: ', ',
+    longSymbol3: ' ',
+    longSymbol4: ', ',
+    longSymbol5: '',
+    override: false,
+    color: [0, 0, 100, 1],
+    shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
+    size: 24,
+    letterSpacing: 0,
+    x: 0,
+    y: 0,
   }
-  yr = {
-    on: true, // on
-    td: false, // two-digit
-    or: false, // override widget styles
-    cl: [0, 0, 100, 1], // color
-    ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
-    ls: 0, // Letter spacing
-    ox: 0, // offset X
-    oy: 0, // offset Y
+  year = {
+    on: true,
+    twoDigit: false,
+    override: false,
+    color: [0, 0, 100, 1],
+    shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
+    size: 24,
+    letterSpacing: 0,
+    x: 0,
+    y: 0,
   }
-  mh = {
-    on: true, // on
-    ab: false, // abbreviated
-    td: false, // two-digit
-    or: false, // override widget styles
-    cl: [0, 0, 100, 1], // color
-    ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
-    ls: 0, // Letter spacing
-    ox: 0, // offset X
-    oy: 0, // offset Y
+  month = {
+    on: true,
+    abbreviated: false,
+    twoDigit: false,
+    override: false,
+    color: [0, 0, 100, 1],
+    shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
+    size: 24,
+    letterSpacing: 0,
+    x: 0,
+    y: 0,
   }
-  dy = {
-    on: true, // on
-    td: false, // two-digit
-    or: false, // override widget styles
-    cl: [0, 0, 100, 1], // color
-    ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
-    ls: 0, // Letter spacing
-    ox: 0, // offset X
-    oy: 0, // offset Y
+  day = {
+    on: true,
+    twoDigit: false,
+    override: false,
+    color: [0, 0, 100, 1],
+    shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
+    size: 24,
+    letterSpacing: 0,
+    x: 0,
+    y: 0,
   }
-  dow = {
-    on: true, // on
-    ab: false, // abbreviated
-    or: false, // override widget styles
-    cl: [0, 0, 100, 1], // color
-    ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
-    ls: 0, // Letter spacing
-    ox: 0, // offset X
-    oy: 0, // offset Y
+  dayOfWeek = {
+    on: true,
+    abbreviated: false,
+    override: false,
+    color: [0, 0, 100, 1],
+    shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
+    size: 24,
+    letterSpacing: 0,
+    x: 0,
+    y: 0,
   }
-  doy = {
-    on: false, // on
-    lbp: 'Day of year: ', // Label prefix
-    lbs: '', // Label suffix
-    td: false, // three-digit
-    or: false, // override widget styles
-    cl: [0, 0, 100, 1], // color
-    ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
-    ls: 0, // Letter spacing
-    ox: 0, // offset X
-    oy: 0, // offset Y
+  dayOfYear = {
+    on: false,
+    prefixLabel: 'Day of year: ',
+    suffixLabel: '',
+    threeDigit: false,
+    override: false,
+    color: [0, 0, 100, 1],
+    shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
+    size: 24,
+    letterSpacing: 0,
+    x: 0,
+    y: 0,
   }
-  wk = {
-    on: false, // on
-    lbp: 'Week: ', // Label prefix
-    lbs: '', // Label suffix
-    td: false, // two-digit
-    or: false, // override widget styles
-    cl: [0, 0, 100, 1], // color
-    ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
-    ls: 0, // Letter spacing
-    ox: 0, // offset X
-    oy: 0, // offset Y
+  week = {
+    on: false,
+    prefixLabel: 'Week: ',
+    suffixLabel: '',
+    twoDigit: false,
+    override: false,
+    color: [0, 0, 100, 1],
+    shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
+    size: 24,
+    letterSpacing: 0,
+    x: 0,
+    y: 0,
   }
-  qr = {
-    on: false, // on
-    lbp: 'Quarter: ', // Label prefix
-    lbs: '', // Label suffix
-    st: '0', // start
-    or: false, // override widget styles
-    cl: [0, 0, 100, 1], // color
-    ts: [false, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-    fs: 24, // font size
-    ls: 0, // Letter spacing
-    ox: 0, // offset X
-    oy: 0, // offset Y
+  quarter = {
+    on: false,
+    prefixLabel: 'Quarter: ',
+    suffixLabel: '',
+    start: '0',
+    override: false,
+    color: [0, 0, 100, 1],
+    shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
+    size: 24,
+    letterSpacing: 0,
+    x: 0,
+    y: 0,
   }
-  w = { ...defaultWidgetStyles }
+  base = { ...defaultWidgetStyles }
 }

@@ -52,12 +52,12 @@ const handlePaddingUpdate = (num) => {
 }
 
 const resetOverride = () => {
-  emit('update:rounded', store.config.global.crd)
-  emit('update:bs', store.config.global.cbs)
-  emit('update:bc', [...store.config.global.cbc])
-  emit('update:bg', [...store.config.global.cbg])
-  emit('update:shadow', [...store.config.global.csh])
-  emit('update:padding', store.config.global.cpd)
+  emit('update:rounded', store.config.global.container.radius)
+  emit('update:bs', store.config.global.container.borderSize)
+  emit('update:bc', [...store.config.global.container.borderColor])
+  emit('update:bg', [...store.config.global.container.background])
+  emit('update:shadow', [...store.config.global.container.shadow])
+  emit('update:padding', store.config.global.container.padding)
 }
 </script>
 

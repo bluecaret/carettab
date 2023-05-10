@@ -11,12 +11,12 @@ const setFontLink = computed(() => {
   const base = 'https://fonts.googleapis.com/css2?family='
   const post = '&display=swap'
   let wght = '400'
-  if (props.widget.w.fb < 400) {
-    wght = `${props.widget.w.fb};400`
-  } else if (props.widget.w.fb > 400) {
-    wght = `400;${props.widget.w.fb}`
+  if (props.widget.base.font.bold < 400) {
+    wght = `${props.widget.base.font.bold};400`
+  } else if (props.widget.base.font.bold > 400) {
+    wght = `400;${props.widget.base.font.bold}`
   }
-  return `${base}${props.widget.w.ff}:wght@${wght}${post}`
+  return `${base}${props.widget.base.font.family}:wght@${wght}${post}`
 })
 </script>
 

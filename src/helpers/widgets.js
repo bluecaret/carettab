@@ -1,39 +1,39 @@
 import { fontList } from '@/assets/lists.js'
 
 export const setWidgetContainerStyles = (widget, global) => {
-  const box = widget.w.cor ? widget.w : global
-  const font = widget.w.orf ? widget.w : global
+  const box = widget.base.container.override ? widget.base.container : global.container
+  const font = widget.base.font.override ? widget.base.font : global.font
 
   let fontFamilyLabel = 'Source Sans Pro'
-  let ff = fontList.find((f) => f.id === font.ff)
-  if (font.ff && ff) {
+  let ff = fontList.find((f) => f.id === font.family)
+  if (font.family && ff) {
     fontFamilyLabel = `'${ff.label}'`
   }
 
   // Font styles
-  const fontSize = `font-size: ${font.fs}px; `
+  const fontSize = `font-size: ${font.size}px; `
   const fontFamily = `font-family: ${fontFamilyLabel}; `
-  const fontWeight = `font-weight: ${font.fb}; `
-  const color = `color: hsl(${font.cl[0]}deg ${font.cl[1]}% ${font.cl[2]}% / ${font.cl[3]}); `
-  const textShadow = font.ts[0]
-    ? `text-shadow: ${font.ts[1]}px ${font.ts[2]}px ${font.ts[3]}px hsl(${font.ts[4]}deg ${font.ts[5]}% ${font.ts[6]}% / ${font.ts[7]}); `
+  const fontWeight = `font-weight: ${font.bold}; `
+  const color = `color: hsl(${font.color[0]}deg ${font.color[1]}% ${font.color[2]}% / ${font.color[3]}); `
+  const textShadow = font.shadow[0]
+    ? `text-shadow: ${font.shadow[1]}px ${font.shadow[2]}px ${font.shadow[3]}px hsl(${font.shadow[4]}deg ${font.shadow[5]}% ${font.shadow[6]}% / ${font.shadow[7]}); `
     : 'text-shadow: none;'
-  const fontItalic = font.fi ? 'font-style: italic; ' : 'font-style: normal;'
-  const fontUnderline = font.fu ? 'text-decoration: underline; ' : 'text-decoration: none;'
-  const fontCase = font.tt ? `text-transform: ${font.tt}; ` : 'text-transform: none;'
-  const letterSpacing = `letter-spacing: ${font.ls * 0.01}em; `
+  const fontItalic = font.italic ? 'font-style: italic; ' : 'font-style: normal;'
+  const fontUnderline = font.underline ? 'text-decoration: underline; ' : 'text-decoration: none;'
+  const fontCase = font.transform ? `text-transform: ${font.transform}; ` : 'text-transform: none;'
+  const letterSpacing = `letter-spacing: ${font.letterSpacing * 0.01}em; `
 
   // Container box styles
-  const width = `width: ${widget.w.as ? 'max-content' : widget.w.w + 'px'};`
-  const height = `height: ${widget.w.as ? 'max-content' : widget.w.h + 'px'};`
-  const translate = `translate: ${widget.w.x}px ${-widget.w.y}px;`
-  const radius = `border-radius: ${box.crd}px; `
-  const borderColor = `hsl(${box.cbc[0]}deg ${box.cbc[1]}% ${box.cbc[2]}% / ${box.cbc[3]});`
-  const border = `border: ${box.cbs}px solid ${borderColor}; `
-  const backgroundColor = `background-color: hsl(${box.cbg[0]}deg ${box.cbg[1]}% ${box.cbg[2]}% / ${box.cbg[3]}); `
-  const padding = `padding: ${box.cpd}px; `
-  const shadow = box.csh[0]
-    ? `box-shadow: ${box.csh[1]}px ${box.csh[2]}px ${box.csh[3]}px 0px hsl(${box.csh[4]}deg ${box.csh[5]}% ${box.csh[6]}% / ${box.csh[7]}); `
+  const width = `width: ${widget.base.autoSize ? 'max-content' : widget.base.width + 'px'};`
+  const height = `height: ${widget.base.autoSize ? 'max-content' : widget.base.height + 'px'};`
+  const translate = `translate: ${widget.base.x}px ${-widget.base.y}px;`
+  const radius = `border-radius: ${box.radius}px; `
+  const borderColor = `hsl(${box.borderColor[0]}deg ${box.borderColor[1]}% ${box.borderColor[2]}% / ${box.borderColor[3]});`
+  const border = `border: ${box.borderSize}px solid ${borderColor}; `
+  const backgroundColor = `background-color: hsl(${box.background[0]}deg ${box.background[1]}% ${box.background[2]}% / ${box.background[3]}); `
+  const padding = `padding: ${box.padding}px; `
+  const shadow = box.shadow[0]
+    ? `box-shadow: ${box.shadow[1]}px ${box.shadow[2]}px ${box.shadow[3]}px 0px hsl(${box.shadow[4]}deg ${box.shadow[5]}% ${box.shadow[6]}% / ${box.shadow[7]}); `
     : 'box-shadow: none;'
 
   let styles = `${fontSize}${fontFamily}${fontWeight}${color}${fontUnderline}${letterSpacing}${fontCase}${textShadow}${fontItalic}${width}${height}${translate}${radius}${border}${backgroundColor}${padding}${shadow}`
@@ -42,15 +42,17 @@ export const setWidgetContainerStyles = (widget, global) => {
 }
 
 export const setWidgetSegmentStyles = (widget, type, lsUsesMargin = false) => {
-  const segment = widget[type].or ? widget[type] : widget.w
+  const segment = widget[type].override ? widget[type] : widget.base.font
 
   // Font styles
-  const fontSize = `font-size: ${segment.fs}px; `
-  const letterSpacing = lsUsesMargin ? `margin-inline: ${segment.ls}px; ` : `letter-spacing: ${segment.ls}px; `
-  const translate = `translate: ${segment.oy * -1}px ${segment.ox * -1}px; `
-  const color = `color: hsl(${segment.cl[0]}deg ${segment.cl[1]}% ${segment.cl[2]}% / ${segment.cl[3]}); `
-  const textShadow = segment.ts[0]
-    ? `text-shadow: ${segment.ts[1]}px ${segment.ts[2]}px ${segment.ts[3]}px hsl(${segment.ts[4]}deg ${segment.ts[5]}% ${segment.ts[6]}% / ${segment.ts[7]}); `
+  const fontSize = `font-size: ${segment.size}px; `
+  const letterSpacing = lsUsesMargin
+    ? `margin-inline: ${segment.letterSpacing}px; `
+    : `letter-spacing: ${segment.letterSpacing}px; `
+  const translate = `translate: ${segment.y * -1}px ${segment.x * -1}px; `
+  const color = `color: hsl(${segment.color[0]}deg ${segment.color[1]}% ${segment.color[2]}% / ${segment.color[3]}); `
+  const textShadow = segment.shadow[0]
+    ? `text-shadow: ${segment.shadow[1]}px ${segment.shadow[2]}px ${segment.shadow[3]}px hsl(${segment.shadow[4]}deg ${segment.shadow[5]}% ${segment.shadow[6]}% / ${segment.shadow[7]}); `
     : 'text-shadow: none;'
 
   let styles = `${fontSize}${letterSpacing}${color}${textShadow}${translate}`

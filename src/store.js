@@ -101,43 +101,57 @@ export const useSettingsStore = defineStore('settings', () => {
 
   const config = reactive({
     global: {
-      lang: 'enUS', // language
-      hsb: false, // hide settings button
-      dts: false, // disable text selection
-      tabt: 'New Tab', // tab title
-      bg: [220, 15, 15, 1], // background color
-      cl: [220, 15, 85, 1], // color
-      ts: [true, 1, 1, 5, 0, 0, 0, 0.8], // text shadow
-      ff: 'Source Sans Pro', // Font family
-      fs: 20, // Font size
-      fb: 400, // Font Bold
-      fi: false, // Font Italic
-      fu: false, // Font Underline
-      tt: 'none', // Text transform
-      ls: 0, // Letter spacing
-      crd: 0, // Container rounded radius
-      cbs: 0, // Container border size
-      cbc: [0, 0, 100, 1], // Container border color
-      cbg: [0, 0, 10, 0], // Container background color
-      csh: [false, 1, 1, 5, 0, 0, 0, 0.8], // Container shadow
-      cpd: 0, // Container padding
-      it: 'none', // Image type
-      iid: '', // Image ID
-      its: '', // Image timestamp
-      isz: 'cover', // Image size
-      ifi: 'normal', // Image filter
-      ibr: 10, // Image brightness
-      isa: 10, // Image saturation
-      ico: 10, // Image contrast
-      ibl: 0, // Image blur
-      isc: 100, // Image scale
-      unpt: '', // Unsplash photo title
-      unpl: '', // Unsplash photo link
-      unalt: '', // Unsplash alt description
-      unau: '', // Unsplash author
-      unal: '', // Unsplash author link
-      unli: '', // Unsplash list
-      unll: '', // Unsplash list link
+      lang: 'enUS',
+      hideSettings: false,
+      disableSelection: false,
+      tabTitle: 'New Tab',
+      wallpaper: {
+        background: [220, 15, 15, 1],
+        type: 'none',
+        id: '',
+        timestamp: '',
+        size: 'cover',
+        filter: 'normal',
+        brightness: 10,
+        saturation: 10,
+        contrast: 10,
+        blur: 0,
+        scale: 100,
+      },
+      unsplash: {
+        photoTitle: '',
+        photoLink: '',
+        photoAlt: '',
+        authorName: '',
+        authorLink: '',
+        listName: '',
+        listLink: '',
+      },
+      font: {
+        color: [220, 15, 85, 1],
+        shadow: [true, 1, 1, 5, 0, 0, 0, 0.8],
+        family: 'Source Sans Pro',
+        size: 20,
+        bold: 400,
+        italic: false,
+        underline: false,
+        transform: 'none',
+        letterSpacing: 0,
+      },
+      container: {
+        background: [0, 0, 10, 0],
+        shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
+        borderColor: [0, 0, 100, 1],
+        borderSize: 0,
+        radius: 0,
+        padding: 0,
+      },
+      element: {
+        primaryColor: [220, 15, 85, 1],
+        secondaryColor: [220, 15, 85, 1],
+        tertiaryColor: [220, 15, 85, 1],
+        shadow: [true, 1, 1, 5, 0, 0, 0, 0.8],
+      },
     },
     layers: [],
     analogClocks: [],
@@ -291,21 +305,21 @@ export const useSettingsStore = defineStore('settings', () => {
       }
 
       newWidget.id = newId
-      newWidget.w.cl = [...config.global.cl]
-      newWidget.w.ff = config.global.ff
-      newWidget.w.fs = config.global.fs
-      newWidget.w.fb = config.global.fb
-      newWidget.w.fi = config.global.fi
-      newWidget.w.fu = config.global.fu
-      newWidget.w.ls = config.global.ls
-      newWidget.w.ts = [...config.global.ts]
-      newWidget.w.tt = config.global.tt
-      newWidget.w.crd = config.global.crd
-      newWidget.w.cbs = config.global.cbs
-      newWidget.w.cbc = [...config.global.cbc]
-      newWidget.w.cbg = [...config.global.cbg]
-      newWidget.w.csh = [...config.global.csh]
-      newWidget.w.cpd = config.global.cpd
+      newWidget.base.font.color = [...config.global.font.color]
+      newWidget.base.font.family = config.global.font.family
+      newWidget.base.font.size = config.global.font.size
+      newWidget.base.font.bold = config.global.font.bold
+      newWidget.base.font.italic = config.global.font.italic
+      newWidget.base.font.underline = config.global.font.underline
+      newWidget.base.font.letterSpacing = config.global.font.letterSpacing
+      newWidget.base.font.shadow = [...config.global.font.shadow]
+      newWidget.base.font.transform = config.global.font.transform
+      newWidget.base.container.radius = config.global.container.radius
+      newWidget.base.container.borderSize = config.global.container.borderSize
+      newWidget.base.container.borderColor = [...config.global.container.borderColor]
+      newWidget.base.container.background = [...config.global.container.background]
+      newWidget.base.container.shadow = [...config.global.container.shadow]
+      newWidget.base.container.padding = config.global.container.padding
       createLayer(newId, type)
       config[widget.store].unshift(newWidget)
     }

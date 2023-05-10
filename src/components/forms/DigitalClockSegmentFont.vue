@@ -5,19 +5,19 @@ const emit = defineEmits([
   'update:ts',
   'update:fs',
   'update:ls',
-  'update:ox',
-  'update:oy',
+  'update:x',
+  'update:y',
 ])
 const props = defineProps({
   type: String,
-  clock: Object,
+  widget: Object,
   override: Boolean,
   cl: Array,
   ts: Array,
   fs: Number,
   ls: Number,
-  ox: Number,
-  oy: Number,
+  x: Number,
+  y: Number,
 })
 
 const handleOverrideUpdate = (bool) => {
@@ -42,20 +42,20 @@ const handleLsUpdate = (num) => {
 }
 
 const handleOxUpdate = (num) => {
-  emit('update:ox', num)
+  emit('update:x', num)
 }
 
 const handleOyUpdate = (num) => {
-  emit('update:oy', num)
+  emit('update:y', num)
 }
 
 const resetOverride = () => {
-  emit('update:cl', props.clock.w.cl)
-  emit('update:ts', props.clock.w.ts)
-  emit('update:fs', props.clock.w.fs)
-  emit('update:ls', props.clock.w.ls)
-  emit('update:ox', 0)
-  emit('update:oy', 0)
+  emit('update:cl', props.widget.base.font.color)
+  emit('update:ts', props.widget.base.font.shadow)
+  emit('update:fs', props.widget.base.font.size)
+  emit('update:ls', props.widget.base.font.letterSpacing)
+  emit('update:x', 0)
+  emit('update:y', 0)
 }
 </script>
 
@@ -81,7 +81,7 @@ const resetOverride = () => {
         <NumberField
           :tag-id="`${type}-offsetX`"
           :increment="1"
-          :model-value="props.ox"
+          :model-value="props.x"
           @update:model-value="handleOxUpdate"
         ></NumberField>
       </div>
@@ -90,7 +90,7 @@ const resetOverride = () => {
         <NumberField
           :tag-id="`${type}-offsetY`"
           :increment="1"
-          :model-value="props.oy"
+          :model-value="props.y"
           @update:model-value="handleOyUpdate"
         ></NumberField>
       </div>
@@ -99,7 +99,7 @@ const resetOverride = () => {
         <NumberField
           :tag-id="`${type}-fontSize`"
           :increment="1"
-          :model-value="props.fs"
+          :model-value="props.size"
           @update:model-value="handleFsUpdate"
         ></NumberField>
       </div>
@@ -108,13 +108,13 @@ const resetOverride = () => {
         <NumberField
           :tag-id="`${type}-letterSpacing`"
           :increment="0.2"
-          :model-value="props.ls"
+          :model-value="props.letterSpacing"
           @update:model-value="handleLsUpdate"
         ></NumberField>
       </div>
       <div class="group stack w6">
         <label :for="`${type}-fontColor`" class="desc"> Color </label>
-        <ColorField :tag-id="`${type}-fontColor`" :model-value="props.cl" @update:model-value="handleClUpdate">
+        <ColorField :tag-id="`${type}-fontColor`" :model-value="props.color" @update:model-value="handleClUpdate">
         </ColorField>
       </div>
       <div class="group stack w6">
@@ -123,7 +123,7 @@ const resetOverride = () => {
           shadow
           text
           :tag-id="`${type}-fontShadow`"
-          :model-value="props.ts"
+          :model-value="props.shadow"
           @update:model-value="handleTsUpdate"
         >
         </ColorField>

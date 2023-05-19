@@ -27,19 +27,19 @@ const selectTimezone = (tz) => {
 }
 
 const resetFaceColors = () => {
-  widget.face.shadow = widget.base.font.shadow
-  widget.face.borderColor = widget.base.font.color
-  widget.face.quarterColor = widget.base.font.color
-  widget.face.hourColor = widget.base.font.color
-  widget.face.minuteColor = widget.base.font.color
+  widget.face.shadow = store.config.global.element.shadow
+  widget.face.borderColor = store.config.global.element.primaryColor
+  widget.face.quarterColor = store.config.global.element.primaryColor
+  widget.face.hourColor = store.config.global.element.primaryColor
+  widget.face.minuteColor = store.config.global.element.primaryColor
 }
 
 const resetHandColors = () => {
-  widget.hand.shadow = widget.base.font.shadow
-  widget.hour.color = widget.base.font.color
-  widget.min.color = widget.base.font.color
-  widget.sec.color = widget.base.font.color
-  widget.center.color = widget.base.font.color
+  widget.hand.shadow = store.config.global.element.shadow
+  widget.hour.color = store.config.global.element.secondaryColor
+  widget.min.color = store.config.global.element.secondaryColor
+  widget.sec.color = store.config.global.element.tertiaryColor
+  widget.center.color = store.config.global.element.tertiaryColor
 }
 
 const updateClockParts = () => {
@@ -74,8 +74,6 @@ const updateClockParts = () => {
         v-model:ts="widget.base.font.shadow"
         v-model:tt="widget.base.font.transform"
         v-model:ff="widget.base.font.family"
-        @update:cl="updateClockParts"
-        @update:ts="updateClockParts"
       >
       </WidgetFontField>
       <WidgetBoxField

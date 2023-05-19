@@ -2,7 +2,7 @@
 import { computed, watch, ref, onMounted } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { DateTime } from 'luxon'
-import { setWidgetContainerStyles, setWidgetSegmentStyles } from '@/helpers/widgets.js'
+import { setWidgetContainerStyles, setWidgetSegmentStyles, hsl, shadow } from '@/helpers/widgets.js'
 
 const store = useSettingsStore()
 
@@ -60,6 +60,27 @@ const segmentStyles = (type, lsUsesMargin = false) => {
 
 const fontSize = computed(() => {
   return props.widget.size ? `${props.widget.size * 10}px` : '0'
+})
+
+const faceStyle = computed(() => {
+  if (props.widget.face.override) {
+    return `
+      --analogBorderSize: ${props.widget.face.borderSize * 0.1}em;
+      --analogBorderColor: ${hsl(props.widget.face.borderColor)};
+      --analogQuarterMarkColor: ${hsl(props.widget.face.quarterColor)};
+      --analogHourMarkColor: ${hsl(props.widget.face.hourColor)};
+      --analogMinuteMarkColor: ${hsl(props.widget.face.minuteColor)};
+      --faceShadow: ${shadow(props.widget.face.shadow)};
+    `
+  }
+  return `
+    --analogBorderSize: ${props.widget.face.borderSize * 0.1}em;
+    --analogBorderColor: ${hsl(store.config.global.element.primaryColor)};
+    --analogQuarterMarkColor: ${hsl(store.config.global.element.primaryColor)};
+    --analogHourMarkColor: ${hsl(store.config.global.element.primaryColor)};
+    --analogMinuteMarkColor: ${hsl(store.config.global.element.primaryColor)};
+    --faceShadow: ${shadow(store.config.global.element.shadow)};
+  `
 })
 
 const getRelativeTime = computed(() => {
@@ -121,52 +142,7 @@ const getAnalogHour = () => {
     <FontLink v-if="props.widget.base.font.override" :widget="props.widget"></FontLink>
     <div class="widgetInner">
       <div class="analog">
-        <div
-          class="analogFace"
-          :class="`faceStyle_${props.widget.face.style}`"
-          :style="`
-            --analogBorderSize: ${props.widget.face.borderSize * 0.1}em;
-            --analogBorderColor: 
-              hsl(${props.widget.face.borderColor[0]}deg ${props.widget.face.borderColor[1]}% ${
-            props.widget.face.borderColor[2]
-          }% 
-              / ${props.widget.face.borderColor[3]});
-            --analogQuarterMarkColor: 
-              hsl(${props.widget.face.quarterColor[0]}deg ${props.widget.face.quarterColor[1]}% ${
-            props.widget.face.quarterColor[2]
-          }% 
-              / ${props.widget.face.quarterColor[3]});
-            --analogHourMarkColor: 
-              hsl(${props.widget.face.hourColor[0]}deg ${props.widget.face.hourColor[1]}% ${
-            props.widget.face.hourColor[2]
-          }% 
-              / ${props.widget.face.hourColor[3]});
-            --analogMinuteMarkColor: 
-              hsl(${props.widget.face.minuteColor[0]}deg ${props.widget.face.minuteColor[1]}% ${
-            props.widget.face.minuteColor[2]
-          }% 
-              / ${props.widget.face.minuteColor[3]});
-            --faceShadow: 
-              ${
-                props.widget.face.shadow[0]
-                  ? props.widget.face.shadow[1] +
-                    'px ' +
-                    props.widget.face.shadow[2] +
-                    'px ' +
-                    props.widget.face.shadow[3] +
-                    'px hsl(' +
-                    props.widget.face.shadow[4] +
-                    'deg ' +
-                    props.widget.face.shadow[5] +
-                    '% ' +
-                    props.widget.face.shadow[6] +
-                    '% / ' +
-                    props.widget.face.shadow[7] +
-                    ')'
-                  : 'none'
-              };
-          `"
-        >
+        <div class="analogFace" :class="`faceStyle_${props.widget.face.style}`" :style="faceStyle">
           <div
             v-for="(indicator, i) in Array(60)"
             :key="i"
@@ -185,24 +161,7 @@ const getAnalogHour = () => {
           :class="`handStyle_${props.widget.hand.style}`"
           :style="`
             --handShadow: 
-              ${
-                props.widget.hand.shadow[0]
-                  ? props.widget.hand.shadow[1] +
-                    'px ' +
-                    props.widget.hand.shadow[2] +
-                    'px ' +
-                    props.widget.hand.shadow[3] +
-                    'px hsl(' +
-                    props.widget.hand.shadow[4] +
-                    'deg ' +
-                    props.widget.hand.shadow[5] +
-                    '% ' +
-                    props.widget.hand.shadow[6] +
-                    '% / ' +
-                    props.widget.hand.shadow[7] +
-                    ')'
-                  : 'none'
-              };
+              ${shadow(props.widget.hand.override ? props.widget.hand.shadow : store.config.global.element.shadow)};
           `"
         >
           <div
@@ -211,9 +170,8 @@ const getAnalogHour = () => {
             :style="`
             --analogCurrentHour: ${analogHourRotation};
             --analogHourColor:
-              hsl(${props.widget.hour.color[0]}deg ${props.widget.hour.color[1]}% ${props.widget.hour.color[2]}% 
-              / ${props.widget.hour.color[3]});
-            `"
+              ${hsl(props.widget.hand.override ? props.widget.hour.color : store.config.global.element.secondaryColor)};
+              `"
           ></div>
           <div
             v-if="props.widget.min.on"
@@ -221,9 +179,8 @@ const getAnalogHour = () => {
             :style="`
             --analogCurrentMinute: ${analogMinuteRotation};
             --analogMinuteColor:
-              hsl(${props.widget.min.color[0]}deg ${props.widget.min.color[1]}% ${props.widget.min.color[2]}% 
-              / ${props.widget.min.color[3]});
-            `"
+              ${hsl(props.widget.hand.override ? props.widget.min.color : store.config.global.element.secondaryColor)};
+              `"
           ></div>
           <div
             v-if="props.widget.sec.on"
@@ -232,17 +189,17 @@ const getAnalogHour = () => {
             :style="`
             --analogCurrentSecond: ${analogSecondRotation};
             --analogSecondColor:
-              hsl(${props.widget.sec.color[0]}deg ${props.widget.sec.color[1]}% ${props.widget.sec.color[2]}% 
-              / ${props.widget.sec.color[3]});
-            `"
+              ${hsl(props.widget.hand.override ? props.widget.sec.color : store.config.global.element.tertiaryColor)};
+              `"
           ></div>
           <div
             v-if="props.widget.center.on"
             class="analogCenter"
             :style="`
             --analogCenterColor:
-              hsl(${props.widget.center.color[0]}deg ${props.widget.center.color[1]}% ${props.widget.center.color[2]}% 
-              / ${props.widget.center.color[3]});
+              ${hsl(
+                props.widget.hand.override ? props.widget.center.color : store.config.global.element.tertiaryColor
+              )};
             `"
           ></div>
         </div>

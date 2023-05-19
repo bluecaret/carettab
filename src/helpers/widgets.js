@@ -66,6 +66,6 @@ export const hsl = (hsl) => {
 
 export const shadow = (shadow) => {
   return shadow[0]
-    ? `${shadow[1]}px ${shadow[2]}px ${shadow[3]}px 0px hsl(${shadow[4]}deg ${shadow[5]}% ${shadow[6]}% / ${shadow[7]})`
+    ? `${shadow[1]}px ${shadow[2]}px ${shadow[3]}px hsl(${shadow[4]}deg ${shadow[5]}% ${shadow[6]}% / ${shadow[7]})`
     : 'none'
 }

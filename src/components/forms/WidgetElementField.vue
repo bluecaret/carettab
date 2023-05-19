@@ -10,9 +10,9 @@ const emit = defineEmits([
 const props = defineProps({
   noOverride: Boolean,
   override: Boolean,
-  pcl: Array,
-  scl: Array,
-  tcl: Array,
+  primary: Array,
+  secondary: Array,
+  tertiary: Array,
   shadow: Array,
 })
 

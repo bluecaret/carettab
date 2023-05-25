@@ -43,23 +43,23 @@ const selectTimezone = (tz) => {
       </SizeAndPositionField>
       <WidgetFontField
         v-model:override="widget.base.font.override"
-        v-model:cl="widget.base.font.color"
-        v-model:fs="widget.base.font.size"
-        v-model:fb="widget.base.font.bold"
-        v-model:fi="widget.base.font.italic"
-        v-model:fu="widget.base.font.underline"
-        v-model:ls="widget.base.font.letterSpacing"
-        v-model:ts="widget.base.font.shadow"
-        v-model:tt="widget.base.font.transform"
-        v-model:ff="widget.base.font.family"
+        v-model:color="widget.base.font.color"
+        v-model:size="widget.base.font.size"
+        v-model:bold="widget.base.font.bold"
+        v-model:italic="widget.base.font.italic"
+        v-model:underline="widget.base.font.underline"
+        v-model:letterSpacing="widget.base.font.letterSpacing"
+        v-model:shadow="widget.base.font.shadow"
+        v-model:transform="widget.base.font.transform"
+        v-model:family="widget.base.font.family"
       >
       </WidgetFontField>
       <WidgetBoxField
         v-model:override="widget.base.container.override"
         v-model:rounded="widget.base.container.radius"
-        v-model:bs="widget.base.container.borderSize"
-        v-model:bc="widget.base.container.borderColor"
-        v-model:bg="widget.base.container.background"
+        v-model:borderSize="widget.base.container.borderSize"
+        v-model:borderColor="widget.base.container.borderColor"
+        v-model:background="widget.base.container.background"
         v-model:shadow="widget.base.container.shadow"
         v-model:padding="widget.base.container.padding"
       >

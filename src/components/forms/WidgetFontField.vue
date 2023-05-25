@@ -4,28 +4,28 @@ import { fontList, fontWeight, textTransform } from '@/assets/lists.js'
 
 const emit = defineEmits([
   'update:override',
-  'update:cl',
-  'update:ts',
-  'update:ff',
-  'update:fs',
-  'update:fb',
-  'update:fi',
-  'update:fu',
-  'update:ls',
-  'update:tt',
+  'update:color',
+  'update:shadow',
+  'update:family',
+  'update:size',
+  'update:bold',
+  'update:italic',
+  'update:underline',
+  'update:letterSpacing',
+  'update:transform',
 ])
 const props = defineProps({
   noOverride: Boolean,
   override: Boolean,
-  cl: Array,
-  ts: Array,
-  ff: String,
-  fs: Number,
-  fb: Number,
-  fi: Boolean,
-  fu: Boolean,
-  ls: Number,
-  tt: String,
+  color: Array,
+  shadow: Array,
+  family: String,
+  size: Number,
+  bold: Number,
+  italic: Boolean,
+  underline: Boolean,
+  letterSpacing: Number,
+  transform: String,
 })
 
 const store = useSettingsStore()
@@ -35,52 +35,52 @@ const handleOverrideUpdate = (bool) => {
   resetOverride()
 }
 
-const handleClUpdate = (arr) => {
-  emit('update:cl', arr)
+const handleColorUpdate = (arr) => {
+  emit('update:color', arr)
 }
 
-const handleTsUpdate = (arr) => {
-  emit('update:ts', arr)
+const handleShadowUpdate = (arr) => {
+  emit('update:shadow', arr)
 }
 
-const handleFfToggle = (obj) => {
-  emit('update:ff', obj.id)
+const handleFamilyUpdate = (obj) => {
+  emit('update:family', obj.id)
 }
 
-const handleFsUpdate = (num) => {
-  emit('update:fs', num < 1 ? 1 : num)
+const handleSizeUpdate = (num) => {
+  emit('update:size', num < 1 ? 1 : num)
 }
 
-const handleFbUpdate = (num) => {
-  emit('update:fb', parseFloat(num.target.value))
+const handleBoldUpdate = (num) => {
+  emit('update:bold', parseFloat(num.target.value))
 }
 
-const handleFiUpdate = () => {
-  emit('update:fi', !props.fi)
+const handleItalicUpdate = () => {
+  emit('update:italic', !props.italic)
 }
 
-const handleFuUpdate = () => {
-  emit('update:fu', !props.fu)
+const handleUnderlineUpdate = () => {
+  emit('update:underline', !props.underline)
 }
 
-const handleLsUpdate = (num) => {
-  emit('update:ls', num)
+const handleLetterSpacingUpdate = (num) => {
+  emit('update:letterSpacing', num)
 }
 
-const handleTtUpdate = (str) => {
-  emit('update:tt', str.target.value)
+const handleTransformUpdate = (str) => {
+  emit('update:transform', str.target.value)
 }
 
 const resetOverride = () => {
-  emit('update:cl', [...store.config.global.font.color])
-  emit('update:ts', [...store.config.global.font.shadow])
-  emit('update:ff', store.config.global.font.family)
-  emit('update:fs', store.config.global.font.size)
-  emit('update:fb', store.config.global.font.bold)
-  emit('update:fi', store.config.global.font.italic)
-  emit('update:fu', store.config.global.font.underline)
-  emit('update:ls', store.config.global.font.letterSpacing)
-  emit('update:tt', store.config.global.font.transform)
+  emit('update:color', [...store.config.global.font.color])
+  emit('update:shadow', [...store.config.global.font.shadow])
+  emit('update:family', store.config.global.font.family)
+  emit('update:size', store.config.global.font.size)
+  emit('update:bold', store.config.global.font.bold)
+  emit('update:italic', store.config.global.font.italic)
+  emit('update:underline', store.config.global.font.underline)
+  emit('update:letterSpacing', store.config.global.font.letterSpacing)
+  emit('update:transform', store.config.global.font.transform)
 }
 </script>
 
@@ -107,8 +107,8 @@ const resetOverride = () => {
           use-label
           allow-custom
           :list="fontList"
-          :selected="props.ff"
-          @selected="(item) => handleFfToggle(item)"
+          :selected="props.family"
+          @selected="(item) => handleFamilyUpdate(item)"
         ></AutocompleteField>
       </div>
       <div class="group stack">
@@ -120,7 +120,7 @@ const resetOverride = () => {
           :increment="1"
           :model-value="props.size"
           :min="1"
-          @update:model-value="handleFsUpdate"
+          @update:model-value="handleSizeUpdate"
         ></NumberField>
       </div>
       <div class="group stack">
@@ -131,7 +131,7 @@ const resetOverride = () => {
           aria-label="Letter spacing"
           :increment="0.2"
           :model-value="props.letterSpacing"
-          @update:model-value="handleLsUpdate"
+          @update:model-value="handleLetterSpacingUpdate"
         >
         </NumberField>
       </div>
@@ -139,8 +139,8 @@ const resetOverride = () => {
     <div v-if="props.noOverride || props.override" class="group fill">
       <div class="group stack fill">
         <label for="fontBold" class="desc"> Weight </label>
-        <select id="fontBold" name="fontBold" class="select" @change="handleFbUpdate($event)">
-          <option v-for="wgt in fontWeight" :key="wgt.id" :selected="wgt.id === props.fb" :value="wgt.id">
+        <select id="fontBold" name="fontBold" class="select" @change="handleBoldUpdate($event)">
+          <option v-for="wgt in fontWeight" :key="wgt.id" :selected="wgt.id === props.bold" :value="wgt.id">
             {{ wgt.label }}
           </option>
         </select>
@@ -153,8 +153,8 @@ const resetOverride = () => {
             aria-label="Italic"
             class="btn"
             type="button"
-            :class="{ active: props.fi }"
-            @click="handleFiUpdate"
+            :class="{ active: props.italic }"
+            @click="handleItalicUpdate"
           >
             <fa icon="fa-italic" fixed-width></fa>
           </button>
@@ -163,8 +163,8 @@ const resetOverride = () => {
             aria-label="Underline"
             class="btn"
             type="button"
-            :class="{ active: props.fu }"
-            @click="handleFuUpdate"
+            :class="{ active: props.underline }"
+            @click="handleUnderlineUpdate"
           >
             <fa icon="fa-underline" fixed-width></fa>
           </button>
@@ -172,15 +172,20 @@ const resetOverride = () => {
       </div>
       <div class="group stack fill">
         <label for="textTranform" class="desc"> Case </label>
-        <select id="textTranform" name="textTranform" class="select" @change="handleTtUpdate($event)">
-          <option v-for="opt in textTransform" :key="opt.id" :selected="opt.id === props.tt" :value="opt.id">
+        <select id="textTranform" name="textTranform" class="select" @change="handleTransformUpdate($event)">
+          <option v-for="opt in textTransform" :key="opt.id" :selected="opt.id === props.transform" :value="opt.id">
             {{ opt.label }}
           </option>
         </select>
       </div>
       <div class="group stack">
         <label for="widgetFontColor" class="desc"> Color </label>
-        <ColorField tag-id="widgetFontColor" class="w8" :model-value="props.color" @update:model-value="handleClUpdate">
+        <ColorField
+          tag-id="widgetFontColor"
+          class="w8"
+          :model-value="props.color"
+          @update:model-value="handleColorUpdate"
+        >
         </ColorField>
       </div>
       <div class="group stack">
@@ -191,7 +196,7 @@ const resetOverride = () => {
           tag-id="widgetFontShadow"
           class="w8"
           :model-value="props.shadow"
-          @update:model-value="handleTsUpdate"
+          @update:model-value="handleShadowUpdate"
         >
         </ColorField>
       </div>

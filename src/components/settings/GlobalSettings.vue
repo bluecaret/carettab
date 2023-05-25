@@ -176,23 +176,23 @@ const handleLangSelect = (event) => {
 <template>
   <div v-if="props.openDefault" class="blockContainer">
     <WidgetFontField
-      v-model:cl="store.config.global.font.color"
-      v-model:ts="store.config.global.font.shadow"
-      v-model:fs="store.config.global.font.size"
-      v-model:fb="store.config.global.font.bold"
-      v-model:fi="store.config.global.font.italic"
-      v-model:fu="store.config.global.font.underline"
-      v-model:ls="store.config.global.font.letterSpacing"
-      v-model:tt="store.config.global.font.transform"
-      v-model:ff="store.config.global.font.family"
+      v-model:color="store.config.global.font.color"
+      v-model:shadow="store.config.global.font.shadow"
+      v-model:family="store.config.global.font.family"
+      v-model:size="store.config.global.font.size"
+      v-model:bold="store.config.global.font.bold"
+      v-model:italic="store.config.global.font.italic"
+      v-model:underline="store.config.global.font.underline"
+      v-model:transform="store.config.global.font.transform"
+      v-model:letterSpacing="store.config.global.font.letterSpacing"
       no-override
     >
     </WidgetFontField>
     <WidgetBoxField
       v-model:rounded="store.config.global.container.radius"
-      v-model:bs="store.config.global.container.borderSize"
-      v-model:bc="store.config.global.container.borderColor"
-      v-model:bg="store.config.global.container.background"
+      v-model:borderSize="store.config.global.container.borderSize"
+      v-model:borderColor="store.config.global.container.borderColor"
+      v-model:background="store.config.global.container.background"
       v-model:shadow="store.config.global.container.shadow"
       v-model:padding="store.config.global.container.padding"
       no-override

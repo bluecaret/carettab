@@ -3,9 +3,9 @@ import { useSettingsStore } from '@/store.js'
 const emit = defineEmits([
   'update:override',
   'update:rounded',
-  'update:bs',
-  'update:bc',
-  'update:bg',
+  'update:borderSize',
+  'update:borderColor',
+  'update:background',
   'update:shadow',
   'update:padding',
 ])
@@ -13,9 +13,9 @@ const props = defineProps({
   noOverride: Boolean,
   override: Boolean,
   rounded: Number,
-  bs: Number,
-  bc: Array,
-  bg: Array,
+  borderSize: Number,
+  borderColor: Array,
+  background: Array,
   shadow: Array,
   padding: Number,
 })
@@ -31,16 +31,16 @@ const handleRoundedUpdate = (num) => {
   emit('update:rounded', num < 1 ? 0 : num)
 }
 
-const handleBsUpdate = (num) => {
-  emit('update:bs', num < 1 ? 0 : num)
+const handleBorderSizeUpdate = (num) => {
+  emit('update:borderSize', num < 1 ? 0 : num)
 }
 
-const handleBcUpdate = (arr) => {
-  emit('update:bc', arr)
+const handleBorderColorUpdate = (arr) => {
+  emit('update:borderColor', arr)
 }
 
 const handleBgUpdate = (arr) => {
-  emit('update:bg', arr)
+  emit('update:background', arr)
 }
 
 const handleShadowUpdate = (arr) => {
@@ -53,9 +53,9 @@ const handlePaddingUpdate = (num) => {
 
 const resetOverride = () => {
   emit('update:rounded', store.config.global.container.radius)
-  emit('update:bs', store.config.global.container.borderSize)
-  emit('update:bc', [...store.config.global.container.borderColor])
-  emit('update:bg', [...store.config.global.container.background])
+  emit('update:borderSize', store.config.global.container.borderSize)
+  emit('update:borderColor', [...store.config.global.container.borderColor])
+  emit('update:background', [...store.config.global.container.background])
   emit('update:shadow', [...store.config.global.container.shadow])
   emit('update:padding', store.config.global.container.padding)
 }
@@ -104,19 +104,24 @@ const resetOverride = () => {
           tag-id="boxBs"
           :increment="1"
           :min="0"
-          :model-value="props.bs"
-          @update:model-value="handleBsUpdate"
+          :model-value="props.borderSize"
+          @update:model-value="handleBorderSizeUpdate"
         >
         </NumberField>
       </div>
       <div class="group stack">
         <label for="boxBc" class="desc"> Border color </label>
-        <ColorField tag-id="boxBc" class="w8" :model-value="props.bc" @update:model-value="handleBcUpdate">
+        <ColorField
+          tag-id="boxBc"
+          class="w8"
+          :model-value="props.borderColor"
+          @update:model-value="handleBorderColorUpdate"
+        >
         </ColorField>
       </div>
       <div class="group stack">
         <label for="boxBg" class="desc"> Background </label>
-        <ColorField tag-id="boxBg" class="w8" :model-value="props.bg" @update:model-value="handleBgUpdate">
+        <ColorField tag-id="boxBg" class="w8" :model-value="props.background" @update:model-value="handleBgUpdate">
         </ColorField>
       </div>
       <div class="group stack">

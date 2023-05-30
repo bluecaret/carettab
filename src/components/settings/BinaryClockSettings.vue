@@ -130,11 +130,17 @@ const selectTimezone = (tz) => {
         </div>
       </div>
       <div class="block">
-        <div class="label mra">Colors</div>
         <div class="group fill">
+          <div class="label mra">Colors</div>
+          <div class="group compact">
+            <label for="overrideColors" class="desc">Override colors</label>
+            <ToggleField v-model="widget.indicator.overrideColors" tag-id="overrideColors"></ToggleField>
+          </div>
+        </div>
+        <div v-if="widget.indicator.overrideColors" class="group fill">
           <div class="group fill stack">
             <label for="indShadow" class="desc">Shadow</label>
-            <ColorField v-model="widget.indicator.shadow" shadow class="" tag-id="indShadow"> </ColorField>
+            <ColorField v-model="widget.indicator.shadow" shadow tag-id="indShadow"> </ColorField>
           </div>
           <div class="group fill stack">
             <label for="onc" class="desc">Hour - on</label>
@@ -154,11 +160,11 @@ const selectTimezone = (tz) => {
           </div>
           <div class="group fill stack">
             <label for="onc" class="desc">Sec. - on</label>
-            <ColorField v-model="widget.indicator.extrasconc" tag-id="onc"></ColorField>
+            <ColorField v-model="widget.indicator.secOnColor" tag-id="onc"></ColorField>
           </div>
           <div class="group fill stack">
             <label for="offc" class="desc">Sec. - off</label>
-            <ColorField v-model="widget.indicator.extrascoffc" tag-id="offc"></ColorField>
+            <ColorField v-model="widget.indicator.secOffColor" tag-id="offc"></ColorField>
           </div>
         </div>
       </div>

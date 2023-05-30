@@ -11,6 +11,7 @@ export class BinaryClock {
     offLabel: '0',
     onLabel: '1',
     padding: 10,
+    overrideColors: false,
     hourOnColor: [0, 0, 100, 1],
     hourOffColor: [0, 0, 100, 0.5],
     minOnColor: [0, 0, 100, 1],
@@ -21,7 +22,7 @@ export class BinaryClock {
   }
   label = {
     label: 'Clock',
-    on: true,
+    on: false,
     override: false,
     color: [0, 0, 100, 1],
     shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],

@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { DateTime } from 'luxon'
-import { setWidgetContainerStyles, setWidgetSegmentStyles } from '@/helpers/widgets.js'
+import { setWidgetContainerStyles, setWidgetSegmentStyles, hsl, shadow } from '@/helpers/widgets.js'
 
 const store = useSettingsStore()
 
@@ -66,29 +66,20 @@ const dotSize = computed(() => {
 })
 
 const getColors = (type, status) => {
-  let color = props.widget.indicator[`${type}${status === '1' ? 'OnColor' : 'OffColor'}`]
-  let shadow = props.widget.indicator.shadow[0]
-    ? `${props.widget.indicator.shadow[1]}px ${props.widget.indicator.shadow[2]}px ${
-        props.widget.indicator.shadow[3]
-      }px 
-    ${props.widget.indicator.dot ? '0px' : ''}
-    hsl(${props.widget.indicator.shadow[4]}deg ${props.widget.indicator.shadow[5]}% ${
-        props.widget.indicator.shadow[6]
-      }% / ${props.widget.indicator.shadow[7]})`
-    : 'none'
+  let color
+  if (props.widget.indicator.overrideColors) {
+    color = props.widget.indicator[`${type}${status === '1' ? 'OnColor' : 'OffColor'}`]
+  } else {
+    color = status === '1' ? store.config.global.element.primaryColor : store.config.global.element.secondaryColor
+  }
+  let elShadow = shadow(
+    props.widget.indicator.overrideColors ? props.widget.indicator.shadow : store.config.global.element.shadow
+  )
   return `
-    background-color: ${
-      props.widget.indicator.dot
-        ? 'hsl(' + color[0] + 'deg ' + color[1] + '% ' + color[2] + '% / ' + color[3] + ')'
-        : 'transparent'
-    };
-    color: ${
-      !props.widget.indicator.dot
-        ? 'hsl(' + color[0] + 'deg ' + color[1] + '% ' + color[2] + '% / ' + color[3] + ')'
-        : 'transparent'
-    };
-    text-shadow: ${!props.widget.indicator.dot ? shadow : 'none'};
-    box-shadow: ${props.widget.indicator.dot ? shadow : 'none'};
+    background-color: ${props.widget.indicator.dot ? hsl(color) : 'transparent'};
+    color: ${!props.widget.indicator.dot ? hsl(color) : 'transparent'};
+    text-shadow: ${!props.widget.indicator.dot ? elShadow : 'none'};
+    box-shadow: ${props.widget.indicator.dot ? elShadow : 'none'};
   `
 }
 </script>

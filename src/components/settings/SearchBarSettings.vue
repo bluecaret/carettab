@@ -7,12 +7,6 @@ const store = useSettingsStore()
 
 const ci = ref(store.config.searchBars.findIndex((c) => c.id === store.editing))
 const widget = reactive(store.config.searchBars[ci.value])
-
-const resetColors = () => {
-  widget.background = [...store.config.global.element.secondaryColor]
-  widget.borderColor = [...store.config.global.element.primaryColor]
-  widget.boxShadow = [...store.config.global.element.shadow]
-}
 </script>
 
 <template>
@@ -133,11 +127,7 @@ const resetColors = () => {
           </div>
           <div class="group stack fit">
             <label for="colorOverride" class="desc fit">Override colors</label>
-            <ToggleField
-              v-model="widget.overrideColors"
-              tag-id="colorOverride"
-              @update:model-value="resetColors"
-            ></ToggleField>
+            <ToggleField v-model="widget.overrideColors" tag-id="colorOverride"></ToggleField>
           </div>
           <div v-if="widget.overrideColors" class="group stack fill">
             <label for="bg" class="desc">Background</label>

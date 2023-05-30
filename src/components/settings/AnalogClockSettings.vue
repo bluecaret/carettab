@@ -25,22 +25,6 @@ const selectTimezone = (tz) => {
     store.$patch({ config: { analogClocks: newClocks } })
   }
 }
-
-const resetFaceColors = () => {
-  widget.face.shadow = [...store.config.global.element.shadow]
-  widget.face.borderColor = [...store.config.global.element.primaryColor]
-  widget.face.quarterColor = [...store.config.global.element.primaryColor]
-  widget.face.hourColor = [...store.config.global.element.primaryColor]
-  widget.face.minuteColor = [...store.config.global.element.primaryColor]
-}
-
-const resetHandColors = () => {
-  widget.hand.shadow = [...store.config.global.element.shadow]
-  widget.hour.color = [...store.config.global.element.secondaryColor]
-  widget.min.color = [...store.config.global.element.secondaryColor]
-  widget.sec.color = [...store.config.global.element.tertiaryColor]
-  widget.center.color = [...store.config.global.element.tertiaryColor]
-}
 </script>
 
 <template>
@@ -105,11 +89,7 @@ const resetHandColors = () => {
         <div class="label">Clock face</div>
         <div class="group compact mla">
           <label for="hourOverride" class="desc">Override colors</label>
-          <ToggleField
-            v-model="widget.face.override"
-            tag-id="hourOverride"
-            @update:model-value="resetFaceColors"
-          ></ToggleField>
+          <ToggleField v-model="widget.face.override" tag-id="hourOverride"></ToggleField>
         </div>
         <div class="group stack">
           <label for="faceStyle" class="desc">Style</label>
@@ -150,11 +130,7 @@ const resetHandColors = () => {
         <div class="label">Clock hands</div>
         <div class="group compact mla">
           <label for="hourOverride" class="desc">Override colors</label>
-          <ToggleField
-            v-model="widget.hand.override"
-            tag-id="hourOverride"
-            @update:model-value="resetHandColors"
-          ></ToggleField>
+          <ToggleField v-model="widget.hand.override" tag-id="hourOverride"></ToggleField>
         </div>
         <div class="group">
           <div class="group stack">

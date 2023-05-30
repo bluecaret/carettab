@@ -9,11 +9,11 @@ export class SearchBar {
   icon = true
   engineLabel = false
   dropdown = false
-  padding = 5
+  padding = 10
   size = 500
   borderSize = 1
   borderBottom = true
-  radius = 0
+  radius = 6
   overrideColors = false
   background = [0, 0, 100, 0]
   borderColor = [0, 0, 100, 1]

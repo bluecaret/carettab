@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import { useSettingsStore } from '@/store.js'
-import { setWidgetContainerStyles } from '@/helpers/widgets.js'
+import { setWidgetContainerStyles, hsl, shadow } from '@/helpers/widgets.js'
 import { searchEngines } from '@/assets/lists.js'
 
 const store = useSettingsStore()
@@ -79,42 +79,28 @@ const setBarStyles = computed(() => {
     border-style: solid;
     border-width: 0;
     border${props.widget.borderBottom ? '-bottom' : ''}-width: ${props.widget.borderSize}px;
-    border-color: hsl(${props.widget.borderColor[0]}deg ${props.widget.borderColor[1]}% ${
-    props.widget.borderColor[2]
-  }% / ${props.widget.borderColor[3]});
-    background-color:
-      hsl(${props.widget.background[0]}deg ${props.widget.background[1]}% ${props.widget.background[2]}% / ${
-    props.widget.background[3]
-  });
+    border-color: ${hsl(
+      props.widget.overrideColors ? props.widget.borderColor : store.config.global.element.primaryColor
+    )};
+    background-color: ${hsl(
+      props.widget.overrideColors ? props.widget.background : store.config.global.element.secondaryColor
+    )};
     border-radius: ${props.widget.radius}px;
     font-size: ${props.widget.base.font.size}px;
-    text-shadow: ${
-      props.widget.base.font.shadow[0]
-        ? `${props.widget.base.font.shadow[1]}px ${props.widget.base.font.shadow[2]}px ${props.widget.base.font.shadow[3]}px
-        hsl(${props.widget.base.font.shadow[4]}deg ${props.widget.base.font.shadow[5]}% ${props.widget.base.font.shadow[6]}% / ${props.widget.base.font.shadow[7]})`
-        : 'none'
-    };
-    box-shadow: ${
-      props.widget.boxShadow[0]
-        ? `${props.widget.boxShadow[1]}px ${props.widget.boxShadow[2]}px ${props.widget.boxShadow[3]}px 0px
-        hsl(${props.widget.boxShadow[4]}deg ${props.widget.boxShadow[5]}% ${props.widget.boxShadow[6]}% / ${props.widget.boxShadow[7]})`
-        : 'none'
-    };
-    color: hsl(${props.widget.base.font.color[0]}deg ${props.widget.base.font.color[1]}% ${
-    props.widget.base.font.color[2]
-  }% / ${props.widget.base.font.color[3]});
+    text-shadow: ${shadow(
+      props.widget.base.font.override ? props.widget.base.font.shadow : store.config.global.font.shadow
+    )};
+    box-shadow: ${shadow(props.widget.overrideColors ? props.widget.boxShadow : store.config.global.element.shadow)};
+    color: ${hsl(props.widget.base.font.override ? props.widget.base.font.color : store.config.global.font.color)};
     --elementPadding: ${props.widget.padding}px;
   `
 })
 
 const elementStyles = computed(() => {
   return `
-    filter: drop-shadow(${
-      props.widget.base.font.shadow[0]
-        ? `${props.widget.base.font.shadow[1]}px ${props.widget.base.font.shadow[2]}px ${props.widget.base.font.shadow[3]}px
-        hsl(${props.widget.base.font.shadow[4]}deg ${props.widget.base.font.shadow[5]}% ${props.widget.base.font.shadow[6]}% / ${props.widget.base.font.shadow[7]})`
-        : 'none'
-    })
+    filter: drop-shadow(${shadow(
+      props.widget.base.font.override ? props.widget.base.font.shadow : store.config.global.font.shadow
+    )});
   `
 })
 </script>

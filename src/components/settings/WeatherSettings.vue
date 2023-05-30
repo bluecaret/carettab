@@ -100,6 +100,51 @@ const refreshWeather = async () => {
       >
       </WidgetBoxField>
       <div class="block">
+        <div class="group fill">
+          <div class="label mra">Colors</div>
+          <div class="group compact">
+            <label for="elColors" class="desc mra">Override element colors</label>
+            <ToggleField v-model="widget.overrideColors" tag-id="elColors"></ToggleField>
+          </div>
+        </div>
+        <div v-if="widget.overrideColors" class="group fill">
+          <div class="group stack fill">
+            <label for="loccolor" class="desc">Location</label>
+            <ColorField v-model="widget.label.color" tag-id="loccolor"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="iconcolor" class="desc">Current icon</label>
+            <ColorField v-model="widget.current.icon.color" tag-id="iconcolor"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="ccl" class="desc">Temperature</label>
+            <ColorField v-model="widget.current.temperature.currentlyColor" tag-id="ccl"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="fcl" class="desc">Feels like</label>
+            <ColorField v-model="widget.current.temperature.feelsLikeColor" tag-id="fcl"></ColorField>
+          </div>
+        </div>
+        <div v-if="widget.overrideColors" class="group fill">
+          <div class="group stack fill">
+            <label for="forecasticoncolor" class="desc">Forecast icon</label>
+            <ColorField v-model="widget.forecast.icon.color" tag-id="forecasticoncolor"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="dycl" class="desc">Forecast day</label>
+            <ColorField v-model="widget.forecast.day.color" tag-id="dycl"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="fhcl" class="desc">Forecast high</label>
+            <ColorField v-model="widget.forecast.temperature.highColor" tag-id="fhcl"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="flcl" class="desc">Forecast low</label>
+            <ColorField v-model="widget.forecast.temperature.lowColor" tag-id="flcl"></ColorField>
+          </div>
+        </div>
+      </div>
+      <div class="block">
         <label for="hz" class="label mra">Horizontal display</label>
         <ToggleField v-model="widget.horizontal" tag-id="hz"></ToggleField>
       </div>
@@ -182,10 +227,6 @@ const refreshWeather = async () => {
             <label for="locname" class="desc">Enable</label>
             <ToggleField v-model="widget.label.on" tag-id="locname"></ToggleField>
           </div>
-          <div v-if="widget.label.on" class="group compact">
-            <label for="loccolor" class="desc">Color</label>
-            <ColorField v-model="widget.label.color" tag-id="loccolor" class="w4"></ColorField>
-          </div>
         </div>
       </div>
       <div class="block">
@@ -242,10 +283,6 @@ const refreshWeather = async () => {
               class="w8"
             ></NumberField>
           </div>
-          <div v-if="widget.current.icon.on" class="group compact">
-            <label for="iconcolor" class="desc">Color</label>
-            <ColorField v-model="widget.current.icon.color" tag-id="iconcolor" class="w4"></ColorField>
-          </div>
         </div>
       </div>
       <div v-if="widget.current.on" class="block">
@@ -254,26 +291,10 @@ const refreshWeather = async () => {
           <div class="group compact">
             <label for="currentTemp" class="desc">Current</label>
             <ToggleField v-model="widget.current.temperature.currently" tag-id="currentTemp"></ToggleField>
-            <ColorField
-              v-if="widget.current.temperature.currently"
-              v-model="widget.current.temperature.currentlyColor"
-              tag-id="ccl"
-              class="w4"
-              aria-label="Current color"
-              title="Current color"
-            ></ColorField>
           </div>
           <div class="group compact">
             <label for="currentFeelsLike" class="desc">Feels like</label>
             <ToggleField v-model="widget.current.temperature.feelsLike" tag-id="currentFeelsLike"></ToggleField>
-            <ColorField
-              v-if="widget.current.temperature.feelsLike"
-              v-model="widget.current.temperature.feelsLikeColor"
-              tag-id="fcl"
-              class="w4"
-              aria-label="Feels like color"
-              title="Feels like color"
-            ></ColorField>
           </div>
           <div class="group compact">
             <label for="currentDegSym" class="desc">Symbol</label>
@@ -369,14 +390,6 @@ const refreshWeather = async () => {
           <div class="group compact">
             <label for="forecastDayName" class="desc">Day Name</label>
             <ToggleField v-model="widget.forecast.day.on" tag-id="forecastDayName"></ToggleField>
-            <ColorField
-              v-if="widget.forecast.day.on"
-              v-model="widget.forecast.day.color"
-              tag-id="dycl"
-              class="w4"
-              aria-label="Day name color"
-              title="Day name color"
-            ></ColorField>
           </div>
         </div>
       </div>
@@ -399,10 +412,6 @@ const refreshWeather = async () => {
               class="w8"
             ></NumberField>
           </div>
-          <div v-if="widget.forecast.icon.on" class="group compact">
-            <label for="forecasticoncolor" class="desc">Color</label>
-            <ColorField v-model="widget.forecast.icon.color" tag-id="forecasticoncolor" class="w4"></ColorField>
-          </div>
         </div>
       </div>
       <div v-if="widget.forecast.on" class="block">
@@ -411,26 +420,10 @@ const refreshWeather = async () => {
           <div class="group compact">
             <label for="forecastHigh" class="desc">High</label>
             <ToggleField v-model="widget.forecast.temperature.high" tag-id="forecastHigh"></ToggleField>
-            <ColorField
-              v-if="widget.forecast.temperature.high"
-              v-model="widget.forecast.temperature.highColor"
-              tag-id="fhcl"
-              class="w4"
-              aria-label="High color"
-              title="High color"
-            ></ColorField>
           </div>
           <div class="group compact">
             <label for="forecastLow" class="desc">Low</label>
             <ToggleField v-model="widget.forecast.temperature.low" tag-id="forecastLow"></ToggleField>
-            <ColorField
-              v-if="widget.forecast.temperature.low"
-              v-model="widget.forecast.temperature.lowColor"
-              tag-id="flcl"
-              class="w4"
-              aria-label="Low color"
-              title="Low color"
-            ></ColorField>
           </div>
           <div class="group compact">
             <label for="forecastDegSym" class="desc">Symbol</label>

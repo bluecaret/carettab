@@ -99,10 +99,27 @@ const getWindUnit = (wind) => {
             class="currentIcon"
             :class="`w-code-${weatherData.current.condition.code}${weatherData.current.is_day === 1 ? '' : 'n'}`"
             :style="`font-size: ${props.widget.current.icon.size * 0.5}em; color: ${hsl(
-              props.widget.current.icon.color
+              props.widget.overrideColors
+                ? props.widget.current.icon.color
+                : props.widget.base.font.override
+                ? props.widget.base.font.color
+                : store.config.global.font.color
             )}`"
           ></i>
           <div class="currentData">
+            <div
+              v-if="props.widget.label.on"
+              class="locationName"
+              :style="`color: ${hsl(
+                props.widget.overrideColors
+                  ? props.widget.label.color
+                  : props.widget.base.font.override
+                  ? props.widget.base.font.color
+                  : store.config.global.font.color
+              )}`"
+            >
+              {{ widget.location.name }}
+            </div>
             <div
               v-if="props.widget.current.temperature.currently || props.widget.current.temperature.feelsLike"
               class="currentTemp"
@@ -110,7 +127,13 @@ const getWindUnit = (wind) => {
               <div
                 v-if="props.widget.current.temperature.currently"
                 class="currentTempDeg"
-                :style="`color: ${hsl(props.widget.current.temperature.currentlyColor)}`"
+                :style="`color: ${hsl(
+                  props.widget.overrideColors
+                    ? props.widget.current.temperature.currentlyColor
+                    : props.widget.base.font.override
+                    ? props.widget.base.font.color
+                    : store.config.global.font.color
+                )}`"
               >
                 {{ props.widget.scale ? round(weatherData.current.temp_f) : round(weatherData.current.temp_c)
                 }}{{ props.widget.current.temperature.degree ? '°' : '' }}
@@ -118,7 +141,13 @@ const getWindUnit = (wind) => {
               <div
                 v-if="props.widget.current.temperature.feelsLike"
                 class="currentTempFeels"
-                :style="`color: ${hsl(props.widget.current.temperature.feelsLikeColor)}`"
+                :style="`color: ${hsl(
+                  props.widget.overrideColors
+                    ? props.widget.current.temperature.feelsLikeColor
+                    : props.widget.base.font.override
+                    ? props.widget.base.font.color
+                    : store.config.global.font.color
+                )}`"
               >
                 Feels like
                 {{ props.widget.scale ? round(weatherData.current.feelslike_f) : round(weatherData.current.feelslike_c)
@@ -150,8 +179,8 @@ const getWindUnit = (wind) => {
                 <i class="w-barometer"></i>
                 {{
                   props.widget.unit
-                    ? round(weatherData.current.pressureessure_in) + ' in'
-                    : round(weatherData.current.pressureessure_mb) + ' mb'
+                    ? round(weatherData.current.pressure_in) + ' in'
+                    : round(weatherData.current.pressure_mb) + ' mb'
                 }}
               </div>
             </div>
@@ -190,64 +219,101 @@ const getWindUnit = (wind) => {
             </div>
           </div>
         </div>
-        <div v-if="props.widget.forecast.on" class="forecast">
-          <template v-for="(day, index) in weatherData.forecast.forecastday.slice(0, props.widget.forecast.days)">
-            <div
-              v-if="!props.widget.forecast.hideToday || (props.widget.forecast.hideToday && index !== 0)"
-              :key="index"
-              class="forecastDay"
-              :class="{
-                forecastIconEnabled: props.widget.forecast.icon.on,
-                forecastHorz: props.widget.forecast.horizontal,
-              }"
-            >
-              <i
-                v-if="props.widget.forecast.icon.on"
-                class="forecastIcon"
-                :class="`w-code-${day.day.condition.code}`"
-                :style="`font-size: ${props.widget.forecast.icon.size * 0.5}em; color: ${hsl(
-                  props.widget.forecast.icon.color
-                )}`"
-              ></i>
+        <div v-if="props.widget.forecast.on" class="forecastWrap">
+          <div
+            v-if="props.widget.label.on && !props.widget.current.on"
+            class="locationName"
+            :style="`color: ${hsl(
+              props.widget.overrideColors
+                ? props.widget.label.color
+                : props.widget.base.font.override
+                ? props.widget.base.font.color
+                : store.config.global.font.color
+            )}`"
+          >
+            {{ widget.location.name }}
+          </div>
+          <div class="forecast">
+            <template v-for="(day, index) in weatherData.forecast.forecastday.slice(0, props.widget.forecast.days)">
               <div
-                v-if="
-                  props.widget.forecast.day.on ||
-                  props.widget.forecast.temperature.high ||
-                  props.widget.forecast.temperature.low
-                "
-                class="forecastData"
+                v-if="!props.widget.forecast.hideToday || (props.widget.forecast.hideToday && index !== 0)"
+                :key="index"
+                class="forecastDay"
+                :class="{
+                  forecastIconEnabled: props.widget.forecast.icon.on,
+                  forecastHorz: props.widget.forecast.horizontal,
+                }"
               >
+                <i
+                  v-if="props.widget.forecast.icon.on"
+                  class="forecastIcon"
+                  :class="`w-code-${day.day.condition.code}`"
+                  :style="`font-size: ${props.widget.forecast.icon.size * 0.5}em; color: ${hsl(
+                    props.widget.overrideColors
+                      ? props.widget.forecast.icon.color
+                      : props.widget.base.font.override
+                      ? props.widget.base.font.color
+                      : store.config.global.font.color
+                  )}`"
+                ></i>
                 <div
-                  v-if="props.widget.forecast.day.on"
-                  class="forecastDate"
-                  :style="`color: ${hsl(props.widget.forecast.day.color)}`"
-                >
-                  {{ DateTime.fromFormat(day.date, 'yyyy-MM-dd').toFormat('ccc') }}
-                </div>
-                <div
-                  v-if="props.widget.forecast.temperature.high || props.widget.forecast.temperature.low"
-                  class="forecastTemp"
+                  v-if="
+                    props.widget.forecast.day.on ||
+                    props.widget.forecast.temperature.high ||
+                    props.widget.forecast.temperature.low
+                  "
+                  class="forecastData"
                 >
                   <div
-                    v-if="props.widget.forecast.temperature.high"
-                    class="forecastTempHigh"
-                    :style="`color: ${hsl(props.widget.forecast.temperature.highColor)}`"
+                    v-if="props.widget.forecast.day.on"
+                    class="forecastDate"
+                    :style="`color: ${hsl(
+                      props.widget.overrideColors
+                        ? props.widget.forecast.day.color
+                        : props.widget.base.font.override
+                        ? props.widget.base.font.color
+                        : store.config.global.font.color
+                    )}`"
                   >
-                    {{ props.widget.scale ? round(day.day.maxtemp_f) : round(day.day.maxtemp_c)
-                    }}{{ props.widget.forecast.temperature.degree ? '°' : '' }}
+                    {{ DateTime.fromFormat(day.date, 'yyyy-MM-dd').toFormat('ccc') }}
                   </div>
                   <div
-                    v-if="props.widget.forecast.temperature.low"
-                    class="forecastTempLow"
-                    :style="`color: ${hsl(props.widget.forecast.temperature.lowColor)}`"
+                    v-if="props.widget.forecast.temperature.high || props.widget.forecast.temperature.low"
+                    class="forecastTemp"
                   >
-                    {{ props.widget.scale ? round(day.day.mintemp_f) : round(day.day.mintemp_c)
-                    }}{{ props.widget.forecast.temperature.degree ? '°' : '' }}
+                    <div
+                      v-if="props.widget.forecast.temperature.high"
+                      class="forecastTempHigh"
+                      :style="`color: ${hsl(
+                        props.widget.overrideColors
+                          ? props.widget.forecast.temperature.highColor
+                          : props.widget.base.font.override
+                          ? props.widget.base.font.color
+                          : store.config.global.font.color
+                      )}`"
+                    >
+                      {{ props.widget.scale ? round(day.day.maxtemp_f) : round(day.day.maxtemp_c)
+                      }}{{ props.widget.forecast.temperature.degree ? '°' : '' }}
+                    </div>
+                    <div
+                      v-if="props.widget.forecast.temperature.low"
+                      class="forecastTempLow"
+                      :style="`color: ${hsl(
+                        props.widget.overrideColors
+                          ? props.widget.forecast.temperature.lowColor
+                          : props.widget.base.font.override
+                          ? props.widget.base.font.color
+                          : store.config.global.font.color
+                      )}`"
+                    >
+                      {{ props.widget.scale ? round(day.day.mintemp_f) : round(day.day.mintemp_c)
+                      }}{{ props.widget.forecast.temperature.degree ? '°' : '' }}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </template>
+            </template>
+          </div>
         </div>
       </div>
     </div>
@@ -267,6 +333,16 @@ const getWindUnit = (wind) => {
   .group {
     gap: 0.6em;
   }
+}
+
+.locationName {
+  font-size: 1.2em;
+}
+
+.forecastWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
 }
 
 .forecast {
@@ -355,7 +431,6 @@ const getWindUnit = (wind) => {
   align-items: center;
   gap: 0.6em;
   line-height: 1.8em;
-  margin-bottom: 0.3em;
   .currentTempDeg {
     font-size: 2em;
   }

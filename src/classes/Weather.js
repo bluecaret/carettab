@@ -17,6 +17,7 @@ export class Weather {
   precise = false
   twentyFour = false
   horizontal = true
+  overrideColors = false
   label = {
     on: true,
     color: [0, 0, 100, 1],

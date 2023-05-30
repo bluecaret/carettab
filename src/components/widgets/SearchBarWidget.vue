@@ -89,9 +89,9 @@ const setBarStyles = computed(() => {
     border-radius: ${props.widget.radius}px;
     font-size: ${props.widget.base.font.size}px;
     text-shadow: ${
-      props.widget.shadow[0]
-        ? `${props.widget.shadow[1]}px ${props.widget.shadow[2]}px ${props.widget.shadow[3]}px
-        hsl(${props.widget.shadow[4]}deg ${props.widget.shadow[5]}% ${props.widget.shadow[6]}% / ${props.widget.shadow[7]})`
+      props.widget.base.font.shadow[0]
+        ? `${props.widget.base.font.shadow[1]}px ${props.widget.base.font.shadow[2]}px ${props.widget.base.font.shadow[3]}px
+        hsl(${props.widget.base.font.shadow[4]}deg ${props.widget.base.font.shadow[5]}% ${props.widget.base.font.shadow[6]}% / ${props.widget.base.font.shadow[7]})`
         : 'none'
     };
     box-shadow: ${
@@ -100,9 +100,9 @@ const setBarStyles = computed(() => {
         hsl(${props.widget.boxShadow[4]}deg ${props.widget.boxShadow[5]}% ${props.widget.boxShadow[6]}% / ${props.widget.boxShadow[7]})`
         : 'none'
     };
-    color: hsl(${props.widget.color[0]}deg ${props.widget.color[1]}% ${props.widget.color[2]}% / ${
-    props.widget.color[3]
-  });
+    color: hsl(${props.widget.base.font.color[0]}deg ${props.widget.base.font.color[1]}% ${
+    props.widget.base.font.color[2]
+  }% / ${props.widget.base.font.color[3]});
     --elementPadding: ${props.widget.padding}px;
   `
 })
@@ -110,9 +110,9 @@ const setBarStyles = computed(() => {
 const elementStyles = computed(() => {
   return `
     filter: drop-shadow(${
-      props.widget.shadow[0]
-        ? `${props.widget.shadow[1]}px ${props.widget.shadow[2]}px ${props.widget.shadow[3]}px
-        hsl(${props.widget.shadow[4]}deg ${props.widget.shadow[5]}% ${props.widget.shadow[6]}% / ${props.widget.shadow[7]})`
+      props.widget.base.font.shadow[0]
+        ? `${props.widget.base.font.shadow[1]}px ${props.widget.base.font.shadow[2]}px ${props.widget.base.font.shadow[3]}px
+        hsl(${props.widget.base.font.shadow[4]}deg ${props.widget.base.font.shadow[5]}% ${props.widget.base.font.shadow[6]}% / ${props.widget.base.font.shadow[7]})`
         : 'none'
     })
   `

@@ -7,6 +7,12 @@ const store = useSettingsStore()
 
 const ci = ref(store.config.searchBars.findIndex((c) => c.id === store.editing))
 const widget = reactive(store.config.searchBars[ci.value])
+
+const resetColors = () => {
+  widget.background = [...store.config.global.element.secondaryColor]
+  widget.borderColor = [...store.config.global.element.primaryColor]
+  widget.boxShadow = [...store.config.global.element.shadow]
+}
 </script>
 
 <template>
@@ -103,45 +109,45 @@ const widget = reactive(store.config.searchBars[ci.value])
       <div class="block">
         <label for="colors" class="label mra">Bar</label>
         <div class="group fill">
-          <div class="group stack w10">
+          <div class="group stack fill">
             <label for="size" class="desc">Width</label>
             <NumberField id="size" v-model="widget.size" name="size" :min="0" :step="1"></NumberField>
           </div>
-          <div class="group stack w10">
+          <div class="group stack fill">
             <label for="padding" class="desc">Padding</label>
             <NumberField id="padding" v-model="widget.padding" name="padding" :min="0" :step="1"></NumberField>
           </div>
-          <div class="group stack w10">
+          <div class="group stack fill">
             <label for="bradius" class="desc">Rounded</label>
             <NumberField id="bradius" v-model="widget.radius" name="bradius" :min="0" :step="1"></NumberField>
           </div>
-          <div class="group stack w10">
+          <div class="group stack fill">
             <label for="bsize" class="desc">Border size</label>
             <NumberField id="bsize" v-model="widget.borderSize" name="bsize" :min="0" :step="1"></NumberField>
           </div>
-          <div class="group stack">
-            <label for="bbottom" class="desc">Bottom border</label>
-            <ToggleField id="bbottom" v-model="widget.borderBottom" name="bbottom"></ToggleField>
-          </div>
         </div>
         <div class="group fill">
-          <div class="group stack fill">
-            <label for="color" class="desc">Color</label>
-            <ColorField id="color" v-model="widget.color" name="color"></ColorField>
+          <div class="group stack fit">
+            <label for="bbottom" class="desc fit">Bottom border</label>
+            <ToggleField id="bbottom" v-model="widget.borderBottom" name="bbottom"></ToggleField>
           </div>
-          <div class="group stack fill">
+          <div class="group stack fit">
+            <label for="colorOverride" class="desc fit">Override colors</label>
+            <ToggleField
+              v-model="widget.overrideColors"
+              tag-id="colorOverride"
+              @update:model-value="resetColors"
+            ></ToggleField>
+          </div>
+          <div v-if="widget.overrideColors" class="group stack fill">
             <label for="bg" class="desc">Background</label>
             <ColorField id="bg" v-model="widget.background" name="bg"></ColorField>
           </div>
-          <div class="group stack fill">
+          <div v-if="widget.overrideColors" class="group stack fill">
             <label for="bc" class="desc">Border</label>
             <ColorField id="bc" v-model="widget.borderColor" name="bc"></ColorField>
           </div>
-          <div class="group stack fill">
-            <label for="ts" class="desc">Text shadow</label>
-            <ColorField id="ts" v-model="widget.shadow" shadow name="ts" text></ColorField>
-          </div>
-          <div class="group stack fill">
+          <div v-if="widget.overrideColors" class="group stack fill">
             <label for="bs" class="desc">Bar shadow</label>
             <ColorField id="bs" v-model="widget.boxShadow" shadow name="bs"></ColorField>
           </div>

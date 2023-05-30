@@ -14,10 +14,9 @@ export class SearchBar {
   borderSize = 1
   borderBottom = true
   radius = 0
-  color = [0, 0, 100, 1]
+  overrideColors = false
   background = [0, 0, 100, 0]
   borderColor = [0, 0, 100, 1]
-  shadow = [false, 1, 1, 5, 0, 0, 0, 0.8]
   boxShadow = [false, 1, 1, 5, 0, 0, 0, 0.8]
   label = 'Search the web...'
   base = { ...defaultWidgetStyles }

@@ -19,7 +19,7 @@ const openLocSearch = async () => {
 const searchLoc = async () => {
   store.isLoading = true
   const loc = await getLocation(locQueary.value, access.items.w, store.config.global.lang)
-  searchResults.value = [...location]
+  searchResults.value = [...loc]
   store.isLoading = false
 }
 
@@ -33,7 +33,7 @@ const getMyLoc = () => {
         access.items.w,
         store.config.global.lang
       )
-      searchResults.value = [...location]
+      searchResults.value = [...loc]
     },
     (err) => {
       store.isLoading = false

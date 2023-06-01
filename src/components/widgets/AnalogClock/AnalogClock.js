@@ -1,4 +1,4 @@
-import { defaultWidgetStyles } from './DefaultWidgetStyles.js'
+import { baseWidgetStyles } from '@/classes/BaseWidgetStyles.js'
 
 export class AnalogClock {
   id = ''
@@ -57,5 +57,5 @@ export class AnalogClock {
     x: 0,
     y: 0,
   }
-  base = { ...defaultWidgetStyles }
+  base = { ...baseWidgetStyles }
 }

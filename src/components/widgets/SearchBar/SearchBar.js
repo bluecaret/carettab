@@ -1,4 +1,4 @@
-import { defaultWidgetStyles } from './DefaultWidgetStyles.js'
+import { baseWidgetStyles } from '@/classes/BaseWidgetStyles.js'
 
 export class SearchBar {
   id = ''
@@ -19,5 +19,5 @@ export class SearchBar {
   borderColor = [0, 0, 100, 1]
   boxShadow = [false, 1, 1, 5, 0, 0, 0, 0.8]
   label = 'Search the web...'
-  base = { ...defaultWidgetStyles }
+  base = { ...baseWidgetStyles }
 }

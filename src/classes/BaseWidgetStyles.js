@@ -1,4 +1,4 @@
-export const defaultWidgetStyles = {
+export const baseWidgetStyles = {
   width: 600,
   height: 400,
   autoSize: true,

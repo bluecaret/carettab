@@ -1,4 +1,4 @@
-import { defaultWidgetStyles } from './DefaultWidgetStyles.js'
+import { baseWidgetStyles } from '@/classes/BaseWidgetStyles.js'
 
 export class Weather {
   id = ''
@@ -74,5 +74,5 @@ export class Weather {
       lowColor: [0, 0, 100, 1],
     },
   }
-  base = { ...defaultWidgetStyles }
+  base = { ...baseWidgetStyles }
 }

@@ -3,12 +3,12 @@ import { computed } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import WallpaperLayer from '@/components/elements/WallpaperLayer.vue'
 import ToggleSettings from '@/components/settings/ToggleSettings.vue'
-import DigitalClockWidget from '@/components/widgets/DigitalClockWidget.vue'
-import AnalogClockWidget from '@/components/widgets/AnalogClockWidget.vue'
-import BinaryClockWidget from '@/components/widgets/BinaryClockWidget.vue'
-import DateWidget from '@/components/widgets/DateWidget.vue'
-import SearchBarWidget from '@/components/widgets/SearchBarWidget.vue'
-import WeatherWidget from '@/components/widgets/WeatherWidget.vue'
+import DigitalClockWidget from '@/components/widgets/DigitalClock/Widget.vue'
+import AnalogClockWidget from '@/components/widgets/AnalogClock/Widget.vue'
+import BinaryClockWidget from '@/components/widgets/BinaryClock/Widget.vue'
+import DateWidget from '@/components/widgets/Date/Widget.vue'
+import SearchBarWidget from '@/components/widgets/SearchBar/Widget.vue'
+import WeatherWidget from '@/components/widgets/Weather/Widget.vue'
 
 const store = useSettingsStore()
 

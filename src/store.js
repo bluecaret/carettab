@@ -1,15 +1,15 @@
 /* eslint-disable no-undef */
 import { ref, reactive } from 'vue'
 import { defineStore } from 'pinia'
-import { DigitalClock } from '@/classes/DigitalClock.js'
-import { AnalogClock } from '@/classes/AnalogClock.js'
-import { BinaryClock } from '@/classes/BinaryClock.js'
-import { DateWidget } from '@/classes/Date.js'
-import { SearchBar } from '@/classes/SearchBar.js'
-import { Weather } from '@/classes/Weather.js'
-import { Notepad } from '@/classes/Notepad.js'
 import { Layer } from '@/classes/Layer.js'
 import { widgetTypes } from '@/assets/lists.js'
+import { DigitalClock } from '@/components/widgets/DigitalClock/DigitalClock.js'
+import { AnalogClock } from '@/components/widgets/AnalogClock/AnalogClock.js'
+import { BinaryClock } from '@/components/widgets/BinaryClock/BinaryClock.js'
+import { DateWidget } from '@/components/widgets/Date/Date.js'
+import { SearchBar } from '@/components/widgets/SearchBar/SearchBar.js'
+import { Weather } from '@/components/widgets/Weather/Weather.js'
+import { Notepad } from '@/components/widgets/Notepad/Notepad.js'
 
 const availableWidgets = new Map([
   ['digitalClock', DigitalClock],

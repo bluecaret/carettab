@@ -1,4 +1,4 @@
-import { defaultWidgetStyles } from './DefaultWidgetStyles.js'
+import { baseWidgetStyles } from '@/classes/BaseWidgetStyles.js'
 
 export class BinaryClock {
   id = ''
@@ -41,5 +41,5 @@ export class BinaryClock {
     x: 0,
     y: 0,
   }
-  base = { ...defaultWidgetStyles }
+  base = { ...baseWidgetStyles }
 }

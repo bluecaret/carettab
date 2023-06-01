@@ -7,7 +7,7 @@ import { BinaryClock } from '@/classes/BinaryClock.js'
 import { DateWidget } from '@/classes/Date.js'
 import { SearchBar } from '@/classes/SearchBar.js'
 import { Weather } from '@/classes/Weather.js'
-// import { Notepad } from '@/classes/Notepad.js'
+import { Notepad } from '@/classes/Notepad.js'
 import { Layer } from '@/classes/Layer.js'
 import { widgetTypes } from '@/assets/lists.js'
 
@@ -20,7 +20,7 @@ const availableWidgets = new Map([
   // ['quickLinks', QuickLinks],
   ['weather', Weather],
   // ['quote', Quote],
-  // ['notepad', Notepad],
+  ['notepad', Notepad],
   ['searchBar', SearchBar],
 ])
 

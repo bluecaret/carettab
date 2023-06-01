@@ -25,5 +25,8 @@
       "fileMatch": ["manifest.json"],
       "url": "https://json.schemastore.org/chrome-manifest.json"
     }
-  ]
+  ],
+  "explorer.fileNesting.patterns": {
+    "*Widget.vue": "$(capture).js, $(capture)Settings.vue, $(capture)Widget.vue, $(capture)Settings.scss, $(capture)Widget.scss"
+  }
 }

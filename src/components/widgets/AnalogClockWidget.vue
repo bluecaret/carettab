@@ -215,7 +215,7 @@ const getAnalogHour = () => {
 </template>
 
 <style lang="scss" scoped>
-@import './Widget';
+@import './AnalogClockWidget';
 
 .analog {
   font-size: v-bind(fontSize);

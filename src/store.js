@@ -7,8 +7,22 @@ import { BinaryClock } from '@/classes/BinaryClock.js'
 import { DateWidget } from '@/classes/Date.js'
 import { SearchBar } from '@/classes/SearchBar.js'
 import { Weather } from '@/classes/Weather.js'
+// import { Notepad } from '@/classes/Notepad.js'
 import { Layer } from '@/classes/Layer.js'
 import { widgetTypes } from '@/assets/lists.js'
+
+const availableWidgets = new Map([
+  ['digitalClock', DigitalClock],
+  ['analogClock', AnalogClock],
+  ['binaryClock', BinaryClock],
+  ['date', DateWidget],
+  // ['bookmarks', Bookmarks],
+  // ['quickLinks', QuickLinks],
+  ['weather', Weather],
+  // ['quote', Quote],
+  // ['notepad', Notepad],
+  ['searchBar', SearchBar],
+])
 
 export const generateUID = () => {
   var firstPart = (Math.random() * 46656) | 0
@@ -154,12 +168,6 @@ export const useSettingsStore = defineStore('settings', () => {
       },
     },
     layers: [],
-    analogClocks: [],
-    binaryClocks: [],
-    digitalClocks: [],
-    dates: [],
-    searchBars: [],
-    weathers: [],
   })
 
   const load = async () => {
@@ -168,62 +176,20 @@ export const useSettingsStore = defineStore('settings', () => {
     if (store) {
       let keys = Object.keys(store)
 
-      let allAnalogClocks = []
-      let filterAnalogClocks = keys.filter((k) => k.startsWith('ac-'))
-      if (filterAnalogClocks.length > 0) {
-        filterAnalogClocks.forEach((k) => {
-          allAnalogClocks.push(store[k])
-        })
-      }
-
-      let allBinaryClocks = []
-      let filterBinaryClocks = keys.filter((k) => k.startsWith('bc-'))
-      if (filterBinaryClocks.length > 0) {
-        filterBinaryClocks.forEach((k) => {
-          allBinaryClocks.push(store[k])
-        })
-      }
-
-      let allDigitalClocks = []
-      let filterDigitalClocks = keys.filter((k) => k.startsWith('dc-'))
-      if (filterDigitalClocks.length > 0) {
-        filterDigitalClocks.forEach((k) => {
-          allDigitalClocks.push(store[k])
-        })
-      }
-
-      let allDates = []
-      let filterDates = keys.filter((k) => k.startsWith('dt-'))
-      if (filterDates.length > 0) {
-        filterDates.forEach((k) => {
-          allDates.push(store[k])
-        })
-      }
-
-      let allSearchBars = []
-      let filterSearchBars = keys.filter((k) => k.startsWith('sb-'))
-      if (filterSearchBars.length > 0) {
-        filterSearchBars.forEach((k) => {
-          allSearchBars.push(store[k])
-        })
-      }
-
-      let allWeathers = []
-      let filterWeathers = keys.filter((k) => k.startsWith('wr-'))
-      if (filterWeathers.length > 0) {
-        filterWeathers.forEach((k) => {
-          allWeathers.push(store[k])
-        })
-      }
-
       if (store.global) config.global = store.global
       if (store.layers) config.layers = store.layers
-      if (allAnalogClocks) config.analogClocks = allAnalogClocks
-      if (allBinaryClocks) config.binaryClocks = allBinaryClocks
-      if (allDigitalClocks) config.digitalClocks = allDigitalClocks
-      if (allDates) config.dates = allDates
-      if (allSearchBars) config.searchBars = allSearchBars
-      if (allWeathers) config.weathers = allWeathers
+
+      widgetTypes.forEach((widget) => {
+        let allOfType = []
+        let filterToType = keys.filter((k) => k.startsWith(widget.id + '-'))
+        if (filterToType.length > 0) {
+          filterToType.forEach((k) => {
+            allOfType.push(store[k])
+          })
+        }
+
+        config[widget.store] = allOfType
+      })
     }
 
     const colors = await getStorage('palette', 'local')
@@ -238,36 +204,13 @@ export const useSettingsStore = defineStore('settings', () => {
     newStore['global'] = JSON.parse(JSON.stringify(config.global))
     newStore['layers'] = JSON.parse(JSON.stringify(config.layers))
 
-    if (config.analogClocks.length > 0) {
-      config.analogClocks.forEach((c) => {
-        newStore[c.id] = JSON.parse(JSON.stringify(c))
-      })
-    }
-    if (config.binaryClocks.length > 0) {
-      config.binaryClocks.forEach((c) => {
-        newStore[c.id] = JSON.parse(JSON.stringify(c))
-      })
-    }
-    if (config.digitalClocks.length > 0) {
-      config.digitalClocks.forEach((c) => {
-        newStore[c.id] = JSON.parse(JSON.stringify(c))
-      })
-    }
-    if (config.dates.length > 0) {
-      config.dates.forEach((c) => {
-        newStore[c.id] = JSON.parse(JSON.stringify(c))
-      })
-    }
-    if (config.searchBars.length > 0) {
-      config.searchBars.forEach((c) => {
-        newStore[c.id] = JSON.parse(JSON.stringify(c))
-      })
-    }
-    if (config.weathers.length > 0) {
-      config.weathers.forEach((c) => {
-        newStore[c.id] = JSON.parse(JSON.stringify(c))
-      })
-    }
+    widgetTypes.forEach((widget) => {
+      if (config[widget.store].length > 0) {
+        config[widget.store].forEach((c) => {
+          newStore[c.id] = JSON.parse(JSON.stringify(c))
+        })
+      }
+    })
 
     setStorage(newStore, 'sync')
   }
@@ -285,29 +228,8 @@ export const useSettingsStore = defineStore('settings', () => {
       let newId, newWidget
       newId = widget.id + '-' + generateUID()
 
-      switch (widget.type) {
-        case 'digitalClock':
-          newWidget = new DigitalClock()
-          break
-        case 'analogClock':
-          newWidget = new AnalogClock()
-          break
-        case 'binaryClock':
-          newWidget = new BinaryClock()
-          break
-        case 'date':
-          newWidget = new DateWidget()
-          break
-        case 'searchBar':
-          newWidget = new SearchBar()
-          break
-        case 'weather':
-          newWidget = new Weather()
-          break
-
-        default:
-          break
-      }
+      let widgetClass = availableWidgets.get(widget.type)
+      newWidget = new widgetClass()
 
       newWidget.id = newId
       newWidget.base.font.color = [...config.global.font.color]

@@ -9,6 +9,7 @@ import BinaryClockWidget from '@/components/widgets/BinaryClockWidget.vue'
 import DateWidget from '@/components/widgets/DateWidget.vue'
 import SearchBarWidget from '@/components/widgets/SearchBarWidget.vue'
 import WeatherWidget from '@/components/widgets/WeatherWidget.vue'
+import NotepadWidget from '@/components/widgets/NotepadWidget.vue'
 
 const store = useSettingsStore()
 
@@ -86,7 +87,14 @@ const getBgColor = computed(() => {
           :style="`z-index: ${store.config.layers.length - index}`"
         >
         </WeatherWidget>
-        <div v-if="!layer.on && layer.widget === 'weather'"></div>
+        <NotepadWidget
+          v-if="layer.on && layer.widget === 'notepad'"
+          :class="{ outliner: store.showOutliner }"
+          :widget="store.config.notepads.find((c) => c.id === layer.id)"
+          :style="`z-index: ${store.config.layers.length - index}`"
+        >
+        </NotepadWidget>
+        <div v-if="!layer.on && layer.widget === 'notepad'"></div>
       </template>
     </div>
     <ToggleSettings></ToggleSettings>

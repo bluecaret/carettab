@@ -126,9 +126,9 @@ const handleNewWidgetClick = (type) => {
       class="blockContainer"
       :list="store.config.layers"
       item-key="id"
-      ghost-class="widgetDragGhost"
-      chosen-class="widgetDragChosen"
-      drag-class="widgetDragMove"
+      ghost-class="dragGhost"
+      chosen-class="dragChosen"
+      drag-class="dragMove"
       @start="drag = true"
       @end="drag = false"
     >
@@ -214,16 +214,6 @@ const handleNewWidgetClick = (type) => {
     &::after {
       outline: none;
     }
-  }
-}
-
-.widgetDragGhost {
-  background: transparent;
-  outline: var(--s4) solid var(--cGrey2);
-  outline-offset: calc(var(--s4) * -1);
-
-  * {
-    opacity: 0;
   }
 }
 

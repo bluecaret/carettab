@@ -13,6 +13,7 @@ import DateSettings from '@/components/widgets/DateSettings.vue'
 import SearchBarSettings from '@/components/widgets/SearchBarSettings.vue'
 import WeatherSettings from '@/components/widgets/WeatherSettings.vue'
 import NotepadSettings from '@/components/widgets/NotepadSettings.vue'
+import QuoteSettings from '@/components/widgets/QuoteSettings.vue'
 
 const user = inject('user')
 const store = useSettingsStore()
@@ -122,6 +123,7 @@ const handleSave = () => {
     <SearchBarSettings v-if="['searchBar'].includes(settingsPage)"></SearchBarSettings>
     <WeatherSettings v-if="['weather'].includes(settingsPage)"></WeatherSettings>
     <NotepadSettings v-if="['notepad'].includes(settingsPage)"></NotepadSettings>
+    <QuoteSettings v-if="['quote'].includes(settingsPage)"></QuoteSettings>
     <footer class="footer">
       <DropdownMenu ref="newWidgetMenu" style="width: auto">
         <template #button>

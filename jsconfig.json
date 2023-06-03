@@ -1,8 +1,16 @@
 {
   "buildOptions": {
-    "allowJs": true
+    "allowJs": true,
+    "target": "ESNext",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "compilerOptions": {
-    "allowJs": true
+    "allowJs": true,
+    "target": "ESNext",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
 }

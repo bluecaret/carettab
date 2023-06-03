@@ -7,7 +7,7 @@ export const widgetTypes = [
   // { id: 'bm', type: 'bookmarks', name: 'Bookmarks', icon: 'fa-bookmark' },
   { id: 'wr', type: 'weather', store: 'weathers', name: 'Weather', icon: 'fa-cloud-sun' },
   { id: 'np', type: 'notepad', store: 'notepads', name: 'Notepad', icon: 'fa-note-sticky' },
-  // { id: 'qt', type: 'quote', name: 'Quotes', icon: 'fa-quote-left' },
+  { id: 'qt', type: 'quote', store: 'quotes', name: 'Quotes', icon: 'fa-quote-left' },
   { id: 'sb', type: 'searchBar', store: 'searchBars', name: 'Search Bar', icon: 'fa-magnifying-glass' },
 ]
 

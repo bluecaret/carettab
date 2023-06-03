@@ -10,6 +10,7 @@ import DateWidget from '@/components/widgets/DateWidget.vue'
 import SearchBarWidget from '@/components/widgets/SearchBarWidget.vue'
 import WeatherWidget from '@/components/widgets/WeatherWidget.vue'
 import NotepadWidget from '@/components/widgets/NotepadWidget.vue'
+import QuoteWidget from '@/components/widgets/QuoteWidget.vue'
 
 const store = useSettingsStore()
 
@@ -95,6 +96,14 @@ const getBgColor = computed(() => {
         >
         </NotepadWidget>
         <div v-if="!layer.on && layer.widget === 'notepad'"></div>
+        <QuoteWidget
+          v-if="layer.on && layer.widget === 'quote'"
+          :class="{ outliner: store.showOutliner }"
+          :widget="store.config.quotes.find((c) => c.id === layer.id)"
+          :style="`z-index: ${store.config.layers.length - index}`"
+        >
+        </QuoteWidget>
+        <div v-if="!layer.on && layer.widget === 'quote'"></div>
       </template>
     </div>
     <ToggleSettings></ToggleSettings>

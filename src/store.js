@@ -10,6 +10,7 @@ import { DateWidget } from '@/components/widgets/Date.js'
 import { SearchBar } from '@/components/widgets/SearchBar.js'
 import { Weather } from '@/components/widgets/Weather.js'
 import { Notepad } from '@/components/widgets/Notepad.js'
+import { Quote } from '@/components/widgets/Quote.js'
 
 const availableWidgets = new Map([
   ['digitalClock', DigitalClock],
@@ -19,7 +20,7 @@ const availableWidgets = new Map([
   // ['bookmarks', Bookmarks],
   // ['quickLinks', QuickLinks],
   ['weather', Weather],
-  // ['quote', Quote],
+  ['quote', Quote],
   ['notepad', Notepad],
   ['searchBar', SearchBar],
 ])
@@ -271,6 +272,10 @@ export const useSettingsStore = defineStore('settings', () => {
       await removeStorage(id, 'sync')
       if (type === 'weather') {
         await removeStorage(`weather-${id}`, 'local')
+      }
+      if (type === 'notepad') {
+        await removeStorage(`notepad-${id}`, 'local')
+        await removeStorage(`notepad-${id}`, 'sync')
       }
       save()
     }

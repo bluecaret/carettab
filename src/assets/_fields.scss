@@ -161,3 +161,13 @@
     opacity: 1;
   }
 }
+
+.dragGhost {
+  background: transparent;
+  outline: var(--s4) solid var(--cGrey1);
+  outline-offset: calc(var(--s4) * -1);
+
+  * {
+    opacity: 0;
+  }
+}

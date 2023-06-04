@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useSettingsStore } from '@/store.js'
+import { hsl, shadow } from '@/helpers/widgets.js'
 import WallpaperLayer from '@/components/elements/WallpaperLayer.vue'
 import ToggleSettings from '@/components/settings/ToggleSettings.vue'
 import DigitalClockWidget from '@/components/widgets/DigitalClockWidget.vue'
@@ -11,6 +12,7 @@ import SearchBarWidget from '@/components/widgets/SearchBarWidget.vue'
 import WeatherWidget from '@/components/widgets/WeatherWidget.vue'
 import NotepadWidget from '@/components/widgets/NotepadWidget.vue'
 import QuoteWidget from '@/components/widgets/QuoteWidget.vue'
+import ToolBar from '@/components/tools/ToolBar.vue'
 
 const store = useSettingsStore()
 
@@ -34,12 +36,26 @@ const getBgColor = computed(() => {
   }
   return 'black'
 })
+
+const generateNewTabStyles = computed(() => {
+  return `
+    background-color: ${getBgColor.value};
+    --toolbarSize: ${store.config.toolbar.on ? store.config.toolbar.size + 'px' : '0px'};
+    --toolbarBorderSize: ${store.config.toolbar.borderSize + 'px'};
+    --toolbarBg: ${hsl(store.config.toolbar.background)};
+    --toolbarFg: ${hsl(store.config.toolbar.foreground)};
+    --toolbarBorderColor: ${hsl(store.config.toolbar.borderColor)};
+    --toolbarShadow: ${shadow(store.config.toolbar.shadow)};
+    --toolbarAlign: ${store.config.toolbar.align};
+  `
+})
 </script>
 
 <template>
-  <div class="newTab">
+  <div class="newTab" :style="generateNewTabStyles">
     <WallpaperLayer></WallpaperLayer>
-    <div class="tabGrid">
+    <ToolBar v-if="store.config.toolbar.on" />
+    <div class="tabGrid" :style="`left: var(--toolbarSize);`">
       <template v-for="(layer, index) in store.config.layers" :key="layer.id">
         <AnalogClockWidget
           v-if="layer.on && layer.widget === 'analogClock'"
@@ -181,7 +197,6 @@ $bookmarksBarHeight: 33px;
   transform: translate(0, 0) scale(1);
   background-size: cover;
   background-position: center;
-  background-color: v-bind(getBgColor);
   animation: fadeIn 0.2s ease-out;
 }
 

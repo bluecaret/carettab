@@ -168,6 +168,24 @@ export const useSettingsStore = defineStore('settings', () => {
         shadow: [true, 1, 1, 5, 0, 0, 0, 0.8],
       },
     },
+    toolbar: {
+      on: true,
+      background: [0, 0, 10, 0],
+      foreground: [220, 15, 85, 1],
+      shadow: [true, 1, 1, 5, 0, 0, 0, 0.8],
+      borderColor: [0, 0, 100, 1],
+      borderSize: 2,
+      size: 64,
+      align: 'flex-start',
+      tools: [
+        {
+          id: 'aiChat',
+          on: true,
+          apiKey: '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',
+          model: 'gpt-3.5-turbo',
+        },
+      ],
+    },
     layers: [],
   })
 
@@ -178,6 +196,7 @@ export const useSettingsStore = defineStore('settings', () => {
       let keys = Object.keys(store)
 
       if (store.global) config.global = store.global
+      if (store.toolbar) config.toolbar = store.toolbar
       if (store.layers) config.layers = store.layers
 
       widgetTypes.forEach((widget) => {
@@ -203,6 +222,7 @@ export const useSettingsStore = defineStore('settings', () => {
     let newStore = {}
 
     newStore['global'] = JSON.parse(JSON.stringify(config.global))
+    newStore['toolbar'] = JSON.parse(JSON.stringify(config.toolbar))
     newStore['layers'] = JSON.parse(JSON.stringify(config.layers))
 
     widgetTypes.forEach((widget) => {

@@ -3,6 +3,7 @@ import { ref, onMounted, onUnmounted, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { storeToRefs } from 'pinia'
 import DashboardSettings from '@/components/settings/DashboardSettings.vue'
+import ToolBarSettings from '@/components/tools/ToolBarSettings.vue'
 import PatternsList from '@/components/settings/PatternsList.vue'
 import UnsplashList from '@/components/settings/UnsplashList.vue'
 import PremiumModal from '@/components/elements/PremiumModal.vue'
@@ -114,6 +115,7 @@ const handleSave = () => {
       </div>
     </header>
     <DashboardSettings v-if="['dashboard'].includes(settingsPage)"></DashboardSettings>
+    <ToolBarSettings v-if="['toolbar'].includes(settingsPage)" />
     <PatternsList v-if="['patterns'].includes(settingsPage)"></PatternsList>
     <UnsplashList v-if="['unsplash'].includes(settingsPage)"></UnsplashList>
     <AnalogClockSettings v-if="['analogClock'].includes(settingsPage)"></AnalogClockSettings>

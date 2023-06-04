@@ -81,6 +81,23 @@ a.link {
   border: 0;
 }
 
+.btnLink {
+  min-height: auto;
+  font-size: inherit;
+  font-weight: inherit;
+  color: var(--cText);
+  text-decoration: underline;
+  padding: 0;
+  border: 0;
+  &:hover {
+    box-shadow: none;
+  }
+  &:focus-visible {
+    outline: 1px solid var(--cText);
+    outline-offset: 2px;
+  }
+}
+
 .btnGroup {
   display: flex;
   gap: 0.1rem;
@@ -213,6 +230,13 @@ a.link {
 
   &.panelMove {
     inset: 0 auto 0 0;
+  }
+
+  &.toolbarToolPanel {
+    left: var(--toolbarSize);
+    right: unset;
+    padding: var(--s6);
+    scroll-behavior: smooth;
   }
 
   a:not(.btn) {

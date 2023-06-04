@@ -83,6 +83,10 @@ import {
   faInfoCircle,
   faArrowRightToBracket,
   faLocationCrosshairs,
+  faRobot,
+  faFaceSmile,
+  faPaperPlane,
+  faGear,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faItalic,
@@ -143,7 +147,11 @@ library.add(
   faStarHalfStroke,
   faInfoCircle,
   faArrowRightToBracket,
-  faLocationCrosshairs
+  faLocationCrosshairs,
+  faRobot,
+  faFaceSmile,
+  faPaperPlane,
+  faGear
 )
 
 const getAccess = async () => {

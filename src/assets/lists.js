@@ -11,6 +11,8 @@ export const widgetTypes = [
   { id: 'sb', type: 'searchBar', store: 'searchBars', name: 'Search Bar', icon: 'fa-magnifying-glass' },
 ]
 
+export const toolTypes = [{ tool: 'aiChat', name: 'AI Chat', icon: 'fa-robot' }]
+
 export const languages = [
   { id: 'enUS', label: 'English', name: 'English (United States)' },
   { id: 'zhCN', label: '简体中文（中国大陆）', name: 'Simplified Chinese (China Mainland)' },

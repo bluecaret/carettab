@@ -120,8 +120,22 @@ const handleNewWidgetClick = (type) => {
       </template>
     </ModalWindow>
     <h3 class="subtitle">
-      <span class="mra">Widgets</span>
+      <span class="mra">Widgets and Tools</span>
     </h3>
+    <div class="blockContainer">
+      <div class="block">
+        <div class="group fill">
+          <div class="group compact mra">
+            <label for="enableToolbar" class="label">Enable Toolbar</label>
+            <button class="btn btnLink" aria-label="Learn about the Toolbar"><fa icon="fa-circle-info" /></button>
+          </div>
+          <ToggleField v-model="store.config.toolbar.on" tag-id="enableToolbar"></ToggleField>
+          <button type="button" class="btn" @click="store.goTo('toolbar')">
+            <fa icon="fa-pen" fixed-width></fa>Edit
+          </button>
+        </div>
+      </div>
+    </div>
     <draggable
       class="blockContainer"
       :list="store.config.layers"
@@ -196,21 +210,6 @@ const handleNewWidgetClick = (type) => {
         </div>
       </template>
     </draggable>
-
-    <div class="blockContainer">
-      <div class="block">
-        <div class="group fill">
-          <div class="group compact mra">
-            <label for="enableToolbar" class="label">Enable Toolbar</label>
-            <button class="btn btnLink" aria-label="Learn about the Toolbar"><fa icon="fa-circle-info" /></button>
-          </div>
-          <ToggleField v-model="store.config.toolbar.on" tag-id="enableToolbar"></ToggleField>
-          <button type="button" class="btn" @click="store.goTo('toolbar')">
-            <fa icon="fa-pen" fixed-width></fa>Edit
-          </button>
-        </div>
-      </div>
-    </div>
 
     <GlobalSettings :open-default="openDefault"></GlobalSettings>
   </div>

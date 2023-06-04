@@ -181,7 +181,7 @@ export const useSettingsStore = defineStore('settings', () => {
         {
           id: 'aiChat',
           on: true,
-          apiKey: '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',
+          apiKey: '',
           model: 'gpt-3.5-turbo',
         },
       ],

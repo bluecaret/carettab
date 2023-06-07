@@ -60,6 +60,9 @@ const setRootBookmarksBarStyles = computed(() => {
   <style>
     :root {
       --bookmarkBarBackground: ${hsl(bookmarksBar.bar.background)};
+      --bookmarkBarMargin: ${bookmarksBar.bar.margin}px;
+      --bookmarkBarBorderWidth: ${bookmarksBar.bar.borderSize}px;
+      --bookmarkBarPadding: ${bookmarksBar.bar.padding}px;
       --bookmarkLinkColor: ${hsl(
         bookmarksBar.base.font.override ? bookmarksBar.base.font.color : store.config.global.font.color
       )};
@@ -179,7 +182,12 @@ const handleResize = () => {
         <BookmarksBarNode v-else :node="bookmark" :icon-permission="faviconPermission" />
       </li>
       <li ref="moreButtonEl" class="bookmark more">
-        <BookmarksBarNode :node="{ id: 'more', children: moreBookmarks }" :icon-permission="faviconPermission" more />
+        <BookmarksBarNode
+          v-if="moreBookmarks.length > 0"
+          :node="{ id: 'more', children: moreBookmarks }"
+          :icon-permission="faviconPermission"
+          more
+        />
       </li>
     </ul>
   </div>

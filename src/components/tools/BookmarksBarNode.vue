@@ -98,7 +98,11 @@ const getIcon = (link) => {
   margin: 0;
   padding: 1rem;
   overflow-y: auto;
-  max-height: 90dvh;
+  max-height: calc(
+    100dvh - var(--bookmarkLinkSize) - var(--bookmarkLinkPadding) - var(--bookmarkLinkPadding) -
+      var(--bookmarkBarPadding) - var(--bookmarkBarPadding) - var(--bookmarkBarMargin) - var(--bookmarkBarBorderWidth) -
+      var(--bookmarkBarBorderWidth) - 30px
+  );
   li {
     width: 100%;
   }

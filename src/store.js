@@ -11,18 +11,18 @@ import { SearchBar } from '@/components/widgets/SearchBar.js'
 import { Weather } from '@/components/widgets/Weather.js'
 import { Notepad } from '@/components/widgets/Notepad.js'
 import { Quote } from '@/components/widgets/Quote.js'
+import { BookmarksBar } from '@/components/tools/BookmarksBar.js'
 
 const availableWidgets = new Map([
   ['digitalClock', DigitalClock],
   ['analogClock', AnalogClock],
   ['binaryClock', BinaryClock],
   ['date', DateWidget],
-  // ['bookmarks', Bookmarks],
-  // ['quickLinks', QuickLinks],
   ['weather', Weather],
   ['quote', Quote],
   ['notepad', Notepad],
   ['searchBar', SearchBar],
+  // ['quickLinks', QuickLinks],
 ])
 
 export const generateUID = () => {
@@ -187,6 +187,7 @@ export const useSettingsStore = defineStore('settings', () => {
       ],
     },
     layers: [],
+    bookmarksBar: { ...new BookmarksBar() },
   })
 
   const load = async () => {
@@ -198,6 +199,7 @@ export const useSettingsStore = defineStore('settings', () => {
       if (store.global) config.global = store.global
       if (store.toolbar) config.toolbar = store.toolbar
       if (store.layers) config.layers = store.layers
+      if (store.bookmarksBar) config.bookmarksBar = store.bookmarksBar
 
       widgetTypes.forEach((widget) => {
         let allOfType = []
@@ -224,6 +226,7 @@ export const useSettingsStore = defineStore('settings', () => {
     newStore['global'] = JSON.parse(JSON.stringify(config.global))
     newStore['toolbar'] = JSON.parse(JSON.stringify(config.toolbar))
     newStore['layers'] = JSON.parse(JSON.stringify(config.layers))
+    newStore['bookmarksBar'] = JSON.parse(JSON.stringify(config.bookmarksBar))
 
     widgetTypes.forEach((widget) => {
       if (config[widget.store].length > 0) {

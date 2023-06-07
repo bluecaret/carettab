@@ -44,7 +44,7 @@ const handleShadowUpdate = (arr) => {
 }
 
 const handleFamilyUpdate = (obj) => {
-  emit('update:family', obj.id)
+  emit('update:family', obj.label)
 }
 
 const handleSizeUpdate = (num) => {

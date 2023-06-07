@@ -140,6 +140,14 @@ const getAnalogHour = () => {
     :style="containerStyles"
   >
     <FontLink v-if="props.widget.base.font.override" :widget="props.widget"></FontLink>
+    <FontLink
+      v-if="['romanDashQuarter', 'romanDashHour'].includes(props.widget.face.style)"
+      :widget="{ id: props.widget.id, base: { font: { bold: 400, family: 'EB Garamond' } } }"
+    ></FontLink>
+    <FontLink
+      v-if="['arabicDashQuarter', 'arabicDashHour'].includes(props.widget.face.style)"
+      :widget="{ id: props.widget.id, base: { font: { bold: 400, family: 'Quicksand' } } }"
+    ></FontLink>
     <div class="widgetInner">
       <div class="analog">
         <div class="analogFace" :class="`faceStyle_${props.widget.face.style}`" :style="faceStyle">

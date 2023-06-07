@@ -15,6 +15,7 @@ import SearchBarSettings from '@/components/widgets/SearchBarSettings.vue'
 import WeatherSettings from '@/components/widgets/WeatherSettings.vue'
 import NotepadSettings from '@/components/widgets/NotepadSettings.vue'
 import QuoteSettings from '@/components/widgets/QuoteSettings.vue'
+import BookmarksBarSettings from '@/components/tools/BookmarksBarSettings.vue'
 
 const user = inject('user')
 const store = useSettingsStore()
@@ -116,6 +117,7 @@ const handleSave = () => {
     </header>
     <DashboardSettings v-if="['dashboard'].includes(settingsPage)"></DashboardSettings>
     <ToolBarSettings v-if="['toolbar'].includes(settingsPage)" />
+    <BookmarksBarSettings v-if="['bookmarksBar'].includes(settingsPage)"></BookmarksBarSettings>
     <PatternsList v-if="['patterns'].includes(settingsPage)"></PatternsList>
     <UnsplashList v-if="['unsplash'].includes(settingsPage)"></UnsplashList>
     <AnalogClockSettings v-if="['analogClock'].includes(settingsPage)"></AnalogClockSettings>

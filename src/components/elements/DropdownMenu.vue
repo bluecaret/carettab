@@ -2,6 +2,13 @@
 import { ref, watch, nextTick } from 'vue'
 import { useDetectOutsideClick } from '@/helpers/outsideClick'
 
+const props = defineProps({
+  noTeleport: {
+    type: Boolean,
+    default: false,
+  },
+})
+
 const ddBtn = ref()
 const ddMenu = ref()
 const showDropdown = ref(false)
@@ -11,20 +18,41 @@ const toggleDropdown = () => {
 }
 
 const updatePosition = () => {
-  if (ddBtn.value && ddMenu.value) {
-    const btn = ddBtn.value.getBoundingClientRect()
-    const menu = ddMenu.value.getBoundingClientRect()
-    const margin = 20
-    const pad = 5
+  const btn = ddBtn.value
+  const menu = ddMenu.value
+  const btnRect = btn.getBoundingClientRect()
+  const menuRect = menu.getBoundingClientRect()
+  const spaceAbove = btnRect.top
+  const spaceBelow = window.innerHeight - btnRect.bottom
+  const spaceLeft = btnRect.left
+  const spaceRight = window.innerWidth - btnRect.right
+  const pad = 3
 
-    ddMenu.value.style.left = `${btn.left}px`
-    if (btn.left + menu.width > window.innerWidth - margin) {
-      ddMenu.value.style.left = `${btn.left + btn.width - menu.width}px`
-    }
-    ddMenu.value.style.top = `${btn.top + btn.height + pad}px`
-    if (btn.top + menu.height > window.innerHeight - margin) {
-      ddMenu.value.style.top = `${btn.top - menu.height - pad}px`
-    }
+  const hasRoomAbove = spaceAbove > menuRect.height
+  const hasRoomBelow = spaceBelow > menuRect.height
+  const hasRoomLeft = spaceLeft > menuRect.width
+  const hasRoomRight = spaceRight > menuRect.width
+
+  if (hasRoomBelow) {
+    menu.style.top = btnRect.bottom + pad + 'px'
+  } else if (hasRoomAbove) {
+    menu.style.top = btnRect.top - menuRect.height - pad + 'px'
+  } else {
+    menu.style.top = window.innerHeight - menuRect.height - pad * 2 + 'px'
+  }
+
+  if (hasRoomRight) {
+    menu.style.left = btnRect.right - btnRect.width + 'px'
+  } else if (hasRoomLeft) {
+    menu.style.left = btnRect.right - menuRect.width + 'px'
+  } else {
+    menu.style.left = btnRect.right - btnRect.width + 'px'
+  }
+
+  if (!hasRoomAbove && !hasRoomBelow && hasRoomRight) {
+    menu.style.left = btnRect.right + pad + 'px'
+  } else if (!hasRoomAbove && !hasRoomBelow && hasRoomLeft) {
+    menu.style.left = btnRect.left - menuRect.width - pad + 'px'
   }
 }
 
@@ -57,10 +85,17 @@ defineExpose({ close })
 
 <template>
   <div class="dropdownWrapper">
-    <div ref="ddBtn" tabindex="-1" class="dropdownButtonWrapper" @click="toggleDropdown" @keyup.esc="close">
+    <div
+      ref="ddBtn"
+      tabindex="-1"
+      class="dropdownButtonWrapper"
+      :class="{ dropdownActive: showDropdown }"
+      @click="toggleDropdown"
+      @keyup.esc="close"
+    >
       <slot name="button"> </slot>
     </div>
-    <Teleport to="#dropdowns">
+    <Teleport to="#dropdowns" :disabled="noTeleport">
       <div v-show="showDropdown" ref="ddMenu" class="dropdownMenuWrapper" tabindex="-1" @keyup.esc="close">
         <div class="dropdown">
           <slot name="menu"> </slot>
@@ -82,7 +117,7 @@ defineExpose({ close })
 }
 
 .dropdownMenuWrapper {
-  position: absolute;
+  position: fixed;
   z-index: 95;
 }
 

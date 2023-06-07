@@ -12,6 +12,7 @@ import SearchBarWidget from '@/components/widgets/SearchBarWidget.vue'
 import WeatherWidget from '@/components/widgets/WeatherWidget.vue'
 import NotepadWidget from '@/components/widgets/NotepadWidget.vue'
 import QuoteWidget from '@/components/widgets/QuoteWidget.vue'
+import BookmarksBarTool from '@/components/tools/BookmarksBarTool.vue'
 import ToolBar from '@/components/tools/ToolBar.vue'
 
 const store = useSettingsStore()
@@ -37,6 +38,28 @@ const getBgColor = computed(() => {
   return 'black'
 })
 
+const generateTabGridStyles = computed(() => {
+  let styles = 'left: var(--toolbarSize);'
+
+  if (store.config.bookmarksBar.on) {
+    const bookmarksBarSize =
+      '' +
+      (store.config.bookmarksBar.bar.margin * 2 +
+        store.config.bookmarksBar.bar.padding * 2 +
+        store.config.bookmarksBar.bar.borderSize * 2 +
+        store.config.bookmarksBar.link.padding * 2 +
+        store.config.bookmarksBar.link.borderSize * 2 +
+        store.config.bookmarksBar.base.font.size)
+    if (store.config.bookmarksBar.bar.position === 'top') {
+      styles += `top: ${bookmarksBarSize}px;`
+    } else if (store.config.bookmarksBar.bar.position === 'bottom') {
+      styles += `bottom: ${bookmarksBarSize}px;`
+    }
+  }
+
+  return styles
+})
+
 const generateNewTabStyles = computed(() => {
   return `
     background-color: ${getBgColor.value};
@@ -54,8 +77,9 @@ const generateNewTabStyles = computed(() => {
 <template>
   <div class="newTab" :style="generateNewTabStyles">
     <WallpaperLayer></WallpaperLayer>
+    <BookmarksBarTool v-if="store.config.bookmarksBar.on" />
     <ToolBar v-if="store.config.toolbar.on" />
-    <div class="tabGrid" :style="`left: var(--toolbarSize);`">
+    <div class="tabGrid" :style="generateTabGridStyles">
       <template v-for="(layer, index) in store.config.layers" :key="layer.id">
         <AnalogClockWidget
           v-if="layer.on && layer.widget === 'analogClock'"

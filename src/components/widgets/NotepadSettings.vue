@@ -17,7 +17,6 @@ const changeStorageLocation = async () => {
     ) {
       const notesKey = `notes-${widget.id}`
       const currentNotes = await getStorage(notesKey, 'sync')
-      console.log('dont sync', notesKey, currentNotes[notesKey])
       await setStorage({ ['notes-' + widget.id]: currentNotes[notesKey] }, 'local')
       await removeStorage(notesKey, 'sync')
       widget.sync = false
@@ -32,7 +31,6 @@ const changeStorageLocation = async () => {
     ) {
       const notesKey = `notes-${widget.id}`
       const currentNotes = await getStorage(notesKey, 'local')
-      console.log('sync', notesKey, currentNotes[notesKey].slice(0, 7000))
       await setStorage({ ['notes-' + widget.id]: currentNotes[notesKey].slice(0, 7000) }, 'sync')
       await removeStorage(notesKey, 'local')
       widget.sync = true

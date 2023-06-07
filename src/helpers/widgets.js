@@ -1,18 +1,46 @@
-import { fontList } from '@/assets/lists.js'
+export const checkPermission = async (permission) => {
+  return new Promise((resolve, reject) => {
+    if (chrome && chrome.permissions) {
+      chrome.permissions.contains({ permissions: [permission] }, function (result) {
+        if (chrome.runtime.lastError) {
+          console.error('Error checking "' + permission + '" permission', chrome.runtime.lastError)
+          reject()
+        } else {
+          resolve(result)
+        }
+      })
+    } else {
+      resolve()
+      console.warn('chrome.permissions unavailable')
+    }
+  })
+}
+
+export const setPermission = async (permission) => {
+  return new Promise((resolve, reject) => {
+    if (chrome && chrome.permissions) {
+      chrome.permissions.request({ permissions: [permission] }, function (granted) {
+        if (chrome.runtime.lastError) {
+          console.error('Error setting "' + permission + '" permission', chrome.runtime.lastError)
+          reject()
+        } else {
+          resolve(granted)
+        }
+      })
+    } else {
+      resolve()
+      console.warn('chrome.permissions unavailable')
+    }
+  })
+}
 
 export const setWidgetContainerStyles = (widget, global) => {
   const box = widget.base.container.override ? widget.base.container : global.container
   const font = widget.base.font.override ? widget.base.font : global.font
 
-  let fontFamilyLabel = 'Source Sans Pro'
-  let ff = fontList.find((f) => f.id === font.family)
-  if (font.family && ff) {
-    fontFamilyLabel = `'${ff.label}'`
-  }
-
   // Font styles
   const fontSize = `font-size: ${font.size}px; `
-  const fontFamily = `font-family: ${fontFamilyLabel}; `
+  const fontFamily = `font-family: "${font.family}"; `
   const fontWeight = `font-weight: ${font.bold}; `
   const color = `color: hsl(${font.color[0]}deg ${font.color[1]}% ${font.color[2]}% / ${font.color[3]}); `
   const textShadow = font.shadow[0]

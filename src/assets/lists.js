@@ -3,12 +3,11 @@ export const widgetTypes = [
   { id: 'ac', type: 'analogClock', store: 'analogClocks', name: 'Analog Clock', icon: 'fa-clock' },
   { id: 'bc', type: 'binaryClock', store: 'binaryClocks', name: 'Binary Clock', icon: 'fa-1' },
   { id: 'dt', type: 'date', store: 'dates', name: 'Date', icon: 'fa-calendar-day' },
-  // { id: 'ql', type: 'ql', name: 'Quick Links', icon: 'fa-link' },
-  // { id: 'bm', type: 'bookmarks', name: 'Bookmarks', icon: 'fa-bookmark' },
   { id: 'wr', type: 'weather', store: 'weathers', name: 'Weather', icon: 'fa-cloud-sun' },
   { id: 'np', type: 'notepad', store: 'notepads', name: 'Notepad', icon: 'fa-note-sticky' },
   { id: 'qt', type: 'quote', store: 'quotes', name: 'Quotes', icon: 'fa-quote-left' },
   { id: 'sb', type: 'searchBar', store: 'searchBars', name: 'Search Bar', icon: 'fa-magnifying-glass' },
+  // { id: 'ql', type: 'ql', name: 'Quick Links', icon: 'fa-link' },
 ]
 
 export const toolTypes = [{ tool: 'aiChat', name: 'AI Chat', icon: 'fa-robot' }]

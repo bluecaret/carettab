@@ -16,6 +16,8 @@ import WidgetBoxField from '@/components/forms/WidgetBoxField.vue'
 import PremiumLabel from '@/components/elements/PremiumLabel.vue'
 import FontLink from '@/components/elements/FontLink.vue'
 import PageHeading from '@/components/elements/PageHeading.vue'
+import RequestPermissionModal from '@/components/elements/RequestPermissionModal.vue'
+import BookmarksBarNode from '@/components/tools/BookmarksBarNode.vue'
 import { getStorage, setStorage } from '@/store.js'
 import { accessAws } from '@/helpers/data.js'
 
@@ -87,6 +89,7 @@ import {
   faFaceSmile,
   faPaperPlane,
   faGear,
+  faAnglesRight,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faItalic,
@@ -151,7 +154,8 @@ library.add(
   faRobot,
   faFaceSmile,
   faPaperPlane,
-  faGear
+  faGear,
+  faAnglesRight
 )
 
 const getAccess = async () => {
@@ -216,7 +220,7 @@ quickUserCheck().then(async (user) => {
   let access = await getAccess()
 
   if (access.license !== '' && access.license === access.userLicense) {
-    console.log('%c* You have free access to CaretTab Premium *', 'color:green;font-weight:bold;')
+    console.info('%c* You have free access to CaretTab Premium *', 'color:green;font-weight:bold;')
     user.paid = true
   }
 
@@ -238,6 +242,8 @@ quickUserCheck().then(async (user) => {
   app.component('PremiumLabel', PremiumLabel)
   app.component('FontLink', FontLink)
   app.component('PageHeading', PageHeading)
+  app.component('RequestPermissionModal', RequestPermissionModal)
+  app.component('BookmarksBarNode', BookmarksBarNode)
   app.use(createPinia())
 
   app.mount('#app')

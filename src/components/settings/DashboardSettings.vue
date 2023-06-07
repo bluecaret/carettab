@@ -126,11 +126,23 @@ const handleNewWidgetClick = (type) => {
       <div class="block">
         <div class="group fill">
           <div class="group compact mra">
-            <label for="enableToolbar" class="label">Enable Toolbar</label>
+            <label for="enableToolbar" class="label">Toolbar</label>
             <button class="btn btnLink" aria-label="Learn about the Toolbar"><fa icon="fa-circle-info" /></button>
           </div>
           <ToggleField v-model="store.config.toolbar.on" tag-id="enableToolbar"></ToggleField>
           <button type="button" class="btn" @click="store.goTo('toolbar')">
+            <fa icon="fa-pen" fixed-width></fa>Edit
+          </button>
+        </div>
+      </div>
+      <div class="block">
+        <div class="group fill">
+          <div class="group compact mra">
+            <label for="enableBookmarksBar" class="label">Bookmarks bar</label>
+            <button class="btn btnLink" aria-label="Learn about the Bookmarks bar"><fa icon="fa-circle-info" /></button>
+          </div>
+          <ToggleField v-model="store.config.bookmarksBar.on" tag-id="enableBookmarksBar"></ToggleField>
+          <button type="button" class="btn" @click="store.goTo('bookmarksBar')">
             <fa icon="fa-pen" fixed-width></fa>Edit
           </button>
         </div>

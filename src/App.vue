@@ -60,9 +60,9 @@ const getBgLightness = computed(() => {
 const getFontFamily = computed(() => {
   let ff = fontList.find((font) => font.id === store.config.global.font.family)
   if (store.config.global.font.family && ff) {
-    return `'${ff.label}'`
+    return `"${ff.label}"`
   }
-  return 'Source Sans Pro'
+  return '"Source Sans Pro"'
 })
 
 const buildFontLink = computed(() => {

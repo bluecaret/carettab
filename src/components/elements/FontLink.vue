@@ -1,5 +1,7 @@
 <script setup>
 import { computed } from 'vue'
+import { fontList } from '@/assets/lists.js'
+
 const props = defineProps({
   widget: {
     type: Object,
@@ -16,7 +18,7 @@ const setFontLink = computed(() => {
   } else if (props.widget.base.font.bold > 400) {
     wght = `400;${props.widget.base.font.bold}`
   }
-  return `${base}${props.widget.base.font.family}:wght@${wght}${post}`
+  return `${base}${props.widget.base.font.family.replace(/ /g, '+')}:wght@${wght}${post}`
 })
 </script>
 

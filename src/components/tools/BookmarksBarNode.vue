@@ -49,7 +49,7 @@ const getIcon = (link) => {
         <template v-if="!more">
           <svg
             v-if="bookmarksBar.link.icons && props.iconPermission"
-            class="bookmarksBarFavicon"
+            class="bookmarksBarFavicon bookmarksBarFaviconSvg"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
           >

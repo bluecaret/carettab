@@ -121,6 +121,7 @@ const handleNewWidgetClick = (type) => {
     </ModalWindow>
     <draggable
       class="blockContainer"
+      :class="{ dashboardPadding: store.clearWhatsNewBox }"
       :list="store.config.layers"
       item-key="id"
       ghost-class="dragGhost"
@@ -199,6 +200,10 @@ const handleNewWidgetClick = (type) => {
 </template>
 
 <style lang="scss" scoped>
+.dashboardPadding {
+  margin-block-start: var(--s5);
+}
+
 .outliner {
   position: relative;
 

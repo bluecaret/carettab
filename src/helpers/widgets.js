@@ -52,8 +52,16 @@ export const setWidgetContainerStyles = (widget, global) => {
   const letterSpacing = `letter-spacing: ${font.letterSpacing * 0.01}em; `
 
   // Container box styles
-  const width = `width: ${widget.base.autoSize ? 'max-content' : widget.base.width + 'px'};`
-  const height = `height: ${widget.base.autoSize ? 'max-content' : widget.base.height + 'px'};`
+  const width = `width: ${
+    widget.base.widthUnit === 'auto'
+      ? 'max-content'
+      : widget.base.width + (widget.base.widthUnit === 'pixels' ? 'px' : '%')
+  };`
+  const height = `height: ${
+    widget.base.heightUnit === 'auto'
+      ? 'max-content'
+      : widget.base.height + (widget.base.heightUnit === 'pixels' ? 'px' : '%')
+  };`
   const translate = `translate: ${widget.base.x}px ${-widget.base.y}px;`
   const radius = `border-radius: ${box.radius}px; `
   const borderColor = `hsl(${box.borderColor[0]}deg ${box.borderColor[1]}% ${box.borderColor[2]}% / ${box.borderColor[3]});`

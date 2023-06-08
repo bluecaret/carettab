@@ -7,7 +7,7 @@ export const widgetTypes = [
   { id: 'np', type: 'notepad', store: 'notepads', name: 'Notepad', icon: 'fa-note-sticky' },
   { id: 'qt', type: 'quote', store: 'quotes', name: 'Quotes', icon: 'fa-quote-left' },
   { id: 'sb', type: 'searchBar', store: 'searchBars', name: 'Search Bar', icon: 'fa-magnifying-glass' },
-  // { id: 'ql', type: 'ql', name: 'Quick Links', icon: 'fa-link' },
+  { id: 'ql', type: 'quickLinks', store: 'quickLinks', name: 'Quick Links', icon: 'fa-link' },
 ]
 
 export const toolTypes = [{ tool: 'aiChat', name: 'AI Chat', icon: 'fa-robot' }]
@@ -51,12 +51,10 @@ export const title = [
 export const fontList = [
   { id: '', label: '' },
   { id: 'Anton', label: 'Anton' },
-  { id: 'Buda', label: 'Buda' },
   { id: 'Cabin+Sketch', label: 'Cabin Sketch' },
   { id: 'Chelsea+Market', label: 'Chelsea Market' },
   { id: 'Comfortaa', label: 'Comfortaa' },
   { id: 'Dancing+Script', label: 'Dancing Script' },
-  { id: 'Digital-7+Mono', label: 'Digital-7 Mono' },
   { id: 'EB+Garamond', label: 'EB Garamond' },
   { id: 'Exo+2', label: 'Exo 2' },
   { id: 'Inconsolata', label: 'Inconsolata' },

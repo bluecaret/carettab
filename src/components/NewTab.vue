@@ -12,7 +12,7 @@ import SearchBarWidget from '@/components/widgets/SearchBarWidget.vue'
 import WeatherWidget from '@/components/widgets/WeatherWidget.vue'
 import NotepadWidget from '@/components/widgets/NotepadWidget.vue'
 import QuoteWidget from '@/components/widgets/QuoteWidget.vue'
-import BookmarksBarTool from '@/components/tools/BookmarksBarTool.vue'
+import QuickLinksWidget from '@/components/widgets/QuickLinksWidget.vue'
 import ToolBar from '@/components/tools/ToolBar.vue'
 
 const store = useSettingsStore()
@@ -40,23 +40,6 @@ const getBgColor = computed(() => {
 
 const generateTabGridStyles = computed(() => {
   let styles = 'left: var(--toolbarSize);'
-
-  if (store.config.bookmarksBar.on) {
-    const bookmarksBarSize =
-      '' +
-      (store.config.bookmarksBar.bar.margin * 2 +
-        store.config.bookmarksBar.bar.padding * 2 +
-        store.config.bookmarksBar.bar.borderSize * 2 +
-        store.config.bookmarksBar.link.padding * 2 +
-        store.config.bookmarksBar.link.borderSize * 2 +
-        store.config.bookmarksBar.base.font.size)
-    if (store.config.bookmarksBar.bar.position === 'top') {
-      styles += `top: ${bookmarksBarSize}px;`
-    } else if (store.config.bookmarksBar.bar.position === 'bottom') {
-      styles += `bottom: ${bookmarksBarSize}px;`
-    }
-  }
-
   return styles
 })
 
@@ -77,7 +60,6 @@ const generateNewTabStyles = computed(() => {
 <template>
   <div class="newTab" :style="generateNewTabStyles">
     <WallpaperLayer></WallpaperLayer>
-    <BookmarksBarTool v-if="store.config.bookmarksBar.on" />
     <ToolBar v-if="store.config.toolbar.on" />
     <div class="tabGrid" :style="generateTabGridStyles">
       <template v-for="(layer, index) in store.config.layers" :key="layer.id">
@@ -144,6 +126,14 @@ const generateNewTabStyles = computed(() => {
         >
         </QuoteWidget>
         <div v-if="!layer.on && layer.widget === 'quote'"></div>
+        <QuickLinksWidget
+          v-if="layer.on && layer.widget === 'quickLinks'"
+          :class="{ outliner: store.showOutliner }"
+          :widget="store.config.quickLinks.find((c) => c.id === layer.id)"
+          :style="`z-index: ${store.config.layers.length - index}`"
+        >
+        </QuickLinksWidget>
+        <div v-if="!layer.on && layer.widget === 'quickLinks'"></div>
       </template>
     </div>
     <ToggleSettings></ToggleSettings>
@@ -207,8 +197,6 @@ const generateNewTabStyles = computed(() => {
 </style>
 
 <style lang="scss" scoped>
-$bookmarksBarHeight: 33px;
-
 .newTab {
   position: fixed;
   z-index: 20;
@@ -241,10 +229,6 @@ $bookmarksBarHeight: 33px;
   color: v-bind(getTextColor);
   text-shadow: v-bind(getTextShadow);
   // pointer-events: none;
-
-  &.tabGridBookmarksBar {
-    top: $bookmarksBarHeight;
-  }
 }
 
 .gridPosition {

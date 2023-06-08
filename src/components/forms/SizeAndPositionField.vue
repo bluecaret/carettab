@@ -2,7 +2,9 @@
 const emit = defineEmits([
   'update:autoSize',
   'update:width',
+  'update:widthUnit',
   'update:height',
+  'update:heightUnit',
   'update:align',
   'update:calign',
   'update:x',
@@ -11,7 +13,9 @@ const emit = defineEmits([
 const props = defineProps({
   autoSize: Boolean,
   width: Number,
+  widthUnit: String,
   height: Number,
+  heightUnit: String,
   align: String,
   calign: String,
   x: Number,
@@ -22,12 +26,16 @@ const handleWidthUpdate = (num) => {
   emit('update:width', num)
 }
 
+const handleWidthUnitUpdate = (str) => {
+  emit('update:widthUnit', str.target.value)
+}
+
 const handleHeightUpdate = (num) => {
   emit('update:height', num)
 }
 
-const handleAutoSizeToggle = (toggle) => {
-  emit('update:autoSize', toggle)
+const handleHeightUnitUpdate = (str) => {
+  emit('update:heightUnit', str.target.value)
 }
 
 const handleAlignUpdate = (alignment) => {
@@ -59,22 +67,7 @@ const handleYUpdate = (num) => {
       </div>
       <div class="group stack compact">
         <div class="group fill compact">
-          <label class="desc" for="widgetWidth">
-            <fa icon="fa-left-right" fixed-width></fa>
-          </label>
-          <NumberField
-            class="w8"
-            tag-id="widgetOffsetX"
-            aria-label="X"
-            :increment="10"
-            :model-value="props.x"
-            @update:model-value="handleXUpdate"
-          ></NumberField>
-        </div>
-        <div class="group fill compact">
-          <label class="desc" for="widgetWidth">
-            <fa icon="fa-up-down" fixed-width></fa>
-          </label>
+          <label class="desc mla" for="widgetWidth"> Up/Down </label>
           <NumberField
             class="w8"
             tag-id="widgetOffsetY"
@@ -84,8 +77,19 @@ const handleYUpdate = (num) => {
             @update:model-value="handleYUpdate"
           ></NumberField>
         </div>
+        <div class="group fill compact">
+          <label class="desc mla" for="widgetWidth"> Left/Right </label>
+          <NumberField
+            class="w8"
+            tag-id="widgetOffsetX"
+            aria-label="X"
+            :increment="10"
+            :model-value="props.x"
+            @update:model-value="handleXUpdate"
+          ></NumberField>
+        </div>
       </div>
-      <div aria-labelledby="alignLabel" class="btnPlacementGroup w16">
+      <div aria-labelledby="alignLabel" class="btnPlacementGroup w10">
         <button
           type="button"
           :aria-label="$t('options.common.topLeft')"
@@ -186,34 +190,52 @@ const handleYUpdate = (num) => {
         <div class="desc">Sets the size of the widget container and alignment of content within the container</div>
       </div>
       <div class="group stack compact">
-        <div class="group mla compact">
-          <label for="autoSize" class="desc fit">Auto size</label>
-          <ToggleField tag-id="autoSize" :model-value="props.autoSize" @update:model-value="handleAutoSizeToggle">
-          </ToggleField>
-        </div>
-        <div v-if="!props.autoSize" class="group fill compact">
-          <label class="desc fill" for="widgetWidth">Width</label>
+        <div class="group fill compact">
+          <label class="desc mla" for="widgetWidth">Width</label>
           <NumberField
+            v-if="props.widthUnit !== 'auto'"
             tag-id="widgetWidth"
             class="w8"
-            :increment="10"
             :model-value="props.width"
             @update:model-value="handleWidthUpdate"
           ></NumberField>
+          <select
+            id="widgetWidthUnit"
+            aria-label="Use pixels or percentage of screen for width or set it to automatic to use the width of the content"
+            class="select w8"
+            name="widgetWidthUnit"
+            @change="handleWidthUnitUpdate($event)"
+          >
+            <option :selected="props.widthUnit === 'auto'" :value="'auto'">auto</option>
+            <option :selected="props.widthUnit === 'pixels'" :value="'pixels'">pixels</option>
+            <option :selected="props.widthUnit === 'percent'" :value="'percent'">%</option>
+          </select>
         </div>
-        <div v-if="!props.autoSize" class="group fill compact">
-          <label class="desc fill" for="widgetHeight">Height</label>
+        <div class="group fill compact">
+          <label class="desc mla" for="widgetHeight">Height</label>
           <NumberField
+            v-if="props.heightUnit !== 'auto'"
             tag-id="widgetHeight"
             class="w8"
             :increment="10"
             :model-value="props.height"
             @update:model-value="handleHeightUpdate"
           ></NumberField>
+          <select
+            id="widgetHeightUnit"
+            aria-label="Use pixels or percentage of screen for height or set it to automatic to use the height of the content"
+            class="select w8"
+            name="widgetHeightUnit"
+            @change="handleHeightUnitUpdate($event)"
+          >
+            <option :selected="props.heightUnit === 'auto'" :value="'auto'">auto</option>
+            <option :selected="props.heightUnit === 'pixels'" :value="'pixels'">pixels</option>
+            <option :selected="props.heightUnit === 'percent'" :value="'percent'">%</option>
+          </select>
         </div>
       </div>
       <div class="group">
-        <div aria-labelledby="containerAlignLabel" class="btnPlacementGroup w16">
+        <div aria-labelledby="containerAlignLabel" class="btnPlacementGroup w10">
           <button
             type="button"
             :aria-label="$t('options.common.topLeft')"

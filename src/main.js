@@ -17,7 +17,7 @@ import PremiumLabel from '@/components/elements/PremiumLabel.vue'
 import FontLink from '@/components/elements/FontLink.vue'
 import PageHeading from '@/components/elements/PageHeading.vue'
 import RequestPermissionModal from '@/components/elements/RequestPermissionModal.vue'
-import BookmarksBarNode from '@/components/tools/BookmarksBarNode.vue'
+import QuickLinksNode from '@/components/widgets/QuickLinksNode.vue'
 import { getStorage, setStorage } from '@/store.js'
 import { accessAws } from '@/helpers/data.js'
 
@@ -243,7 +243,7 @@ quickUserCheck().then(async (user) => {
   app.component('FontLink', FontLink)
   app.component('PageHeading', PageHeading)
   app.component('RequestPermissionModal', RequestPermissionModal)
-  app.component('BookmarksBarNode', BookmarksBarNode)
+  app.component('QuickLinksNode', QuickLinksNode)
   app.use(createPinia())
 
   app.mount('#app')

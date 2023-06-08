@@ -243,17 +243,6 @@ const handleLangSelect = (event) => {
     </div>
     <div class="block">
       <div class="group fill">
-        <div class="group compact mra">
-          <label for="enableBookmarksBar" class="label">Bookmarks bar</label>
-        </div>
-        <ToggleField v-model="store.config.bookmarksBar.on" tag-id="enableBookmarksBar"></ToggleField>
-        <button v-if="store.config.bookmarksBar.on" type="button" class="btn" @click="store.goTo('bookmarksBar')">
-          <fa icon="fa-pen" fixed-width></fa>Edit
-        </button>
-      </div>
-    </div>
-    <div class="block">
-      <div class="group fill">
         <div class="label mra">
           <label for="">Wallpaper</label>
         </div>

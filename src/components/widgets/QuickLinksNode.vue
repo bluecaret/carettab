@@ -1,11 +1,19 @@
 <script setup>
-import { reactive } from 'vue'
-import { useSettingsStore } from '@/store.js'
-
-const store = useSettingsStore()
 const props = defineProps({
   node: {
     type: Object,
+    required: true,
+  },
+  icons: {
+    type: Boolean,
+    required: true,
+  },
+  titles: {
+    type: Boolean,
+    required: true,
+  },
+  openInNewTab: {
+    type: Boolean,
     required: true,
   },
   iconPermission: {
@@ -25,7 +33,6 @@ const props = defineProps({
     default: false,
   },
 })
-const bookmarksBar = reactive(store.config.bookmarksBar)
 
 const getIcon = (link) => {
   const url = new URL(chrome.runtime.getURL('/_favicon/'))
@@ -42,14 +49,15 @@ const getIcon = (link) => {
         type="button"
         :class="{
           childrenMenuFolder: props.inMenu,
-          bookmarksBarFolder: !props.inMenu,
+          linkFolder: !props.inMenu,
+          noTitle: !props.node.title,
         }"
         :title="more ? 'More bookmarks' : props.node.title"
       >
         <template v-if="!more">
           <svg
-            v-if="bookmarksBar.link.icons && props.iconPermission"
-            class="bookmarksBarFavicon bookmarksBarFaviconSvg"
+            v-if="props.icons && props.iconPermission"
+            class="linkFavicon linkFaviconSvg"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
           >
@@ -58,9 +66,12 @@ const getIcon = (link) => {
               alt="Folder icon"
             />
           </svg>
-          <div class="bookmarksBarName">{{ props.node.title }}</div>
+          <div v-if="props.inMenu || (props.node.title && props.titles)" class="linkName">{{ props.node.title }}</div>
         </template>
-        <fa v-else icon="fa-angles-right" />
+        <template v-else>
+          <fa icon="fa-angles-right" class="linkFavicon" />
+          <div v-if="props.node.title && props.titles" class="linkName">{{ props.node.title }}</div>
+        </template>
       </button>
     </template>
     <template #menu>
@@ -71,17 +82,25 @@ const getIcon = (link) => {
             :href="child.url"
             class="childrenMenuAnchor"
             :title="`${child.title}&#10;${child.url}`"
-            :target="bookmarksBar.link.openInNewTab ? '_blank' : '_self'"
+            :target="props.openInNewTab ? '_blank' : '_self'"
           >
             <img
-              v-if="bookmarksBar.link.icons && props.iconPermission"
-              class="bookmarksBarFavicon"
+              v-if="props.icons && props.iconPermission"
+              class="linkFavicon"
               :src="getIcon(child.url)"
               :alt="`Favicon for ${child.url}`"
             />
-            <div class="bookmarksBarName">{{ child.title }}</div>
+            <div class="linkName">{{ child.title }}</div>
           </a>
-          <BookmarksBarNode v-else :node="child" :icon-permission="props.iconPermission" no-teleport in-menu />
+          <QuickLinksNode
+            v-else
+            :node="child"
+            :icons="props.icons"
+            :open-in-new-tab="props.openInNewTab"
+            :icon-permission="props.iconPermission"
+            no-teleport
+            in-menu
+          />
         </li>
       </ul>
     </template>
@@ -98,11 +117,7 @@ const getIcon = (link) => {
   margin: 0;
   padding: 1rem;
   overflow-y: auto;
-  max-height: calc(
-    100dvh - var(--bookmarkLinkSize) - var(--bookmarkLinkPadding) - var(--bookmarkLinkPadding) -
-      var(--bookmarkBarPadding) - var(--bookmarkBarPadding) - var(--bookmarkBarMargin) - var(--bookmarkBarBorderWidth) -
-      var(--bookmarkBarBorderWidth) - 30px
-  );
+  max-height: 80dvh;
   li {
     width: 100%;
   }
@@ -137,13 +152,13 @@ const getIcon = (link) => {
   .dropdownActive > & {
     background-color: hsl(0deg 0% 100% / 0.1);
   }
-  .bookmarksBarName {
+  .linkName {
     overflow: hidden;
     max-width: 350px;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .bookmarksBarFavicon {
+  .linkFavicon {
     display: block;
     width: 16px;
     height: 16px;

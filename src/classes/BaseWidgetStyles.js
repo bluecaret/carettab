@@ -1,6 +1,8 @@
 export const baseWidgetStyles = {
   width: 600,
   height: 400,
+  widthUnit: 'auto',
+  heightUnit: 'auto',
   autoSize: true,
   alignment: 'c',
   x: 0,

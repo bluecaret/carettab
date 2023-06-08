@@ -236,7 +236,7 @@ const handleLangSelect = (event) => {
           <button class="btn btnLink" aria-label="Learn about the Toolbar"><fa icon="fa-circle-info" /></button>
         </div>
         <ToggleField v-model="store.config.toolbar.on" tag-id="enableToolbar"></ToggleField>
-        <button v-if="store.config.toolbar.on" type="button" class="btn" @click="store.goTo('toolbar')">
+        <button type="button" class="btn" @click="store.goTo('toolbar')">
           <fa icon="fa-pen" fixed-width></fa>Edit
         </button>
       </div>

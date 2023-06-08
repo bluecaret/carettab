@@ -151,9 +151,11 @@ const handleNewWidgetClick = (type) => {
                 {{ getWidgetDetails(element.widget).name }}
               </div>
             </div>
-            <span style="font-size: 0.8em; opacity: 0.7">{{ element.id }}</span>
           </div>
-          <div class="group mla">
+          <div class="mla" style="font-size: 0.65em; opacity: 0.5">
+            <strong title="Widget ID Number" style="text-transform: uppercase">{{ element.id }}</strong>
+          </div>
+          <div class="group">
             <ToggleField :model-value="element.on" @update:model-value="toggleWidget(element.id)"></ToggleField>
             <div class="btnGroup">
               <button type="button" class="btn" @click="openWidget(element.id, element.widget)">

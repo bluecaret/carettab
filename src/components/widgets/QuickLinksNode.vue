@@ -10,7 +10,7 @@ const props = defineProps({
   },
   titles: {
     type: Boolean,
-    required: true,
+    default: true,
   },
   openInNewTab: {
     type: Boolean,

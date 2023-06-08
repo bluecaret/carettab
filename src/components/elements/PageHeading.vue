@@ -22,13 +22,18 @@ const props = defineProps({
     >
       <fa icon="fa-circle-left" fixed-width></fa>
     </button>
-    {{ props.title }} <span v-if="widgetId" class="widgetId">({{ widgetId }})</span>
+    {{ props.title }} <span v-if="widgetId" class="widgetId" title="Widget ID Number">{{ widgetId }}</span>
   </h2>
 </template>
 
 <style lang="scss">
+.title {
+  align-items: center;
+}
 .widgetId {
-  font-size: 0.7em;
-  opacity: 0.7;
+  margin-left: 0.5em;
+  font-size: 0.6em;
+  opacity: 0.5;
+  text-transform: uppercase;
 }
 </style>

@@ -103,6 +103,7 @@ const resetOverride = () => {
         <label for="fontFamily" class="desc"> Font </label>
         <AutocompleteField
           left
+          fonts
           tag-id="test"
           use-label
           allow-custom

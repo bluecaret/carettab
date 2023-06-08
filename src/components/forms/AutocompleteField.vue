@@ -25,6 +25,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  fonts: {
+    type: Boolean,
+    default: false,
+  },
 })
 const emit = defineEmits(['selected'])
 
@@ -165,14 +169,21 @@ onUnmounted(() => {
         class="autocompleteItem"
         :class="{ active: selectedIndex === index }"
       >
+        <FontLink
+          v-if="props.fonts && !(allowCustom && index === 0)"
+          :widget="{ id: item.id, base: { font: { bold: 400, family: item.label } } }"
+        ></FontLink>
         <button
           v-if="allowCustom && index === 0"
           type="button"
+          :style="props.fonts && `font-family: '${inputValue}';`"
           @click="selectItem({ id: inputValue, label: inputValue })"
         >
           <span style="opacity: 0.7">Custom:</span> {{ inputValue }}
         </button>
-        <button v-else type="button" @click="selectItem(item)">{{ item.label }}</button>
+        <button v-else type="button" :style="props.fonts && `font-family: '${item.label}';`" @click="selectItem(item)">
+          {{ item.label }}
+        </button>
       </li>
     </ul>
   </div>

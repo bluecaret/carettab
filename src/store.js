@@ -12,6 +12,7 @@ import { Weather } from '@/components/widgets/Weather.js'
 import { Notepad } from '@/components/widgets/Notepad.js'
 import { Quote } from '@/components/widgets/Quote.js'
 import { QuickLinks } from '@/components/widgets/QuickLinks.js'
+import { Loadshedding } from '@/components/widgets/Loadshedding.js'
 
 const availableWidgets = new Map([
   ['digitalClock', DigitalClock],
@@ -23,6 +24,7 @@ const availableWidgets = new Map([
   ['notepad', Notepad],
   ['searchBar', SearchBar],
   ['quickLinks', QuickLinks],
+  ['loadshedding', Loadshedding],
 ])
 
 export const generateUID = () => {

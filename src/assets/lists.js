@@ -8,6 +8,7 @@ export const widgetTypes = [
   { id: 'qt', type: 'quote', store: 'quotes', name: 'Quotes', icon: 'fa-quote-left' },
   { id: 'sb', type: 'searchBar', store: 'searchBars', name: 'Search Bar', icon: 'fa-magnifying-glass' },
   { id: 'ql', type: 'quickLinks', store: 'quickLinks', name: 'Quick Links', icon: 'fa-link' },
+  { id: 'ls', type: 'loadshedding', store: 'loadsheddings', name: 'Loadshedding', icon: 'fa-bolt' },
 ]
 
 export const toolTypes = [{ tool: 'aiChat', name: 'AI Chat', icon: 'fa-robot' }]

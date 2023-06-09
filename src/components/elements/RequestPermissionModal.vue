@@ -12,12 +12,16 @@ const props = defineProps({
   reason: {
     type: String,
   },
+  origins: {
+    type: Boolean,
+    default: false,
+  },
 })
 const emit = defineEmits(['requested'])
 const show = ref(false)
 
 const requestPermission = async () => {
-  let request = await setPermission(props.permission)
+  let request = await setPermission(props.permission, props.origins)
   emit('requested', request)
 }
 </script>

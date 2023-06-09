@@ -16,6 +16,7 @@ import WeatherSettings from '@/components/widgets/WeatherSettings.vue'
 import NotepadSettings from '@/components/widgets/NotepadSettings.vue'
 import QuoteSettings from '@/components/widgets/QuoteSettings.vue'
 import QuickLinksSettings from '@/components/widgets/QuickLinksSettings.vue'
+import LoadsheddingSettings from '@/components/widgets/LoadsheddingSettings.vue'
 
 const user = inject('user')
 const store = useSettingsStore()
@@ -128,6 +129,7 @@ const handleSave = () => {
     <NotepadSettings v-if="['notepad'].includes(settingsPage)"></NotepadSettings>
     <QuoteSettings v-if="['quote'].includes(settingsPage)"></QuoteSettings>
     <QuickLinksSettings v-if="['quickLinks'].includes(settingsPage)"></QuickLinksSettings>
+    <LoadsheddingSettings v-if="['loadshedding'].includes(settingsPage)"></LoadsheddingSettings>
     <footer class="footer">
       <DropdownMenu ref="newWidgetMenu" style="width: auto">
         <template #button>

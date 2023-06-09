@@ -436,15 +436,15 @@ const refreshWeather = async () => {
 </template>
 
 <style lang="scss" scoped>
-.locationSearchModal {
+.locSearchModal {
   position: relative;
 }
 
-.locationSearchModalHeading {
+.locSearchModalHeading {
   margin-top: 0;
 }
 
-.locationSearchModalClose {
+.locSearchModalClose {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -458,7 +458,7 @@ const refreshWeather = async () => {
   }
 }
 
-.locationSearchModalList {
+.locSearchModalList {
   display: flex;
   flex-direction: column;
   gap: var(--s3);
@@ -468,7 +468,7 @@ const refreshWeather = async () => {
   width: 100%;
 }
 
-.locationSearchModalResultBtn {
+.locSearchModalResultBtn {
   display: flex;
   width: 100%;
   padding: var(--s4) var(--s5);

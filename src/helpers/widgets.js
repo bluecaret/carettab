@@ -1,7 +1,7 @@
-export const checkPermission = async (permission) => {
+export const checkPermission = async (permission, origins = false) => {
   return new Promise((resolve, reject) => {
     if (chrome && chrome.permissions) {
-      chrome.permissions.contains({ permissions: [permission] }, function (result) {
+      chrome.permissions.contains({ [origins ? 'origins' : 'permissions']: [permission] }, function (result) {
         if (chrome.runtime.lastError) {
           console.error('Error checking "' + permission + '" permission', chrome.runtime.lastError)
           reject()
@@ -16,10 +16,10 @@ export const checkPermission = async (permission) => {
   })
 }
 
-export const setPermission = async (permission) => {
+export const setPermission = async (permission, origins = false) => {
   return new Promise((resolve, reject) => {
     if (chrome && chrome.permissions) {
-      chrome.permissions.request({ permissions: [permission] }, function (granted) {
+      chrome.permissions.request({ [origins ? 'origins' : 'permissions']: [permission] }, function (granted) {
         if (chrome.runtime.lastError) {
           console.error('Error setting "' + permission + '" permission', chrome.runtime.lastError)
           reject()

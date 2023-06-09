@@ -13,6 +13,7 @@ import WeatherWidget from '@/components/widgets/WeatherWidget.vue'
 import NotepadWidget from '@/components/widgets/NotepadWidget.vue'
 import QuoteWidget from '@/components/widgets/QuoteWidget.vue'
 import QuickLinksWidget from '@/components/widgets/QuickLinksWidget.vue'
+import LoadsheddingWidget from '@/components/widgets/LoadsheddingWidget.vue'
 import ToolBar from '@/components/tools/ToolBar.vue'
 
 const store = useSettingsStore()
@@ -134,6 +135,14 @@ const generateNewTabStyles = computed(() => {
         >
         </QuickLinksWidget>
         <div v-if="!layer.on && layer.widget === 'quickLinks'"></div>
+        <LoadsheddingWidget
+          v-if="layer.on && layer.widget === 'loadshedding'"
+          :class="{ outliner: store.showOutliner }"
+          :widget="store.config.loadsheddings.find((c) => c.id === layer.id)"
+          :style="`z-index: ${store.config.layers.length - index}`"
+        >
+        </LoadsheddingWidget>
+        <div v-if="!layer.on && layer.widget === 'loadshedding'"></div>
       </template>
     </div>
     <ToggleSettings></ToggleSettings>

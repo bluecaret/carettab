@@ -27,7 +27,7 @@
     }
   ],
   "explorer.fileNesting.patterns": {
-    "*Widget.vue": "$(capture).js, $(capture)*.vue",
-    "*Tool.vue": "$(capture).js, $(capture)*.vue"
+    "*Widget.vue": "$(capture).js, $(capture)*.vue, $(capture)*.scss, $(capture)*.css, $(capture)*.html",
+    "*Tool.vue": "$(capture).js, $(capture)*.vue, $(capture)*.scss, $(capture)*.css, $(capture)*.html"
   }
 }

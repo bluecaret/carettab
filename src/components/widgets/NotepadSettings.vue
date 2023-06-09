@@ -4,8 +4,9 @@ import { useSettingsStore, getStorage, setStorage, removeStorage } from '@/store
 
 const store = useSettingsStore()
 
-const ci = ref(store.config.notepads.findIndex((c) => c.id === store.editing))
-const widget = reactive(store.config.notepads[ci.value])
+const widgetStore = 'notepads'
+const ci = ref(store.config[widgetStore].findIndex((c) => c.id === store.editing))
+const widget = reactive(store.config[widgetStore][ci.value])
 const sync = ref(widget.sync)
 
 const changeStorageLocation = async () => {
@@ -46,16 +47,7 @@ const changeStorageLocation = async () => {
     <PageHeading title="Notepad" :widget-id="widget.id"></PageHeading>
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
-      <SizeAndPositionField
-        v-model:width="widget.base.width"
-        v-model:height="widget.base.height"
-        v-model:autoSize="widget.base.autoSize"
-        v-model:align="widget.base.alignment"
-        v-model:calign="widget.base.container.alignment"
-        v-model:x="widget.base.x"
-        v-model:y="widget.base.y"
-      >
-      </SizeAndPositionField>
+      <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
       <WidgetFontField
         v-model:override="widget.base.font.override"
         v-model:color="widget.base.font.color"

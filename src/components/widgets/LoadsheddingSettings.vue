@@ -5,8 +5,9 @@ import { checkPermission } from '@/helpers/widgets.js'
 
 const store = useSettingsStore()
 
-const ci = ref(store.config.loadsheddings.findIndex((c) => c.id === store.editing))
-const widget = reactive(store.config.loadsheddings[ci.value])
+const widgetStore = 'loadsheddings'
+const ci = ref(store.config[widgetStore].findIndex((c) => c.id === store.editing))
+const widget = reactive(store.config[widgetStore][ci.value])
 
 const apiPermission = ref(false)
 const allowance = ref({})
@@ -270,16 +271,7 @@ const selectLoc = (loc) => {
     </div>
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
-      <SizeAndPositionField
-        v-model:width="widget.base.width"
-        v-model:height="widget.base.height"
-        v-model:autoSize="widget.base.autoSize"
-        v-model:align="widget.base.alignment"
-        v-model:calign="widget.base.container.alignment"
-        v-model:x="widget.base.x"
-        v-model:y="widget.base.y"
-      >
-      </SizeAndPositionField>
+      <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
       <WidgetFontField
         v-model:override="widget.base.font.override"
         v-model:color="widget.base.font.color"

@@ -6,8 +6,9 @@ import DigitalClockSegmentFont from '@/components/forms/DigitalClockSegmentFont.
 
 const store = useSettingsStore()
 
-const ci = ref(store.config.binaryClocks.findIndex((c) => c.id === store.editing))
-const widget = reactive(store.config.binaryClocks[ci.value])
+const widgetStore = 'binaryClocks'
+const ci = ref(store.config[widgetStore].findIndex((c) => c.id === store.editing))
+const widget = reactive(store.config[widgetStore][ci.value])
 
 const allTimezones = []
 for (const zone of Intl.supportedValuesOf('timeZone')) {
@@ -19,9 +20,9 @@ for (const zone of Intl.supportedValuesOf('timeZone')) {
 
 const selectTimezone = (tz) => {
   if (tz) {
-    let newClocks = [...store.config.binaryClocks]
+    let newClocks = [...store.config[widgetStore]]
     newClocks[newClocks.findIndex((c) => c.id === widget.id)].timezone = tz.id
-    store.$patch({ config: { binaryClocks: newClocks } })
+    store.$patch({ config: { [widgetStore]: newClocks } })
   }
 }
 </script>
@@ -31,16 +32,7 @@ const selectTimezone = (tz) => {
     <PageHeading title="Binary clock" :widget-id="widget.id"></PageHeading>
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
-      <SizeAndPositionField
-        v-model:width="widget.base.width"
-        v-model:height="widget.base.height"
-        v-model:autoSize="widget.base.autoSize"
-        v-model:align="widget.base.alignment"
-        v-model:calign="widget.base.container.alignment"
-        v-model:x="widget.base.x"
-        v-model:y="widget.base.y"
-      >
-      </SizeAndPositionField>
+      <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
       <WidgetFontField
         v-model:override="widget.base.font.override"
         v-model:color="widget.base.font.color"

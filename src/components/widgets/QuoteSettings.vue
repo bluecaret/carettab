@@ -5,8 +5,9 @@ import { useSettingsStore, generateUID } from '@/store.js'
 
 const store = useSettingsStore()
 
-const ci = ref(store.config.quotes.findIndex((c) => c.id === store.editing))
-const widget = reactive(store.config.quotes[ci.value])
+const widgetStore = 'quotes'
+const ci = ref(store.config[widgetStore].findIndex((c) => c.id === store.editing))
+const widget = reactive(store.config[widgetStore][ci.value])
 
 const addQuote = () => {
   widget.quotes.push({
@@ -18,9 +19,9 @@ const addQuote = () => {
 
 const deleteQuote = (id) => {
   const index = widget.quotes.findIndex((q) => q.id === id)
-  store.config.quotes[ci.value].quotes.splice(index, 1)
+  store.config[widgetStore][ci.value].quotes.splice(index, 1)
   if (widget.currentQuote >= index) {
-    store.config.quotes[ci.value].currentQuote = 0
+    store.config[widgetStore][ci.value].currentQuote = 0
   }
 }
 </script>
@@ -30,16 +31,7 @@ const deleteQuote = (id) => {
     <PageHeading title="Quote" :widget-id="widget.id"></PageHeading>
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
-      <SizeAndPositionField
-        v-model:width="widget.base.width"
-        v-model:height="widget.base.height"
-        v-model:autoSize="widget.base.autoSize"
-        v-model:align="widget.base.alignment"
-        v-model:calign="widget.base.container.alignment"
-        v-model:x="widget.base.x"
-        v-model:y="widget.base.y"
-      >
-      </SizeAndPositionField>
+      <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
       <WidgetFontField
         v-model:override="widget.base.font.override"
         v-model:color="widget.base.font.color"

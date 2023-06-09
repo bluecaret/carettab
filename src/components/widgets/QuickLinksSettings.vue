@@ -6,8 +6,9 @@ import { checkPermission } from '@/helpers/widgets.js'
 
 const store = useSettingsStore()
 
-const ci = ref(store.config.quickLinks.findIndex((c) => c.id === store.editing))
-const widget = reactive(store.config.quickLinks[ci.value])
+const widgetStore = 'quickLinks'
+const ci = ref(store.config[widgetStore].findIndex((c) => c.id === store.editing))
+const widget = reactive(store.config[widgetStore][ci.value])
 
 const bookmarksPermission = ref(false)
 const topSitesPermission = ref(false)
@@ -151,18 +152,7 @@ const deleteLink = (id) => {
     </template>
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
-      <SizeAndPositionField
-        v-model:width="widget.base.width"
-        v-model:widthUnit="widget.base.widthUnit"
-        v-model:height="widget.base.height"
-        v-model:heightUnit="widget.base.heightUnit"
-        v-model:autoSize="widget.base.autoSize"
-        v-model:align="widget.base.alignment"
-        v-model:calign="widget.base.container.alignment"
-        v-model:x="widget.base.x"
-        v-model:y="widget.base.y"
-      >
-      </SizeAndPositionField>
+      <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
       <WidgetBoxField
         v-model:override="widget.base.container.override"
         v-model:rounded="widget.base.container.radius"

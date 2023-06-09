@@ -175,29 +175,8 @@ const handleLangSelect = (event) => {
 
 <template>
   <div v-if="props.openDefault" class="blockContainer">
-    <WidgetFontField
-      v-model:color="store.config.global.font.color"
-      v-model:shadow="store.config.global.font.shadow"
-      v-model:family="store.config.global.font.family"
-      v-model:size="store.config.global.font.size"
-      v-model:bold="store.config.global.font.bold"
-      v-model:italic="store.config.global.font.italic"
-      v-model:underline="store.config.global.font.underline"
-      v-model:transform="store.config.global.font.transform"
-      v-model:letterSpacing="store.config.global.font.letterSpacing"
-      no-override
-    >
-    </WidgetFontField>
-    <WidgetBoxField
-      v-model:rounded="store.config.global.container.radius"
-      v-model:borderSize="store.config.global.container.borderSize"
-      v-model:borderColor="store.config.global.container.borderColor"
-      v-model:background="store.config.global.container.background"
-      v-model:shadow="store.config.global.container.shadow"
-      v-model:padding="store.config.global.container.padding"
-      no-override
-    >
-    </WidgetBoxField>
+    <WidgetFontField index="global" widget-store="store" no-override />
+    <WidgetBoxField index="global" widget-store="store" no-override />
     <div class="block">
       <div class="group fill">
         <div>

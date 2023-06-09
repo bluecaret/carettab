@@ -16,29 +16,8 @@ const widget = reactive(store.config[widgetStore][ci.value])
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
       <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
-      <WidgetFontField
-        v-model:override="widget.base.font.override"
-        v-model:color="widget.base.font.color"
-        v-model:size="widget.base.font.size"
-        v-model:bold="widget.base.font.bold"
-        v-model:italic="widget.base.font.italic"
-        v-model:underline="widget.base.font.underline"
-        v-model:letterSpacing="widget.base.font.letterSpacing"
-        v-model:shadow="widget.base.font.shadow"
-        v-model:transform="widget.base.font.transform"
-        v-model:family="widget.base.font.family"
-      >
-      </WidgetFontField>
-      <WidgetBoxField
-        v-model:override="widget.base.container.override"
-        v-model:rounded="widget.base.container.radius"
-        v-model:borderSize="widget.base.container.borderSize"
-        v-model:borderColor="widget.base.container.borderColor"
-        v-model:background="widget.base.container.background"
-        v-model:shadow="widget.base.container.shadow"
-        v-model:padding="widget.base.container.padding"
-      >
-      </WidgetBoxField>
+      <WidgetFontField :index="ci" :widget-store="widgetStore" />
+      <WidgetBoxField :index="ci" :widget-store="widgetStore" />
     </div>
     <h3 class="subtitle">Search bar options</h3>
     <div class="blockContainer">

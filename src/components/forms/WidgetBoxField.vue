@@ -1,64 +1,21 @@
 <script setup>
+import { ref, reactive } from 'vue'
 import { useSettingsStore } from '@/store.js'
-const emit = defineEmits([
-  'update:override',
-  'update:rounded',
-  'update:borderSize',
-  'update:borderColor',
-  'update:background',
-  'update:shadow',
-  'update:padding',
-])
+
 const props = defineProps({
   noOverride: Boolean,
-  override: Boolean,
-  rounded: Number,
-  borderSize: Number,
-  borderColor: Array,
-  background: Array,
-  shadow: Array,
-  padding: Number,
+  index: Number,
+  widgetStore: String,
 })
 
 const store = useSettingsStore()
-
-const handleOverrideUpdate = (bool) => {
-  emit('update:override', bool)
-  resetOverride()
+const widgetPrep = ref(null)
+if (props.index === 'global') {
+  widgetPrep.value = store.config[props.widgetStore].container
+} else {
+  widgetPrep.value = store.config[props.widgetStore][props.index].base.container
 }
-
-const handleRoundedUpdate = (num) => {
-  emit('update:rounded', num < 1 ? 0 : num)
-}
-
-const handleBorderSizeUpdate = (num) => {
-  emit('update:borderSize', num < 1 ? 0 : num)
-}
-
-const handleBorderColorUpdate = (arr) => {
-  emit('update:borderColor', arr)
-}
-
-const handleBgUpdate = (arr) => {
-  emit('update:background', arr)
-}
-
-const handleShadowUpdate = (arr) => {
-  emit('update:shadow', arr)
-}
-
-const handlePaddingUpdate = (num) => {
-  emit('update:padding', num < 1 ? 0 : num)
-}
-
-const resetOverride = () => {
-  emit('update:rounded', store.config.global.container.radius)
-  emit('update:borderSize', store.config.global.container.borderSize)
-  emit('update:borderColor', [...store.config.global.container.borderColor])
-  emit('update:background', [...store.config.global.container.background])
-  emit('update:shadow', [...store.config.global.container.shadow])
-  emit('update:padding', store.config.global.container.padding)
-}
+const widget = reactive(widgetPrep.value)
 </script>
 
 <template>
@@ -67,73 +24,33 @@ const resetOverride = () => {
       <label class="label mra">Container box</label>
       <div v-if="!props.noOverride" class="group compact">
         <label for="overrideGlobalFont" class="desc">Override global styles</label>
-        <ToggleField
-          tag-id="overrideGlobalFont"
-          :model-value="props.override"
-          @update:model-value="handleOverrideUpdate"
-        >
-        </ToggleField>
+        <ToggleField v-model="widget.override" tag-id="overrideGlobalFont"> </ToggleField>
       </div>
     </div>
-    <div v-if="props.noOverride || props.override" class="group fill">
+    <div v-if="props.noOverride || widget.override" class="group fill">
       <div class="group stack">
         <label for="boxPadding" class="desc"> Padding </label>
-        <NumberField
-          tag-id="boxPadding"
-          :increment="1"
-          :min="0"
-          :model-value="props.padding"
-          @update:model-value="handlePaddingUpdate"
-        >
-        </NumberField>
+        <NumberField v-model="widget.padding" tag-id="boxPadding" :increment="1" :min="0"> </NumberField>
       </div>
       <div class="group stack">
         <label for="boxRounded" class="desc"> Rounded </label>
-        <NumberField
-          tag-id="boxRounded"
-          :increment="1"
-          :min="0"
-          :model-value="props.rounded"
-          @update:model-value="handleRoundedUpdate"
-        >
-        </NumberField>
+        <NumberField v-model="widget.radius" tag-id="boxRounded" :increment="1" :min="0"> </NumberField>
       </div>
       <div class="group stack">
         <label for="boxBs" class="desc"> Border size </label>
-        <NumberField
-          tag-id="boxBs"
-          :increment="1"
-          :min="0"
-          :model-value="props.borderSize"
-          @update:model-value="handleBorderSizeUpdate"
-        >
-        </NumberField>
+        <NumberField v-model="widget.borderSize" tag-id="boxBs" :increment="1" :min="0"> </NumberField>
       </div>
       <div class="group stack">
         <label for="boxBc" class="desc"> Border color </label>
-        <ColorField
-          tag-id="boxBc"
-          class="w8"
-          :model-value="props.borderColor"
-          @update:model-value="handleBorderColorUpdate"
-        >
-        </ColorField>
+        <ColorField v-model="widget.borderColor" tag-id="boxBc" class="w8"> </ColorField>
       </div>
       <div class="group stack">
         <label for="boxBg" class="desc"> Background </label>
-        <ColorField tag-id="boxBg" class="w8" :model-value="props.background" @update:model-value="handleBgUpdate">
-        </ColorField>
+        <ColorField v-model="widget.background" tag-id="boxBg" class="w8"> </ColorField>
       </div>
       <div class="group stack">
         <label for="boxShadow" class="desc"> Shadow </label>
-        <ColorField
-          shadow
-          tag-id="boxShadow"
-          class="w8"
-          :model-value="props.shadow"
-          @update:model-value="handleShadowUpdate"
-        >
-        </ColorField>
+        <ColorField v-model="widget.shadow" shadow tag-id="boxShadow" class="w8"> </ColorField>
       </div>
     </div>
   </div>

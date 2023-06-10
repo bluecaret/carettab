@@ -28,8 +28,9 @@ export class Defaults {
     },
     tabTitle: {
       type: 'newtab',
-      custom: 'New Tab',
+      custom: 'CaretTab: New tab page',
       datetime: 'ff',
+      timezone: 'local',
     },
     font: {
       color: [220, 15, 85, 1],

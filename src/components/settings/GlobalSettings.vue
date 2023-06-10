@@ -2,6 +2,7 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
 import { ref, inject } from 'vue'
+import { DateTime } from 'luxon'
 import { useSettingsStore, getStorage, setStorage } from '@/store.js'
 import { languages } from '@/assets/lists.js'
 import { prepareWallpaperObj, saveUnsplashInfoToGlobal, getRandomPhotoFromUnsplashList } from '@/helpers/unsplash.js'
@@ -21,6 +22,19 @@ const access = inject('access')
 const store = useSettingsStore()
 const uploadImageField = ref(null)
 const { locale } = useI18n({ useScope: 'global' })
+
+const allTimezones = []
+for (const zone of Intl.supportedValuesOf('timeZone')) {
+  allTimezones.push({
+    id: zone,
+    label: `${zone} - ${DateTime.local({ zone }).toFormat('ZZZZZ')} (${DateTime.local({ zone }).toFormat('ZZZZ')})`,
+  })
+}
+allTimezones.unshift({ id: 'local', label: 'Local' })
+
+const selectTimezone = (tz) => {
+  store.config.global.tabTitle.timezone = tz.id
+}
 
 const handleUploadBtnClick = () => {
   uploadImageField.value.click()
@@ -560,34 +574,43 @@ const importSettings = () => {
             <option value="datetime">Date/time</option>
             <option value="custom">Custom text</option>
           </select>
-          <div v-if="store.config.global.tabTitle.type === 'custom'" class="group stack">
-            <label for="customTabTitle" class="desc">Custom title text</label>
-            <input
-              id="customTabTitle"
-              v-model="store.config.global.tabTitle.custom"
-              type="text"
-              class="input w25"
-              placeholder="Enter custom text"
-            />
-          </div>
-          <div v-if="store.config.global.tabTitle.type === 'datetime'" class="group stack">
-            <label for="datetimeFormat" class="desc">Date/time format code</label>
-            <input
-              id="datetimeFormat"
-              v-model="store.config.global.tabTitle.datetime"
-              type="text"
-              class="input w25"
-              placeholder="Enter date/time format"
-            />
-            <div class="desc">
-              <div>
-                <fa icon="fa-info-circle" />
-                <a href="https://moment.github.io/luxon/#/parsing?id=table-of-tokens" target="_blank">
-                  Date/time formatting
-                </a>
-              </div>
+        </div>
+      </div>
+      <div v-if="store.config.global.tabTitle.type !== 'newtab'" class="group fill">
+        <div v-if="store.config.global.tabTitle.type === 'custom'" class="group stack fill">
+          <label for="customTabTitle" class="desc">Custom title text</label>
+          <input
+            id="customTabTitle"
+            v-model="store.config.global.tabTitle.custom"
+            type="text"
+            class="input fill"
+            placeholder="Enter custom text"
+          />
+        </div>
+        <div v-if="store.config.global.tabTitle.type === 'datetime'" class="group stack fill">
+          <label for="datetimeFormat" class="desc">
+            <div>
+              Date/time
+              <a href="https://moment.github.io/luxon/#/parsing?id=table-of-tokens" target="_blank"> format code </a>
             </div>
-          </div>
+          </label>
+          <input
+            id="datetimeFormat"
+            v-model="store.config.global.tabTitle.datetime"
+            type="text"
+            class="input fill"
+            placeholder="Enter date/time format"
+          />
+        </div>
+        <div v-if="store.config.global.tabTitle.type === 'datetime'" class="group stack fill">
+          <label for="tabTitleTimezone" class="desc"> Timezone </label>
+          <AutocompleteField
+            tag-id="tabTitleTimezone"
+            class="fill"
+            :list="allTimezones"
+            :selected="store.config.global.tabTitle.timezone"
+            @selected="(item) => selectTimezone(item)"
+          ></AutocompleteField>
         </div>
       </div>
     </div>

@@ -44,9 +44,11 @@ watch(
 )
 
 const timeUpdate = () => {
-  currentTime.value = DateTime.fromJSDate(store.currentTime).setZone(
-    props.widget.timezone ? props.widget.timezone : 'default'
-  )
+  let tz = 'default'
+  if (props.widget.timezone) {
+    tz = props.widget.timezone !== 'local' ? props.widget.timezone : 'default'
+  }
+  currentTime.value = DateTime.fromJSDate(store.currentTime).setZone(tz)
   setAnalogTime()
 }
 

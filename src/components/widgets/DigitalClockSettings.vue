@@ -23,6 +23,7 @@ for (const zone of Intl.supportedValuesOf('timeZone')) {
     label: `${zone} - ${DateTime.local({ zone }).toFormat('ZZZZZ')} (${DateTime.local({ zone }).toFormat('ZZZZ')})`,
   })
 }
+allTimezones.unshift({ id: 'local', label: 'Local' })
 
 const selectTimezone = (tz) => {
   if (tz) {

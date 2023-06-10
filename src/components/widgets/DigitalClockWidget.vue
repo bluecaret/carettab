@@ -80,7 +80,11 @@ const monospace = computed(() => {
 })
 
 const getFormattedTime = computed(() => {
-  return DateTime.fromJSDate(store.currentTime).setZone(props.widget.timezone ? props.widget.timezone : 'default')
+  let tz = 'default'
+  if (props.widget.timezone) {
+    tz = props.widget.timezone !== 'local' ? props.widget.timezone : 'default'
+  }
+  return DateTime.fromJSDate(store.currentTime).setZone(tz)
 })
 
 const getRelativeTime = computed(() => {

@@ -14,9 +14,11 @@ const props = defineProps({
 })
 
 const getBinaryTime = computed(() => {
-  const currentTime = DateTime.fromJSDate(store.currentTime).setZone(
-    props.widget.timezone ? props.widget.timezone : 'default'
-  )
+  let tz = 'default'
+  if (props.widget.timezone) {
+    tz = props.widget.timezone !== 'local' ? props.widget.timezone : 'default'
+  }
+  const currentTime = DateTime.fromJSDate(store.currentTime).setZone(tz)
   let hour = currentTime.toFormat('HH')
   let minute = currentTime.toFormat('mm')
   let second = currentTime.toFormat('ss')

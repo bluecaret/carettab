@@ -200,7 +200,7 @@ export const mergeV3Settings = async (allowMigration) => {
           newWidget.hand.style = clock.analog.handStyle
           newWidget.sec.smoothSeconds = clock.analog.smoothSeconds
 
-          newWidget.timezone = clock.timezone
+          newWidget.timezone = clock.timezone === 'Automatic' ? 'local' : clock.timezone
           newWidget.sec.on = clock.analog.enabled
           newWidget.label.on = clock.label.enabled
           newWidget.label.label = clock.label.text
@@ -218,7 +218,7 @@ export const mergeV3Settings = async (allowMigration) => {
           newWidget.indicator.onLabel = clock.binary.onValueText
           newWidget.indicator.dot = !clock.binary.useNumbers
 
-          newWidget.timezone = clock.timezone
+          newWidget.timezone = clock.timezone === 'Automatic' ? 'local' : clock.timezone
           newWidget.sec.on = clock.analog.enabled
           newWidget.label.on = clock.label.enabled
           newWidget.label.label = clock.label.text
@@ -243,7 +243,7 @@ export const mergeV3Settings = async (allowMigration) => {
           newWidget.hour.twentyFour = clock.twentyFour
           newWidget.hour.twoDigit = clock.twoDigit
 
-          newWidget.timezone = clock.timezone
+          newWidget.timezone = clock.timezone === 'Automatic' ? 'local' : clock.timezone
           newWidget.sec.on = clock.analog.enabled
           newWidget.label.on = clock.label.enabled
           newWidget.label.label = clock.label.text

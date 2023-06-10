@@ -10,8 +10,8 @@ const props = defineProps({
 
 const store = useSettingsStore()
 const widgetPrep = ref(null)
-if (props.index === 'global') {
-  widgetPrep.value = store.config[props.widgetStore].container
+if (props.widgetStore === 'global') {
+  widgetPrep.value = store.config.global.container
 } else {
   widgetPrep.value = store.config[props.widgetStore][props.index].base.container
 }

@@ -2,7 +2,6 @@ import { baseWidgetStyles } from '@/classes/BaseWidgetStyles.js'
 
 export class QuickLinks {
   id = ''
-  on = false
   type = 'ql'
   layout = 'ch'
   link = {
@@ -19,6 +18,13 @@ export class QuickLinks {
     titles: true,
     iconSize: 16,
     maxWidth: 130,
+  }
+  specialLinks = {
+    apps: false,
+    bookmarksManager: false,
+    history: false,
+    chromeTab: false,
+    mostVisited: false,
   }
   quickLinks = [
     { title: 'CaretTab', url: 'https://www.carettab.com', id: 'carettab' },

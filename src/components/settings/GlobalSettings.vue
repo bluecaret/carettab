@@ -5,6 +5,7 @@ import { ref, inject } from 'vue'
 import { useSettingsStore, getStorage, setStorage } from '@/store.js'
 import { languages } from '@/assets/lists.js'
 import { prepareWallpaperObj, saveUnsplashInfoToGlobal, getRandomPhotoFromUnsplashList } from '@/helpers/unsplash.js'
+import { mergeV3Settings } from '@/helpers/mergeOldSettings.js'
 
 if (typeof browser === 'undefined') {
   var browser = chrome
@@ -171,12 +172,78 @@ const handleImageAdjustmentReset = () => {
 const handleLangSelect = (event) => {
   locale.value = event.target.value
 }
+
+const exportSettings = async () => {
+  let currentWallpaper = await getStorage('currentWallpaper', 'local')
+  let nextWallpaper = await getStorage('nextWallpaper', 'local')
+  const settings = {
+    config: JSON.parse(JSON.stringify(store.config)),
+    currentWallpaper: JSON.parse(JSON.stringify(currentWallpaper.currentWallpaper)),
+    nextWallpaper: JSON.parse(JSON.stringify(nextWallpaper.nextWallpaper)),
+  }
+  const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(settings))
+  const dlAnchorElem = document.createElement('a')
+  dlAnchorElem.setAttribute('href', dataStr)
+  dlAnchorElem.setAttribute('download', 'carettab-settings.json')
+  dlAnchorElem.click()
+}
+
+const importSettings = () => {
+  const input = document.createElement('input')
+  input.type = 'file'
+  input.accept = '.json'
+  input.addEventListener('change', () => {
+    if (input.files.length > 0) {
+      store.isLoading = true
+      const reader = new FileReader()
+      reader.onload = async (e) => {
+        const settings = JSON.parse(e.target.result)
+
+        // handle settings imported from v3
+        if (settings.misc && settings.misc.schema === '1.1') {
+          if (
+            confirm(
+              'Settings are from an older version of CaretTab. We will do our best to import them, but some settings may not be compatible. Do you want to continue?'
+            )
+          ) {
+            store.isLoading = false
+            mergeV3Settings(settings)
+            return
+          } else {
+            store.isLoading = false
+            return
+          }
+        }
+
+        if (!settings.config.global.schema || settings.config.global.schema !== store.config.global.schema) {
+          alert(
+            'Settings are from an older version of CaretTab and are not compatible with the current version. We recommend you reset your settings and start fresh.'
+          )
+          store.isLoading = false
+          return
+        }
+
+        store.$patch({ config: settings.config })
+        await setStorage({ currentWallpaper: settings.currentWallpaper }, 'local')
+        await setStorage({ nextWallpaper: settings.nextWallpaper }, 'local')
+        await store.save()
+        store.isLoading = false
+        alert(
+          'Import successful! The page will now be reloaded. If you have any issues, please contact us at bluecaret@outlook.com'
+        )
+        window.location.reload()
+      }
+      reader.readAsText(input.files[0])
+    }
+  })
+  input.click()
+}
 </script>
 
 <template>
   <div v-if="props.openDefault" class="blockContainer">
-    <WidgetFontField index="global" widget-store="store" no-override />
-    <WidgetBoxField index="global" widget-store="store" no-override />
+    <WidgetFontField :index="0" widget-store="global" no-override />
+    <WidgetBoxField :index="0" widget-store="global" no-override />
     <div class="block">
       <div class="group fill">
         <div>
@@ -478,6 +545,131 @@ const handleLangSelect = (event) => {
       <!-- <select id="locale" v-model="$i18n.locale" style="position: fixed; z-index: 9999; bottom: 0">
         <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{ locale }}</option>
       </select> -->
+    </div>
+    <div class="block">
+      <div class="group fill">
+        <div class="label mra">
+          <label for="tabTitle">Tab Title</label>
+          <div class="desc">
+            Choose what to display in the New Tab title (shows on the tab itself as well as in the browser's title bar).
+          </div>
+        </div>
+        <div class="group stack">
+          <select id="tabTitle" v-model="store.config.global.tabTitle.type" name="tabTitle" class="select w25">
+            <option value="newtab">"New Tab"</option>
+            <option value="datetime">Date/time</option>
+            <option value="custom">Custom text</option>
+          </select>
+          <div v-if="store.config.global.tabTitle.type === 'custom'" class="group stack">
+            <label for="customTabTitle" class="desc">Custom title text</label>
+            <input
+              id="customTabTitle"
+              v-model="store.config.global.tabTitle.custom"
+              type="text"
+              class="input w25"
+              placeholder="Enter custom text"
+            />
+          </div>
+          <div v-if="store.config.global.tabTitle.type === 'datetime'" class="group stack">
+            <label for="datetimeFormat" class="desc">Date/time format code</label>
+            <input
+              id="datetimeFormat"
+              v-model="store.config.global.tabTitle.datetime"
+              type="text"
+              class="input w25"
+              placeholder="Enter date/time format"
+            />
+            <div class="desc">
+              <div>
+                <fa icon="fa-info-circle" />
+                <a href="https://moment.github.io/luxon/#/parsing?id=table-of-tokens" target="_blank">
+                  Date/time formatting
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="group fill">
+        <div class="label mra">
+          <label for="disableSelection">Disable text selection</label>
+          <div class="desc">
+            This will prevent you from selecting text on the new tab page resulting in a cleaner look in case of
+            accidental clicks.
+          </div>
+        </div>
+        <ToggleField v-model="store.config.global.disableSelection" tag-id="disableSelection" />
+      </div>
+    </div>
+    <div class="block">
+      <div class="group fill">
+        <div class="label mra">
+          <label for="hideSettings">Hide settings button</label>
+          <div class="desc">
+            When enabled the settings button will display when you hover over the bottom right corner.
+          </div>
+        </div>
+        <ToggleField v-model="store.config.global.hideSettings" tag-id="hideSettings" />
+      </div>
+    </div>
+  </div>
+  <h3 class="subtitle">Advanced options</h3>
+  <div class="blockContainer">
+    <div class="block">
+      <div class="group fill">
+        <div class="label mra">
+          <label for="hideSettings">Export/Import settings</label>
+          <div class="desc">
+            Export all CaretTab settings to a file. Clicking the button will download a file to your computer. Do not
+            edit this file to ensure no errors when you re-import. When importing CaretTab settings, ensure you use the
+            'carettab-settings.json' file that was downloaded when you clicked export.
+          </div>
+        </div>
+        <div class="btnGroup">
+          <button type="button" class="btn" @click="exportSettings()">Export</button>
+          <button type="button" class="btn" @click="importSettings()">Import</button>
+        </div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="group fill">
+        <div class="label mra">
+          <label for="hideSettings">Reset to default</label>
+          <div class="desc">
+            <strong>This will remove all of your information and settings.</strong>
+            If you are signed into Premium Access, you will remain signed in.
+          </div>
+        </div>
+        <div class="fit">
+          <button type="button" class="btn fit" style="border-color: orange; color: orange" @click="store.reset()">
+            Reset to default
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="group fill">
+        <div class="label mra">
+          <label for="hideSettings">Reset back to fresh install</label>
+          <div class="desc">
+            <strong>This will remove EVERYTHING.</strong>
+            This option essentially resets CaretTab to the state it was in when you first installed it. Use this option
+            only as a last resort if you are experiencing issues with CaretTab.
+          </div>
+        </div>
+        <div class="fit">
+          <button
+            type="button"
+            class="btn fit"
+            style="border-color: orangered; color: orangered"
+            @click="store.resetAll()"
+          >
+            Reset all!
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>

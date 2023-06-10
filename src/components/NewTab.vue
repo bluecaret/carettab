@@ -1,5 +1,6 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
+import { DateTime } from 'luxon'
 import { useSettingsStore } from '@/store.js'
 import { hsl, shadow } from '@/helpers/widgets.js'
 import WallpaperLayer from '@/components/elements/WallpaperLayer.vue'
@@ -54,8 +55,26 @@ const generateNewTabStyles = computed(() => {
     --toolbarBorderColor: ${hsl(store.config.toolbar.borderColor)};
     --toolbarShadow: ${shadow(store.config.toolbar.shadow)};
     --toolbarAlign: ${store.config.toolbar.align};
+    --textSelection: ${store.config.global.disableSelection ? 'none' : 'auto'};
   `
 })
+
+watch(
+  () => [store.config.global.tabTitle.type, store.currentTime],
+  () => {
+    setTabTitle()
+  }
+)
+
+const setTabTitle = () => {
+  if (store.config.global.tabTitle.type === 'custom') {
+    document.title = store.config.global.tabTitle.custom
+  } else if (store.config.global.tabTitle.type === 'datetime') {
+    document.title = DateTime.fromJSDate(store.currentTime).toFormat(store.config.global.tabTitle.datetime)
+  } else {
+    document.title = 'New Tab'
+  }
+}
 </script>
 
 <template>
@@ -237,7 +256,7 @@ const generateNewTabStyles = computed(() => {
   z-index: 10;
   color: v-bind(getTextColor);
   text-shadow: v-bind(getTextShadow);
-  // pointer-events: none;
+  user-select: var(--textSelection);
 }
 
 .gridPosition {

@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { createApp } from 'vue'
+import { createApp, ref } from 'vue'
 import { createPinia } from 'pinia'
 import { i18n } from './i18n.js'
 import App from './App.vue'
@@ -223,10 +223,15 @@ quickUserCheck().then(async (user) => {
 
   if (access.license !== '' && access.license === access.userLicense) {
     console.info('%c* You have free access to CaretTab Premium *', 'color:green;font-weight:bold;')
-    user.paid = true
+    user.extensionpay_user.paid = true
   }
 
-  app.provide('user', user)
+  const userInfo = ref(user.extensionpay_user)
+
+  app.provide('user', userInfo)
+  app.provide('updateUser', (u) => {
+    userInfo.value = u
+  })
   app.provide('access', access)
   // eslint-disable-next-line vue/multi-word-component-names
   app.component('Fa', FontAwesomeIcon)

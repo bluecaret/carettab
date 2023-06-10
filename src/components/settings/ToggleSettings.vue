@@ -28,7 +28,7 @@ const getTextColor = computed(() => {
 <template>
   <!-- :class="{'settingsToggle': true, 'open': settingsOpen, 'hide': store.design.hideMenu}" -->
   <button
-    :class="{ settingsToggle: true, open: settingsOpen }"
+    :class="{ settingsToggle: true, open: settingsOpen, hide: store.config.global.hideSettings }"
     :title="settingsOpen ? 'Close' : status === 'updated' ? 'Updated' : 'Open'"
     @click="toggleSettings"
   >

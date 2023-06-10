@@ -11,8 +11,8 @@ const props = defineProps({
 
 const store = useSettingsStore()
 const widgetPrep = ref(null)
-if (props.index === 'global') {
-  widgetPrep.value = store.config[props.widgetStore].font
+if (props.widgetStore === 'global') {
+  widgetPrep.value = store.config.global.font
 } else {
   widgetPrep.value = store.config[props.widgetStore][props.index].base.font
 }

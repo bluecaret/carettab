@@ -8,10 +8,11 @@ import SettingsPanel from '@/components/settings/SettingsPanel.vue'
 import LoadingOverlay from '@/components/elements/LoadingOverlay.vue'
 import { fontList } from '@/assets/lists.js'
 import { ExtPay } from '@/assets/ExtPay.js'
+import { mergeV3Settings } from '@/helpers/mergeOldSettings.js'
 
 const { locale } = useI18n({ useScope: 'global' })
 const extpay = ExtPay('carettab')
-const user = inject('user')
+const updateUser = inject('updateUser')
 const store = useSettingsStore()
 const { isLoading, settingsOpen } = storeToRefs(store)
 
@@ -22,9 +23,14 @@ onMounted(async () => {
 
   // Run a full user check against the server now that the app has loaded
   const refreshUserCheck = () => {
-    extpay.getUser().then((u) => {
-      user.value = u
-    })
+    extpay
+      .getUser()
+      .then((u) => {
+        updateUser(u)
+      })
+      .then(() => {
+        mergeV3Settings(true)
+      })
   }
   refreshUserCheck()
 })

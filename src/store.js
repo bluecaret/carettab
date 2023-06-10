@@ -3,6 +3,7 @@ import { ref, reactive } from 'vue'
 import { defineStore } from 'pinia'
 import { Layer } from '@/classes/Layer.js'
 import { widgetTypes } from '@/assets/lists.js'
+import { Defaults } from '@/defaults.js'
 import { DigitalClock } from '@/components/widgets/DigitalClock.js'
 import { AnalogClock } from '@/components/widgets/AnalogClock.js'
 import { BinaryClock } from '@/components/widgets/BinaryClock.js'
@@ -38,7 +39,7 @@ export const generateUID = () => {
 export const getStorage = async (key, area = 'local') => {
   return new Promise((resolve, reject) => {
     if (chrome && chrome.storage) {
-      chrome.storage[area].get(key, function (result) {
+      chrome.storage[area].get(key ? key : null, function (result) {
         if (chrome.runtime.lastError) {
           console.error('Failed to get storage', chrome.runtime.lastError)
           reject()
@@ -94,6 +95,24 @@ export const removeStorage = async (key, area = 'local') => {
   })
 }
 
+export const clearAllStorage = async (area = 'local') => {
+  return new Promise((resolve, reject) => {
+    if (chrome && chrome.storage) {
+      chrome.storage[area].clear(function (result) {
+        if (chrome.runtime.lastError) {
+          console.error('Failed to remove storage', chrome.runtime.lastError)
+          reject()
+        } else {
+          resolve(result)
+        }
+      })
+    } else {
+      resolve()
+      console.warn('No storage available')
+    }
+  })
+}
+
 export const useSettingsStore = defineStore('settings', () => {
   const status = ref('existing')
   const clearWhatsNewBox = ref(false)
@@ -116,80 +135,7 @@ export const useSettingsStore = defineStore('settings', () => {
   const unsplashCollectionResults = ref([])
   const unsplashCollectionPage = ref(1)
 
-  const config = reactive({
-    global: {
-      lang: 'enUS',
-      hideSettings: false,
-      disableSelection: false,
-      tabTitle: 'New Tab',
-      wallpaper: {
-        background: [220, 15, 15, 1],
-        type: 'none',
-        id: '',
-        timestamp: '',
-        size: 'cover',
-        filter: 'normal',
-        brightness: 10,
-        saturation: 10,
-        contrast: 10,
-        blur: 0,
-        scale: 100,
-      },
-      unsplash: {
-        photoTitle: '',
-        photoLink: '',
-        photoAlt: '',
-        authorName: '',
-        authorLink: '',
-        listName: '',
-        listLink: '',
-      },
-      font: {
-        color: [220, 15, 85, 1],
-        shadow: [true, 1, 1, 5, 0, 0, 0, 0.8],
-        family: 'Source Sans Pro',
-        size: 20,
-        bold: 400,
-        italic: false,
-        underline: false,
-        transform: 'none',
-        letterSpacing: 0,
-      },
-      container: {
-        background: [0, 0, 10, 0],
-        shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
-        borderColor: [0, 0, 100, 1],
-        borderSize: 0,
-        radius: 0,
-        padding: 0,
-      },
-      element: {
-        primaryColor: [220, 15, 85, 1],
-        secondaryColor: [220, 15, 85, 1],
-        tertiaryColor: [220, 15, 85, 1],
-        shadow: [true, 1, 1, 5, 0, 0, 0, 0.8],
-      },
-    },
-    toolbar: {
-      on: true,
-      background: [0, 0, 10, 0],
-      foreground: [220, 15, 85, 1],
-      shadow: [true, 1, 1, 5, 0, 0, 0, 0.8],
-      borderColor: [0, 0, 100, 1],
-      borderSize: 2,
-      size: 64,
-      align: 'flex-start',
-      tools: [
-        {
-          id: 'aiChat',
-          on: true,
-          apiKey: '',
-          model: 'gpt-3.5-turbo',
-        },
-      ],
-    },
-    layers: [],
-  })
+  const config = reactive(new Defaults())
 
   const load = async () => {
     let store = await getStorage(null, 'sync')
@@ -221,21 +167,33 @@ export const useSettingsStore = defineStore('settings', () => {
   }
 
   const save = () => {
-    let newStore = {}
+    return new Promise((resolve, reject) => {
+      try {
+        let newStore = {}
 
-    newStore['global'] = JSON.parse(JSON.stringify(config.global))
-    newStore['toolbar'] = JSON.parse(JSON.stringify(config.toolbar))
-    newStore['layers'] = JSON.parse(JSON.stringify(config.layers))
+        newStore['global'] = JSON.parse(JSON.stringify(config.global))
+        newStore['toolbar'] = JSON.parse(JSON.stringify(config.toolbar))
+        newStore['layers'] = JSON.parse(JSON.stringify(config.layers))
 
-    widgetTypes.forEach((widget) => {
-      if (config[widget.store].length > 0) {
-        config[widget.store].forEach((c) => {
-          newStore[c.id] = JSON.parse(JSON.stringify(c))
+        widgetTypes.forEach((widget) => {
+          if (config[widget.store].length > 0) {
+            config[widget.store].forEach((c) => {
+              newStore[c.id] = JSON.parse(JSON.stringify(c))
+            })
+          }
         })
+
+        setStorage(newStore, 'sync')
+          .then(() => {
+            resolve()
+          })
+          .catch((error) => {
+            reject(error)
+          })
+      } catch (error) {
+        reject(error)
       }
     })
-
-    setStorage(newStore, 'sync')
   }
 
   const createLayer = (id, type) => {
@@ -282,6 +240,7 @@ export const useSettingsStore = defineStore('settings', () => {
         'Are you sure you want to delete this widget? Settings will be saved immediately, you will not be able to undo this.'
       ) == true
     ) {
+      isLoading.value = true
       let layerIndex = config.layers.findIndex((l) => l.id === id)
       config.layers.splice(layerIndex, 1)
 
@@ -292,15 +251,89 @@ export const useSettingsStore = defineStore('settings', () => {
       }
 
       await removeStorage(id, 'sync')
-      if (type === 'weather') {
-        await removeStorage(`weather-${id}`, 'local')
-      }
-      if (type === 'notepad') {
-        await removeStorage(`notepad-${id}`, 'local')
-        await removeStorage(`notepad-${id}`, 'sync')
-      }
-      save()
+      await clearSupplementalSettings(id, type)
+      await save()
+      isLoading.value = false
     }
+  }
+
+  const reset = async () => {
+    // Reset all settings to default
+    if (confirm('Are you sure you want to reset all settings to default?') == true) {
+      isLoading.value = true
+
+      config.global = new Defaults().global
+      config.toolbar = new Defaults().toolbar
+      config.layers = new Defaults().layers
+      widgetTypes.forEach(async (widget) => {
+        config[widget.store].forEach(async (w) => {
+          await removeStorage(w.id, 'sync')
+          await clearSupplementalSettings(w.id, widget.type)
+        })
+        config[widget.store] = []
+      })
+      await save()
+
+      palette.value = [[], [], [], [], [], [], [], []]
+      await removeStorage('palette', 'local')
+      await removeStorage('currentWallpaper', 'local')
+      await removeStorage('nextWallpaper', 'local')
+
+      isLoading.value = false
+      window.location.reload()
+    }
+  }
+
+  const resetAll = async () => {
+    // clear all settings in chrome.storage
+    if (
+      confirm(
+        'Are you sure you want to clear everything and start completely fresh? If signed into Premium, you will need to login again.'
+      ) == true
+    ) {
+      await clearAllStorage('sync')
+      await clearAllStorage('local')
+      window.location.reload()
+    }
+  }
+
+  const clearSupplementalSettings = (id, type) => {
+    return new Promise((resolve, reject) => {
+      try {
+        if (type === 'weather') {
+          removeStorage(`weather-${id}`, 'local')
+            .then(() => {
+              resolve()
+            })
+            .catch((error) => {
+              reject(error)
+            })
+        } else if (type === 'notepad') {
+          removeStorage(`notepad-${id}`, 'local')
+            .then(() => {
+              return removeStorage(`notepad-${id}`, 'sync')
+            })
+            .then(() => {
+              resolve()
+            })
+            .catch((error) => {
+              reject(error)
+            })
+        } else if (type === 'loadshedding') {
+          removeStorage(`loadshedding-area-${id}`, 'local')
+            .then(() => {
+              resolve()
+            })
+            .catch((error) => {
+              reject(error)
+            })
+        } else {
+          resolve()
+        }
+      } catch (error) {
+        reject(error)
+      }
+    })
   }
 
   const tSplit = (string) => {
@@ -344,6 +377,8 @@ export const useSettingsStore = defineStore('settings', () => {
     save,
     newWidget,
     deleteWidget,
+    reset,
+    resetAll,
     tSplit,
     goTo,
   }

@@ -105,3 +105,50 @@ export const shadow = (shadow) => {
     ? `${shadow[1]}px ${shadow[2]}px ${shadow[3]}px hsl(${shadow[4]}deg ${shadow[5]}% ${shadow[6]}% / ${shadow[7]})`
     : 'none'
 }
+
+export const hexToHSLArray = (hex) => {
+  // Remove the '#' character from the beginning of the hex code
+  const hexWithoutHash = hex.replace('#', '')
+
+  // Convert the hex code to RGB values
+  const r = parseInt(hexWithoutHash.substring(0, 2), 16)
+  const g = parseInt(hexWithoutHash.substring(2, 4), 16)
+  const b = parseInt(hexWithoutHash.substring(4, 6), 16)
+
+  // Convert RGB to HSL
+  const rNormalized = r / 255
+  const gNormalized = g / 255
+  const bNormalized = b / 255
+
+  const max = Math.max(rNormalized, gNormalized, bNormalized)
+  const min = Math.min(rNormalized, gNormalized, bNormalized)
+  let h, s, l
+
+  l = (max + min) / 2
+
+  if (max === min) {
+    h = s = 0 // achromatic
+  } else {
+    const d = max - min
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min)
+    switch (max) {
+      case rNormalized:
+        h = (gNormalized - bNormalized) / d + (gNormalized < bNormalized ? 6 : 0)
+        break
+      case gNormalized:
+        h = (bNormalized - rNormalized) / d + 2
+        break
+      case bNormalized:
+        h = (rNormalized - gNormalized) / d + 4
+        break
+    }
+    h /= 6
+  }
+
+  // Round HSL values to two decimal places
+  h = Math.round(h * 360)
+  s = Math.round(s * 100)
+  l = Math.round(l * 100)
+
+  return [h, s, l, 1]
+}

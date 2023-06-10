@@ -69,7 +69,7 @@ export class Weather {
     temperature: {
       high: true,
       low: true,
-      de: true,
+      degree: true,
       highColor: [0, 0, 100, 1],
       lowColor: [0, 0, 100, 1],
     },

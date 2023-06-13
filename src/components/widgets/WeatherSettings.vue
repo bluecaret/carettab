@@ -84,10 +84,6 @@ const refreshWeather = async () => {
             <ColorField v-model="widget.label.color" tag-id="loccolor"></ColorField>
           </div>
           <div class="group stack fill">
-            <label for="iconcolor" class="desc">Current icon</label>
-            <ColorField v-model="widget.current.icon.color" tag-id="iconcolor"></ColorField>
-          </div>
-          <div class="group stack fill">
             <label for="ccl" class="desc">Temperature</label>
             <ColorField v-model="widget.current.temperature.currentlyColor" tag-id="ccl"></ColorField>
           </div>
@@ -97,10 +93,6 @@ const refreshWeather = async () => {
           </div>
         </div>
         <div v-if="widget.overrideColors" class="group fill">
-          <div class="group stack fill">
-            <label for="forecasticoncolor" class="desc">Forecast icon</label>
-            <ColorField v-model="widget.forecast.icon.color" tag-id="forecasticoncolor"></ColorField>
-          </div>
           <div class="group stack fill">
             <label for="dycl" class="desc">Forecast day</label>
             <ColorField v-model="widget.forecast.day.color" tag-id="dycl"></ColorField>
@@ -254,6 +246,40 @@ const refreshWeather = async () => {
               class="w8"
             ></NumberField>
           </div>
+          <div class="group compact">
+            <label for="currentIconAnimated" class="desc">Animated</label>
+            <ToggleField v-model="widget.current.icon.animated" tag-id="currentIconAnimated"></ToggleField>
+          </div>
+        </div>
+        <div class="group fill">
+          <div class="group stack fill">
+            <label for="colorSun" class="desc">Sun</label>
+            <ColorField v-model="widget.current.icon.colors.sun" tag-id="colorSun"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="colorMoon" class="desc">Moon</label>
+            <ColorField v-model="widget.current.icon.colors.moon" tag-id="colorMoon"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="colorCloud" class="desc">Cloud</label>
+            <ColorField v-model="widget.current.icon.colors.cloud" tag-id="colorCloud"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="colorRain" class="desc">Rain</label>
+            <ColorField v-model="widget.current.icon.colors.rain" tag-id="colorRain"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="colorSnow" class="desc">Snow</label>
+            <ColorField v-model="widget.current.icon.colors.snow" tag-id="colorSnow"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="colorThunder" class="desc">Thunder</label>
+            <ColorField v-model="widget.current.icon.colors.thunder" tag-id="colorThunder"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="colorOutline" class="desc">Outline</label>
+            <ColorField v-model="widget.current.icon.colors.stroke" tag-id="colorOutline"></ColorField>
+          </div>
         </div>
       </div>
       <div v-if="widget.current.on" class="block">
@@ -382,6 +408,40 @@ const refreshWeather = async () => {
               :min="1"
               class="w8"
             ></NumberField>
+          </div>
+          <div class="group compact">
+            <label for="forecastIconAnimated" class="desc">Animated</label>
+            <ToggleField v-model="widget.forecast.icon.animated" tag-id="forecastIconAnimated"></ToggleField>
+          </div>
+        </div>
+        <div class="group fill">
+          <div class="group stack fill">
+            <label for="fcolorSun" class="desc">Sun</label>
+            <ColorField v-model="widget.forecast.icon.colors.sun" tag-id="fcolorSun"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="fcolorMoon" class="desc">Moon</label>
+            <ColorField v-model="widget.forecast.icon.colors.moon" tag-id="fcolorMoon"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="fcolorCloud" class="desc">Cloud</label>
+            <ColorField v-model="widget.forecast.icon.colors.cloud" tag-id="fcolorCloud"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="fcolorRain" class="desc">Rain</label>
+            <ColorField v-model="widget.forecast.icon.colors.rain" tag-id="fcolorRain"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="fcolorSnow" class="desc">Snow</label>
+            <ColorField v-model="widget.forecast.icon.colors.snow" tag-id="fcolorSnow"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="fcolorThunder" class="desc">Thunder</label>
+            <ColorField v-model="widget.forecast.icon.colors.thunder" tag-id="fcolorThunder"></ColorField>
+          </div>
+          <div class="group stack fill">
+            <label for="fcolorOutline" class="desc">Outline</label>
+            <ColorField v-model="widget.forecast.icon.colors.stroke" tag-id="fcolorOutline"></ColorField>
           </div>
         </div>
       </div>

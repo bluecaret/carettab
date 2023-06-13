@@ -28,7 +28,16 @@ export class Weather {
     icon: {
       on: true,
       size: 12,
-      color: [0, 0, 100, 1],
+      animated: true,
+      colors: {
+        sun: [39, 100, 50, 1],
+        moon: [39, 100, 50, 1],
+        cloud: [211, 82, 64, 1],
+        rain: [213, 87, 76, 1],
+        snow: [211, 82, 64, 1],
+        thunder: [39, 100, 50, 1],
+        stroke: [0, 0, 100, 1],
+      },
     },
     temperature: {
       currently: true,
@@ -60,7 +69,16 @@ export class Weather {
     icon: {
       on: true,
       size: 6,
-      color: [0, 0, 100, 1],
+      animated: true,
+      colors: {
+        sun: [39, 100, 50, 1],
+        moon: [39, 100, 50, 1],
+        cloud: [211, 82, 64, 1],
+        rain: [213, 87, 76, 1],
+        snow: [211, 82, 64, 1],
+        thunder: [39, 100, 50, 1],
+        stroke: [0, 0, 100, 1],
+      },
     },
     day: {
       on: true,

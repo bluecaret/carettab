@@ -111,6 +111,14 @@ const refreshWeather = async () => {
         <label for="hz" class="label mra">Horizontal display</label>
         <ToggleField v-model="widget.horizontal" tag-id="hz"></ToggleField>
       </div>
+      <div class="block">
+        <label for="layout" class="label mra">Layout</label>
+        <select id="layout" v-model="widget.layout" name="layout" class="select w18">
+          <option value="1">Layout 1 (Vertical)</option>
+          <option value="1a">Layout 1 (Horizontal)</option>
+          <option value="2">Layout 2</option>
+        </select>
+      </div>
     </div>
     <h3 class="subtitle">Weather options</h3>
     <div class="blockContainer">

@@ -2,6 +2,7 @@ import { baseWidgetStyles } from '@/classes/BaseWidgetStyles.js'
 
 export class Weather {
   id = ''
+  layout = '1'
   location = {
     country: 'United States of America',
     id: 2670971,

@@ -97,6 +97,12 @@ const setBarStyles = computed(() => {
 })
 
 const elementStyles = computed(() => {
+  if (
+    (props.widget.base.font.override && props.widget.base.font.shadow[0] === false) ||
+    store.config.global.font.shadow[0] === false
+  ) {
+    return ''
+  }
   return `
     filter: drop-shadow(${shadow(
       props.widget.base.font.override ? props.widget.base.font.shadow : store.config.global.font.shadow

@@ -289,7 +289,7 @@ const handleNewWidgetClick = (type) => {
     width: 100%;
     text-align: center;
     margin: 0;
-    color: var(--cBlue8);
+    color: hsl(220deg 15% 50%);
   }
   h3 {
     font-weight: 600;
@@ -297,11 +297,12 @@ const handleNewWidgetClick = (type) => {
   p {
     font-weight: 300;
     font-size: 1.4rem;
+    color: hsl(220deg 15% 70%);
   }
   .svg-inline--fa {
     margin: 0 auto;
     font-size: 4rem;
-    color: var(--cBlue8);
+    color: hsl(220deg 15% 50%);
   }
 }
 </style>

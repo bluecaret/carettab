@@ -2,7 +2,7 @@ import { baseWidgetStyles } from '@/classes/BaseWidgetStyles.js'
 
 export class Weather {
   id = ''
-  layout = '1'
+  layout = '2'
   location = {
     country: 'United States of America',
     id: 2670971,
@@ -15,20 +15,21 @@ export class Weather {
   scale = true // fahrenheit, celsius
   unit = true // imperial, metric
   windUnit = true // mph, kph | ft/s, m/s
-  precise = false
+  roundDecimals = true
   twentyFour = false
-  horizontal = true
   overrideColors = false
   label = {
     on: true,
-    color: [0, 0, 100, 1],
+    color: [0, 0, 100, 0.5],
   }
   current = {
     on: true,
-    condition: true,
+    condition: {
+      on: true,
+      color: [0, 0, 100, 1],
+    },
     icon: {
       on: true,
-      size: 12,
       animated: true,
       colors: {
         sun: [39, 100, 50, 1],
@@ -44,33 +45,37 @@ export class Weather {
       currently: true,
       feelsLike: true,
       degree: true,
-      currentlyColor: [0, 0, 100, 1],
-      feelsLikeColor: [0, 0, 100, 1],
+      currentlyColor: [50, 100, 70, 1],
+      feelsLikeColor: [50, 40, 80, 1],
     },
     wind: {
       on: true,
+      color: [0, 0, 100, 0.5],
     },
     humidity: {
       on: true,
+      color: [0, 0, 100, 0.5],
     },
     pressure: {
-      on: true,
+      on: false,
+      color: [0, 0, 100, 0.5],
     },
     astro: {
       moonPhase: false,
-      sunrise: false,
-      sunset: false,
+      sunrise: true,
+      sunset: true,
+      moonPhaseColor: [0, 0, 100, 0.5],
+      sunriseColor: [0, 0, 100, 0.5],
+      sunsetColor: [0, 0, 100, 0.5],
     },
   }
   forecast = {
     on: true,
-    days: 3,
-    hideToday: true,
-    horizontal: true,
+    days: 5,
+    hideToday: false,
     icon: {
       on: true,
-      size: 6,
-      animated: true,
+      animated: false,
       colors: {
         sun: [39, 100, 50, 1],
         moon: [39, 100, 50, 1],
@@ -89,9 +94,9 @@ export class Weather {
       high: true,
       low: true,
       degree: true,
-      highColor: [0, 0, 100, 1],
-      lowColor: [0, 0, 100, 1],
+      highColor: [25, 100, 70, 1],
+      lowColor: [213, 87, 76, 1],
     },
   }
-  base = { ...baseWidgetStyles }
+  base = { ...baseWidgetStyles, font: { ...baseWidgetStyles.font, size: 22 } }
 }

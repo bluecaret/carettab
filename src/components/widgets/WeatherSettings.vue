@@ -68,56 +68,13 @@ const refreshWeather = async () => {
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
       <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
-      <WidgetFontField :index="ci" :widget-store="widgetStore" />
       <WidgetBoxField :index="ci" :widget-store="widgetStore" />
+      <WidgetFontField :index="ci" :widget-store="widgetStore" />
       <div class="block">
         <div class="group fill">
-          <div class="label mra">Colors</div>
-          <div class="group compact">
-            <label for="elColors" class="desc mra">Override element colors</label>
-            <ToggleField v-model="widget.overrideColors" tag-id="elColors"></ToggleField>
-          </div>
+          <label for="elColors" class="label mra">Override text colors</label>
+          <ToggleField v-model="widget.overrideColors" tag-id="elColors"></ToggleField>
         </div>
-        <div v-if="widget.overrideColors" class="group fill">
-          <div class="group stack fill">
-            <label for="loccolor" class="desc">Location</label>
-            <ColorField v-model="widget.label.color" tag-id="loccolor"></ColorField>
-          </div>
-          <div class="group stack fill">
-            <label for="ccl" class="desc">Temperature</label>
-            <ColorField v-model="widget.current.temperature.currentlyColor" tag-id="ccl"></ColorField>
-          </div>
-          <div class="group stack fill">
-            <label for="fcl" class="desc">Feels like</label>
-            <ColorField v-model="widget.current.temperature.feelsLikeColor" tag-id="fcl"></ColorField>
-          </div>
-        </div>
-        <div v-if="widget.overrideColors" class="group fill">
-          <div class="group stack fill">
-            <label for="dycl" class="desc">Forecast day</label>
-            <ColorField v-model="widget.forecast.day.color" tag-id="dycl"></ColorField>
-          </div>
-          <div class="group stack fill">
-            <label for="fhcl" class="desc">Forecast high</label>
-            <ColorField v-model="widget.forecast.temperature.highColor" tag-id="fhcl"></ColorField>
-          </div>
-          <div class="group stack fill">
-            <label for="flcl" class="desc">Forecast low</label>
-            <ColorField v-model="widget.forecast.temperature.lowColor" tag-id="flcl"></ColorField>
-          </div>
-        </div>
-      </div>
-      <div class="block">
-        <label for="hz" class="label mra">Horizontal display</label>
-        <ToggleField v-model="widget.horizontal" tag-id="hz"></ToggleField>
-      </div>
-      <div class="block">
-        <label for="layout" class="label mra">Layout</label>
-        <select id="layout" v-model="widget.layout" name="layout" class="select w18">
-          <option value="1">Layout 1 (Vertical)</option>
-          <option value="1a">Layout 1 (Horizontal)</option>
-          <option value="2">Layout 2</option>
-        </select>
       </div>
     </div>
     <h3 class="subtitle">Weather options</h3>
@@ -136,90 +93,114 @@ const refreshWeather = async () => {
               </div>
             </div>
           </div>
-          <button type="button" class="btn" @click="refreshWeather">Refresh weather</button>
-          <ModalWindow :show="showLocationSearch" size="400px">
-            <template #button>
-              <button type="button" class="btn" @click="openLocSearch">Change location</button>
-            </template>
-            <template #window>
-              <div class="locSearchModal block">
-                <button
-                  class="locSearchModalClose"
-                  type="button"
-                  aria-label="Close modal"
-                  @click="showLocationSearch = false"
-                >
-                  <fa icon="fa-close" />
-                </button>
-                <h2 class="locSearchModalHeading">Find a location</h2>
-                <div class="group stack fill">
-                  <label for="locSearchModalInput" class="label"
-                    >Search (city name, postal code, coordinates, etc.)</label
-                  >
-                  <form novalidate class="group fill compact" @submit.prevent="searchLoc">
-                    <input
-                      id="locSearchModalInput"
-                      v-model="locQueary"
-                      type="text"
-                      placeholder="Enter a location"
-                      class="input"
-                    />
-                    <button type="submit" class="btn" aria-label="Search" title="Search">
-                      <fa icon="fa-magnifying-glass" />
-                    </button>
+          <div class="group stack">
+            <div class="group fill">
+              <button type="button" class="btn mla" @click="refreshWeather">Refresh</button>
+              <ModalWindow :show="showLocationSearch" size="400px">
+                <template #button>
+                  <button type="button" class="btn" @click="openLocSearch">Change location</button>
+                </template>
+                <template #window>
+                  <div class="locSearchModal block">
                     <button
+                      class="locSearchModalClose"
                       type="button"
-                      class="btn"
-                      aria-label="Get my location"
-                      title="Get my location"
-                      @click="getMyLoc"
+                      aria-label="Close modal"
+                      @click="showLocationSearch = false"
                     >
-                      <fa icon="fa-location-crosshairs" />
+                      <fa icon="fa-close" />
                     </button>
-                  </form>
-                </div>
-                <ul class="locSearchModalList">
-                  <li v-for="item in searchResults" :key="item.id">
-                    <button type="button" class="btn stack locSearchModalResultBtn" @click="selectLoc(item)">
-                      <strong>{{ item.name }}</strong>
-                      <div>{{ item.region }}{{ item.region && item.country ? ', ' : '' }}{{ item.country }}</div>
-                    </button>
-                  </li>
-                </ul>
+                    <h2 class="locSearchModalHeading">Find a location</h2>
+                    <div class="group stack fill">
+                      <label for="locSearchModalInput" class="label"
+                        >Search (city name, postal code, coordinates, etc.)</label
+                      >
+                      <form novalidate class="group fill compact" @submit.prevent="searchLoc">
+                        <input
+                          id="locSearchModalInput"
+                          v-model="locQueary"
+                          type="text"
+                          placeholder="Enter a location"
+                          class="input"
+                        />
+                        <button type="submit" class="btn" aria-label="Search" title="Search">
+                          <fa icon="fa-magnifying-glass" />
+                        </button>
+                        <button
+                          type="button"
+                          class="btn"
+                          aria-label="Get my location"
+                          title="Get my location"
+                          @click="getMyLoc"
+                        >
+                          <fa icon="fa-location-crosshairs" />
+                        </button>
+                      </form>
+                    </div>
+                    <ul class="locSearchModalList">
+                      <li v-for="item in searchResults" :key="item.id">
+                        <button type="button" class="btn stack locSearchModalResultBtn" @click="selectLoc(item)">
+                          <strong>{{ item.name }}</strong>
+                          <div>{{ item.region }}{{ item.region && item.country ? ', ' : '' }}{{ item.country }}</div>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </template>
+              </ModalWindow>
+            </div>
+            <div class="group fill">
+              <div class="group compact mla">
+                <label for="locname" class="desc">Show location name</label>
+                <ToggleField v-model="widget.label.on" tag-id="locname"></ToggleField>
+                <ColorField
+                  v-if="widget.overrideColors && widget.label.on"
+                  v-model="widget.label.color"
+                  tag-id="loccolor"
+                  aria-label="Location color"
+                  title="Location color"
+                  class="w6"
+                ></ColorField>
               </div>
-            </template>
-          </ModalWindow>
+            </div>
+          </div>
         </div>
       </div>
       <div class="block">
-        <div class="label mra">Location name</div>
-        <div class="group">
-          <div class="group compact">
-            <label for="locname" class="desc">Enable</label>
-            <ToggleField v-model="widget.label.on" tag-id="locname"></ToggleField>
-          </div>
-        </div>
+        <label for="layout" class="label mra">Layout</label>
+        <select id="layout" v-model="widget.layout" name="layout" class="select w18">
+          <option value="2">Nimbus</option>
+          <option value="1">Boreas Eurus</option>
+          <option value="1a">Zephyrus</option>
+          <option value="BarebonesV">Bare Bones V</option>
+          <option value="BarebonesH">Bare Bones H</option>
+        </select>
       </div>
       <div class="block">
         <div class="group fill">
-          <div class="group compact fill">
-            <label for="scale" class="label"
-              >Scale<br /><small>{{ widget.scale ? '&deg;F' : '&deg;C' }}</small></label
-            >
-            <ToggleField v-model="widget.scale" tag-id="scale"></ToggleField>
+          <div class="label mra">Numbers</div>
+          <div class="group compact">
+            <label for="scale" class="desc">Scale</label>
+            <select id="scale" v-model="widget.scale" name="scale" class="select w14">
+              <option :value="true">Fahrenheit - &deg;F</option>
+              <option :value="false">Celsius - &deg;C</option>
+            </select>
           </div>
-          <div class="group compact fill">
-            <label for="unit" class="label"
-              >Units<br /><small>{{ widget.unit ? 'Imperial' : 'Metric' }}</small></label
-            >
-            <ToggleField v-model="widget.unit" tag-id="unit"></ToggleField>
+          <div class="group compact">
+            <label for="unit" class="desc">Units</label>
+            <select id="unit" v-model="widget.unit" name="unit" class="select w10">
+              <option :value="true">Imperial</option>
+              <option :value="false">Metric</option>
+            </select>
           </div>
-          <div class="group compact fill">
-            <label for="precise" class="label">Precise</label>
-            <ToggleField v-model="widget.precise" tag-id="precise"></ToggleField>
+        </div>
+        <div class="group fill">
+          <div class="group compact mla">
+            <label for="roundDecimals" class="desc">Round decimals</label>
+            <ToggleField v-model="widget.roundDecimals" tag-id="roundDecimals"></ToggleField>
           </div>
-          <div class="group compact fill">
-            <label for="tf" class="label">24 hour</label>
+          <div class="group compact">
+            <label for="tf" class="desc">24 hour times</label>
             <ToggleField v-model="widget.twentyFour" tag-id="tf"></ToggleField>
           </div>
         </div>
@@ -231,8 +212,157 @@ const refreshWeather = async () => {
         <div class="group fill">
           <label for="currentOn" class="label mra">Current weather</label>
           <div class="group compact">
-            <div class="desc">Enable</div>
             <ToggleField v-model="widget.current.on" tag-id="currentOn"></ToggleField>
+          </div>
+        </div>
+      </div>
+      <div v-if="widget.current.on" class="block">
+        <div class="group fill">
+          <div class="label mra">Temperature</div>
+          <div class="group compact">
+            <label for="currentTemp" class="desc">Currently</label>
+            <ToggleField v-model="widget.current.temperature.currently" tag-id="currentTemp"></ToggleField>
+            <ColorField
+              v-if="widget.overrideColors && widget.current.temperature.currently"
+              v-model="widget.current.temperature.currentlyColor"
+              tag-id="ccl"
+              aria-label="Currently color"
+              title="Currently color"
+              class="w6"
+            ></ColorField>
+          </div>
+        </div>
+        <div class="group fill">
+          <div class="group compact mla">
+            <label for="currentFeelsLike" class="desc">Feels like</label>
+            <ToggleField v-model="widget.current.temperature.feelsLike" tag-id="currentFeelsLike"></ToggleField>
+            <ColorField
+              v-if="widget.overrideColors && widget.current.temperature.feelsLike"
+              v-model="widget.current.temperature.feelsLikeColor"
+              tag-id="flc"
+              aria-label="Feels like color"
+              title="Feels like color"
+              class="w6"
+            ></ColorField>
+          </div>
+        </div>
+        <div class="group fill">
+          <div class="group compact mla">
+            <label for="currentDegSym" class="desc mla">Degree symbol</label>
+            <ToggleField v-model="widget.current.temperature.degree" tag-id="currentDegSym"></ToggleField>
+          </div>
+        </div>
+      </div>
+      <div v-if="widget.current.on" class="block">
+        <div class="label">Statistics</div>
+        <div class="group mla">
+          <div class="group compact">
+            <label for="currentCondition" class="desc">Condition</label>
+            <ToggleField v-model="widget.current.condition.on" tag-id="currentCondition"></ToggleField>
+            <ColorField
+              v-if="widget.overrideColors && widget.current.condition.on"
+              v-model="widget.current.condition.color"
+              tag-id="currentConditionColor"
+              class="w6"
+              aria-label="Condition color"
+              title="Condition color"
+            ></ColorField>
+          </div>
+        </div>
+        <div class="group fill">
+          <div class="group compact mla">
+            <label for="currentHum" class="desc">Humidity</label>
+            <ToggleField v-model="widget.current.humidity.on" tag-id="currentHum"></ToggleField>
+            <ColorField
+              v-if="widget.overrideColors && widget.current.humidity.on"
+              v-model="widget.current.humidity.color"
+              tag-id="currentHumidityColor"
+              class="w6"
+              aria-label="Humidity color"
+              title="Humidity color"
+            ></ColorField>
+          </div>
+        </div>
+        <div class="group fill">
+          <div class="group compact mla">
+            <label for="currentPre" class="desc">Pressure</label>
+            <ToggleField v-model="widget.current.pressure.on" tag-id="currentPre"></ToggleField>
+            <ColorField
+              v-if="widget.overrideColors && widget.current.pressure.on"
+              v-model="widget.current.pressure.color"
+              tag-id="currentPressureColor"
+              class="w6"
+              aria-label="Pressure color"
+              title="Pressure color"
+            ></ColorField>
+          </div>
+        </div>
+        <div class="group fill">
+          <div class="group compact mla">
+            <label for="currentWind" class="desc">Wind</label>
+            <ToggleField v-model="widget.current.wind.on" tag-id="currentWind"></ToggleField>
+            <select
+              v-if="widget.current.wind.on"
+              id="windUnit"
+              v-model="widget.windUnit"
+              name="windUnit"
+              class="select w7"
+              aria-label="Wind unit"
+              title="Wind unit"
+            >
+              <option :value="true">{{ widget.unit ? 'mph' : 'kph' }}</option>
+              <option :value="false">{{ widget.unit ? 'ft/s' : 'm/s' }}</option>
+            </select>
+            <ColorField
+              v-if="widget.overrideColors && widget.current.wind.on"
+              v-model="widget.current.wind.color"
+              tag-id="currentWindColor"
+              class="w6"
+              aria-label="Wind color"
+              title="Wind color"
+            ></ColorField>
+          </div>
+        </div>
+        <div class="group fill">
+          <div class="group compact mla">
+            <label for="currentSunrise" class="desc">Sunrise</label>
+            <ToggleField v-model="widget.current.astro.sunrise" tag-id="currentSunrise"></ToggleField>
+            <ColorField
+              v-if="widget.overrideColors && widget.current.astro.sunrise"
+              v-model="widget.current.astro.sunriseColor"
+              tag-id="currentSunriseColor"
+              class="w6"
+              aria-label="Sunrise color"
+              title="Sunrise color"
+            ></ColorField>
+          </div>
+        </div>
+        <div class="group fill">
+          <div class="group compact mla">
+            <label for="currentSunset" class="desc">Sunset</label>
+            <ToggleField v-model="widget.current.astro.sunset" tag-id="currentSunset"></ToggleField>
+            <ColorField
+              v-if="widget.overrideColors && widget.current.astro.sunset"
+              v-model="widget.current.astro.sunsetColor"
+              tag-id="currentSunsetColor"
+              class="w6"
+              aria-label="Sunset color"
+              title="Sunset color"
+            ></ColorField>
+          </div>
+        </div>
+        <div class="group fill">
+          <div class="group compact mla">
+            <label for="currentMoon" class="desc">Moon phase</label>
+            <ToggleField v-model="widget.current.astro.moonPhase" tag-id="currentMoon"></ToggleField>
+            <ColorField
+              v-if="widget.overrideColors && widget.current.astro.moonPhase"
+              v-model="widget.current.astro.moonPhaseColor"
+              tag-id="currentMoonColor"
+              class="w6"
+              aria-label="Moon phase color"
+              title="Moon phase color"
+            ></ColorField>
           </div>
         </div>
       </div>
@@ -240,26 +370,15 @@ const refreshWeather = async () => {
         <div class="group fill">
           <div class="label mra">Icon</div>
           <div class="group compact">
-            <label for="currentIcon" class="desc">Enable</label>
+            <label for="currentIcon" class="desc" aria-label="Enable icon">Enable</label>
             <ToggleField v-model="widget.current.icon.on" tag-id="currentIcon"></ToggleField>
           </div>
           <div v-if="widget.current.icon.on" class="group compact">
-            <label for="currentIconSz" class="desc">Size</label>
-            <NumberField
-              v-model="widget.current.icon.size"
-              tag-id="currentIconSz"
-              aria-label="Icon size"
-              title="Icon size"
-              :min="1"
-              class="w8"
-            ></NumberField>
-          </div>
-          <div class="group compact">
             <label for="currentIconAnimated" class="desc">Animated</label>
             <ToggleField v-model="widget.current.icon.animated" tag-id="currentIconAnimated"></ToggleField>
           </div>
         </div>
-        <div class="group fill">
+        <div v-if="widget.current.icon.on" class="group compact fill">
           <div class="group stack fill">
             <label for="colorSun" class="desc">Sun</label>
             <ColorField v-model="widget.current.icon.colors.sun" tag-id="colorSun"></ColorField>
@@ -290,78 +409,12 @@ const refreshWeather = async () => {
           </div>
         </div>
       </div>
-      <div v-if="widget.current.on" class="block">
-        <div class="group fill">
-          <div class="label mra">Temperature</div>
-          <div class="group compact">
-            <label for="currentTemp" class="desc">Current</label>
-            <ToggleField v-model="widget.current.temperature.currently" tag-id="currentTemp"></ToggleField>
-          </div>
-          <div class="group compact">
-            <label for="currentFeelsLike" class="desc">Feels like</label>
-            <ToggleField v-model="widget.current.temperature.feelsLike" tag-id="currentFeelsLike"></ToggleField>
-          </div>
-          <div class="group compact">
-            <label for="currentDegSym" class="desc">Symbol</label>
-            <ToggleField v-model="widget.current.temperature.degree" tag-id="currentDegSym"></ToggleField>
-          </div>
-        </div>
-      </div>
-      <div v-if="widget.current.on" class="block">
-        <div class="group fill">
-          <div class="label mra">Statistics</div>
-          <div class="group compact">
-            <label for="currentCondition" class="desc">Condition</label>
-            <ToggleField v-model="widget.current.condition" tag-id="currentCondition"></ToggleField>
-          </div>
-          <div class="group compact">
-            <label for="currentHum" class="desc">Humidity</label>
-            <ToggleField v-model="widget.current.humidity.on" tag-id="currentHum"></ToggleField>
-          </div>
-          <div class="group compact">
-            <label for="currentPre" class="desc">Pressure</label>
-            <ToggleField v-model="widget.current.pressure.on" tag-id="currentPre"></ToggleField>
-          </div>
-        </div>
-        <div class="group fill">
-          <div class="group compact mla">
-            <label for="currentWind" class="desc">Wind</label>
-            <ToggleField v-model="widget.current.wind.on" tag-id="currentWind"></ToggleField>
-          </div>
-          <div v-if="widget.current.wind.on" class="group compact">
-            <label for="windunit" class="desc"
-              >Wind unit<br /><small>{{
-                widget.windUnit ? (widget.unit ? 'mph' : 'kph') : widget.unit ? 'ft/s' : 'm/s'
-              }}</small></label
-            >
-            <ToggleField v-model="widget.windUnit" tag-id="windunit"></ToggleField>
-          </div>
-        </div>
-      </div>
-      <div v-if="widget.current.on" class="block">
-        <div class="group fill">
-          <div class="label mra">Astrology</div>
-          <div class="group compact">
-            <label for="currentSunrise" class="desc">Sunrise</label>
-            <ToggleField v-model="widget.current.astro.sunrise" tag-id="currentSunrise"></ToggleField>
-          </div>
-          <div class="group compact">
-            <label for="currentSunset" class="desc">Sunset</label>
-            <ToggleField v-model="widget.current.astro.sunset" tag-id="currentSunset"></ToggleField>
-          </div>
-          <div class="group compact">
-            <label for="currentMoon" class="desc">Moon phase</label>
-            <ToggleField v-model="widget.current.astro.moonPhase" tag-id="currentMoon"></ToggleField>
-          </div>
-        </div>
-      </div>
     </div>
     <h3 class="subtitle">Forecast weather</h3>
     <div class="blockContainer">
       <div class="block">
         <label for="forecastOn" class="label mra">Forecast weather</label>
         <div class="group compact">
-          <div class="desc">Enable</div>
           <ToggleField v-model="widget.forecast.on" tag-id="forecastOn"></ToggleField>
         </div>
       </div>
@@ -379,22 +432,52 @@ const refreshWeather = async () => {
               max="5"
             />
           </div>
-          <div class="group compact">
+        </div>
+        <div class="group fill">
+          <div class="group compact mla">
             <label for="forecastHideToday" class="desc">Hide today</label>
             <ToggleField v-model="widget.forecast.hideToday" tag-id="forecastHideToday"></ToggleField>
+          </div>
+          <div class="group compact">
+            <label for="forecastDayName" class="desc">Show date</label>
+            <ToggleField v-model="widget.forecast.day.on" tag-id="forecastDayName"></ToggleField>
           </div>
         </div>
       </div>
       <div v-if="widget.forecast.on" class="block">
-        <div class="label mra">Display</div>
-        <div class="group">
+        <div class="group fill">
+          <div class="label mra">Temperature</div>
           <div class="group compact">
-            <label for="forecastHoriz" class="desc">Horizontal display</label>
-            <ToggleField v-model="widget.forecast.horizontal" tag-id="forecastHoriz"></ToggleField>
+            <label for="forecastHigh" class="desc">High</label>
+            <ToggleField v-model="widget.forecast.temperature.high" tag-id="forecastHigh"></ToggleField>
+            <ColorField
+              v-if="widget.overrideColors && widget.forecast.temperature.high"
+              v-model="widget.forecast.temperature.highColor"
+              tag-id="forecastHighColor"
+              class="w6"
+              aria-label="High temperature color"
+              title="High temperature color"
+            ></ColorField>
           </div>
-          <div class="group compact">
-            <label for="forecastDayName" class="desc">Day Name</label>
-            <ToggleField v-model="widget.forecast.day.on" tag-id="forecastDayName"></ToggleField>
+        </div>
+        <div class="group fill">
+          <div class="group compact mla">
+            <label for="forecastLow" class="desc">Low</label>
+            <ToggleField v-model="widget.forecast.temperature.low" tag-id="forecastLow"></ToggleField>
+            <ColorField
+              v-if="widget.overrideColors && widget.forecast.temperature.low"
+              v-model="widget.forecast.temperature.lowColor"
+              tag-id="forecastLowColor"
+              class="w6"
+              aria-label="Low temperature color"
+              title="Low temperature color"
+            ></ColorField>
+          </div>
+        </div>
+        <div class="group fill">
+          <div class="group compact mla">
+            <label for="forecastDegSym" class="desc">Degree Symbol</label>
+            <ToggleField v-model="widget.forecast.temperature.degree" tag-id="forecastDegSym"></ToggleField>
           </div>
         </div>
       </div>
@@ -405,24 +488,12 @@ const refreshWeather = async () => {
             <label for="forecastIcon" class="desc">Enable</label>
             <ToggleField v-model="widget.forecast.icon.on" tag-id="forecastIcon"></ToggleField>
           </div>
-          <div class="group compact">
-            <label for="forecastIconSz" class="desc">Size</label>
-            <NumberField
-              v-if="widget.forecast.icon.on"
-              v-model="widget.forecast.icon.size"
-              tag-id="forecastIconSz"
-              aria-label="Icon size"
-              title="Icon size"
-              :min="1"
-              class="w8"
-            ></NumberField>
-          </div>
-          <div class="group compact">
+          <div v-if="widget.forecast.icon.on" class="group compact">
             <label for="forecastIconAnimated" class="desc">Animated</label>
             <ToggleField v-model="widget.forecast.icon.animated" tag-id="forecastIconAnimated"></ToggleField>
           </div>
         </div>
-        <div class="group fill">
+        <div v-if="widget.forecast.icon.on" class="group fill">
           <div class="group stack fill">
             <label for="fcolorSun" class="desc">Sun</label>
             <ColorField v-model="widget.forecast.icon.colors.sun" tag-id="fcolorSun"></ColorField>
@@ -450,23 +521,6 @@ const refreshWeather = async () => {
           <div class="group stack fill">
             <label for="fcolorOutline" class="desc">Outline</label>
             <ColorField v-model="widget.forecast.icon.colors.stroke" tag-id="fcolorOutline"></ColorField>
-          </div>
-        </div>
-      </div>
-      <div v-if="widget.forecast.on" class="block">
-        <div class="label mra">Temperature</div>
-        <div class="group">
-          <div class="group compact">
-            <label for="forecastHigh" class="desc">High</label>
-            <ToggleField v-model="widget.forecast.temperature.high" tag-id="forecastHigh"></ToggleField>
-          </div>
-          <div class="group compact">
-            <label for="forecastLow" class="desc">Low</label>
-            <ToggleField v-model="widget.forecast.temperature.low" tag-id="forecastLow"></ToggleField>
-          </div>
-          <div class="group compact">
-            <label for="forecastDegSym" class="desc">Symbol</label>
-            <ToggleField v-model="widget.forecast.temperature.degree" tag-id="forecastDegSym"></ToggleField>
           </div>
         </div>
       </div>

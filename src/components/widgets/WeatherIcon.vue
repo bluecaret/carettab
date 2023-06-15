@@ -7,7 +7,6 @@ import { hsl } from '@/helpers/widgets.js'
 const props = defineProps({
   day: Number,
   code: Number,
-  size: Number,
   colors: Object,
   animated: Boolean,
 })

@@ -51,7 +51,7 @@ const updateWeather = async () => {
 }
 
 const round = (num) => {
-  return props.widget.precise ? num : Math.round(num)
+  return props.widget.roundDecimals ? Math.round(num) : num
 }
 
 const getWind = (wind) => {
@@ -100,7 +100,6 @@ const getWindText = computed(() => {
 
 const checkIfDetailsIsEnabled = computed(() => {
   return (
-    props.widget.current.temperature.feelsLike ||
     props.widget.current.humidity.on ||
     props.widget.current.wind.on ||
     props.widget.current.pressure.on ||
@@ -143,6 +142,90 @@ const currentTempFeelsStyle = () => {
     color: hsl(
       props.widget.overrideColors
         ? current.value.temperature.feelsLikeColor
+        : props.widget.base.font.override
+        ? props.widget.base.font.color
+        : store.config.global.font.color
+    ),
+  }
+}
+
+const currentConditionStyle = () => {
+  return {
+    color: hsl(
+      props.widget.overrideColors
+        ? current.value.condition.color
+        : props.widget.base.font.override
+        ? props.widget.base.font.color
+        : store.config.global.font.color
+    ),
+  }
+}
+
+const currentWindStyle = () => {
+  return {
+    color: hsl(
+      props.widget.overrideColors
+        ? current.value.wind.color
+        : props.widget.base.font.override
+        ? props.widget.base.font.color
+        : store.config.global.font.color
+    ),
+  }
+}
+
+const currentHumidityStyle = () => {
+  return {
+    color: hsl(
+      props.widget.overrideColors
+        ? current.value.humidity.color
+        : props.widget.base.font.override
+        ? props.widget.base.font.color
+        : store.config.global.font.color
+    ),
+  }
+}
+
+const currentPressureStyle = () => {
+  return {
+    color: hsl(
+      props.widget.overrideColors
+        ? current.value.pressure.color
+        : props.widget.base.font.override
+        ? props.widget.base.font.color
+        : store.config.global.font.color
+    ),
+  }
+}
+
+const currentMoonPhaseStyle = () => {
+  return {
+    color: hsl(
+      props.widget.overrideColors
+        ? current.value.astro.moonPhaseColor
+        : props.widget.base.font.override
+        ? props.widget.base.font.color
+        : store.config.global.font.color
+    ),
+  }
+}
+
+const currentSunriseStyle = () => {
+  return {
+    color: hsl(
+      props.widget.overrideColors
+        ? current.value.astro.sunriseColor
+        : props.widget.base.font.override
+        ? props.widget.base.font.color
+        : store.config.global.font.color
+    ),
+  }
+}
+
+const currentSunsetStyle = () => {
+  return {
+    color: hsl(
+      props.widget.overrideColors
+        ? current.value.astro.sunsetColor
         : props.widget.base.font.override
         ? props.widget.base.font.color
         : store.config.global.font.color
@@ -196,12 +279,114 @@ const forecastTempLowStyle = () => {
     <FontLink v-if="props.widget.base.font.override" :widget="props.widget"></FontLink>
     <div class="widgetInner">
       <!-- 
+        Layout Barebones
+       -->
+      <div
+        v-if="(props.widget.layout === 'BarebonesV' || props.widget.layout === 'BarebonesH') && weatherData"
+        class="weatherContainer"
+        :class="`layout${props.widget.layout}`"
+      >
+        <WeatherIcon
+          v-if="current.on && current.icon.on"
+          class="icon"
+          :day="weatherData.current.is_day"
+          :code="weatherData.current.condition.code"
+          :colors="current.icon.colors"
+          :animated="current.icon.animated"
+        />
+        <div v-if="props.widget.label.on" class="location" :style="locationNameStyle()">
+          {{ widget.location.name }}
+        </div>
+        <div v-if="current.condition.on" class="condition" :style="currentConditionStyle()">
+          {{ weatherData.current.condition.text }}
+        </div>
+        <div v-if="current.temperature.currently" class="currently" :style="currentTempDegStyle()">
+          {{ getCurrently }}
+        </div>
+        <div v-if="current.temperature.feelsLike" class="feelsLike" :style="currentTempFeelsStyle()">
+          Feels like
+          {{ getFeelsLike }}
+        </div>
+        <div
+          v-if="current.wind.on"
+          class="wind"
+          :title="`Wind is currently blowing at ${getWindText} from the ${weatherData.current.wind_dir} (${weatherData.current.wind_degree}°).`"
+          :style="currentWindStyle()"
+        >
+          <WeatherAuxIcon :icon="'wind' + weatherData.current.wind_degree" />
+          {{ getWindText }}
+        </div>
+        <div v-if="current.humidity.on" class="humidity" :style="currentHumidityStyle()">
+          <WeatherAuxIcon icon="humidity" />
+          {{ round(weatherData.current.humidity) }}%
+        </div>
+        <div v-if="current.pressure.on" class="pressure" :style="currentPressureStyle()">
+          <WeatherAuxIcon icon="barometer" />
+          {{
+            props.widget.unit
+              ? round(weatherData.current.pressure_in) + ' in'
+              : round(weatherData.current.pressure_mb) + ' mb'
+          }}
+        </div>
+        <div v-if="current.astro.sunrise" class="sunrise" :style="currentSunriseStyle()">
+          <WeatherAuxIcon icon="sunrise" />
+          {{
+            DateTime.fromFormat(weatherData.forecast.forecastday[0].astro.sunrise, 'hh:mm a').toFormat(
+              props.widget.twentyFour ? 'HH:mm' : 'h:mm a'
+            )
+          }}
+        </div>
+        <div v-if="current.astro.sunset" class="sunset" :style="currentSunsetStyle()">
+          <WeatherAuxIcon icon="sunset" />
+          {{
+            DateTime.fromFormat(weatherData.forecast.forecastday[0].astro.sunset, 'hh:mm a').toFormat(
+              props.widget.twentyFour ? 'HH:mm' : 'h:mm a'
+            )
+          }}
+        </div>
+        <div v-if="current.astro.moonPhase" class="moon" :style="currentMoonPhaseStyle()">
+          <WeatherAuxIcon :icon="weatherData.forecast.forecastday[0].astro.moon_phase" />
+          {{ weatherData.forecast.forecastday[0].astro.moon_phase }}
+        </div>
+        <ul
+          v-if="
+            forecast.on &&
+            (forecast.icon.on || forecast.day.on || forecast.temperature.high || forecast.temperature.low)
+          "
+          class="forecast"
+        >
+          <template v-for="(day, index) in weatherData.forecast.forecastday.slice(0, forecast.days)">
+            <li v-if="!forecast.hideToday || (forecast.hideToday && index !== 0)" :key="index" class="day">
+              <WeatherIcon
+                v-if="forecast.icon.on"
+                class="icon"
+                :day="1"
+                :code="day.day.condition.code"
+                :colors="forecast.icon.colors"
+                :animated="forecast.icon.animated"
+              />
+              <div v-if="forecast.day.on" class="date" :style="forecastDateStyle()">
+                {{ index === 0 ? 'Today' : DateTime.fromFormat(day.date, 'yyyy-MM-dd').toFormat('ccc') }}
+              </div>
+              <div v-if="forecast.temperature.high" class="high" :style="forecastTempHighStyle()">
+                {{ props.widget.scale ? round(day.day.maxtemp_f) : round(day.day.maxtemp_c)
+                }}{{ forecast.temperature.degree ? '°' : '' }}
+              </div>
+              <div v-if="forecast.temperature.low" class="low" :style="forecastTempLowStyle()">
+                {{ props.widget.scale ? round(day.day.mintemp_f) : round(day.day.mintemp_c)
+                }}{{ forecast.temperature.degree ? '°' : '' }}
+              </div>
+            </li>
+          </template>
+        </ul>
+      </div>
+      <!-- 
         Layout 1
        -->
       <div
         v-if="(props.widget.layout === '1' || props.widget.layout === '1a') && weatherData"
         class="weatherContainer"
-        :class="`layout${props.widget.layout}`"
+        :class="`layout${props.widget.layout} ${!current.icon.on ? 'noIcon' : ''}`"
       >
         <div v-if="current.on || props.widget.label.on" class="current">
           <WeatherIcon
@@ -209,7 +394,6 @@ const forecastTempLowStyle = () => {
             class="icon"
             :day="weatherData.current.is_day"
             :code="weatherData.current.condition.code"
-            :size="current.icon.size"
             :colors="current.icon.colors"
             :animated="current.icon.animated"
           />
@@ -220,11 +404,14 @@ const forecastTempLowStyle = () => {
             <div v-if="current.temperature.currently" class="currently" :style="currentTempDegStyle()">
               {{ getCurrently }}
             </div>
-            <div v-if="current.condition" class="condition">
+            <div v-if="current.condition.on" class="condition" :style="currentConditionStyle()">
               {{ weatherData.current.condition.text }}
             </div>
           </div>
-          <div v-if="current.on" class="details">
+          <div
+            v-if="current.on && (checkIfDetailsIsEnabled || props.widget.current.temperature.feelsLike)"
+            class="details"
+          >
             <div>
               <div v-if="current.temperature.feelsLike" class="feelsLike" :style="currentTempFeelsStyle()">
                 Feels like
@@ -234,15 +421,16 @@ const forecastTempLowStyle = () => {
                 v-if="current.wind.on"
                 class="wind"
                 :title="`Wind is currently blowing at ${getWindText} from the ${weatherData.current.wind_dir} (${weatherData.current.wind_degree}°).`"
+                :style="currentWindStyle()"
               >
                 <WeatherAuxIcon :icon="'wind' + weatherData.current.wind_degree" />
                 {{ getWindText }}
               </div>
-              <div v-if="current.humidity.on" class="humidity">
+              <div v-if="current.humidity.on" class="humidity" :style="currentHumidityStyle()">
                 <WeatherAuxIcon icon="humidity" />
                 {{ round(weatherData.current.humidity) }}%
               </div>
-              <div v-if="current.pressure.on" class="pressure">
+              <div v-if="current.pressure.on" class="pressure" :style="currentPressureStyle()">
                 <WeatherAuxIcon icon="barometer" />
                 {{
                   props.widget.unit
@@ -252,7 +440,7 @@ const forecastTempLowStyle = () => {
               </div>
             </div>
             <div>
-              <div v-if="current.astro.sunrise" class="sunrise">
+              <div v-if="current.astro.sunrise" class="sunrise" :style="currentSunriseStyle()">
                 <WeatherAuxIcon icon="sunrise" />
                 {{
                   DateTime.fromFormat(weatherData.forecast.forecastday[0].astro.sunrise, 'hh:mm a').toFormat(
@@ -260,7 +448,7 @@ const forecastTempLowStyle = () => {
                   )
                 }}
               </div>
-              <div v-if="current.astro.sunset" class="sunset">
+              <div v-if="current.astro.sunset" class="sunset" :style="currentSunsetStyle()">
                 <WeatherAuxIcon icon="sunset" />
                 {{
                   DateTime.fromFormat(weatherData.forecast.forecastday[0].astro.sunset, 'hh:mm a').toFormat(
@@ -268,7 +456,7 @@ const forecastTempLowStyle = () => {
                   )
                 }}
               </div>
-              <div v-if="current.astro.moonPhase" class="moon">
+              <div v-if="current.astro.moonPhase" class="moon" :style="currentMoonPhaseStyle()">
                 <WeatherAuxIcon :icon="weatherData.forecast.forecastday[0].astro.moon_phase" />
                 {{ weatherData.forecast.forecastday[0].astro.moon_phase }}
               </div>
@@ -283,7 +471,6 @@ const forecastTempLowStyle = () => {
                 class="icon"
                 :day="1"
                 :code="day.day.condition.code"
-                :size="forecast.icon.size"
                 :colors="forecast.icon.colors"
                 :animated="forecast.icon.animated"
               />
@@ -309,33 +496,24 @@ const forecastTempLowStyle = () => {
        -->
       <div v-if="props.widget.layout === '2' && weatherData" class="weatherContainer layout2">
         <div v-if="current.on || props.widget.label.on" class="current">
-          <div v-if="props.widget.label.on" class="location">
-            <div class="locationName" :style="locationNameStyle()">
-              {{ widget.location.name }}
-            </div>
-            <div class="todayTemps">
-              {{
-                props.widget.scale
-                  ? round(weatherData.forecast.forecastday[0].day.maxtemp_f)
-                  : round(weatherData.forecast.forecastday[0].day.maxtemp_c)
-              }}{{ forecast.temperature.degree ? '°' : '' }} /
-              {{
-                props.widget.scale
-                  ? round(weatherData.forecast.forecastday[0].day.mintemp_f)
-                  : round(weatherData.forecast.forecastday[0].day.mintemp_c)
-              }}{{ forecast.temperature.degree ? '°' : '' }}
-            </div>
-          </div>
           <WeatherIcon
             v-if="current.on && current.icon.on"
             class="icon"
             :day="weatherData.current.is_day"
             :code="weatherData.current.condition.code"
-            :size="current.icon.size"
             :colors="current.icon.colors"
             :animated="current.icon.animated"
           />
-          <div v-if="current.on" class="tempWrapper">
+          <div v-if="props.widget.label.on" class="location">
+            <div class="locationName" :style="locationNameStyle()">
+              {{ widget.location.name }}
+            </div>
+          </div>
+          <div
+            v-if="current.on"
+            class="tempWrapper"
+            :class="{ noDegree: !current.temperature.degree, noCurrently: !current.temperature.currently }"
+          >
             <div v-if="current.temperature.currently" class="currently" :style="currentTempDegStyle()">
               {{ getCurrently }}
             </div>
@@ -344,24 +522,25 @@ const forecastTempLowStyle = () => {
               {{ getFeelsLike }}
             </div>
           </div>
-          <div v-if="current.condition" class="condition">
-            {{ weatherData.current.condition.text }} with patchy rain showers possibly.
+          <div v-if="current.condition.on" class="condition" :style="currentConditionStyle()">
+            {{ weatherData.current.condition.text }}
           </div>
           <div v-if="current.on && checkIfDetailsIsEnabled" class="details">
-            <div>
+            <div v-if="current.wind.on || current.humidity.on || current.pressure.on">
               <div
                 v-if="current.wind.on"
                 class="wind"
                 :title="`Wind is currently blowing at ${getWindText} from the ${weatherData.current.wind_dir} (${weatherData.current.wind_degree}°).`"
+                :style="currentWindStyle()"
               >
                 <WeatherAuxIcon :icon="'wind' + weatherData.current.wind_degree" />
                 {{ getWindText }}
               </div>
-              <div v-if="current.humidity.on" class="humidity">
+              <div v-if="current.humidity.on" class="humidity" :style="currentHumidityStyle()">
                 <WeatherAuxIcon icon="humidity" />
                 {{ round(weatherData.current.humidity) }}%
               </div>
-              <div v-if="current.pressure.on" class="pressure">
+              <div v-if="current.pressure.on" class="pressure" :style="currentPressureStyle()">
                 <WeatherAuxIcon icon="barometer" />
                 {{
                   props.widget.unit
@@ -370,8 +549,8 @@ const forecastTempLowStyle = () => {
                 }}
               </div>
             </div>
-            <div>
-              <div v-if="current.astro.sunrise" class="sunrise">
+            <div v-if="current.astro.sunrise || current.astro.moonPhase">
+              <div v-if="current.astro.sunrise" class="sunrise" :style="currentSunriseStyle()">
                 <WeatherAuxIcon icon="sunrise" />
                 {{
                   DateTime.fromFormat(weatherData.forecast.forecastday[0].astro.sunrise, 'hh:mm a').toFormat(
@@ -379,7 +558,7 @@ const forecastTempLowStyle = () => {
                   )
                 }}
               </div>
-              <div v-if="current.astro.sunset" class="sunset">
+              <div v-if="current.astro.sunset" class="sunset" :style="currentSunsetStyle()">
                 <WeatherAuxIcon icon="sunset" />
                 {{
                   DateTime.fromFormat(weatherData.forecast.forecastday[0].astro.sunset, 'hh:mm a').toFormat(
@@ -388,8 +567,8 @@ const forecastTempLowStyle = () => {
                 }}
               </div>
             </div>
-            <div>
-              <div v-if="current.astro.moonPhase" class="moon">
+            <div v-if="current.astro.moonPhase">
+              <div class="moon" :style="currentMoonPhaseStyle()">
                 <WeatherAuxIcon :icon="weatherData.forecast.forecastday[0].astro.moon_phase" />
                 {{ weatherData.forecast.forecastday[0].astro.moon_phase }}
               </div>
@@ -404,7 +583,6 @@ const forecastTempLowStyle = () => {
                 class="icon"
                 :day="1"
                 :code="day.day.condition.code"
-                :size="forecast.icon.size"
                 :colors="forecast.icon.colors"
                 :animated="forecast.icon.animated"
               />
@@ -448,6 +626,131 @@ const forecastTempLowStyle = () => {
 
 .currently {
   grid-area: currently;
+}
+
+.weatherContainer.layoutBarebonesV,
+.weatherContainer.layoutBarebonesH {
+  display: flex;
+  flex-direction: column;
+  justify-content: inherit;
+  align-items: inherit;
+  text-align: inherit;
+  gap: 0.2em;
+  .container-nw &,
+  .container-n &,
+  .container-ne & {
+    justify-content: start;
+  }
+  .container-w &,
+  .container-c &,
+  .container-e & {
+    justify-content: center;
+  }
+  .container-sw &,
+  .container-s &,
+  .container-se & {
+    justify-content: end;
+  }
+
+  .container-nw &,
+  .container-w &,
+  .container-sw & {
+    align-items: start;
+  }
+  .container-n &,
+  .container-c &,
+  .container-s & {
+    align-items: center;
+  }
+  .container-ne &,
+  .container-e &,
+  .container-se & {
+    align-items: end;
+  }
+
+  .icon {
+    width: 5em;
+  }
+  .wind,
+  .humidity,
+  .pressure,
+  .sunrise,
+  .sunset,
+  .moon {
+    display: flex;
+    justify-content: inherit;
+    align-items: inherit;
+    text-align: inherit;
+    gap: 0.2em;
+    .weatherAuxIcon {
+      width: 1.6em;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+    }
+  }
+  .forecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: inherit;
+    align-items: inherit;
+    text-align: inherit;
+    gap: 0.2em;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    .day {
+      display: flex;
+      flex-direction: column;
+      justify-content: inherit;
+      align-items: inherit;
+      text-align: inherit;
+      gap: 0.2em;
+    }
+  }
+}
+.weatherContainer.layoutBarebonesV {
+  flex-direction: row;
+  gap: 0.5em;
+  .container-nw &,
+  .container-n &,
+  .container-ne & {
+    align-items: start;
+  }
+  .container-w &,
+  .container-c &,
+  .container-e & {
+    align-items: center;
+  }
+  .container-sw &,
+  .container-s &,
+  .container-se & {
+    align-items: end;
+  }
+
+  .container-nw &,
+  .container-w &,
+  .container-sw & {
+    justify-content: start;
+  }
+  .container-n &,
+  .container-c &,
+  .container-s & {
+    justify-content: center;
+  }
+  .container-ne &,
+  .container-e &,
+  .container-se & {
+    justify-content: end;
+  }
+  .forecast {
+    flex-direction: row;
+    gap: 0.5em;
+    .day {
+      flex-direction: row;
+      gap: 0.5em;
+    }
+  }
 }
 
 .weatherContainer.layout1,
@@ -571,16 +874,22 @@ const forecastTempLowStyle = () => {
     }
   }
   .details {
-    margin-inline-start: 7.2em;
+    margin-inline-start: 7.1em;
     margin-block-start: 0.2em;
+  }
+  &.noIcon .condition,
+  &.noIcon .details,
+  &.noIcon .current .location,
+  &.noIcon .current .tempWrapper {
+    margin-inline-start: 0;
   }
 }
 .weatherContainer.layout2 {
-  width: 12em;
   .location {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-block-end: 0.3em;
   }
   .current {
     align-items: start;
@@ -598,7 +907,13 @@ const forecastTempLowStyle = () => {
     }
     .feelsLike {
       font-size: 0.8em;
-      margin-inline-start: -0.9em;
+      margin-inline-start: -1.1em;
+    }
+    .noDegree .feelsLike {
+      margin-inline-start: 0.4em;
+    }
+    .noCurrently .feelsLike {
+      margin-inline-start: 0;
     }
     .condition {
       margin-inline-start: 0;

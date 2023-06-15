@@ -213,21 +213,6 @@ export const useSettingsStore = defineStore('settings', () => {
       newWidget = new widgetClass()
 
       newWidget.id = newId
-      newWidget.base.font.color = [...config.global.font.color]
-      newWidget.base.font.family = config.global.font.family
-      newWidget.base.font.size = config.global.font.size
-      newWidget.base.font.bold = config.global.font.bold
-      newWidget.base.font.italic = config.global.font.italic
-      newWidget.base.font.underline = config.global.font.underline
-      newWidget.base.font.letterSpacing = config.global.font.letterSpacing
-      newWidget.base.font.shadow = [...config.global.font.shadow]
-      newWidget.base.font.transform = config.global.font.transform
-      newWidget.base.container.radius = config.global.container.radius
-      newWidget.base.container.borderSize = config.global.container.borderSize
-      newWidget.base.container.borderColor = [...config.global.container.borderColor]
-      newWidget.base.container.background = [...config.global.container.background]
-      newWidget.base.container.shadow = [...config.global.container.shadow]
-      newWidget.base.container.padding = config.global.container.padding
       createLayer(newId, type)
       config[widget.store].unshift(newWidget)
       save()

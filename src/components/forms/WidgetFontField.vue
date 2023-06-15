@@ -28,7 +28,18 @@ const updateFamily = (family) => {
     <div class="group fill">
       <label class="label mra">Font</label>
       <div v-if="!props.noOverride" class="group compact">
-        <label for="overrideGlobalFont" class="desc">Override global styles</label>
+        <label for="fontSize" class="desc"> Size </label>
+        <NumberField
+          v-model="widget.size"
+          tag-id="fontSize"
+          class="w8"
+          aria-label="Font size"
+          :increment="1"
+          :min="1"
+        ></NumberField>
+      </div>
+      <div v-if="!props.noOverride" class="group compact">
+        <label for="overrideGlobalFont" class="desc">Override global</label>
         <ToggleField v-model="widget.override" tag-id="overrideGlobalFont"> </ToggleField>
       </div>
     </div>
@@ -45,17 +56,6 @@ const updateFamily = (family) => {
           :selected="widget.family"
           @selected="(item) => updateFamily(item)"
         ></AutocompleteField>
-      </div>
-      <div class="group stack">
-        <label for="fontSize" class="desc"> Size </label>
-        <NumberField
-          v-model="widget.size"
-          tag-id="fontSize"
-          class="w12"
-          aria-label="Font size"
-          :increment="1"
-          :min="1"
-        ></NumberField>
       </div>
       <div class="group stack">
         <label for="widgetLetterSpacing" class="desc"> Letter spacing </label>

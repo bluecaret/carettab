@@ -23,7 +23,7 @@ const widget = reactive(widgetPrep.value)
     <div class="group fill">
       <label class="label mra">Container box</label>
       <div v-if="!props.noOverride" class="group compact">
-        <label for="overrideGlobalFont" class="desc">Override global styles</label>
+        <label for="overrideGlobalFont" class="desc">Override global</label>
         <ToggleField v-model="widget.override" tag-id="overrideGlobalFont"> </ToggleField>
       </div>
     </div>

@@ -52,7 +52,7 @@ const resetOverride = () => {
     <div class="group fill">
       <label class="label mra">Container box</label>
       <div v-if="!props.noOverride" class="group compact">
-        <label for="overrideGlobalFont" class="desc">Override global styles</label>
+        <label for="overrideGlobalFont" class="desc">Override global</label>
         <ToggleField
           tag-id="overrideGlobalFont"
           :model-value="props.override"

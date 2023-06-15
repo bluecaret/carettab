@@ -39,7 +39,7 @@ export const setWidgetContainerStyles = (widget, global) => {
   const font = widget.base.font.override ? widget.base.font : global.font
 
   // Font styles
-  const fontSize = `font-size: ${font.size}px; `
+  const fontSize = `font-size: ${widget.base.font.size}px; `
   const fontFamily = `font-family: "${font.family}"; `
   const fontWeight = `font-weight: ${font.bold}; `
   const color = `color: hsl(${font.color[0]}deg ${font.color[1]}% ${font.color[2]}% / ${font.color[3]}); `

@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { computed } from 'vue'
 import { hsl } from '@/helpers/widgets.js'
 // Icons by AM Charts
 // https://www.amcharts.com/free-animated-svg-weather-icons/
@@ -42,7 +42,7 @@ const codes = [
   { code: 1249, iconParts: ['sun-partial', 'cloud', 'sleet'] },
   { code: 1204, iconParts: ['cloud', 'sleet'] },
   { code: 1207, iconParts: ['cloud', 'cloud-small', 'sleet'] },
-  { code: 1252, iconParts: ['sun-partial', 'cloud', 'cloud-small'] },
+  { code: 1252, iconParts: ['sun-partial', 'cloud', 'sleet'] },
   { code: 1210, iconParts: ['sun-partial', 'cloud', 'snow-light'] },
   { code: 1066, iconParts: ['sun-partial', 'cloud', 'snow-light'] },
   { code: 1255, iconParts: ['sun-partial', 'cloud', 'snow-light'] },
@@ -62,7 +62,7 @@ const codes = [
   { code: 1087, iconParts: ['sun-partial', 'cloud', 'thunder'] },
 ]
 
-const code = ref(codes.find((obj) => obj.code === props.code).iconParts)
+const code = computed(() => codes.find((obj) => obj.code === props.code).iconParts)
 
 const setIconStyles = () => {
   return `
@@ -190,58 +190,71 @@ const setIconStyles = () => {
       </g>
     </g>
     <g v-if="code.includes('rain-light')" class="rain-light" :class="{ animated: props.animated }">
-      <g transform="translate(0,26), rotate(10)">
-        <line stroke-dasharray="4,7" stroke-linecap="round" stroke-width="2" transform="translate(0,0)" x1="0" x2="0" y1="0" y2="11" />
+      <g>
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="2" transform="translate(-15,28)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="2" transform="translate(-0,26)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="2" transform="translate(15,28)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
       </g>
     </g>
     <g v-if="code.includes('rain-moderate')" class="rain-moderate" :class="{ animated: props.animated }">
-      <g transform="translate(0,26), rotate(10)">
-        <line stroke-dasharray="4,7" stroke-linecap="round" stroke-width="2" transform="translate(-4,0)" x1="0" x2="0" y1="0" y2="11" />
-        <line stroke-dasharray="4,7" stroke-linecap="round" stroke-width="2" transform="translate(4,1)" x1="0" x2="0" y1="0" y2="11" />
+      <g>
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="2" transform="translate(-15,28)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="2" transform="translate(-5,26)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="2" transform="translate(5,28)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="2" transform="translate(15,26)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
       </g>
     </g>
     <g v-if="code.includes('rain-heavy')" class="rain-heavy" :class="{ animated: props.animated }">
-      <g transform="translate(0,26), rotate(10)">
-        <line stroke-dasharray="4,4" stroke-linecap="round" stroke-width="2" transform="translate(-8,1)" x1="0" x2="0" y1="0" y2="11" />
-        <line stroke-dasharray="4,4" stroke-linecap="round" stroke-width="2" transform="translate(0,-1)" x1="0" x2="0" y1="0" y2="11" />
-        <line stroke-dasharray="4,4" stroke-linecap="round" stroke-width="2" transform="translate(8,-1)" x1="0" x2="0" y1="0" y2="11" />
+      <g>
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="3" transform="translate(-15,28)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="3" transform="translate(-5,26)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="3" transform="translate(5,28)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="3" transform="translate(15,26)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
       </g>
     </g>
     <g v-if="code.includes('rain-downpour')" class="rain-downpour" :class="{ animated: props.animated }">
-      <g transform="translate(0,26), rotate(10)">
-        <line stroke-dasharray="4,4" stroke-linecap="round" stroke-width="2" transform="translate(-12,1)" x1="0" x2="0" y1="0" y2="11" />
-        <line stroke-dasharray="4,4" stroke-linecap="round" stroke-width="2" transform="translate(-6,-1)" x1="0" x2="0" y1="0" y2="11" />
-        <line stroke-dasharray="4,4" stroke-linecap="round" stroke-width="2" transform="translate(0,-1)" x1="0" x2="0" y1="0" y2="11" />
-        <line stroke-dasharray="4,4" stroke-linecap="round" stroke-width="2" transform="translate(6,-1)" x1="0" x2="0" y1="0" y2="11" />
-        <line stroke-dasharray="4,4" stroke-linecap="round" stroke-width="2" transform="translate(12,-1)" x1="0" x2="0" y1="0" y2="11" />
+      <g>
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="3" transform="translate(-20,26)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="3" transform="translate(-12,28)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="3" transform="translate(-4,26)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="3" transform="translate(4,28)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="3" transform="translate(12,26)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="3" transform="translate(20,28)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
       </g>
     </g>
     <g v-if="code.includes('rain-freezing')" class="rain-freezing" :class="{ animated: props.animated }">
-      <g transform="translate(0,26), rotate(10)">
-        <line stroke-dasharray="0.1,7" stroke-linecap="round" stroke-width="3" transform="translate(-8,1)" x1="0" x2="0" y1="0" y2="11" />
-        <line stroke-dasharray="0.1,7" stroke-linecap="round" stroke-width="3" transform="translate(0,-1)" x1="0" x2="0" y1="0" y2="11" />
-        <line stroke-dasharray="0.1,7" stroke-linecap="round" stroke-width="3" transform="translate(8,0)" x1="0" x2="0" y1="0" y2="11" />
+      <g>
+        <line stroke-dasharray="0.1,7" stroke-linecap="round" stroke-width="3" transform="translate(-15,26)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="0.1,7" stroke-linecap="round" stroke-width="3" transform="translate(-5,28)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="0.1,7" stroke-linecap="round" stroke-width="3" transform="translate(5,26)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="0.1,7" stroke-linecap="round" stroke-width="3" transform="translate(15,28)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
       </g>
     </g>
     <g v-if="code.includes('fog')" class="fog" :class="{ animated: props.animated }">
       <g transform="translate(20,31), rotate(90)">
-        <line stroke-dasharray="14,4" stroke-linecap="round" stroke-width="2" transform="translate(-4,1)" x1="0" x2="0" y1="0" y2="40" />
-        <line stroke-dasharray="20,4" stroke-linecap="round" stroke-width="2" transform="translate(0,-1)" x1="0" x2="0" y1="0" y2="40" />
-        <line stroke-dasharray="14,4" stroke-linecap="round" stroke-width="2" transform="translate(4,-1)" x1="0" x2="0" y1="0" y2="40" />
+        <line stroke-dasharray="14,4" stroke-linecap="round" stroke-width="2" transform="translate(-2,1)" x1="0" x2="0" y1="0" y2="40" />
+        <line stroke-dasharray="20,4" stroke-linecap="round" stroke-width="2" transform="translate(5,-1)" x1="0" x2="0" y1="0" y2="40" />
       </g>
     </g>
     <g v-if="code.includes('sleet')" class="sleet" :class="{ animated: props.animated }">
-      <g class="sleet-rain" transform="translate(0,26), rotate(10)">
-        <line stroke-dasharray="4,4" stroke-linecap="round" stroke-width="2" transform="translate(-8,1)" x1="0" x2="0" y1="0" y2="11" />
-        <line stroke-dasharray="4,4" stroke-linecap="round" stroke-width="2" transform="translate(0,-1)" x1="0" x2="0" y1="0" y2="11" />
+      <g class="sleet-rain">
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="3" transform="translate(-20,26)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="3" transform="translate(-12,28)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
+        <line stroke-dasharray="3,5" stroke-linecap="round" stroke-width="3" transform="translate(-4,26)rotate(10)" x1="0" x2="0" y1="0" y2="11" />
       </g>
       <g class="sleet-snow" transform="translate(10,18)">
         <g class="snow-g">
-          <g transform="translate(0,0)">
-            <line stroke-linecap="round" stroke-width="1.2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(45)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(90)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(135)" x1="0" x2="0" y1="-2.5" y2="2.5" />
+          <g transform="translate(-4,0)">
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(60)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(120)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+          </g>
+        </g>
+        <g class="snow-g">
+          <g transform="translate(8,0)">
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(60)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(120)" x1="0" x2="0" y1="-3.5" y2="3.5" />
           </g>
         </g>
       </g>
@@ -249,11 +262,17 @@ const setIconStyles = () => {
     <g v-if="code.includes('snow-light')" class="snow-light" :class="{ animated: props.animated }">
       <g transform="translate(0,18)">
         <g class="snow-g">
-          <g transform="translate(0,0)">
-            <line stroke-linecap="round" stroke-width="1.2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(45)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(90)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(135)" x1="0" x2="0" y1="-2.5" y2="2.5" />
+          <g transform="translate(-12,0)">
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(60)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(120)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+          </g>
+        </g>
+        <g class="snow-g">
+          <g transform="translate(12,0)">
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(60)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(120)" x1="0" x2="0" y1="-3.5" y2="3.5" />
           </g>
         </g>
       </g>
@@ -261,19 +280,24 @@ const setIconStyles = () => {
     <g v-if="code.includes('snow-moderate')" class="snow-moderate" :class="{ animated: props.animated }">
       <g transform="translate(0,18)">
         <g class="snow-g">
-          <g transform="translate(-8,0)">
-            <line stroke-linecap="round" stroke-width="1.2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(45)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(90)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(135)" x1="0" x2="0" y1="-2.5" y2="2.5" />
+          <g transform="translate(-14,0)">
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(60)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(120)" x1="0" x2="0" y1="-3.5" y2="3.5" />
           </g>
         </g>
         <g class="snow-g">
-          <g transform="translate(8,0)">
-            <line stroke-linecap="round" stroke-width="1.2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(45)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(90)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(135)" x1="0" x2="0" y1="-2.5" y2="2.5" />
+          <g transform="translate(0,0)">
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(60)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(120)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+          </g>
+        </g>
+        <g class="snow-g">
+          <g transform="translate(14,0)">
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(60)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(120)" x1="0" x2="0" y1="-3.5" y2="3.5" />
           </g>
         </g>
       </g>
@@ -281,27 +305,31 @@ const setIconStyles = () => {
     <g v-if="code.includes('snow-heavy')" class="snow-heavy" :class="{ animated: props.animated }">
       <g transform="translate(0,18)">
         <g class="snow-g">
-          <g transform="translate(-12,0)">
-            <line stroke-linecap="round" stroke-width="1.2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(45)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(90)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(135)" x1="0" x2="0" y1="-2.5" y2="2.5" />
+          <g transform="translate(-18,0)">
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(60)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(120)" x1="0" x2="0" y1="-3.5" y2="3.5" />
           </g>
         </g>
         <g class="snow-g">
-          <g transform="translate(0,0)">
-            <line stroke-linecap="round" stroke-width="1.2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(45)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(90)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(135)" x1="0" x2="0" y1="-2.5" y2="2.5" />
+          <g transform="translate(-6,0)">
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(60)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(120)" x1="0" x2="0" y1="-3.5" y2="3.5" />
           </g>
         </g>
         <g class="snow-g">
-          <g transform="translate(12,0)">
-            <line stroke-linecap="round" stroke-width="1.2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(45)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(90)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(135)" x1="0" x2="0" y1="-2.5" y2="2.5" />
+          <g transform="translate(6,0)">
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(60)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(120)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+          </g>
+        </g>
+        <g class="snow-g">
+          <g transform="translate(18,0)">
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(60)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(120)" x1="0" x2="0" y1="-3.5" y2="3.5" />
           </g>
         </g>
       </g>
@@ -309,50 +337,45 @@ const setIconStyles = () => {
     <g v-if="code.includes('snow-blizzard')" class="snow-blizzard" :class="{ animated: props.animated }">
       <g transform="translate(0,18)">
         <g class="snow-g">
-          <g transform="translate(-16,0)">
-            <line stroke-linecap="round" stroke-width="1.2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(45)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(90)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(135)" x1="0" x2="0" y1="-2.5" y2="2.5" />
+          <g transform="translate(-24,0)">
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(60)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(120)" x1="0" x2="0" y1="-3.5" y2="3.5" />
           </g>
         </g>
         <g class="snow-g">
-          <g transform="translate(-8,0)">
-            <line stroke-linecap="round" stroke-width="1.2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(45)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(90)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(135)" x1="0" x2="0" y1="-2.5" y2="2.5" />
+          <g transform="translate(-12,0)">
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(60)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(120)" x1="0" x2="0" y1="-3.5" y2="3.5" />
           </g>
         </g>
         <g class="snow-g">
           <g transform="translate(0,0)">
-            <line stroke-linecap="round" stroke-width="1.2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(45)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(90)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(135)" x1="0" x2="0" y1="-2.5" y2="2.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(60)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(120)" x1="0" x2="0" y1="-3.5" y2="3.5" />
           </g>
         </g>
         <g class="snow-g">
-          <g transform="translate(8,0)">
-            <line stroke-linecap="round" stroke-width="1.2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(45)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(90)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(135)" x1="0" x2="0" y1="-2.5" y2="2.5" />
+          <g transform="translate(12,0)">
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(60)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(120)" x1="0" x2="0" y1="-3.5" y2="3.5" />
           </g>
         </g>
         <g class="snow-g">
-          <g transform="translate(16,0)">
-            <line stroke-linecap="round" stroke-width="1.2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(45)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(90)" x1="0" x2="0" y1="-2.5" y2="2.5" />
-            <line stroke-linecap="round" stroke-width="1" transform="translate(0,9), rotate(135)" x1="0" x2="0" y1="-2.5" y2="2.5" />
+          <g transform="translate(24,0)">
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(0)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(60)" x1="0" x2="0" y1="-3.5" y2="3.5" />
+            <line stroke-linecap="round" stroke-width="2" transform="translate(0,9), rotate(120)" x1="0" x2="0" y1="-3.5" y2="3.5" />
           </g>
         </g>
       </g>
     </g>
     <g v-if="code.includes('thunder')" class="thunder" :class="{ animated: props.animated }">
-      <g transform="translate(-26,6)">
-        <g transform="scale(1.8)">
+      <g transform="translate(-38,3)">
+        <g transform="scale(2.4, 2)">
           <polygon stroke-width="1" points="14.3,-2.9 20.5,-2.9 16.4,4.3 20.3,4.3 11.5,14.6 14.9,6.9 11.1,6.9" />
         </g>
       </g>
@@ -511,7 +534,7 @@ const setIconStyles = () => {
     transform: translateX(0) translateY(0);
     opacity: 0;
   }
-  15% {
+  10% {
     opacity: 1;
   }
   33.33% {
@@ -519,6 +542,8 @@ const setIconStyles = () => {
   }
   66.66% {
     transform: translateX(1.6px) translateY(6px);
+  }
+  90% {
     opacity: 1;
   }
   100% {
@@ -674,9 +699,16 @@ const setIconStyles = () => {
   stroke: var(--stroke);
 }
 
-.rain-light.animated line {
+.rain-light.animated line:nth-child(1n) {
   animation-name: rain;
-  animation-duration: 8s;
+  animation-duration: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.rain-light.animated line:nth-child(2n) {
+  animation-name: rain;
+  animation-delay: 0.25s;
+  animation-duration: 12s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -685,16 +717,16 @@ const setIconStyles = () => {
   stroke: var(--rain);
 }
 
-.rain-moderate.animated line:nth-child(1) {
+.rain-moderate.animated line:nth-child(1n) {
   animation-name: rain;
-  animation-duration: 8s;
+  animation-duration: 10s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-.rain-moderate.animated line:nth-child(2) {
+.rain-moderate.animated line:nth-child(2n) {
   animation-name: rain;
   animation-delay: 0.25s;
-  animation-duration: 8s;
+  animation-duration: 10s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -703,14 +735,13 @@ const setIconStyles = () => {
   stroke: var(--rain);
 }
 
-.rain-heavy.animated line:nth-child(1),
-.rain-heavy.animated line:nth-child(3) {
+.rain-heavy.animated line:nth-child(1n) {
   animation-name: rain;
   animation-duration: 8s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-.rain-heavy.animated line:nth-child(2) {
+.rain-heavy.animated line:nth-child(2n) {
   animation-name: rain;
   animation-delay: 0.25s;
   animation-duration: 8s;
@@ -722,19 +753,16 @@ const setIconStyles = () => {
   stroke: var(--rain);
 }
 
-.rain-downpour.animated line:nth-child(1),
-.rain-downpour.animated line:nth-child(3),
-.rain-downpour.animated line:nth-child(5) {
+.rain-downpour.animated line:nth-child(1n) {
   animation-name: rain;
-  animation-duration: 8s;
+  animation-duration: 5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-.rain-downpour.animated line:nth-child(2),
-.rain-downpour.animated line:nth-child(4) {
+.rain-downpour.animated line:nth-child(2n) {
   animation-name: rain;
   animation-delay: 0.25s;
-  animation-duration: 8s;
+  animation-duration: 5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -743,17 +771,16 @@ const setIconStyles = () => {
   stroke: var(--rain);
 }
 
-.rain-freezing.animated line:nth-child(1),
-.rain-freezing.animated line:nth-child(3) {
+.rain-freezing.animated line:nth-child(1n) {
   animation-name: rain;
-  animation-duration: 8s;
+  animation-duration: 6s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-.rain-freezing.animated line:nth-child(2) {
+.rain-freezing.animated line:nth-child(2n) {
   animation-name: rain;
   animation-delay: 0.25s;
-  animation-duration: 8s;
+  animation-duration: 6s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -762,14 +789,13 @@ const setIconStyles = () => {
   stroke: var(--rain);
 }
 
-.fog.animated line:nth-child(1),
-.fog.animated line:nth-child(3) {
+.fog.animated line:nth-child(1n) {
   animation-name: fog;
   animation-duration: 30s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-.fog.animated line:nth-child(2) {
+.fog.animated line:nth-child(2n) {
   animation-name: fog;
   animation-delay: 0s;
   animation-duration: 20s;
@@ -781,25 +807,39 @@ const setIconStyles = () => {
   stroke: var(--cloud);
 }
 
-.sleet.animated .sleet-rain line:nth-child(1) {
+.sleet.animated .sleet-rain line:nth-child(1n) {
   animation-name: rain;
   animation-duration: 8s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-.sleet.animated .sleet-rain line:nth-child(2) {
+.sleet.animated .sleet-rain line:nth-child(2n) {
   animation-name: rain;
   animation-delay: 0.25s;
   animation-duration: 8s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-.sleet.animated .sleet-snow .snow-g {
-  animation-name: snow;
+.sleet.animated .sleet-snow .snow-g:nth-child(1n) {
+  animation-name: snow-reverse;
   animation-duration: 1s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   opacity: 0;
+}
+.sleet.animated .sleet-snow .snow-g:nth-child(2n) {
+  animation-name: snow;
+  animation-delay: 0.4s;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+.sleet:not(.animated) .sleet-snow .snow-g:nth-child(1n) {
+  transform: translateY(3%);
+}
+.sleet:not(.animated) .sleet-snow .snow-g:nth-child(2n) {
+  transform: translateY(9%);
 }
 .sleet .sleet-rain line {
   fill: none;
@@ -810,67 +850,112 @@ const setIconStyles = () => {
   stroke: var(--snow);
 }
 
-.snow-light.animated .snow-g {
+.snow-light.animated .snow-g:nth-child(1n) {
   animation-name: snow;
+  animation-delay: 0s;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   opacity: 0;
+}
+.snow-light.animated .snow-g:nth-child(2n) {
+  animation-name: snow-reverse;
+  animation-delay: 0.9s;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+.snow-light:not(.animated) .snow-g:nth-child(1n) {
+  transform: translateY(3%);
+}
+.snow-light:not(.animated) .snow-g:nth-child(2n) {
+  transform: translateY(9%);
 }
 .snow-light line {
   fill: none;
   stroke: var(--snow);
 }
 
-.snow-moderate.animated .snow-g:nth-child(1) {
+.snow-moderate.animated .snow-g:nth-child(1n) {
   animation-name: snow;
+  animation-delay: 0s;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   opacity: 0;
 }
-.snow-moderate.animated .snow-g:nth-child(2) {
-  animation-name: snow;
-  animation-delay: 1.2s;
+.snow-moderate.animated .snow-g:nth-child(2n) {
+  animation-name: snow-reverse;
+  animation-delay: 0.9s;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   opacity: 0;
+}
+.snow-moderate.animated .snow-g:nth-child(3n) {
+  animation-name: snow;
+  animation-delay: 0.3s;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+.snow-moderate:not(.animated) .snow-g:nth-child(1n) {
+  transform: translateY(3%);
+}
+.snow-moderate:not(.animated) .snow-g:nth-child(2n) {
+  transform: translateY(9%);
 }
 .snow-moderate line {
   fill: none;
   stroke: var(--snow);
 }
 
-.snow-heavy.animated .snow-g:nth-child(1) {
+.snow-heavy.animated .snow-g:nth-child(1n) {
   animation-name: snow;
-  animation-duration: 1.7s;
+  animation-delay: 0s;
+  animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   opacity: 0;
 }
-.snow-heavy.animated .snow-g:nth-child(2) {
-  animation-name: snow;
-  animation-delay: 0.8s;
-  animation-duration: 1.7s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  opacity: 0;
-}
-.snow-heavy.animated .snow-g:nth-child(3) {
+.snow-heavy.animated .snow-g:nth-child(2n) {
   animation-name: snow-reverse;
-  animation-delay: 0.4s;
-  animation-duration: 1.7s;
+  animation-delay: 0.9s;
+  animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   opacity: 0;
+}
+.snow-heavy.animated .snow-g:nth-child(3n) {
+  animation-name: snow;
+  animation-delay: 0.3s;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+.snow-heavy.animated .snow-g:nth-child(4n) {
+  animation-name: snow-reverse;
+  animation-delay: 1.2s;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+.snow-heavy:not(.animated) .snow-g:nth-child(1n) {
+  transform: translateY(3%);
+}
+.snow-heavy:not(.animated) .snow-g:nth-child(2n) {
+  transform: translateY(9%);
 }
 .snow-heavy line {
   fill: none;
   stroke: var(--snow);
 }
 
-.snow-blizzard.animated .snow-g:nth-child(1) {
+.snow-blizzard.animated .snow-g:nth-child(1n) {
   animation-name: snow;
   animation-delay: 0s;
   animation-duration: 1.4s;
@@ -878,7 +963,7 @@ const setIconStyles = () => {
   animation-iteration-count: infinite;
   opacity: 0;
 }
-.snow-blizzard.animated .snow-g:nth-child(2) {
+.snow-blizzard.animated .snow-g:nth-child(2n) {
   animation-name: snow-reverse;
   animation-delay: 0.9s;
   animation-duration: 1.4s;
@@ -886,7 +971,7 @@ const setIconStyles = () => {
   animation-iteration-count: infinite;
   opacity: 0;
 }
-.snow-blizzard.animated .snow-g:nth-child(3) {
+.snow-blizzard.animated .snow-g:nth-child(3n) {
   animation-name: snow;
   animation-delay: 0.3s;
   animation-duration: 1.4s;
@@ -894,7 +979,7 @@ const setIconStyles = () => {
   animation-iteration-count: infinite;
   opacity: 0;
 }
-.snow-blizzard.animated .snow-g:nth-child(4) {
+.snow-blizzard.animated .snow-g:nth-child(4n) {
   animation-name: snow-reverse;
   animation-delay: 1.2s;
   animation-duration: 1.4s;
@@ -902,13 +987,19 @@ const setIconStyles = () => {
   animation-iteration-count: infinite;
   opacity: 0;
 }
-.snow-blizzard.animated .snow-g:nth-child(5) {
+.snow-blizzard.animated .snow-g:nth-child(5n) {
   animation-name: snow;
   animation-delay: 0.6s;
   animation-duration: 1.4s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   opacity: 0;
+}
+.snow-blizzard:not(.animated) .snow-g:nth-child(1n) {
+  transform: translateY(3%);
+}
+.snow-blizzard:not(.animated) .snow-g:nth-child(2n) {
+  transform: translateY(9%);
 }
 .snow-blizzard line {
   fill: none;
@@ -920,6 +1011,9 @@ const setIconStyles = () => {
   animation-duration: 1.11s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+}
+.thunder:not(.animated) polygon {
+  transform: translate(0%, 6%);
 }
 .thunder polygon {
   fill: var(--thunder);

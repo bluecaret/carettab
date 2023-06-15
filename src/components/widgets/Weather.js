@@ -38,7 +38,7 @@ export class Weather {
         rain: [213, 87, 76, 1],
         snow: [211, 82, 64, 1],
         thunder: [39, 100, 50, 1],
-        stroke: [0, 0, 100, 1],
+        stroke: [0, 0, 100, 0],
       },
     },
     temperature: {
@@ -83,7 +83,7 @@ export class Weather {
         rain: [213, 87, 76, 1],
         snow: [211, 82, 64, 1],
         thunder: [39, 100, 50, 1],
-        stroke: [0, 0, 100, 1],
+        stroke: [0, 0, 100, 0],
       },
     },
     day: {

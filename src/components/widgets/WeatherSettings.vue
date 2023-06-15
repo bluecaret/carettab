@@ -403,10 +403,6 @@ const refreshWeather = async () => {
             <label for="colorThunder" class="desc">Thunder</label>
             <ColorField v-model="widget.current.icon.colors.thunder" tag-id="colorThunder"></ColorField>
           </div>
-          <div class="group stack fill">
-            <label for="colorOutline" class="desc">Outline</label>
-            <ColorField v-model="widget.current.icon.colors.stroke" tag-id="colorOutline"></ColorField>
-          </div>
         </div>
       </div>
     </div>
@@ -517,10 +513,6 @@ const refreshWeather = async () => {
           <div class="group stack fill">
             <label for="fcolorThunder" class="desc">Thunder</label>
             <ColorField v-model="widget.forecast.icon.colors.thunder" tag-id="fcolorThunder"></ColorField>
-          </div>
-          <div class="group stack fill">
-            <label for="fcolorOutline" class="desc">Outline</label>
-            <ColorField v-model="widget.forecast.icon.colors.stroke" tag-id="fcolorOutline"></ColorField>
           </div>
         </div>
       </div>

@@ -12,12 +12,12 @@ export class SearchBar {
   padding = 10
   size = 500
   borderSize = 1
-  borderBottom = true
+  borderBottom = false
   radius = 6
   overrideColors = false
   background = [0, 0, 100, 0]
   borderColor = [0, 0, 100, 1]
   boxShadow = [false, 1, 1, 5, 0, 0, 0, 0.8]
   label = 'Search the web...'
-  base = { ...baseWidgetStyles }
+  base = { ...baseWidgetStyles, font: { ...baseWidgetStyles.font, size: 20 } }
 }

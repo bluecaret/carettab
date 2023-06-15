@@ -68,9 +68,9 @@ const deleteLink = (id) => {
               <option value="ch">Classic horizontal</option>
               <option value="cv">Classic vertical</option>
               <option value="cg">Classic grid</option>
-              <option value="sh">Stacked horizontal</option>
-              <option value="sv">Stacked vertical</option>
-              <option value="sg">Stacked grid</option>
+              <option value="ih">Iconified horizontal</option>
+              <option value="iv">Iconified vertical</option>
+              <option value="ig">Iconified grid</option>
             </select>
           </div>
         </div>

@@ -22,11 +22,11 @@ export const baseWidgetStyles = {
   container: {
     alignment: 'c',
     override: false,
-    radius: 0,
+    radius: 8,
     borderSize: 0,
     borderColor: [0, 0, 100, 1],
     background: [0, 0, 10, 0],
     shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
-    padding: 0,
+    padding: 20,
   },
 }

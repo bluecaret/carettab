@@ -85,7 +85,7 @@ export const setWidgetSegmentStyles = (widget, type, lsUsesMargin = false) => {
   const letterSpacing = lsUsesMargin
     ? `margin-inline: ${segment.letterSpacing}px; `
     : `letter-spacing: ${segment.letterSpacing}px; `
-  const translate = `translate: ${segment.y * -1}px ${segment.x * -1}px; `
+  const translate = `translate: ${segment.x * -1}px ${segment.y * -1}px; `
   const color = `color: hsl(${segment.color[0]}deg ${segment.color[1]}% ${segment.color[2]}% / ${segment.color[3]}); `
   const textShadow = segment.shadow[0]
     ? `text-shadow: ${segment.shadow[1]}px ${segment.shadow[2]}px ${segment.shadow[3]}px hsl(${segment.shadow[4]}deg ${segment.shadow[5]}% ${segment.shadow[6]}% / ${segment.shadow[7]}); `

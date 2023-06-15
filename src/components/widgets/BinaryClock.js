@@ -4,7 +4,7 @@ export class BinaryClock {
   id = ''
   timezone = 'America/Los_Angeles'
   indicator = {
-    size: 30,
+    size: 50,
     dot: false,
     extras: false,
     seconds: true,
@@ -18,7 +18,7 @@ export class BinaryClock {
     minOffColor: [0, 0, 100, 0.5],
     secOnColor: [0, 0, 100, 1],
     secOffColor: [0, 0, 100, 0.5],
-    shadow: [true, 1, 1, 5, 0, 0, 0, 0.8],
+    shadow: [true, 1, 1, 5, 0, 0, 0, 1],
   }
   label = {
     label: 'Clock',
@@ -26,20 +26,20 @@ export class BinaryClock {
     override: false,
     color: [0, 0, 100, 1],
     shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
-    size: 20,
+    size: 30,
     letterSpacing: 0,
     x: 0,
-    y: 0,
+    y: -7,
   }
   relative = {
     on: false,
     override: false,
     color: [0, 0, 100, 1],
     shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
-    size: 20,
+    size: 30,
     letterSpacing: 0,
     x: 0,
-    y: 0,
+    y: -7,
   }
-  base = { ...baseWidgetStyles }
+  base = { ...baseWidgetStyles, font: { ...baseWidgetStyles.font, size: 30 } }
 }

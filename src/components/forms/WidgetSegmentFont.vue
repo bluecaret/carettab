@@ -1,10 +1,10 @@
 <script setup>
 const emit = defineEmits([
   'update:override',
-  'update:cl',
-  'update:ts',
-  'update:fs',
-  'update:ls',
+  'update:color',
+  'update:shadow',
+  'update:size',
+  'update:letterSpacing',
   'update:x',
   'update:y',
 ])
@@ -12,10 +12,10 @@ const props = defineProps({
   type: String,
   widget: Object,
   override: Boolean,
-  cl: Array,
-  ts: Array,
-  fs: Number,
-  ls: Number,
+  color: Array,
+  shadow: Array,
+  size: Number,
+  letterSpacing: Number,
   x: Number,
   y: Number,
 })
@@ -26,19 +26,19 @@ const handleOverrideUpdate = (bool) => {
 }
 
 const handleClUpdate = (arr) => {
-  emit('update:cl', arr)
+  emit('update:color', arr)
 }
 
 const handleTsUpdate = (arr) => {
-  emit('update:ts', arr)
+  emit('update:shadow', arr)
 }
 
 const handleFsUpdate = (num) => {
-  emit('update:fs', num)
+  emit('update:size', num)
 }
 
 const handleLsUpdate = (num) => {
-  emit('update:ls', num)
+  emit('update:letterSpacing', num)
 }
 
 const handleOxUpdate = (num) => {
@@ -50,12 +50,8 @@ const handleOyUpdate = (num) => {
 }
 
 const resetOverride = () => {
-  emit('update:cl', props.widget.base.font.color)
-  emit('update:ts', props.widget.base.font.shadow)
-  emit('update:fs', props.widget.base.font.size)
-  emit('update:ls', props.widget.base.font.letterSpacing)
-  emit('update:x', 0)
-  emit('update:y', 0)
+  emit('update:size', props.widget.base.font.size)
+  emit('update:letterSpacing', props.widget.base.font.letterSpacing)
 }
 </script>
 
@@ -77,21 +73,21 @@ const resetOverride = () => {
     </div>
     <div v-if="props.override" class="group fill">
       <div class="group stack w9">
-        <label :for="`${type}-offsetX`" class="desc"> Offset X </label>
-        <NumberField
-          :tag-id="`${type}-offsetX`"
-          :increment="1"
-          :model-value="props.x"
-          @update:model-value="handleOxUpdate"
-        ></NumberField>
-      </div>
-      <div class="group stack w9">
         <label :for="`${type}-offsetY`" class="desc"> Offset Y </label>
         <NumberField
           :tag-id="`${type}-offsetY`"
           :increment="1"
           :model-value="props.y"
           @update:model-value="handleOyUpdate"
+        ></NumberField>
+      </div>
+      <div class="group stack w9">
+        <label :for="`${type}-offsetX`" class="desc"> Offset X </label>
+        <NumberField
+          :tag-id="`${type}-offsetX`"
+          :increment="1"
+          :model-value="props.x"
+          @update:model-value="handleOxUpdate"
         ></NumberField>
       </div>
       <div class="group stack w9">

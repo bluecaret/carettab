@@ -109,5 +109,5 @@ export class DateWidget {
     x: 0,
     y: 0,
   }
-  base = { ...baseWidgetStyles }
+  base = { ...baseWidgetStyles, font: { ...baseWidgetStyles.font, size: 45 } }
 }

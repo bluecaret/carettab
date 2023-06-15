@@ -115,9 +115,9 @@ const getContainerSize = () => {
   ) {
     let size = 0
     Array.from(linkListEl.value.children).map((item) => {
-      if (['ch', 'sh'].includes(props.widget.layout)) {
+      if (['ch', 'ih'].includes(props.widget.layout)) {
         size = size + item.getBoundingClientRect().width
-      } else if (['cv', 'sv'].includes(props.widget.layout)) {
+      } else if (['cv', 'iv'].includes(props.widget.layout)) {
         size = size + item.getBoundingClientRect().height
       }
     })
@@ -134,15 +134,15 @@ const organizeLinks = () => {
     getContainerSize()
 
     // If grid, don't use the "more bookmarks" menu
-    if (['cg', 'sg'].includes(props.widget.layout)) {
+    if (['cg', 'ig'].includes(props.widget.layout)) {
       showMore.value = false
       return
     }
 
-    if (['ch', 'sh'].includes(props.widget.layout)) {
+    if (['ch', 'ih'].includes(props.widget.layout)) {
       availableSpace.value =
         linkListEl.value.getBoundingClientRect().width - moreButtonEl.value.getBoundingClientRect().width
-    } else if (['cv', 'sv'].includes(props.widget.layout)) {
+    } else if (['cv', 'iv'].includes(props.widget.layout)) {
       availableSpace.value =
         linkListEl.value.getBoundingClientRect().height - moreButtonEl.value.getBoundingClientRect().height
     }
@@ -150,9 +150,9 @@ const organizeLinks = () => {
       let size = 0
       let index = 0
       Array.from(linkListEl.value.children).map((item) => {
-        if (['ch', 'sh'].includes(props.widget.layout)) {
+        if (['ch', 'ih'].includes(props.widget.layout)) {
           size = size + item.getBoundingClientRect().width + props.widget.link.margin
-        } else if (['cv', 'sv'].includes(props.widget.layout)) {
+        } else if (['cv', 'iv'].includes(props.widget.layout)) {
           size = size + item.getBoundingClientRect().height + props.widget.link.margin
         }
         if (size < availableSpace.value) {
@@ -162,12 +162,12 @@ const organizeLinks = () => {
 
       hiddenLinks.value = [
         ...visibleLinks.value.splice(
-          ['cv', 'sv'].includes(props.widget.layout) ? index - 1 : index,
+          ['cv', 'iv'].includes(props.widget.layout) ? index - 1 : index,
           allLinks.value.length
         ),
       ]
       visibleLinks.value = [
-        ...visibleLinks.value.splice(0, ['cv', 'sv'].includes(props.widget.layout) ? index - 1 : index),
+        ...visibleLinks.value.splice(0, ['cv', 'iv'].includes(props.widget.layout) ? index - 1 : index),
       ]
     }
     showMore.value = hiddenLinks.value.length > 0
@@ -305,9 +305,10 @@ const setQuickLinksVars = computed(() => {
         ref="linkListEl"
         class="linkList"
         :class="{
-          linkListVertical: ['cv', 'sv'].includes(props.widget.layout),
-          linkListStacked: ['sh', 'sv', 'sg'].includes(props.widget.layout),
-          linkListGrid: ['cg', 'sg'].includes(props.widget.layout),
+          linkListHorizontal: ['ch', 'ih'].includes(props.widget.layout),
+          linkListVertical: ['cv', 'iv'].includes(props.widget.layout),
+          linkListIconified: ['ih', 'iv', 'ig'].includes(props.widget.layout),
+          linkListGrid: ['cg', 'ig'].includes(props.widget.layout),
         }"
       >
         <li v-for="(link, index) in visibleLinks" :key="link.id" class="linkNode">
@@ -345,7 +346,7 @@ const setQuickLinksVars = computed(() => {
             :open-in-new-tab="props.widget.link.openInNewTab"
             :node="{
               id: 'more',
-              title: ['cv', 'sv', 'sh', 'sg'].includes(props.widget.layout) ? 'More' : '',
+              title: ['cv', 'iv', 'ih', 'ig'].includes(props.widget.layout) ? 'More' : '',
               children: hiddenLinks,
             }"
             :icon-permission="faviconPermission"
@@ -358,6 +359,9 @@ const setQuickLinksVars = computed(() => {
 </template>
 
 <style lang="scss">
+.quickLinks {
+  grid-template-columns: 1fr;
+}
 .quickLinks:has(.linkListGrid) {
   justify-content: initial;
 }
@@ -369,6 +373,21 @@ const setQuickLinksVars = computed(() => {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  .container-nw &,
+  .container-w &,
+  .container-sw & {
+    justify-content: start;
+  }
+  .container-c &,
+  .container-n &,
+  .container-s & {
+    justify-content: center;
+  }
+  .container-ne &,
+  .container-e &,
+  .container-se & {
+    justify-content: end;
+  }
   &.linkListVertical {
     flex-direction: column;
     justify-content: center;
@@ -406,7 +425,7 @@ const setQuickLinksVars = computed(() => {
       justify-content: flex-end;
     }
   }
-  &.linkListStacked {
+  &.linkListIconified {
     .linkAnchor,
     .linkFolder {
       flex-direction: column;
@@ -497,7 +516,7 @@ const setQuickLinksVars = computed(() => {
     white-space: nowrap;
     padding-inline-end: var(--linkPadding);
   }
-  .linkListStacked & {
+  .linkListIconified & {
     padding: var(--linkPadding);
     .linkName {
       padding-inline-end: 0;

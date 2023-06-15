@@ -3,7 +3,7 @@ import { baseWidgetStyles } from '@/classes/BaseWidgetStyles.js'
 export class AnalogClock {
   id = ''
   timezone = 'America/Los_Angeles'
-  size = 50
+  size = 70
   face = {
     style: 'dash',
     shadow: [true, 1, 1, 5, 0, 0, 0, 0.8],
@@ -42,20 +42,20 @@ export class AnalogClock {
     override: false,
     color: [0, 0, 100, 1],
     shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
-    size: 24,
+    size: 30,
     letterSpacing: 0,
     x: 0,
-    y: 0,
+    y: -7,
   }
   relative = {
     on: false,
     override: false,
     color: [0, 0, 100, 1],
     shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
-    size: 24,
+    size: 30,
     letterSpacing: 0,
     x: 0,
-    y: 0,
+    y: -7,
   }
-  base = { ...baseWidgetStyles }
+  base = { ...baseWidgetStyles, font: { ...baseWidgetStyles.font, size: 30 } }
 }

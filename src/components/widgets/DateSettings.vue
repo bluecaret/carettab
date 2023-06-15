@@ -2,7 +2,7 @@
 import { ref, reactive } from 'vue'
 import { DateTime } from 'luxon'
 import { useSettingsStore } from '@/store.js'
-import DigitalClockSegmentFont from '@/components/forms/DigitalClockSegmentFont.vue'
+import WidgetSegmentFont from '@/components/forms/WidgetSegmentFont.vue'
 
 const store = useSettingsStore()
 
@@ -33,8 +33,8 @@ const selectTimezone = (tz) => {
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
       <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
-      <WidgetFontField :index="ci" :widget-store="widgetStore" />
       <WidgetBoxField :index="ci" :widget-store="widgetStore" />
+      <WidgetFontField :index="ci" :widget-store="widgetStore" />
     </div>
     <h3 class="subtitle">Date options</h3>
     <div class="blockContainer">
@@ -170,19 +170,19 @@ const selectTimezone = (tz) => {
           />
         </div>
       </div>
-      <DigitalClockSegmentFont
+      <WidgetSegmentFont
         v-if="widget.delimiter.on"
         v-model:override="widget.delimiter.override"
-        v-model:cl="widget.delimiter.color"
-        v-model:ts="widget.delimiter.shadow"
-        v-model:ls="widget.delimiter.letterSpacing"
-        v-model:fs="widget.delimiter.size"
+        v-model:color="widget.delimiter.color"
+        v-model:shadow="widget.delimiter.shadow"
+        v-model:letterSpacing="widget.delimiter.letterSpacing"
+        v-model:size="widget.delimiter.size"
         v-model:x="widget.delimiter.x"
         v-model:y="widget.delimiter.y"
         type="delimiter"
         :widget="widget"
       >
-      </DigitalClockSegmentFont>
+      </WidgetSegmentFont>
     </div>
     <h3 class="subtitle">Year</h3>
     <div class="blockContainer">
@@ -199,19 +199,19 @@ const selectTimezone = (tz) => {
           </div>
         </div>
       </div>
-      <DigitalClockSegmentFont
+      <WidgetSegmentFont
         v-if="widget.year.on"
         v-model:override="widget.year.override"
-        v-model:cl="widget.year.color"
-        v-model:ts="widget.year.shadow"
-        v-model:ls="widget.year.letterSpacing"
-        v-model:fs="widget.year.size"
+        v-model:color="widget.year.color"
+        v-model:shadow="widget.year.shadow"
+        v-model:letterSpacing="widget.year.letterSpacing"
+        v-model:size="widget.year.size"
         v-model:x="widget.year.x"
         v-model:y="widget.year.y"
         type="year"
         :widget="widget"
       >
-      </DigitalClockSegmentFont>
+      </WidgetSegmentFont>
     </div>
     <h3 class="subtitle">Month</h3>
     <div class="blockContainer">
@@ -232,19 +232,19 @@ const selectTimezone = (tz) => {
           </div>
         </div>
       </div>
-      <DigitalClockSegmentFont
+      <WidgetSegmentFont
         v-if="widget.month.on"
         v-model:override="widget.month.override"
-        v-model:cl="widget.month.color"
-        v-model:ts="widget.month.shadow"
-        v-model:ls="widget.month.letterSpacing"
-        v-model:fs="widget.month.size"
+        v-model:color="widget.month.color"
+        v-model:shadow="widget.month.shadow"
+        v-model:letterSpacing="widget.month.letterSpacing"
+        v-model:size="widget.month.size"
         v-model:x="widget.month.x"
         v-model:y="widget.month.y"
         type="month"
         :widget="widget"
       >
-      </DigitalClockSegmentFont>
+      </WidgetSegmentFont>
     </div>
     <h3 class="subtitle">Day</h3>
     <div class="blockContainer">
@@ -261,19 +261,19 @@ const selectTimezone = (tz) => {
           </div>
         </div>
       </div>
-      <DigitalClockSegmentFont
+      <WidgetSegmentFont
         v-if="widget.day.on"
         v-model:override="widget.day.override"
-        v-model:cl="widget.day.color"
-        v-model:ts="widget.day.shadow"
-        v-model:ls="widget.day.letterSpacing"
-        v-model:fs="widget.day.size"
+        v-model:color="widget.day.color"
+        v-model:shadow="widget.day.shadow"
+        v-model:letterSpacing="widget.day.letterSpacing"
+        v-model:size="widget.day.size"
         v-model:x="widget.day.x"
         v-model:y="widget.day.y"
         type="day"
         :widget="widget"
       >
-      </DigitalClockSegmentFont>
+      </WidgetSegmentFont>
     </div>
     <h3 class="subtitle">Day of week</h3>
     <div class="blockContainer">
@@ -290,19 +290,19 @@ const selectTimezone = (tz) => {
           </div>
         </div>
       </div>
-      <DigitalClockSegmentFont
+      <WidgetSegmentFont
         v-if="widget.dayOfWeek.on"
         v-model:override="widget.dayOfWeek.override"
-        v-model:cl="widget.dayOfWeek.color"
-        v-model:ts="widget.dayOfWeek.shadow"
-        v-model:ls="widget.dayOfWeek.letterSpacing"
-        v-model:fs="widget.dayOfWeek.size"
+        v-model:color="widget.dayOfWeek.color"
+        v-model:shadow="widget.dayOfWeek.shadow"
+        v-model:letterSpacing="widget.dayOfWeek.letterSpacing"
+        v-model:size="widget.dayOfWeek.size"
         v-model:x="widget.dayOfWeek.x"
         v-model:y="widget.dayOfWeek.y"
         type="dayOfWeek"
         :widget="widget"
       >
-      </DigitalClockSegmentFont>
+      </WidgetSegmentFont>
     </div>
     <h3 class="subtitle">Day of year</h3>
     <div class="blockContainer">
@@ -329,19 +329,19 @@ const selectTimezone = (tz) => {
           </div>
         </div>
       </div>
-      <DigitalClockSegmentFont
+      <WidgetSegmentFont
         v-if="widget.dayOfYear.on"
         v-model:override="widget.dayOfYear.override"
-        v-model:cl="widget.dayOfYear.color"
-        v-model:ts="widget.dayOfYear.shadow"
-        v-model:ls="widget.dayOfYear.letterSpacing"
-        v-model:fs="widget.dayOfYear.size"
+        v-model:color="widget.dayOfYear.color"
+        v-model:shadow="widget.dayOfYear.shadow"
+        v-model:letterSpacing="widget.dayOfYear.letterSpacing"
+        v-model:size="widget.dayOfYear.size"
         v-model:x="widget.dayOfYear.x"
         v-model:y="widget.dayOfYear.y"
         type="dayOfYear"
         :widget="widget"
       >
-      </DigitalClockSegmentFont>
+      </WidgetSegmentFont>
     </div>
     <h3 class="subtitle">Week number</h3>
     <div class="blockContainer">
@@ -368,19 +368,19 @@ const selectTimezone = (tz) => {
           </div>
         </div>
       </div>
-      <DigitalClockSegmentFont
+      <WidgetSegmentFont
         v-if="widget.week.on"
         v-model:override="widget.week.override"
-        v-model:cl="widget.week.color"
-        v-model:ts="widget.week.shadow"
-        v-model:ls="widget.week.letterSpacing"
-        v-model:fs="widget.week.size"
+        v-model:color="widget.week.color"
+        v-model:shadow="widget.week.shadow"
+        v-model:letterSpacing="widget.week.letterSpacing"
+        v-model:size="widget.week.size"
         v-model:x="widget.week.x"
         v-model:y="widget.week.y"
         type="week"
         :widget="widget"
       >
-      </DigitalClockSegmentFont>
+      </WidgetSegmentFont>
     </div>
     <h3 class="subtitle">Quarter</h3>
     <div class="blockContainer">
@@ -420,19 +420,19 @@ const selectTimezone = (tz) => {
           </div>
         </div>
       </div>
-      <DigitalClockSegmentFont
+      <WidgetSegmentFont
         v-if="widget.quarter.on"
         v-model:override="widget.quarter.override"
-        v-model:cl="widget.quarter.color"
-        v-model:ts="widget.quarter.shadow"
-        v-model:ls="widget.quarter.letterSpacing"
-        v-model:fs="widget.quarter.size"
+        v-model:color="widget.quarter.color"
+        v-model:shadow="widget.quarter.shadow"
+        v-model:letterSpacing="widget.quarter.letterSpacing"
+        v-model:size="widget.quarter.size"
         v-model:x="widget.quarter.x"
         v-model:y="widget.quarter.y"
         type="quarter"
         :widget="widget"
       >
-      </DigitalClockSegmentFont>
+      </WidgetSegmentFont>
     </div>
     <!-- <h3 class="subtitle">Relative time</h3>
     <div class="blockContainer">
@@ -443,19 +443,19 @@ const selectTimezone = (tz) => {
         </div>
         <ToggleField v-model="widget.relative.on" tag-id="enableRt"></ToggleField>
       </div>
-      <DigitalClockSegmentFont
+      <WidgetSegmentFont
         v-if="widget.relative.on"
         v-model:override="widget.relative.override"
-        v-model:cl="widget.relative.color"
-        v-model:ts="widget.relative.shadow"
-        v-model:ls="widget.relative.letterSpacing"
-        v-model:fs="widget.relative.size"
+        v-model:color="widget.relative.color"
+        v-model:shadow="widget.relative.shadow"
+        v-model:letterSpacing="widget.relative.letterSpacing"
+        v-model:size="widget.relative.size"
         v-model:x="widget.relative.x"
         v-model:y="widget.relative.y"
         type="relative"
         :widget="widget"
       >
-      </DigitalClockSegmentFont>
+      </WidgetSegmentFont>
     </div> -->
   </div>
 </template>

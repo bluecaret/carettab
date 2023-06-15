@@ -2,7 +2,7 @@
 import { ref, reactive } from 'vue'
 import { DateTime } from 'luxon'
 import { useSettingsStore } from '@/store.js'
-import DigitalClockSegmentFont from '@/components/forms/DigitalClockSegmentFont.vue'
+import WidgetSegmentFont from '@/components/forms/WidgetSegmentFont.vue'
 
 const store = useSettingsStore()
 
@@ -34,8 +34,8 @@ const selectTimezone = (tz) => {
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
       <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
-      <WidgetFontField :index="ci" :widget-store="widgetStore" />
       <WidgetBoxField :index="ci" :widget-store="widgetStore" />
+      <WidgetFontField :index="ci" :widget-store="widgetStore" />
     </div>
     <h3 class="subtitle">Clock and indicator options</h3>
     <div class="blockContainer">
@@ -151,19 +151,19 @@ const selectTimezone = (tz) => {
         <label for="labelText" class="label">Label text</label>
         <input id="labelText" v-model="widget.label.label" type="text" class="input w20 mla" />
       </div>
-      <DigitalClockSegmentFont
+      <WidgetSegmentFont
         v-if="widget.label.on"
         v-model:override="widget.label.override"
-        v-model:cl="widget.label.color"
-        v-model:ts="widget.label.shadow"
-        v-model:ls="widget.label.letterSpacing"
-        v-model:fs="widget.label.size"
+        v-model:color="widget.label.color"
+        v-model:shadow="widget.label.shadow"
+        v-model:letterSpacing="widget.label.letterSpacing"
+        v-model:size="widget.label.size"
         v-model:x="widget.label.x"
         v-model:y="widget.label.y"
         type="label"
         :widget="widget"
       >
-      </DigitalClockSegmentFont>
+      </WidgetSegmentFont>
     </div>
     <h3 class="subtitle">Relative time</h3>
     <div class="blockContainer">
@@ -176,19 +176,19 @@ const selectTimezone = (tz) => {
           <ToggleField v-model="widget.relative.on" tag-id="enableRt"></ToggleField>
         </div>
       </div>
-      <DigitalClockSegmentFont
+      <WidgetSegmentFont
         v-if="widget.relative.on"
         v-model:override="widget.relative.override"
-        v-model:cl="widget.relative.color"
-        v-model:ts="widget.relative.shadow"
-        v-model:ls="widget.relative.letterSpacing"
-        v-model:fs="widget.relative.size"
+        v-model:color="widget.relative.color"
+        v-model:shadow="widget.relative.shadow"
+        v-model:letterSpacing="widget.relative.letterSpacing"
+        v-model:size="widget.relative.size"
         v-model:x="widget.relative.x"
         v-model:y="widget.relative.y"
         type="relative"
         :widget="widget"
       >
-      </DigitalClockSegmentFont>
+      </WidgetSegmentFont>
     </div>
   </div>
 </template>

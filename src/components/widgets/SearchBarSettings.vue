@@ -16,8 +16,8 @@ const widget = reactive(store.config[widgetStore][ci.value])
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
       <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
-      <WidgetFontField :index="ci" :widget-store="widgetStore" />
       <WidgetBoxField :index="ci" :widget-store="widgetStore" />
+      <WidgetFontField :index="ci" :widget-store="widgetStore" />
     </div>
     <h3 class="subtitle">Search bar options</h3>
     <div class="blockContainer">

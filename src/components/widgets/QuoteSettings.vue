@@ -32,8 +32,8 @@ const deleteQuote = (id) => {
     <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
       <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
-      <WidgetFontField :index="ci" :widget-store="widgetStore" />
       <WidgetBoxField :index="ci" :widget-store="widgetStore" />
+      <WidgetFontField :index="ci" :widget-store="widgetStore" />
       <div class="block">
         <div class="label mra">Quote options</div>
         <div class="group">

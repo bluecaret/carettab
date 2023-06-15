@@ -59,6 +59,7 @@ const containerStyles = computed(() => {
           :maxlength="widget.sync ? 7000 : 250000"
           autocomplete="off"
           :style="`padding: ${widget.padding}px; border-radius: ${widget.borderRadius - widget.borderWidth}px;`"
+          placeholder="Take a note..."
           @keyup="saveNotes()"
           @paste="saveNotes()"
         ></textarea>
@@ -97,6 +98,9 @@ const containerStyles = computed(() => {
   border-radius: inherit;
   position: relative;
   z-index: +1;
+  &::placeholder {
+    color: currentColor;
+  }
   &:focus {
     outline: 1px solid color-mix(in hsl, currentColor 80%, transparent);
     outline-offset: -1px;

@@ -2,7 +2,7 @@
 import { ref, reactive } from 'vue'
 import { defineStore } from 'pinia'
 import { Layer } from '@/classes/Layer.js'
-import { widgetTypes } from '@/assets/lists.js'
+import { widgetTypes, toolTypes } from '@/assets/lists.js'
 import { Defaults } from '@/defaults.js'
 import { DigitalClock } from '@/components/widgets/DigitalClock.js'
 import { AnalogClock } from '@/components/widgets/AnalogClock.js'
@@ -146,6 +146,15 @@ export const useSettingsStore = defineStore('settings', () => {
       if (store.global) config.global = store.global
       if (store.toolbar) config.toolbar = store.toolbar
       if (store.layers) config.layers = store.layers
+
+      // Check if all tools exist in toolbar by comparing with toolTypes, if not add them to the store:
+      toolTypes.forEach((tool) => {
+        if (!config.toolbar.tools.find((t) => t.id === tool.tool)) {
+          const getDefault = new Defaults().toolbar.tools
+          const newTool = getDefault.find((t) => t.id === tool.tool)
+          store.toolbar.tools.push(newTool)
+        }
+      })
 
       widgetTypes.forEach((widget) => {
         let allOfType = []

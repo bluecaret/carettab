@@ -91,6 +91,10 @@ import {
   faGear,
   faAnglesRight,
   faBolt,
+  faCalculator,
+  faDivide,
+  faEquals,
+  faAsterisk,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faItalic,
@@ -157,7 +161,11 @@ library.add(
   faPaperPlane,
   faGear,
   faAnglesRight,
-  faBolt
+  faBolt,
+  faCalculator,
+  faDivide,
+  faEquals,
+  faAsterisk
 )
 
 const getAccess = async () => {

@@ -69,10 +69,18 @@ export class Defaults {
     align: 'flex-start',
     tools: [
       {
+        id: 'calculator',
+        on: true,
+      },
+      {
         id: 'aiChat',
         on: true,
         apiKey: '',
         model: 'gpt-3.5-turbo',
+      },
+      {
+        id: 'passwordGenerator',
+        on: true,
       },
     ],
   }

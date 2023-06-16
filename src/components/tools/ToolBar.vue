@@ -2,6 +2,9 @@
 import { ref } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import AIChatTool from '@/components/tools/AIChatTool.vue'
+import CalculatorTool from '@/components/tools/CalculatorTool.vue'
+import PasswordGeneratorTool from '@/components/tools/PasswordGeneratorTool.vue'
+import { toolTypes } from '@/assets/lists.js'
 
 const store = useSettingsStore()
 const selected = ref('')
@@ -10,22 +13,33 @@ const toggleTool = (tool) => {
   selected.value = selected.value === tool ? '' : tool
 }
 
-const getToolIndex = (tool) => {
-  return store.config.toolbar.tools.findIndex((t) => t.id === tool)
+const getToolType = (id) => {
+  const tool = toolTypes.find((t) => t.tool === id)
+  return tool ? tool : ''
 }
 </script>
 
 <template>
   <div class="toolbar">
     <ul>
-      <li v-if="store.config.toolbar.tools[getToolIndex('aiChat')].on">
-        <button class="toolBtn" type="button" :class="{ active: selected === 'aiChat' }" @click="toggleTool('aiChat')">
-          <fa icon="fa-robot" fixed-width />
-        </button>
-      </li>
+      <template v-for="tool in store.config.toolbar.tools" :key="tool.id">
+        <li v-if="tool.on">
+          <button
+            class="toolBtn"
+            type="button"
+            :class="{ active: selected === tool.id }"
+            :title="getToolType(tool.id).name"
+            @click="toggleTool(tool.id)"
+          >
+            <fa :icon="`${getToolType(tool.id).icon}`" fixed-width />
+          </button>
+        </li>
+      </template>
     </ul>
   </div>
   <AIChatTool v-if="selected === 'aiChat'" />
+  <CalculatorTool v-if="selected === 'calculator'" />
+  <PasswordGeneratorTool v-if="selected === 'passwordGenerator'" />
 </template>
 
 <style lang="scss" scoped>
@@ -70,7 +84,7 @@ ul {
   padding: 0.2em;
   color: currentColor;
   .svg-inline--fa {
-    font-size: 1em;
+    font-size: 0.9em;
   }
   &.active {
     border-color: var(--toolbarFg);

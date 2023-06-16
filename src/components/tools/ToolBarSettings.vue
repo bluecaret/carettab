@@ -11,6 +11,7 @@ const getToolDetails = (tool) => {
 }
 
 const showToolbarSettings = ref(false)
+const showToolbarTools = ref(false)
 </script>
 
 <template>
@@ -38,17 +39,30 @@ const showToolbarSettings = ref(false)
             <button class="btn btnLink" aria-label="Learn about the Toolbar"></button>
           </div>
           <ToggleField v-model="store.config.toolbar.on" tag-id="enableToolbar"></ToggleField>
-          <button
-            v-if="store.config.toolbar.on"
-            type="button"
-            class="btn"
-            :class="{ active: showToolbarSettings }"
-            aria-label="Edit toolbar settings"
-            title="Edit toolbar settings"
-            @click="showToolbarSettings = !showToolbarSettings"
-          >
-            <fa icon="fa-pen" fixed-width></fa>
-          </button>
+          <div class="btnGroup">
+            <button
+              v-if="store.config.toolbar.on"
+              type="button"
+              class="btn"
+              :class="{ active: showToolbarTools }"
+              aria-label="Toggle and reorder tools"
+              title="Toggle and reorder tools"
+              @click="showToolbarTools = !showToolbarTools"
+            >
+              <fa icon="fa-shapes" fixed-width></fa>
+            </button>
+            <button
+              v-if="store.config.toolbar.on"
+              type="button"
+              class="btn"
+              :class="{ active: showToolbarSettings }"
+              aria-label="Edit toolbar settings"
+              title="Edit toolbar settings"
+              @click="showToolbarSettings = !showToolbarSettings"
+            >
+              <fa icon="fa-pen" fixed-width></fa>
+            </button>
+          </div>
         </div>
       </div>
       <div v-if="showToolbarSettings" class="block">
@@ -98,7 +112,7 @@ const showToolbarSettings = ref(false)
       </div>
     </template>
     <template #item="{ element }">
-      <div v-if="store.config.toolbar.on" class="block">
+      <div v-if="showToolbarTools && store.config.toolbar.on" class="block">
         <button type="button" class="drag">
           <fa icon="fa-grip-vertical" size="xs" fixed-width></fa>
         </button>

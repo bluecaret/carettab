@@ -11,7 +11,11 @@ export const widgetTypes = [
   { id: 'ls', type: 'loadshedding', store: 'loadsheddings', name: 'Loadshedding', icon: 'fa-bolt' },
 ]
 
-export const toolTypes = [{ tool: 'aiChat', name: 'AI Chat', icon: 'fa-robot' }]
+export const toolTypes = [
+  { tool: 'calculator', name: 'Calculator', icon: 'fa-calculator' },
+  { tool: 'aiChat', name: 'AI Chat', icon: 'fa-robot' },
+  { tool: 'passwordGenerator', name: 'Password Generator', icon: 'fa-asterisk' },
+]
 
 export const languages = [
   { id: 'enUS', label: 'English', name: 'English (United States)' },

@@ -4,7 +4,7 @@ import draggable from 'vuedraggable'
 import { useSettingsStore, setStorage, getStorage } from '@/store.js'
 import { storeToRefs } from 'pinia'
 import { widgetTypes } from '@/assets/lists.js'
-import GlobalSettings from '@/components/settings/GlobalSettings.vue'
+import ToolBarSettings from '@/components/tools/ToolBarSettings.vue'
 
 const store = useSettingsStore()
 const { status } = storeToRefs(store)
@@ -12,7 +12,6 @@ const { status } = storeToRefs(store)
 const whatsNewModal = ref(false)
 const drag = ref(false)
 const newWidgetMenu = ref(null)
-const openDefault = ref(false)
 
 onMounted(async () => {
   const whatsNew = await getStorage('clearWhatsNewBox', 'local')
@@ -119,9 +118,11 @@ const handleNewWidgetClick = (type) => {
         </div>
       </template>
     </ModalWindow>
+    <h2 class="introHeader" :class="{ dashboardPadding: store.clearWhatsNewBox }">
+      Your Tab, Your Rules - Infinite customization at your fingertips!
+    </h2>
     <draggable
       class="blockContainer"
-      :class="{ dashboardPadding: store.clearWhatsNewBox }"
       :list="store.config.layers"
       item-key="id"
       ghost-class="dragGhost"
@@ -130,12 +131,12 @@ const handleNewWidgetClick = (type) => {
       @start="drag = true"
       @end="drag = false"
     >
-      <template v-if="store.config.layers.length < 1" #header>
-        <div class="block">
+      <template #header>
+        <div v-if="store.config.layers.length < 1" class="block">
           <div class="group stack fill widgetHeader">
-            <fa icon="fa-shapes"></fa>
+            <fa icon="fa-shapes" class="widgetHeaderIcon"></fa>
             <h3>You have no widgets yet</h3>
-            <p>Click "Add" to start creating your own New Tab page</p>
+            <p>Start creating your own New Tab page</p>
           </div>
         </div>
       </template>
@@ -169,39 +170,64 @@ const handleNewWidgetClick = (type) => {
         </div>
       </template>
       <template #footer>
-        <div class="block">
-          <div class="group fill">
-            <DropdownMenu ref="newWidgetMenu" style="width: auto">
-              <template #button>
-                <button type="button" class="btn">
-                  <fa icon="fa-plus"></fa>
-                  Add new widget
-                </button>
-              </template>
-              <template #menu>
-                <ul class="addWidgetMenu">
-                  <li v-for="widget in widgetTypes" :key="widget.type">
-                    <button type="button" class="btn fit fill btnBlock" @click="handleNewWidgetClick(widget.type)">
-                      <fa class="fa-fw" :icon="widget.icon" />{{ widget.name }}
-                    </button>
-                  </li>
-                </ul>
-              </template>
-            </DropdownMenu>
-            <button class="btn mla" type="button" :class="{ active: openDefault }" @click="openDefault = !openDefault">
-              <fa icon="fa-pen" fixed-width></fa>
-              Edit default widget styles
-            </button>
-          </div>
+        <div class="block addWidgetBar">
+          <DropdownMenu ref="newWidgetMenu">
+            <template #button>
+              <button type="button" class="btn btnText">
+                <fa icon="fa-plus"></fa>
+                Add new widget
+              </button>
+            </template>
+            <template #menu>
+              <ul class="addWidgetMenu">
+                <li v-for="widget in widgetTypes" :key="widget.type">
+                  <button type="button" class="btn fit fill btnBlock" @click="handleNewWidgetClick(widget.type)">
+                    <fa class="fa-fw" :icon="widget.icon" />{{ widget.name }}
+                  </button>
+                </li>
+              </ul>
+            </template>
+          </DropdownMenu>
         </div>
       </template>
     </draggable>
 
-    <GlobalSettings :open-default="openDefault"></GlobalSettings>
+    <ToolBarSettings />
+
+    <div class="blockContainer">
+      <div class="block">
+        <div class="group fill">
+          <div class="label mra">General settings</div>
+          <button class="btn btnDesc" type="button" @click="store.goTo('extension')">
+            <fa icon="fa-gear" fixed-width></fa>
+            <div>
+              Extension settings
+              <small>Wallpaper, Language, etc.</small>
+            </div>
+          </button>
+          <button class="btn btnDesc" type="button" @click="store.goTo('global')">
+            <fa icon="fa-globe" fixed-width></fa>
+            <div>
+              Global widget styles
+              <small>Font, Container, Elements</small>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.introHeader {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  margin: 2rem auto;
+  text-align: center;
+  color: var(--cBlue12);
+}
+
 .dashboardPadding {
   margin-block-start: var(--s5);
 }
@@ -289,7 +315,7 @@ const handleNewWidgetClick = (type) => {
     width: 100%;
     text-align: center;
     margin: 0;
-    color: hsl(220deg 15% 50%);
+    color: var(--cBlue10);
   }
   h3 {
     font-weight: 600;
@@ -297,12 +323,26 @@ const handleNewWidgetClick = (type) => {
   p {
     font-weight: 300;
     font-size: 1.4rem;
-    color: hsl(220deg 15% 70%);
+    color: var(--cBlue11);
   }
-  .svg-inline--fa {
+  .widgetHeaderIcon {
     margin: 0 auto;
     font-size: 4rem;
-    color: hsl(220deg 15% 50%);
+    color: var(--cBlue10);
+  }
+}
+
+.addWidgetBar {
+  padding: 0;
+  min-height: 0;
+  background-color: var(--cGrey4);
+  .dropdownWrapper {
+    width: 100%;
+  }
+  .btn {
+    width: 100%;
+    justify-content: center;
+    padding: var(--s5);
   }
 }
 </style>

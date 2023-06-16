@@ -3,7 +3,9 @@ import { ref, onMounted, onUnmounted, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { storeToRefs } from 'pinia'
 import DashboardSettings from '@/components/settings/DashboardSettings.vue'
-import ToolBarSettings from '@/components/tools/ToolBarSettings.vue'
+import ExtensionSettings from '@/components/settings/ExtensionSettings.vue'
+import AdvancedSettings from '@/components/settings/AdvancedSettings.vue'
+import GlobalWidgetSettings from '@/components/settings/GlobalWidgetSettings.vue'
 import PatternsList from '@/components/settings/PatternsList.vue'
 import UnsplashList from '@/components/settings/UnsplashList.vue'
 import PremiumModal from '@/components/elements/PremiumModal.vue'
@@ -75,7 +77,7 @@ const handleSave = () => {
         </svg>
         CaretTab
       </h1>
-      <small>{{ $t('options.common.version') }} {{ ver }}</small>
+      <small class="version">{{ $t('options.common.version') }} {{ ver }}</small>
       <div class="headerLinks">
         <div class="btnGroup">
           <button
@@ -117,7 +119,9 @@ const handleSave = () => {
       </div>
     </header>
     <DashboardSettings v-if="['dashboard'].includes(settingsPage)"></DashboardSettings>
-    <ToolBarSettings v-if="['toolbar'].includes(settingsPage)" />
+    <ExtensionSettings v-if="['extension'].includes(settingsPage)" />
+    <AdvancedSettings v-if="['advanced'].includes(settingsPage)" />
+    <GlobalWidgetSettings v-if="['global'].includes(settingsPage)" />
     <PatternsList v-if="['patterns'].includes(settingsPage)"></PatternsList>
     <UnsplashList v-if="['unsplash'].includes(settingsPage)"></UnsplashList>
     <AnalogClockSettings v-if="['analogClock'].includes(settingsPage)"></AnalogClockSettings>
@@ -244,6 +248,10 @@ const handleSave = () => {
     letter-spacing: 0.05em;
     margin: 0;
   }
+}
+
+.version {
+  color: var(--cBlue7);
 }
 
 .headerLinks {

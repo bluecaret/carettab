@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted, inject } from 'vue'
+import { ref, onMounted, onUnmounted, inject, watch, nextTick } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { storeToRefs } from 'pinia'
 import DashboardSettings from '@/components/settings/DashboardSettings.vue'
@@ -23,6 +23,7 @@ import LoadsheddingSettings from '@/components/widgets/LoadsheddingSettings.vue'
 const user = inject('user')
 const store = useSettingsStore()
 const { settingsPage } = storeToRefs(store)
+const panelEl = ref(null)
 
 let ver = ref('#.#.#')
 
@@ -36,6 +37,15 @@ onUnmounted(() => {
   store.save()
 })
 
+watch(
+  () => store.settingsPage,
+  () => {
+    nextTick(() => {
+      panelEl.value.scrollTo({ top: 0 })
+    })
+  }
+)
+
 const togglePanelPreview = ref(false)
 const showPremiumModal = ref(false)
 const panelMove = ref(false)
@@ -44,7 +54,7 @@ const getReviewLink = () => {
   if (navigator.userAgent.match(/edg/i)) {
     return 'https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe'
   }
-  return 'https://chrome.google.com/webstore/detail/carettab-new-tab-clock-an/cojpndognjdcakkimaloeealehpkljna'
+  return 'https://chrome.google.com/webstore/detail/carettab-new-tab-clock-an/cojpndognjdcakkimaloeealehpkljna/reviews'
 }
 
 const handleSave = () => {
@@ -57,7 +67,7 @@ const handleSave = () => {
 </script>
 
 <template>
-  <div id="settings" class="panel" :class="{ panelPreview: togglePanelPreview, panelMove }">
+  <div id="settings" ref="panelEl" class="panel" :class="{ panelPreview: togglePanelPreview, panelMove }">
     <header class="header">
       <h1 class="appName">
         <svg
@@ -164,7 +174,7 @@ const handleSave = () => {
           </div>
         </template>
       </DropdownMenu>
-      <a :href="getReviewLink" class="btn footerBtn" target="_blank">
+      <a :href="getReviewLink()" class="btn footerBtn" target="_blank">
         <fa icon="fa-star-half-stroke" fixed-width></fa>
         {{ $t('options.dashboard.review') }}
       </a>

@@ -103,7 +103,6 @@ const loadWallpaper = async () => {
 }
 
 const loadCurrentWallpaper = async (imageType) => {
-  console.log('imageType', imageType)
   if (!imageType || ['default'].includes(imageType)) {
     wallpaperSrc.value = defaultWallpaper
   }

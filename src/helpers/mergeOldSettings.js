@@ -32,7 +32,7 @@ export const mergeV3Settings = async (allowMigration) => {
   if (!oldDesignSettings['ct-misc'] || oldDesignSettings['ct-misc'].schema !== '1.1') {
     return
   }
-  console.log('%cVersion 3 settings found. Attempting to migrate to version 4.', 'color:teal;font-weight:bold;')
+  console.info('%cVersion 3 settings found. Attempting to migrate to version 4.', 'color:teal;font-weight:bold;')
   store.isLoading = true
 
   // TODO: handle supplemental settings in local storage
@@ -409,7 +409,7 @@ export const mergeV3Settings = async (allowMigration) => {
 
     store.$patch({ config: merge.config })
     await store.save()
-    console.log('%cSettings have been migrated.', 'color:teal;font-weight:bold;', merge)
+    console.info('%cSettings have been migrated.', 'color:teal;font-weight:bold;', merge)
   }
 
   await removeStorage('caretTabNewVersion', 'local')
@@ -430,8 +430,8 @@ export const mergeV3Settings = async (allowMigration) => {
   await removeStorage('ct-search', 'sync')
   await removeStorage('ct-time', 'sync')
   await removeStorage('ct-weather', 'sync')
-  console.log('%cOld settings been removed.', 'color:teal;font-weight:bold;')
-  console.log('%cMigration has been complete.', 'color:teal;font-weight:bold;')
+  console.info('%cOld settings been removed.', 'color:teal;font-weight:bold;')
+  console.info('%cMigration has been complete.', 'color:teal;font-weight:bold;')
   store.isLoading = false
 }
 

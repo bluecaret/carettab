@@ -33,12 +33,8 @@ const appendNumber = (number) => {
 }
 
 const chooseOperation = (op) => {
-  console.log('operation', op)
-  console.log('prev', previousOperand.value)
-  console.log('curr', currentOperand.value)
   if (currentOperand.value === '' && previousOperand.value === '') return
   if (currentOperand.value !== '' && previousOperand.value !== '') {
-    console.log('compute')
     compute()
   }
   if (currentOperand.value !== '' && previousOperand.value === '') {

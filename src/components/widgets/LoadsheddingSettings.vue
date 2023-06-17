@@ -114,7 +114,6 @@ const getMyLoc = () => {
 }
 
 const selectLoc = (loc) => {
-  console.log(loc)
   widget.area = { id: loc.id, name: loc.name, region: loc.region }
   showLocationSearch.value = false
 }

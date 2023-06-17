@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useSettingsStore, setStorage, getStorage } from '@/store.js'
-import { setWidgetContainerStyles, hsl, shadow } from '@/helpers/widgets.js'
+import { setWidgetContainerStyles } from '@/helpers/widgets.js'
 import { DateTime } from 'luxon'
 
 const store = useSettingsStore()
@@ -15,37 +15,16 @@ const props = defineProps({
 
 const cachedAreaInfo = ref(null)
 const days = ref([])
-// const nationalStatus = ref(null)
 const cacheTimePeriod = 7200000 // 2 hours
 
 onMounted(async () => {
-  // TODO: Is national data even needed?
-  // const getNational = await getStorage(`loadshedding-national-${props.widget.id}`, 'local')
-  // console.log('getNational', getNational)
-  // if (!getNational[`loadshedding-national-${props.widget.id}`]) {
-  //   nationalStatus.value = { cachedAt: new Date().getTime().toString(), data: null }
-  // } else {
-  //   nationalStatus.value = getNational[`loadshedding-national-${props.widget.id}`]
-  // }
-  // console.log('nationalStatus', nationalStatus.value)
-  // let cacheUntilTime = +nationalStatus.value.cachedAt + cacheTimePeriod
-  // if ((props.widget.license && new Date().getTime() - cacheUntilTime > cacheTimePeriod) || !nationalStatus.value.data) {
-  //   if (props.widget.license) {
-  //     const status = await requestFromApi('status', 'test=current')
-  //     nationalStatus.value = { cachedAt: new Date().getTime().toString(), data: status }
-  //     setStorage({ [`loadshedding-national-${props.widget.id}`]: nationalStatus.value }, 'local')
-  //   }
-  // }
-
   const areaInfo = await getStorage(`loadshedding-area-${props.widget.id}`, 'local')
   if (!areaInfo[`loadshedding-area-${props.widget.id}`]) {
     cachedAreaInfo.value = { cachedAt: new Date().getTime().toString(), data: null }
   } else {
-    console.log('areaInfo', areaInfo)
     cachedAreaInfo.value = areaInfo[`loadshedding-area-${props.widget.id}`]
   }
   getDayData()
-  console.log('cachedAreaInfo', cachedAreaInfo.value)
   let areaCacheUntilTime = +cachedAreaInfo.value.cachedAt + cacheTimePeriod
   if ((props.widget.license && new Date().getTime() > areaCacheUntilTime) || !cachedAreaInfo.value.data) {
     // get the current schedule for this area
@@ -90,7 +69,6 @@ const requestFromApi = async (url, params = null) => {
 
 const refreshData = async () => {
   let data = await requestFromApi('area', `id=${props.widget.area.id}&test=current`)
-  console.log('refresh data', data)
   let lKey = 'loadshedding-area-' + props.widget.id
   cachedAreaInfo.value = { cachedAt: new Date().getTime().toString(), data: data }
   getDayData()
@@ -106,7 +84,6 @@ const getDayData = () => {
     return []
   let newDays = []
   cachedAreaInfo.value.data.schedule.days.forEach((day) => {
-    console.log('day', day)
     let newDay = []
     const filteredEvents = cachedAreaInfo.value.data.events.filter(
       (d) => new Date(day.date).getDate() == new Date(d.start).getDate()

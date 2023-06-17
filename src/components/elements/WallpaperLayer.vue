@@ -1,14 +1,16 @@
 <script setup>
 import { ref, watch, onMounted, computed, inject } from 'vue'
-import { storeToRefs } from 'pinia'
 import { useSettingsStore, getStorage, setStorage } from '@/store.js'
 import { prepareWallpaperObj, saveUnsplashInfoToGlobal, getRandomPhotoFromUnsplashList } from '@/helpers/unsplash.js'
 
 const access = inject('access')
 const user = inject('user')
 const store = useSettingsStore()
-const { wallpaper } = storeToRefs(store)
 const wallpaperSrc = ref(store.wallpaper)
+const defaultWallpaper = 'url("/img/juniper.jpg")'
+// Photo credited to Wyxina Tresse
+// https://www.pexels.com/@wyxina-tresse-311038210/
+// https://www.pexels.com/photo/juniper-bush-tree-14537809/
 
 onMounted(async () => {
   loadWallpaper()
@@ -101,6 +103,10 @@ const loadWallpaper = async () => {
 }
 
 const loadCurrentWallpaper = async (imageType) => {
+  console.log('imageType', imageType)
+  if (!imageType || ['default'].includes(imageType)) {
+    wallpaperSrc.value = defaultWallpaper
+  }
   if (['upload'].includes(imageType) || (['unphoto', 'untopic', 'uncollection'].includes(imageType) && user.paid)) {
     let getCurrentWallpaper = await getStorage('currentWallpaper', 'local')
 
@@ -151,10 +157,12 @@ const getNextWallpaper = async (type, timestamp, id) => {
 }
 
 watch(
-  () => wallpaper.value,
+  () => store.wallpaper,
   () => {
-    if (wallpaper.value && wallpaper.value.base64) {
-      wallpaperSrc.value = `url(${wallpaper.value.base64})`
+    if (store.wallpaper && store.wallpaper.base64) {
+      wallpaperSrc.value = `url(${store.wallpaper.base64})`
+    } else if (store.wallpaper === 'default') {
+      wallpaperSrc.value = defaultWallpaper
     } else {
       wallpaperSrc.value = 'none'
     }

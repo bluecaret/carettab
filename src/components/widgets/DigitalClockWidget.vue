@@ -210,6 +210,7 @@ const getRelativeTime = computed(() => {
 <style lang="scss" scoped>
 .timeWrapper {
   display: inline-flex;
+  vertical-align: text-top;
 }
 
 .clockPart {

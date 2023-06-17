@@ -123,7 +123,7 @@ export const useSettingsStore = defineStore('settings', () => {
   const showModal = ref(false)
   const showOutliner = ref(false)
   const currentTime = ref('Sat Jan 01 2000 00:00:00 GMT-0800 (Pacific Standard Time)')
-  const wallpaper = ref('none')
+  const wallpaper = ref('default')
   const palette = ref([[], [], [], [], [], [], [], []])
   const unsplashStatus = ref('default')
   const unsplashSearchTerm = ref('')

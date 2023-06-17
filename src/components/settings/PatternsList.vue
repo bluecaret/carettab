@@ -90,7 +90,7 @@ const handlePatternSelect = (id) => {
 
 <template>
   <div class="page">
-    <PageHeading title="Patterns"></PageHeading>
+    <PageHeading title="Patterns" back-page="extension"></PageHeading>
     <div class="blockContainer">
       <div class="block">
         <label for="backgroundColor" class="label mra">Wallpaper color</label>

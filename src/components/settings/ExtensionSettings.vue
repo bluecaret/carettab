@@ -14,6 +14,7 @@ if (typeof browser === 'undefined') {
 const access = inject('access')
 const store = useSettingsStore()
 const uploadImageField = ref(null)
+const newWidgetMenu = ref(null)
 const { locale } = useI18n({ useScope: 'global' })
 
 const allTimezones = []
@@ -104,15 +105,16 @@ const processImage = (imgSrc) => {
   })
 }
 
-const handleRemoveImage = () => {
-  store.wallpaper = 'none'
+const handleRemoveImage = (isDefault = false) => {
+  if (newWidgetMenu.value) newWidgetMenu.value.close()
+  store.wallpaper = isDefault ? 'default' : 'none'
   chrome.storage.local.remove('currentWallpaper')
   chrome.storage.local.remove('nextWallpaper')
   store.$patch({
     config: {
       global: {
         wallpaper: {
-          type: 'none',
+          type: isDefault ? 'default' : 'none',
           id: '', // Image ID
           timestamp: '', // Image timestamp
         },
@@ -197,7 +199,11 @@ const handleLangSelect = (event) => {
               </ColorField>
             </div>
             <div
-              v-if="store.config.global.wallpaper.type && store.config.global.wallpaper.type !== 'none'"
+              v-if="
+                store.config.global.wallpaper.type &&
+                store.config.global.wallpaper.type !== 'none' &&
+                store.config.global.wallpaper.type !== 'default'
+              "
               class="group stack"
             >
               <div class="desc">
@@ -226,7 +232,7 @@ const handleLangSelect = (event) => {
                   >
                 </span>
               </div>
-              <div class="btnGroup">
+              <div class="btnGroup fill">
                 <button
                   v-if="store.config.global.wallpaper.type === 'pattern'"
                   class="btn"
@@ -251,11 +257,15 @@ const handleLangSelect = (event) => {
                 >
                   Refresh
                 </button>
-                <button class="btn" type="button" @click="handleRemoveImage()">Remove</button>
+                <button class="btn" type="button" @click="handleRemoveImage()"><fa icon="fa-xmark" /> Remove</button>
               </div>
             </div>
             <div
-              v-if="!store.config.global.wallpaper.type || store.config.global.wallpaper.type === 'none'"
+              v-if="
+                !store.config.global.wallpaper.type ||
+                store.config.global.wallpaper.type === 'none' ||
+                store.config.global.wallpaper.type === 'default'
+              "
               class="group stack"
             >
               <input
@@ -269,9 +279,42 @@ const handleLangSelect = (event) => {
               />
               <div class="desc">Image</div>
               <div class="btnGroup">
-                <button class="btn" type="button" @click="handleUploadBtnClick()">Upload file</button>
-                <button class="btn" type="button" @click="store.goTo('patterns')">Pattern</button>
-                <button class="btn" type="button" @click="store.goTo('unsplash')"><PremiumLabel />Unsplash.com</button>
+                <DropdownMenu ref="newWidgetMenu">
+                  <template #button>
+                    <button type="button" class="btn">
+                      {{ store.config.global.wallpaper.type === 'default' ? 'Select image' : 'Select an image' }}
+                      <fa icon="fa-caret-down"></fa>
+                    </button>
+                  </template>
+                  <template #menu>
+                    <ul class="imageSelectMenu">
+                      <li v-if="store.config.global.wallpaper.type !== 'default'">
+                        <button class="btn btnBlock" type="button" @click="handleRemoveImage(true)">Default</button>
+                      </li>
+                      <li>
+                        <button class="btn btnBlock" type="button" @click="handleUploadBtnClick()">Upload file</button>
+                      </li>
+                      <li>
+                        <button class="btn btnBlock" type="button" @click="store.goTo('patterns')">Pattern</button>
+                      </li>
+                      <li>
+                        <button class="btn btnBlock" type="button" @click="store.goTo('unsplash')">
+                          <PremiumLabel />Unsplash.com
+                        </button>
+                      </li>
+                    </ul>
+                  </template>
+                </DropdownMenu>
+                <button
+                  v-if="store.config.global.wallpaper.type === 'default'"
+                  class="btn"
+                  type="button"
+                  title="Remove image"
+                  aria-label="Remove image"
+                  @click="handleRemoveImage()"
+                >
+                  <fa icon="fa-xmark" /> Remove
+                </button>
               </div>
             </div>
           </div>
@@ -564,5 +607,14 @@ const handleLangSelect = (event) => {
   display: block;
   width: 40rem;
   padding: var(--s5);
+}
+
+.imageSelectMenu {
+  list-style: none;
+  display: grid;
+  grid-template: auto / 1fr;
+  margin: 0;
+  gap: var(--s4);
+  padding: var(--s4);
 }
 </style>

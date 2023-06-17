@@ -3,7 +3,7 @@ import { ref, computed, toRaw } from 'vue'
 import { useSettingsStore, setStorage } from '@/store.js'
 
 const store = useSettingsStore()
-const props = defineProps({ modelValue: Array, tagId: String, shadow: Boolean, text: Boolean })
+const props = defineProps({ modelValue: Array, tagId: String, shadow: Boolean, text: Boolean, disabled: Boolean })
 const emit = defineEmits(['update:modelValue'])
 
 // color: hue, saturation, lightness, opacity
@@ -130,6 +130,7 @@ const handleUpdate = () => {
         :aria-label="`Select ${props.shadow ? 'shadow' : 'color'}`"
         class="btn pickerButton"
         :class="props.shadow && !enable && 'pickerButtonDisable'"
+        :disabled="props.disabled ? 'disabled' : null"
       >
         <div v-if="props.shadow" :class="{ text: props.text }"></div>
         <div v-if="props.shadow" :class="{ text: props.text }"></div>
@@ -343,6 +344,10 @@ const handleUpdate = () => {
   gap: 0;
   padding: 0;
   overflow: hidden;
+
+  :disabled {
+    cursor: pointer;
+  }
 
   > div {
     display: grid;

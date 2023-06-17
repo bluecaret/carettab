@@ -6,6 +6,7 @@ import { getLocation, getWeather } from '@/helpers/weather.js'
 const store = useSettingsStore()
 
 const access = inject('access')
+const user = inject('user')
 const widgetStore = 'weathers'
 const ci = ref(store.config[widgetStore].findIndex((c) => c.id === store.editing))
 const widget = reactive(store.config[widgetStore][ci.value])
@@ -374,8 +375,14 @@ const refreshWeather = async () => {
             <ToggleField v-model="widget.current.icon.on" tag-id="currentIcon"></ToggleField>
           </div>
           <div v-if="widget.current.icon.on" class="group compact">
-            <label for="currentIconAnimated" class="desc">Animated</label>
-            <ToggleField v-model="widget.current.icon.animated" tag-id="currentIconAnimated"></ToggleField>
+            <label for="currentIconAnimated" class="desc">
+              <div><PremiumLabel />Animated</div>
+            </label>
+            <ToggleField
+              v-model="widget.current.icon.animated"
+              tag-id="currentIconAnimated"
+              :disabled="!user.paid"
+            ></ToggleField>
           </div>
         </div>
         <div v-if="widget.current.icon.on" class="group compact fill">
@@ -485,8 +492,14 @@ const refreshWeather = async () => {
             <ToggleField v-model="widget.forecast.icon.on" tag-id="forecastIcon"></ToggleField>
           </div>
           <div v-if="widget.forecast.icon.on" class="group compact">
-            <label for="forecastIconAnimated" class="desc">Animated</label>
-            <ToggleField v-model="widget.forecast.icon.animated" tag-id="forecastIconAnimated"></ToggleField>
+            <label for="forecastIconAnimated" class="desc">
+              <div><PremiumLabel />Animated</div>
+            </label>
+            <ToggleField
+              v-model="widget.forecast.icon.animated"
+              tag-id="forecastIconAnimated"
+              :disabled="!user.paid"
+            ></ToggleField>
           </div>
         </div>
         <div v-if="widget.forecast.icon.on" class="group fill">

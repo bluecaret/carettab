@@ -1,9 +1,10 @@
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { searchEngines } from '@/assets/lists.js'
 
 const store = useSettingsStore()
+const user = inject('user')
 
 const widgetStore = 'searchBars'
 const ci = ref(store.config[widgetStore].findIndex((c) => c.id === store.editing))
@@ -28,7 +29,7 @@ const widget = reactive(store.config[widgetStore][ci.value])
             <label for="custom" class="desc">
               <div><PremiumLabel />Custom</div>
             </label>
-            <ToggleField id="custom" v-model="widget.customEngine" name="custom"></ToggleField>
+            <ToggleField id="custom" v-model="widget.customEngine" name="custom" :disabled="!user.paid"></ToggleField>
           </div>
           <select v-if="!widget.customEngine" id="engine" v-model="widget.engine" name="engine" class="select w25">
             <option v-for="engine in searchEngines" :key="engine.id" :value="engine.id">{{ engine.label }}</option>
@@ -66,8 +67,10 @@ const widget = reactive(store.config[widgetStore][ci.value])
             <ToggleField id="icon" v-model="widget.engineLabel" name="icon"></ToggleField>
           </div>
           <div class="group stack">
-            <label for="icon" class="desc">Engine selection</label>
-            <ToggleField id="icon" v-model="widget.dropdown" name="icon"></ToggleField>
+            <label for="icon" class="desc">
+              <div><PremiumLabel />Engine selection</div>
+            </label>
+            <ToggleField id="icon" v-model="widget.dropdown" name="icon" :disabled="!user.paid"></ToggleField>
           </div>
         </div>
       </div>

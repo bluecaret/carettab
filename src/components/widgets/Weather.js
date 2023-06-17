@@ -30,7 +30,7 @@ export class Weather {
     },
     icon: {
       on: true,
-      animated: true,
+      animated: false,
       colors: {
         sun: [39, 100, 50, 1],
         moon: [39, 100, 50, 1],

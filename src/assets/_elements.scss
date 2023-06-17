@@ -62,10 +62,11 @@ a.link {
   }
 
   &.active {
-    background-color: var(--cBlue4);
+    background-color: var(--cBlue3);
   }
 
-  &[disabled] {
+  &:disabled {
+    box-shadow: none;
     color: var(--cBlue7);
     border-color: var(--cBlue8);
     cursor: not-allowed;

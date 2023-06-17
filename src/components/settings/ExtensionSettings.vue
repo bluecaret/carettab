@@ -12,6 +12,7 @@ if (typeof browser === 'undefined') {
 }
 
 const access = inject('access')
+const user = inject('user')
 const store = useSettingsStore()
 const uploadImageField = ref(null)
 const newWidgetMenu = ref(null)
@@ -298,7 +299,12 @@ const handleLangSelect = (event) => {
                         <button class="btn btnBlock" type="button" @click="store.goTo('patterns')">Pattern</button>
                       </li>
                       <li>
-                        <button class="btn btnBlock" type="button" @click="store.goTo('unsplash')">
+                        <button
+                          :disabled="!user.paid"
+                          class="btn btnBlock"
+                          type="button"
+                          @click="store.goTo('unsplash')"
+                        >
                           <PremiumLabel />Unsplash.com
                         </button>
                       </li>
@@ -393,6 +399,7 @@ const handleLangSelect = (event) => {
                   class="rangeInput"
                   min="0"
                   max="30"
+                  :disabled="!user.paid"
                 />
               </div>
             </div>
@@ -408,6 +415,7 @@ const handleLangSelect = (event) => {
                   class="rangeInput"
                   min="0"
                   max="30"
+                  :disabled="!user.paid"
                 />
               </div>
             </div>
@@ -417,7 +425,14 @@ const handleLangSelect = (event) => {
               </div>
               <div class="range">
                 <output class="output">{{ store.config.global.wallpaper.blur }}</output>
-                <input v-model="store.config.global.wallpaper.blur" type="range" class="rangeInput" min="0" max="50" />
+                <input
+                  v-model="store.config.global.wallpaper.blur"
+                  type="range"
+                  class="rangeInput"
+                  min="0"
+                  max="50"
+                  :disabled="!user.paid"
+                />
               </div>
             </div>
           </div>

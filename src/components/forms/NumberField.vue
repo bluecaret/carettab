@@ -5,6 +5,7 @@ const props = defineProps({
   max: Number,
   min: Number,
   tagId: String,
+  disabled: Boolean,
 })
 const emit = defineEmits(['update:modelValue'])
 
@@ -34,11 +35,32 @@ function handleArrowUpdate(up) {
 
 <template>
   <div class="num">
-    <input :id="tagId" type="number" class="input" :value="modelValue" :min="min" :max="max" @input="handleUpdate" />
-    <button class="numBtn" tabindex="-1" aria-label="Increase number" @click="handleArrowUpdate(true)">
+    <input
+      :id="tagId"
+      type="number"
+      class="input"
+      :value="modelValue"
+      :min="min"
+      :max="max"
+      :disabled="props.disabled ? 'disabled' : null"
+      @input="handleUpdate"
+    />
+    <button
+      class="numBtn"
+      tabindex="-1"
+      aria-label="Increase number"
+      :disabled="props.disabled ? 'disabled' : null"
+      @click="handleArrowUpdate(true)"
+    >
       <fa icon="fa-plus"></fa>
     </button>
-    <button class="numBtn" tabindex="-1" aria-label="Decrease number" @click="handleArrowUpdate(false)">
+    <button
+      class="numBtn"
+      tabindex="-1"
+      aria-label="Decrease number"
+      :disabled="props.disabled ? 'disabled' : null"
+      @click="handleArrowUpdate(false)"
+    >
       <fa icon="fa-minus"></fa>
     </button>
   </div>
@@ -95,6 +117,11 @@ function handleArrowUpdate(up) {
 
   &:active {
     opacity: 0.5;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--cBlue8);
   }
 }
 </style>

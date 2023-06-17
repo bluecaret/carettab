@@ -33,7 +33,7 @@
   --cBlue1: hsl(210 80% 80%);
   --cBlue2: hsl(205deg 100% 18%);
   --cBlue3: hsl(210 80% 30%);
-  --cBlue4: hsl(210 80% 30%);
+  --cBlue4: hsl(210 80% 60%);
   --cBlue5: hsl(210 30% 50%);
   --cBlue5Faded: hsl(210 30% 50% / 0.3);
   --cBlue6: hsl(210 10% 20%);
@@ -43,7 +43,7 @@
   --cBlue10: hsl(220deg 15% 50%);
   --cBlue11: hsl(220deg 15% 70%);
   --cBlue12: hsl(220deg 30% 70%);
-
+  
   // element colors
   --cError: hsl(10deg 90% 51%);
   --cSuccess: hsl(138, 56%, 60%);
@@ -53,4 +53,5 @@
   --cText: hsl(225 35% 80%);
   --cTextSubtle: hsl(225 12% 60%);
   --cShadow: hsl(0 0% 0% / 0.5);
+  --cPremium: var(--cBlue4);
 }

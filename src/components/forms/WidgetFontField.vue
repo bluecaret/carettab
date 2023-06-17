@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { fontList, fontWeight, textTransform } from '@/assets/lists.js'
 
@@ -10,6 +10,7 @@ const props = defineProps({
 })
 
 const store = useSettingsStore()
+const user = inject('user')
 const widgetPrep = ref(null)
 if (props.widgetStore === 'global') {
   widgetPrep.value = store.config.global.font
@@ -45,7 +46,9 @@ const updateFamily = (family) => {
     </div>
     <div v-if="props.noOverride || widget.override" class="group fill">
       <div class="group stack fill">
-        <label for="fontFamily" class="desc"> Font </label>
+        <label for="fontFamily" class="desc">
+          <div><PremiumLabel v-if="!props.noOverride" />Font</div>
+        </label>
         <AutocompleteField
           left
           fonts
@@ -54,6 +57,7 @@ const updateFamily = (family) => {
           allow-custom
           :list="fontList"
           :selected="widget.family"
+          :disabled="!props.noOverride && !user.paid"
           @selected="(item) => updateFamily(item)"
         ></AutocompleteField>
       </div>
@@ -71,15 +75,25 @@ const updateFamily = (family) => {
     </div>
     <div v-if="props.noOverride || widget.override" class="group fill">
       <div class="group stack fill">
-        <label for="fontBold" class="desc"> Weight </label>
-        <select id="fontBold" v-model="widget.bold" name="fontBold" class="select">
+        <label for="fontBold" class="desc">
+          <div><PremiumLabel v-if="!props.noOverride" />Weight</div>
+        </label>
+        <select
+          id="fontBold"
+          v-model="widget.bold"
+          name="fontBold"
+          class="select"
+          :disabled="!props.noOverride && !user.paid"
+        >
           <option v-for="wgt in fontWeight" :key="wgt.id" :value="wgt.id">
             {{ wgt.label }}
           </option>
         </select>
       </div>
       <div class="group stack">
-        <label class="desc"> Style </label>
+        <label class="desc">
+          <div><PremiumLabel v-if="!props.noOverride" />Style</div>
+        </label>
         <div class="btnGroup">
           <button
             id="togglePosition"
@@ -87,6 +101,7 @@ const updateFamily = (family) => {
             class="btn"
             type="button"
             :class="{ active: widget.italic }"
+            :disabled="!props.noOverride && !user.paid"
             @click="widget.italic = !widget.italic"
           >
             <fa icon="fa-italic" fixed-width></fa>
@@ -97,6 +112,7 @@ const updateFamily = (family) => {
             class="btn"
             type="button"
             :class="{ active: widget.underline }"
+            :disabled="!props.noOverride && !user.paid"
             @click="widget.underline = !widget.underline"
           >
             <fa icon="fa-underline" fixed-width></fa>
@@ -104,8 +120,16 @@ const updateFamily = (family) => {
         </div>
       </div>
       <div class="group stack fill">
-        <label for="textTranform" class="desc"> Case </label>
-        <select id="textTranform" v-model="widget.transform" name="textTranform" class="select">
+        <label for="textTranform" class="desc">
+          <div><PremiumLabel v-if="!props.noOverride" />Case</div>
+        </label>
+        <select
+          id="textTranform"
+          v-model="widget.transform"
+          name="textTranform"
+          class="select"
+          :disabled="!props.noOverride && !user.paid"
+        >
           <option v-for="opt in textTransform" :key="opt.id" :value="opt.id">
             {{ opt.label }}
           </option>

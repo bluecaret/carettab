@@ -6,6 +6,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
   useLabel: {
     type: Boolean,
     default: false,
@@ -148,6 +152,7 @@ onUnmounted(() => {
       v-model="inputValue"
       class="autocompleteInput"
       autocomplete="off"
+      :disabled="props.disabled ? 'disabled' : null"
       @input="updateList"
       @focus="showList = true"
       @keydown="handleKeyDown"
@@ -204,6 +209,12 @@ onUnmounted(() => {
     background-size: 0.3rem 0.3rem, 0.3rem 0.3rem, 0.3rem 0.3rem, 1px 2.8rem;
     background-repeat: no-repeat;
     padding-right: 2.1rem;
+    &:disabled {
+      background-image: linear-gradient(0deg, var(--cBlue8) 50%, var(--cBlue8) 50%),
+        linear-gradient(0deg, var(--cBlue8) 50%, var(--cBlue8) 50%),
+        linear-gradient(0deg, var(--cBlue8) 50%, var(--cBlue8) 50%),
+        linear-gradient(to right, var(--cBlue8), var(--cBlue8));
+    }
   }
 
   .autocompleteClear {
@@ -266,7 +277,7 @@ onUnmounted(() => {
       }
 
       &.active {
-        background-color: var(--cBlue4);
+        background-color: var(--cBlue3);
       }
 
       button {

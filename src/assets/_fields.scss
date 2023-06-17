@@ -31,10 +31,15 @@
     linear-gradient(135deg, var(--cArrow) 50%, transparent 50%),
     linear-gradient(to right, var(--cArrowFade), var(--cArrowFade));
   background-position: calc(100% - 1rem) calc(0.6em + 0.6rem), calc(100% - 0.6rem) calc(0.6em + 0.6rem),
-    calc(100% - 2rem) 0.2em;
+  calc(100% - 2rem) 0.2em;
   background-size: 0.4rem 0.4rem, 0.4rem 0.4rem, 1px 2.8rem;
   background-repeat: no-repeat;
   padding-right: 2.1rem;
+  &:disabled {
+    background-image: linear-gradient(45deg, transparent 50%, var(--cBlue8) 50%),
+      linear-gradient(135deg, var(--cBlue8) 50%, transparent 50%),
+      linear-gradient(to right, var(--cBlue8), var(--cBlue8));
+  }
 }
 
 .color {
@@ -55,12 +60,17 @@
     border-radius: var(--radius);
     box-shadow: inset 0px 0px 0px 2px var(--cGrey3);
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    
+  }
 }
 
 .range {
     --rangeTrack: var(--cGrey3);
     --rangeTrackDisabled: var(--cGrey3Alt);
-    --rangeThumb: var(--cBlue4);
+    --rangeThumb: var(--cBlue3);
     --rangeThumbDisabled: var(--cBlue6);
 
   position: relative;

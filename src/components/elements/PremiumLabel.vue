@@ -43,7 +43,7 @@ const wrapStyles = computed(() => {
 }
 
 .premiumLabel {
-  color: var(--cBlue5);
+  color: var(--cPremium);
   display: inline-flex;
   align-items: center;
   border: 0;

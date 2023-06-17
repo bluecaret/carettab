@@ -12,9 +12,9 @@ export const widgetTypes = [
 ]
 
 export const toolTypes = [
-  { tool: 'calculator', name: 'Calculator', icon: 'fa-calculator' },
-  { tool: 'aiChat', name: 'AI Chat', icon: 'fa-robot' },
-  { tool: 'passwordGenerator', name: 'Password Generator', icon: 'fa-asterisk' },
+  { tool: 'calculator', name: 'Calculator', icon: 'fa-calculator', premium: false },
+  { tool: 'passwordGenerator', name: 'Password Generator', icon: 'fa-asterisk', premium: false },
+  { tool: 'aiChat', name: 'AI Chat', icon: 'fa-robot', premium: true },
 ]
 
 export const languages = [

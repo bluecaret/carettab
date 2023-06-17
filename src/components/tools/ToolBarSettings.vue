@@ -1,10 +1,11 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 import draggable from 'vuedraggable'
 import { useSettingsStore } from '@/store.js'
 import { toolTypes } from '@/assets/lists.js'
 
 const store = useSettingsStore()
+const user = inject('user')
 
 const getToolDetails = (tool) => {
   return toolTypes.find((t) => t.tool === tool)
@@ -124,8 +125,9 @@ const showToolbarTools = ref(false)
             </div>
           </div>
         </div>
-        <div class="group mla">
-          <ToggleField v-model="element.on"></ToggleField>
+        <div class="group compact mla">
+          <PremiumLabel v-if="getToolDetails(element.id).premium" />
+          <ToggleField v-model="element.on" :disabled="getToolDetails(element.id).premium && !user.paid"></ToggleField>
         </div>
       </div>
     </template>

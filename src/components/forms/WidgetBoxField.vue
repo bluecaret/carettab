@@ -1,6 +1,8 @@
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
+
+const user = inject('user')
 
 const props = defineProps({
   noOverride: Boolean,
@@ -23,34 +25,53 @@ const widget = reactive(widgetPrep.value)
     <div class="group fill">
       <label class="label mra">Container box</label>
       <div v-if="!props.noOverride" class="group compact">
-        <label for="overrideGlobalFont" class="desc">Override global</label>
-        <ToggleField v-model="widget.override" tag-id="overrideGlobalFont"> </ToggleField>
+        <label for="overrideGlobalFont" class="desc">
+          <div><PremiumLabel />Override global</div>
+        </label>
+        <ToggleField v-model="widget.override" tag-id="overrideGlobalFont" :disabled="!user.paid"> </ToggleField>
       </div>
     </div>
     <div v-if="props.noOverride || widget.override" class="group fill">
       <div class="group stack">
-        <label for="boxPadding" class="desc"> Padding </label>
-        <NumberField v-model="widget.padding" tag-id="boxPadding" :increment="1" :min="0"> </NumberField>
+        <label for="boxPadding" class="desc">
+          <div><PremiumLabel />Padding</div>
+        </label>
+        <NumberField v-model="widget.padding" tag-id="boxPadding" :increment="1" :min="0" :disabled="!user.paid">
+        </NumberField>
       </div>
       <div class="group stack">
-        <label for="boxRounded" class="desc"> Rounded </label>
-        <NumberField v-model="widget.radius" tag-id="boxRounded" :increment="1" :min="0"> </NumberField>
+        <label for="boxRounded" class="desc">
+          <div><PremiumLabel />Rounded</div>
+        </label>
+        <NumberField v-model="widget.radius" tag-id="boxRounded" :increment="1" :min="0" :disabled="!user.paid">
+        </NumberField>
       </div>
       <div class="group stack">
-        <label for="boxBs" class="desc"> Border size </label>
-        <NumberField v-model="widget.borderSize" tag-id="boxBs" :increment="1" :min="0"> </NumberField>
+        <label for="boxBs" class="desc">
+          <div><PremiumLabel />Border size</div>
+        </label>
+        <NumberField v-model="widget.borderSize" tag-id="boxBs" :increment="1" :min="0" :disabled="!user.paid">
+        </NumberField>
       </div>
-      <div class="group stack">
-        <label for="boxBc" class="desc"> Border color </label>
-        <ColorField v-model="widget.borderColor" tag-id="boxBc" class="w8"> </ColorField>
+    </div>
+    <div v-if="props.noOverride || widget.override" class="group fill">
+      <div class="group stack fill">
+        <label for="boxBc" class="desc">
+          <div><PremiumLabel />Border color</div>
+        </label>
+        <ColorField v-model="widget.borderColor" tag-id="boxBc" class="fill" :disabled="!user.paid"> </ColorField>
       </div>
-      <div class="group stack">
-        <label for="boxBg" class="desc"> Background </label>
-        <ColorField v-model="widget.background" tag-id="boxBg" class="w8"> </ColorField>
+      <div class="group stack fill">
+        <label for="boxBg" class="desc">
+          <div><PremiumLabel />Background</div>
+        </label>
+        <ColorField v-model="widget.background" tag-id="boxBg" class="fill" :disabled="!user.paid"> </ColorField>
       </div>
-      <div class="group stack">
-        <label for="boxShadow" class="desc"> Shadow </label>
-        <ColorField v-model="widget.shadow" shadow tag-id="boxShadow" class="w8"> </ColorField>
+      <div class="group stack fill">
+        <label for="boxShadow" class="desc">
+          <div><PremiumLabel />Shadow</div>
+        </label>
+        <ColorField v-model="widget.shadow" shadow tag-id="boxShadow" class="fill" :disabled="!user.paid"> </ColorField>
       </div>
     </div>
   </div>

@@ -1,10 +1,11 @@
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { setWidgetContainerStyles, hsl, shadow } from '@/helpers/widgets.js'
 import { searchEngines } from '@/assets/lists.js'
 
 const store = useSettingsStore()
+const user = inject('user')
 
 const props = defineProps({
   widget: {
@@ -52,7 +53,7 @@ watch(
 )
 
 const containerStyles = computed(() => {
-  return setWidgetContainerStyles(props.widget, store.config.global)
+  return setWidgetContainerStyles(props.widget, store.config.global, user.value.paid)
 })
 
 const setEngine = (en) => {

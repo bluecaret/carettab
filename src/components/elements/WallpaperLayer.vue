@@ -18,8 +18,10 @@ onMounted(async () => {
 
 const filter = computed(() => {
   return `brightness(${store.config.global.wallpaper.brightness * 0.1}) saturate(${
-    store.config.global.wallpaper.saturation * 0.1
-  }) contrast(${store.config.global.wallpaper.contrast * 0.1}) blur(${store.config.global.wallpaper.blur}px)`
+    user.value.paid ? store.config.global.wallpaper.saturation * 0.1 : 1
+  }) contrast(${user.value.paid ? store.config.global.wallpaper.contrast * 0.1 : 1}) blur(${
+    user.value.paid ? store.config.global.wallpaper.blur : 0
+  }px)`
 })
 
 const blendMode = computed(() => {
@@ -93,7 +95,7 @@ const loadWallpaper = async () => {
   if (globalStorage.global && globalStorage.global.wallpaper.type) imageType = globalStorage.global.wallpaper.type
 
   loadCurrentWallpaper(imageType)
-  if (user.paid) {
+  if (user.value.paid) {
     getNextWallpaper(
       globalStorage.global.wallpaper.type,
       globalStorage.global.wallpaper.timestamp,
@@ -106,7 +108,10 @@ const loadCurrentWallpaper = async (imageType) => {
   if (!imageType || ['default'].includes(imageType)) {
     wallpaperSrc.value = defaultWallpaper
   }
-  if (['upload'].includes(imageType) || (['unphoto', 'untopic', 'uncollection'].includes(imageType) && user.paid)) {
+  if (
+    ['upload'].includes(imageType) ||
+    (['unphoto', 'untopic', 'uncollection'].includes(imageType) && user.value.paid)
+  ) {
     let getCurrentWallpaper = await getStorage('currentWallpaper', 'local')
 
     if (getCurrentWallpaper && getCurrentWallpaper.currentWallpaper) {

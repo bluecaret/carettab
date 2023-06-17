@@ -31,7 +31,7 @@ const widget = reactive(widgetPrep.value)
         <ToggleField v-model="widget.override" tag-id="overrideGlobalFont" :disabled="!user.paid"> </ToggleField>
       </div>
     </div>
-    <div v-if="props.noOverride || widget.override" class="group fill">
+    <div v-if="props.noOverride || (user.paid && widget.override)" class="group fill">
       <div class="group stack">
         <label for="boxPadding" class="desc">
           <div><PremiumLabel />Padding</div>
@@ -54,7 +54,7 @@ const widget = reactive(widgetPrep.value)
         </NumberField>
       </div>
     </div>
-    <div v-if="props.noOverride || widget.override" class="group fill">
+    <div v-if="props.noOverride || (user.paid && widget.override)" class="group fill">
       <div class="group stack fill">
         <label for="boxBc" class="desc">
           <div><PremiumLabel />Border color</div>

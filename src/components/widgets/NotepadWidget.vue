@@ -1,9 +1,10 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, inject } from 'vue'
 import { useSettingsStore, setStorage, getStorage } from '@/store.js'
 import { setWidgetContainerStyles, hsl, shadow } from '@/helpers/widgets.js'
 
 const store = useSettingsStore()
+const user = inject('user')
 
 const props = defineProps({
   widget: {
@@ -28,7 +29,7 @@ const saveNotes = () => {
 }
 
 const containerStyles = computed(() => {
-  return setWidgetContainerStyles(props.widget, store.config.global)
+  return setWidgetContainerStyles(props.widget, store.config.global, user.value.paid)
 })
 </script>
 

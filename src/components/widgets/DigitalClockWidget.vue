@@ -1,10 +1,11 @@
 <script setup>
-import { computed, watch, ref } from 'vue'
+import { computed, watch, ref, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { DateTime } from 'luxon'
 import { setWidgetContainerStyles, setWidgetSegmentStyles } from '@/helpers/widgets.js'
 
 const store = useSettingsStore()
+const user = inject('user')
 
 const props = defineProps({
   widget: {
@@ -38,7 +39,7 @@ const blink = computed(() => {
 })
 
 const containerStyles = computed(() => {
-  return setWidgetContainerStyles(props.widget, store.config.global)
+  return setWidgetContainerStyles(props.widget, store.config.global, user.value.paid)
 })
 
 const segmentStyles = (type, lsUsesMargin = false) => {

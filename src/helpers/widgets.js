@@ -34,21 +34,39 @@ export const setPermission = async (permission, origins = false) => {
   })
 }
 
-export const setWidgetContainerStyles = (widget, global) => {
+export const setWidgetContainerStyles = (widget, global, paid) => {
   const box = widget.base.container.override ? widget.base.container : global.container
   const font = widget.base.font.override ? widget.base.font : global.font
 
   // Font styles
   const fontSize = `font-size: ${widget.base.font.size}px; `
-  const fontFamily = `font-family: "${font.family}"; `
-  const fontWeight = `font-weight: ${font.bold}; `
+  const fontFamily = `font-family: "${paid ? font.family : global.font.family}"; `
+  const fontWeight = `font-weight: ${paid ? font.bold : global.font.bold}; `
   const color = `color: hsl(${font.color[0]}deg ${font.color[1]}% ${font.color[2]}% / ${font.color[3]}); `
   const textShadow = font.shadow[0]
     ? `text-shadow: ${font.shadow[1]}px ${font.shadow[2]}px ${font.shadow[3]}px hsl(${font.shadow[4]}deg ${font.shadow[5]}% ${font.shadow[6]}% / ${font.shadow[7]}); `
     : 'text-shadow: none;'
-  const fontItalic = font.italic ? 'font-style: italic; ' : 'font-style: normal;'
-  const fontUnderline = font.underline ? 'text-decoration: underline; ' : 'text-decoration: none;'
-  const fontCase = font.transform ? `text-transform: ${font.transform}; ` : 'text-transform: none;'
+  const fontItalic = paid
+    ? font.italic
+      ? 'font-style: italic; '
+      : 'font-style: normal;'
+    : global.font.italic
+    ? 'font-style: italic; '
+    : 'font-style: normal;'
+  const fontUnderline = paid
+    ? font.underline
+      ? 'text-decoration: underline; '
+      : 'text-decoration: none;'
+    : global.font.underline
+    ? 'text-decoration: underline; '
+    : 'text-decoration: none;'
+  const fontCase = paid
+    ? font.transform
+      ? `text-transform: ${font.transform}; `
+      : 'text-transform: none;'
+    : global.font.transform
+    ? `text-transform: ${global.font.transform}; `
+    : 'text-transform: none;'
   const letterSpacing = `letter-spacing: ${font.letterSpacing * 0.01}em; `
 
   // Container box styles
@@ -63,13 +81,17 @@ export const setWidgetContainerStyles = (widget, global) => {
       : widget.base.height + (widget.base.heightUnit === 'pixels' ? 'px' : '%')
   };`
   const translate = `translate: ${widget.base.x}px ${-widget.base.y}px;`
-  const radius = `border-radius: ${box.radius}px; `
+  const radius = `border-radius: ${paid ? box.radius : 0}px; `
   const borderColor = `hsl(${box.borderColor[0]}deg ${box.borderColor[1]}% ${box.borderColor[2]}% / ${box.borderColor[3]});`
-  const border = `border: ${box.borderSize}px solid ${borderColor}; `
-  const backgroundColor = `background-color: hsl(${box.background[0]}deg ${box.background[1]}% ${box.background[2]}% / ${box.background[3]}); `
-  const padding = `padding: ${box.padding}px; `
-  const shadow = box.shadow[0]
-    ? `box-shadow: ${box.shadow[1]}px ${box.shadow[2]}px ${box.shadow[3]}px 0px hsl(${box.shadow[4]}deg ${box.shadow[5]}% ${box.shadow[6]}% / ${box.shadow[7]}); `
+  const border = `border: ${paid ? box.borderSize : 0}px solid ${borderColor}; `
+  const backgroundColor = paid
+    ? `background-color: hsl(${box.background[0]}deg ${box.background[1]}% ${box.background[2]}% / ${box.background[3]}); `
+    : `background-color: transparent;`
+  const padding = `padding: ${paid ? box.padding : 0}px; `
+  const shadow = paid
+    ? box.shadow[0]
+      ? `box-shadow: ${box.shadow[1]}px ${box.shadow[2]}px ${box.shadow[3]}px 0px hsl(${box.shadow[4]}deg ${box.shadow[5]}% ${box.shadow[6]}% / ${box.shadow[7]}); `
+      : 'box-shadow: none;'
     : 'box-shadow: none;'
 
   let styles = `${fontSize}${fontFamily}${fontWeight}${color}${fontUnderline}${letterSpacing}${fontCase}${textShadow}${fontItalic}${width}${height}${translate}${radius}${border}${backgroundColor}${padding}${shadow}`

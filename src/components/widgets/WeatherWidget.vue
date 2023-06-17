@@ -9,6 +9,7 @@ import WeatherAuxIcon from '@/components/widgets/WeatherAuxIcon.vue'
 import {} from '@/assets/lists.js'
 
 const access = inject('access')
+const user = inject('user')
 const store = useSettingsStore()
 
 const props = defineProps({
@@ -110,7 +111,7 @@ const checkIfDetailsIsEnabled = computed(() => {
 })
 
 const containerStyles = computed(() => {
-  return setWidgetContainerStyles(props.widget, store.config.global)
+  return setWidgetContainerStyles(props.widget, store.config.global, user.value.paid)
 })
 
 const iconStyle = () => {

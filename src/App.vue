@@ -12,6 +12,8 @@ import { mergeV3Settings } from '@/helpers/mergeOldSettings.js'
 
 const { locale } = useI18n({ useScope: 'global' })
 const extpay = ExtPay('carettab')
+const access = inject('access')
+const user = inject('user')
 const updateUser = inject('updateUser')
 const store = useSettingsStore()
 const { isLoading, settingsOpen } = storeToRefs(store)
@@ -23,10 +25,15 @@ onMounted(async () => {
 
   // Run a full user check against the server now that the app has loaded
   const refreshUserCheck = () => {
+    if (access.license !== '' && access.license === access.userLicense) {
+      console.info('%c* You have free access to CaretTab Premium *', 'color:green;font-weight:bold;')
+      mergeV3Settings(true)
+      return
+    }
     extpay
       .getUser()
       .then((u) => {
-        updateUser(u)
+        updateUser({ ...u })
       })
       .then(() => {
         mergeV3Settings(true)

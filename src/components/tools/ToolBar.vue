@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import AIChatTool from '@/components/tools/AIChatTool.vue'
 import CalculatorTool from '@/components/tools/CalculatorTool.vue'
@@ -7,6 +7,7 @@ import PasswordGeneratorTool from '@/components/tools/PasswordGeneratorTool.vue'
 import { toolTypes } from '@/assets/lists.js'
 
 const store = useSettingsStore()
+const user = inject('user')
 const selected = ref('')
 
 const toggleTool = (tool) => {
@@ -23,7 +24,7 @@ const getToolType = (id) => {
   <div class="toolbar">
     <ul>
       <template v-for="tool in store.config.toolbar.tools" :key="tool.id">
-        <li v-if="tool.on">
+        <li v-if="tool.on && (!getToolType(tool.id).premium || user.paid)">
           <button
             class="toolBtn"
             type="button"

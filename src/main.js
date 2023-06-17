@@ -219,26 +219,24 @@ const getAccess = async () => {
 }
 
 // Run quick user check based on storage for a faster load
-const quickUserCheck = async () => {
-  return await getStorage('extensionpay_user', 'sync')
-}
-
 // Prevents app from loading till quick check is done.
-quickUserCheck().then(async (user) => {
+;(async function () {
   const app = createApp(App)
+  const userInfo = ref({ paid: false })
 
+  let user = await getStorage('extensionpay_user', 'sync')
+  if (Object.keys(user).length > 0) {
+    userInfo.value = { ...user.extensionpay_user }
+  }
   let access = await getAccess()
 
   if (access.license !== '' && access.license === access.userLicense) {
-    console.info('%c* You have free access to CaretTab Premium *', 'color:green;font-weight:bold;')
-    user.extensionpay_user.paid = true
+    userInfo.value.paid = true
   }
-
-  const userInfo = ref(user.extensionpay_user)
 
   app.provide('user', userInfo)
   app.provide('updateUser', (u) => {
-    userInfo.value = u
+    userInfo.value = { ...u }
   })
   app.provide('access', access)
   // eslint-disable-next-line vue/multi-word-component-names
@@ -262,4 +260,4 @@ quickUserCheck().then(async (user) => {
   app.use(createPinia())
 
   app.mount('#app')
-})
+})()

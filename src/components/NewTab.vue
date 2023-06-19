@@ -59,6 +59,10 @@ const generateNewTabStyles = computed(() => {
   `
 })
 
+const widgetNullCheck = (layer, widgetType, widget) => {
+  return layer.on && layer.widget === widgetType && widget && widget.find((c) => c.id === layer.id)
+}
+
 watch(
   () => [store.config.global.tabTitle.type, store.currentTime],
   () => {
@@ -84,7 +88,7 @@ const setTabTitle = () => {
     <div class="tabGrid" :style="generateTabGridStyles">
       <template v-for="(layer, index) in store.config.layers" :key="layer.id">
         <AnalogClockWidget
-          v-if="layer.on && layer.widget === 'analogClock'"
+          v-if="widgetNullCheck(layer, 'analogClock', store.config.analogClocks)"
           :class="{ outliner: store.showOutliner }"
           :widget="store.config.analogClocks.find((c) => c.id === layer.id)"
           :style="`z-index: ${store.config.layers.length - index}`"
@@ -92,7 +96,7 @@ const setTabTitle = () => {
         </AnalogClockWidget>
         <div v-if="!layer.on && layer.widget === 'analogClock'"></div>
         <BinaryClockWidget
-          v-if="layer.on && layer.widget === 'binaryClock'"
+          v-if="widgetNullCheck(layer, 'binaryClock', store.config.binaryClocks)"
           :class="{ outliner: store.showOutliner }"
           :widget="store.config.binaryClocks.find((c) => c.id === layer.id)"
           :style="`z-index: ${store.config.layers.length - index}`"
@@ -100,7 +104,7 @@ const setTabTitle = () => {
         </BinaryClockWidget>
         <div v-if="!layer.on && layer.widget === 'binaryClock'"></div>
         <DigitalClockWidget
-          v-if="layer.on && layer.widget === 'digitalClock'"
+          v-if="widgetNullCheck(layer, 'digitalClock', store.config.digitalClocks)"
           :class="{ outliner: store.showOutliner }"
           :widget="store.config.digitalClocks.find((c) => c.id === layer.id)"
           :style="`z-index: ${store.config.layers.length - index}`"
@@ -108,7 +112,7 @@ const setTabTitle = () => {
         </DigitalClockWidget>
         <div v-if="!layer.on && layer.widget === 'digitalClock'"></div>
         <DateWidget
-          v-if="layer.on && layer.widget === 'date'"
+          v-if="widgetNullCheck(layer, 'date', store.config.dates)"
           :class="{ outliner: store.showOutliner }"
           :widget="store.config.dates.find((c) => c.id === layer.id)"
           :style="`z-index: ${store.config.layers.length - index}`"
@@ -116,7 +120,7 @@ const setTabTitle = () => {
         </DateWidget>
         <div v-if="!layer.on && layer.widget === 'date'"></div>
         <SearchBarWidget
-          v-if="layer.on && layer.widget === 'searchBar'"
+          v-if="widgetNullCheck(layer, 'searchBar', store.config.searchBars)"
           :class="{ outliner: store.showOutliner }"
           :widget="store.config.searchBars.find((c) => c.id === layer.id)"
           :style="`z-index: ${store.config.layers.length - index}`"
@@ -124,14 +128,14 @@ const setTabTitle = () => {
         </SearchBarWidget>
         <div v-if="!layer.on && layer.widget === 'searchBar'"></div>
         <WeatherWidget
-          v-if="layer.on && layer.widget === 'weather'"
+          v-if="widgetNullCheck(layer, 'weather', store.config.weathers)"
           :class="{ outliner: store.showOutliner }"
           :widget="store.config.weathers.find((c) => c.id === layer.id)"
           :style="`z-index: ${store.config.layers.length - index}`"
         >
         </WeatherWidget>
         <NotepadWidget
-          v-if="layer.on && layer.widget === 'notepad'"
+          v-if="widgetNullCheck(layer, 'notepad', store.config.notepads)"
           :class="{ outliner: store.showOutliner }"
           :widget="store.config.notepads.find((c) => c.id === layer.id)"
           :style="`z-index: ${store.config.layers.length - index}`"
@@ -139,7 +143,7 @@ const setTabTitle = () => {
         </NotepadWidget>
         <div v-if="!layer.on && layer.widget === 'notepad'"></div>
         <QuoteWidget
-          v-if="layer.on && layer.widget === 'quote'"
+          v-if="widgetNullCheck(layer, 'quote', store.config.quotes)"
           :class="{ outliner: store.showOutliner }"
           :widget="store.config.quotes.find((c) => c.id === layer.id)"
           :style="`z-index: ${store.config.layers.length - index}`"
@@ -147,7 +151,7 @@ const setTabTitle = () => {
         </QuoteWidget>
         <div v-if="!layer.on && layer.widget === 'quote'"></div>
         <QuickLinksWidget
-          v-if="layer.on && layer.widget === 'quickLinks'"
+          v-if="widgetNullCheck(layer, 'quickLinks', store.config.quickLinks)"
           :class="{ outliner: store.showOutliner }"
           :widget="store.config.quickLinks.find((c) => c.id === layer.id)"
           :style="`z-index: ${store.config.layers.length - index}`"
@@ -155,7 +159,7 @@ const setTabTitle = () => {
         </QuickLinksWidget>
         <div v-if="!layer.on && layer.widget === 'quickLinks'"></div>
         <LoadsheddingWidget
-          v-if="layer.on && layer.widget === 'loadshedding'"
+          v-if="widgetNullCheck(layer, 'loadshedding', store.config.loadsheddings)"
           :class="{ outliner: store.showOutliner }"
           :widget="store.config.loadsheddings.find((c) => c.id === layer.id)"
           :style="`z-index: ${store.config.layers.length - index}`"

@@ -3,7 +3,6 @@ import { ref, watch, onMounted, computed, inject } from 'vue'
 import { useSettingsStore, getStorage, setStorage } from '@/store.js'
 import { prepareWallpaperObj, saveUnsplashInfoToGlobal, getRandomPhotoFromUnsplashList } from '@/helpers/unsplash.js'
 
-const access = inject('access')
 const user = inject('user')
 const store = useSettingsStore()
 const wallpaperSrc = ref(store.wallpaper)
@@ -150,7 +149,7 @@ const getNextWallpaper = async (type, timestamp, id) => {
       }
 
       // Retrieve new 'next' wallpaper
-      let newRandomPhoto = await getRandomPhotoFromUnsplashList(access.items.us, type, id)
+      let newRandomPhoto = await getRandomPhotoFromUnsplashList(type, id)
       if (newRandomPhoto) {
         setStorage({ nextWallpaper: newRandomPhoto }, 'local')
       }

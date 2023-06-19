@@ -5,7 +5,6 @@ import { getLocation, getWeather } from '@/helpers/weather.js'
 
 const store = useSettingsStore()
 
-const access = inject('access')
 const user = inject('user')
 const widgetStore = 'weathers'
 const ci = ref(store.config[widgetStore].findIndex((c) => c.id === store.editing))
@@ -20,7 +19,7 @@ const openLocSearch = async () => {
 
 const searchLoc = async () => {
   store.isLoading = true
-  const loc = await getLocation(locQueary.value, access.items.w, store.config.global.lang)
+  const loc = await getLocation(locQueary.value, store.config.global.lang)
   searchResults.value = [...loc]
   store.isLoading = false
 }
@@ -30,11 +29,7 @@ const getMyLoc = () => {
   navigator.geolocation.getCurrentPosition(
     async (pos) => {
       store.isLoading = false
-      const loc = await getLocation(
-        `${pos.coords.latitude},${pos.coords.longitude}`,
-        access.items.w,
-        store.config.global.lang
-      )
+      const loc = await getLocation(`${pos.coords.latitude},${pos.coords.longitude}`, store.config.global.lang)
       searchResults.value = [...loc]
     },
     (err) => {
@@ -56,7 +51,7 @@ const selectLoc = (loc) => {
 
 const refreshWeather = async () => {
   store.isLoading = true
-  let data = await getWeather(widget.location.url, access.items.w, store.config.global.lang)
+  let data = await getWeather(widget.location.url, store.config.global.lang)
   let wKey = 'weather-' + widget.id
   await setStorage({ [wKey]: data }, 'local')
   store.isLoading = false

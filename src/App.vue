@@ -1,19 +1,18 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
 import { computed, onMounted, inject } from 'vue'
-import { useSettingsStore } from '@/store.js'
+import { useSettingsStore, getStorage } from '@/store.js'
 import { storeToRefs } from 'pinia'
 import NewTab from '@/components/NewTab.vue'
 import SettingsPanel from '@/components/settings/SettingsPanel.vue'
 import LoadingOverlay from '@/components/elements/LoadingOverlay.vue'
 import { fontList } from '@/assets/lists.js'
 import { ExtPay } from '@/assets/ExtPay.js'
+import { checkLicense } from '@/helpers/data.js'
 import { mergeV3Settings } from '@/helpers/mergeOldSettings.js'
 
 const { locale } = useI18n({ useScope: 'global' })
 const extpay = ExtPay('carettab')
-const access = inject('access')
-const user = inject('user')
 const updateUser = inject('updateUser')
 const store = useSettingsStore()
 const { isLoading, settingsOpen } = storeToRefs(store)
@@ -24,20 +23,20 @@ onMounted(async () => {
   locale.value = store.config.global.lang
 
   // Run a full user check against the server now that the app has loaded
-  const refreshUserCheck = () => {
-    if (access.license !== '' && access.license === access.userLicense) {
-      console.info('%c* You have free access to CaretTab Premium *', 'color:green;font-weight:bold;')
-      mergeV3Settings(true)
-      return
+  const refreshUserCheck = async () => {
+    let chromeStore = await getStorage(['userLicense'], 'local')
+    let validLicense = await checkLicense(chromeStore.userLicense)
+    // Only check extPay if user hasn't used a license key
+    if (!validLicense) {
+      try {
+        const getUser = await extpay.getUser()
+        updateUser({ ...getUser })
+      } catch (error) {
+        console.warn('Failed to check extensionPay user', error)
+      }
     }
-    extpay
-      .getUser()
-      .then((u) => {
-        updateUser({ ...u })
-      })
-      .then(() => {
-        mergeV3Settings(true)
-      })
+    // after checking paid status, run v3 migration
+    mergeV3Settings(true)
   }
   refreshUserCheck()
 })

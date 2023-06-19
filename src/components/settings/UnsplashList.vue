@@ -1,10 +1,7 @@
 <!-- eslint-disable no-undef -->
 <script setup>
-import { inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { getList, getSelectedUnsplashImage } from '@/helpers/unsplash.js'
-
-const access = inject('access')
 
 if (typeof browser === 'undefined') {
   var browser = chrome
@@ -20,7 +17,7 @@ const handleTabChange = async (t) => {
     (t === 'topics' && store.unsplashTopicResults.length < 1) ||
     (t === 'collections' && store.unsplashCollectionResults.length < 1)
   ) {
-    await getList(access.items.us, 1)
+    await getList(1)
     store.unsplashStatus = 'results'
     return
   }
@@ -35,7 +32,7 @@ const handleUnsplashPhotoSearch = () => {
   if (!store.unsplashSearchTerm) return
   store.unsplashTab = 'search'
   store.unsplashStatus = 'results'
-  getList(access.items.us, 1)
+  getList(1)
 }
 </script>
 
@@ -116,7 +113,7 @@ const handleUnsplashPhotoSearch = () => {
               type="button"
               class="unsplashBtn"
               :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
-              @click="getSelectedUnsplashImage(access.items.us, photo.id, photo.title, photo.links.html)"
+              @click="getSelectedUnsplashImage(photo.id, photo.title, photo.links.html)"
             >
               <div
                 class="unsplashPreview"
@@ -150,7 +147,7 @@ const handleUnsplashPhotoSearch = () => {
             type="button"
             class="btn"
             :disabled="store.unsplashSearchPage <= 1"
-            @click="getList(access.items.us, store.unsplashSearchPage - 1)"
+            @click="getList(store.unsplashSearchPage - 1)"
           >
             <fa icon="fa-caret-left" fixed-width></fa>
           </button>
@@ -161,7 +158,7 @@ const handleUnsplashPhotoSearch = () => {
             type="button"
             class="btn"
             :disabled="store.unsplashSearchResults.length <= 20"
-            @click="getList(access.items.us, store.unsplashSearchPage + 1)"
+            @click="getList(store.unsplashSearchPage + 1)"
           >
             <fa icon="fa-caret-right" fixed-width></fa>
           </button>
@@ -177,7 +174,7 @@ const handleUnsplashPhotoSearch = () => {
               type="button"
               class="unsplashBtn"
               :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
-              @click="getSelectedUnsplashImage(access.items.us, photo.id, photo.title, photo.links.html)"
+              @click="getSelectedUnsplashImage(photo.id, photo.title, photo.links.html)"
             >
               <div v-if="photo.preview_photos && photo.preview_photos.length > 0" class="unsplashPreviewList">
                 <div
@@ -205,7 +202,7 @@ const handleUnsplashPhotoSearch = () => {
             type="button"
             class="btn"
             :disabled="store.unsplashTopicPage <= 1"
-            @click="getList(access.items.us, store.unsplashTopicPage - 1)"
+            @click="getList(store.unsplashTopicPage - 1)"
           >
             <fa icon="fa-caret-left" fixed-width></fa>
           </button>
@@ -216,7 +213,7 @@ const handleUnsplashPhotoSearch = () => {
             type="button"
             class="btn"
             :disabled="store.unsplashTopicResults.length <= 20"
-            @click="getList(access.items.us, store.unsplashTopicPage + 1)"
+            @click="getList(store.unsplashTopicPage + 1)"
           >
             <fa icon="fa-caret-right" fixed-width></fa>
           </button>
@@ -232,7 +229,7 @@ const handleUnsplashPhotoSearch = () => {
               type="button"
               class="unsplashBtn"
               :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
-              @click="getSelectedUnsplashImage(access.items.us, photo.id, photo.title, photo.links.html)"
+              @click="getSelectedUnsplashImage(photo.id, photo.title, photo.links.html)"
             >
               <div v-if="photo.preview_photos && photo.preview_photos.length > 0" class="unsplashPreviewList">
                 <div
@@ -260,7 +257,7 @@ const handleUnsplashPhotoSearch = () => {
             type="button"
             class="btn"
             :disabled="store.unsplashCollectionPage <= 1"
-            @click="getList(access.items.us, store.unsplashCollectionPage - 1)"
+            @click="getList(store.unsplashCollectionPage - 1)"
           >
             <fa icon="fa-caret-left" fixed-width></fa>
           </button>
@@ -271,7 +268,7 @@ const handleUnsplashPhotoSearch = () => {
             type="button"
             class="btn"
             :disabled="store.unsplashCollectionResults.length <= 20"
-            @click="getList(access.items.us, store.unsplashCollectionPage + 1)"
+            @click="getList(store.unsplashCollectionPage + 1)"
           >
             <fa icon="fa-caret-right" fixed-width></fa>
           </button>

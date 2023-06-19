@@ -18,8 +18,8 @@ import FontLink from '@/components/elements/FontLink.vue'
 import PageHeading from '@/components/elements/PageHeading.vue'
 import RequestPermissionModal from '@/components/elements/RequestPermissionModal.vue'
 import QuickLinksNode from '@/components/widgets/QuickLinksNode.vue'
-import { getStorage, setStorage } from '@/store.js'
-import { accessAws } from '@/helpers/data.js'
+import { getStorage } from '@/store.js'
+import { checkLicense } from '@/helpers/data.js'
 
 import './assets/main.scss'
 
@@ -168,56 +168,6 @@ library.add(
   faAsterisk
 )
 
-const getAccess = async () => {
-  let cachedAccess = await getStorage(['a', 'userLicense'], 'local')
-  let then = 'Invalid Date'
-  let thenPlusOne = 'Invalid Date'
-  if (cachedAccess && cachedAccess.a && cachedAccess.a.ts) {
-    then = new Date(cachedAccess.a.ts)
-  }
-
-  const isValidDate = then.toString() !== 'Invalid Date'
-  let today = new Date()
-  let license = ''
-
-  if (isValidDate) {
-    thenPlusOne = new Date(
-      then.getFullYear(),
-      then.getMonth(),
-      then.getDate() + 1,
-      then.getHours(),
-      then.getMinutes(),
-      0,
-      0
-    )
-  }
-
-  let btoaAccess = []
-  let atobAccess = {}
-  if (!isValidDate || (isValidDate && thenPlusOne < today)) {
-    // Get fresh access from aws
-
-    let aws = await accessAws()
-    license = aws.l
-    for (const [key, value] of Object.entries(aws.k)) {
-      btoaAccess.push({ t: key, a: btoa(value) })
-      atobAccess[key] = value
-    }
-
-    if (aws.k && aws.l) {
-      await setStorage({ a: { ts: new Date().toJSON(), l: btoa(license), items: btoaAccess } }, 'local')
-    }
-  } else if (isValidDate) {
-    // Grab from cached data
-    license = atob(cachedAccess.a.l)
-    cachedAccess.a.items.forEach((item) => {
-      atobAccess[item.t] = atob(item.a)
-    })
-  }
-
-  return { license, userLicense: cachedAccess.userLicense, items: atobAccess }
-}
-
 // Run quick user check based on storage for a faster load
 // Prevents app from loading till quick check is done.
 ;(async function () {
@@ -228,17 +178,15 @@ const getAccess = async () => {
   if (Object.keys(user).length > 0) {
     userInfo.value = { ...user.extensionpay_user }
   }
-  let access = await getAccess()
 
-  if (access.license !== '' && access.license === access.userLicense) {
-    userInfo.value.paid = true
-  }
+  let chromeStore = await getStorage(['userLicense'], 'local')
+  let validLicense = await checkLicense(chromeStore.userLicense)
+  userInfo.value.paid = validLicense
 
   app.provide('user', userInfo)
   app.provide('updateUser', (u) => {
     userInfo.value = { ...u }
   })
-  app.provide('access', access)
   // eslint-disable-next-line vue/multi-word-component-names
   app.component('Fa', FontAwesomeIcon)
   app.use(i18n)

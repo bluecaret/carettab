@@ -16,7 +16,11 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://extensionpay.com/*", "https://fonts.googleapis.com/*"],
+      "matches": [
+        "https://dtfv5mvrx9.execute-api.us-west-2.amazonaws.com/*",
+        "https://extensionpay.com/*",
+        "https://fonts.googleapis.com/*"
+      ],
       "js": ["import-ExtPay.js"],
       "run_at": "document_start"
     }

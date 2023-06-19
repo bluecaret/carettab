@@ -2,24 +2,28 @@
 import { blobToBase64 } from '@/helpers/data.js'
 import { useSettingsStore } from '@/store.js'
 
-/**
- * Returns a completed image object from Unsplash API
- * @param {string} endpoint - The Unsplash endpoint to use
- * @returns {Object} Object containing the image data and Unsplash metadata
- */
-export const getPhotoFromUnsplash = async (access, endpoint) => {
-  // Initialize image object
-  let unsplashImage
+export const requestUnsplashData = async (path) => {
+  let retrievedData
+  try {
+    const request = await fetch(
+      `https://dtfv5mvrx9.execute-api.us-west-2.amazonaws.com/prod/unsplash${encodeURI(path)}`,
+      {
+        method: 'GET',
+        redirect: 'follow',
+        headers: { authorizationToken: chrome.runtime.id },
+      }
+    )
+    const data = await request.json()
+    retrievedData = data.data
+  } catch (error) {
+    console.warn('Failed to retrieve data from Unsplash', error)
+    retrievedData = null
+  }
+  return retrievedData
+}
 
-  // Get keys and setup endpoint url and headers
-  const UNSPLASH_ACCESS_KEY = access
-  const headers = new Headers()
-  headers.append('Authorization', `Client-ID ${UNSPLASH_ACCESS_KEY}`)
-
-  // Request random photo from Unsplash endpoint and assign image data to unsplashImage
-  const unsplashResponse = await fetch(endpoint, { headers })
-  unsplashImage = await unsplashResponse.json()
-
+export const setupBase64Data = async (image) => {
+  let unsplashImage = image
   // Use links in Unsplash response to request raw photo data and assign to image as base64
   const unsplashRawImageData = await fetch(unsplashImage.urls.raw + '&q=85&w=2000')
   const unsplashImageBlob = await unsplashRawImageData.blob()
@@ -28,19 +32,13 @@ export const getPhotoFromUnsplash = async (access, endpoint) => {
   // Trigger download location link for Unsplash analytics.
   const unsplashDownloadLocation = unsplashImage.links.download_location
   // eslint-disable-next-line no-unused-vars
-  const unsplashDownloadLocationResponse = fetch(unsplashDownloadLocation, { headers })
+  const unsplashDownloadLocationResponse = requestUnsplashData('/downloadlocation?loc=' + unsplashDownloadLocation)
 
   // Return entire built image object
   return unsplashImage
 }
 
-/**
- * Get random photo from an Unsplash list
- * @param {('topics'|'collections')} type - The Unsplash list selected
- * @param {string} id - The ID of the Unsplash list
- * @returns {Object} Object containing the image data and Unsplash metadata
- */
-export const getRandomPhotoFromUnsplashList = async (access, imageType, id) => {
+export const getRandomPhotoFromUnsplashList = async (imageType, id) => {
   let type = imageType
   switch (imageType) {
     case 'unphoto':
@@ -55,20 +53,17 @@ export const getRandomPhotoFromUnsplashList = async (access, imageType, id) => {
     default:
       break
   }
-  const unsplashEndpoint = `https://api.unsplash.com/photos/random/?${type}=${id}`
-  const unsplashImage = await getPhotoFromUnsplash(access, unsplashEndpoint)
-  return unsplashImage
+  let path = `/photo/random/${type}/${id}`
+  const unsplashImage = await requestUnsplashData(path)
+  const modifiedImage = await setupBase64Data(unsplashImage)
+  return modifiedImage
 }
 
-/**
- * Get single photo from Unsplash
- * @param {string} id - The ID of the Unsplash photo
- * @returns {Object} Object containing the image data and Unsplash metadata
- */
-export const getSinglePhotoFromUnsplash = async (access, id) => {
-  const unsplashEndpoint = `https://api.unsplash.com/photos/${id}`
-  const unsplashImage = await getPhotoFromUnsplash(access, unsplashEndpoint)
-  return unsplashImage
+export const getSinglePhotoFromUnsplash = async (id) => {
+  let path = `/photo/single/${id}`
+  const unsplashImage = await requestUnsplashData(path)
+  const modifiedImage = await setupBase64Data(unsplashImage)
+  return modifiedImage
 }
 
 export const prepareWallpaperObj = (image) => {
@@ -112,38 +107,36 @@ export const saveUnsplashInfoToGlobal = (type, id, image, title, link) => {
   })
 }
 
-export const getList = async (access, page) => {
+export const getList = async (page) => {
   const store = useSettingsStore()
 
   if (store.unsplashTab !== 'search' && store.unsplashTab !== 'topics' && store.unsplashTab !== 'collections') {
     return
   }
   store.isLoading = true
-  let unsplashEndpoint = `https://api.unsplash.com/topics?per_page=21&page=${page}`
+
+  let path = `/list/topics/${page}`
   if (store.unsplashTab === 'collections') {
-    unsplashEndpoint = `https://api.unsplash.com/collections?per_page=21&page=${page}`
+    path = `/list/collections/${page}`
   }
   if (store.unsplashTab === 'search') {
-    unsplashEndpoint = `https://api.unsplash.com/search/photos?per_page=21&page=${page}&query=${store.unsplashSearchTerm.trim()}`
+    path = `/list/search/${encodeURI(store.unsplashSearchTerm.trim())}/${page}`
   }
 
-  // Get image
-  const headers = new Headers()
-  headers.append('Authorization', `Client-ID ${access}`)
-  let response = await fetch(unsplashEndpoint, { headers })
-  const json = await response.json()
+  // send request to Unsplash
+  const list = await requestUnsplashData(path)
 
   switch (store.unsplashTab) {
     case 'search':
-      store.unsplashSearchResults = json.results
+      store.unsplashSearchResults = list.results
       store.unsplashSearchPage = page
       break
     case 'topics':
-      store.unsplashTopicResults = json
+      store.unsplashTopicResults = list
       store.unsplashTopicPage = page
       break
     case 'collections':
-      store.unsplashCollectionResults = json
+      store.unsplashCollectionResults = list
       store.unsplashCollectionPage = page
       break
 
@@ -154,12 +147,15 @@ export const getList = async (access, page) => {
   store.isLoading = false
 }
 
-export const getSelectedUnsplashImage = async (access, id, title = '', link = '') => {
+export const getSelectedUnsplashImage = async (id, title = '', link = '') => {
   const store = useSettingsStore()
 
   try {
     store.isLoading = true
-    let unsplashType
+    let unsplashType = ''
+    let image = {}
+    let nextImage = {}
+
     switch (store.unsplashTab) {
       case 'search':
         unsplashType = 'unphoto'
@@ -174,23 +170,19 @@ export const getSelectedUnsplashImage = async (access, id, title = '', link = ''
         break
     }
 
-    // Retreive images from Unsplash
-    let image,
-      nextImage = {}
-    if (['search'].includes(store.unsplashTab)) {
-      let getImage = await getSinglePhotoFromUnsplash(access, id)
-      let getNextImage = {}
-
-      image = prepareWallpaperObj(getImage)
-      nextImage = getNextImage
-    }
+    let path = `/photo/single/${id}`
     if (['topics', 'collections'].includes(store.unsplashTab)) {
-      let getImage = await getRandomPhotoFromUnsplashList(access, store.unsplashTab, id)
-      let getNextImage = await getRandomPhotoFromUnsplashList(access, store.unsplashTab, id)
-
-      image = prepareWallpaperObj(getImage)
-      nextImage = prepareWallpaperObj(getNextImage)
+      path = `/photo/random/${unsplashType}/${id}`
     }
+
+    // send request to Unsplash
+    const getImage = await requestUnsplashData(path)
+    const modifiedImage = await setupBase64Data(getImage)
+    const getNextImage = unsplashType !== 'search' ? await requestUnsplashData(path) : {}
+    const modifiedNextImage = unsplashType !== 'search' ? await setupBase64Data(getNextImage) : {}
+
+    image = prepareWallpaperObj(modifiedImage)
+    nextImage = unsplashType !== 'search' ? prepareWallpaperObj(modifiedNextImage) : modifiedNextImage
 
     // Set images to browser local storage
     chrome.storage.local.set({ currentWallpaper: image })

@@ -8,7 +8,6 @@ import WeatherIcon from '@/components/widgets/WeatherIcon.vue'
 import WeatherAuxIcon from '@/components/widgets/WeatherAuxIcon.vue'
 import {} from '@/assets/lists.js'
 
-const access = inject('access')
 const user = inject('user')
 const store = useSettingsStore()
 
@@ -46,7 +45,7 @@ onBeforeUnmount(() => {
 })
 
 const updateWeather = async () => {
-  let data = await getWeather(props.widget.location.url, access.items.w, store.config.global.lang)
+  let data = await getWeather(props.widget.location.url, store.config.global.lang)
   weatherData.value = data
   await setStorage({ ['weather-' + props.widget.id]: data }, 'local')
 }

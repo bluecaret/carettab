@@ -2,6 +2,7 @@
 import { inject, ref } from 'vue'
 import { ExtPay } from '@/assets/ExtPay.js'
 import { getStorage, setStorage } from '@/store.js'
+import { checkLicense } from '@/helpers/data.js'
 
 const extpay = ExtPay('carettab')
 
@@ -13,7 +14,6 @@ const props = defineProps({
 const emit = defineEmits(['close'])
 
 const user = inject('user')
-const access = inject('access')
 const isJustSubscribed = ref(false)
 const privacyLink = 'https://www.bluecaret.com/privacy/'
 
@@ -26,9 +26,10 @@ const handleSubscribe = () => {
 }
 
 const handleLicenseKey = async () => {
-  let cachedAccess = await getStorage(['userLicense'], 'local')
-  let prompt = window.prompt('Enter your license key.', cachedAccess.userLicense ? cachedAccess.userLicense : '')
-  if (access.license !== '' && access.license === prompt) {
+  let chromeStore = await getStorage(['userLicense'], 'local')
+  let prompt = window.prompt('Enter your license key.', chromeStore.userLicense ? chromeStore.userLicense : '')
+  const validLicense = await checkLicense(prompt)
+  if (validLicense) {
     await window.alert('Enjoy your free access to CaretTab Premium!\n\n*Please do not share this license key*')
     await setStorage({ userLicense: prompt }, 'local')
     location.reload()

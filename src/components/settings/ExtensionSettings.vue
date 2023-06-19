@@ -11,7 +11,6 @@ if (typeof browser === 'undefined') {
   var browser = chrome
 }
 
-const access = inject('access')
 const user = inject('user')
 const store = useSettingsStore()
 const uploadImageField = ref(null)
@@ -152,7 +151,6 @@ const handleRefreshImage = async () => {
 
   // Retrieve new 'next' wallpaper
   let newRandomPhoto = await getRandomPhotoFromUnsplashList(
-    access.items.us,
     store.config.global.wallpaper.type,
     store.config.global.wallpaper.id
   )

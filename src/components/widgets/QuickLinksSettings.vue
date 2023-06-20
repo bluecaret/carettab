@@ -13,6 +13,7 @@ const widget = reactive(store.config[widgetStore][ci.value])
 const bookmarksPermission = ref(false)
 const topSitesPermission = ref(false)
 const faviconPermission = ref(false)
+const newSpecialLinkEl = ref(null)
 
 onMounted(() => {
   checkBookmarksPermission()
@@ -32,12 +33,43 @@ const checkFaviconPermission = async () => {
   faviconPermission.value = await checkPermission('favicon')
 }
 
-const addLink = () => {
+const addLink = (type = 'none') => {
+  let title = ''
+  let url = ''
+  switch (type) {
+    case 'apps':
+      title = 'Apps'
+      url = 'Apps'
+      break
+    case 'bookmarksManager':
+      title = 'Bookmarks Manager'
+      url = 'Bookmarks Manager'
+      break
+    case 'history':
+      title = 'History'
+      url = 'History'
+      break
+    case 'defaultTab':
+      title = 'Default Tab'
+      url = 'Default Tab'
+      break
+    case 'mostVisited':
+      title = 'Most Visited'
+      url = 'Most Visited'
+      break
+
+    default:
+      break
+  }
+
   widget.quickLinks.push({
     id: generateUID(),
-    title: '',
-    url: '',
+    title: title,
+    url: url,
+    special: type,
   })
+
+  if (newSpecialLinkEl.value) newSpecialLinkEl.value.close()
 }
 
 const deleteLink = (id) => {
@@ -90,7 +122,7 @@ const deleteLink = (id) => {
           @requested="checkBookmarksPermission()"
         />
       </div>
-      <div v-if="!topSitesPermission && widget.type === 'mv'" class="block">
+      <div v-if="!topSitesPermission && widget.quickLinks.find((l) => l.special === 'mostVisited')" class="block">
         <div class="label">
           <div>Most Visited</div>
           <div class="desc">
@@ -131,7 +163,14 @@ const deleteLink = (id) => {
                 placeholder="Link title"
                 aria-label="Title"
               />
-              <input v-model="element.url" class="input" type="text" placeholder="https://" aria-label="URL" />
+              <input
+                v-model="element.url"
+                class="input"
+                type="text"
+                placeholder="https://"
+                :disabled="element.special !== 'none' ? 'disabled' : null"
+                aria-label="URL"
+              />
               <button type="button" class="btn" aria-label="Delete link" @click="deleteLink(element.id)">
                 <fa icon="fa-trash" fixed-width></fa>
               </button>
@@ -141,10 +180,56 @@ const deleteLink = (id) => {
         <template #footer>
           <div class="block">
             <div class="group fill">
-              <button type="button" class="btn" @click="addLink()">
-                <fa icon="fa-plus"></fa>
-                Add new link
-              </button>
+              <div>
+                <button type="button" class="btn fit" @click="addLink()">
+                  <fa icon="fa-plus"></fa>
+                  Add new link
+                </button>
+              </div>
+              <DropdownMenu ref="newSpecialLinkEl" style="width: auto">
+                <template #button>
+                  <button type="button" class="btn">
+                    Add special link
+                    <fa icon="fa-caret-down"></fa>
+                  </button>
+                </template>
+                <template #menu>
+                  <ul class="specialLinksMenu">
+                    <li>
+                      <button class="btn btnBlock" type="button" @click="addLink('apps')">Apps</button>
+                    </li>
+                    <li>
+                      <button class="btn btnBlock" type="button" @click="addLink('bookmarksManager')">
+                        Bookmarks Manager
+                      </button>
+                    </li>
+                    <li>
+                      <button class="btn btnBlock" type="button" @click="addLink('history')">History</button>
+                    </li>
+                    <li>
+                      <button class="btn btnBlock" type="button" @click="addLink('defaultTab')">Default Tab</button>
+                    </li>
+                    <li>
+                      <button
+                        v-if="topSitesPermission"
+                        class="btn btnBlock"
+                        type="button"
+                        @click="addLink('mostVisited')"
+                      >
+                        Most Visited
+                      </button>
+                      <RequestPermissionModal
+                        v-if="!topSitesPermission"
+                        btn-label="Most Visited (Needs permission)"
+                        permission="topSites"
+                        permission-label="Top Sites"
+                        reason="The top sites permission is needed to retrieve the list of tope sites you have visited. Denying this permission will prevent the Most Visited list from being shown."
+                        @requested="checkTopSitesPermission()"
+                      />
+                    </li>
+                  </ul>
+                </template>
+              </DropdownMenu>
             </div>
           </div>
         </template>
@@ -248,3 +333,14 @@ const deleteLink = (id) => {
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.specialLinksMenu {
+  list-style: none;
+  display: grid;
+  grid-template: auto / 1fr;
+  margin: 0;
+  gap: var(--s4);
+  padding: var(--s4);
+}
+</style>

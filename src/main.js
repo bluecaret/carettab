@@ -95,6 +95,9 @@ import {
   faDivide,
   faEquals,
   faAsterisk,
+  faTableCells,
+  faStar,
+  faHeart,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faItalic,
@@ -165,7 +168,10 @@ library.add(
   faCalculator,
   faDivide,
   faEquals,
-  faAsterisk
+  faAsterisk,
+  faTableCells,
+  faStar,
+  faHeart
 )
 
 // Run quick user check based on storage for a faster load

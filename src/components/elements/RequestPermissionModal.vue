@@ -16,6 +16,9 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  btnLabel: {
+    type: String,
+  },
 })
 const emit = defineEmits(['requested'])
 const show = ref(false)
@@ -29,7 +32,9 @@ const requestPermission = async () => {
 <template>
   <ModalWindow :show="show" size="460px">
     <template #button>
-      <button type="button" class="btn" @click.stop="show = true">Allow permission&hellip;</button>
+      <button type="button" class="btn" @click.stop="show = true">
+        {{ btnLabel ? btnLabel : 'Allow permission' }}&hellip;
+      </button>
     </template>
     <template #window>
       <div class="block permissionModal">

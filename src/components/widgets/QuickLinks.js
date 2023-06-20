@@ -19,17 +19,10 @@ export class QuickLinks {
     iconSize: 16,
     maxWidth: 130,
   }
-  specialLinks = {
-    apps: false,
-    bookmarksManager: false,
-    history: false,
-    chromeTab: false,
-    mostVisited: false,
-  }
   quickLinks = [
-    { title: 'CaretTab', url: 'https://www.carettab.com', id: 'carettab' },
-    { title: 'Google', url: 'https://www.google.com', id: 'google' },
-    { title: 'Gmail', url: 'https://www.gmail.com', id: 'gmail' },
+    { title: 'CaretTab', url: 'https://www.carettab.com', id: 'carettab', special: 'none' },
+    { title: 'Google', url: 'https://www.google.com', id: 'google', special: 'none' },
+    { title: 'Gmail', url: 'https://www.gmail.com', id: 'gmail', special: 'none' },
   ]
   base = { ...baseWidgetStyles, widthUnit: 'percent', width: 100, height: 100 }
 }

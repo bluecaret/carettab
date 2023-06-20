@@ -1,4 +1,6 @@
 <script setup>
+import { ref, onMounted } from 'vue'
+import { checkPermission } from '@/helpers/widgets.js'
 const props = defineProps({
   node: {
     type: Object,
@@ -34,16 +36,70 @@ const props = defineProps({
   },
 })
 
+onMounted(async () => {
+  if (props.node.special === 'mostVisited') {
+    topSitesPermission.value = await checkPermission('topSites')
+    if (topSitesPermission.value) getMostVisited()
+  }
+})
+
+const topSitesPermission = ref(false)
+
+const mostVisitedLinks = ref(null)
+
 const getIcon = (link) => {
   const url = new URL(chrome.runtime.getURL('/_favicon/'))
   url.searchParams.append('pageUrl', link)
   url.searchParams.append('size', '128')
   return url.toString()
 }
+
+const getMostVisited = () => {
+  if (!topSitesPermission.value) return
+  chrome.topSites.get((list) => {
+    mostVisitedLinks.value = [...list]
+  })
+}
 </script>
 
 <template>
-  <DropdownMenu v-if="props.node.children" :no-teleport="noTeleport">
+  <DropdownMenu v-if="props.node.special === 'mostVisited' && topSitesPermission" :no-teleport="noTeleport">
+    <template #button>
+      <button
+        type="button"
+        :class="{
+          childrenMenuFolder: props.inMenu,
+          linkFolder: !props.inMenu,
+          noTitle: !props.node.title,
+        }"
+        :title="props.node.title"
+      >
+        <fa icon="fa-heart" class="linkFavicon linkFaviconSvg" />
+        <div v-if="props.node.title && props.titles" class="linkName">{{ props.node.title }}</div>
+      </button>
+    </template>
+    <template #menu>
+      <ul class="childrenMenu">
+        <li v-for="child in mostVisitedLinks" :key="child.id">
+          <a
+            :href="child.url"
+            class="childrenMenuAnchor"
+            :title="`${child.title}&#10;${child.url}`"
+            :target="props.openInNewTab ? '_blank' : '_self'"
+          >
+            <img
+              v-if="props.icons && props.iconPermission"
+              class="linkFavicon"
+              :src="getIcon(child.url)"
+              :alt="`Favicon for ${child.url}`"
+            />
+            <div class="linkName">{{ child.title }}</div>
+          </a>
+        </li>
+      </ul>
+    </template>
+  </DropdownMenu>
+  <DropdownMenu v-if="props.node.children && props.node.special === 'none'" :no-teleport="noTeleport">
     <template #button>
       <button
         type="button"

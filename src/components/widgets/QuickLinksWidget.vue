@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, onMounted, onBeforeUnmount, nextTick, computed, watch, inject } from 'vue'
+import { ref, onMounted, onBeforeUnmount, nextTick, computed, watch, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { hsl, shadow, checkPermission, setWidgetContainerStyles } from '@/helpers/widgets.js'
 import QuickLinksNode from '@/components/widgets/QuickLinksNode.vue'
@@ -101,6 +101,7 @@ const getMostVisited = () => {
   chrome.topSites.get((list) => {
     list.forEach((link, index) => {
       link.id = index
+      link.special = 'none'
     })
     allLinks.value = [...list]
     loading.value = false
@@ -188,45 +189,36 @@ const getShortcut = (index) => {
   return `Shortcut: [alt]+${i}`
 }
 
-// const bookmarksManager = () => {
-//   if (props.widget.openInNewTab) {
-//     chrome.tabs.create({ url: 'chrome://bookmarks' })
-//   } else {
-//     chrome.tabs.update({ url: 'chrome://bookmarks' })
-//   }
-// }
-
-// const mostVisited = () => {
-//   if (props.widget.openInNewTab) {
-//     chrome.tabs.create({ url: 'chrome://bookmarks' })
-//   } else {
-//     chrome.tabs.update({ url: 'chrome://bookmarks' })
-//   }
-// }
-
-// const history = () => {
-//   if (props.widget.openInNewTab) {
-//     chrome.tabs.create({ url: 'chrome://history' })
-//   } else {
-//     chrome.tabs.update({ url: 'chrome://history' })
-//   }
-// }
-
-// const apps = () => {
-//   if (props.widget.openInNewTab) {
-//     chrome.tabs.create({ url: 'chrome://apps' })
-//   } else {
-//     chrome.tabs.update({ url: 'chrome://apps' })
-//   }
-// }
-
-// const chromeTab = () => {
-//   if (props.widget.openInNewTab) {
-//     chrome.tabs.create({ url: 'chrome-search://local-ntp/local-ntp.html' })
-//   } else {
-//     chrome.tabs.update({ url: 'chrome-search://local-ntp/local-ntp.html' })
-//   }
-// }
+const handleSpecialClick = (special) => {
+  if (special === 'apps') {
+    if (props.widget.openInNewTab) {
+      chrome.tabs.create({ url: 'chrome://apps' })
+    } else {
+      chrome.tabs.update({ url: 'chrome://apps' })
+    }
+  }
+  if (special === 'bookmarksManager') {
+    if (props.widget.openInNewTab) {
+      chrome.tabs.create({ url: 'chrome://bookmarks' })
+    } else {
+      chrome.tabs.update({ url: 'chrome://bookmarks' })
+    }
+  }
+  if (special === 'history') {
+    if (props.widget.openInNewTab) {
+      chrome.tabs.create({ url: 'chrome://history' })
+    } else {
+      chrome.tabs.update({ url: 'chrome://history' })
+    }
+  }
+  if (special === 'defaultTab') {
+    if (props.widget.openInNewTab) {
+      chrome.tabs.create({ url: 'chrome-search://local-ntp/local-ntp.html' })
+    } else {
+      chrome.tabs.update({ url: 'chrome-search://local-ntp/local-ntp.html' })
+    }
+  }
+}
 
 const getIcon = (link) => {
   const url = new URL(chrome.runtime.getURL('/_favicon/'))
@@ -313,8 +305,30 @@ const setQuickLinksVars = computed(() => {
         }"
       >
         <li v-for="(link, index) in visibleLinks" :key="link.id" class="linkNode">
+          <button
+            v-if="link.special !== 'none' && link.special !== 'mostVisited'"
+            class="linkAnchor"
+            :class="{ noTitle: !link.title }"
+            :title="`${link.title}`"
+            :accesskey="index <= 9 && qlIndex === 0 ? index + 1 : null"
+            @click="handleSpecialClick(link.special)"
+          >
+            <fa v-if="link.special === 'apps'" icon="fa-table-cells" class="linkFavicon linkFaviconSvg" />
+            <fa v-if="link.special === 'bookmarksManager'" icon="fa-star" class="linkFavicon linkFaviconSvg" />
+            <fa v-if="link.special === 'history'" icon="fa-clock-rotate-left" class="linkFavicon linkFaviconSvg" />
+            <fa v-if="link.special === 'defaultTab'" icon="fa-globe" class="linkFavicon linkFaviconSvg" />
+            <div v-if="link.title && props.widget.link.titles" class="linkName">{{ link.title }}</div>
+          </button>
+          <QuickLinksNode
+            v-if="link.special === 'mostVisited'"
+            :icons="props.widget.link.icons"
+            :titles="props.widget.link.titles"
+            :open-in-new-tab="props.widget.link.openInNewTab"
+            :node="link"
+            :icon-permission="faviconPermission"
+          />
           <a
-            v-if="!link.children"
+            v-if="!link.children && link.special === 'none'"
             :href="link.url"
             class="linkAnchor"
             :class="{ noTitle: !link.title }"
@@ -323,7 +337,7 @@ const setQuickLinksVars = computed(() => {
             :target="props.widget.link.openInNewTab ? '_blank' : '_self'"
           >
             <img
-              v-if="props.widget.link.icons && faviconPermission"
+              v-if="props.widget.link.icons && faviconPermission && link.special === 'none'"
               class="linkFavicon"
               :src="getIcon(link.url)"
               :alt="`Favicon for ${link.url}`"
@@ -331,7 +345,7 @@ const setQuickLinksVars = computed(() => {
             <div v-if="link.title && props.widget.link.titles" class="linkName">{{ link.title }}</div>
           </a>
           <QuickLinksNode
-            v-else
+            v-if="link.children && link.special === 'none'"
             :icons="props.widget.link.icons"
             :titles="props.widget.link.titles"
             :open-in-new-tab="props.widget.link.openInNewTab"
@@ -530,6 +544,7 @@ const setQuickLinksVars = computed(() => {
   display: block;
   width: var(--linkIconSize);
   height: var(--linkIconSize);
+  font-size: var(--linkIconSize);
   &.linkFaviconSvg * {
     fill: currentColor;
   }

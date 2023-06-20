@@ -6,7 +6,7 @@ export const requestUnsplashData = async (path) => {
   let retrievedData
   try {
     const request = await fetch(
-      `https://dtfv5mvrx9.execute-api.us-west-2.amazonaws.com/prod/unsplash${encodeURI(path)}`,
+      `https://dtfv5mvrx9.execute-api.us-west-2.amazonaws.com/v1/unsplash${encodeURI(path)}`,
       {
         method: 'GET',
         redirect: 'follow',

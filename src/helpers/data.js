@@ -17,7 +17,7 @@ export const blobToBase64 = async (blob) => {
 export const checkLicense = async (license) => {
   let validLicense = false
   try {
-    const request = await fetch(`https://dtfv5mvrx9.execute-api.us-west-2.amazonaws.com/prod/license/${license}`, {
+    const request = await fetch(`https://dtfv5mvrx9.execute-api.us-west-2.amazonaws.com/v1/license/${license}`, {
       method: 'GET',
       redirect: 'follow',
       headers: { authorizationToken: chrome.runtime.id },

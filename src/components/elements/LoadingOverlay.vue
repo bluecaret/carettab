@@ -18,7 +18,7 @@
   place-items: center;
   background: hsl(0deg 0% 0% / 0.7);
   color: hsl(0deg, 0%, 80%);
-  pointer-events: none;
+  pointer-events: all;
 }
 
 .loading {

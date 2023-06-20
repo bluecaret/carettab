@@ -134,6 +134,17 @@ export const useSettingsStore = defineStore('settings', () => {
   const unsplashTopicPage = ref(1)
   const unsplashCollectionResults = ref([])
   const unsplashCollectionPage = ref(1)
+  const pexelsStatus = ref('default')
+  const pexelsSearchTerm = ref('')
+  const pexelsTab = ref('search')
+  const pexelsSearchResults = ref([])
+  const pexelsSearchPage = ref(1)
+  const pexelsCuratedResults = ref([])
+  const pexelsCuratedPage = ref(1)
+  const pexelsCollectionResults = ref([])
+  const pexelsCollectionPage = ref(1)
+  const pexelsCarettabResults = ref([])
+  const pexelsCarettabPage = ref(1)
 
   const config = reactive(new Defaults())
 
@@ -360,6 +371,17 @@ export const useSettingsStore = defineStore('settings', () => {
     unsplashTopicPage,
     unsplashCollectionResults,
     unsplashCollectionPage,
+    pexelsStatus,
+    pexelsSearchTerm,
+    pexelsTab,
+    pexelsSearchResults,
+    pexelsSearchPage,
+    pexelsCuratedResults,
+    pexelsCuratedPage,
+    pexelsCollectionResults,
+    pexelsCollectionPage,
+    pexelsCarettabResults,
+    pexelsCarettabPage,
 
     // Saved Settings
     config,

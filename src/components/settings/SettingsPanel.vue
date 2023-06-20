@@ -8,6 +8,7 @@ import AdvancedSettings from '@/components/settings/AdvancedSettings.vue'
 import GlobalWidgetSettings from '@/components/settings/GlobalWidgetSettings.vue'
 import PatternsList from '@/components/settings/PatternsList.vue'
 import UnsplashList from '@/components/settings/UnsplashList.vue'
+import PexelsList from '@/components/settings/PexelsList.vue'
 import PremiumModal from '@/components/elements/PremiumModal.vue'
 import AnalogClockSettings from '@/components/widgets/AnalogClockSettings.vue'
 import BinaryClockSettings from '@/components/widgets/BinaryClockSettings.vue'
@@ -134,6 +135,7 @@ const handleSave = () => {
     <GlobalWidgetSettings v-if="['global'].includes(settingsPage)" />
     <PatternsList v-if="['patterns'].includes(settingsPage)"></PatternsList>
     <UnsplashList v-if="['unsplash'].includes(settingsPage)"></UnsplashList>
+    <PexelsList v-if="['pexels'].includes(settingsPage)"></PexelsList>
     <AnalogClockSettings v-if="['analogClock'].includes(settingsPage)"></AnalogClockSettings>
     <BinaryClockSettings v-if="['binaryClock'].includes(settingsPage)"></BinaryClockSettings>
     <DigitalClockSettings v-if="['digitalClock'].includes(settingsPage)"></DigitalClockSettings>

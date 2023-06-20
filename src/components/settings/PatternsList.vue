@@ -46,7 +46,7 @@ const handleRemoveImage = () => {
           id: '',
           timestamp: '',
         },
-        unsplash: {
+        wallpaperApi: {
           photoTitle: '',
           photoLink: '',
           photoAlt: '',
@@ -72,7 +72,7 @@ const handlePatternSelect = (id) => {
           id: id,
           timestamp: '',
         },
-        unsplash: {
+        wallpaperApi: {
           photoTitle: '',
           photoLink: '',
           photoAlt: '',

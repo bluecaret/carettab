@@ -60,8 +60,8 @@ const handleLicenseKey = async () => {
             <li>
               <span><fa icon="fa-images" /></span>
               <div>
-                Unsplash photos
-                <div>Display a single or daily random wallpaper from Unsplash.com.</div>
+                Pexels.com and Unsplash.com
+                <div>Display a single or daily random wallpaper from Pexels.com and Unsplash.com.</div>
               </div>
             </li>
             <li>

@@ -5,7 +5,12 @@ import { ref, inject } from 'vue'
 import { DateTime } from 'luxon'
 import { useSettingsStore, getStorage, setStorage } from '@/store.js'
 import { languages } from '@/assets/lists.js'
-import { prepareWallpaperObj, saveUnsplashInfoToGlobal, getRandomPhotoFromUnsplashList } from '@/helpers/unsplash.js'
+import {
+  prepareUnsplashWallpaperObj,
+  saveUnsplashInfoToGlobal,
+  getRandomPhotoFromUnsplashList,
+} from '@/helpers/unsplash.js'
+import { preparePexelsWallpaperObj, savePexelsInfoToGlobal, getRandomPhotoFromPexelsList } from '@/helpers/pexels.js'
 
 if (typeof browser === 'undefined') {
   var browser = chrome
@@ -89,14 +94,14 @@ const processImage = (imgSrc) => {
             id: '', // Image ID
             timestamp: '', // Image timestamp
           },
-          unsplash: {
-            photoTitle: '', // Unsplash photo title
-            photoLink: '', // Unsplash photo link
-            photoAlt: '', // Unsplash alt description
-            authorName: '', // Unsplash author
-            authorLink: '', // Unsplash author link
-            listName: '', // Unsplash list
-            listLink: '', // Unsplash list link
+          wallpaperApi: {
+            photoTitle: '',
+            photoLink: '',
+            photoAlt: '',
+            authorName: '',
+            authorLink: '',
+            listName: '',
+            listLink: '',
           },
         },
       },
@@ -118,14 +123,14 @@ const handleRemoveImage = (isDefault = false) => {
           id: '', // Image ID
           timestamp: '', // Image timestamp
         },
-        unsplash: {
-          photoTitle: '', // Unsplash photo title
-          photoLink: '', // Unsplash photo link
-          photoAlt: '', // Unsplash alt description
-          authorName: '', // Unsplash author
-          authorLink: '', // Unsplash author link
-          listName: '', // Unsplash list
-          listLink: '', // Unsplash list link
+        wallpaperApi: {
+          photoTitle: '',
+          photoLink: '',
+          photoAlt: '',
+          authorName: '',
+          authorLink: '',
+          listName: '',
+          listLink: '',
         },
       },
     },
@@ -134,29 +139,58 @@ const handleRemoveImage = (isDefault = false) => {
 }
 
 const handleRefreshImage = async () => {
-  let nextWallpaper = await getStorage('nextWallpaper', 'local')
-  if (nextWallpaper.nextWallpaper) {
-    let nextImage = prepareWallpaperObj(nextWallpaper.nextWallpaper)
-    saveUnsplashInfoToGlobal(
+  store.isLoading = true
+  if (['unphoto', 'untopic', 'uncollection'].includes(store.config.global.wallpaper.type)) {
+    let nextWallpaper = await getStorage('nextWallpaper', 'local')
+    if (nextWallpaper.nextWallpaper) {
+      let nextImage = prepareUnsplashWallpaperObj(nextWallpaper.nextWallpaper)
+      saveUnsplashInfoToGlobal(
+        store.config.global.wallpaper.type,
+        store.config.global.wallpaper.id,
+        nextImage,
+        store.config.global.wallpaperApi.listName,
+        store.config.global.wallpaperApi.listLink
+      )
+
+      setStorage({ currentWallpaper: nextImage }, 'local')
+      store.wallpaper = nextImage
+    }
+
+    // Retrieve new 'next' wallpaper
+    let newRandomPhoto = await getRandomPhotoFromUnsplashList(
       store.config.global.wallpaper.type,
-      store.config.global.wallpaper.id,
-      nextImage,
-      store.config.global.unsplash.listName,
-      store.config.global.unsplash.listLink
+      store.config.global.wallpaper.id
     )
+    if (newRandomPhoto) {
+      setStorage({ nextWallpaper: newRandomPhoto }, 'local')
+    }
+  } else if (['pxphoto', 'pxcurated', 'pxcollection', 'pxcarettab'].includes(store.config.global.wallpaper.type)) {
+    let nextWallpaper = await getStorage('nextWallpaper', 'local')
+    if (nextWallpaper.nextWallpaper) {
+      let nextImage = nextWallpaper.nextWallpaper
+      savePexelsInfoToGlobal(
+        store.config.global.wallpaper.type,
+        store.config.global.wallpaper.id,
+        nextImage,
+        store.config.global.wallpaperApi.listName,
+        store.config.global.wallpaperApi.listLink
+      )
 
-    setStorage({ currentWallpaper: nextImage }, 'local')
-    store.wallpaper = nextImage
-  }
+      setStorage({ currentWallpaper: nextImage }, 'local')
+      store.wallpaper = nextImage
+    }
 
-  // Retrieve new 'next' wallpaper
-  let newRandomPhoto = await getRandomPhotoFromUnsplashList(
-    store.config.global.wallpaper.type,
-    store.config.global.wallpaper.id
-  )
-  if (newRandomPhoto) {
-    setStorage({ nextWallpaper: newRandomPhoto }, 'local')
+    // Retrieve new 'next' wallpaper
+    let newRandomPhoto = await getRandomPhotoFromPexelsList(
+      store.config.global.wallpaper.type,
+      store.config.global.wallpaper.id
+    )
+    if (newRandomPhoto) {
+      let modifiedNew = await preparePexelsWallpaperObj(newRandomPhoto)
+      setStorage({ nextWallpaper: modifiedNew }, 'local')
+    }
   }
+  store.isLoading = false
 }
 
 const handleImageAdjustmentReset = () => {
@@ -217,17 +251,21 @@ const handleLangSelect = (event) => {
                   {{ store.config.global.wallpaper.type === 'unphoto' ? 'Unsplash.com Photo' : '' }}
                   {{ store.config.global.wallpaper.type === 'untopic' ? 'Unsplash.com Topic: ' : '' }}
                   {{ store.config.global.wallpaper.type === 'uncollection' ? 'Unsplash.com Collection: ' : '' }}
+                  {{ store.config.global.wallpaper.type === 'pxphoto' ? 'Pexels.com Photo' : '' }}
+                  {{ store.config.global.wallpaper.type === 'pxcurated' ? 'Pexels.com Curated Photos' : '' }}
+                  {{ store.config.global.wallpaper.type === 'pxcollection' ? 'Pexels.com Collection: ' : '' }}
+                  {{ store.config.global.wallpaper.type === 'pxcarettab' ? 'Hand-picked for CaretTab: ' : '' }}
                   <a
                     v-if="store.config.global.wallpaper.type === 'untopic'"
                     target="_blank"
-                    :href="store.config.global.unsplash.listLink + '?utm_source=carettab&utm_medium=referral'"
-                    >{{ store.config.global.unsplash.listName }}</a
+                    :href="store.config.global.wallpaperApi.listLink + '?utm_source=carettab&utm_medium=referral'"
+                    >{{ store.config.global.wallpaperApi.listName }}</a
                   >
                   <a
                     v-if="store.config.global.wallpaper.type === 'uncollection'"
                     target="_blank"
-                    :href="store.config.global.unsplash.listLink + '?utm_source=carettab&utm_medium=referral'"
-                    >{{ store.config.global.unsplash.listName }}</a
+                    :href="store.config.global.wallpaperApi.listLink + '?utm_source=carettab&utm_medium=referral'"
+                    >{{ store.config.global.wallpaperApi.listName }}</a
                   >
                 </span>
               </div>
@@ -249,7 +287,21 @@ const handleLangSelect = (event) => {
                   Search Unsplash
                 </button>
                 <button
-                  v-if="['untopic', 'uncollection'].includes(store.config.global.wallpaper.type)"
+                  v-if="
+                    ['pxphoto', 'pxcurated', 'pxcollection', 'pxcarettab'].includes(store.config.global.wallpaper.type)
+                  "
+                  class="btn"
+                  type="button"
+                  @click="store.goTo('pexels')"
+                >
+                  Search Pexels
+                </button>
+                <button
+                  v-if="
+                    ['untopic', 'uncollection', 'pxcurated', 'pxcollection', 'pxcarettab'].includes(
+                      store.config.global.wallpaper.type
+                    )
+                  "
                   class="btn"
                   type="button"
                   @click="handleRefreshImage()"
@@ -297,6 +349,11 @@ const handleLangSelect = (event) => {
                         <button class="btn btnBlock" type="button" @click="store.goTo('patterns')">Pattern</button>
                       </li>
                       <li>
+                        <button :disabled="!user.paid" class="btn btnBlock" type="button" @click="store.goTo('pexels')">
+                          <PremiumLabel />Pexels.com
+                        </button>
+                      </li>
+                      <li>
                         <button
                           :disabled="!user.paid"
                           class="btn btnBlock"
@@ -334,16 +391,16 @@ const handleLangSelect = (event) => {
                 Photo taken by
                 <a
                   target="_blank"
-                  :href="store.config.global.unsplash.authorLink + '?utm_source=carettab&utm_medium=referral'"
+                  :href="store.config.global.wallpaperApi.authorLink + '?utm_source=carettab&utm_medium=referral'"
                 >
-                  {{ store.config.global.unsplash.authorName }}
+                  {{ store.config.global.wallpaperApi.authorName }}
                 </a>
               </span>
               <a
                 class="imageDetailsPhotoLink"
                 target="_blank"
                 title="Open link to photo"
-                :href="store.config.global.unsplash.photoLink + '?utm_source=carettab&utm_medium=referral'"
+                :href="store.config.global.wallpaperApi.photoLink + '?utm_source=carettab&utm_medium=referral'"
               >
                 <fa icon="fa-arrow-up-right-from-square" fixed-width></fa>
               </a>
@@ -353,16 +410,21 @@ const handleLangSelect = (event) => {
             <div class="imageDetailsDescription">
               <h3 class="label">Photo details:</h3>
               <p
-                v-if="store.config.global.unsplash.photoTitle && store.config.global.unsplash.photoTitle.trim() !== ''"
+                v-if="
+                  store.config.global.wallpaperApi.photoTitle &&
+                  store.config.global.wallpaperApi.photoTitle.trim() !== ''
+                "
                 class="paragraph"
               >
-                {{ store.config.global.unsplash.photoTitle }}
+                {{ store.config.global.wallpaperApi.photoTitle }}
               </p>
               <p
-                v-if="store.config.global.unsplash.photoAlt && store.config.global.unsplash.photoAlt.trim() !== ''"
+                v-if="
+                  store.config.global.wallpaperApi.photoAlt && store.config.global.wallpaperApi.photoAlt.trim() !== ''
+                "
                 class="paragraph"
               >
-                {{ store.config.global.unsplash.photoAlt }}
+                {{ store.config.global.wallpaperApi.photoAlt }}
               </p>
             </div>
           </template>

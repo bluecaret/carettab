@@ -1,7 +1,12 @@
 <script setup>
 import { ref, watch, onMounted, computed, inject } from 'vue'
 import { useSettingsStore, getStorage, setStorage } from '@/store.js'
-import { prepareWallpaperObj, saveUnsplashInfoToGlobal, getRandomPhotoFromUnsplashList } from '@/helpers/unsplash.js'
+import {
+  prepareUnsplashWallpaperObj,
+  saveUnsplashInfoToGlobal,
+  getRandomPhotoFromUnsplashList,
+} from '@/helpers/unsplash.js'
+import { preparePexelsWallpaperObj, savePexelsInfoToGlobal, getRandomPhotoFromPexelsList } from '@/helpers/pexels.js'
 
 const user = inject('user')
 const store = useSettingsStore()
@@ -109,7 +114,8 @@ const loadCurrentWallpaper = async (imageType) => {
   }
   if (
     ['upload'].includes(imageType) ||
-    (['unphoto', 'untopic', 'uncollection'].includes(imageType) && user.value.paid)
+    (['unphoto', 'untopic', 'uncollection', 'pxphoto', 'pxcurated', 'pxcollection', 'pxcarettab'].includes(imageType) &&
+      user.value.paid)
   ) {
     let getCurrentWallpaper = await getStorage('currentWallpaper', 'local')
 
@@ -134,13 +140,13 @@ const getNextWallpaper = async (type, timestamp, id) => {
       // Set 'next' wallpaper to current wallpaper
       let nextWallpaper = await getStorage('nextWallpaper', 'local')
       if (nextWallpaper.nextWallpaper) {
-        let nextImage = prepareWallpaperObj(nextWallpaper.nextWallpaper)
+        let nextImage = prepareUnsplashWallpaperObj(nextWallpaper.nextWallpaper)
         saveUnsplashInfoToGlobal(
           type,
           id,
           nextImage,
-          store.config.global.unsplash.listName,
-          store.config.global.unsplash.listLink
+          store.config.global.wallpaperApi.listName,
+          store.config.global.wallpaperApi.listLink
         )
 
         setStorage({ currentWallpaper: nextImage }, 'local')
@@ -152,6 +158,39 @@ const getNextWallpaper = async (type, timestamp, id) => {
       let newRandomPhoto = await getRandomPhotoFromUnsplashList(type, id)
       if (newRandomPhoto) {
         setStorage({ nextWallpaper: newRandomPhoto }, 'local')
+      }
+
+      store.save()
+    }
+  } else if (['pxcurated', 'pxcollection', 'pxcarettab'].includes(type)) {
+    let now = new Date()
+    let then = new Date(timestamp)
+    let thenPlusOne = new Date(then.getFullYear(), then.getMonth(), then.getDate() + 1, 0, 0, 0, 0)
+
+    // Get next random wallpaper if it's a new day
+    if (thenPlusOne < now) {
+      // Set 'next' wallpaper to current wallpaper
+      let nextWallpaper = await getStorage('nextWallpaper', 'local')
+      if (nextWallpaper.nextWallpaper) {
+        let nextImage = nextWallpaper.nextWallpaper
+        savePexelsInfoToGlobal(
+          type,
+          id,
+          nextImage,
+          store.config.global.wallpaperApi.listName,
+          store.config.global.wallpaperApi.listLink
+        )
+
+        setStorage({ currentWallpaper: nextImage }, 'local')
+        store.wallpaper = nextImage
+        wallpaperSrc.value = `url(${nextImage.base64})`
+      }
+
+      // Retrieve new 'next' wallpaper
+      let newRandomPhoto = await getRandomPhotoFromPexelsList(type, id)
+      if (newRandomPhoto) {
+        let modifiedNew = await preparePexelsWallpaperObj(newRandomPhoto)
+        setStorage({ nextWallpaper: modifiedNew }, 'local')
       }
 
       store.save()

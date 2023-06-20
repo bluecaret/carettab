@@ -17,7 +17,7 @@ export class Defaults {
       blur: 0,
       scale: 100,
     },
-    unsplash: {
+    wallpaperApi: {
       photoTitle: '',
       photoLink: '',
       photoAlt: '',

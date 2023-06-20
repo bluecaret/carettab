@@ -66,7 +66,7 @@ export const getSinglePhotoFromUnsplash = async (id) => {
   return modifiedImage
 }
 
-export const prepareWallpaperObj = (image) => {
+export const prepareUnsplashWallpaperObj = (image) => {
   return {
     base64: image.base64,
     id: image.id,
@@ -181,8 +181,8 @@ export const getSelectedUnsplashImage = async (id, title = '', link = '') => {
     const getNextImage = unsplashType !== 'search' ? await requestUnsplashData(path) : {}
     const modifiedNextImage = unsplashType !== 'search' ? await setupBase64Data(getNextImage) : {}
 
-    image = prepareWallpaperObj(modifiedImage)
-    nextImage = unsplashType !== 'search' ? prepareWallpaperObj(modifiedNextImage) : modifiedNextImage
+    image = prepareUnsplashWallpaperObj(modifiedImage)
+    nextImage = unsplashType !== 'search' ? prepareUnsplashWallpaperObj(modifiedNextImage) : modifiedNextImage
 
     // Set images to browser local storage
     chrome.storage.local.set({ currentWallpaper: image })

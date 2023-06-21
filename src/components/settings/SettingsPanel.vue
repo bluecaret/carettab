@@ -20,6 +20,8 @@ import NotepadSettings from '@/components/widgets/NotepadSettings.vue'
 import QuoteSettings from '@/components/widgets/QuoteSettings.vue'
 import QuickLinksSettings from '@/components/widgets/QuickLinksSettings.vue'
 import LoadsheddingSettings from '@/components/widgets/LoadsheddingSettings.vue'
+import ShapeSettings from '@/components/widgets/ShapeSettings.vue'
+import TextSettings from '@/components/widgets/TextSettings.vue'
 
 const user = inject('user')
 const store = useSettingsStore()
@@ -146,6 +148,8 @@ const handleSave = () => {
     <QuoteSettings v-if="['quote'].includes(settingsPage)"></QuoteSettings>
     <QuickLinksSettings v-if="['quickLinks'].includes(settingsPage)"></QuickLinksSettings>
     <LoadsheddingSettings v-if="['loadshedding'].includes(settingsPage)"></LoadsheddingSettings>
+    <ShapeSettings v-if="['shape'].includes(settingsPage)"></ShapeSettings>
+    <TextSettings v-if="['text'].includes(settingsPage)"></TextSettings>
     <footer class="footer">
       <DropdownMenu ref="newWidgetMenu" style="width: auto">
         <template #button>

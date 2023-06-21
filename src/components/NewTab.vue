@@ -15,6 +15,8 @@ import NotepadWidget from '@/components/widgets/NotepadWidget.vue'
 import QuoteWidget from '@/components/widgets/QuoteWidget.vue'
 import QuickLinksWidget from '@/components/widgets/QuickLinksWidget.vue'
 import LoadsheddingWidget from '@/components/widgets/LoadsheddingWidget.vue'
+import ShapeWidget from '@/components/widgets/ShapeWidget.vue'
+import TextWidget from '@/components/widgets/TextWidget.vue'
 import ToolBar from '@/components/tools/ToolBar.vue'
 
 const store = useSettingsStore()
@@ -166,6 +168,22 @@ const setTabTitle = () => {
         >
         </LoadsheddingWidget>
         <div v-if="!layer.on && layer.widget === 'loadshedding'"></div>
+        <ShapeWidget
+          v-if="widgetNullCheck(layer, 'shape', store.config.shapes)"
+          :class="{ outliner: store.showOutliner }"
+          :widget="store.config.shapes.find((c) => c.id === layer.id)"
+          :style="`z-index: ${store.config.layers.length - index}`"
+        >
+        </ShapeWidget>
+        <div v-if="!layer.on && layer.widget === 'shape'"></div>
+        <TextWidget
+          v-if="widgetNullCheck(layer, 'text', store.config.texts)"
+          :class="{ outliner: store.showOutliner }"
+          :widget="store.config.texts.find((c) => c.id === layer.id)"
+          :style="`z-index: ${store.config.layers.length - index}`"
+        >
+        </TextWidget>
+        <div v-if="!layer.on && layer.widget === 'text'"></div>
       </template>
     </div>
     <ToggleSettings></ToggleSettings>

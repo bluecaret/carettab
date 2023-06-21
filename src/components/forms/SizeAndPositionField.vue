@@ -5,6 +5,9 @@ import { useSettingsStore } from '@/store.js'
 const props = defineProps({
   index: Number,
   widgetStore: String,
+  windowTitle: String,
+  containerTitle: String,
+  noContainerAlignment: Boolean,
 })
 
 const store = useSettingsStore()
@@ -23,7 +26,7 @@ const handleCAlignUpdate = (alignment) => {
   <div class="block">
     <div class="group fill">
       <div class="label">
-        <label id="alignLabel">Window alignment and position</label>
+        <label id="alignLabel">{{ props.windowTitle ? props.windowTitle : 'Window alignment and position' }}</label>
         <div class="desc">
           Widget positions are independent of each other. If widgets are overlapping, change the alignment or adjust the
           position.
@@ -150,10 +153,18 @@ const handleCAlignUpdate = (alignment) => {
   <div class="block">
     <div class="group fill">
       <div class="label">
-        <label id="containerAlignLabel">Container alignment and size</label>
-        <div class="desc">Sets the size of the widget container and alignment of content within the container</div>
+        <label id="containerAlignLabel">{{
+          props.containerTitle ? props.containerTitle : 'Container alignment and size'
+        }}</label>
+        <div class="desc">
+          {{
+            props.noContainerAlignment
+              ? 'Sets the size of the widget container'
+              : 'Sets the size of the widget container and alignment of content within the container'
+          }}
+        </div>
       </div>
-      <div class="group stack compact">
+      <div class="group stack compact mla">
         <div class="group fill compact">
           <label class="desc mla" for="widgetWidth">Width</label>
           <NumberField
@@ -196,7 +207,7 @@ const handleCAlignUpdate = (alignment) => {
           </select>
         </div>
       </div>
-      <div class="group">
+      <div v-if="!props.noContainerAlignment" class="group">
         <div aria-labelledby="containerAlignLabel" class="btnPlacementGroup w10">
           <button
             type="button"

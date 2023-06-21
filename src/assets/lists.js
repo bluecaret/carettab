@@ -9,6 +9,8 @@ export const widgetTypes = [
   { id: 'sb', type: 'searchBar', store: 'searchBars', name: 'Search Bar', icon: 'fa-magnifying-glass' },
   { id: 'ql', type: 'quickLinks', store: 'quickLinks', name: 'Quick Links', icon: 'fa-link' },
   { id: 'ls', type: 'loadshedding', store: 'loadsheddings', name: 'Loadshedding', icon: 'fa-bolt' },
+  { id: 'sh', type: 'shape', store: 'shapes', name: 'Shape', icon: 'fa-shapes' },
+  { id: 'tx', type: 'text', store: 'texts', name: 'Text', icon: 'fa-align-left' },
 ]
 
 export const toolTypes = [

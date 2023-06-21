@@ -98,6 +98,7 @@ import {
   faTableCells,
   faStar,
   faHeart,
+  faAlignLeft,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faItalic,
@@ -171,7 +172,8 @@ library.add(
   faAsterisk,
   faTableCells,
   faStar,
-  faHeart
+  faHeart,
+  faAlignLeft
 )
 
 // Run quick user check based on storage for a faster load

@@ -99,7 +99,7 @@ const getMostVisited = () => {
       </ul>
     </template>
   </DropdownMenu>
-  <DropdownMenu v-if="props.node.children && props.node.special === 'none'" :no-teleport="noTeleport">
+  <DropdownMenu v-if="props.node.children && props.node.special !== 'mostVisited'" :no-teleport="noTeleport">
     <template #button>
       <button
         type="button"
@@ -122,7 +122,9 @@ const getMostVisited = () => {
               alt="Folder icon"
             />
           </svg>
-          <div v-if="props.inMenu || (props.node.title && props.titles)" class="linkName">{{ props.node.title }}</div>
+          <div v-if="props.inMenu || (props.node.title && props.titles)" class="linkName">
+            {{ props.node.title }}
+          </div>
         </template>
         <template v-else>
           <fa icon="fa-angles-right" class="linkFavicon" />
@@ -134,7 +136,7 @@ const getMostVisited = () => {
       <ul class="childrenMenu">
         <li v-for="child in props.node.children" :key="child.id">
           <a
-            v-if="!child.children"
+            v-if="!child.children && child.special !== 'mostVisited'"
             :href="child.url"
             class="childrenMenuAnchor"
             :title="`${child.title}&#10;${child.url}`"

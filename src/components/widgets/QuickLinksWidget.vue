@@ -172,6 +172,7 @@ const organizeLinks = () => {
         ...visibleLinks.value.splice(0, ['cv', 'iv'].includes(props.widget.layout) ? index - 1 : index),
       ]
     }
+    console.log(visibleLinks.value, hiddenLinks.value)
     showMore.value = hiddenLinks.value.length > 0
   })
 }
@@ -362,6 +363,7 @@ const setQuickLinksVars = computed(() => {
             :node="{
               id: 'more',
               title: ['cv', 'iv', 'ih', 'ig'].includes(props.widget.layout) ? 'More' : '',
+              special: 'more',
               children: hiddenLinks,
             }"
             :icon-permission="faviconPermission"

@@ -172,7 +172,6 @@ const organizeLinks = () => {
         ...visibleLinks.value.splice(0, ['cv', 'iv'].includes(props.widget.layout) ? index - 1 : index),
       ]
     }
-    console.log(visibleLinks.value, hiddenLinks.value)
     showMore.value = hiddenLinks.value.length > 0
   })
 }

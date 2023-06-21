@@ -63,7 +63,7 @@ const getMostVisited = () => {
 </script>
 
 <template>
-  <DropdownMenu v-if="props.node.special === 'mostVisited' && topSitesPermission" :no-teleport="noTeleport">
+  <DropdownMenu v-if="props.node.special === 'mostVisited'" :no-teleport="noTeleport">
     <template #button>
       <button
         type="button"
@@ -79,7 +79,7 @@ const getMostVisited = () => {
       </button>
     </template>
     <template #menu>
-      <ul class="childrenMenu">
+      <ul v-if="topSitesPermission" class="childrenMenu">
         <li v-for="child in mostVisitedLinks" :key="child.id">
           <a
             :href="child.url"

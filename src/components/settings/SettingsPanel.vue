@@ -22,6 +22,7 @@ import QuickLinksSettings from '@/components/widgets/QuickLinksSettings.vue'
 import LoadsheddingSettings from '@/components/widgets/LoadsheddingSettings.vue'
 import ShapeSettings from '@/components/widgets/ShapeSettings.vue'
 import TextSettings from '@/components/widgets/TextSettings.vue'
+import TodoSettings from '@/components/widgets/TodoSettings.vue'
 
 const user = inject('user')
 const store = useSettingsStore()
@@ -150,6 +151,7 @@ const handleSave = () => {
     <LoadsheddingSettings v-if="['loadshedding'].includes(settingsPage)"></LoadsheddingSettings>
     <ShapeSettings v-if="['shape'].includes(settingsPage)"></ShapeSettings>
     <TextSettings v-if="['text'].includes(settingsPage)"></TextSettings>
+    <TodoSettings v-if="['todo'].includes(settingsPage)"></TodoSettings>
     <footer class="footer">
       <DropdownMenu ref="newWidgetMenu" style="width: auto">
         <template #button>

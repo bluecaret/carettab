@@ -17,6 +17,7 @@ import QuickLinksWidget from '@/components/widgets/QuickLinksWidget.vue'
 import LoadsheddingWidget from '@/components/widgets/LoadsheddingWidget.vue'
 import ShapeWidget from '@/components/widgets/ShapeWidget.vue'
 import TextWidget from '@/components/widgets/TextWidget.vue'
+import TodoWidget from '@/components/widgets/TodoWidget.vue'
 import ToolBar from '@/components/tools/ToolBar.vue'
 
 const store = useSettingsStore()
@@ -184,6 +185,14 @@ const setTabTitle = () => {
         >
         </TextWidget>
         <div v-if="!layer.on && layer.widget === 'text'"></div>
+        <TodoWidget
+          v-if="widgetNullCheck(layer, 'todo', store.config.todos)"
+          :class="{ outliner: store.showOutliner }"
+          :widget="store.config.todos.find((c) => c.id === layer.id)"
+          :style="`z-index: ${store.config.layers.length - index}`"
+        >
+        </TodoWidget>
+        <div v-if="!layer.on && layer.widget === 'todo'"></div>
       </template>
     </div>
     <ToggleSettings></ToggleSettings>

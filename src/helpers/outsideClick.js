@@ -4,9 +4,10 @@ export function useDetectOutsideClick(component, callback, component2 = null) {
   if (!component && !component2) return
   const listener = (event) => {
     if (
-      event.target !== component.value &&
-      event.target !== component2.value &&
-      (event.composedPath().includes(component.value) || event.composedPath().includes(component2.value))
+      (!component || event.target !== component.value) &&
+      (!component2 || event.target !== component2.value) &&
+      ((component && event.composedPath().includes(component.value)) ||
+        (component2 && event.composedPath().includes(component2.value)))
     ) {
       return
     }

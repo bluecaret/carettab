@@ -40,6 +40,10 @@ import {
   faPlus,
   faLeftRight,
   faUpDown,
+  faCircle,
+  faCircleCheck,
+  faCirclePlus,
+  faCircleXmark,
   faCircleLeft,
   faSquarePlus,
   faXmark,
@@ -60,7 +64,6 @@ import {
   faMagnifyingGlass,
   faFloppyDisk,
   faRocket,
-  faBell,
   faVectorSquare,
   faCheck,
   faArrowsLeftRightToLine,
@@ -99,6 +102,14 @@ import {
   faStar,
   faHeart,
   faAlignLeft,
+  faClipboardList,
+  faFilter,
+  faSort,
+  faBell,
+  faBellSlash,
+  faFlag,
+  faTag,
+  faEllipsis,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faItalic,
@@ -115,6 +126,10 @@ library.add(
   faPlus,
   faLeftRight,
   faUpDown,
+  faCircle,
+  faCircleCheck,
+  faCirclePlus,
+  faCircleXmark,
   faCircleLeft,
   faSquarePlus,
   faXmark,
@@ -135,7 +150,6 @@ library.add(
   faMagnifyingGlass,
   faFloppyDisk,
   faRocket,
-  faBell,
   faVectorSquare,
   faCheck,
   faArrowsLeftRightToLine,
@@ -173,12 +187,20 @@ library.add(
   faTableCells,
   faStar,
   faHeart,
-  faAlignLeft
+  faAlignLeft,
+  faClipboardList,
+  faFilter,
+  faSort,
+  faBell,
+  faBellSlash,
+  faFlag,
+  faTag,
+  faEllipsis
 )
 
 // Run quick user check based on storage for a faster load
 // Prevents app from loading till quick check is done.
-;(async function () {
+async function init() {
   const app = createApp(App)
   const userInfo = ref({ paid: false })
 
@@ -216,4 +238,5 @@ library.add(
   app.use(createPinia())
 
   app.mount('#app')
-})()
+}
+init()

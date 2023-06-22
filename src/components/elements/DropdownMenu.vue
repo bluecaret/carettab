@@ -7,6 +7,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  closeOnClick: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const ddBtn = ref()
@@ -73,7 +77,7 @@ useDetectOutsideClick(
   () => {
     if (showDropdown.value) showDropdown.value = false
   },
-  ddMenu
+  props.closeOnClick ? null : ddMenu
 )
 
 const close = () => {
@@ -95,7 +99,7 @@ defineExpose({ close })
     >
       <slot name="button"> </slot>
     </div>
-    <Teleport to="#dropdowns" :disabled="noTeleport">
+    <Teleport to="#dropdowns" :disabled="props.noTeleport">
       <div v-show="showDropdown" ref="ddMenu" class="dropdownMenuWrapper" tabindex="-1" @keyup.esc="close">
         <div class="dropdown">
           <slot name="menu"> </slot>

@@ -16,6 +16,7 @@ import { QuickLinks } from '@/components/widgets/QuickLinks.js'
 import { Loadshedding } from '@/components/widgets/Loadshedding.js'
 import { Shape } from '@/components/widgets/Shape.js'
 import { Text } from '@/components/widgets/Text.js'
+import { Todo } from '@/components/widgets/Todo.js'
 
 const availableWidgets = new Map([
   ['digitalClock', DigitalClock],
@@ -30,6 +31,7 @@ const availableWidgets = new Map([
   ['loadshedding', Loadshedding],
   ['shape', Shape],
   ['text', Text],
+  ['todo', Todo],
 ])
 
 export const generateUID = () => {

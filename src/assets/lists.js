@@ -11,6 +11,7 @@ export const widgetTypes = [
   { id: 'ls', type: 'loadshedding', store: 'loadsheddings', name: 'Loadshedding', icon: 'fa-bolt' },
   { id: 'sh', type: 'shape', store: 'shapes', name: 'Shape', icon: 'fa-shapes' },
   { id: 'tx', type: 'text', store: 'texts', name: 'Text', icon: 'fa-align-left' },
+  { id: 'td', type: 'todo', store: 'todos', name: 'Todo', icon: 'fa-clipboard-list' },
 ]
 
 export const toolTypes = [

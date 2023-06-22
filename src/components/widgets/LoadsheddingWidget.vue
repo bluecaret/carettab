@@ -69,7 +69,7 @@ const requestFromApi = async (url, params = null) => {
 }
 
 const refreshData = async () => {
-  let data = await requestFromApi('area', `id=${props.widget.area.id}&test=current`)
+  let data = await requestFromApi('area', `id=${props.widget.area.id}`)
   let lKey = 'loadshedding-area-' + props.widget.id
   cachedAreaInfo.value = { cachedAt: new Date().getTime().toString(), data: data }
   getDayData()

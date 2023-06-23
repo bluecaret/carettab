@@ -2,7 +2,7 @@
 import { ref, computed, inject, toRaw, onMounted, nextTick } from 'vue'
 import draggable from 'vuedraggable'
 import { useSettingsStore, generateUID, setStorage } from '@/store.js'
-import { setWidgetContainerStyles } from '@/helpers/widgets.js'
+import { setWidgetContainerStyles, hsl } from '@/helpers/widgets.js'
 import { TodoItem } from '@/components/widgets/Todo.js'
 
 const store = useSettingsStore()
@@ -207,6 +207,16 @@ const handleFilterChange = () => {
   handleFilterSet(todo.filter)
   setStorage({ [props.widget.id]: { ...toRaw(props.widget) } }, 'sync')
 }
+
+const strikethrough = computed(() => {
+  return props.widget.done.strikethrough ? 'line-through' : 'none'
+})
+
+const doneColor = computed(() => {
+  return props.widget.done.overrideColor
+    ? hsl(props.widget.done.color)
+    : hsl(store.config.global.element.secondaryColor)
+})
 </script>
 
 <template>
@@ -234,7 +244,7 @@ const handleFilterChange = () => {
         @change="handleListReorder()"
       >
         <template #item="{ element }">
-          <li class="task">
+          <li class="task" :class="{ done: element.done }">
             <DropdownMenu ref="taskMenuEl" :close-on-click="true">
               <template #button>
                 <button type="button" class="menuBtn">
@@ -434,7 +444,17 @@ const handleFilterChange = () => {
   }
 }
 
-.name {
+.done {
+  .check .svg-inline--fa {
+    color: v-bind(doneColor);
+  }
+  .flag .svg-inline--fa {
+    color: v-bind(doneColor);
+  }
+  .name {
+    text-decoration: v-bind(strikethrough);
+    color: v-bind(doneColor);
+  }
 }
 
 .addTaskName {

@@ -245,6 +245,30 @@ export const useSettingsStore = defineStore('settings', () => {
     }
   }
 
+  const duplicateWidget = async (id, type) => {
+    const widgetType = widgetTypes.find((w) => w.type === type)
+    const originalWidget = config[widgetType.store].find((w) => w.id === id)
+    let widgetClass = availableWidgets.get(widgetType.type)
+    let newWidget = new widgetClass()
+    newWidget = { ...originalWidget }
+    newWidget.id = ''
+    newWidget.id = widgetType.id + '-' + generateUID()
+    createLayer(newWidget.id, widgetType.type)
+    config[widgetType.store].unshift(newWidget)
+    save()
+
+    // Copy supplemental storage if needed
+    if (widgetType.type === 'notepad') {
+      const supplementalStorageLocal = await getStorage(`notes-${originalWidget.id}`, 'local')
+      const supplementalStorageSync = await getStorage(`notes-${originalWidget.id}`, 'sync')
+      if (supplementalStorageLocal[`notes-${originalWidget.id}`]) {
+        setStorage({ [`notes-${newWidget.id}`]: supplementalStorageLocal[`notes-${originalWidget.id}`] })
+      } else if (supplementalStorageSync[`notes-${originalWidget.id}`]) {
+        setStorage({ [`notes-${newWidget.id}`]: supplementalStorageSync[`notes-${originalWidget.id}`] })
+      }
+    }
+  }
+
   const deleteWidget = async (id, type) => {
     if (
       confirm(
@@ -320,7 +344,7 @@ export const useSettingsStore = defineStore('settings', () => {
               reject(error)
             })
         } else if (type === 'notepad') {
-          removeStorage(`notepad-${id}`, 'local')
+          removeStorage(`notes-${id}`, 'local')
             .then(() => {
               return removeStorage(`notepad-${id}`, 'sync')
             })
@@ -398,6 +422,7 @@ export const useSettingsStore = defineStore('settings', () => {
     load,
     save,
     newWidget,
+    duplicateWidget,
     deleteWidget,
     reset,
     resetAll,

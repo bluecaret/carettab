@@ -37,6 +37,10 @@ const toggleWidget = (id) => {
   layer.on = !layer.on
 }
 
+const duplicateWidget = (id, type) => {
+  store.duplicateWidget(id, type)
+}
+
 const deleteWidget = (id, type) => {
   store.deleteWidget(id, type)
 }
@@ -162,7 +166,22 @@ const handleNewWidgetClick = (type) => {
               <button type="button" class="btn" @click="openWidget(element.id, element.widget)">
                 <fa icon="fa-pen" fixed-width></fa>Edit
               </button>
-              <button type="button" class="btn" @click="deleteWidget(element.id, element.widget)">
+              <button
+                type="button"
+                class="btn"
+                aria-label="Duplicate widget"
+                title="Duplicate widget"
+                @click="duplicateWidget(element.id, element.widget)"
+              >
+                <fa icon="fa-copy" fixed-width></fa>
+              </button>
+              <button
+                type="button"
+                class="btn"
+                aria-label="Delete widget"
+                title="Delete widget"
+                @click="deleteWidget(element.id, element.widget)"
+              >
                 <fa icon="fa-trash" fixed-width></fa>
               </button>
             </div>

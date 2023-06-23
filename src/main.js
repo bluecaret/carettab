@@ -110,6 +110,7 @@ import {
   faFlag,
   faTag,
   faEllipsis,
+  faCopy,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faItalic,
@@ -195,7 +196,8 @@ library.add(
   faBellSlash,
   faFlag,
   faTag,
-  faEllipsis
+  faEllipsis,
+  faCopy
 )
 
 // Run quick user check based on storage for a faster load

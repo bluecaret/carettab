@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, inject, toRaw, onMounted } from 'vue'
+import { ref, computed, inject, toRaw, onMounted, nextTick } from 'vue'
 import draggable from 'vuedraggable'
 import { useSettingsStore, generateUID, setStorage } from '@/store.js'
 import { setWidgetContainerStyles } from '@/helpers/widgets.js'
@@ -7,6 +7,7 @@ import { TodoItem } from '@/components/widgets/Todo.js'
 
 const store = useSettingsStore()
 const user = inject('user')
+const newNameEl = ref(null)
 const taskMenuEl = ref(null)
 const addTaskMenuEl = ref(null)
 const editing = ref(null)
@@ -77,6 +78,14 @@ const handleEditSave = (task) => {
   item.name = editingName.value
   editing.value = null
   setStorage({ [props.widget.id]: { ...toRaw(props.widget) } }, 'sync')
+}
+
+const handleAddModalOpen = () => {
+  newModal.value = true
+  newName.value = ''
+  nextTick(() => {
+    newNameEl.value.focus()
+  })
 }
 
 const handleAddModalClose = () => {
@@ -214,7 +223,7 @@ const handleFilterChange = () => {
 
       <draggable
         class="list"
-        :list="widget.list"
+        :list="filteredList"
         item-key="id"
         ghost-class="dragGhost"
         chosen-class="dragChosen"
@@ -333,7 +342,7 @@ const handleFilterChange = () => {
             </DropdownMenu>
             <ModalWindow :show="newModal" size="460px">
               <template #button>
-                <button type="button" class="taskToggle" @click="newModal = true">
+                <button type="button" class="taskToggle" @click="handleAddModalOpen()">
                   <div class="check">
                     <fa icon="fa-circle-plus" fixed-width />
                   </div>
@@ -348,10 +357,10 @@ const handleFilterChange = () => {
                     </button>
                     <h3>Add task</h3>
                   </div>
-                  <div class="group fill compact">
-                    <input v-model="newName" type="text" class="input" />
-                    <button type="button" class="btn" @click="handleAddTask()">Save</button>
-                  </div>
+                  <form novalidate class="group fill compact" @submit.prevent="handleAddTask()">
+                    <input ref="newNameEl" v-model="newName" type="text" class="input" />
+                    <button type="submit" class="btn">Save</button>
+                  </form>
                 </div>
               </template>
             </ModalWindow>

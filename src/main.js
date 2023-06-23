@@ -3,6 +3,7 @@ import { createApp, ref } from 'vue'
 import { createPinia } from 'pinia'
 import { i18n } from './i18n.js'
 import App from './App.vue'
+import FieldAccordion from '@/components/elements/FieldAccordion.vue'
 import DropdownMenu from '@/components/elements/DropdownMenu.vue'
 import ModalWindow from '@/components/elements/ModalWindow.vue'
 import ColorField from '@/components/forms/ColorField.vue'
@@ -111,6 +112,10 @@ import {
   faTag,
   faEllipsis,
   faCopy,
+  faSwatchbook,
+  faDroplet,
+  faDropletSlash,
+  faPalette,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faItalic,
@@ -197,7 +202,11 @@ library.add(
   faFlag,
   faTag,
   faEllipsis,
-  faCopy
+  faCopy,
+  faSwatchbook,
+  faDroplet,
+  faDropletSlash,
+  faPalette
 )
 
 // Run quick user check based on storage for a faster load
@@ -222,6 +231,7 @@ async function init() {
   // eslint-disable-next-line vue/multi-word-component-names
   app.component('Fa', FontAwesomeIcon)
   app.use(i18n)
+  app.component('FieldAccordion', FieldAccordion)
   app.component('DropdownMenu', DropdownMenu)
   app.component('ModalWindow', ModalWindow)
   app.component('ColorField', ColorField)

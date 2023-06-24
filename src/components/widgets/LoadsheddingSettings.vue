@@ -122,6 +122,10 @@ const selectLoc = (loc) => {
 <template>
   <div class="page">
     <PageHeading title="Loadshedding" :widget-id="widget.id"></PageHeading>
+    <div class="blockContainer">
+      <WidgetBoxField :index="ci" :widget-store="widgetStore" />
+      <WidgetFontField :index="ci" :widget-store="widgetStore" />
+    </div>
     <h3 class="subtitle">Loadshedding for the South African Energy Crisis</h3>
     <div class="blockContainer">
       <div class="block">
@@ -138,7 +142,7 @@ const selectLoc = (loc) => {
         </div>
       </div>
       <div class="block">
-        <label for="citizen" class="label mra">Are you living or working in South Africa?</label>
+        <label for="citizen" class="label">Are you living or working in South Africa?</label>
         <ToggleField v-model="widget.citizen" tag-id="citizen"></ToggleField>
       </div>
       <div v-if="widget.citizen && !apiPermission" class="block">
@@ -172,9 +176,9 @@ const selectLoc = (loc) => {
           </div>
         </div>
       </div>
-      <div v-if="widget.citizen && apiPermission" class="block">
+      <div v-if="widget.citizen && apiPermission" class="block stack">
         <div class="group fill">
-          <div class="label mra">
+          <div class="label">
             <label for="licenseKey">EskomSePush License Key</label>
             <div class="desc">
               <div>
@@ -216,7 +220,7 @@ const selectLoc = (loc) => {
               </button>
             </template>
             <template #window>
-              <div class="locSearchModal block">
+              <div class="locSearchModal block stack">
                 <button
                   class="locSearchModalClose"
                   type="button"
@@ -267,12 +271,6 @@ const selectLoc = (loc) => {
           </ModalWindow>
         </div>
       </div>
-    </div>
-    <h3 class="subtitle">Widget style</h3>
-    <div class="blockContainer">
-      <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
-      <WidgetBoxField :index="ci" :widget-store="widgetStore" />
-      <WidgetFontField :index="ci" :widget-store="widgetStore" />
     </div>
   </div>
 </template>

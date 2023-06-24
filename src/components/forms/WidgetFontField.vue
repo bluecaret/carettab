@@ -7,6 +7,7 @@ const props = defineProps({
   noOverride: Boolean,
   index: Number,
   widgetStore: String,
+  startOpen: Boolean,
 })
 
 const store = useSettingsStore()
@@ -25,11 +26,16 @@ const updateFamily = (family) => {
 </script>
 
 <template>
-  <div class="block">
-    <div class="group fill">
-      <label class="label mra">Font</label>
-      <div v-if="!props.noOverride" class="group compact">
-        <label for="fontSize" class="desc"> Size </label>
+  <FieldAccordion :start-open="startOpen">
+    <template #label>
+      <div class="label">
+        <div>Widget font styles</div>
+        <div class="desc">Changes size, font, color, and other settings for the widget's text.</div>
+      </div>
+    </template>
+    <template #children>
+      <div v-if="!props.noOverride" class="block">
+        <label for="fontSize" class="label mra"> Size </label>
         <NumberField
           v-model="widget.size"
           tag-id="fontSize"
@@ -39,110 +45,105 @@ const updateFamily = (family) => {
           :min="1"
         ></NumberField>
       </div>
-      <div v-if="!props.noOverride" class="group compact">
-        <label for="overrideGlobalFont" class="desc">Override global</label>
+      <div v-if="!props.noOverride" class="block">
+        <label for="overrideGlobalFont" class="label mra">Override global</label>
         <ToggleField v-model="widget.override" tag-id="overrideGlobalFont"> </ToggleField>
       </div>
-    </div>
-    <div v-if="props.noOverride || widget.override" class="group fill">
-      <div class="group stack fill">
-        <label for="fontFamily" class="desc">
-          <div><PremiumLabel v-if="!props.noOverride" />Font</div>
-        </label>
-        <AutocompleteField
-          left
-          fonts
-          tag-id="test"
-          use-label
-          allow-custom
-          :list="fontList"
-          :selected="widget.family"
-          :disabled="!props.noOverride && !user.paid"
-          @selected="(item) => updateFamily(item)"
-        ></AutocompleteField>
-      </div>
-      <div class="group stack">
-        <label for="widgetLetterSpacing" class="desc"> Letter spacing </label>
-        <NumberField
-          v-model="widget.letterSpacing"
-          tag-id="widgetLetterSpacing"
-          class="w12"
-          aria-label="Letter spacing"
-          :increment="0.2"
-        >
-        </NumberField>
-      </div>
-    </div>
-    <div v-if="props.noOverride || widget.override" class="group fill">
-      <div class="group stack fill">
-        <label for="fontBold" class="desc">
-          <div><PremiumLabel v-if="!props.noOverride" />Weight</div>
-        </label>
-        <select
-          id="fontBold"
-          v-model="widget.bold"
-          name="fontBold"
-          class="select"
-          :disabled="!props.noOverride && !user.paid"
-        >
-          <option v-for="wgt in fontWeight" :key="wgt.id" :value="wgt.id">
-            {{ wgt.label }}
-          </option>
-        </select>
-      </div>
-      <div class="group stack">
-        <label class="desc">
-          <div><PremiumLabel v-if="!props.noOverride" />Style</div>
-        </label>
-        <div class="btnGroup">
-          <button
-            id="togglePosition"
-            aria-label="Italic"
-            class="btn"
-            type="button"
-            :class="{ active: widget.italic }"
+      <template v-if="props.noOverride || widget.override">
+        <div class="block">
+          <label for="fontFamily" class="label mra">
+            <div><PremiumLabel v-if="!props.noOverride" />Font</div>
+          </label>
+          <AutocompleteField
+            class="w34"
+            left
+            fonts
+            tag-id="test"
+            use-label
+            allow-custom
+            :list="fontList"
+            :selected="widget.family"
             :disabled="!props.noOverride && !user.paid"
-            @click="widget.italic = !widget.italic"
-          >
-            <fa icon="fa-italic" fixed-width></fa>
-          </button>
-          <button
-            id="togglePosition"
-            aria-label="Underline"
-            class="btn"
-            type="button"
-            :class="{ active: widget.underline }"
-            :disabled="!props.noOverride && !user.paid"
-            @click="widget.underline = !widget.underline"
-          >
-            <fa icon="fa-underline" fixed-width></fa>
-          </button>
+            @selected="(item) => updateFamily(item)"
+          ></AutocompleteField>
         </div>
-      </div>
-      <div class="group stack fill">
-        <label for="textTranform" class="desc">
-          <div><PremiumLabel v-if="!props.noOverride" />Case</div>
-        </label>
-        <select
-          id="textTranform"
-          v-model="widget.transform"
-          name="textTranform"
-          class="select"
-          :disabled="!props.noOverride && !user.paid"
-        >
-          <option v-for="opt in textTransform" :key="opt.id" :value="opt.id">
-            {{ opt.label }}
-          </option>
-        </select>
-      </div>
-      <div class="group stack">
-        <label for="widgetFontColor" class="desc"> Color </label>
-        <ColorField v-model="widget.color" tag-id="widgetFontColor" class="w8"> </ColorField>
-      </div>
-      <div class="group stack">
-        <label for="widgetFontShadow" class="desc"> Shadow </label>
-        <ColorField v-model="widget.shadow" shadow text tag-id="widgetFontShadow" class="w8"> </ColorField>
-      </div>
-    </div>
-  </div>
+        <div class="block">
+          <label for="widgetLetterSpacing" class="label mra"> Letter spacing </label>
+          <NumberField
+            v-model="widget.letterSpacing"
+            tag-id="widgetLetterSpacing"
+            class="w10"
+            aria-label="Letter spacing"
+            :increment="0.2"
+          >
+          </NumberField>
+        </div>
+        <div class="block">
+          <label class="label mra">
+            <div><PremiumLabel v-if="!props.noOverride" />Style</div>
+          </label>
+          <select
+            id="fontBold"
+            v-model="widget.bold"
+            name="fontBold"
+            class="select w11"
+            :disabled="!props.noOverride && !user.paid"
+            aria-label="Weight"
+          >
+            <option v-for="wgt in fontWeight" :key="wgt.id" :value="wgt.id">
+              {{ wgt.label }}
+            </option>
+          </select>
+          <div class="btnGroup">
+            <button
+              id="togglePosition"
+              aria-label="Italic"
+              class="btn"
+              type="button"
+              :class="{ active: widget.italic }"
+              :disabled="!props.noOverride && !user.paid"
+              @click="widget.italic = !widget.italic"
+            >
+              <fa icon="fa-italic" fixed-width></fa>
+            </button>
+            <button
+              id="togglePosition"
+              aria-label="Underline"
+              class="btn"
+              type="button"
+              :class="{ active: widget.underline }"
+              :disabled="!props.noOverride && !user.paid"
+              @click="widget.underline = !widget.underline"
+            >
+              <fa icon="fa-underline" fixed-width></fa>
+            </button>
+          </div>
+        </div>
+        <div class="block">
+          <label for="textTranform" class="label mra">
+            <div><PremiumLabel v-if="!props.noOverride" />Case</div>
+          </label>
+          <select
+            id="textTranform"
+            v-model="widget.transform"
+            name="textTranform"
+            class="select w20"
+            :disabled="!props.noOverride && !user.paid"
+          >
+            <option v-for="opt in textTransform" :key="opt.id" :value="opt.id">
+              {{ opt.label }}
+            </option>
+          </select>
+        </div>
+        <div class="block">
+          <label for="widgetFontColor" class="label mra"> Color </label>
+          <ColorField v-model="widget.color" tag-id="widgetFontColor" class="w20"> </ColorField>
+        </div>
+        <div class="block">
+          <label for="widgetFontShadow" class="label mra"> Shadow </label>
+          <ColorField v-model="widget.shadow" shadow text tag-id="widgetFontShadow" class="w20"> </ColorField>
+        </div>
+      </template>
+    </template>
+  </FieldAccordion>
 </template>

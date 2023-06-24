@@ -248,7 +248,6 @@ const handleNewWidgetClick = (type) => {
 }
 
 .dashboardPadding {
-  margin-block-start: var(--s5);
 }
 
 .outliner {
@@ -278,10 +277,8 @@ const handleNewWidgetClick = (type) => {
 .whatsNewBox {
   color: var(--cText);
   background-color: var(--cBlue2);
-  margin-inline: -1.6rem;
-  margin-block-end: var(--s5);
-  border-top-left-radius: var(--s4);
-  border-top-right-radius: var(--s4);
+  margin-block-start: var(--s5);
+  border-radius: var(--s4);
   padding: var(--s5);
   cursor: pointer;
 

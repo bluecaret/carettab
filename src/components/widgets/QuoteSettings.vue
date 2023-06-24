@@ -29,24 +29,26 @@ const deleteQuote = (id) => {
 <template>
   <div class="page">
     <PageHeading title="Quote" :widget-id="widget.id"></PageHeading>
-    <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
-      <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
       <WidgetBoxField :index="ci" :widget-store="widgetStore" />
       <WidgetFontField :index="ci" :widget-store="widgetStore" />
-      <div class="block">
-        <div class="label mra">Quote options</div>
-        <div class="group">
-          <div class="group compact">
-            <label for="showAuthor" class="desc">Show author</label>
+    </div>
+    <div class="blockContainer">
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Quote display</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="showAuthor" class="label">Show author</label>
             <ToggleField v-model="widget.showAuthor" tag-id="showAuthor"></ToggleField>
           </div>
-          <div class="group compact">
-            <label for="showQuoteMarks" class="desc">Show quote marks</label>
+          <div class="block">
+            <label for="showQuoteMarks" class="label">Show quote marks</label>
             <ToggleField v-model="widget.showQuoteMarks" tag-id="showQuoteMarks"></ToggleField>
           </div>
-        </div>
-      </div>
+        </template>
+      </FieldAccordion>
     </div>
     <h3 class="subtitle">Quotes</h3>
     <template v-if="widget.quotes && widget.quotes.length > 0">

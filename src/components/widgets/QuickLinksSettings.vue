@@ -81,31 +81,18 @@ const deleteLink = (id) => {
 <template>
   <div class="page">
     <PageHeading title="Quick Links" :widget-id="widget.id"></PageHeading>
-    <h3 class="subtitle">Quick link options</h3>
+    <div class="blockContainer">
+      <WidgetBoxField :index="ci" :widget-store="widgetStore" />
+      <WidgetFontField :index="ci" :widget-store="widgetStore" />
+    </div>
     <div class="blockContainer">
       <div class="block">
-        <div class="group fill">
-          <div class="label mra">Setup</div>
-          <div class="group compact">
-            <label for="position" class="desc mra">Type</label>
-            <select id="position" v-model="widget.type" class="select w21">
-              <option value="ql">Quick links</option>
-              <option value="bk">Bookmarks from browser</option>
-              <option value="mv">Most visited pages</option>
-            </select>
-          </div>
-          <div class="group compact">
-            <label for="position" class="desc mra">Layout</label>
-            <select id="position" v-model="widget.layout" class="select w16">
-              <option value="ch">Classic horizontal</option>
-              <option value="cv">Classic vertical</option>
-              <option value="cg">Classic grid</option>
-              <option value="ih">Iconified horizontal</option>
-              <option value="iv">Iconified vertical</option>
-              <option value="ig">Iconified grid</option>
-            </select>
-          </div>
-        </div>
+        <label for="position" class="label">Type</label>
+        <select id="position" v-model="widget.type" class="select w20">
+          <option value="ql">Quick links</option>
+          <option value="bk">Browser's bookmarks</option>
+          <option value="mv">Most visited pages</option>
+        </select>
       </div>
       <div v-if="!bookmarksPermission && widget.type === 'bk'" class="block">
         <div class="label">
@@ -122,7 +109,12 @@ const deleteLink = (id) => {
           @requested="checkBookmarksPermission()"
         />
       </div>
-      <div v-if="!topSitesPermission && widget.quickLinks.find((l) => l.special === 'mostVisited')" class="block">
+      <div
+        v-if="
+          !topSitesPermission && (widget.type === 'mv' || widget.quickLinks.find((l) => l.special === 'mostVisited'))
+        "
+        class="block"
+      >
         <div class="label">
           <div>Most Visited</div>
           <div class="desc">
@@ -137,7 +129,106 @@ const deleteLink = (id) => {
           @requested="checkTopSitesPermission()"
         />
       </div>
+      <div class="block">
+        <label for="position" class="label">Layout</label>
+        <select id="position" v-model="widget.layout" class="select w20">
+          <option value="ch">Classic horizontal</option>
+          <option value="cv">Classic vertical</option>
+          <option value="cg">Classic grid</option>
+          <option value="ih">Iconified horizontal</option>
+          <option value="iv">Iconified vertical</option>
+          <option value="ig">Iconified grid</option>
+        </select>
+      </div>
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Link spacing</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="linkmargin" class="label">Space between links</label>
+            <NumberField v-model="widget.link.margin" tag-id="linkmargin" :min="0" class="w10"></NumberField>
+          </div>
+          <div class="block">
+            <label for="linkpadding" class="label">Padding around link text</label>
+            <NumberField v-model="widget.link.padding" tag-id="linkpadding" :min="0" class="w10"></NumberField>
+          </div>
+          <div class="block">
+            <div class="label">
+              <label for="linkmaxwidth">Max width of link</label>
+              <div class="desc">Maximum width a link can be before the text is truncated.</div>
+            </div>
+            <NumberField v-model="widget.link.maxWidth" tag-id="linkmaxwidth" :min="1" class="w10"></NumberField>
+          </div>
+        </template>
+      </FieldAccordion>
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Link styles</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="showTitle" class="label mra">Show title</label>
+            <ToggleField v-model="widget.link.titles" tag-id="showTitle"></ToggleField>
+          </div>
+          <div class="block">
+            <label for="showIcons" class="label">Show favicon</label>
+            <RequestPermissionModal
+              v-if="!faviconPermission"
+              permission="favicon"
+              permission-label="Favicons"
+              reason="The Favicons permission is needed to retrieve the favicons of bookmarks. This only allows retrieving the icons websites use in the browser's address bar and does not allow any other access. Denying this permission will prevent the favicons from being shown."
+              @requested="checkFaviconPermission()"
+            />
+            <ToggleField v-if="faviconPermission" id="showIcons" v-model="widget.link.icons"></ToggleField>
+          </div>
+          <div v-if="faviconPermission && widget.link.icons" class="block">
+            <div class="label">
+              <label for="iconSize">Favicon size</label>
+              <div v-if="widget.link.icons && faviconPermission" class="desc">
+                Recommended to not set the favicon size above 32. Higher sizes could result in poor image quality and
+                larger downloads.
+              </div>
+            </div>
+            <NumberField v-model="widget.link.iconSize" tag-id="iconSize" :min="1" class="w10"></NumberField>
+          </div>
+          <div class="block">
+            <label for="linkbackground" class="label">Background</label>
+            <ColorField v-model="widget.link.background" tag-id="linkbackground" class="w20"></ColorField>
+          </div>
+          <div class="block">
+            <label for="linkhoverbackground" class="label">Background when hovering</label>
+            <ColorField v-model="widget.link.hoverBackground" tag-id="linkhoverbackground" class="w20"></ColorField>
+          </div>
+          <div class="block">
+            <label for="linkShadow" class="label">Shadow</label>
+            <ColorField v-model="widget.link.shadow" shadow tag-id="linkShadow" class="w20"></ColorField>
+          </div>
+          <div class="block">
+            <label for="linkborderSize" class="label">Border size</label>
+            <NumberField v-model="widget.link.borderSize" tag-id="linkborderSize" :min="0" class="w10"></NumberField>
+          </div>
+          <div class="block">
+            <label for="linkborderColor" class="label">Border color</label>
+            <ColorField v-model="widget.link.borderColor" tag-id="linkborderColor" class="w20"></ColorField>
+          </div>
+          <div class="block">
+            <label for="linkborderRadius" class="label">Rounded corners</label>
+            <NumberField
+              v-model="widget.link.borderRadius"
+              tag-id="linkborderRadius"
+              :min="0"
+              class="w20"
+            ></NumberField>
+          </div>
+        </template>
+      </FieldAccordion>
+      <div class="block">
+        <label for="openInNewTab" class="label mra">Open in new tab</label>
+        <ToggleField id="openInNewTab" v-model="widget.link.openInNewTab"></ToggleField>
+      </div>
     </div>
+    <h3 v-if="widget.type === 'ql'" class="subtitle">Quick links</h3>
     <template v-if="widget.type === 'ql'">
       <draggable
         class="blockContainer"
@@ -235,102 +326,6 @@ const deleteLink = (id) => {
         </template>
       </draggable>
     </template>
-    <h3 class="subtitle">Widget style</h3>
-    <div class="blockContainer">
-      <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
-      <WidgetBoxField :index="ci" :widget-store="widgetStore" />
-    </div>
-    <h3 class="subtitle">Link style</h3>
-    <div class="blockContainer">
-      <WidgetFontField :index="ci" :widget-store="widgetStore" />
-      <div class="block">
-        <div class="label mra">Spacing</div>
-        <div class="group compact">
-          <label for="linkmargin" class="desc">Margin</label>
-          <NumberField v-model="widget.link.margin" tag-id="linkmargin" :min="0" class="w6"></NumberField>
-        </div>
-        <div class="group compact">
-          <label for="linkpadding" class="desc">Padding</label>
-          <NumberField v-model="widget.link.padding" tag-id="linkpadding" :min="0" class="w6"></NumberField>
-        </div>
-        <div class="group compact">
-          <label for="linkmaxwidth" class="desc">Max width</label>
-          <NumberField v-model="widget.link.maxWidth" tag-id="linkmaxwidth" :min="1" class="w6"></NumberField>
-        </div>
-      </div>
-      <div class="block">
-        <div class="label mra">Colors</div>
-        <div class="group compact">
-          <label for="linkbackground" class="desc">Background</label>
-          <ColorField v-model="widget.link.background" tag-id="linkbackground" class="w6"></ColorField>
-        </div>
-        <div class="group compact">
-          <label for="linkhoverbackground" class="desc">Hover Background</label>
-          <ColorField v-model="widget.link.hoverBackground" tag-id="linkhoverbackground" class="w6"></ColorField>
-        </div>
-        <div class="group compact">
-          <label for="linkShadow" class="desc">Shadow</label>
-          <ColorField v-model="widget.link.shadow" shadow tag-id="linkShadow" class="w6"></ColorField>
-        </div>
-      </div>
-      <div class="block">
-        <div class="label mra">Border</div>
-        <div class="group compact">
-          <label for="linkborderSize" class="desc">Size</label>
-          <NumberField v-model="widget.link.borderSize" tag-id="linkborderSize" :min="0" class="w6"></NumberField>
-        </div>
-        <div class="group compact">
-          <label for="linkborderRadius" class="desc">Rounded</label>
-          <NumberField v-model="widget.link.borderRadius" tag-id="linkborderRadius" :min="0" class="w6"></NumberField>
-        </div>
-        <div class="group compact">
-          <label for="linkborderColor" class="desc">Color</label>
-          <ColorField v-model="widget.link.borderColor" tag-id="linkborderColor" class="w6"></ColorField>
-        </div>
-      </div>
-      <div class="block">
-        <div class="group fill">
-          <label for="showTitle" class="label mra">Link title</label>
-          <ToggleField v-model="widget.link.titles" tag-id="showTitle"></ToggleField>
-        </div>
-      </div>
-      <div class="block">
-        <div class="group fill">
-          <div class="label mra">
-            Favicons
-            <div v-if="widget.link.icons && faviconPermission" class="desc">
-              Recommended to not set the favicon size above 32. Higher sizes could result in poor image quality and
-              larger downloads.
-            </div>
-          </div>
-          <RequestPermissionModal
-            v-if="!faviconPermission"
-            permission="favicon"
-            permission-label="Favicons"
-            reason="The Favicons permission is needed to retrieve the favicons of bookmarks. This only allows retrieving the icons websites use in the browser's address bar and does not allow any other access. Denying this permission will prevent the favicons from being shown."
-            @requested="checkFaviconPermission()"
-          />
-          <div class="group compact">
-            <label for="showIcons" class="desc">Enable</label>
-            <ToggleField v-if="faviconPermission" id="showIcons" v-model="widget.link.icons"></ToggleField>
-          </div>
-          <div v-if="widget.link.icons" class="group compact">
-            <label for="iconSize" class="desc">Size</label>
-            <NumberField
-              v-if="faviconPermission"
-              v-model="widget.link.iconSize"
-              tag-id="iconSize"
-              :min="1"
-              class="w6"
-            ></NumberField>
-          </div>
-        </div>
-      </div>
-      <div class="block">
-        <label for="openInNewTab" class="label mra">Open in new tab</label>
-        <ToggleField id="openInNewTab" v-model="widget.link.openInNewTab"></ToggleField>
-      </div>
-    </div>
   </div>
 </template>
 

@@ -73,7 +73,7 @@ const handleSave = () => {
 <template>
   <div id="settings" ref="panelEl" class="panel" :class="{ panelPreview: togglePanelPreview, panelMove }">
     <header class="header">
-      <h1 class="appName">
+      <h1 class="appName" @click="store.goTo('dashboard')">
         <svg
           alt="Logo for CaretTab shown as a depiction of a browser tab with a pixelated caret symbol on the inside"
           class="logo"
@@ -240,12 +240,13 @@ const handleSave = () => {
 .header {
   position: sticky;
   top: 0;
-  margin-inline: -0.8rem;
   z-index: +1;
   display: grid;
   grid-template: 6rem / 1fr auto auto;
   gap: var(--s5);
   align-items: center;
+  background-color: var(--cGrey1Alt);
+  // box-shadow: 0 0.6rem 0.3rem -0.3rem var(--cShadow);
   border-radius: 0 0 var(--s4) var(--s4);
 
   .logo {
@@ -265,6 +266,8 @@ const handleSave = () => {
     font-weight: 300;
     letter-spacing: 0.05em;
     margin: 0;
+    margin-inline-end: auto;
+    cursor: pointer;
   }
 }
 
@@ -285,13 +288,14 @@ const handleSave = () => {
   position: sticky;
   bottom: 0;
   margin-top: auto;
-  margin-inline: -0.8rem;
   display: flex;
   padding: var(--s4) var(--s5);
   gap: var(--s2);
   border-radius: var(--s4) var(--s4) 0 0;
   font-size: 1.4rem;
   font-weight: 400;
+  background-color: var(--cGrey1Alt);
+  // box-shadow: 0 -0.6rem 0.3rem -0.3rem var(--cShadow);
 
   p {
     margin: 0;

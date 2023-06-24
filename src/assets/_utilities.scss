@@ -6,11 +6,19 @@
 }
 
 .mla {
-  margin-left: auto !important;
+  margin-inline-start: auto !important;
 }
 
 .mra {
-  margin-right: auto !important;
+  margin-inline-end: auto !important;
+}
+
+.ml0 {
+  margin-inline-start: 0 !important;
+}
+
+.mr0 {
+  margin-inline-end: 0 !important;
 }
 
 .fa-fw {

@@ -223,9 +223,8 @@ a.link {
   position: fixed;
   inset: 0 0 0 auto;
   z-index: 40;
-  overflow-y: auto;
   width: 70rem;
-  padding: 0 var(--s6);
+  padding: 0 var(--s5);
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.8rem;
   font-weight: 300;
@@ -248,7 +247,7 @@ a.link {
   &.toolbarToolPanel {
     left: var(--toolbarSize);
     right: unset;
-    padding: var(--s6);
+    padding: var(--s5);
     scroll-behavior: smooth;
   }
 
@@ -268,13 +267,34 @@ a.link {
   position: relative;
   padding: 0 var(--s5);
   background-color: var(--cGrey1);
-  box-shadow: 0 0 var(--s3) 0 var(--cShadow);
   border-radius: var(--s4);
   animation: pageFadeIn 0.35s ease-out;
+  box-shadow: 0 0 var(--s5) var(--s2) var(--cShadow);
 }
 
 .page {
   flex: 1 1 auto;
+  padding: 0 .8rem 0 var(--s5);
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 18px;
+    height: 18px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    box-shadow: inset 0 0 10px 10px var(--cBackdrop);
+    border: solid 4px transparent;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 10px 10px var(--cGrey2Alt);
+    border: solid 6px transparent;
+    border-radius: 10px;
+  }
 }
 
 @keyframes pageFadeIn {

@@ -12,41 +12,38 @@ const widget = reactive(store.config[widgetStore][ci.value])
 <template>
   <div class="page">
     <PageHeading title="Todo" :widget-id="widget.id"></PageHeading>
-    <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
-      <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
       <WidgetBoxField :index="ci" :widget-store="widgetStore" />
       <WidgetFontField :index="ci" :widget-store="widgetStore" />
+    </div>
+    <div class="blockContainer">
       <div class="block">
-        <div class="group fill">
-          <label for="text" class="label mra">Label</label>
-          <ToggleField v-model="widget.label.on" tag-id="labelOn" />
-          <input
-            v-if="widget.label.on"
-            v-model="widget.label.label"
-            type="text"
-            class="input w20"
-            aria-label="Label text"
-          />
-        </div>
+        <label for="labelOn" class="label">Enable label</label>
+        <ToggleField v-model="widget.label.on" tag-id="labelOn" />
       </div>
-      <div class="block">
-        <div class="group fill">
-          <label for="text" class="label mra">Complete tasks</label>
-          <div class="group compact">
-            <label for="strike" class="desc">Strikethrough</label>
+      <div v-if="widget.label.on" class="block">
+        <label for="labelText" class="label">Label</label>
+        <input id="labelText" v-model="widget.label.label" type="text" class="input w20" />
+      </div>
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Completed tasks</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="strike" class="label">Strikethrough</label>
             <ToggleField v-model="widget.done.strikethrough" tag-id="strike" />
           </div>
-          <div class="group compact">
-            <label for="override" class="desc">Override color</label>
+          <div class="block">
+            <label for="override" class="label">Override color</label>
             <ToggleField v-model="widget.done.overrideColor" tag-id="override" />
           </div>
-          <div v-if="widget.done.overrideColor" class="group compact">
-            <label for="doneColor" class="desc">Color</label>
-            <ColorField v-model="widget.done.color" tag-id="doneColor" />
+          <div v-if="widget.done.overrideColor" class="block">
+            <label for="doneColor" class="label">Color</label>
+            <ColorField v-model="widget.done.color" tag-id="doneColor" class="w20" />
           </div>
-        </div>
-      </div>
+        </template>
+      </FieldAccordion>
     </div>
   </div>
 </template>

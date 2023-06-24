@@ -30,13 +30,10 @@ const selectTimezone = (tz) => {
 <template>
   <div class="page">
     <PageHeading title="Date" :widget-id="widget.id"></PageHeading>
-    <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
-      <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
       <WidgetBoxField :index="ci" :widget-store="widgetStore" />
       <WidgetFontField :index="ci" :widget-store="widgetStore" />
     </div>
-    <h3 class="subtitle">Date options</h3>
     <div class="blockContainer">
       <div class="block">
         <div class="label">
@@ -52,358 +49,384 @@ const selectTimezone = (tz) => {
         ></AutocompleteField>
       </div>
       <div class="block">
-        <div class="group fill">
-          <label for="format" class="label mra">Format</label>
-          <select id="format" v-model="widget.format" name="format" class="select w25">
-            <option value="little">Little-Endian (31 Jan. 2000)</option>
-            <option value="middle">Middle-Endian (Jan. 31, 2000)</option>
-            <option value="big">Big-Endian (2000 Jan. 31)</option>
-          </select>
-        </div>
+        <label for="format" class="label mra">Format</label>
+        <select id="format" v-model="widget.format" name="format" class="select w24">
+          <option value="little">Little-Endian (31 Jan. 2000)</option>
+          <option value="middle">Middle-Endian (Jan. 31, 2000)</option>
+          <option value="big">Big-Endian (2000 Jan. 31)</option>
+        </select>
       </div>
       <div class="block">
-        <label for="shortDate" class="label mra">Short date</label>
+        <label for="shortDate" class="label mra">Short date (e.g. 01/01/2020)</label>
         <ToggleField v-model="widget.short" tag-id="shortDate"></ToggleField>
       </div>
-    </div>
-    <h3 class="subtitle">Delimiter</h3>
-    <div class="blockContainer">
-      <div class="block">
-        <label for="enableDl" class="label mra">Enable delimiter</label>
-        <ToggleField v-model="widget.delimiter.on" tag-id="enableDl"></ToggleField>
-      </div>
-      <div v-if="widget.delimiter.on" class="block">
-        <label id="dlSymLabel" for="dlSym1" class="label mra">Symbol</label>
-        <div class="group compact">
-          <label for="dlSym1" class="desc">1st</label>
-          <input
-            v-if="widget.short"
-            id="dlSym1"
-            v-model="widget.delimiter.shortSymbol1"
-            type="text"
-            class="input w5"
-            maxlength="20"
-          />
-          <input
-            v-if="!widget.short"
-            id="dlSym1"
-            v-model="widget.delimiter.longSymbol1"
-            type="text"
-            class="input w5"
-            maxlength="20"
-          />
-        </div>
-        <div class="group compact">
-          <label for="dlSym2" class="desc">2nd</label>
-          <input
-            v-if="widget.short"
-            id="dlSym2"
-            v-model="widget.delimiter.shortSymbol2"
-            type="text"
-            class="input w5"
-            maxlength="20"
-          />
-          <input
-            v-if="!widget.short"
-            id="dlSym2"
-            v-model="widget.delimiter.longSymbol2"
-            type="text"
-            class="input w5"
-            maxlength="20"
-          />
-        </div>
-        <div class="group compact">
-          <label for="dlSym3" class="desc">3rd</label>
-          <input
-            v-if="widget.short"
-            id="dlSym3"
-            v-model="widget.delimiter.shortSymbol3"
-            type="text"
-            class="input w5"
-            maxlength="20"
-          />
-          <input
-            v-if="!widget.short"
-            id="dlSym3"
-            v-model="widget.delimiter.longSymbol3"
-            type="text"
-            class="input w5"
-            maxlength="20"
-          />
-        </div>
-        <div class="group compact">
-          <label for="dlSym4" class="desc">4th</label>
-          <input
-            v-if="widget.short"
-            id="dlSym4"
-            v-model="widget.delimiter.shortSymbol4"
-            type="text"
-            class="input w5"
-            maxlength="20"
-          />
-          <input
-            v-if="!widget.short"
-            id="dlSym4"
-            v-model="widget.delimiter.longSymbol4"
-            type="text"
-            class="input w5"
-            maxlength="20"
-          />
-        </div>
-        <div class="group compact">
-          <label for="dlSym5" class="desc">5th</label>
-          <input
-            v-if="widget.short"
-            id="dlSym5"
-            v-model="widget.delimiter.shortSymbol5"
-            type="text"
-            class="input w5"
-            maxlength="20"
-          />
-          <input
-            v-if="!widget.short"
-            id="dlSym5"
-            v-model="widget.delimiter.longSymbol5"
-            type="text"
-            class="input w5"
-            maxlength="20"
-          />
-        </div>
-      </div>
-      <WidgetSegmentFont
-        v-if="widget.delimiter.on"
-        v-model:override="widget.delimiter.override"
-        v-model:color="widget.delimiter.color"
-        v-model:shadow="widget.delimiter.shadow"
-        v-model:letterSpacing="widget.delimiter.letterSpacing"
-        v-model:size="widget.delimiter.size"
-        v-model:x="widget.delimiter.x"
-        v-model:y="widget.delimiter.y"
-        type="delimiter"
-        :widget="widget"
-      >
-      </WidgetSegmentFont>
-    </div>
-    <h3 class="subtitle">Year</h3>
-    <div class="blockContainer">
-      <div class="block">
-        <div class="group fill">
-          <div class="label mra">Year</div>
-          <div class="group compact">
-            <label for="enableYear" class="desc">Enable</label>
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Delimiter</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="enableDl" class="label mra">Enable delimiter</label>
+            <ToggleField v-model="widget.delimiter.on" tag-id="enableDl"></ToggleField>
+          </div>
+          <div v-if="widget.delimiter.on" class="block">
+            <div class="label mra">
+              <div>Prefix/Suffix labels</div>
+              <div class="desc">Add text to the start or end of the date.</div>
+            </div>
+            <div class="group stack">
+              <div class="group compact mla">
+                <label for="dlSym1" class="desc">Prefix</label>
+                <input
+                  v-if="widget.short"
+                  id="dlSym1"
+                  v-model="widget.delimiter.shortSymbol1"
+                  type="text"
+                  class="input w10"
+                  maxlength="20"
+                />
+                <input
+                  v-if="!widget.short"
+                  id="dlSym1"
+                  v-model="widget.delimiter.longSymbol1"
+                  type="text"
+                  class="input w10"
+                  maxlength="20"
+                />
+              </div>
+              <div class="group compact mla">
+                <label for="dlSym5" class="desc">Suffix</label>
+                <input
+                  v-if="widget.short"
+                  id="dlSym5"
+                  v-model="widget.delimiter.shortSymbol5"
+                  type="text"
+                  class="input w10"
+                  maxlength="20"
+                />
+                <input
+                  v-if="!widget.short"
+                  id="dlSym5"
+                  v-model="widget.delimiter.longSymbol5"
+                  type="text"
+                  class="input w10"
+                  maxlength="20"
+                />
+              </div>
+            </div>
+          </div>
+          <div v-if="widget.delimiter.on" class="block">
+            <div class="label fill">
+              <div>Delimiter symbols</div>
+              <div class="desc">Symbols that appear between parts of the date such as spaces and commas.</div>
+            </div>
+            <div class="group stack">
+              <div class="group compact mla">
+                <label for="dlSym2" class="desc fit">Symbol #1</label>
+                <input
+                  v-if="widget.short"
+                  id="dlSym2"
+                  v-model="widget.delimiter.shortSymbol2"
+                  type="text"
+                  class="input w5"
+                  maxlength="20"
+                />
+                <input
+                  v-if="!widget.short"
+                  id="dlSym2"
+                  v-model="widget.delimiter.longSymbol2"
+                  type="text"
+                  class="input w5"
+                  maxlength="20"
+                />
+              </div>
+              <div class="group compact mla">
+                <label for="dlSym3" class="desc fit">Symbol #2</label>
+                <input
+                  v-if="widget.short"
+                  id="dlSym3"
+                  v-model="widget.delimiter.shortSymbol3"
+                  type="text"
+                  class="input w5"
+                  maxlength="20"
+                />
+                <input
+                  v-if="!widget.short"
+                  id="dlSym3"
+                  v-model="widget.delimiter.longSymbol3"
+                  type="text"
+                  class="input w5"
+                  maxlength="20"
+                />
+              </div>
+              <div class="group compact mla">
+                <label for="dlSym4" class="desc fit">Symbol #3</label>
+                <input
+                  v-if="widget.short"
+                  id="dlSym4"
+                  v-model="widget.delimiter.shortSymbol4"
+                  type="text"
+                  class="input w5"
+                  maxlength="20"
+                />
+                <input
+                  v-if="!widget.short"
+                  id="dlSym4"
+                  v-model="widget.delimiter.longSymbol4"
+                  type="text"
+                  class="input w5"
+                  maxlength="20"
+                />
+              </div>
+            </div>
+          </div>
+          <WidgetSegmentFont
+            v-if="widget.delimiter.on"
+            v-model:override="widget.delimiter.override"
+            v-model:color="widget.delimiter.color"
+            v-model:shadow="widget.delimiter.shadow"
+            v-model:letterSpacing="widget.delimiter.letterSpacing"
+            v-model:size="widget.delimiter.size"
+            v-model:x="widget.delimiter.x"
+            v-model:y="widget.delimiter.y"
+            type="delimiter"
+            :widget="widget"
+          >
+          </WidgetSegmentFont>
+        </template>
+      </FieldAccordion>
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Year</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="enableYear" class="label mra">Enable year</label>
             <ToggleField v-model="widget.year.on" tag-id="enableYear"></ToggleField>
           </div>
-          <div v-if="widget.year.on" class="group compact">
-            <label for="yearTwoDigit" class="desc">Two digit</label>
+          <div v-if="widget.year.on" class="block">
+            <label for="yearTwoDigit" class="label mra">Two digit</label>
             <ToggleField v-model="widget.year.twoDigit" tag-id="yearTwoDigit"></ToggleField>
           </div>
-        </div>
-      </div>
-      <WidgetSegmentFont
-        v-if="widget.year.on"
-        v-model:override="widget.year.override"
-        v-model:color="widget.year.color"
-        v-model:shadow="widget.year.shadow"
-        v-model:letterSpacing="widget.year.letterSpacing"
-        v-model:size="widget.year.size"
-        v-model:x="widget.year.x"
-        v-model:y="widget.year.y"
-        type="year"
-        :widget="widget"
-      >
-      </WidgetSegmentFont>
-    </div>
-    <h3 class="subtitle">Month</h3>
-    <div class="blockContainer">
-      <div class="block">
-        <div class="group fill">
-          <div class="label mra">Month</div>
-          <div class="group compact">
-            <label for="enableMonth" class="desc">Enable</label>
+          <WidgetSegmentFont
+            v-if="widget.year.on"
+            v-model:override="widget.year.override"
+            v-model:color="widget.year.color"
+            v-model:shadow="widget.year.shadow"
+            v-model:letterSpacing="widget.year.letterSpacing"
+            v-model:size="widget.year.size"
+            v-model:x="widget.year.x"
+            v-model:y="widget.year.y"
+            type="year"
+            :widget="widget"
+          >
+          </WidgetSegmentFont>
+        </template>
+      </FieldAccordion>
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Month</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="enableMonth" class="label mra">Enable month</label>
             <ToggleField v-model="widget.month.on" tag-id="enableMonth"></ToggleField>
           </div>
-          <div v-if="widget.month.on && !widget.short" class="group compact">
-            <label for="monthAbbr" class="desc">Abbreviated</label>
+          <div v-if="widget.month.on && !widget.short" class="block">
+            <label for="monthAbbr" class="label mra">Abbreviate month name</label>
             <ToggleField v-model="widget.month.abbreviated" tag-id="monthAbbr"></ToggleField>
           </div>
-          <div v-if="widget.month.on && widget.short" class="group compact">
-            <label for="monthTwoDigit" class="desc">Two digit</label>
+          <div v-if="widget.month.on && widget.short" class="block">
+            <label for="monthTwoDigit" class="label mra">Two digit</label>
             <ToggleField v-model="widget.month.twoDigit" tag-id="monthTwoDigit"></ToggleField>
           </div>
-        </div>
-      </div>
-      <WidgetSegmentFont
-        v-if="widget.month.on"
-        v-model:override="widget.month.override"
-        v-model:color="widget.month.color"
-        v-model:shadow="widget.month.shadow"
-        v-model:letterSpacing="widget.month.letterSpacing"
-        v-model:size="widget.month.size"
-        v-model:x="widget.month.x"
-        v-model:y="widget.month.y"
-        type="month"
-        :widget="widget"
-      >
-      </WidgetSegmentFont>
-    </div>
-    <h3 class="subtitle">Day</h3>
-    <div class="blockContainer">
-      <div class="block">
-        <div class="group fill">
-          <div class="label mra">Day</div>
-          <div class="group compact">
-            <label for="enableDay" class="desc">Enable</label>
+          <WidgetSegmentFont
+            v-if="widget.month.on"
+            v-model:override="widget.month.override"
+            v-model:color="widget.month.color"
+            v-model:shadow="widget.month.shadow"
+            v-model:letterSpacing="widget.month.letterSpacing"
+            v-model:size="widget.month.size"
+            v-model:x="widget.month.x"
+            v-model:y="widget.month.y"
+            type="month"
+            :widget="widget"
+          >
+          </WidgetSegmentFont>
+        </template>
+      </FieldAccordion>
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Day</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="enableDay" class="label mra">Enable day</label>
             <ToggleField v-model="widget.day.on" tag-id="enableDay"></ToggleField>
           </div>
-          <div v-if="widget.day.on" class="group compact">
-            <label for="dayTwoDigit" class="desc">Two digit</label>
+          <div v-if="widget.day.on" class="block">
+            <label for="dayTwoDigit" class="label mra">Two digit</label>
             <ToggleField v-model="widget.day.twoDigit" tag-id="dayTwoDigit"></ToggleField>
           </div>
-        </div>
-      </div>
-      <WidgetSegmentFont
-        v-if="widget.day.on"
-        v-model:override="widget.day.override"
-        v-model:color="widget.day.color"
-        v-model:shadow="widget.day.shadow"
-        v-model:letterSpacing="widget.day.letterSpacing"
-        v-model:size="widget.day.size"
-        v-model:x="widget.day.x"
-        v-model:y="widget.day.y"
-        type="day"
-        :widget="widget"
-      >
-      </WidgetSegmentFont>
-    </div>
-    <h3 class="subtitle">Day of week</h3>
-    <div class="blockContainer">
-      <div class="block">
-        <div class="group fill">
-          <div class="label mra">Day of week</div>
-          <div class="group compact">
-            <label for="enableDow" class="desc">Enable</label>
+          <WidgetSegmentFont
+            v-if="widget.day.on"
+            v-model:override="widget.day.override"
+            v-model:color="widget.day.color"
+            v-model:shadow="widget.day.shadow"
+            v-model:letterSpacing="widget.day.letterSpacing"
+            v-model:size="widget.day.size"
+            v-model:x="widget.day.x"
+            v-model:y="widget.day.y"
+            type="day"
+            :widget="widget"
+          >
+          </WidgetSegmentFont>
+        </template>
+      </FieldAccordion>
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Day of week</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="enableDow" class="label mra">Enable day of week</label>
             <ToggleField v-model="widget.dayOfWeek.on" tag-id="enableDow"></ToggleField>
           </div>
-          <div v-if="widget.dayOfWeek.on" class="group compact">
-            <label for="dowAbbr" class="desc">Abbreviated</label>
+          <div v-if="widget.dayOfWeek.on" class="block">
+            <label for="dowAbbr" class="label mra">Abbreviate day name</label>
             <ToggleField v-model="widget.dayOfWeek.abbreviated" tag-id="dowAbbr"></ToggleField>
           </div>
-        </div>
-      </div>
-      <WidgetSegmentFont
-        v-if="widget.dayOfWeek.on"
-        v-model:override="widget.dayOfWeek.override"
-        v-model:color="widget.dayOfWeek.color"
-        v-model:shadow="widget.dayOfWeek.shadow"
-        v-model:letterSpacing="widget.dayOfWeek.letterSpacing"
-        v-model:size="widget.dayOfWeek.size"
-        v-model:x="widget.dayOfWeek.x"
-        v-model:y="widget.dayOfWeek.y"
-        type="dayOfWeek"
-        :widget="widget"
-      >
-      </WidgetSegmentFont>
-    </div>
-    <h3 class="subtitle">Day of year</h3>
-    <div class="blockContainer">
-      <div class="block">
-        <div class="group fill">
-          <div class="label mra">Day of year</div>
-          <div class="group compact">
-            <label for="enableDoy" class="desc">Enable</label>
+          <WidgetSegmentFont
+            v-if="widget.dayOfWeek.on"
+            v-model:override="widget.dayOfWeek.override"
+            v-model:color="widget.dayOfWeek.color"
+            v-model:shadow="widget.dayOfWeek.shadow"
+            v-model:letterSpacing="widget.dayOfWeek.letterSpacing"
+            v-model:size="widget.dayOfWeek.size"
+            v-model:x="widget.dayOfWeek.x"
+            v-model:y="widget.dayOfWeek.y"
+            type="dayOfWeek"
+            :widget="widget"
+          >
+          </WidgetSegmentFont>
+        </template>
+      </FieldAccordion>
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Day of year</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="enableDoy" class="label mra">Enable day of year</label>
             <ToggleField v-model="widget.dayOfYear.on" tag-id="enableDoy"></ToggleField>
           </div>
-          <div v-if="widget.dayOfYear.on" class="group compact">
-            <label for="doyTd" class="desc">Three digit</label>
+          <div v-if="widget.dayOfYear.on" class="block">
+            <label for="doyTd" class="label mra">Three digit</label>
             <ToggleField v-model="widget.dayOfYear.threeDigit" tag-id="doyTd"></ToggleField>
           </div>
-        </div>
-        <div v-if="widget.dayOfYear.on" class="group fill">
-          <div class="group stack fill">
-            <label for="doyPLabel" class="desc">Prefix label</label>
-            <input v-model="widget.dayOfYear.prefixLabel" maxlength="50" type="text" tag-id="doyPLabel" class="input" />
+          <div v-if="widget.dayOfYear.on" class="block">
+            <label for="doyPLabel" class="label mra">Prefix label</label>
+            <input
+              v-model="widget.dayOfYear.prefixLabel"
+              maxlength="50"
+              type="text"
+              tag-id="doyPLabel"
+              class="input w20"
+            />
           </div>
-          <div class="group stack fill">
-            <label for="doySLabel" class="desc">Suffix label</label>
-            <input v-model="widget.dayOfYear.suffixLabel" maxlength="50" type="text" tag-id="doySLabel" class="input" />
+          <div v-if="widget.dayOfYear.on" class="block">
+            <label for="doySLabel" class="label mra">Suffix label</label>
+            <input
+              v-model="widget.dayOfYear.suffixLabel"
+              maxlength="50"
+              type="text"
+              tag-id="doySLabel"
+              class="input w20"
+            />
           </div>
-        </div>
-      </div>
-      <WidgetSegmentFont
-        v-if="widget.dayOfYear.on"
-        v-model:override="widget.dayOfYear.override"
-        v-model:color="widget.dayOfYear.color"
-        v-model:shadow="widget.dayOfYear.shadow"
-        v-model:letterSpacing="widget.dayOfYear.letterSpacing"
-        v-model:size="widget.dayOfYear.size"
-        v-model:x="widget.dayOfYear.x"
-        v-model:y="widget.dayOfYear.y"
-        type="dayOfYear"
-        :widget="widget"
-      >
-      </WidgetSegmentFont>
-    </div>
-    <h3 class="subtitle">Week number</h3>
-    <div class="blockContainer">
-      <div class="block">
-        <div class="group fill">
-          <div class="label mra">Week number (ISO standard)</div>
-          <div class="group compact">
-            <label for="enableWeek" class="desc">Enable</label>
+          <WidgetSegmentFont
+            v-if="widget.dayOfYear.on"
+            v-model:override="widget.dayOfYear.override"
+            v-model:color="widget.dayOfYear.color"
+            v-model:shadow="widget.dayOfYear.shadow"
+            v-model:letterSpacing="widget.dayOfYear.letterSpacing"
+            v-model:size="widget.dayOfYear.size"
+            v-model:x="widget.dayOfYear.x"
+            v-model:y="widget.dayOfYear.y"
+            type="dayOfYear"
+            :widget="widget"
+          >
+          </WidgetSegmentFont>
+        </template>
+      </FieldAccordion>
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Week number</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="enableWeek" class="label mra">Enable week number (ISO standard)</label>
             <ToggleField v-model="widget.week.on" tag-id="enableWeek"></ToggleField>
           </div>
-          <div v-if="widget.week.on" class="group compact">
-            <label for="wkTwoDigit" class="desc">Two digit</label>
+          <div v-if="widget.week.on" class="block">
+            <label for="wkTwoDigit" class="label mra">Two digit</label>
             <ToggleField v-model="widget.week.twoDigit" tag-id="wkTwoDigit"></ToggleField>
           </div>
-        </div>
-        <div v-if="widget.week.on" class="group fill">
-          <div class="group stack fill">
-            <label for="wkPLabel" class="desc">Prefix label</label>
-            <input v-model="widget.week.prefixLabel" maxlength="50" type="text" tag-id="wkPLabel" class="input" />
+          <div v-if="widget.week.on" class="block">
+            <label for="wkPLabel" class="label mra">Prefix label</label>
+            <input v-model="widget.week.prefixLabel" maxlength="50" type="text" tag-id="wkPLabel" class="input w20" />
           </div>
-          <div class="group stack fill">
-            <label for="wkSLabel" class="desc">Suffix label</label>
-            <input v-model="widget.week.suffixLabel" maxlength="50" type="text" tag-id="wkSLabel" class="input" />
+          <div v-if="widget.week.on" class="block">
+            <label for="wkSLabel" class="label mra">Suffix label</label>
+            <input v-model="widget.week.suffixLabel" maxlength="50" type="text" tag-id="wkSLabel" class="input w20" />
           </div>
-        </div>
-      </div>
-      <WidgetSegmentFont
-        v-if="widget.week.on"
-        v-model:override="widget.week.override"
-        v-model:color="widget.week.color"
-        v-model:shadow="widget.week.shadow"
-        v-model:letterSpacing="widget.week.letterSpacing"
-        v-model:size="widget.week.size"
-        v-model:x="widget.week.x"
-        v-model:y="widget.week.y"
-        type="week"
-        :widget="widget"
-      >
-      </WidgetSegmentFont>
-    </div>
-    <h3 class="subtitle">Quarter</h3>
-    <div class="blockContainer">
-      <div class="block">
-        <div class="group fill">
-          <div class="label mra">Quarter</div>
-          <div class="group compact">
-            <label for="enableQr" class="desc">Enable</label>
+          <WidgetSegmentFont
+            v-if="widget.week.on"
+            v-model:override="widget.week.override"
+            v-model:color="widget.week.color"
+            v-model:shadow="widget.week.shadow"
+            v-model:letterSpacing="widget.week.letterSpacing"
+            v-model:size="widget.week.size"
+            v-model:x="widget.week.x"
+            v-model:y="widget.week.y"
+            type="week"
+            :widget="widget"
+          >
+          </WidgetSegmentFont>
+        </template>
+      </FieldAccordion>
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Quarter</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="enableQr" class="label mra">Enable quarter</label>
             <ToggleField v-model="widget.quarter.on" tag-id="enableQr"></ToggleField>
           </div>
-        </div>
-        <div v-if="widget.quarter.on" class="group fill">
-          <div class="group stack fill">
-            <label for="qrPLabel" class="desc">Prefix label</label>
-            <input v-model="widget.quarter.prefixLabel" maxlength="50" type="text" tag-id="qrPLabel" class="input" />
+          <div v-if="widget.quarter.on" class="block">
+            <label for="qrPLabel" class="label mra">Prefix label</label>
+            <input
+              v-model="widget.quarter.prefixLabel"
+              maxlength="50"
+              type="text"
+              tag-id="qrPLabel"
+              class="input w20"
+            />
           </div>
-          <div class="group stack fill">
-            <label for="qrSLabel" class="desc">Suffix label</label>
-            <input v-model="widget.quarter.suffixLabel" maxlength="50" type="text" tag-id="qrSLabel" class="input" />
+          <div v-if="widget.quarter.on" class="block">
+            <label for="qrSLabel" class="label mra">Suffix label</label>
+            <input
+              v-model="widget.quarter.suffixLabel"
+              maxlength="50"
+              type="text"
+              tag-id="qrSLabel"
+              class="input w20"
+            />
           </div>
-          <div class="group stack fill">
-            <label for="qrStart" class="desc">Start on</label>
-            <select id="qrStart" v-model="widget.quarter.start" name="qrStart" class="select">
+          <div v-if="widget.quarter.on" class="block">
+            <label for="qrStart" class="label mra">Start on</label>
+            <select id="qrStart" v-model="widget.quarter.start" name="qrStart" class="select w20">
               <option value="0">1 - January</option>
               <option value="1">2 - February</option>
               <option value="2">3 - March</option>
@@ -418,44 +441,21 @@ const selectTimezone = (tz) => {
               <option value="11">12 - December</option>
             </select>
           </div>
-        </div>
-      </div>
-      <WidgetSegmentFont
-        v-if="widget.quarter.on"
-        v-model:override="widget.quarter.override"
-        v-model:color="widget.quarter.color"
-        v-model:shadow="widget.quarter.shadow"
-        v-model:letterSpacing="widget.quarter.letterSpacing"
-        v-model:size="widget.quarter.size"
-        v-model:x="widget.quarter.x"
-        v-model:y="widget.quarter.y"
-        type="quarter"
-        :widget="widget"
-      >
-      </WidgetSegmentFont>
+          <WidgetSegmentFont
+            v-if="widget.quarter.on"
+            v-model:override="widget.quarter.override"
+            v-model:color="widget.quarter.color"
+            v-model:shadow="widget.quarter.shadow"
+            v-model:letterSpacing="widget.quarter.letterSpacing"
+            v-model:size="widget.quarter.size"
+            v-model:x="widget.quarter.x"
+            v-model:y="widget.quarter.y"
+            type="quarter"
+            :widget="widget"
+          >
+          </WidgetSegmentFont>
+        </template>
+      </FieldAccordion>
     </div>
-    <!-- <h3 class="subtitle">Relative time</h3>
-    <div class="blockContainer">
-      <div class="block">
-        <div class="label mra">
-          <label for="enableRt">Enable relative time</label>
-          <div class="desc">Shows the difference in time compared to your computer's time.</div>
-        </div>
-        <ToggleField v-model="widget.relative.on" tag-id="enableRt"></ToggleField>
-      </div>
-      <WidgetSegmentFont
-        v-if="widget.relative.on"
-        v-model:override="widget.relative.override"
-        v-model:color="widget.relative.color"
-        v-model:shadow="widget.relative.shadow"
-        v-model:letterSpacing="widget.relative.letterSpacing"
-        v-model:size="widget.relative.size"
-        v-model:x="widget.relative.x"
-        v-model:y="widget.relative.y"
-        type="relative"
-        :widget="widget"
-      >
-      </WidgetSegmentFont>
-    </div> -->
   </div>
 </template>

@@ -16,7 +16,7 @@ const wrapStyles = computed(() => {
 </script>
 
 <template>
-  <div class="premiumLabelWrap" :style="wrapStyles">
+  <div v-if="!user.paid" class="premiumLabelWrap" :style="wrapStyles">
     <PremiumModal :show="showPremiumModal" @close="showPremiumModal = false">
       <button
         type="button"
@@ -56,7 +56,7 @@ const wrapStyles = computed(() => {
   }
 
   &.premiumLabelPaid {
-    color: var(--cGrey4);
+    color: var(--cBlue5);
     .svg-inline--fa {
       font-size: 1.2rem;
       line-height: 1;

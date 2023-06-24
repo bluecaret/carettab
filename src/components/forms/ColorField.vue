@@ -358,7 +358,6 @@ const getSwatchColor = (swatch) => {
   const style = `background: linear-gradient(${hsl(swatch)}, ${hsl(
     swatch
   )}), repeating-conic-gradient(#555 0% 25%, transparent 0% 50%) 50% / 8px 8px, #DDD`
-  console.log(style)
   return style
 }
 </script>

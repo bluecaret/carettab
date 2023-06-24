@@ -57,73 +57,73 @@ const resetOverride = () => {
 
 <template>
   <div class="block">
-    <div class="group fill">
-      <div class="label">
-        <label>Override widget styles</label>
-        <div class="desc">Change the color, font size, and position for this element.</div>
-      </div>
-      <div class="group mla">
-        <ToggleField
-          :tag-id="`${type}-override`"
-          :model-value="props.override"
-          @update:model-value="handleOverrideUpdate"
-        >
-        </ToggleField>
-      </div>
+    <div class="label mra">
+      <label :for="`${type}-override`">Override widget styles</label>
+      <div class="desc">Change the color, font size, and position for this element.</div>
     </div>
-    <div v-if="props.override" class="group fill">
-      <div class="group stack w9">
-        <label :for="`${type}-offsetY`" class="desc"> Offset Y </label>
-        <NumberField
-          :tag-id="`${type}-offsetY`"
-          :increment="1"
-          :model-value="props.y"
-          @update:model-value="handleOyUpdate"
-        ></NumberField>
-      </div>
-      <div class="group stack w9">
-        <label :for="`${type}-offsetX`" class="desc"> Offset X </label>
-        <NumberField
-          :tag-id="`${type}-offsetX`"
-          :increment="1"
-          :model-value="props.x"
-          @update:model-value="handleOxUpdate"
-        ></NumberField>
-      </div>
-      <div class="group stack w9">
-        <label :for="`${type}-fontSize`" class="desc"> Size </label>
-        <NumberField
-          :tag-id="`${type}-fontSize`"
-          :increment="1"
-          :model-value="props.size"
-          @update:model-value="handleFsUpdate"
-        ></NumberField>
-      </div>
-      <div class="group stack">
-        <label :for="`${type}-letterSpacing`" class="desc"> Letter spacing </label>
-        <NumberField
-          :tag-id="`${type}-letterSpacing`"
-          :increment="0.2"
-          :model-value="props.letterSpacing"
-          @update:model-value="handleLsUpdate"
-        ></NumberField>
-      </div>
-      <div class="group stack w6">
-        <label :for="`${type}-fontColor`" class="desc"> Color </label>
-        <ColorField :tag-id="`${type}-fontColor`" :model-value="props.color" @update:model-value="handleClUpdate">
-        </ColorField>
-      </div>
-      <div class="group stack w6">
-        <label :for="`${type}-fontColor`" class="desc"> Shadow </label>
-        <ColorField
-          shadow
-          text
-          :tag-id="`${type}-fontShadow`"
-          :model-value="props.shadow"
-          @update:model-value="handleTsUpdate"
-        >
-        </ColorField>
-      </div>
-    </div>
+    <ToggleField :tag-id="`${type}-override`" :model-value="props.override" @update:model-value="handleOverrideUpdate">
+    </ToggleField>
+  </div>
+  <div v-if="props.override" class="block">
+    <label :for="`${type}-offsetY`" class="label mra"> Offset Y </label>
+    <NumberField
+      class="w10"
+      :tag-id="`${type}-offsetY`"
+      :increment="1"
+      :model-value="props.y"
+      @update:model-value="handleOyUpdate"
+    ></NumberField>
+  </div>
+  <div v-if="props.override" class="block">
+    <label :for="`${type}-offsetX`" class="label mra"> Offset X </label>
+    <NumberField
+      class="w10"
+      :tag-id="`${type}-offsetX`"
+      :increment="1"
+      :model-value="props.x"
+      @update:model-value="handleOxUpdate"
+    ></NumberField>
+  </div>
+  <div v-if="props.override" class="block">
+    <label :for="`${type}-fontSize`" class="label mra"> Size </label>
+    <NumberField
+      class="w10"
+      :tag-id="`${type}-fontSize`"
+      :increment="1"
+      :model-value="props.size"
+      @update:model-value="handleFsUpdate"
+    ></NumberField>
+  </div>
+  <div v-if="props.override" class="block">
+    <label :for="`${type}-letterSpacing`" class="label mra"> Letter spacing </label>
+    <NumberField
+      class="w10"
+      :tag-id="`${type}-letterSpacing`"
+      :increment="0.2"
+      :model-value="props.letterSpacing"
+      @update:model-value="handleLsUpdate"
+    ></NumberField>
+  </div>
+  <div v-if="props.override" class="block">
+    <label :for="`${type}-fontColor`" class="label mra"> Color </label>
+    <ColorField
+      :tag-id="`${type}-fontColor`"
+      :model-value="props.color"
+      class="w20"
+      @update:model-value="handleClUpdate"
+    >
+    </ColorField>
+  </div>
+  <div v-if="props.override" class="block">
+    <label :for="`${type}-fontColor`" class="label mra"> Shadow </label>
+    <ColorField
+      class="w20"
+      shadow
+      text
+      :tag-id="`${type}-fontShadow`"
+      :model-value="props.shadow"
+      @update:model-value="handleTsUpdate"
+    >
+    </ColorField>
   </div>
 </template>

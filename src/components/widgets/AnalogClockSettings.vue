@@ -32,82 +32,112 @@ const selectTimezone = (tz) => {
 <template>
   <div class="page">
     <PageHeading title="Analog clock" :widget-id="widget.id"></PageHeading>
-    <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
-      <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
       <WidgetBoxField :index="ci" :widget-store="widgetStore" />
       <WidgetFontField :index="ci" :widget-store="widgetStore" />
     </div>
-    <h3 class="subtitle">Clock options</h3>
     <div class="blockContainer">
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Label</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="enableLabel" class="label mra">Enable label</label>
+            <ToggleField v-model="widget.label.on" tag-id="enableLabel"></ToggleField>
+          </div>
+          <div v-if="widget.label.on" class="block">
+            <label for="labelText" class="label mra">Label text</label>
+            <input id="labelText" v-model="widget.label.label" type="text" class="input w20" />
+          </div>
+          <WidgetSegmentFont
+            v-if="widget.label.on"
+            v-model:override="widget.label.override"
+            v-model:color="widget.label.color"
+            v-model:shadow="widget.label.shadow"
+            v-model:letterSpacing="widget.label.letterSpacing"
+            v-model:size="widget.label.size"
+            v-model:x="widget.label.x"
+            v-model:y="widget.label.y"
+            type="label"
+            :widget="widget"
+          >
+          </WidgetSegmentFont>
+        </template>
+      </FieldAccordion>
       <div class="block">
-        <div class="label">
+        <div class="label mra">
           <label for="clockTimezone">Timezone</label>
           <div class="desc">Enter a timezone name (e.g. "America/Los_Angeles").</div>
         </div>
         <AutocompleteField
           tag-id="clockTimezone"
-          class="mla w23"
+          class="w20"
           :list="allTimezones"
           :selected="widget.timezone"
           @selected="(item) => selectTimezone(item)"
         ></AutocompleteField>
       </div>
-      <div class="block">
-        <label for="clockSize" class="label">Clock size</label>
-        <NumberField v-model="widget.size" :increment="10" class="w10 mla" tag-id="clockSize"> </NumberField>
-      </div>
-      <div class="block">
-        <div class="label">Clock face</div>
-        <div class="group compact mla">
-          <label for="hourOverride" class="desc">Override colors</label>
-          <ToggleField v-model="widget.face.override" tag-id="hourOverride"></ToggleField>
-        </div>
-        <div class="group stack">
-          <label for="faceStyle" class="desc">Style</label>
-          <select id="faceStyle" v-model="widget.face.style" name="faceStyle" class="select w16">
-            <option v-for="st in analogFaceStyles" :key="st.id" :selected="st.id === widget.face.style" :value="st.id">
-              {{ st.label }}
-            </option>
-          </select>
-        </div>
-        <div class="group stack">
-          <label for="faceBorderSize" class="desc">Border size</label>
-          <NumberField v-model="widget.face.borderSize" class="w8" tag-id="faceBorderSize"> </NumberField>
-        </div>
-        <div v-if="widget.face.override" class="group fill">
-          <div class="group fill stack">
-            <label for="faceShadow" class="desc">Shadow</label>
-            <ColorField v-model="widget.face.shadow" shadow class="" tag-id="faceShadow"> </ColorField>
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Clock face</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="clockSize" class="label mra">Size</label>
+            <NumberField v-model="widget.size" :increment="10" class="w10" tag-id="clockSize"> </NumberField>
           </div>
-          <div class="group fill stack">
-            <label for="faceBorderColor" class="desc">Border color</label>
-            <ColorField v-model="widget.face.borderColor" tag-id="faceBorderColor"></ColorField>
+          <div class="block">
+            <label for="faceStyle" class="label mra">Style</label>
+            <select id="faceStyle" v-model="widget.face.style" name="faceStyle" class="select w20">
+              <option
+                v-for="st in analogFaceStyles"
+                :key="st.id"
+                :selected="st.id === widget.face.style"
+                :value="st.id"
+              >
+                {{ st.label }}
+              </option>
+            </select>
           </div>
-          <div class="group fill stack">
-            <label for="qmc" class="desc">Quarter mark</label>
-            <ColorField v-model="widget.face.quarterColor" tag-id="qmc"></ColorField>
+          <div class="block">
+            <label for="faceBorderSize" class="label mra">Border size</label>
+            <NumberField v-model="widget.face.borderSize" class="w10" tag-id="faceBorderSize"> </NumberField>
           </div>
-          <div class="group fill stack">
-            <label for="hmc" class="desc">Hour mark</label>
-            <ColorField v-model="widget.face.hourColor" tag-id="hmc"></ColorField>
+          <div class="block">
+            <label for="hourOverride" class="label mra">Override colors</label>
+            <ToggleField v-model="widget.face.override" tag-id="hourOverride"></ToggleField>
           </div>
-          <div class="group fill stack">
-            <label for="mmc" class="desc">Minute mark</label>
-            <ColorField v-model="widget.face.minuteColor" tag-id="mmc"></ColorField>
+          <div v-if="widget.face.override" class="block">
+            <label for="faceBorderColor" class="label mra">Border color</label>
+            <ColorField v-model="widget.face.borderColor" class="w20" tag-id="faceBorderColor"></ColorField>
           </div>
-        </div>
-      </div>
-      <div class="block">
-        <div class="label">Clock hands</div>
-        <div class="group compact mla">
-          <label for="hourOverride" class="desc">Override colors</label>
-          <ToggleField v-model="widget.hand.override" tag-id="hourOverride"></ToggleField>
-        </div>
-        <div class="group">
-          <div class="group stack">
-            <label for="handStyle" class="desc">Style</label>
-            <select id="handStyle" v-model="widget.hand.style" name="handStyle" class="select w16">
+          <div v-if="widget.face.override" class="block">
+            <label for="qmc" class="label mra">Quarter mark</label>
+            <ColorField v-model="widget.face.quarterColor" class="w20" tag-id="qmc"></ColorField>
+          </div>
+          <div v-if="widget.face.override" class="block">
+            <label for="hmc" class="label mra">Hour mark</label>
+            <ColorField v-model="widget.face.hourColor" class="w20" tag-id="hmc"></ColorField>
+          </div>
+          <div v-if="widget.face.override" class="block">
+            <label for="mmc" class="label mra">Minute mark</label>
+            <ColorField v-model="widget.face.minuteColor" class="w20" tag-id="mmc"></ColorField>
+          </div>
+          <div v-if="widget.face.override" class="block">
+            <label for="faceShadow" class="label mra">Shadow</label>
+            <ColorField v-model="widget.face.shadow" shadow class="w20" tag-id="faceShadow"> </ColorField>
+          </div>
+        </template>
+      </FieldAccordion>
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Clock hands</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="handStyle" class="label mra">Style</label>
+            <select id="handStyle" v-model="widget.hand.style" name="handStyle" class="select w20">
               <option
                 v-for="st in analogHandStyles"
                 :key="st.id"
@@ -118,121 +148,79 @@ const selectTimezone = (tz) => {
               </option>
             </select>
           </div>
-        </div>
-        <div class="group fill">
-          <div v-if="widget.hand.override" class="group stack fill">
-            <label for="handShadow" class="desc">Shadow</label>
-            <ColorField v-model="widget.hand.shadow" shadow tag-id="handShadow" class="fill"> </ColorField>
+          <div class="block">
+            <label for="hourOverride" class="label mra">Override colors</label>
+            <ToggleField v-model="widget.hand.override" tag-id="hourOverride"></ToggleField>
           </div>
-          <div class="group stack fill">
-            <label for="enableCenter" class="desc">Center</label>
-            <div class="group compact">
-              <ToggleField v-model="widget.center.on" tag-id="enableCenter"></ToggleField>
-              <ColorField
-                v-if="widget.hand.override && widget.center.on"
-                v-model="widget.center.color"
-                aria-label="Center dot color"
-                class="w4"
-              ></ColorField>
-            </div>
+          <div class="block">
+            <label for="enableCenter" class="label mra">Enable center circle</label>
+            <ToggleField v-model="widget.center.on" tag-id="enableCenter"></ToggleField>
           </div>
-          <div class="group stack fill">
-            <label for="enableHour" class="desc">Hour hand</label>
-            <div class="group compact">
-              <ToggleField v-model="widget.hour.on" tag-id="enableHour"></ToggleField>
-              <ColorField
-                v-if="widget.hand.override && widget.hour.on"
-                v-model="widget.hour.color"
-                aria-label="Hour hand color"
-                class="w4"
-              ></ColorField>
-            </div>
+          <div v-if="widget.hand.override && widget.center.on" class="block">
+            <label for="centerColor" class="label mra">Center circle color</label>
+            <ColorField v-model="widget.center.color" tag-id="centerColor" class="w20"></ColorField>
           </div>
-          <div class="group stack fill">
-            <label for="enableMinute" class="desc">Minute hand</label>
-            <div class="group compact">
-              <ToggleField v-model="widget.min.on" tag-id="enableMinute"></ToggleField>
-              <ColorField
-                v-if="widget.hand.override && widget.min.on"
-                v-model="widget.min.color"
-                aria-label="Minute hand color"
-                class="w4"
-              ></ColorField>
-            </div>
+          <div class="block">
+            <label for="enableHour" class="label mra">Enable hour hand</label>
+            <ToggleField v-model="widget.hour.on" tag-id="enableHour"></ToggleField>
           </div>
-          <div class="group stack fill">
-            <label for="enableSecond" class="desc">Second hand</label>
-            <div class="group compact">
-              <ToggleField v-model="widget.sec.on" tag-id="enableSecond"></ToggleField>
-              <ColorField
-                v-if="widget.hand.override && widget.sec.on"
-                v-model="widget.sec.color"
-                aria-label="Second hand color"
-                class="w4"
-              ></ColorField>
-            </div>
+          <div v-if="widget.hand.override && widget.hour.on" class="block">
+            <label for="hourColor" class="label mra">Hour hand color</label>
+            <ColorField v-model="widget.hour.color" tag-id="hourColor" class="w20"></ColorField>
           </div>
-          <div v-if="widget.sec.on" class="group stack fill">
-            <label
-              for="secondSmooth"
-              class="desc"
-              title="Smooth second hand movement"
-              aria-label="Smooth second hand movement"
-              >Smooth</label
-            >
+          <div class="block">
+            <label for="enableMinute" class="label mra">Enable minute hand</label>
+            <ToggleField v-model="widget.min.on" tag-id="enableMinute"></ToggleField>
+          </div>
+          <div v-if="widget.hand.override && widget.min.on" class="block">
+            <label for="minColor" class="label mra">Minute hand color</label>
+            <ColorField v-model="widget.min.color" tag-id="minColor" class="w20"></ColorField>
+          </div>
+          <div class="block">
+            <label for="enableSecond" class="label mra">Enable second hand</label>
+            <ToggleField v-model="widget.sec.on" tag-id="enableSecond"></ToggleField>
+          </div>
+          <div v-if="widget.sec.on" class="block">
+            <label for="secondSmooth" class="label mra">Smooth seconds movement</label>
             <ToggleField v-model="widget.sec.smoothSeconds" tag-id="secondSmooth"></ToggleField>
           </div>
-        </div>
-      </div>
-    </div>
-    <h3 class="subtitle">Label</h3>
-    <div class="blockContainer">
-      <div class="block">
-        <label for="enableLabel" class="label">Enable label</label>
-        <ToggleField v-model="widget.label.on" tag-id="enableLabel" class="mla"></ToggleField>
-      </div>
-      <div v-if="widget.label.on" class="block">
-        <label for="labelText" class="label">Label text</label>
-        <input id="labelText" v-model="widget.label.label" type="text" class="input w20 mla" />
-      </div>
-      <WidgetSegmentFont
-        v-if="widget.label.on"
-        v-model:override="widget.label.override"
-        v-model:color="widget.label.color"
-        v-model:shadow="widget.label.shadow"
-        v-model:letterSpacing="widget.label.letterSpacing"
-        v-model:size="widget.label.size"
-        v-model:x="widget.label.x"
-        v-model:y="widget.label.y"
-        type="label"
-        :widget="widget"
-      >
-      </WidgetSegmentFont>
-    </div>
-    <h3 class="subtitle">Relative time</h3>
-    <div class="blockContainer">
-      <div class="block">
-        <div class="group fill">
-          <div class="label fill">
-            <label for="enableRt">Enable relative time</label>
-            <div class="desc">Shows the difference in time compared to your computer's time.</div>
+          <div v-if="widget.hand.override && widget.sec.on" class="block">
+            <label for="secColor" class="label mra">Second hand color</label>
+            <ColorField v-model="widget.sec.color" tag-id="secColor" class="w20"></ColorField>
           </div>
-          <ToggleField v-model="widget.relative.on" tag-id="enableRt"></ToggleField>
-        </div>
-      </div>
-      <WidgetSegmentFont
-        v-if="widget.relative.on"
-        v-model:override="widget.relative.override"
-        v-model:color="widget.relative.color"
-        v-model:shadow="widget.relative.shadow"
-        v-model:letterSpacing="widget.relative.letterSpacing"
-        v-model:size="widget.relative.size"
-        v-model:x="widget.relative.x"
-        v-model:y="widget.relative.y"
-        type="relative"
-        :widget="widget"
-      >
-      </WidgetSegmentFont>
+          <div v-if="widget.hand.override" class="block">
+            <label for="handShadow" class="label mra">Shadow</label>
+            <ColorField v-model="widget.hand.shadow" shadow tag-id="handShadow" class="w20"> </ColorField>
+          </div>
+        </template>
+      </FieldAccordion>
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Relative time</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <div class="label mra">
+              <label for="enableRt">Enable relative time</label>
+              <div class="desc">Shows the difference in time compared to your computer's time.</div>
+            </div>
+            <ToggleField v-model="widget.relative.on" tag-id="enableRt"></ToggleField>
+          </div>
+          <WidgetSegmentFont
+            v-if="widget.relative.on"
+            v-model:override="widget.relative.override"
+            v-model:color="widget.relative.color"
+            v-model:shadow="widget.relative.shadow"
+            v-model:letterSpacing="widget.relative.letterSpacing"
+            v-model:size="widget.relative.size"
+            v-model:x="widget.relative.x"
+            v-model:y="widget.relative.y"
+            type="relative"
+            :widget="widget"
+          >
+          </WidgetSegmentFont>
+        </template>
+      </FieldAccordion>
     </div>
   </div>
 </template>

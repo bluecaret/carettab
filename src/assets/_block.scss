@@ -21,11 +21,35 @@
   }
 }
 
+.subBlockContainer {
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  gap: 0.2rem;
+
+  > :first-child {
+    border-radius: var(--s4) var(--s4) 0 0;
+  }
+
+  > :last-child {
+    border-radius: 0 0 var(--s4) var(--s4);
+  }
+
+  > :only-child {
+    border-radius: var(--s4);
+  }
+
+  > * {
+    background-color: var(--cGrey1);
+  }
+}
+
 .block {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: var(--s5) var(--s5);
+  gap: var(--s4) var(--s5);
   padding: var(--s5);
   min-height: 6.6rem;
   .disabled {
@@ -64,6 +88,7 @@
 .label {
   font-size: 1.6rem;
   font-weight: 600;
+  margin-inline-end: auto;
 }
 
 .desc,

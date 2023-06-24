@@ -16,9 +16,6 @@ const showToolbarTools = ref(false)
 </script>
 
 <template>
-  <!-- <div class="page"> -->
-  <!-- <PageHeading title="Toolbar"></PageHeading> -->
-  <!-- <h3 class="subtitle">Tools</h3> -->
   <draggable
     class="blockContainer"
     :list="store.config.toolbar.tools"
@@ -66,51 +63,58 @@ const showToolbarTools = ref(false)
           </div>
         </div>
       </div>
-      <div v-if="showToolbarSettings" class="block">
-        <div class="group fill">
-          <div class="label mra">Bar</div>
-          <div class="group compact">
-            <label for="tbWidth" class="desc">Size</label>
-            <NumberField v-model="store.config.toolbar.size" :min="20" tag-id="tbWidth" class="w6"></NumberField>
+      <FieldAccordion v-if="showToolbarSettings" start-open>
+        <template #label>
+          <div class="label">Bar</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="tbWidth" class="label mra">Size</label>
+            <NumberField v-model="store.config.toolbar.size" :min="20" tag-id="tbWidth" class="w10"></NumberField>
           </div>
-          <div class="group compact">
-            <label for="tbBackground" class="desc">Background</label>
-            <ColorField v-model="store.config.toolbar.background" tag-id="tbBackground"></ColorField>
+          <div class="block">
+            <label for="tbBackground" class="label mra">Background</label>
+            <ColorField v-model="store.config.toolbar.background" tag-id="tbBackground" class="w20"></ColorField>
           </div>
-          <div class="group compact">
-            <label for="tbBorderSize" class="desc">Border</label>
+          <div class="block">
+            <label for="tbShadow" class="label mra">Shadow</label>
+            <ColorField v-model="store.config.toolbar.shadow" shadow tag-id="tbShadow" class="w20"></ColorField>
+          </div>
+          <div class="block">
+            <label for="tbBorderSize" class="label mra">Border size</label>
             <NumberField
               v-model="store.config.toolbar.borderSize"
               :min="0"
               :max="5"
               tag-id="tbBorderSize"
-              class="w6"
+              class="w10"
             ></NumberField>
-            <ColorField v-model="store.config.toolbar.borderColor" aria-label="Border color"></ColorField>
           </div>
-          <div class="group compact">
-            <label for="tbShadow" class="desc">Shadow</label>
-            <ColorField v-model="store.config.toolbar.shadow" shadow tag-id="tbShadow"></ColorField>
+          <div class="block">
+            <label for="tbBorderColor" class="label mra">Border color</label>
+            <ColorField v-model="store.config.toolbar.borderColor" tag-id="tbBorderColor" class="w20"></ColorField>
           </div>
-        </div>
-      </div>
-      <div v-if="showToolbarSettings" class="block">
-        <div class="group fill">
-          <div class="label mra">Icons</div>
-          <div class="group compact">
-            <label for="tbAlign" class="desc">Align</label>
-            <select id="tbAlign" v-model="store.config.toolbar.align" name="tbAlign" class="select w12">
+        </template>
+      </FieldAccordion>
+      <FieldAccordion v-if="showToolbarSettings" start-open>
+        <template #label>
+          <div class="label">Icons</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <label for="tbAlign" class="label mra">Align</label>
+            <select id="tbAlign" v-model="store.config.toolbar.align" name="tbAlign" class="select w20">
               <option value="flex-start">Top</option>
               <option value="center">Middle</option>
               <option value="flex-end">Bottom</option>
             </select>
           </div>
-          <div class="group compact">
-            <label for="tbForeground" class="desc">Color</label>
-            <ColorField v-model="store.config.toolbar.foreground" tag-id="tbForeground"></ColorField>
+          <div class="block">
+            <label for="tbForeground" class="label mra">Color</label>
+            <ColorField v-model="store.config.toolbar.foreground" tag-id="tbForeground" class="w20"></ColorField>
           </div>
-        </div>
-      </div>
+        </template>
+      </FieldAccordion>
     </template>
     <template #item="{ element }">
       <div v-if="showToolbarTools && store.config.toolbar.on" class="block">

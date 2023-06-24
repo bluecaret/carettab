@@ -45,109 +45,93 @@ const changeStorageLocation = async () => {
 <template>
   <div class="page">
     <PageHeading title="Notepad" :widget-id="widget.id"></PageHeading>
-    <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
-      <SizeAndPositionField :index="ci" :widget-store="widgetStore" />
       <WidgetBoxField :index="ci" :widget-store="widgetStore" />
       <WidgetFontField :index="ci" :widget-store="widgetStore" />
     </div>
-    <h3 class="subtitle">Notepad options</h3>
     <div class="blockContainer">
       <div class="block">
-        <div class="group fill">
-          <div class="label mra">Text box size</div>
-          <div class="group">
-            <div class="group compact">
-              <label for="width" class="desc">Width</label>
-              <NumberField v-model="widget.width" tag-id="width" class="w8" :min="1" :increment="10"></NumberField>
-            </div>
-            <div class="group compact">
-              <label for="height" class="desc">Height</label>
-              <NumberField v-model="widget.height" tag-id="height" class="w8" :min="1" :increment="10"></NumberField>
-            </div>
-            <div class="group compact">
-              <label for="padding" class="desc">Padding</label>
-              <NumberField v-model="widget.padding" tag-id="padding" class="w6" :min="0" :increment="1"></NumberField>
-            </div>
-          </div>
-        </div>
+        <label for="overrideColors" class="label">Override colors</label>
+        <ToggleField v-model="widget.overrideColors" tag-id="overrideColors"></ToggleField>
       </div>
-      <div class="block">
-        <div class="group fill">
-          <div class="label mra">Text box style</div>
-          <div class="group compact">
-            <label for="borderWidth" class="desc">Border</label>
+      <FieldAccordion>
+        <template #label>
+          <div class="label">Text box</div>
+        </template>
+        <template #children>
+          <div class="block">
+            <div class="label mra">Width</div>
+            <NumberField v-model="widget.width" tag-id="width" class="w10" :min="1" :increment="10"></NumberField>
+          </div>
+          <div class="block">
+            <label for="height" class="label mra">Height</label>
+            <NumberField v-model="widget.height" tag-id="height" class="w10" :min="1" :increment="10"></NumberField>
+          </div>
+          <div class="block">
+            <label for="padding" class="label mra">Padding</label>
+            <NumberField v-model="widget.padding" tag-id="padding" class="w10" :min="0" :increment="1"></NumberField>
+          </div>
+          <div v-if="widget.overrideColors" class="block">
+            <label for="backgroundColor" class="label">Background</label>
+            <ColorField v-model="widget.background" class="w20" tag-id="backgroundColor"></ColorField>
+          </div>
+          <div class="block">
+            <label for="borderWidth" class="label mra">Border size</label>
             <NumberField
               v-model="widget.borderWidth"
               tag-id="borderWidth"
-              class="w6"
+              class="w10"
               :min="0"
               :increment="1"
             ></NumberField>
           </div>
-          <div class="group compact">
-            <label for="borderRadius" class="desc">Rounded</label>
+          <div v-if="widget.overrideColors" class="block">
+            <label for="borderColor" class="label">Border color</label>
+            <ColorField v-model="widget.borderColor" class="w20" tag-id="borderColor"></ColorField>
+          </div>
+          <div class="block">
+            <label for="borderRadius" class="label">Rounded corners</label>
             <NumberField
               v-model="widget.borderRadius"
               tag-id="borderRadius"
-              class="w6"
+              class="w10"
               :min="0"
               :increment="1"
             ></NumberField>
           </div>
+          <div v-if="widget.overrideColors" class="block">
+            <label for="shadow" class="label">Shadow</label>
+            <ColorField v-model="widget.shadow" class="w20" shadow tag-id="shadow"></ColorField>
+          </div>
+        </template>
+      </FieldAccordion>
+      <div class="block">
+        <div class="label">
+          <label for="sync">Sync notes</label>
+          <div class="desc">
+            Allow notes to sync across computers. You must be signed in to the browser for syncing to work. Browsers
+            have a higher restriction on syncing data, this means notes will be limited to only 7,000 characters.
+            Disabling sync for notes allows up to 250,000 characters.
+          </div>
+          <div class="desc">Notes are currently limited to {{ widget.sync ? '7,000' : '250,000' }} characters.</div>
         </div>
-        <div class="group fill">
-          <div class="group compact mla">
-            <label for="overrideColors" class="desc fit">Override colors</label>
-            <ToggleField v-model="widget.overrideColors" tag-id="overrideColors"></ToggleField>
-          </div>
-          <div v-if="widget.overrideColors" class="group compact">
-            <label for="borderColor" class="desc">Border</label>
-            <ColorField v-model="widget.borderColor" class="w5" tag-id="borderColor"></ColorField>
-          </div>
-          <div v-if="widget.overrideColors" class="group compact">
-            <label for="backgroundColor" class="desc">Background</label>
-            <ColorField v-model="widget.background" class="w5" tag-id="backgroundColor"></ColorField>
-          </div>
-          <div v-if="widget.overrideColors" class="group compact">
-            <label for="shadow" class="desc">Shadow</label>
-            <ColorField v-model="widget.shadow" class="w5" shadow tag-id="shadow"></ColorField>
-          </div>
-        </div>
+        <ToggleField v-model="sync" tag-id="sync" @click="changeStorageLocation()"></ToggleField>
       </div>
       <div class="block">
-        <div class="group fill">
-          <div class="label mra">
-            <label for="sync">Sync notes</label>
-            <div class="desc">
-              Allow notes to sync across computers. You must be signed in to the browser for syncing to work. Browsers
-              have a higher restriction on syncing data, this means notes will be limited to only 7,000 characters.
-              Disabling sync for notes allows up to 250,000 characters.
-            </div>
-            <div class="desc">Notes are currently limited to {{ widget.sync ? '7,000' : '250,000' }} characters.</div>
-          </div>
-          <ToggleField v-model="sync" tag-id="sync" @click="changeStorageLocation()"></ToggleField>
+        <div class="label">
+          <label for="spellCheck">Enable Browser Spellcheck</label>
+          <div class="desc">Allows the browser to run spellcheck on the notes (if available).</div>
         </div>
+        <ToggleField v-model="widget.spellCheck" tag-id="spellCheck"></ToggleField>
       </div>
       <div class="block">
-        <div class="group fill">
-          <div class="label mra">
-            <label for="spellCheck">Enable Browser Spellcheck</label>
-            <div class="desc">Allows the browser to run spellcheck on the notes (if available).</div>
+        <div class="label">
+          <label for="spellCheck">Show count</label>
+          <div class="desc">
+            Display the current character count and the total allowed in the bottom of the notepad.
           </div>
-          <ToggleField v-model="widget.spellCheck" tag-id="spellCheck"></ToggleField>
         </div>
-      </div>
-      <div class="block">
-        <div class="group fill">
-          <div class="label mra">
-            <label for="spellCheck">Show count</label>
-            <div class="desc">
-              Display the current character count and the total allowed in the bottom of the notepad.
-            </div>
-          </div>
-          <ToggleField v-model="widget.showCharLimit" tag-id="showCharLimit"></ToggleField>
-        </div>
+        <ToggleField v-model="widget.showCharLimit" tag-id="showCharLimit"></ToggleField>
       </div>
     </div>
   </div>

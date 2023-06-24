@@ -14,16 +14,18 @@ const widget = reactive(store.config[widgetStore][ci.value])
 <template>
   <div class="page">
     <PageHeading title="Shape" :widget-id="widget.id"></PageHeading>
-    <h3 class="subtitle">Widget style</h3>
     <div class="blockContainer">
-      <SizeAndPositionField
+      <WidgetBoxField
         :index="ci"
         :widget-store="widgetStore"
         no-container-alignment
+        no-box-styles
         container-title="Shape size"
       />
+    </div>
+    <div class="blockContainer">
       <div class="block">
-        <label for="shapeType" class="label mra">Type</label>
+        <label for="shapeType" class="label">Type</label>
         <select id="shapeType" v-model="widget.shape" name="shapeType" class="select w20">
           <option value="rectangle">Rectangle</option>
           <option value="circle">Circle</option>
@@ -49,7 +51,7 @@ const widget = reactive(store.config[widgetStore][ci.value])
         </select>
       </div>
       <div class="block">
-        <label for="rotate" class="label mra">Rotate</label>
+        <label for="rotate" class="label">Rotate</label>
         <div class="range w20">
           <output class="output">{{ widget.rotate }}&deg;</output>
           <input id="rotate" v-model="widget.rotate" type="range" class="rangeInput" min="0" max="360" />
@@ -57,24 +59,22 @@ const widget = reactive(store.config[widgetStore][ci.value])
       </div>
       <div class="block">
         <label for="background" class="label mra">Background color</label>
-        <ColorField v-model="widget.base.container.background" tag-id="background" class="w10" />
+        <ColorField v-model="widget.base.container.background" tag-id="background" class="w20" />
       </div>
       <div class="block">
         <label for="shadow" class="label mra">Shadow</label>
-        <ColorField v-model="widget.base.container.shadow" shadow tag-id="shadow" class="w10" />
+        <ColorField v-model="widget.base.container.shadow" shadow tag-id="shadow" class="w20" />
       </div>
       <div v-if="['rectangle', 'circle', 'halfCircle'].includes(widget.shape)" class="block">
-        <label for="borderSize" class="label mra">Border</label>
+        <label for="borderSize" class="label">Border size</label>
         <NumberField v-model="widget.base.container.borderSize" tag-id="borderSize" class="w10" />
-        <ColorField
-          v-model="widget.base.container.borderColor"
-          tag-id="borderColor"
-          aria-label="Border color"
-          class="w10"
-        />
+      </div>
+      <div v-if="['rectangle', 'circle', 'halfCircle'].includes(widget.shape)" class="block">
+        <label for="borderColor" class="label">Border color</label>
+        <ColorField v-model="widget.base.container.borderColor" tag-id="borderColor" class="w20" />
       </div>
       <div v-if="['rectangle'].includes(widget.shape)" class="block">
-        <label for="radius" class="label mra">Rounded</label>
+        <label for="radius" class="label mra">Rounded corners</label>
         <NumberField v-model="widget.base.container.radius" tag-id="radius" :min="0" class="w10"></NumberField>
       </div>
     </div>

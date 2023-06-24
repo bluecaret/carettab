@@ -131,6 +131,7 @@ export const useSettingsStore = defineStore('settings', () => {
   const currentTime = ref('Sat Jan 01 2000 00:00:00 GMT-0800 (Pacific Standard Time)')
   const wallpaper = ref('default')
   const palette = ref([[], [], [], [], [], [], [], []])
+  const useSwatches = ref(false)
   const unsplashStatus = ref('default')
   const unsplashSearchTerm = ref('')
   const unsplashTab = ref('search')
@@ -313,6 +314,7 @@ export const useSettingsStore = defineStore('settings', () => {
 
       palette.value = [[], [], [], [], [], [], [], []]
       await removeStorage('palette', 'local')
+      await removeStorage('useSwatches', 'local')
       await removeStorage('currentWallpaper', 'local')
       await removeStorage('nextWallpaper', 'local')
 
@@ -394,6 +396,7 @@ export const useSettingsStore = defineStore('settings', () => {
     currentTime,
     wallpaper,
     palette,
+    useSwatches,
     unsplashStatus,
     unsplashSearchTerm,
     unsplashTab,

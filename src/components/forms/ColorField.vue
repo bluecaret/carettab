@@ -1,6 +1,6 @@
 <script setup>
-import { ref, computed, toRaw } from 'vue'
-import { useSettingsStore, setStorage } from '@/store.js'
+import { ref, computed, toRaw, onMounted } from 'vue'
+import { useSettingsStore, setStorage, getStorage } from '@/store.js'
 import { hsl } from '@/helpers/widgets.js'
 
 const store = useSettingsStore()
@@ -186,6 +186,7 @@ const swatches = [
     [15, 25, 34, 1],
     [14, 26, 29, 1],
     [11, 26, 24, 1],
+    [11, 26, 15, 1],
   ],
   [
     [210, 9, 92, 1],
@@ -235,7 +236,11 @@ if (props.shadow) {
 }
 
 const editPalette = ref(false)
-const showSwatches = ref(false)
+
+onMounted(async () => {
+  const useSwatches = await getStorage('useSwatches', 'local')
+  if (useSwatches && useSwatches['useSwatches']) store.useSwatches = useSwatches['useSwatches']
+})
 
 const enable = ref(val[0])
 const x = ref(val[1])
@@ -344,6 +349,11 @@ const handleSwatchSelect = (swatch) => {
   handleUpdate()
 }
 
+const handleSwatchToggle = async () => {
+  store.useSwatches = !store.useSwatches
+  await setStorage({ useSwatches: store.useSwatches }, 'local')
+}
+
 const getSwatchColor = (swatch) => {
   const style = `background: linear-gradient(${hsl(swatch)}, ${hsl(
     swatch
@@ -381,12 +391,12 @@ const getSwatchColor = (swatch) => {
             </div>
             <button
               class="btn btnText"
-              :class="{ active: showSwatches }"
+              :class="{ active: store.useSwatches }"
               type="button"
               aria-label="View swatches"
               title="View swatches"
               :disabled="props.shadow && !enable"
-              @click="showSwatches = !showSwatches"
+              @click="handleSwatchToggle()"
             >
               <fa icon="fa-swatchbook" />
             </button>
@@ -430,7 +440,7 @@ const getSwatchColor = (swatch) => {
               </NumberField>
             </div>
           </div>
-          <template v-if="!showSwatches">
+          <template v-if="!store.useSwatches">
             <div class="group stack fill colorSliders">
               <div class="group compact fill">
                 <label for="hue" class="desc mra">Hue</label>
@@ -503,7 +513,7 @@ const getSwatchColor = (swatch) => {
               </div>
             </div>
           </template>
-          <template v-if="showSwatches">
+          <template v-if="store.useSwatches">
             <div class="swatches">
               <div v-for="(swatchGroup, index) in swatches" :key="index" class="swatchGroup">
                 <button

@@ -213,7 +213,7 @@ const selectLoc = (loc) => {
             </div>
           </div>
           <button v-if="widget.area.name" type="button" class="btn" @click="refreshData">Refresh data</button>
-          <ModalWindow :show="showLocationSearch" size="400px">
+          <ModalWindow :show="showLocationSearch" size="400px" @close="showLocationSearch = false">
             <template #button>
               <button type="button" class="btn" @click="openLocSearch">
                 {{ widget.area.name ? 'Change location' : 'Search for location' }}

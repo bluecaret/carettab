@@ -30,7 +30,7 @@ const requestPermission = async () => {
 </script>
 
 <template>
-  <ModalWindow :show="show" size="460px">
+  <ModalWindow :show="show" size="460px" @close="show = false">
     <template #button>
       <button type="button" class="btn" @click.stop="show = true">
         {{ btnLabel ? btnLabel : 'Allow permission' }}&hellip;

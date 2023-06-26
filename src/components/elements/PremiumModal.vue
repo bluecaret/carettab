@@ -40,7 +40,7 @@ const handleLicenseKey = async () => {
 </script>
 
 <template>
-  <ModalWindow :show="props.show">
+  <ModalWindow :show="props.show" @close="emit('close')">
     <template #button>
       <slot></slot>
     </template>

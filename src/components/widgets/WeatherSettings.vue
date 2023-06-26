@@ -84,7 +84,7 @@ const refreshWeather = async () => {
             </div>
             <div class="btnGroup">
               <button type="button" class="btn mla" @click="refreshWeather">Refresh</button>
-              <ModalWindow :show="showLocationSearch" size="400px">
+              <ModalWindow :show="showLocationSearch" size="400px" @close="showLocationSearch = false">
                 <template #button>
                   <button type="button" class="btn" @click="openLocSearch">Change location</button>
                 </template>

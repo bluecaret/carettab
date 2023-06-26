@@ -34,7 +34,6 @@ const showToolbarTools = ref(false)
               <label for="enableToolbar">Toolbar</label>
               <div class="desc">Enable a toolbar for quick access to useful tools.</div>
             </div>
-            <button class="btn btnLink" aria-label="Learn about the Toolbar"></button>
           </div>
           <ToggleField v-model="store.config.toolbar.on" tag-id="enableToolbar"></ToggleField>
           <div class="btnGroup">

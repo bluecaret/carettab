@@ -264,7 +264,7 @@ const doneColor = computed(() => {
                     </button>
                   </li>
                   <li>
-                    <ModalWindow :show="editing === element.id" size="460px">
+                    <ModalWindow :show="editing === element.id" size="460px" @close="editing = null">
                       <template #button>
                         <button class="btn btnBlock" type="button" @click="handleEditOpen(element)">
                           <fa icon="fa-pen" fixed-width />Edit
@@ -350,7 +350,7 @@ const doneColor = computed(() => {
                 </ul>
               </template>
             </DropdownMenu>
-            <ModalWindow :show="newModal" size="460px">
+            <ModalWindow :show="newModal" size="460px" @close="newModal = false">
               <template #button>
                 <button type="button" class="taskToggle" @click="handleAddModalOpen()">
                   <div class="check">

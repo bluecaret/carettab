@@ -328,3 +328,40 @@ a.link {
   font-weight: 400;
   color: currentColor;
 }
+
+.modal {
+  display: grid;
+  grid-template: auto 1fr / 1fr;
+  
+  p {
+    font-size: 1.6rem;
+  }
+}
+
+.modalHeader {
+  display: grid;
+  grid-template: 1fr / 1fr auto;
+  gap: var(--s4);
+  align-items: center;
+  margin: var(--s5) var(--s5) 0 var(--s5);
+}
+
+.modalClose {
+  @extend .btn;
+  padding: 0;
+  width: var(--s7);
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 300;
+}
+
+.modalContent {
+  margin: var(--s5);
+}

@@ -5,13 +5,13 @@ import { useSettingsStore, setStorage, getStorage } from '@/store.js'
 import { storeToRefs } from 'pinia'
 import { widgetTypes } from '@/assets/lists.js'
 import ToolBarSettings from '@/components/tools/ToolBarSettings.vue'
+import AddWidgetModal from '@/components/elements/AddWidgetModal.vue'
 
 const store = useSettingsStore()
 const { status } = storeToRefs(store)
 
 const whatsNewModal = ref(false)
 const drag = ref(false)
-const newWidgetMenu = ref(null)
 
 onMounted(async () => {
   const whatsNew = await getStorage('clearWhatsNewBox', 'local')
@@ -56,14 +56,13 @@ const getWidgetDetails = (t) => {
 
 const handleNewWidgetClick = (type) => {
   store.newWidget(type)
-  newWidgetMenu.value.close()
 }
 </script>
 
 <template>
   <PageHeading title="Settings dashbaord"></PageHeading>
   <div class="page">
-    <ModalWindow v-if="!store.clearWhatsNewBox" :show="whatsNewModal">
+    <ModalWindow v-if="!store.clearWhatsNewBox" :show="whatsNewModal" @close="whatsNewModal = false">
       <template #button>
         <div class="whatsNewBox" @click="whatsNewModal = true">
           <div class="group fill">
@@ -136,23 +135,7 @@ const handleNewWidgetClick = (type) => {
     >
       <template #header>
         <div class="block addWidgetBar">
-          <DropdownMenu ref="newWidgetMenu">
-            <template #button>
-              <button type="button" class="btn btnText">
-                <fa icon="fa-plus"></fa>
-                Add new widget
-              </button>
-            </template>
-            <template #menu>
-              <ul class="addWidgetMenu">
-                <li v-for="widget in widgetTypes" :key="widget.type">
-                  <button type="button" class="btn fit fill btnBlock" @click="handleNewWidgetClick(widget.type)">
-                    <fa class="fa-fw" :icon="widget.icon" />{{ widget.name }}
-                  </button>
-                </li>
-              </ul>
-            </template>
-          </DropdownMenu>
+          <AddWidgetModal @selected="handleNewWidgetClick($event)"></AddWidgetModal>
         </div>
         <div v-if="store.config.layers.length < 1" class="block">
           <div class="group stack fill widgetHeader">
@@ -354,15 +337,5 @@ const handleNewWidgetClick = (type) => {
   padding: 0;
   min-height: 0;
   background-color: hsl(var(--cBlockH) calc(var(--cBlockS) + 20%) calc(var(--cBlockL) + 3%));
-  .dropdownWrapper {
-    width: 100%;
-  }
-  .btn {
-    width: 100%;
-    justify-content: center;
-    padding: var(--s5);
-    border-top-left-radius: var(--s4);
-    border-top-right-radius: var(--s4);
-  }
 }
 </style>

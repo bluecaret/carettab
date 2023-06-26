@@ -54,7 +54,7 @@ const modalWidth = computed(() => {
   max-height: 90dvh;
   overflow-y: auto;
   box-shadow: 0 0 10px 0 var(--cShadow);
-  background-color: var(--cGrey1);
+  background-color: var(--cModalBg);
   border-radius: var(--s4);
 
   font-family: 'Source Sans Pro', sans-serif;

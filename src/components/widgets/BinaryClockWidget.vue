@@ -193,7 +193,7 @@ const getColors = (type, status) => {
     width: v-bind(dotSize);
     height: v-bind(dotSize);
     &.on {
-      background-color: var(--cBlue3);
+      background-color: var(--b1);
       color: var(--cText);
     }
   }

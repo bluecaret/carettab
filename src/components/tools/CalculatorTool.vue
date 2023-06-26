@@ -196,7 +196,7 @@ const handleKeyup = (e) => {
 
 .display {
   grid-column: 1 / -1;
-  background-color: var(--cGrey3);
+  background-color: hsl(var(--g1H) var(--g1S) calc(var(--g1L) - 3%));
   display: grid;
   grid-template: auto auto / 1fr;
   align-items: end;
@@ -230,14 +230,14 @@ const handleKeyup = (e) => {
   font-size: 1.6em;
   height: 6rem;
   cursor: pointer;
-  background-color: var(--cGrey2);
+  background-color: hsl(var(--g3H) var(--g3S) calc(var(--g3L) + 2%));
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
   border: 0;
   border-radius: var(--s4);
   color: #fff;
   &:hover {
-    background-color: var(--cGrey1Alt);
+    background-color: hsl(var(--g3H) var(--g3S) calc(var(--g3L) + 4%));
   }
   &:nth-child(2),
   &:nth-child(3) {
@@ -249,7 +249,8 @@ const handleKeyup = (e) => {
 }
 
 .calcBtnSecondary {
-  color: var(--cBlue10);
+  background-color: var(--g3);
+  color: var(--cTextSubtle);
   font-weight: 600;
 }
 

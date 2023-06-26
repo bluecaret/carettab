@@ -124,6 +124,8 @@ export const useSettingsStore = defineStore('settings', () => {
   const clearWhatsNewBox = ref(false)
   const settingsOpen = ref(false)
   const settingsPage = ref('dashboard')
+  const togglePanelPreview = ref(false)
+  const panelMove = ref(false)
   const editing = ref('')
   const isLoading = ref(false)
   const showModal = ref(false)
@@ -389,6 +391,8 @@ export const useSettingsStore = defineStore('settings', () => {
     clearWhatsNewBox,
     settingsOpen,
     settingsPage,
+    togglePanelPreview,
+    panelMove,
     editing,
     isLoading,
     showModal,

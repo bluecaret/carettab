@@ -216,7 +216,7 @@ const onPrompt = async () => {
     max-width: calc(100% - 8rem);
     min-width: 12rem;
     min-height: auto;
-    background-color: var(--cGrey2);
+    background-color: var(--cSubBlock);
     border-radius: var(--s4);
     font-size: 16px;
     font-weight: 400;
@@ -227,7 +227,7 @@ const onPrompt = async () => {
       order: 1;
     }
     .block {
-      background-color: var(--cBlue6);
+      background-color: var(--cInputDisabled);
     }
   }
 }

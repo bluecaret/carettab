@@ -89,15 +89,15 @@ const handlePatternSelect = (id) => {
 </script>
 
 <template>
+  <PageHeading title="Patterns" back-page="extension"></PageHeading>
   <div class="page">
-    <PageHeading title="Patterns" back-page="extension"></PageHeading>
     <div class="blockContainer">
       <div class="block">
-        <label for="backgroundColor" class="label mra">Wallpaper color</label>
-        <ColorField v-model="store.config.global.wallpaper.background" tag-id="backgroundColor" class="w10">
+        <label for="backgroundColor" class="label">Wallpaper color</label>
+        <ColorField v-model="store.config.global.wallpaper.background" tag-id="backgroundColor" class="w20">
         </ColorField>
       </div>
-      <div class="block">
+      <div class="block stack">
         <div class="group fill">
           <label id="patternSelect" class="label mra">Choose a pattern</label>
           <button
@@ -110,18 +110,18 @@ const handlePatternSelect = (id) => {
           </button>
         </div>
         <div class="group fill">
-          <div class="patternGrid">
+          <div class="bgTypeList">
             <button
               v-for="pattern in patterns"
               :key="pattern.id"
               aria-labelledby="patternSelect"
               type="button"
-              class="patternBtn"
+              class="bgTypeListItem"
               :class="store.config.global.wallpaper.id === pattern.id ? 'active' : ''"
               @click="handlePatternSelect(pattern.id)"
             >
-              <div class="patternPreview" :class="`pattern-${pattern.id}`"></div>
-              <div class="patternName">{{ pattern.id }}</div>
+              <div class="patternPreview bgTypeListItemPreview" :class="`pattern-${pattern.id}`"></div>
+              <div class="bgTypeListItemName">{{ pattern.id }}</div>
             </button>
           </div>
         </div>
@@ -129,50 +129,3 @@ const handlePatternSelect = (id) => {
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.patternGrid {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
-  // --bgSat: 0%;
-}
-
-.patternBtn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  border: 1px solid var(--cGrey1);
-  border-radius: var(--s3);
-  background-color: var(--cGrey1);
-  padding: var(--s4);
-
-  &.active {
-    border-color: var(--cBlue3);
-    background-color: var(--cBlue3);
-  }
-
-  &:hover {
-    border-color: var(--cGrey1Hover);
-  }
-}
-
-.patternPreview {
-  width: 100%;
-  height: 100px;
-  border-radius: var(--s3);
-  border: 1px solid var(--cGrey1);
-  margin-bottom: var(--s3);
-}
-
-.patternName {
-  margin-top: var(--s2);
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: currentColor;
-  opacity: 0.6;
-}
-</style>

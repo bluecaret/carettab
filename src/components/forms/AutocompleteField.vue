@@ -210,10 +210,10 @@ onUnmounted(() => {
     background-repeat: no-repeat;
     padding-right: 2.1rem;
     &:disabled {
-      background-image: linear-gradient(0deg, var(--cBlue8) 50%, var(--cBlue8) 50%),
-        linear-gradient(0deg, var(--cBlue8) 50%, var(--cBlue8) 50%),
-        linear-gradient(0deg, var(--cBlue8) 50%, var(--cBlue8) 50%),
-        linear-gradient(to right, var(--cBlue8), var(--cBlue8));
+      background-image: linear-gradient(0deg, var(--cArrowDisabled) 50%, var(--cArrowDisabled) 50%),
+        linear-gradient(0deg, var(--cArrowDisabled) 50%, var(--cArrowDisabled) 50%),
+        linear-gradient(0deg, var(--cArrowDisabled) 50%, var(--cArrowDisabled) 50%),
+        linear-gradient(to right, var(--cArrowDisabled), var(--cArrowDisabled));
     }
   }
 
@@ -229,7 +229,7 @@ onUnmounted(() => {
     justify-content: center;
     width: 6rem;
     height: 2.8rem;
-    background-color: var(--cGrey3);
+    background-color: var(--cInputBg);
     border: 0;
     border-left: 1px solid var(--cArrowFade);
     font-size: 1.4rem;
@@ -246,6 +246,7 @@ onUnmounted(() => {
   }
 
   .autocompleteList {
+    --autocompleteBorder: hsl(var(--cInputBgH) var(--cInputBgS) calc(var(--cInputBgL) + 10%));
     position: absolute;
     right: 0;
     width: max-content;
@@ -253,20 +254,20 @@ onUnmounted(() => {
     border: none;
     max-height: 200px;
     overflow-y: auto;
-    border-top: 0.1rem solid var(--cGrey3Alt);
-    border-bottom: 0.1rem solid var(--cGrey3Alt);
+    border-top: 0.1rem solid var(--autocompleteBorder);
+    border-bottom: 0.1rem solid var(--autocompleteBorder);
     box-shadow: 0 0 10px 0 var(--cShadow);
-    background-color: var(--cGrey3);
+    background-color: var(--cInputBg);
     z-index: +1;
     margin: 0;
     padding: 0;
 
     .autocompleteItem {
       cursor: pointer;
-      background-color: var(--cGrey3);
-      border-bottom: 0.1rem solid var(--cGrey3Alt);
-      border-left: 0.1rem solid var(--cGrey3Alt);
-      border-right: 0.1rem solid var(--cGrey3Alt);
+      background-color: var(--cInputBg);
+      border-bottom: 0.1rem solid var(--autocompleteBorder);
+      border-left: 0.1rem solid var(--autocompleteBorder);
+      border-right: 0.1rem solid var(--autocompleteBorder);
       font-family: inherit;
       font-size: 1.5rem;
       font-weight: 400;
@@ -274,10 +275,6 @@ onUnmounted(() => {
 
       &:last-child {
         border-bottom: none;
-      }
-
-      &.active {
-        background-color: var(--cBlue3);
       }
 
       button {
@@ -288,6 +285,10 @@ onUnmounted(() => {
         text-align: left;
         cursor: pointer;
         max-width: 40rem;
+      }
+
+      &.active {
+        background-color: hsl(var(--cInputBgH) var(--cInputBgS) calc(var(--cInputBgL) + 10%));
       }
     }
 

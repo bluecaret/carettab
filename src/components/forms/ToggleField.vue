@@ -32,39 +32,19 @@ function handleToggled() {
 
 <style lang="scss" scoped>
 .toggle {
-  --toggleBtnBorder: var(--cGrey3);
-  --toggleBtnBg: var(--cGrey3);
-  --toggleBtnIndicator: var(--cBlue6);
-  --toggleBtnColor: var(--cText);
-
-  --toggleBtnPressedBorder: var(--cGrey3);
-  --toggleBtnPressedBg: var(--cGrey3);
-  --toggleBtnPressedIndicator: var(--cBlue3);
-  --toggleBtnPressedColor: var(--cText);
-
-  --toggleBtnBorderDisabled: var(--cGrey3Alt);
-  --toggleBtnBgDisabled: var(--cGrey3Alt);
-  --toggleBtnIndicatorDisabled: var(--cGrey3Alt);
-  --toggleBtnColorDisabled: var(--cText);
-
-  --toggleBtnPressedBorderDisabled: var(--cGrey3Alt);
-  --toggleBtnPressedBgDisabled: var(--cGrey3Alt);
-  --toggleBtnPressedIndicatorDisabled: var(--cGrey3Alt);
-  --toggleBtnPressedColorDisabled: var(--cText);
-
   flex: 0 0 auto;
   position: relative;
   cursor: pointer;
   display: flex;
   align-items: center;
-  background-color: var(--toggleBtnBg);
+  background-color: var(--cToggleBg);
   width: 4.2rem;
   height: 2.8rem;
   padding: 0;
   margin-block: 0.3rem;
-  border: 2px solid var(--toggleBtnBorder);
+  border: 2px solid var(--cToggleBg);
   border-radius: calc(2.8rem / 2);
-  color: var(--toggleBtnColor);
+  color: var(--cToggleFg);
 
   &::before,
   .toggleIcon {
@@ -81,7 +61,7 @@ function handleToggled() {
 
   &::before {
     border-radius: 50%;
-    background-color: var(--toggleBtnIndicator);
+    background-color: var(--cToggleIndicator);
   }
 
   .toggleIcon {
@@ -92,9 +72,9 @@ function handleToggled() {
   }
 
   &[aria-pressed='true'] {
-    border-color: var(--toggleBtnPressedBorder);
-    background-color: var(--toggleBtnPressedBg);
-    color: var(--toggleBtnPressedColor);
+    border-color: var(--cToggleBgPressed);
+    background-color: var(--cToggleBgPressed);
+    color: var(--cToggleFgPressed);
 
     &::before,
     .toggleIcon {
@@ -102,28 +82,28 @@ function handleToggled() {
     }
 
     &::before {
-      background-color: var(--toggleBtnPressedIndicator);
+      background-color: var(--cToggleIndicatorPressed);
     }
   }
 
   &[disabled] {
     cursor: not-allowed;
-    border-color: var(--toggleBtnBorderDisabled);
-    background-color: var(--toggleBtnBgDisabled);
-    color: var(--toggleBtnColorDisabled);
+    border-color: var(--cToggleBgDisabled);
+    background-color: var(--cToggleBgDisabled);
+    color: var(--cToggleFgDisabled);
 
     &::before {
-      background-color: var(--toggleBtnIndicatorDisabled);
+      background-color: var(--cToggleIndicatorDisabled);
     }
   }
 
   &[aria-pressed='true'][disabled] {
-    border-color: var(--toggleBtnPressedBorderDisabled);
-    background-color: var(--toggleBtnPressedBgDisabled);
-    color: var(--toggleBtnPressedColorDisabled);
+    border-color: var(--cToggleBgDisabled);
+    background-color: var(--cToggleBgDisabled);
+    color: var(--cToggleFgDisabled);
 
     &::before {
-      background-color: var(--toggleBtnPressedIndicatorDisabled);
+      background-color: var(--cToggleIndicatorDisabled);
     }
   }
 }

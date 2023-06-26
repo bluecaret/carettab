@@ -265,13 +265,11 @@ const currentOp = computed(() => {
 })
 
 const pickerColor = computed(() => {
-  return props.shadow
-    ? 'var(--cGrey1)'
-    : `hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})`
+  return props.shadow ? 'var(--g1)' : `hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value})`
 })
 const pickerBg = computed(() => {
   return props.shadow
-    ? 'var(--cGrey3)'
+    ? 'var(--g1)'
     : `
     linear-gradient(
       hsl(${hue.value}deg ${saturation.value}% ${lightness.value}% / ${opacity.value}), 
@@ -363,14 +361,14 @@ const getSwatchColor = (swatch) => {
 </script>
 
 <template>
-  <DropdownMenu>
+  <DropdownMenu :disabled="props.disabled">
     <template #button>
       <button
         :id="tagId"
         :aria-label="`Select ${props.shadow ? 'shadow' : 'color'}`"
         class="btn pickerButton"
         :class="props.shadow && !enable && 'pickerButtonDisable'"
-        :disabled="props.disabled ? 'disabled' : null"
+        :disabled="props.disabled"
       >
         <div class="pickerIcon">
           <fa :icon="props.shadow && !enable ? 'fa-droplet-slash' : 'fa-droplet'" />
@@ -381,7 +379,7 @@ const getSwatchColor = (swatch) => {
     </template>
     <template #menu>
       <div class="colorMenu">
-        <div class="block">
+        <div class="block stack">
           <div class="group fill">
             <h3 class="label mra">{{ props.shadow ? 'Shadow' : 'Color' }}</h3>
             <div v-if="props.shadow" class="group compact">
@@ -592,7 +590,7 @@ const getSwatchColor = (swatch) => {
   gap: 0.4rem;
   padding: 0.6rem;
   margin: 0;
-  background-color: var(--cGrey2);
+  background-color: var(--g1);
   border-radius: var(--s3);
   list-style: none;
   .btn {
@@ -607,9 +605,9 @@ const getSwatchColor = (swatch) => {
     }
   }
   .btn.paletteBtn {
-    border: 1px solid var(--cGrey1);
+    border: 1px solid var(--g4);
     background-color: transparent;
-    color: var(--cGrey5);
+    color: var(--cTextSubtle);
     .fa-xmark {
       fill: white;
       stroke: black;
@@ -635,7 +633,7 @@ const getSwatchColor = (swatch) => {
   background-color: v-bind(pickerColor);
   background: v-bind(pickerBg);
   color: currentColor;
-  border-color: var(--cGrey3);
+  border-color: var(--g1);
   width: 100%;
   min-width: 3.6rem;
   display: grid;
@@ -655,8 +653,8 @@ const getSwatchColor = (swatch) => {
     place-items: center;
     width: 2.4rem;
     height: 2.4rem;
-    background: var(--cGrey3);
-    color: var(--cGrey5);
+    background: var(--g1);
+    color: var(--cTextSubtle);
     border-radius: 50%;
     font-size: 1.6rem;
     margin: 0 auto;
@@ -713,8 +711,8 @@ const getSwatchColor = (swatch) => {
   flex-direction: column;
   gap: 0.4rem;
   width: 40rem;
-  border-radius: var(--s3);
-  background-color: var(--cGrey1);
+  // border-radius: var(--s3);
+  background-color: var(--g3);
   > .block {
     gap: var(--s4);
   }

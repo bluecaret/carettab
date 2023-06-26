@@ -42,8 +42,8 @@ a.link {
   align-items: center;
   gap: var(--s3);
   background-color: transparent;
-  color: var(--cBlue1);
-  border: 1px solid var(--cBlue3);
+  color: var(--cBtnFg);
+  border: 1px solid var(--cBtnBorder);
   padding: var(--s2) var(--s4);
   border-radius: var(--radius);
   margin: 0;
@@ -54,7 +54,7 @@ a.link {
   text-decoration: none;
   transition: box-shadow .3s;
   &:hover {
-    box-shadow: 0 0 .5rem 0 var(--cBlue5);
+    box-shadow: 0 0 .5rem 0 var(--cBtnShadow);
   }
 
   .append {
@@ -62,13 +62,14 @@ a.link {
   }
 
   &.active {
-    background-color: var(--cBlue3);
+    background-color: var(--cBtnActive);
+    color: var(--cBtnFgActive);
   }
 
   &:disabled {
     box-shadow: none;
-    color: var(--cBlue7);
-    border-color: var(--cBlue8);
+    color: var(--cBtnFgDisabled);
+    border-color: var(--cBtnBorderDisabled);
     cursor: not-allowed;
   }
 }
@@ -80,7 +81,7 @@ a.link {
     small {
       display: block;
       font-size: 1.2rem;
-      color: var(--cBlue7);
+      color: var(--cTextSubtle);
     }
   }
 }
@@ -170,29 +171,6 @@ a.link {
   }
 }
 
-.back {
-  background: var(--cGrey2);
-  border: 1px solid var(--cBlue3);
-  border-left: 0;
-  border-radius: 0 var(--s6) var(--s6) 0;
-  padding: var(--s4) var(--s3) var(--s4) 1.4rem;
-  cursor: pointer;
-  font-size: 1.4rem;
-  display: flex;
-  align-items: center;
-  gap: var(--s4);
-  color: var(--cText);
-  margin-left: -1.6rem;
-  margin-right: .8rem;
-  transition: color .3s;
-  &:hover {
-    color: var(--cBlue1);
-  }
-  .svg-inline--fa {
-    font-size: 3.2rem;
-  }
-}
-
 .tabs {
   display: flex;
   gap: var(--s3);
@@ -224,16 +202,16 @@ a.link {
   inset: 0 0 0 auto;
   z-index: 40;
   width: 70rem;
-  padding: 0 var(--s5);
+  padding: 0 var(--s4);
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.8rem;
   font-weight: 300;
   color: var(--cText);
-  background-color: var(--cBackdrop);
+  background-color: var(--cPanelBackdrop);
   backdrop-filter: blur(4px);
   display: flex;
   flex-direction: column;
-  gap: var(--s5);
+  gap: var(--s4);
   transition: opacity 0.2s;
 
   &.panelPreview {
@@ -247,8 +225,16 @@ a.link {
   &.toolbarToolPanel {
     left: var(--toolbarSize);
     right: unset;
-    padding: var(--s5);
+    padding: var(--s4);
     scroll-behavior: smooth;
+    .title {
+      margin-top: 0;
+    }
+
+    .page {
+      overflow-y: auto;
+      padding: var(--s5);
+    }
   }
 
   a:not(.btn) {
@@ -266,17 +252,15 @@ a.link {
 .footer {
   position: relative;
   padding: 0 var(--s5);
-  background-color: var(--cGrey1);
   border-radius: var(--s4);
-  animation: pageFadeIn 0.35s ease-out;
-  box-shadow: 0 0 var(--s5) var(--s2) var(--cShadow);
 }
 
 .page {
   flex: 1 1 auto;
-  padding: 0 .8rem 0 var(--s5);
+  padding: var(--s5) .8rem var(--s5) var(--s5);
   overflow-x: hidden;
   overflow-y: scroll;
+  background-color: var(--cSettingsPage);
 
   &::-webkit-scrollbar {
     width: 18px;
@@ -285,24 +269,62 @@ a.link {
 
   &::-webkit-scrollbar-track {
     background: transparent;
-    box-shadow: inset 0 0 10px 10px var(--cBackdrop);
+    box-shadow: inset 0 0 10px 10px var(--cSettingsPageScrollbar);
     border: solid 4px transparent;
     border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb {
-    box-shadow: inset 0 0 10px 10px var(--cGrey2Alt);
+    box-shadow: inset 0 0 10px 10px var(--cSettingsPageScrollthumb);
     border: solid 6px transparent;
     border-radius: 10px;
   }
 }
 
-@keyframes pageFadeIn {
-  0% {
-    opacity: 0;
+.bgTypeList {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.bgTypeListItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: 1px solid var(--cSubBlock);
+  border-radius: var(--s3);
+  background-color: var(--cSubBlock);
+  color: var(--cBtnFg);
+  padding: var(--s4);
+  cursor: pointer;
+
+  &.active {
+    border-color: var(--cBtnBorder);
+    background-color: var(--cBtnActive);
+    color: var(--cBtnFgActive);
   }
 
-  100% {
-    opacity: 1;
+  &:hover {
+    border-color: var(--cBtnBorder);
   }
+}
+
+.bgTypeListItemPreview {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--s3);
+  border: 1px solid var(--g1);
+  margin-bottom: var(--s3);
+}
+
+.bgTypeListItemName {
+  margin-top: var(--s2);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: currentColor;
 }

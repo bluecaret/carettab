@@ -19,7 +19,7 @@ if (typeof browser === 'undefined') {
 const user = inject('user')
 const store = useSettingsStore()
 const uploadImageField = ref(null)
-const newWidgetMenu = ref(null)
+const imageTypeMenu = ref(null)
 const { locale } = useI18n({ useScope: 'global' })
 
 const allTimezones = []
@@ -111,7 +111,7 @@ const processImage = (imgSrc) => {
 }
 
 const handleRemoveImage = (isDefault = false) => {
-  if (newWidgetMenu.value) newWidgetMenu.value.close()
+  if (imageTypeMenu.value) imageTypeMenu.value.close()
   store.wallpaper = isDefault ? 'default' : 'none'
   chrome.storage.local.remove('currentWallpaper')
   chrome.storage.local.remove('nextWallpaper')
@@ -217,8 +217,8 @@ const handleLangSelect = (event) => {
 </script>
 
 <template>
+  <PageHeading title="Extension Settings"></PageHeading>
   <div class="page">
-    <PageHeading title="Extension Settings"></PageHeading>
     <div class="blockContainer">
       <FieldAccordion>
         <template #label>
@@ -232,7 +232,7 @@ const handleLangSelect = (event) => {
               </ColorField>
             </div>
           </div>
-          <div class="block">
+          <div class="block stack">
             <div class="group fill">
               <label for="backgroundColor" class="label mra">Background Image</label>
               <div
@@ -336,7 +336,7 @@ const handleLangSelect = (event) => {
                 />
                 <div class="desc">Image</div>
                 <div class="btnGroup">
-                  <DropdownMenu ref="newWidgetMenu">
+                  <DropdownMenu ref="imageTypeMenu">
                     <template #button>
                       <button type="button" class="btn">
                         {{ store.config.global.wallpaper.type === 'default' ? 'Select image' : 'Select an image' }}
@@ -391,10 +391,16 @@ const handleLangSelect = (event) => {
                   </button>
                 </div>
               </div>
-              <DropdownMenu
-                v-if="['unphoto', 'untopic', 'uncollection'].includes(store.config.global.wallpaper.type)"
-                style="width: 100%"
-              >
+            </div>
+            <div
+              v-if="
+                ['unphoto', 'untopic', 'uncollection', 'pxphoto', 'pxcurated', 'pxcollection', 'pxcarettab'].includes(
+                  store.config.global.wallpaper.type
+                )
+              "
+              class="group fill"
+            >
+              <DropdownMenu style="width: 100%">
                 <template #button>
                   <button type="button" class="imageDetails">
                     <fa icon="fa-images" fixed-width></fa>
@@ -684,7 +690,7 @@ const handleLangSelect = (event) => {
   border: 0;
   width: 100%;
   border-radius: var(--s4);
-  background-color: var(--cGrey3Alt);
+  background-color: var(--cBlock);
   padding: var(--s5) var(--s5);
   font-size: 1.6rem;
   .imageDetailsPhotoLink {
@@ -693,7 +699,7 @@ const handleLangSelect = (event) => {
 }
 .imageDetailsDescription {
   display: block;
-  width: 40rem;
+  width: 57.5rem;
   padding: var(--s5);
 }
 

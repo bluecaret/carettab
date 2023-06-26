@@ -12,8 +12,8 @@ const widget = reactive(store.config[widgetStore][ci.value])
 </script>
 
 <template>
+  <PageHeading title="Search bar" :widget-id="widget.id"></PageHeading>
   <div class="page">
-    <PageHeading title="Search bar" :widget-id="widget.id"></PageHeading>
     <div class="blockContainer">
       <WidgetBoxField :index="ci" :widget-store="widgetStore" />
       <WidgetFontField :index="ci" :widget-store="widgetStore" />

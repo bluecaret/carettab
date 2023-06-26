@@ -38,8 +38,8 @@ const handlePexelsPhotoSearch = () => {
 </script>
 
 <template>
+  <PageHeading title="Pexels.com photos" back-page="extension"></PageHeading>
   <div class="page">
-    <PageHeading title="Pexels.com photos" back-page="extension"></PageHeading>
     <div class="tabs">
       <button
         class="btn tab"
@@ -113,7 +113,7 @@ const handlePexelsPhotoSearch = () => {
           </button>
         </form>
       </div>
-      <div v-if="!store.isLoading && store.pexelsTab === 'search'" class="block center">
+      <div v-if="!store.isLoading && store.pexelsTab === 'search'" class="block stack center">
         <div
           v-if="
             store.pexelsStatus === 'default' && (!store.pexelsSearchResults || store.pexelsSearchResults.length <= 0)
@@ -132,23 +132,23 @@ const handlePexelsPhotoSearch = () => {
           <label id="pexelsSelect" class="label">Search results</label>
         </div>
         <div v-if="store.pexelsStatus === 'results' && store.pexelsSearchResults.length > 0" class="group fill">
-          <div class="pexelsGrid">
+          <div class="bgTypeList">
             <button
               v-for="photo in store.pexelsSearchResults.slice(0, 20)"
               :key="photo.id"
               aria-labelledby="pexelsSelect"
               type="button"
-              class="pexelsBtn"
+              class="bgTypeListItem"
               :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
               @click="getSelectedPexelsImage(photo.id, photo.alt ? photo.alt : 'Photo from Pexels.com', photo.url)"
             >
               <div
-                class="pexelsPreview"
+                class="bgTypeListItemPreview"
                 :alt="photo.alt ? photo.alt : 'Photo from Pexels.com'"
                 :title="photo.alt ? photo.alt : 'Photo from Pexels.com'"
                 :style="`background-image: url(${photo.src.medium})`"
               ></div>
-              <div class="pexelsName">
+              <div class="bgTypeListItemName">
                 <a
                   class="pexelsDescription"
                   target="_blank"
@@ -189,25 +189,25 @@ const handlePexelsPhotoSearch = () => {
           </button>
         </div>
       </div>
-      <div v-if="!store.isLoading && store.pexelsTab === 'curated'" class="block center">
+      <div v-if="!store.isLoading && store.pexelsTab === 'curated'" class="block stack center">
         <div class="group fill">
-          <div class="pexelsGrid">
+          <div class="bgTypeList">
             <button
               v-for="photo in store.pexelsCuratedResults.slice(0, 20)"
               :key="photo.id"
               aria-labelledby="pexelsSelect"
               type="button"
-              class="pexelsBtn"
+              class="bgTypeListItem"
               :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
               @click="getSelectedPexelsImage(photo.id, photo.alt ? photo.alt : 'Photo from Pexels.com', photo.url)"
             >
               <div
-                class="pexelsPreview"
+                class="bgTypeListItemPreview"
                 :alt="photo.alt ? photo.alt : 'Photo from Pexels.com'"
                 :title="photo.alt ? photo.alt : 'Photo from Pexels.com'"
                 :style="`background-image: url(${photo.src.medium})`"
               ></div>
-              <div class="pexelsName">
+              <div class="bgTypeListItemName">
                 <a
                   class="pexelsDescription"
                   target="_blank"
@@ -248,19 +248,19 @@ const handlePexelsPhotoSearch = () => {
           </button>
         </div>
       </div>
-      <div v-if="!store.isLoading && store.pexelsTab === 'collections'" class="block center">
+      <div v-if="!store.isLoading && store.pexelsTab === 'collections'" class="block stack center">
         <div class="group fill">
-          <div class="pexelsGrid">
+          <div class="bgTypeList">
             <button
               v-for="collection in store.pexelsCollectionResults.slice(0, 20)"
               :key="collection.id"
               aria-labelledby="pexelsSelect"
               type="button"
-              class="pexelsBtn"
+              class="bgTypeListItem"
               :class="store.config.global.wallpaper.id === collection.id ? 'active' : ''"
               @click="getSelectedPexelsImage(collection.id, collection.title, null)"
             >
-              <div class="pexelsCollectionName">
+              <div class="bgTypeListItemName pexelsCollectionName">
                 {{ collection.title }}<span>{{ collection.photos_count }} Photos</span>
               </div>
             </button>
@@ -290,19 +290,19 @@ const handlePexelsPhotoSearch = () => {
           </button>
         </div>
       </div>
-      <div v-if="!store.isLoading && store.pexelsTab === 'carettab'" class="block center">
+      <div v-if="!store.isLoading && store.pexelsTab === 'carettab'" class="block stack center">
         <div class="group fill">
-          <div class="pexelsGrid">
+          <div class="bgTypeList">
             <button
               v-for="collection in store.pexelsCarettabResults.slice(0, 20)"
               :key="collection.id"
               aria-labelledby="pexelsSelect"
               type="button"
-              class="pexelsBtn"
+              class="bgTypeListItem"
               :class="store.config.global.wallpaper.id === collection.id ? 'active' : ''"
               @click="getSelectedPexelsImage(collection.id, collection.title, null)"
             >
-              <div class="pexelsCollectionName">
+              <div class="bgTypeListItemName pexelsCollectionName">
                 {{ collection.title }}<span>{{ collection.photos_count }} Photos</span>
               </div>
             </button>
@@ -347,91 +347,12 @@ const handlePexelsPhotoSearch = () => {
   opacity: 0.5;
 }
 
-.pexelsGrid {
-  width: 100%;
-  display: grid;
+.bgTypeList {
   grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-  // --bgSat: 0%;
 }
 
-.pexelsBtn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  border: 1px solid var(--cGrey1);
-  border-radius: var(--s3);
-  background-color: var(--cGrey1);
-  padding: var(--s4);
-  cursor: pointer;
-
-  &.active {
-    border-color: var(--cBlue3);
-    background-color: var(--cBlue3);
-  }
-
-  &:hover {
-    border-color: var(--cGrey1Hover);
-  }
-}
-
-.pexelsPreview {
-  width: 100%;
-  border-radius: var(--s3);
-  border: 1px solid var(--cGrey1);
-  margin-bottom: var(--s3);
-  background-size: cover;
-  aspect-ratio: 16/9;
-}
-
-.pexelsPreviewList {
-  width: 100%;
-  border-radius: var(--s3);
-  border: 1px solid var(--cGrey1);
-  margin-bottom: var(--s3);
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 2fr 1fr;
-  grid-template-areas:
-    'img1 img1 img2'
-    'img1 img1 img3';
-  gap: var(--s3);
-  aspect-ratio: 4 / 2.5;
-  overflow: hidden;
-  padding: 0;
-
-  div {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-
-    &:nth-child(1) {
-      grid-area: img1;
-    }
-
-    &:nth-child(2) {
-      grid-area: img2;
-    }
-
-    &:nth-child(3) {
-      grid-area: img3;
-    }
-
-    &:nth-child(4) {
-      grid-area: img4;
-    }
-  }
-}
-
-.pexelsName,
+.bgTypeListItemName,
 .pexelsCollectionName {
-  margin-top: var(--s2);
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: currentColor;
-  opacity: 0.6;
   display: grid;
   grid-template-rows: auto;
   gap: var(--s2);

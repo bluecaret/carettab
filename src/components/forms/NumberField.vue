@@ -82,6 +82,10 @@ function handleArrowUpdate(up) {
     background-repeat: no-repeat;
     padding-right: 2.1rem;
 
+    &:disabled {
+      background-image: linear-gradient(to right, var(--cArrowDisabled), var(--cArrowDisabled));
+    }
+
     &::-webkit-inner-spin-button {
       appearance: none;
     }
@@ -121,7 +125,8 @@ function handleArrowUpdate(up) {
 
   &:disabled {
     cursor: not-allowed;
-    color: var(--cBlue8);
+    color: var(--cArrowDisabled);
+    scale: 1;
   }
 }
 </style>

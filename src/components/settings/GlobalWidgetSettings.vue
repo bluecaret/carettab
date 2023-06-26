@@ -6,8 +6,8 @@ const store = useSettingsStore()
 </script>
 
 <template>
+  <PageHeading title="Global Widget Settings"></PageHeading>
   <div class="page">
-    <PageHeading title="Global Widget Settings"></PageHeading>
     <div class="blockContainer">
       <WidgetBoxField :index="0" widget-store="global" global-setting start-open />
       <WidgetFontField :index="0" widget-store="global" global-setting start-open />

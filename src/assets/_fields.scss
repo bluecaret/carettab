@@ -5,9 +5,9 @@
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: var(--cGrey3);
+  background-color: var(--cInputBg);
   color: var(--cText);
-  border: 0px solid var(--cGrey3Alt);
+  border: 0px solid var(--cInputBorder);
   padding: 0 var(--s4);
   border-radius: var(--s3);
   margin: 0;
@@ -15,12 +15,12 @@
   line-height: 3.4rem;
   font-weight: 400;
 
-  &[disabled] {
-    background-color: var(--cGrey3Alt);
+  &:disabled {
+    background-color: var(--cInputDisabled);
     cursor: not-allowed;
   }
 
-  option[disabled] {
+  option:disabled {
     color: var(--cTextSubtle);
   }
 }
@@ -36,47 +36,17 @@
   background-repeat: no-repeat;
   padding-right: 2.1rem;
   &:disabled {
-    background-image: linear-gradient(45deg, transparent 50%, var(--cBlue8) 50%),
-      linear-gradient(135deg, var(--cBlue8) 50%, transparent 50%),
-      linear-gradient(to right, var(--cBlue8), var(--cBlue8));
-  }
-}
-
-.color {
-  width: 6rem;
-  height: 3.4rem;
-  appearance: none;
-  padding: 0;
-  cursor: pointer;
-  box-shadow: inset 0px 0px 0px 2px var(--cGrey3);
-
-  &::-webkit-color-swatch-wrapper {
-    padding: 0;
-    border-radius: var(--radius);
-  }
-
-  &::-webkit-color-swatch {
-    border: none;
-    border-radius: var(--radius);
-    box-shadow: inset 0px 0px 0px 2px var(--cGrey3);
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    
+    background-image: linear-gradient(45deg, transparent 50%, var(--cArrowDisabled) 50%),
+      linear-gradient(135deg, var(--cArrowDisabled) 50%, transparent 50%),
+      linear-gradient(to right, var(--cArrowDisabled), var(--cArrowDisabled));
   }
 }
 
 .range {
-    --rangeTrack: var(--cGrey3);
-    --rangeTrackDisabled: var(--cGrey3Alt);
-    --rangeThumb: var(--cBlue3);
-    --rangeThumbDisabled: var(--cBlue6);
-
   position: relative;
   display: grid;
   place-items: center;
-  grid-template-columns: 3rem auto;
+  grid-template-columns: 3.4rem auto;
   gap: 0.8rem;
 }
 
@@ -90,15 +60,15 @@
 
   &::-webkit-slider-runnable-track {
     appearance: none;
-    background-color: var(--rangeTrack);
-    height: 0.4rem;
+    background-color: var(--cRangeTrack);
+    height: 0.6rem;
     border-radius: 0.2rem;
   }
 
   &::-webkit-slider-thumb {
     appearance: none;
-    translate: 0 -0.8rem;
-    background-color: var(--rangeThumb);
+    translate: 0 -0.7rem;
+    background-color: var(--cRangeThumb);
     border: 0;
     border-radius: 50%;
     width: 2rem;
@@ -109,11 +79,11 @@
     cursor: not-allowed;
 
     &::-webkit-slider-runnable-track {
-      background-color: var(--rangeTrackDisabled);
+      background-color: var(--cRangeTrackDisabled);
     }
 
     &::-webkit-slider-thumb {
-      background-color: var(--rangeThumbDisabled);
+      background-color: var(--cRangeThumbDisabled);
     }
   }
 }
@@ -121,10 +91,10 @@
 .output {
   display: grid;
   place-items: center;
-  background: var(--rangeThumb);
-  color: var(--cText);
+  background: var(--cRangeOutput);
+  color: var(--cRangeOutputText);
   width: 100%;
-  height: 2rem;
+  height: 2.4rem;
   text-align: center;
   font-size: 1.4rem;
   font-weight: 400;
@@ -135,23 +105,23 @@
   &::before {
     position: absolute;
     top: 50%;
-    right: -0.4rem;
+    right: -0.7rem;
     transform: translateY(-50%);
     content: '';
     width: 0;
     height: 0;
-    border-top: 0.5rem solid transparent;
-    border-bottom: 0.5rem solid transparent;
-    border-left: 0.5rem solid var(--rangeThumb);
+    border-top: 0.8rem solid transparent;
+    border-bottom: 0.8rem solid transparent;
+    border-left: 0.8rem solid var(--cRangeOutput);
   }
 
-  &[data-disabled] {
+  .range:has(:disabled) & {
     cursor: not-allowed;
-    background: var(--rangeThumbDisabled);
-    color: var(--cTextSubtle);
+    background: var(--cRangeOutputDisabled);
+    color: var(--cRangeOutputTextDisabled);
 
     &::before {
-      border-left-color: var(--rangeThumbDisabled);
+      border-left-color: var(--cRangeOutputDisabled);
     }
   }
 }
@@ -173,9 +143,7 @@
 }
 
 .dragGhost {
-  background: transparent;
-  outline: var(--s4) solid var(--cGrey1);
-  outline-offset: calc(var(--s4) * -1);
+  background-color: hsl(var(--g5H) var(--g5S) var(--g5L) / .3) !important;
 
   * {
     opacity: 0;

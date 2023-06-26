@@ -246,7 +246,8 @@ const generatePassword = () => {
   font-family: Consolas, monaco, monospace;
   font-weight: 400;
   font-size: 2rem;
-  background-color: var(--cGrey4);
+  background-color: var(--cBlock);
+  border-radius: var(--s4);
   padding: var(--s6) var(--s6);
   overflow-wrap: anywhere;
   h3 {

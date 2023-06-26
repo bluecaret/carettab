@@ -27,8 +27,8 @@ const deleteQuote = (id) => {
 </script>
 
 <template>
+  <PageHeading title="Quote" :widget-id="widget.id"></PageHeading>
   <div class="page">
-    <PageHeading title="Quote" :widget-id="widget.id"></PageHeading>
     <div class="blockContainer">
       <WidgetBoxField :index="ci" :widget-store="widgetStore" />
       <WidgetFontField :index="ci" :widget-store="widgetStore" />

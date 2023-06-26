@@ -120,8 +120,8 @@ const selectLoc = (loc) => {
 </script>
 
 <template>
+  <PageHeading title="Loadshedding" :widget-id="widget.id"></PageHeading>
   <div class="page">
-    <PageHeading title="Loadshedding" :widget-id="widget.id"></PageHeading>
     <div class="blockContainer">
       <WidgetBoxField :index="ci" :widget-store="widgetStore" />
       <WidgetFontField :index="ci" :widget-store="widgetStore" />

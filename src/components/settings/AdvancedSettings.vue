@@ -73,8 +73,8 @@ const importSettings = () => {
 </script>
 
 <template>
+  <PageHeading title="Advanced Settings" back-page="extension"></PageHeading>
   <div class="page">
-    <PageHeading title="Advanced Settings" back-page="extension"></PageHeading>
     <div class="blockContainer">
       <div class="block">
         <div class="group fill">
@@ -137,26 +137,5 @@ const importSettings = () => {
 <style lang="scss" scoped>
 .file {
   display: none;
-}
-
-.imageDetails {
-  position: relative;
-  cursor: help;
-  display: flex;
-  gap: var(--s4);
-  border: 0;
-  width: 100%;
-  border-radius: var(--s4);
-  background-color: var(--cGrey3Alt);
-  padding: var(--s5) var(--s5);
-  font-size: 1.6rem;
-  .imageDetailsPhotoLink {
-    margin-left: auto;
-  }
-}
-.imageDetailsDescription {
-  display: block;
-  width: 40rem;
-  padding: var(--s5);
 }
 </style>

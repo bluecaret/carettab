@@ -11,6 +11,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const ddBtn = ref()
@@ -18,6 +22,7 @@ const ddMenu = ref()
 const showDropdown = ref(false)
 
 const toggleDropdown = () => {
+  if (props.disabled) return
   showDropdown.value = !showDropdown.value
 }
 
@@ -127,8 +132,8 @@ defineExpose({ close })
 
 .dropdown {
   box-shadow: 0 0 10px 0 var(--cShadow);
-  background-color: var(--cGrey1);
-  border: 0.1rem solid var(--cGrey3Alt);
+  background-color: var(--cDropdownBg);
+  border: 0.1rem solid var(--cDropdownBorder);
   border-radius: var(--s3);
   overflow: hidden;
   font-family: 'Source Sans Pro', sans-serif;

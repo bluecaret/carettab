@@ -37,8 +37,8 @@ const handleUnsplashPhotoSearch = () => {
 </script>
 
 <template>
+  <PageHeading title="Unsplash.com photos" back-page="extension"></PageHeading>
   <div class="page">
-    <PageHeading title="Unsplash.com photos" back-page="extension"></PageHeading>
     <div class="tabs">
       <button
         class="btn tab"
@@ -85,7 +85,7 @@ const handleUnsplashPhotoSearch = () => {
           </button>
         </form>
       </div>
-      <div v-if="!store.isLoading && store.unsplashTab === 'search'" class="block center">
+      <div v-if="!store.isLoading && store.unsplashTab === 'search'" class="block stack center">
         <div
           v-if="
             store.unsplashStatus === 'default' &&
@@ -105,23 +105,23 @@ const handleUnsplashPhotoSearch = () => {
           <label id="unsplashSelect" class="label">Search results</label>
         </div>
         <div v-if="store.unsplashStatus === 'results' && store.unsplashSearchResults.length > 0" class="group fill">
-          <div class="unsplashGrid">
+          <div class="bgTypeList">
             <button
               v-for="photo in store.unsplashSearchResults.slice(0, 20)"
               :key="photo.id"
               aria-labelledby="unsplashSelect"
               type="button"
-              class="unsplashBtn"
+              class="bgTypeListItem"
               :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
               @click="getSelectedUnsplashImage(photo.id, photo.title, photo.links.html)"
             >
               <div
-                class="unsplashPreview"
+                class="bgTypeListItemPreview"
                 :alt="photo.alt_description"
                 :title="photo.description"
                 :style="`background-image: url(${photo.urls.thumb})`"
               ></div>
-              <div class="unsplashName">
+              <div class="unsplashName bgTypeListItemName">
                 <a
                   v-if="photo.description"
                   class="unsplashDescription"
@@ -164,15 +164,15 @@ const handleUnsplashPhotoSearch = () => {
           </button>
         </div>
       </div>
-      <div v-if="!store.isLoading && store.unsplashTab === 'topics'" class="block center">
+      <div v-if="!store.isLoading && store.unsplashTab === 'topics'" class="block stack center">
         <div class="group fill">
-          <div class="unsplashGrid">
+          <div class="bgTypeList">
             <button
               v-for="photo in store.unsplashTopicResults.slice(0, 20)"
               :key="photo.id"
               aria-labelledby="unsplashSelect"
               type="button"
-              class="unsplashBtn"
+              class="bgTypeListItem"
               :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
               @click="getSelectedUnsplashImage(photo.id, photo.title, photo.links.html)"
             >
@@ -180,13 +180,13 @@ const handleUnsplashPhotoSearch = () => {
                 <div
                   v-for="preview in photo.preview_photos.slice(0, 3)"
                   :key="preview.id"
-                  class="unsplashPreview"
+                  class="bgTypeListItemPreview"
                   :alt="preview.alt_description"
                   :title="preview.description"
                   :style="`background-image: url(${preview.urls.thumb})`"
                 ></div>
               </div>
-              <div class="unsplashName">
+              <div class="bgTypeListItemName unsplashName">
                 <a target="_blank" :href="photo.links.html + '?utm_source=carettab&utm_medium=referral'">{{
                   photo.title
                 }}</a
@@ -219,15 +219,15 @@ const handleUnsplashPhotoSearch = () => {
           </button>
         </div>
       </div>
-      <div v-if="!store.isLoading && store.unsplashTab === 'collections'" class="block center">
+      <div v-if="!store.isLoading && store.unsplashTab === 'collections'" class="block stack center">
         <div class="group fill">
-          <div class="unsplashGrid">
+          <div class="bgTypeList">
             <button
               v-for="photo in store.unsplashCollectionResults.slice(0, 20)"
               :key="photo.id"
               aria-labelledby="unsplashSelect"
               type="button"
-              class="unsplashBtn"
+              class="bgTypeListItem"
               :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
               @click="getSelectedUnsplashImage(photo.id, photo.title, photo.links.html)"
             >
@@ -235,13 +235,13 @@ const handleUnsplashPhotoSearch = () => {
                 <div
                   v-for="preview in photo.preview_photos.slice(0, 3)"
                   :key="preview.id"
-                  class="unsplashPreview"
+                  class="bgTypeListItemPreview"
                   :alt="preview.alt_description"
                   :title="preview.description"
                   :style="`background-image: url(${preview.urls.thumb})`"
                 ></div>
               </div>
-              <div class="unsplashName">
+              <div class="unsplashName bgTypeListItemName">
                 <a target="_blank" :href="photo.links.html + '?utm_source=carettab&utm_medium=referral'">{{
                   photo.title
                 }}</a
@@ -289,48 +289,14 @@ const handleUnsplashPhotoSearch = () => {
   opacity: 0.5;
 }
 
-.unsplashGrid {
-  width: 100%;
-  display: grid;
+.bgTypeList {
   grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-  // --bgSat: 0%;
-}
-
-.unsplashBtn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  border: 1px solid var(--cGrey1);
-  border-radius: var(--s3);
-  background-color: var(--cGrey1);
-  padding: var(--s4);
-  cursor: pointer;
-
-  &.active {
-    border-color: var(--cBlue3);
-    background-color: var(--cBlue3);
-  }
-
-  &:hover {
-    border-color: var(--cGrey1Hover);
-  }
-}
-
-.unsplashPreview {
-  width: 100%;
-  border-radius: var(--s3);
-  border: 1px solid var(--cGrey1);
-  margin-bottom: var(--s3);
-  background-size: cover;
-  aspect-ratio: 16/9;
 }
 
 .unsplashPreviewList {
   width: 100%;
   border-radius: var(--s3);
-  border: 1px solid var(--cGrey1);
+  border: 1px solid var(--g1);
   margin-bottom: var(--s3);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -368,11 +334,6 @@ const handleUnsplashPhotoSearch = () => {
 }
 
 .unsplashName {
-  margin-top: var(--s2);
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: currentColor;
-  opacity: 0.6;
   display: grid;
   grid-template-rows: auto;
   gap: var(--s2);

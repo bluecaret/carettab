@@ -30,8 +30,8 @@ const selectTimezone = (tz) => {
 </script>
 
 <template>
+  <PageHeading title="Analog clock" :widget-id="widget.id"></PageHeading>
   <div class="page">
-    <PageHeading title="Analog clock" :widget-id="widget.id"></PageHeading>
     <div class="blockContainer">
       <WidgetBoxField :index="ci" :widget-store="widgetStore" />
       <WidgetFontField :index="ci" :widget-store="widgetStore" />

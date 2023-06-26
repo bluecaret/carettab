@@ -1,14 +1,22 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, watch, ref } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { storeToRefs } from 'pinia'
 
 const store = useSettingsStore()
 const { status, settingsOpen } = storeToRefs(store)
+const toggleSettingsEl = ref(null)
 
 const toggleSettings = () => {
   store.$patch({ settingsOpen: !store.settingsOpen })
 }
+
+watch(
+  () => store.settingsOpen,
+  () => {
+    if (!store.settingsOpen) toggleSettingsEl.value.focus()
+  }
+)
 
 const getShadow = computed(() => {
   if (store.config.global.font.shadow && store.config.global.font.shadow[0]) {
@@ -26,8 +34,8 @@ const getTextColor = computed(() => {
 </script>
 
 <template>
-  <!-- :class="{'settingsToggle': true, 'open': settingsOpen, 'hide': store.design.hideMenu}" -->
   <button
+    ref="toggleSettingsEl"
     :class="{ settingsToggle: true, open: settingsOpen, hide: store.config.global.hideSettings }"
     :title="settingsOpen ? 'Close' : status === 'updated' ? 'Updated' : 'Open'"
     @click="toggleSettings"
@@ -61,7 +69,7 @@ $optionsToggleUpdateNoticeOffset: 16px;
   cursor: pointer;
   overflow: hidden;
 
-  &:focus {
+  &:focus-visible {
     outline: none;
     box-shadow: inset 0 0 0 3px currentColor;
   }
@@ -92,7 +100,7 @@ $optionsToggleUpdateNoticeOffset: 16px;
   }
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     span {
       opacity: 1;
     }
@@ -103,7 +111,7 @@ $optionsToggleUpdateNoticeOffset: 16px;
     height: 100vh;
 
     span {
-      opacity: 0;
+      // opacity: 0;
     }
   }
 
@@ -112,7 +120,7 @@ $optionsToggleUpdateNoticeOffset: 16px;
       opacity: 0;
     }
 
-    &:focus,
+    &:focus-visible,
     &:hover {
       span {
         opacity: 1;

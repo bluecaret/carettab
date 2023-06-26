@@ -1,3 +1,13 @@
+@function createColorVars($name, $h, $s, $l, $o: 1) {
+  @return (
+    "--#{$name}H": #{$h},
+    "--#{$name}S": #{$s},
+    "--#{$name}L": #{$l},
+    "--#{$name}O": #{$o},
+    "--#{$name}": hsl(var(--#{$name}H) var(--#{$name}S) var(--#{$name}L) / var(--#{$name}O))
+  );
+}
+
 :root {
   color-scheme: light;
   @media (prefers-color-scheme: dark) {
@@ -19,39 +29,81 @@
   --s8: 4rem;
   --s9: 4.8rem;
   --radius: var(--s3);
-
-  // greys
-  --cGrey1: hsl(225 10% 17%);
-  --cGrey1Alt: hsl(225 5% 10%);
-  --cGrey2: hsl(225 10% 13%);
-  --cGrey2Alt: hsl(225 12% 33%);
-  --cGrey3: hsl(225 18% 6%);
-  --cGrey3Alt: hsl(225 18% 20%);
-  --cGrey4: hsl(225 8% 14%);
-
-  // blues
-  --cBlue1: hsl(210 80% 80%);
-  --cBlue2: hsl(205deg 100% 18%);
-  --cBlue3: hsl(210 80% 30%);
-  --cBlue4: hsl(210 80% 60%);
-  --cBlue5: hsl(210 30% 50%);
-  --cBlue5Faded: hsl(210 30% 50% / 0.3);
-  --cBlue6: hsl(210 10% 20%);
-  --cBlue7: hsl(210 10% 50%);
-  --cBlue8: hsl(210 10% 30%);
-  --cBlue9: hsl(205deg 100% 95%);
-  --cBlue10: hsl(220deg 15% 50%);
-  --cBlue11: hsl(220deg 15% 70%);
-  --cBlue12: hsl(220deg 30% 70%);
   
   // element colors
-  --cError: hsl(10deg 90% 51%);
-  --cSuccess: hsl(138, 56%, 60%);
-  --cBackdrop: hsl(0 0% 5% / 0.5);
-  --cArrow: hsl(210 30% 50%);
-  --cArrowFade: hsl(210 30% 50% / 0.3);
-  --cText: hsl(225 35% 80%);
-  --cTextSubtle: hsl(225 12% 60%);
-  --cShadow: hsl(0 0% 0% / 0.5);
-  --cPremium: var(--cBlue4);
+  $colorSets: (
+    createColorVars('g1', '0deg', '0%', '9%'),
+    createColorVars('g2', '203deg', '82%', '8%'),
+    createColorVars('g3', '203deg', '50%', '11%'),
+    createColorVars('g4', '203deg', '52%', '14%'),
+    createColorVars('g5', '203deg', '22%', '68%'),
+    createColorVars('g6', '210deg', '30%', '90%'),
+    createColorVars('b1', '216deg', '84%', '47%'),
+    createColorVars('b2', '204deg', '100%', '64%'),
+
+    createColorVars('cText', 'var(--g6H)', 'var(--g6S)', 'var(--g6L)'),
+    createColorVars('cTextSubtle', 'var(--g5H)', 'var(--g5S)', 'var(--g5L)'),
+    createColorVars('cError', '10deg', '90%', '51%'),
+
+    createColorVars('cShadow', '0deg', '0%', '0%', '0.5'),
+
+    createColorVars('cDropdownBg', 'var(--g1H)', 'var(--g1S)', 'var(--g1L)'),
+    createColorVars('cDropdownBorder', 'var(--g1H)', 'var(--g1S)', 'calc(var(--g1L) + 10%)'),
+
+    createColorVars('cBtnFg', 'var(--b2H)', 'var(--b2S)', 'calc(var(--b2L) + 10%)'),
+    createColorVars('cBtnBorder', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+    createColorVars('cBtnShadow', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+    createColorVars('cBtnFgActive', 'var(--g1H)', 'var(--g1S)', 'var(--g1L)'),
+    createColorVars('cBtnActive', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+    createColorVars('cBtnFgDisabled', 'var(--g5H)', 'var(--g5S)', 'calc(var(--g5L) - 10%)'),
+    createColorVars('cBtnBorderDisabled', 'var(--g5H)', 'var(--g5S)', 'calc(var(--g5L) - 30%)'),
+    
+    createColorVars('cInputBg', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+    createColorVars('cInputBorder', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+    createColorVars('cInputDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) - 5%)', '.35'),
+    createColorVars('cRangeTrack', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+    createColorVars('cRangeThumb', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+    createColorVars('cRangeOutput', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+    createColorVars('cRangeOutputText', 'var(--cTextH)', 'var(--cTextS)', 'var(--cTextL)'),
+    createColorVars('cRangeTrackDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) - 5%)', '.35'),
+    createColorVars('cRangeThumbDisabled', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+    createColorVars('cRangeOutputDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) - 5%)', '.35'),
+    createColorVars('cRangeOutputTextDisabled', 'var(--cTextH)', 'var(--cTextS)', 'var(--cTextL)'),
+
+    createColorVars('cToggleBg', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+    createColorVars('cToggleIndicator', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+    createColorVars('cToggleFg', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+
+    createColorVars('cToggleBgPressed', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+    createColorVars('cToggleIndicatorPressed', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+    createColorVars('cToggleFgPressed', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+
+    createColorVars('cToggleBgDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) - 5%)', '.35'),
+    createColorVars('cToggleIndicatorDisabled', 'var(--g5H)', 'var(--g5S)', 'calc(var(--g5L) - 30%)'),
+    createColorVars('cToggleFgDisabled', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+
+    createColorVars('cArrow', 'var(--cBtnFgH)', 'var(--cBtnFgS)', 'var(--cBtnFgL)', '1'),
+    createColorVars('cArrowFade', 'var(--cArrowH)', 'var(--cArrowS)', 'var(--cArrowL)', '0.3'),
+    createColorVars('cArrowDisabled', 'var(--cArrowH)', '0%', 'var(--cArrowL)', '0.2'),
+
+    createColorVars('cBlock', 'var(--g4H)', 'var(--g4S)', 'var(--g4L)'),
+    createColorVars('cSubBlock', 'var(--g3H)', 'var(--g3S)', 'var(--g3L)'),
+
+    createColorVars('cPremium', 'var(--b1H)', 'var(--b1S)', 'var(--b1L)'),
+    createColorVars('cPremium2', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+    createColorVars('cSettingsHeader', 'var(--g2H)', 'var(--g2S)', 'var(--g2L)'),
+    createColorVars('cSettingsFooter', 'var(--cSettingsHeaderH)', 'var(--cSettingsHeaderS)', 'var(--cSettingsHeaderL)'),
+    createColorVars('cSettingsPage', 'var(--g2H)', 'var(--g2S)', 'var(--g2L)'),
+    createColorVars('cSettingsPageScrollbar', 'var(--g4H)', 'var(--g4S)', 'var(--g4L)'),
+    createColorVars('cSettingsPageScrollthumb', 'var(--g3H)', 'var(--g3S)', 'calc(var(--g3L) + 12%)'),
+    createColorVars('cPanelBackdrop', '220deg', '40%', '60%', '0.3'),
+
+    createColorVars('cModalBg', 'var(--g4H)', 'var(--g4S)', 'var(--g4L)'),
+    createColorVars('cModalBackdrop', '0deg', '0%', '5%', '0.5'),
+  );
+  @each $colorSet in $colorSets {
+    @each $key, $value in $colorSet {
+      #{$key}: #{$value};
+    }
+  }
 }

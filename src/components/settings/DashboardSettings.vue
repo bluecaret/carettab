@@ -61,6 +61,7 @@ const handleNewWidgetClick = (type) => {
 </script>
 
 <template>
+  <PageHeading title="Settings dashbaord"></PageHeading>
   <div class="page">
     <ModalWindow v-if="!store.clearWhatsNewBox" :show="whatsNewModal">
       <template #button>
@@ -122,9 +123,7 @@ const handleNewWidgetClick = (type) => {
         </div>
       </template>
     </ModalWindow>
-    <h2 class="introHeader" :class="{ dashboardPadding: store.clearWhatsNewBox }">
-      Your Tab, Your Rules - Infinite customization at your fingertips!
-    </h2>
+    <h2 class="introHeader">Your Tab, Your Rules - Infinite customization at your fingertips!</h2>
     <draggable
       class="blockContainer"
       :list="store.config.layers"
@@ -136,6 +135,25 @@ const handleNewWidgetClick = (type) => {
       @end="drag = false"
     >
       <template #header>
+        <div class="block addWidgetBar">
+          <DropdownMenu ref="newWidgetMenu">
+            <template #button>
+              <button type="button" class="btn btnText">
+                <fa icon="fa-plus"></fa>
+                Add new widget
+              </button>
+            </template>
+            <template #menu>
+              <ul class="addWidgetMenu">
+                <li v-for="widget in widgetTypes" :key="widget.type">
+                  <button type="button" class="btn fit fill btnBlock" @click="handleNewWidgetClick(widget.type)">
+                    <fa class="fa-fw" :icon="widget.icon" />{{ widget.name }}
+                  </button>
+                </li>
+              </ul>
+            </template>
+          </DropdownMenu>
+        </div>
         <div v-if="store.config.layers.length < 1" class="block">
           <div class="group stack fill widgetHeader">
             <fa icon="fa-shapes" class="widgetHeaderIcon"></fa>
@@ -188,27 +206,6 @@ const handleNewWidgetClick = (type) => {
           </div>
         </div>
       </template>
-      <template #footer>
-        <div class="block addWidgetBar">
-          <DropdownMenu ref="newWidgetMenu">
-            <template #button>
-              <button type="button" class="btn btnText">
-                <fa icon="fa-plus"></fa>
-                Add new widget
-              </button>
-            </template>
-            <template #menu>
-              <ul class="addWidgetMenu">
-                <li v-for="widget in widgetTypes" :key="widget.type">
-                  <button type="button" class="btn fit fill btnBlock" @click="handleNewWidgetClick(widget.type)">
-                    <fa class="fa-fw" :icon="widget.icon" />{{ widget.name }}
-                  </button>
-                </li>
-              </ul>
-            </template>
-          </DropdownMenu>
-        </div>
-      </template>
     </draggable>
 
     <ToolBarSettings />
@@ -242,12 +239,9 @@ const handleNewWidgetClick = (type) => {
   font-size: 2rem;
   font-weight: 300;
   letter-spacing: 0.02em;
-  margin: 2rem auto;
+  margin: 0 auto 2rem auto;
   text-align: center;
-  color: var(--cBlue12);
-}
-
-.dashboardPadding {
+  color: var(--b2);
 }
 
 .outliner {
@@ -275,12 +269,20 @@ const handleNewWidgetClick = (type) => {
 }
 
 .whatsNewBox {
-  color: var(--cText);
-  background-color: var(--cBlue2);
-  margin-block-start: var(--s5);
+  color: var(--g1);
+  background-color: var(--b2);
+  margin-block-end: var(--s5);
   border-radius: var(--s4);
   padding: var(--s5);
   cursor: pointer;
+
+  .btn {
+    border-color: var(--g1);
+    color: var(--g1);
+    &:hover {
+      box-shadow: 0 0 0.5rem 0 var(--g1);
+    }
+  }
 
   .whatsNewIcon {
     font-size: 2.4rem;
@@ -331,27 +333,27 @@ const handleNewWidgetClick = (type) => {
     width: 100%;
     text-align: center;
     margin: 0;
-    color: var(--cBlue10);
+    color: var(--cTextSubtle);
   }
   h3 {
     font-weight: 600;
   }
   p {
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1.4rem;
-    color: var(--cBlue11);
+    color: var(--cTextSubtle);
   }
   .widgetHeaderIcon {
     margin: 0 auto;
     font-size: 4rem;
-    color: var(--cBlue10);
+    color: var(--cTextSubtle);
   }
 }
 
 .addWidgetBar {
   padding: 0;
   min-height: 0;
-  background-color: var(--cGrey4);
+  background-color: hsl(var(--cBlockH) calc(var(--cBlockS) + 20%) calc(var(--cBlockL) + 3%));
   .dropdownWrapper {
     width: 100%;
   }

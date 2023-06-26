@@ -17,7 +17,7 @@
   }
 
   > * {
-    background-color: var(--cGrey2);
+    background-color: var(--cBlock);
   }
 }
 
@@ -41,7 +41,7 @@
   }
 
   > * {
-    background-color: var(--cGrey1);
+    background-color: var(--cSubBlock);
   }
 }
 
@@ -52,9 +52,6 @@
   gap: var(--s4) var(--s5);
   padding: var(--s5);
   min-height: 6.6rem;
-  .disabled {
-    background-color: var(--cGrey1Alt);
-  }
 }
 
 .label,

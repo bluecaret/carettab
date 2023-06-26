@@ -361,6 +361,8 @@ const handleNewWidgetClick = (type) => {
     width: 100%;
     justify-content: center;
     padding: var(--s5);
+    border-top-left-radius: var(--s4);
+    border-top-right-radius: var(--s4);
   }
 }
 </style>

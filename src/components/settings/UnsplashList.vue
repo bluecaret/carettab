@@ -37,7 +37,7 @@ const handleUnsplashPhotoSearch = () => {
 </script>
 
 <template>
-  <PageHeading title="Unsplash.com photos" back-page="extension"></PageHeading>
+  <PageHeading title="Unsplash.com photos" back-page="dashboard"></PageHeading>
   <div class="page">
     <div class="tabs">
       <button

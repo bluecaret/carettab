@@ -129,6 +129,10 @@ a.link {
   .btn:last-child {
     border-radius: 0 var(--radius) var(--radius) 0;
   }
+
+  .btn:only-child {
+    border-radius: var(--radius);
+  }
 }
 
 .btnPlacementGroup {

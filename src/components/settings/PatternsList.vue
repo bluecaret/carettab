@@ -89,7 +89,7 @@ const handlePatternSelect = (id) => {
 </script>
 
 <template>
-  <PageHeading title="Patterns" back-page="extension"></PageHeading>
+  <PageHeading title="Patterns" back-page="dashboard"></PageHeading>
   <div class="page">
     <div class="blockContainer">
       <div class="block">

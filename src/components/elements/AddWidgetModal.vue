@@ -91,7 +91,7 @@ const handleWidgetClick = (type) => {
 }
 
 .widgetItemIcon {
-  font-size: 3rem;
+  font-size: 2.4rem;
   color: var(--cBtnFg);
 }
 

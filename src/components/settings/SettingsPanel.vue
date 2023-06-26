@@ -3,9 +3,7 @@ import { ref, onMounted, onUnmounted, inject, watch, nextTick } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { storeToRefs } from 'pinia'
 import DashboardSettings from '@/components/settings/DashboardSettings.vue'
-import ExtensionSettings from '@/components/settings/ExtensionSettings.vue'
 import AdvancedSettings from '@/components/settings/AdvancedSettings.vue'
-import GlobalWidgetSettings from '@/components/settings/GlobalWidgetSettings.vue'
 import PatternsList from '@/components/settings/PatternsList.vue'
 import UnsplashList from '@/components/settings/UnsplashList.vue'
 import PexelsList from '@/components/settings/PexelsList.vue'
@@ -68,9 +66,7 @@ const getReviewLink = () => {
     :class="{ panelPreview: store.togglePanelPreview, panelMove: store.panelMove }"
   >
     <DashboardSettings v-if="['dashboard'].includes(settingsPage)"></DashboardSettings>
-    <ExtensionSettings v-if="['extension'].includes(settingsPage)" />
     <AdvancedSettings v-if="['advanced'].includes(settingsPage)" />
-    <GlobalWidgetSettings v-if="['global'].includes(settingsPage)" />
     <PatternsList v-if="['patterns'].includes(settingsPage)"></PatternsList>
     <UnsplashList v-if="['unsplash'].includes(settingsPage)"></UnsplashList>
     <PexelsList v-if="['pexels'].includes(settingsPage)"></PexelsList>

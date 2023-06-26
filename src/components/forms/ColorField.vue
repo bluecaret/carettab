@@ -692,7 +692,7 @@ const getSwatchColor = (swatch) => {
   }
 
   .shadowSample.text::before {
-    content: 'A';
+    content: 'abc';
     font-size: 1.8rem;
     font-weight: 600;
     text-shadow: v-bind(pickerTextShadow);

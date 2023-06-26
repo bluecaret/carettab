@@ -38,7 +38,7 @@ const handlePexelsPhotoSearch = () => {
 </script>
 
 <template>
-  <PageHeading title="Pexels.com photos" back-page="extension"></PageHeading>
+  <PageHeading title="Pexels.com photos" back-page="dashboard"></PageHeading>
   <div class="page">
     <div class="tabs">
       <button

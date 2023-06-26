@@ -73,7 +73,7 @@ const importSettings = () => {
 </script>
 
 <template>
-  <PageHeading title="Advanced Settings" back-page="extension"></PageHeading>
+  <PageHeading title="Advanced Settings" back-page="dashboard"></PageHeading>
   <div class="page">
     <div class="blockContainer">
       <div class="block">

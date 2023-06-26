@@ -6,6 +6,9 @@ import { storeToRefs } from 'pinia'
 import { widgetTypes } from '@/assets/lists.js'
 import ToolBarSettings from '@/components/tools/ToolBarSettings.vue'
 import AddWidgetModal from '@/components/elements/AddWidgetModal.vue'
+import WallpaperSettings from '@/components/settings/WallpaperSettings.vue'
+import GlobalWidgetSettings from '@/components/settings/GlobalWidgetSettings.vue'
+import ExtensionSettings from '@/components/settings/ExtensionSettings.vue'
 
 const store = useSettingsStore()
 const { status } = storeToRefs(store)
@@ -194,25 +197,9 @@ const handleNewWidgetClick = (type) => {
     <ToolBarSettings />
 
     <div class="blockContainer">
-      <div class="block">
-        <div class="group fill">
-          <div class="label mra">General settings</div>
-          <button class="btn btnDesc" type="button" @click="store.goTo('extension')">
-            <fa icon="fa-gear" fixed-width></fa>
-            <div>
-              Extension settings
-              <small>Wallpaper, Language, etc.</small>
-            </div>
-          </button>
-          <button class="btn btnDesc" type="button" @click="store.goTo('global')">
-            <fa icon="fa-globe" fixed-width></fa>
-            <div>
-              Global widget styles
-              <small>Font, Container, Elements</small>
-            </div>
-          </button>
-        </div>
-      </div>
+      <WallpaperSettings />
+      <GlobalWidgetSettings />
+      <ExtensionSettings />
     </div>
   </div>
 </template>

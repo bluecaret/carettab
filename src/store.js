@@ -129,6 +129,8 @@ export const useSettingsStore = defineStore('settings', () => {
   const editing = ref('')
   const isLoading = ref(false)
   const showModal = ref(false)
+  const showPremiumModal = ref(false)
+  const premiumModalBtnRef = ref(null)
   const showOutliner = ref(false)
   const currentTime = ref('Sat Jan 01 2000 00:00:00 GMT-0800 (Pacific Standard Time)')
   const wallpaper = ref('default')
@@ -293,7 +295,9 @@ export const useSettingsStore = defineStore('settings', () => {
       await removeStorage(id, 'sync')
       await clearSupplementalSettings(id, type)
       await save()
-      isLoading.value = false
+      setTimeout(() => {
+        isLoading.value = false
+      }, 300)
     }
   }
 
@@ -396,6 +400,8 @@ export const useSettingsStore = defineStore('settings', () => {
     editing,
     isLoading,
     showModal,
+    showPremiumModal,
+    premiumModalBtnRef,
     showOutliner,
     currentTime,
     wallpaper,

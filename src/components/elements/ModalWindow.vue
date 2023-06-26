@@ -11,6 +11,10 @@ const props = defineProps({
   buttonRef: {
     type: Object,
   },
+  noTeleport: {
+    type: Boolean,
+    default: false,
+  },
 })
 const emit = defineEmits(['close'])
 const modalWindowEl = ref(null)
@@ -51,14 +55,24 @@ onBeforeUnmount(() => {
 <template>
   <slot name="button"> </slot>
 
-  <Teleport to="#modals">
+  <template v-if="props.noTeleport">
     <div v-if="props.show" class="modalWindowWrapper">
       <div class="modalOverlay"></div>
       <div ref="modalWindowEl" tabindex="-1" class="modalWindow">
         <slot name="window"> </slot>
       </div>
     </div>
-  </Teleport>
+  </template>
+  <template v-else>
+    <Teleport to="#modals">
+      <div v-if="props.show" class="modalWindowWrapper">
+        <div class="modalOverlay"></div>
+        <div ref="modalWindowEl" tabindex="-1" class="modalWindow">
+          <slot name="window"> </slot>
+        </div>
+      </div>
+    </Teleport>
+  </template>
 </template>
 
 <style lang="scss" scoped>
@@ -79,7 +93,16 @@ onBeforeUnmount(() => {
   inset: 0;
   z-index: -1;
   background-color: var(--cBackdrop);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(40px);
+  animation: fadeIn 0.2s ease-out forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .modalWindow {
@@ -94,5 +117,6 @@ onBeforeUnmount(() => {
   font-size: 1.8rem;
   font-weight: 300;
   color: var(--cText);
+  animation: fadeIn 0.2s ease-out forwards;
 }
 </style>

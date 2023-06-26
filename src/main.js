@@ -117,6 +117,7 @@ import {
   faDroplet,
   faDropletSlash,
   faPalette,
+  faLock,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faItalic,
@@ -208,7 +209,8 @@ library.add(
   faSwatchbook,
   faDroplet,
   faDropletSlash,
-  faPalette
+  faPalette,
+  faLock
 )
 
 // Run quick user check based on storage for a faster load

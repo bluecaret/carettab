@@ -148,8 +148,8 @@ const handleNewWidgetClick = (type) => {
           </div>
         </div>
       </template>
-      <template #item="{ element }">
-        <div class="block" :class="{ outliner: store.showOutliner, outlinerHidden: !element.on }">
+      <template #item="{ element, index }">
+        <div class="block" :class="{ outliner: store.showOutliner, outlinerHidden: !element.on }" :data-index="index">
           <button type="button" class="drag">
             <fa icon="fa-grip-vertical" size="xs" fixed-width></fa>
           </button>

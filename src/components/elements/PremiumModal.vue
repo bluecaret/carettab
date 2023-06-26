@@ -3,14 +3,10 @@ import { inject, ref } from 'vue'
 import { ExtPay } from '@/assets/ExtPay.js'
 import { getStorage, setStorage } from '@/store.js'
 import { checkLicense } from '@/helpers/data.js'
+import { useSettingsStore } from '@/store.js'
 
 const extpay = ExtPay('carettab')
-
-const props = defineProps({
-  show: {
-    type: Boolean,
-  },
-})
+const store = useSettingsStore()
 const emit = defineEmits(['close'])
 
 const user = inject('user')
@@ -40,13 +36,15 @@ const handleLicenseKey = async () => {
 </script>
 
 <template>
-  <ModalWindow :show="props.show" @close="emit('close')">
-    <template #button>
-      <slot></slot>
-    </template>
+  <ModalWindow :show="store.showPremiumModal" :button-ref="store.premiumModalBtnRef" no-teleport @close="emit('close')">
     <template #window>
       <div class="premiumModalContent">
-        <button class="premiumModalClose" type="button" aria-label="Close modal" @click="emit('close')">
+        <button
+          class="premiumModalClose"
+          type="button"
+          aria-label="Close modal"
+          @click="store.showPremiumModal = false"
+        >
           <fa icon="fa-close" />
         </button>
         <fa icon="fa-gem" class="premiumModalIcon" />

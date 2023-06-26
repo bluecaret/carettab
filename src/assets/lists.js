@@ -5,6 +5,7 @@ export const widgetTypes = [
     store: 'digitalClocks',
     name: 'Digital Clock',
     icon: 'fa-hashtag',
+    limit: 9999,
     desc: 'A sleek, modern way to keep track of the time, ensuring you always stay on schedule.',
   },
   {
@@ -13,6 +14,7 @@ export const widgetTypes = [
     store: 'analogClocks',
     name: 'Analog Clock',
     icon: 'fa-clock',
+    limit: 9999,
     desc: 'Embrace the charm of timeless elegance with an analog clock, offering a tasteful reminder of the passing hours and minutes.',
   },
   {
@@ -21,6 +23,7 @@ export const widgetTypes = [
     store: 'binaryClocks',
     name: 'Binary Clock',
     icon: 'fa-1',
+    limit: 5,
     desc: 'The perfect blend of tech and timekeeping, for those who appreciate a unique, coded perspective.',
   },
   {
@@ -29,6 +32,7 @@ export const widgetTypes = [
     store: 'dates',
     name: 'Date',
     icon: 'fa-calendar-day',
+    limit: 1,
     desc: 'Stay aligned with the rhythm of the year, displaying not only the date but also the day of the year, week of the year, and more.',
   },
   {
@@ -37,6 +41,7 @@ export const widgetTypes = [
     store: 'weathers',
     name: 'Weather',
     icon: 'fa-cloud-sun',
+    limit: 1,
     desc: 'Your personal meteorologist in your browser, offering key weather updates and forecasts at a glance.',
   },
   {
@@ -45,6 +50,7 @@ export const widgetTypes = [
     store: 'todos',
     name: 'Todo',
     icon: 'fa-clipboard-list',
+    limit: 1,
     desc: 'Your personalized task list at your fingertips, ensuring you stay focused and organized by managing your tasks directly from your new tab.',
   },
   {
@@ -53,6 +59,7 @@ export const widgetTypes = [
     store: 'notepads',
     name: 'Notepad',
     icon: 'fa-note-sticky',
+    limit: 1,
     desc: 'Your digital canvas for thoughts, ideas, and reminders, ensuring you never miss a beat.',
   },
   {
@@ -61,6 +68,7 @@ export const widgetTypes = [
     store: 'quotes',
     name: 'Quotes',
     icon: 'fa-quote-left',
+    limit: 1,
     desc: 'Your personal trove of wisdom and wit, this widget showcases your favorite quotes, handpicked and added by you.',
   },
   {
@@ -69,6 +77,7 @@ export const widgetTypes = [
     store: 'quickLinks',
     name: 'Quick Links',
     icon: 'fa-link',
+    limit: 2,
     desc: 'Your personal internet directory, curated by you, providing quick access to your favorite sites and saved bookmarks.',
   },
   {
@@ -77,6 +86,7 @@ export const widgetTypes = [
     store: 'searchBars',
     name: 'Search Bar',
     icon: 'fa-magnifying-glass',
+    limit: 1,
     desc: 'Your portal to the web, with the freedom to choose your preferred search engine for more tailored results.',
   },
   {
@@ -85,6 +95,7 @@ export const widgetTypes = [
     store: 'loadsheddings',
     name: 'Loadshedding',
     icon: 'fa-bolt',
+    limit: 999,
     desc: 'Stay ahead of power outages with this informative widget, helping South African residents manage their schedules better.',
   },
   {
@@ -93,6 +104,7 @@ export const widgetTypes = [
     store: 'shapes',
     name: 'Shape',
     icon: 'fa-shapes',
+    limit: 0,
     desc: 'Add a touch of geometry to your browser, letting you personalize your new tab with a variety of shapes.',
   },
   {
@@ -101,6 +113,7 @@ export const widgetTypes = [
     store: 'texts',
     name: 'Text',
     icon: 'fa-align-left',
+    limit: 0,
     desc: 'A customizable text area where you can write your own messages or simply use it to personalize your new tab with your favorite saying.',
   },
 ]

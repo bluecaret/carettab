@@ -10,6 +10,7 @@ import { fontList } from '@/assets/lists.js'
 import { ExtPay } from '@/assets/ExtPay.js'
 import { checkLicense } from '@/helpers/data.js'
 import { mergeV3Settings } from '@/helpers/mergeOldSettings.js'
+import PremiumModal from '@/components/elements/PremiumModal.vue'
 
 const { locale } = useI18n({ useScope: 'global' })
 const extpay = ExtPay('carettab')
@@ -96,6 +97,7 @@ const buildFontLink = computed(() => {
     <NewTab></NewTab>
     <SettingsPanel v-if="settingsOpen"></SettingsPanel>
     <div id="modals"></div>
+    <PremiumModal />
     <div id="dropdowns"></div>
     <LoadingOverlay v-if="isLoading"></LoadingOverlay>
   </div>

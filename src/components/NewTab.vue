@@ -89,6 +89,7 @@ const setTabTitle = () => {
     <WallpaperLayer></WallpaperLayer>
     <ToolBar v-if="store.config.toolbar.on" />
     <div class="tabGrid" :style="generateTabGridStyles">
+      <div><!--Placeholder to help setup outliner styles--></div>
       <template v-for="(layer, index) in store.config.layers" :key="layer.id">
         <AnalogClockWidget
           v-if="widgetNullCheck(layer, 'analogClock', store.config.analogClocks)"
@@ -207,49 +208,50 @@ const setTabTitle = () => {
     position: absolute;
     inset: 0;
     outline: 5px solid hsl(0deg 100% 50% / 50%);
+    outline-offset: -5px;
     pointer-events: none;
   }
   &::after {
     outline: 1px solid hsl(0deg 0% 100% / 80%);
   }
 
-  &:nth-child(10n + 1)::before {
+  &:nth-child(10n + 2)::before {
     outline-color: hsl(0deg 100% 50% / 50%);
   }
 
-  &:nth-child(10n + 2)::before {
+  &:nth-child(10n + 3)::before {
     outline-color: hsl(30deg 100% 50% / 50%);
   }
 
-  &:nth-child(10n + 3)::before {
+  &:nth-child(10n + 4)::before {
     outline-color: hsl(60deg 100% 50% / 50%);
   }
 
-  &:nth-child(10n + 4)::before {
+  &:nth-child(10n + 5)::before {
     outline-color: hsl(90deg 100% 50% / 50%);
   }
 
-  &:nth-child(10n + 5)::before {
+  &:nth-child(10n + 6)::before {
     outline-color: hsl(120deg 100% 50% / 50%);
   }
 
-  &:nth-child(10n + 6)::before {
+  &:nth-child(10n + 7)::before {
     outline-color: hsl(150deg 100% 50% / 50%);
   }
 
-  &:nth-child(10n + 7)::before {
+  &:nth-child(10n + 8)::before {
     outline-color: hsl(180deg 100% 50% / 50%);
   }
 
-  &:nth-child(10n + 8)::before {
+  &:nth-child(10n + 9)::before {
     outline-color: hsl(210deg 100% 50% / 50%);
   }
 
-  &:nth-child(10n + 9)::before {
+  &:nth-child(10n + 10)::before {
     outline-color: hsl(240deg 100% 50% / 50%);
   }
 
-  &:nth-child(10n + 10)::before {
+  &:nth-child(10n + 11)::before {
     outline-color: hsl(255deg 100% 50% / 50%);
   }
 }

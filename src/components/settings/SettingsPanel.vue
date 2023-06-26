@@ -7,7 +7,6 @@ import AdvancedSettings from '@/components/settings/AdvancedSettings.vue'
 import PatternsList from '@/components/settings/PatternsList.vue'
 import UnsplashList from '@/components/settings/UnsplashList.vue'
 import PexelsList from '@/components/settings/PexelsList.vue'
-import PremiumModal from '@/components/elements/PremiumModal.vue'
 import AnalogClockSettings from '@/components/widgets/AnalogClockSettings.vue'
 import BinaryClockSettings from '@/components/widgets/BinaryClockSettings.vue'
 import DigitalClockSettings from '@/components/widgets/DigitalClockSettings.vue'
@@ -26,6 +25,7 @@ const user = inject('user')
 const store = useSettingsStore()
 const { settingsPage } = storeToRefs(store)
 const panelEl = ref(null)
+const premiumBtnRef = ref(null)
 
 let ver = ref('#.#.#')
 
@@ -55,6 +55,11 @@ const getReviewLink = () => {
     return 'https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe'
   }
   return 'https://chrome.google.com/webstore/detail/carettab-new-tab-clock-an/cojpndognjdcakkimaloeealehpkljna/reviews'
+}
+
+const handleOpenPremiumModal = () => {
+  store.showPremiumModal = true
+  store.premiumModalBtnRef = premiumBtnRef.value
 }
 </script>
 
@@ -141,20 +146,19 @@ const getReviewLink = () => {
         <fa icon="fa-star-half-stroke" fixed-width></fa>
         {{ $t('options.dashboard.review') }}
       </a>
-      <PremiumModal :show="showPremiumModal" @close="showPremiumModal = false">
-        <button
-          class="btn footerPremium mla"
-          :class="user.paid ? 'footerPremiumPaid' : ''"
-          type="button"
-          @click="showPremiumModal = true"
-        >
-          <div>
-            <fa icon="fa-gem" fixed-width></fa>
-            {{ user.paid ? 'You have Premium Access!' : 'Get Premium Access' }}
-          </div>
-          <span v-if="user.paid">Manage subscription</span>
-        </button>
-      </PremiumModal>
+      <button
+        ref="premiumBtnRef"
+        class="btn footerPremium mla"
+        :class="user.paid ? 'footerPremiumPaid' : ''"
+        type="button"
+        @click="handleOpenPremiumModal()"
+      >
+        <div>
+          <fa icon="fa-gem" fixed-width></fa>
+          {{ user.paid ? 'You have Premium Access!' : 'Get Premium Access' }}
+        </div>
+        <span v-if="user.paid">Manage subscription</span>
+      </button>
     </footer>
   </div>
 </template>

@@ -6,6 +6,7 @@ import { storeToRefs } from 'pinia'
 import { widgetTypes } from '@/assets/lists.js'
 import ToolBarSettings from '@/components/tools/ToolBarSettings.vue'
 import AddWidgetModal from '@/components/elements/AddWidgetModal.vue'
+import BlueprintModal from '@/components/elements/BlueprintModal.vue'
 import WallpaperSettings from '@/components/settings/WallpaperSettings.vue'
 import GlobalWidgetSettings from '@/components/settings/GlobalWidgetSettings.vue'
 import ExtensionSettings from '@/components/settings/ExtensionSettings.vue'
@@ -139,6 +140,7 @@ const handleNewWidgetClick = (type) => {
       <template #header>
         <div class="block addWidgetBar">
           <AddWidgetModal @selected="handleNewWidgetClick($event)"></AddWidgetModal>
+          <BlueprintModal />
         </div>
         <div v-if="store.config.layers.length < 1" class="block">
           <div class="group stack fill widgetHeader">
@@ -191,6 +193,9 @@ const handleNewWidgetClick = (type) => {
             </div>
           </div>
         </div>
+      </template>
+      <template #footer>
+        <div class="block selectBlueprintBar"></div>
       </template>
     </draggable>
 
@@ -321,6 +326,13 @@ const handleNewWidgetClick = (type) => {
 }
 
 .addWidgetBar {
+  padding: var(--s4);
+  min-height: 0;
+  gap: var(--s4);
+  // background-color: hsl(var(--cBlockH) calc(var(--cBlockS) + 20%) calc(var(--cBlockL) + 3%));
+}
+
+.selectBlueprintBar {
   padding: 0;
   min-height: 0;
   background-color: hsl(var(--cBlockH) calc(var(--cBlockS) + 20%) calc(var(--cBlockL) + 3%));

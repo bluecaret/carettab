@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { useSettingsStore } from '@/store.js'
 
 const props = defineProps({
@@ -11,7 +11,13 @@ const props = defineProps({
 })
 
 const store = useSettingsStore()
-const widget = reactive(store.config[props.widgetStore][props.index].base)
+const widgetPrep = ref(null)
+if (props.widgetStore === 'global') {
+  widgetPrep.value = store.config.global
+} else {
+  widgetPrep.value = store.config[props.widgetStore][props.index].base
+}
+const widget = reactive(widgetPrep.value)
 
 const handleAlignUpdate = (alignment) => {
   widget.alignment = alignment

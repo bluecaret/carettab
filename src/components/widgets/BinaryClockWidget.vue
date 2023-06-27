@@ -57,7 +57,7 @@ const containerStyles = computed(() => {
 })
 
 const segmentStyles = (type, lsUsesMargin = false) => {
-  return setWidgetSegmentStyles(props.widget, type, lsUsesMargin)
+  return setWidgetSegmentStyles(props.widget, type, store.config.global, lsUsesMargin)
 }
 
 const gridGap = computed(() => {

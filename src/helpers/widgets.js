@@ -99,18 +99,23 @@ export const setWidgetContainerStyles = (widget, global, paid) => {
   return styles
 }
 
-export const setWidgetSegmentStyles = (widget, type, lsUsesMargin = false) => {
+export const setWidgetSegmentStyles = (widget, type, global, lsUsesMargin = false) => {
+  const segmentWGlobal = widget[type].override
+    ? widget[type]
+    : widget.base.font.override
+    ? widget.base.font
+    : global.font
   const segment = widget[type].override ? widget[type] : widget.base.font
 
   // Font styles
   const fontSize = `font-size: ${segment.size}px; `
   const letterSpacing = lsUsesMargin
-    ? `margin-inline: ${segment.letterSpacing}px; `
-    : `letter-spacing: ${segment.letterSpacing}px; `
+    ? `margin-inline: ${segmentWGlobal.letterSpacing}px; `
+    : `letter-spacing: ${segmentWGlobal.letterSpacing}px; `
   const translate = `translate: ${segment.x * -1}px ${segment.y * -1}px; `
-  const color = `color: hsl(${segment.color[0]}deg ${segment.color[1]}% ${segment.color[2]}% / ${segment.color[3]}); `
-  const textShadow = segment.shadow[0]
-    ? `text-shadow: ${segment.shadow[1]}px ${segment.shadow[2]}px ${segment.shadow[3]}px hsl(${segment.shadow[4]}deg ${segment.shadow[5]}% ${segment.shadow[6]}% / ${segment.shadow[7]}); `
+  const color = `color: hsl(${segmentWGlobal.color[0]}deg ${segmentWGlobal.color[1]}% ${segmentWGlobal.color[2]}% / ${segmentWGlobal.color[3]}); `
+  const textShadow = segmentWGlobal.shadow[0]
+    ? `text-shadow: ${segmentWGlobal.shadow[1]}px ${segmentWGlobal.shadow[2]}px ${segmentWGlobal.shadow[3]}px hsl(${segmentWGlobal.shadow[4]}deg ${segmentWGlobal.shadow[5]}% ${segmentWGlobal.shadow[6]}% / ${segmentWGlobal.shadow[7]}); `
     : 'text-shadow: none;'
 
   let styles = `${fontSize}${letterSpacing}${color}${textShadow}${translate}`

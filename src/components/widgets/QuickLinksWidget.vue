@@ -244,7 +244,7 @@ const setQuickLinksVars = computed(() => {
       --linkFamily: "${
         props.widget.base.font.override ? props.widget.base.font.family : store.config.global.font.family
       }";
-      --linkSize: ${props.widget.base.font.override ? props.widget.base.font.size : store.config.global.font.size}px;
+      --linkSize: ${props.widget.base.font.size}px;
       --linkIconSize: ${props.widget.link.iconSize}px;
       --linkLetterSpacing: ${
         props.widget.base.font.override ? props.widget.base.font.letterSpacing : store.config.global.font.letterSpacing

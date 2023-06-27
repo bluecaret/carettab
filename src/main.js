@@ -118,6 +118,8 @@ import {
   faDropletSlash,
   faPalette,
   faLock,
+  faCompassDrafting,
+  faTriangleExclamation,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faItalic,
@@ -210,7 +212,9 @@ library.add(
   faDroplet,
   faDropletSlash,
   faPalette,
-  faLock
+  faLock,
+  faCompassDrafting,
+  faTriangleExclamation
 )
 
 // Run quick user check based on storage for a faster load

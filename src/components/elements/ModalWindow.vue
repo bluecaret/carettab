@@ -20,7 +20,7 @@ const emit = defineEmits(['close'])
 const modalWindowEl = ref(null)
 
 const modalWidth = computed(() => {
-  return `min(90%, ${props.size})`
+  return `width: min(90%, ${props.size})`
 })
 
 watch(
@@ -56,21 +56,25 @@ onBeforeUnmount(() => {
   <slot name="button"> </slot>
 
   <template v-if="props.noTeleport">
-    <div v-if="props.show" class="modalWindowWrapper">
-      <div class="modalOverlay"></div>
-      <div ref="modalWindowEl" tabindex="-1" class="modalWindow">
-        <slot name="window"> </slot>
-      </div>
-    </div>
-  </template>
-  <template v-else>
-    <Teleport to="#modals">
+    <Transition name="modalTransition">
       <div v-if="props.show" class="modalWindowWrapper">
         <div class="modalOverlay"></div>
-        <div ref="modalWindowEl" tabindex="-1" class="modalWindow">
+        <div ref="modalWindowEl" tabindex="-1" class="modalWindow" :style="modalWidth">
           <slot name="window"> </slot>
         </div>
       </div>
+    </Transition>
+  </template>
+  <template v-else>
+    <Teleport to="#modals">
+      <Transition name="modalTransition">
+        <div v-if="props.show" class="modalWindowWrapper">
+          <div class="modalOverlay"></div>
+          <div ref="modalWindowEl" tabindex="-1" class="modalWindow" :style="modalWidth">
+            <slot name="window"> </slot>
+          </div>
+        </div>
+      </Transition>
     </Teleport>
   </template>
 </template>
@@ -88,25 +92,40 @@ onBeforeUnmount(() => {
   place-items: center;
 }
 
+.modalTransition-enter-active {
+  animation: blur 0.15s ease-in-out forwards;
+}
+.modalTransition-leave-active {
+  animation: blur 0.15s ease-in-out reverse forwards;
+}
+@keyframes blur {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(40px);
+  }
+}
+
 .modalOverlay {
   position: absolute;
   inset: 0;
   z-index: -1;
   background-color: var(--cBackdrop);
   backdrop-filter: blur(40px);
-  animation: fadeIn 0.2s ease-out forwards;
 }
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+// @keyframes fadeIn {
+//   from {
+//     opacity: 0;
+//   }
+//   to {
+//     opacity: 1;
+//   }
+// }
 
 .modalWindow {
-  width: v-bind(modalWidth);
   max-height: 90dvh;
   overflow-y: auto;
   box-shadow: 0 0 10px 0 var(--cShadow);
@@ -117,6 +136,6 @@ onBeforeUnmount(() => {
   font-size: 1.8rem;
   font-weight: 300;
   color: var(--cText);
-  animation: fadeIn 0.2s ease-out forwards;
+  // animation: fadeIn 0.2s ease-out forwards;
 }
 </style>

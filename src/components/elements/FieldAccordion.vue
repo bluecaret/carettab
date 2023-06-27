@@ -33,6 +33,7 @@ const open = ref(null)
     padding: var(--s5);
     margin: calc(var(--s5) * -1);
     width: auto;
+    transition: margin 0.3s ease-out;
   }
 }
 

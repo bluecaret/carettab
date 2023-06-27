@@ -4,7 +4,7 @@ import { useSettingsStore } from '@/store.js'
 import { fontList, fontWeight, textTransform } from '@/assets/lists.js'
 
 const props = defineProps({
-  noOverride: Boolean,
+  globalSetting: Boolean,
   index: Number,
   widgetStore: String,
   startOpen: Boolean,
@@ -34,7 +34,7 @@ const updateFamily = (family) => {
       </div>
     </template>
     <template #children>
-      <div v-if="!props.noOverride" class="block">
+      <div v-if="!props.globalSetting" class="block">
         <label for="fontSize" class="label mra"> Size </label>
         <NumberField
           v-model="widget.size"
@@ -45,14 +45,14 @@ const updateFamily = (family) => {
           :min="1"
         ></NumberField>
       </div>
-      <div v-if="!props.noOverride" class="block">
+      <div v-if="!props.globalSetting" class="block">
         <label for="overrideGlobalFont" class="label mra">Override global</label>
         <ToggleField v-model="widget.override" tag-id="overrideGlobalFont"> </ToggleField>
       </div>
-      <template v-if="props.noOverride || widget.override">
+      <template v-if="props.globalSetting || widget.override">
         <div class="block">
           <label for="fontFamily" class="label mra">
-            <div><PremiumLabel v-if="!props.noOverride" />Font</div>
+            <div><PremiumLabel v-if="!props.globalSetting" />Font</div>
           </label>
           <AutocompleteField
             class="w34"
@@ -63,7 +63,7 @@ const updateFamily = (family) => {
             allow-custom
             :list="fontList"
             :selected="widget.family"
-            :disabled="!props.noOverride && !user.paid"
+            :disabled="!props.globalSetting && !user.paid"
             @selected="(item) => updateFamily(item)"
           ></AutocompleteField>
         </div>
@@ -80,14 +80,14 @@ const updateFamily = (family) => {
         </div>
         <div class="block">
           <label class="label mra">
-            <div><PremiumLabel v-if="!props.noOverride" />Style</div>
+            <div><PremiumLabel v-if="!props.globalSetting" />Style</div>
           </label>
           <select
             id="fontBold"
             v-model="widget.bold"
             name="fontBold"
             class="select w11"
-            :disabled="!props.noOverride && !user.paid"
+            :disabled="!props.globalSetting && !user.paid"
             aria-label="Weight"
           >
             <option v-for="wgt in fontWeight" :key="wgt.id" :value="wgt.id">
@@ -101,7 +101,7 @@ const updateFamily = (family) => {
               class="btn"
               type="button"
               :class="{ active: widget.italic }"
-              :disabled="!props.noOverride && !user.paid"
+              :disabled="!props.globalSetting && !user.paid"
               @click="widget.italic = !widget.italic"
             >
               <fa icon="fa-italic" fixed-width></fa>
@@ -112,7 +112,7 @@ const updateFamily = (family) => {
               class="btn"
               type="button"
               :class="{ active: widget.underline }"
-              :disabled="!props.noOverride && !user.paid"
+              :disabled="!props.globalSetting && !user.paid"
               @click="widget.underline = !widget.underline"
             >
               <fa icon="fa-underline" fixed-width></fa>
@@ -121,14 +121,14 @@ const updateFamily = (family) => {
         </div>
         <div class="block">
           <label for="textTranform" class="label mra">
-            <div><PremiumLabel v-if="!props.noOverride" />Case</div>
+            <div><PremiumLabel v-if="!props.globalSetting" />Case</div>
           </label>
           <select
             id="textTranform"
             v-model="widget.transform"
             name="textTranform"
             class="select w20"
-            :disabled="!props.noOverride && !user.paid"
+            :disabled="!props.globalSetting && !user.paid"
           >
             <option v-for="opt in textTransform" :key="opt.id" :value="opt.id">
               {{ opt.label }}

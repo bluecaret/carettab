@@ -10,8 +10,10 @@ const exportSettings = async () => {
   let nextWallpaper = await getStorage('nextWallpaper', 'local')
   const settings = {
     config: JSON.parse(JSON.stringify(store.config)),
-    currentWallpaper: JSON.parse(JSON.stringify(currentWallpaper.currentWallpaper)),
-    nextWallpaper: JSON.parse(JSON.stringify(nextWallpaper.nextWallpaper)),
+    currentWallpaper: currentWallpaper.currentWallpaper
+      ? JSON.parse(JSON.stringify(currentWallpaper.currentWallpaper))
+      : {},
+    nextWallpaper: nextWallpaper.nextWallpaper ? JSON.parse(JSON.stringify(nextWallpaper.nextWallpaper)) : {},
   }
   const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(settings))
   const dlAnchorElem = document.createElement('a')

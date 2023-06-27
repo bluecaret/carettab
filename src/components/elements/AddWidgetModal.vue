@@ -101,9 +101,8 @@ const handleOpenPremiumModal = () => {
 .btn.addBtn {
   width: 100%;
   justify-content: center;
-  padding: var(--s5);
-  border-top-left-radius: var(--s4);
-  border-top-right-radius: var(--s4);
+  padding: var(--s4);
+  background-color: hsl(var(--cBlockH) calc(var(--cBlockS) + 20%) calc(var(--cBlockL) + 5%));
 }
 .widgetList {
   list-style: none;

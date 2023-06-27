@@ -61,17 +61,17 @@ export const blueprints = [
         },
         layers: [
           {
-            id: 'dt-cdy0gs',
+            id: 'dt-bluprt',
             on: true,
             widget: 'date',
           },
           {
-            id: 'sb-0c111m',
+            id: 'sb-bluprt',
             on: true,
             widget: 'searchBar',
           },
           {
-            id: 'dc-vfdf09',
+            id: 'dc-bluprt',
             on: true,
             widget: 'digitalClock',
           },
@@ -136,7 +136,7 @@ export const blueprints = [
               x: 0,
               y: 0,
             },
-            id: 'dc-vfdf09',
+            id: 'dc-bluprt',
             label: {
               color: [0, 0, 100, 1],
               label: 'Clock',
@@ -289,7 +289,7 @@ export const blueprints = [
               y: 0,
             },
             format: 'middle',
-            id: 'dt-cdy0gs',
+            id: 'dt-bluprt',
             month: {
               abbreviated: false,
               color: [0, 0, 100, 1],
@@ -394,7 +394,7 @@ export const blueprints = [
             engine: 'google',
             engineLabel: false,
             icon: true,
-            id: 'sb-0c111m',
+            id: 'sb-bluprt',
             label: 'Search the web...',
             overrideColors: true,
             padding: 6,
@@ -503,29 +503,29 @@ export const blueprints = [
         },
         layers: [
           {
-            id: 'dc-ma9nq7',
+            id: 'dc-bluprt',
             widget: 'digitalClock',
             on: true,
           },
           {
-            id: 'ql-kl6h9o',
+            id: 'ql-bluprt',
             on: true,
             widget: 'quickLinks',
           },
           {
-            id: 'td-xfjaei',
+            id: 'td-bluprt',
             on: true,
             widget: 'todo',
           },
           {
-            id: 'np-1uv41m',
+            id: 'np-bluprt',
             on: true,
             widget: 'notepad',
           },
         ],
         digitalClocks: [
           {
-            id: 'dc-ma9nq7',
+            id: 'dc-bluprt',
             timezone: 'America/Los_Angeles',
             monospace: true,
             spaceBetween: 0,
@@ -688,7 +688,7 @@ export const blueprints = [
               strikethrough: true,
             },
             filter: 'all',
-            id: 'td-xfjaei',
+            id: 'td-bluprt',
             label: {
               label: 'Todo',
               on: true,
@@ -754,7 +754,7 @@ export const blueprints = [
             borderRadius: 5,
             borderWidth: 0,
             height: 400,
-            id: 'np-1uv41m',
+            id: 'np-bluprt',
             overrideColors: true,
             padding: 12,
             shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
@@ -799,7 +799,7 @@ export const blueprints = [
               x: -20,
               y: -20,
             },
-            id: 'ql-kl6h9o',
+            id: 'ql-bluprt',
             layout: 'cg',
             link: {
               background: [0, 0, 0, 0.4],

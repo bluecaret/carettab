@@ -2,6 +2,10 @@
 import { ref } from 'vue'
 import { blueprints } from '@/helpers/blueprints.js'
 import { useSettingsStore, setStorage } from '@/store.js'
+import merge from 'lodash/merge'
+import find from 'lodash/find'
+import cloneDeep from 'lodash/cloneDeep'
+import isArray from 'lodash/isArray'
 
 const store = useSettingsStore()
 const show = ref(false)
@@ -11,9 +15,41 @@ const confirmationBtnEl = ref(null)
 const modalCloseEl = ref(null)
 
 const handleBlueprintSelection = async (blueprint) => {
-  console.log(blueprint)
   store.isLoading = true
-  store.$patch({ config: blueprint.blueprint.config })
+
+  // Clone the current config to avoid mutating the original
+  let newConfig = cloneDeep(store.config)
+
+  // Turn off any existing layers
+  newConfig.layers.forEach((l) => {
+    l.on = false
+  })
+
+  // Loop over the keys in the blueprint
+  Object.keys(blueprint.blueprint.config).forEach((key) => {
+    // Check if the property is an array
+    if (isArray(blueprint.blueprint.config[key])) {
+      // Handle array merging
+      blueprint.blueprint.config[key].forEach((blueprintItem) => {
+        // Find matching item in the config array
+        const storeItem = find(newConfig[key], { id: blueprintItem.id })
+
+        if (storeItem) {
+          // Merge matching items
+          merge(storeItem, blueprintItem)
+        } else {
+          // Push the new item into the config array if it's not found
+          newConfig[key].push(blueprintItem)
+        }
+      })
+    } else {
+      // Simply replace non-array properties
+      newConfig[key] = cloneDeep(blueprint.blueprint.config[key])
+    }
+  })
+
+  store.$patch({ config: newConfig })
+
   store.save()
   await setStorage({ currentWallpaper: blueprint.blueprint.currentWallpaper }, 'local')
   await setStorage({ nextWallpaper: blueprint.blueprint.nextWallpaper }, 'local')

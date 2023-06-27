@@ -151,7 +151,7 @@ const handleNewWidgetClick = (type) => {
         </div>
       </template>
       <template #item="{ element, index }">
-        <div class="block" :class="{ outliner: store.showOutliner, outlinerHidden: !element.on }" :data-index="index">
+        <div class="block" :class="{ outliner: store.showOutliner, disabled: !element.on }" :data-index="index">
           <button type="button" class="drag">
             <fa icon="fa-grip-vertical" size="xs" fixed-width></fa>
           </button>
@@ -169,7 +169,7 @@ const handleNewWidgetClick = (type) => {
           <div class="group">
             <ToggleField :model-value="element.on" @update:model-value="toggleWidget(element.id)"></ToggleField>
             <div class="btnGroup">
-              <button type="button" class="btn" @click="openWidget(element.id, element.widget)">
+              <button type="button" class="btn" :disabled="!element.on" @click="openWidget(element.id, element.widget)">
                 <fa icon="fa-pen" fixed-width></fa>Edit
               </button>
               <button
@@ -194,9 +194,6 @@ const handleNewWidgetClick = (type) => {
           </div>
         </div>
       </template>
-      <template #footer>
-        <div class="block selectBlueprintBar"></div>
-      </template>
     </draggable>
 
     <ToolBarSettings />
@@ -210,6 +207,13 @@ const handleNewWidgetClick = (type) => {
 </template>
 
 <style lang="scss" scoped>
+.disabled {
+  background-color: hsl(var(--cBlockH) var(--cBlockS) var(--cBlockL) / 0.5);
+  .label {
+    color: var(--cTextSubtle);
+  }
+}
+
 .introHeader {
   font-size: 2rem;
   font-weight: 300;
@@ -226,7 +230,7 @@ const handleNewWidgetClick = (type) => {
   &::after {
     outline-offset: -6px;
   }
-  &.outlinerHidden {
+  &.disabled {
     &::before,
     &::after {
       outline: none;

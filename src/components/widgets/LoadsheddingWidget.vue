@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted, inject } from 'vue'
+import { ref, computed, onMounted, inject, watch } from 'vue'
 import { useSettingsStore, setStorage, getStorage } from '@/store.js'
 import { setWidgetContainerStyles } from '@/helpers/widgets.js'
 import { DateTime } from 'luxon'
@@ -17,23 +17,40 @@ const props = defineProps({
 const cachedAreaInfo = ref(null)
 const days = ref([])
 const cacheTimePeriod = 7200000 // 2 hours
+let licenseTimer = null
 
-onMounted(async () => {
-  const areaInfo = await getStorage(`loadshedding-area-${props.widget.id}`, 'local')
-  if (!areaInfo[`loadshedding-area-${props.widget.id}`]) {
-    cachedAreaInfo.value = { cachedAt: new Date().getTime().toString(), data: null }
-  } else {
-    cachedAreaInfo.value = areaInfo[`loadshedding-area-${props.widget.id}`]
-  }
-  getDayData()
-  let areaCacheUntilTime = +cachedAreaInfo.value.cachedAt + cacheTimePeriod
-  if ((props.widget.license && new Date().getTime() > areaCacheUntilTime) || !cachedAreaInfo.value.data) {
-    // get the current schedule for this area
-    refreshData()
-  } else {
-    cachedAreaInfo.value = areaInfo[`loadshedding-area-${props.widget.id}`]
-  }
+onMounted(() => {
+  handleLoadsheddingInit()
 })
+
+watch(
+  () => props.widget.license,
+  () => {
+    clearTimeout(licenseTimer)
+    licenseTimer = setTimeout(() => handleLoadsheddingInit(), 2000)
+  }
+)
+
+const handleLoadsheddingInit = async () => {
+  if (props.widget.license) {
+    const areaInfo = await getStorage(`loadshedding-area-${props.widget.id}`, 'local')
+    if (!areaInfo[`loadshedding-area-${props.widget.id}`]) {
+      cachedAreaInfo.value = { cachedAt: new Date().getTime().toString(), data: null }
+    } else {
+      cachedAreaInfo.value = areaInfo[`loadshedding-area-${props.widget.id}`]
+    }
+    getDayData()
+    let areaCacheUntilTime = +cachedAreaInfo.value.cachedAt + cacheTimePeriod
+    if (new Date().getTime() > areaCacheUntilTime || !cachedAreaInfo.value.data) {
+      // get the current schedule for this area
+      refreshData()
+    } else {
+      cachedAreaInfo.value = areaInfo[`loadshedding-area-${props.widget.id}`]
+    }
+  } else {
+    cachedAreaInfo.value = { cachedAt: new Date().getTime().toString(), data: null }
+  }
+}
 
 const requestFromApi = async (url, params = null) => {
   const apiUrl = 'https://developer.sepush.co.za/business/2.0'
@@ -68,12 +85,14 @@ const requestFromApi = async (url, params = null) => {
   })
 }
 
-const refreshData = async () => {
+const refreshData = async (showLoading) => {
+  if (showLoading) store.isLoading = true
   let data = await requestFromApi('area', `id=${props.widget.area.id}`)
   let lKey = 'loadshedding-area-' + props.widget.id
   cachedAreaInfo.value = { cachedAt: new Date().getTime().toString(), data: data }
   getDayData()
   await setStorage({ [lKey]: JSON.parse(JSON.stringify(cachedAreaInfo.value)) }, 'local')
+  if (showLoading) store.isLoading = false
 }
 
 const getDayData = () => {
@@ -126,7 +145,9 @@ const containerStyles = computed(() => {
       <div v-if="cachedAreaInfo && cachedAreaInfo.data" class="loadsheddingContainer">
         <div class="loadsheddingSuburb">
           <div class="loadsheddingHeader">
-            <h2>{{ cachedAreaInfo.data.info.name }}</h2>
+            <h2>
+              {{ cachedAreaInfo.data.info.name }}
+            </h2>
             <div class="region">{{ cachedAreaInfo.data.info.region }}</div>
           </div>
           <div class="loadsheddingSchedules">
@@ -143,6 +164,9 @@ const containerStyles = computed(() => {
             </div>
           </div>
           <div class="loadsheddingDim">
+            <button type="button" class="refresh" title="Refresh data" @click="refreshData(true)">
+              <fa icon="fa-arrow-rotate-right" />
+            </button>
             Last refreshed:
             {{ DateTime.fromMillis(parseInt(cachedAreaInfo.cachedAt)).toFormat('dd MMM HH:mm a') }}
           </div>
@@ -153,6 +177,15 @@ const containerStyles = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+.refresh {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  margin: 0 0.4em 0 0;
+  padding: 0;
+  font-size: 1em;
+  color: currentColor;
+}
 .loadsheddingLocationListItem {
   display: flex;
   border-bottom: 1px solid currentColor;

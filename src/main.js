@@ -120,6 +120,7 @@ import {
   faLock,
   faCompassDrafting,
   faTriangleExclamation,
+  faArrowRotateRight,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faItalic,
@@ -214,7 +215,8 @@ library.add(
   faPalette,
   faLock,
   faCompassDrafting,
-  faTriangleExclamation
+  faTriangleExclamation,
+  faArrowRotateRight
 )
 
 // Run quick user check based on storage for a faster load

@@ -269,22 +269,22 @@ const setQuickLinksVars = computed(() => {
   >
     <FontLink v-if="props.widget.base.font.override" :widget="props.widget"></FontLink>
     <template v-if="true">
-      <div v-if="loading" class="noPermissions">Loading links...</div>
+      <div v-if="loading" class="noPermissions">{{ $t('widget.loadingLinks') }}</div>
       <div v-if="!bookmarksPermission && props.widget.type === 'bk' && !loading" class="noPermissions">
-        Permissions needed to display bookmarks
+        {{ $t('widget.permissionsNeededToDisplayBookmarks') }}
         <RequestPermissionModal
           permission="bookmarks"
           permission-label="Bookmarks"
-          reason="The Bookmarks permission is needed to retrieve the bookmarks you have saved in the browser. Denying this permission will prevent the Bookmarks from being shown."
+          :reason="$t('widget.theBookmarksPermissionIsNeeded')"
           @requested="checkBookmarksPermission()"
         />
       </div>
       <div v-if="!topSitesPermission && props.widget.type === 'mv' && !loading" class="noPermissions">
-        Permissions needed to display most visited
+        {{ $t('widget.permissionsNeededToDisplayMostVisited') }}
         <RequestPermissionModal
           permission="topSites"
           permission-label="Top Sites"
-          reason="The top sites permission is needed to retrieve the list of tope sites you have visited. Denying this permission will prevent the Most Visited list from being shown."
+          :reason="$t('widget.theTopSitesPermissionIsNeeded')"
           @requested="checkTopSitesPermission()"
         />
       </div>

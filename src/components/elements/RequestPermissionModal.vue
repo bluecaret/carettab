@@ -33,7 +33,7 @@ const requestPermission = async () => {
   <ModalWindow :show="show" size="460px" @close="show = false">
     <template #button>
       <button type="button" class="btn" @click.stop="show = true">
-        {{ btnLabel ? btnLabel : 'Allow permission' }}&hellip;
+        {{ btnLabel ? btnLabel : $t('settings.allowPermission') }}&hellip;
       </button>
     </template>
     <template #window>
@@ -42,16 +42,16 @@ const requestPermission = async () => {
           <button
             class="btn btnText close"
             type="button"
-            aria-label="{{'options.common.close' | translate}}"
+            :aria-label="$t('common.close')"
             @click="whatsNewModal = false"
           >
             <fa icon="fa-close" />
           </button>
-          <h3>Allow CaretTab access to {{ props.permissionLabel }}?</h3>
+          <h3>{{ $t('settings.allowCarettabAccessTo', [props.permissionLabel]) }}</h3>
           <p>{{ props.reason }}</p>
           <div class="group">
-            <button type="button" class="btn btnText" @click="show = false">Deny</button>
-            <button type="button" class="btn" @click="requestPermission()">Allow permission</button>
+            <button type="button" class="btn btnText" @click="show = false">{{ $t('common.deny') }}</button>
+            <button type="button" class="btn" @click="requestPermission()">{{ $t('settings.allowPermission') }}</button>
           </div>
         </div>
       </div>

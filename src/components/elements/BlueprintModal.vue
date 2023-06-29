@@ -65,21 +65,22 @@ const handleBlueprintSelection = async (blueprint) => {
   <ModalWindow :show="show" :button-ref="blueprintBtnEl" size="800px" @close="show = false">
     <template #button>
       <button ref="blueprintBtnEl" type="button" class="btn btnText addBtn" @click.stop="show = true">
-        <fa icon="fa-compass-drafting" /> Use a Blueprint
+        <fa icon="fa-compass-drafting" /> {{ $t('settings.useABlueprint') }}
       </button>
     </template>
     <template #window>
       <div class="modal">
         <header class="modalHeader">
           <h1 class="modalTitle">
-            <fa icon="fa-compass-drafting" style="margin-right: 1.5rem" size="lg" />Select a Blueprint to transform your
-            New Tab
+            <fa icon="fa-compass-drafting" style="margin-right: 1.5rem" size="lg" />{{
+              $t('settings.selectABlueprintToTransformYourNewTab')
+            }}
           </h1>
           <button
             ref="modalCloseEl"
             class="modalClose"
             type="button"
-            aria-label="{{'options.common.close' | translate}}"
+            :aria-label="$t('common.close')"
             @click="show = false"
           >
             <fa icon="fa-close" />
@@ -87,11 +88,9 @@ const handleBlueprintSelection = async (blueprint) => {
         </header>
         <div class="modalContent">
           <div class="explanation">
-            <div class="explanationTitle">What's a Blueprint?</div>
+            <div class="explanationTitle">{{ $t('settings.whatsABlueprint') }}</div>
             <div class="explanationDesc">
-              A Blueprint is a pre-configured layout with various widgets and settings already set up for you. It
-              provides an easy and quick way to customize your new tab, giving you a head start on personalizing your
-              browsing experience.
+              {{ $t('settings.whatsABlueprintDescription') }}
             </div>
           </div>
           <ul class="blueprintList">
@@ -113,12 +112,12 @@ const handleBlueprintSelection = async (blueprint) => {
                 <template #window>
                   <div class="modal">
                     <header class="modalHeader">
-                      <h1 class="modalTitle">Apply Blueprint?</h1>
+                      <h1 class="modalTitle">{{ $t('settings.applyBlueprint') }}</h1>
                       <button
                         ref="modalCloseEl"
                         class="modalClose"
                         type="button"
-                        aria-label="{{'options.common.close' | translate}}"
+                        :aria-label="$t('common.close')"
                         @click="showConfirmation = false"
                       >
                         <fa icon="fa-close" />
@@ -126,18 +125,20 @@ const handleBlueprintSelection = async (blueprint) => {
                     </header>
                     <div class="modalContent">
                       <div class="warning">
-                        <strong><fa icon="fa-triangle-exclamation" /> Caution:</strong> Applying a Blueprint overhauls
-                        many of your current settings, including widgets, colors, positioning, fonts, and wallpapers.
-                        While widgets with custom content such as Quotes and Notepads will be preserved, their display
-                        settings may alter. It's strongly advised to back up your current settings before proceeding.
+                        <strong><fa icon="fa-triangle-exclamation" /> {{ $t('settings.caution') }}</strong>
+                        {{ $t('settings.blueprintCaution') }}
                       </div>
                       <p>
-                        Are you sure you want to apply the <strong>{{ blueprint.name }}</strong> blueprint?
+                        {{ store.tSplit($t('settings.areYouSureYouWantToApplyBlueprint', [blueprint.name]))[0] }}
+                        <strong>{{ blueprint.name }}</strong>
+                        {{ store.tSplit($t('settings.areYouSureYouWantToApplyBlueprint', [blueprint.name]))[1] }}
                       </p>
                       <div class="group fill">
-                        <button type="button" class="btn btnText mla" @click="showConfirmation = false">Cancel</button>
+                        <button type="button" class="btn btnText mla" @click="showConfirmation = false">
+                          {{ $t('common.cancel') }}
+                        </button>
                         <button type="button" class="btn" @click="handleBlueprintSelection(blueprint)">
-                          Yes, apply blueprint
+                          {{ $t('settings.yesApplyBlueprint') }}
                         </button>
                       </div>
                     </div>

@@ -1,0 +1,12 @@
+{
+  "dashboard": {
+    "review": "レビュー"
+  },
+  "updates": {
+    "fixesAndOthers": "修正とその他の変更",
+    "newFeatures": "新機能"
+  },
+  "settings": {
+    "credit": "CaretTab{'|'}は{'|'}BlueCaret{'|'}によって作成され、{'|'}GPL 3.0{'|'}の下でライセンスされています。"
+  }
+}

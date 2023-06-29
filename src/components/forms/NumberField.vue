@@ -48,7 +48,7 @@ function handleArrowUpdate(up) {
     <button
       class="numBtn"
       tabindex="-1"
-      aria-label="Increase number"
+      :aria-label="$t('settings.increaseNumber')"
       :disabled="props.disabled ? 'disabled' : null"
       @click="handleArrowUpdate(true)"
     >
@@ -57,7 +57,7 @@ function handleArrowUpdate(up) {
     <button
       class="numBtn"
       tabindex="-1"
-      aria-label="Decrease number"
+      :aria-label="$t('settings.decreaseNumber')"
       :disabled="props.disabled ? 'disabled' : null"
       @click="handleArrowUpdate(false)"
     >

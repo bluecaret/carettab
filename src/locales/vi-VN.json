@@ -1,0 +1,12 @@
+{
+  "dashboard": {
+    "review": "Ôn tập"
+  },
+  "updates": {
+    "fixesAndOthers": "Bản sửa lỗi và các thay đổi khác",
+    "newFeatures": "Các tính năng mới"
+  },
+  "settings": {
+    "credit": "CaretTab{'|'} được tạo bởi {'|'}BlueCaret{'|'} và được cấp phép theo {'|'}GPL 3.0{'|'}."
+  }
+}

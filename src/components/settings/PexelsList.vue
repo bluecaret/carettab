@@ -38,7 +38,7 @@ const handlePexelsPhotoSearch = () => {
 </script>
 
 <template>
-  <PageHeading title="Pexels.com photos" back-page="dashboard"></PageHeading>
+  <PageHeading :title="$t('settings.pexelsComPhotos')" back-page="dashboard"></PageHeading>
   <div class="page">
     <div class="tabs">
       <button
@@ -47,7 +47,7 @@ const handlePexelsPhotoSearch = () => {
         type="button"
         @click="handleTabChange('search')"
       >
-        Search
+        {{ $t('settings.search') }}
       </button>
       <button
         class="btn tab"
@@ -55,7 +55,7 @@ const handlePexelsPhotoSearch = () => {
         type="button"
         @click="handleTabChange('carettab')"
       >
-        Hand-picked for CaretTab
+        {{ $t('settings.handPickedForCarettab') }}
       </button>
       <button
         class="btn tab"
@@ -63,7 +63,7 @@ const handlePexelsPhotoSearch = () => {
         type="button"
         @click="handleTabChange('curated')"
       >
-        Curated
+        {{ $t('settings.curated') }}
       </button>
       <button
         class="btn tab"
@@ -71,45 +71,45 @@ const handlePexelsPhotoSearch = () => {
         type="button"
         @click="handleTabChange('collections')"
       >
-        Collections
+        {{ $t('settings.collections') }}
       </button>
     </div>
     <div class="blockContainer">
       <div v-if="store.pexelsTab === 'carettab'" class="block">
         <div class="label">
-          <label for="backgroundColor">Random daily photo hand-picked to work great with CaretTab</label>
-          <div class="desc">Selecting a list will show a random photo from that list each day.</div>
+          <label for="backgroundColor">{{ $t('settings.pexelsTabCaretTabLabel') }}</label>
+          <div class="desc">{{ $t('settings.pexelsTabCaretTabDescription') }}</div>
         </div>
       </div>
       <div v-if="store.pexelsTab === 'collections'" class="block">
         <div class="label">
-          <label for="backgroundColor">Random daily photo from Pexels lists</label>
-          <div class="desc">Selecting a list will show a random photo from that list each day.</div>
+          <label for="backgroundColor">{{ $t('settings.pexelsTabCollectionsLabel') }}</label>
+          <div class="desc">{{ $t('settings.pexelsTabCollectionsDescription') }}</div>
         </div>
       </div>
       <div v-if="store.pexelsTab === 'curated'" class="block">
         <div class="group fill">
           <div class="label fill mra">
-            <label for="backgroundColor">Pexels curated photos</label>
-            <div class="desc">Find a single photo from Pexels curated list to use as the wallpaper.</div>
+            <label for="backgroundColor">{{ $t('settings.pexelsTabCuratedLabel') }}</label>
+            <div class="desc">{{ $t('settings.pexelsTabCuratedDescription') }}</div>
           </div>
           <div>
             <button type="button" class="btn fit" @click="getSelectedPexelsImage(null, null, null)">
-              Use daily curated photo
+              {{ $t('settings.useDailyCuratedPhoto') }}
             </button>
           </div>
         </div>
       </div>
       <div v-if="store.pexelsTab === 'search'" class="block">
         <div class="label">
-          <label for="backgroundColor">Search Pexels photos</label>
-          <div class="desc">Find a single photo from Pexels to use as the wallpaper.</div>
+          <label for="backgroundColor">{{ $t('settings.searchPexelsPhotos') }}</label>
+          <div class="desc">{{ $t('settings.searchPexelsPhotosDescription') }}</div>
         </div>
         <form class="group fill compact" novalidate @submit.prevent="handlePexelsPhotoSearch()">
           <input v-model="store.pexelsSearchTerm" type="text" class="input fill" />
           <button type="submit" class="btn">
             <fa icon="fa-search" fixed-width></fa>
-            Search
+            {{ $t('settings.search') }}
           </button>
         </form>
       </div>
@@ -120,16 +120,16 @@ const handlePexelsPhotoSearch = () => {
           "
           class="pexelsResultsDefault"
         >
-          Search for a photo above to see results.
+          {{ $t('settings.searchForAPhotoAboveToSeeResults') }}
         </div>
         <div
           v-if="store.pexelsStatus === 'results' && store.pexelsSearchResults.length <= 0"
           class="pexelsResultsDefault"
         >
-          No results found, please try another search.
+          {{ $t('settings.noResultsFoundPleaseTryAnotherSearch') }}
         </div>
         <div v-if="store.pexelsStatus === 'results' && store.pexelsSearchResults.length > 0" class="group fill">
-          <label id="pexelsSelect" class="label">Search results</label>
+          <label id="pexelsSelect" class="label">{{ $t('settings.searchResults') }}</label>
         </div>
         <div v-if="store.pexelsStatus === 'results' && store.pexelsSearchResults.length > 0" class="group fill">
           <div class="bgTypeList">
@@ -140,12 +140,14 @@ const handlePexelsPhotoSearch = () => {
               type="button"
               class="bgTypeListItem"
               :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
-              @click="getSelectedPexelsImage(photo.id, photo.alt ? photo.alt : 'Photo from Pexels.com', photo.url)"
+              @click="
+                getSelectedPexelsImage(photo.id, photo.alt ? photo.alt : $t('settings.photoFromPexelsCom'), photo.url)
+              "
             >
               <div
                 class="bgTypeListItemPreview"
-                :alt="photo.alt ? photo.alt : 'Photo from Pexels.com'"
-                :title="photo.alt ? photo.alt : 'Photo from Pexels.com'"
+                :alt="photo.alt ? photo.alt : $t('settings.photoFromPexelsCom')"
+                :title="photo.alt ? photo.alt : $t('settings.photoFromPexelsCom')"
                 :style="`background-image: url(${photo.src.medium})`"
               ></div>
               <div class="bgTypeListItemName">
@@ -153,9 +155,9 @@ const handlePexelsPhotoSearch = () => {
                   class="pexelsDescription"
                   target="_blank"
                   :href="photo.url"
-                  :title="photo.alt ? photo.alt : 'Photo from Pexels.com'"
+                  :title="photo.alt ? photo.alt : $t('settings.photoFromPexelsCom')"
                 >
-                  {{ photo.alt ? photo.alt : 'Photo from Pexels.com' }}
+                  {{ photo.alt ? photo.alt : $t('settings.photoFromPexelsCom') }}
                 </a>
                 <div>
                   By
@@ -167,8 +169,8 @@ const handlePexelsPhotoSearch = () => {
         </div>
         <div v-if="!store.isLoading && store.pexelsSearchResults.length > 0" class="pagination">
           <button
-            aria-label="Previous page"
-            title="Previous page"
+            :aria-label="$t('common.previousPage')"
+            :title="$t('common.previousPage')"
             type="button"
             class="btn"
             :disabled="store.pexelsSearchPage <= 1"
@@ -178,8 +180,8 @@ const handlePexelsPhotoSearch = () => {
           </button>
           <div class="currentPage" aria-current="true">Page {{ store.pexelsSearchPage }}</div>
           <button
-            aria-label="Next page"
-            title="Next page"
+            :aria-label="$t('common.nextPage')"
+            :title="$t('common.nextPage')"
             type="button"
             class="btn"
             :disabled="store.pexelsSearchResults.length <= 20"
@@ -199,12 +201,14 @@ const handlePexelsPhotoSearch = () => {
               type="button"
               class="bgTypeListItem"
               :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
-              @click="getSelectedPexelsImage(photo.id, photo.alt ? photo.alt : 'Photo from Pexels.com', photo.url)"
+              @click="
+                getSelectedPexelsImage(photo.id, photo.alt ? photo.alt : $t('settings.photoFromPexelsCom'), photo.url)
+              "
             >
               <div
                 class="bgTypeListItemPreview"
-                :alt="photo.alt ? photo.alt : 'Photo from Pexels.com'"
-                :title="photo.alt ? photo.alt : 'Photo from Pexels.com'"
+                :alt="photo.alt ? photo.alt : $t('settings.photoFromPexelsCom')"
+                :title="photo.alt ? photo.alt : $t('settings.photoFromPexelsCom')"
                 :style="`background-image: url(${photo.src.medium})`"
               ></div>
               <div class="bgTypeListItemName">
@@ -212,9 +216,9 @@ const handlePexelsPhotoSearch = () => {
                   class="pexelsDescription"
                   target="_blank"
                   :href="photo.url"
-                  :title="photo.alt ? photo.alt : 'Photo from Pexels.com'"
+                  :title="photo.alt ? photo.alt : $t('settings.photoFromPexelsCom')"
                 >
-                  {{ photo.alt ? photo.alt : 'Photo from Pexels.com' }}
+                  {{ photo.alt ? photo.alt : $t('settings.photoFromPexelsCom') }}
                 </a>
                 <div>
                   By
@@ -226,8 +230,8 @@ const handlePexelsPhotoSearch = () => {
         </div>
         <div v-if="!store.isLoading && store.pexelsCuratedResults.length > 0" class="pagination">
           <button
-            aria-label="Previous page"
-            title="Previous page"
+            :aria-label="$t('common.previousPage')"
+            :title="$t('common.previousPage')"
             type="button"
             class="btn"
             :disabled="store.pexelsCuratedPage <= 1"
@@ -237,8 +241,8 @@ const handlePexelsPhotoSearch = () => {
           </button>
           <div class="currentPage" aria-current="true">Page {{ store.pexelsCuratedPage }}</div>
           <button
-            aria-label="Next page"
-            title="Next page"
+            :aria-label="$t('common.nextPage')"
+            :title="$t('common.nextPage')"
             type="button"
             class="btn"
             :disabled="store.pexelsCuratedResults.length <= 20"
@@ -261,15 +265,15 @@ const handlePexelsPhotoSearch = () => {
               @click="getSelectedPexelsImage(collection.id, collection.title, null)"
             >
               <div class="bgTypeListItemName pexelsCollectionName">
-                {{ collection.title }}<span>{{ collection.photos_count }} Photos</span>
+                {{ collection.title }}<span>{{ $t('settings.photosCount', [collection.photos_count]) }}</span>
               </div>
             </button>
           </div>
         </div>
         <div v-if="!store.isLoading && store.pexelsCollectionResults.length > 0" class="pagination">
           <button
-            aria-label="Previous page"
-            title="Previous page"
+            :aria-label="$t('common.previousPage')"
+            :title="$t('common.previousPage')"
             type="button"
             class="btn"
             :disabled="store.pexelsCollectionPage <= 1"
@@ -277,10 +281,12 @@ const handlePexelsPhotoSearch = () => {
           >
             <fa icon="fa-caret-left" fixed-width></fa>
           </button>
-          <div class="currentPage" aria-current="true">Page {{ store.pexelsCollectionPage }}</div>
+          <div class="currentPage" aria-current="true">
+            {{ $t('settings.pageCount', [store.pexelsCollectionPage]) }}
+          </div>
           <button
-            aria-label="Next page"
-            title="Next page"
+            :aria-label="$t('common.nextPage')"
+            :title="$t('common.nextPage')"
             type="button"
             class="btn"
             :disabled="store.pexelsCollectionResults.length <= 20"
@@ -303,15 +309,15 @@ const handlePexelsPhotoSearch = () => {
               @click="getSelectedPexelsImage(collection.id, collection.title, null)"
             >
               <div class="bgTypeListItemName pexelsCollectionName">
-                {{ collection.title }}<span>{{ collection.photos_count }} Photos</span>
+                {{ collection.title }}<span>{{ $t('settings.photosCount', [collection.photos_count]) }}</span>
               </div>
             </button>
           </div>
         </div>
         <div v-if="!store.isLoading && store.pexelsCarettabResults.length > 0" class="pagination">
           <button
-            aria-label="Previous page"
-            title="Previous page"
+            :aria-label="$t('common.previousPage')"
+            :title="$t('common.previousPage')"
             type="button"
             class="btn"
             :disabled="store.pexelsCarettabPage <= 1"
@@ -319,10 +325,10 @@ const handlePexelsPhotoSearch = () => {
           >
             <fa icon="fa-caret-left" fixed-width></fa>
           </button>
-          <div class="currentPage" aria-current="true">Page {{ store.pexelsCarettabPage }}</div>
+          <div class="currentPage" aria-current="true">{{ $t('settings.pageCount', [store.pexelsCarettabPage]) }}</div>
           <button
-            aria-label="Next page"
-            title="Next page"
+            :aria-label="$t('common.nextPage')"
+            :title="$t('common.nextPage')"
             type="button"
             class="btn"
             :disabled="store.pexelsCarettabResults.length <= 20"

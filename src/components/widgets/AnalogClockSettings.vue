@@ -39,15 +39,15 @@ const selectTimezone = (tz) => {
     <div class="blockContainer">
       <FieldAccordion>
         <template #label>
-          <div class="label">Label</div>
+          <div class="label">{{ $t('widget.label') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="enableLabel" class="label mra">Enable label</label>
+            <label for="enableLabel" class="label mra">{{ $t('widget.enableLabel') }}</label>
             <ToggleField v-model="widget.label.on" tag-id="enableLabel"></ToggleField>
           </div>
           <div v-if="widget.label.on" class="block">
-            <label for="labelText" class="label mra">Label text</label>
+            <label for="labelText" class="label mra">{{ $t('widget.labelText') }}</label>
             <input id="labelText" v-model="widget.label.label" type="text" class="input w20" />
           </div>
           <WidgetSegmentFont
@@ -67,8 +67,8 @@ const selectTimezone = (tz) => {
       </FieldAccordion>
       <div class="block">
         <div class="label mra">
-          <label for="clockTimezone">Timezone</label>
-          <div class="desc">Enter a timezone name (e.g. "America/Los_Angeles").</div>
+          <label for="clockTimezone">{{ $t('widget.timezone') }}</label>
+          <div class="desc">{{ $t('widget.enterATimezoneName') }}</div>
         </div>
         <AutocompleteField
           tag-id="clockTimezone"
@@ -80,15 +80,15 @@ const selectTimezone = (tz) => {
       </div>
       <FieldAccordion>
         <template #label>
-          <div class="label">Clock face</div>
+          <div class="label">{{ $t('widget.clockFace') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="clockSize" class="label mra">Size</label>
+            <label for="clockSize" class="label mra">{{ $t('common.size') }}</label>
             <NumberField v-model="widget.size" :increment="10" class="w10" tag-id="clockSize"> </NumberField>
           </div>
           <div class="block">
-            <label for="faceStyle" class="label mra">Style</label>
+            <label for="faceStyle" class="label mra">{{ $t('settings.style') }}</label>
             <select id="faceStyle" v-model="widget.face.style" name="faceStyle" class="select w20">
               <option
                 v-for="st in analogFaceStyles"
@@ -101,42 +101,42 @@ const selectTimezone = (tz) => {
             </select>
           </div>
           <div class="block">
-            <label for="faceBorderSize" class="label mra">Border size</label>
+            <label for="faceBorderSize" class="label mra">{{ $t('common.borderSize') }}</label>
             <NumberField v-model="widget.face.borderSize" class="w10" tag-id="faceBorderSize"> </NumberField>
           </div>
           <div class="block">
-            <label for="hourOverride" class="label mra">Override colors</label>
+            <label for="hourOverride" class="label mra">{{ $t('widget.overrideColors') }}</label>
             <ToggleField v-model="widget.face.override" tag-id="hourOverride"></ToggleField>
           </div>
           <div v-if="widget.face.override" class="block">
-            <label for="faceBorderColor" class="label mra">Border color</label>
+            <label for="faceBorderColor" class="label mra">{{ $t('common.borderColor') }}</label>
             <ColorField v-model="widget.face.borderColor" class="w20" tag-id="faceBorderColor"></ColorField>
           </div>
           <div v-if="widget.face.override" class="block">
-            <label for="qmc" class="label mra">Quarter mark</label>
+            <label for="qmc" class="label mra">{{ $t('widget.quarterMark') }}</label>
             <ColorField v-model="widget.face.quarterColor" class="w20" tag-id="qmc"></ColorField>
           </div>
           <div v-if="widget.face.override" class="block">
-            <label for="hmc" class="label mra">Hour mark</label>
+            <label for="hmc" class="label mra">{{ $t('widget.hourMark') }}</label>
             <ColorField v-model="widget.face.hourColor" class="w20" tag-id="hmc"></ColorField>
           </div>
           <div v-if="widget.face.override" class="block">
-            <label for="mmc" class="label mra">Minute mark</label>
+            <label for="mmc" class="label mra">{{ $t('widget.minuteMark') }}</label>
             <ColorField v-model="widget.face.minuteColor" class="w20" tag-id="mmc"></ColorField>
           </div>
           <div v-if="widget.face.override" class="block">
-            <label for="faceShadow" class="label mra">Shadow</label>
+            <label for="faceShadow" class="label mra">{{ $t('common.shadow') }}</label>
             <ColorField v-model="widget.face.shadow" shadow class="w20" tag-id="faceShadow"> </ColorField>
           </div>
         </template>
       </FieldAccordion>
       <FieldAccordion>
         <template #label>
-          <div class="label">Clock hands</div>
+          <div class="label">{{ $t('widget.clockHands') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="handStyle" class="label mra">Style</label>
+            <label for="handStyle" class="label mra">{{ $t('settings.style') }}</label>
             <select id="handStyle" v-model="widget.hand.style" name="handStyle" class="select w20">
               <option
                 v-for="st in analogHandStyles"
@@ -149,60 +149,60 @@ const selectTimezone = (tz) => {
             </select>
           </div>
           <div class="block">
-            <label for="hourOverride" class="label mra">Override colors</label>
+            <label for="hourOverride" class="label mra">{{ $t('widget.overrideColors') }}</label>
             <ToggleField v-model="widget.hand.override" tag-id="hourOverride"></ToggleField>
           </div>
           <div class="block">
-            <label for="enableCenter" class="label mra">Enable center circle</label>
+            <label for="enableCenter" class="label mra">{{ $t('widget.enableCenterCircle') }}</label>
             <ToggleField v-model="widget.center.on" tag-id="enableCenter"></ToggleField>
           </div>
           <div v-if="widget.hand.override && widget.center.on" class="block">
-            <label for="centerColor" class="label mra">Center circle color</label>
+            <label for="centerColor" class="label mra">{{ $t('widget.centerCircleColor') }}</label>
             <ColorField v-model="widget.center.color" tag-id="centerColor" class="w20"></ColorField>
           </div>
           <div class="block">
-            <label for="enableHour" class="label mra">Enable hour hand</label>
+            <label for="enableHour" class="label mra">{{ $t('widget.enableHourHand') }}</label>
             <ToggleField v-model="widget.hour.on" tag-id="enableHour"></ToggleField>
           </div>
           <div v-if="widget.hand.override && widget.hour.on" class="block">
-            <label for="hourColor" class="label mra">Hour hand color</label>
+            <label for="hourColor" class="label mra">{{ $t('widget.hourHandColor') }}</label>
             <ColorField v-model="widget.hour.color" tag-id="hourColor" class="w20"></ColorField>
           </div>
           <div class="block">
-            <label for="enableMinute" class="label mra">Enable minute hand</label>
+            <label for="enableMinute" class="label mra">{{ $t('widget.enableMinuteHand') }}</label>
             <ToggleField v-model="widget.min.on" tag-id="enableMinute"></ToggleField>
           </div>
           <div v-if="widget.hand.override && widget.min.on" class="block">
-            <label for="minColor" class="label mra">Minute hand color</label>
+            <label for="minColor" class="label mra">{{ $t('widget.minuteHandColor') }}</label>
             <ColorField v-model="widget.min.color" tag-id="minColor" class="w20"></ColorField>
           </div>
           <div class="block">
-            <label for="enableSecond" class="label mra">Enable second hand</label>
+            <label for="enableSecond" class="label mra">{{ $t('widget.enableSecondHand') }}</label>
             <ToggleField v-model="widget.sec.on" tag-id="enableSecond"></ToggleField>
           </div>
           <div v-if="widget.sec.on" class="block">
-            <label for="secondSmooth" class="label mra">Smooth seconds movement</label>
+            <label for="secondSmooth" class="label mra">{{ $t('widget.smoothSecondsMovement') }}</label>
             <ToggleField v-model="widget.sec.smoothSeconds" tag-id="secondSmooth"></ToggleField>
           </div>
           <div v-if="widget.hand.override && widget.sec.on" class="block">
-            <label for="secColor" class="label mra">Second hand color</label>
+            <label for="secColor" class="label mra">{{ $t('widget.secondHandColor') }}</label>
             <ColorField v-model="widget.sec.color" tag-id="secColor" class="w20"></ColorField>
           </div>
           <div v-if="widget.hand.override" class="block">
-            <label for="handShadow" class="label mra">Shadow</label>
+            <label for="handShadow" class="label mra">{{ $t('common.shadow') }}</label>
             <ColorField v-model="widget.hand.shadow" shadow tag-id="handShadow" class="w20"> </ColorField>
           </div>
         </template>
       </FieldAccordion>
       <FieldAccordion>
         <template #label>
-          <div class="label">Relative time</div>
+          <div class="label">{{ $t('widget.relativeTime') }}</div>
         </template>
         <template #children>
           <div class="block">
             <div class="label mra">
-              <label for="enableRt">Enable relative time</label>
-              <div class="desc">Shows the difference in time compared to your computer's time.</div>
+              <label for="enableRt">{{ $t('widget.enableRelativeTime') }}</label>
+              <div class="desc">{{ $t('widget.showsTheDifferenceInTime') }}</div>
             </div>
             <ToggleField v-model="widget.relative.on" tag-id="enableRt"></ToggleField>
           </div>

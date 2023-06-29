@@ -1,0 +1,12 @@
+{
+  "dashboard": {
+    "review": "جائزہ لیں"
+  },
+  "updates": {
+    "fixesAndOthers": "اصلاحات اور دیگر تبدیلیاں",
+    "newFeatures": "نئی خصوصیات"
+  },
+  "settings": {
+    "credit": "CaretTab{'|'} کو {'|'}BlueCaret{'|'} نے بنایا ہے اور {'|'}GPL 3.0{'|'} کے تحت لائسنس یافتہ ہے۔"
+  }
+}

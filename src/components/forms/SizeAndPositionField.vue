@@ -32,39 +32,28 @@ const handleCAlignUpdate = (alignment) => {
   <div class="block">
     <div class="group fill">
       <div class="label">
-        <label id="alignLabel">{{ props.windowTitle ? props.windowTitle : 'Window alignment and position' }}</label>
+        <label id="alignLabel">{{
+          props.windowTitle ? props.windowTitle : $t('settings.windowAlignmentAndPosition')
+        }}</label>
         <div class="desc">
-          Widget positions are independent of each other. If widgets are overlapping, change the alignment or adjust the
-          position.
+          {{ $t('settings.widgetPositionsAreIndependent') }}
         </div>
       </div>
       <div class="group stack compact">
         <div class="group fill compact">
-          <label class="desc mla" for="widgetWidth"> Up/Down </label>
-          <NumberField
-            v-model="widget.y"
-            class="w8"
-            tag-id="widgetOffsetY"
-            aria-label="Y"
-            :increment="10"
-          ></NumberField>
+          <label class="desc mla" for="widgetOffsetY"> {{ $t('settings.upDown') }} </label>
+          <NumberField v-model="widget.y" class="w8" tag-id="widgetOffsetY" :increment="10"></NumberField>
         </div>
         <div class="group fill compact">
-          <label class="desc mla" for="widgetWidth"> Left/Right </label>
-          <NumberField
-            v-model="widget.x"
-            class="w8"
-            tag-id="widgetOffsetX"
-            aria-label="X"
-            :increment="10"
-          ></NumberField>
+          <label class="desc mla" for="widgetOffsetX"> {{ $t('settings.leftRight') }} </label>
+          <NumberField v-model="widget.x" class="w8" tag-id="widgetOffsetX" :increment="10"></NumberField>
         </div>
       </div>
       <div aria-labelledby="alignLabel" class="btnPlacementGroup w10">
         <button
           type="button"
-          :aria-label="$t('options.common.topLeft')"
-          :title="$t('options.common.topLeft')"
+          :aria-label="$t('settings.topLeft')"
+          :title="$t('settings.topLeft')"
           class="btn"
           :class="{ active: widget.alignment === 'nw' }"
           @click="handleAlignUpdate('nw')"
@@ -73,8 +62,8 @@ const handleCAlignUpdate = (alignment) => {
         </button>
         <button
           type="button"
-          :aria-label="$t('options.common.topCenter')"
-          :title="$t('options.common.topCenter')"
+          :aria-label="$t('settings.topCenter')"
+          :title="$t('settings.topCenter')"
           class="btn"
           :class="{ active: widget.alignment === 'n' }"
           @click="handleAlignUpdate('n')"
@@ -83,8 +72,8 @@ const handleCAlignUpdate = (alignment) => {
         </button>
         <button
           type="button"
-          :aria-label="$t('options.common.topRight')"
-          :title="$t('options.common.topRight')"
+          :aria-label="$t('settings.topRight')"
+          :title="$t('settings.topRight')"
           class="btn"
           :class="{ active: widget.alignment === 'ne' }"
           @click="handleAlignUpdate('ne')"
@@ -93,8 +82,8 @@ const handleCAlignUpdate = (alignment) => {
         </button>
         <button
           type="button"
-          :aria-label="$t('options.common.centerLeft')"
-          :title="$t('options.common.centerLeft')"
+          :aria-label="$t('settings.centerLeft')"
+          :title="$t('settings.centerLeft')"
           class="btn"
           :class="{ active: widget.alignment === 'w' }"
           @click="handleAlignUpdate('w')"
@@ -103,8 +92,8 @@ const handleCAlignUpdate = (alignment) => {
         </button>
         <button
           type="button"
-          :aria-label="$t('options.common.center')"
-          :title="$t('options.common.center')"
+          :aria-label="$t('settings.center')"
+          :title="$t('settings.center')"
           class="btn"
           :class="{
             active: widget.alignment === 'c' || widget.alignment == null || widget.alignment == '',
@@ -115,8 +104,8 @@ const handleCAlignUpdate = (alignment) => {
         </button>
         <button
           type="button"
-          :aria-label="$t('options.common.centerRight')"
-          :title="$t('options.common.centerRight')"
+          :aria-label="$t('settings.centerRight')"
+          :title="$t('settings.centerRight')"
           class="btn"
           :class="{ active: widget.alignment === 'e' }"
           @click="handleAlignUpdate('e')"
@@ -125,8 +114,8 @@ const handleCAlignUpdate = (alignment) => {
         </button>
         <button
           type="button"
-          :aria-label="$t('options.common.bottomLeft')"
-          :title="$t('options.common.bottomLeft')"
+          :aria-label="$t('settings.bottomLeft')"
+          :title="$t('settings.bottomLeft')"
           class="btn"
           :class="{ active: widget.alignment === 'sw' }"
           @click="handleAlignUpdate('sw')"
@@ -135,8 +124,8 @@ const handleCAlignUpdate = (alignment) => {
         </button>
         <button
           type="button"
-          :aria-label="$t('options.common.bottomCenter')"
-          :title="$t('options.common.bottomCenter')"
+          :aria-label="$t('settings.bottomCenter')"
+          :title="$t('settings.bottomCenter')"
           class="btn"
           :class="{ active: widget.alignment === 's' }"
           @click="handleAlignUpdate('s')"
@@ -145,8 +134,8 @@ const handleCAlignUpdate = (alignment) => {
         </button>
         <button
           type="button"
-          :aria-label="$t('options.common.bottomRight')"
-          :title="$t('options.common.bottomRight')"
+          :aria-label="$t('settings.bottomRight')"
+          :title="$t('settings.bottomRight')"
           class="btn"
           :class="{ active: widget.alignment === 'se' }"
           @click="handleAlignUpdate('se')"
@@ -217,8 +206,8 @@ const handleCAlignUpdate = (alignment) => {
         <div aria-labelledby="containerAlignLabel" class="btnPlacementGroup w10">
           <button
             type="button"
-            :aria-label="$t('options.common.topLeft')"
-            :title="$t('options.common.topLeft')"
+            :aria-label="$t('settings.topLeft')"
+            :title="$t('settings.topLeft')"
             class="btn"
             :class="{ active: widget.container.alignment === 'nw' }"
             @click="handleCAlignUpdate('nw')"
@@ -227,8 +216,8 @@ const handleCAlignUpdate = (alignment) => {
           </button>
           <button
             type="button"
-            :aria-label="$t('options.common.topCenter')"
-            :title="$t('options.common.topCenter')"
+            :aria-label="$t('settings.topCenter')"
+            :title="$t('settings.topCenter')"
             class="btn"
             :class="{ active: widget.container.alignment === 'n' }"
             @click="handleCAlignUpdate('n')"
@@ -237,8 +226,8 @@ const handleCAlignUpdate = (alignment) => {
           </button>
           <button
             type="button"
-            :aria-label="$t('options.common.topRight')"
-            :title="$t('options.common.topRight')"
+            :aria-label="$t('settings.topRight')"
+            :title="$t('settings.topRight')"
             class="btn"
             :class="{ active: widget.container.alignment === 'ne' }"
             @click="handleCAlignUpdate('ne')"
@@ -247,8 +236,8 @@ const handleCAlignUpdate = (alignment) => {
           </button>
           <button
             type="button"
-            :aria-label="$t('options.common.centerLeft')"
-            :title="$t('options.common.centerLeft')"
+            :aria-label="$t('settings.centerLeft')"
+            :title="$t('settings.centerLeft')"
             class="btn"
             :class="{ active: widget.container.alignment === 'w' }"
             @click="handleCAlignUpdate('w')"
@@ -257,8 +246,8 @@ const handleCAlignUpdate = (alignment) => {
           </button>
           <button
             type="button"
-            :aria-label="$t('options.common.center')"
-            :title="$t('options.common.center')"
+            :aria-label="$t('settings.center')"
+            :title="$t('settings.center')"
             class="btn"
             :class="{
               active:
@@ -272,8 +261,8 @@ const handleCAlignUpdate = (alignment) => {
           </button>
           <button
             type="button"
-            :aria-label="$t('options.common.centerRight')"
-            :title="$t('options.common.centerRight')"
+            :aria-label="$t('settings.centerRight')"
+            :title="$t('settings.centerRight')"
             class="btn"
             :class="{ active: widget.container.alignment === 'e' }"
             @click="handleCAlignUpdate('e')"
@@ -282,8 +271,8 @@ const handleCAlignUpdate = (alignment) => {
           </button>
           <button
             type="button"
-            :aria-label="$t('options.common.bottomLeft')"
-            :title="$t('options.common.bottomLeft')"
+            :aria-label="$t('settings.bottomLeft')"
+            :title="$t('settings.bottomLeft')"
             class="btn"
             :class="{ active: widget.container.alignment === 'sw' }"
             @click="handleCAlignUpdate('sw')"
@@ -292,8 +281,8 @@ const handleCAlignUpdate = (alignment) => {
           </button>
           <button
             type="button"
-            :aria-label="$t('options.common.bottomCenter')"
-            :title="$t('options.common.bottomCenter')"
+            :aria-label="$t('settings.bottomCenter')"
+            :title="$t('settings.bottomCenter')"
             class="btn"
             :class="{ active: widget.container.alignment === 's' }"
             @click="handleCAlignUpdate('s')"
@@ -302,8 +291,8 @@ const handleCAlignUpdate = (alignment) => {
           </button>
           <button
             type="button"
-            :aria-label="$t('options.common.bottomRight')"
-            :title="$t('options.common.bottomRight')"
+            :aria-label="$t('settings.bottomRight')"
+            :title="$t('settings.bottomRight')"
             class="btn"
             :class="{ active: widget.container.alignment === 'se' }"
             @click="handleCAlignUpdate('se')"

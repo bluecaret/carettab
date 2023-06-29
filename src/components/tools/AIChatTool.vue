@@ -63,14 +63,14 @@ const onPrompt = async () => {
           class="btn mla"
           :class="{ active: showSettings }"
           type="button"
-          aria-label="Tool settings"
+          :aria-label="$t('widget.toolSettings')"
           @click="showSettings = !showSettings"
         >
           <fa icon="fa-gear" />
         </button>
       </h2>
       <div v-if="!tool.apiKey" class="needApi">
-        <h3>AI Chat is powered by ChatGPT from OpenAI</h3>
+        <h3>{{ $t('widget.aiChatIsPoweredByChatgptFromOpenai') }}</h3>
         <svg
           class="openAiLogo"
           width="1180"
@@ -112,12 +112,16 @@ const onPrompt = async () => {
             </clipPath>
           </defs>
         </svg>
-        <p>To start using AI Chat, you need an API key from OpenAI.</p>
+        <p>{{ $t('widget.toStartUsingAiChatYouNeedAnApiKeyFromOpenai') }}</p>
         <div class="group fill">
-          <a href="https://platform.openai.com/signup" target="_blank" class="btn">Create an OpenAI account</a>
-          <a href="https://platform.openai.com/account/api-keys" target="_blank" class="btn">Get your API Key</a>
+          <a href="https://platform.openai.com/signup" target="_blank" class="btn">{{
+            $t('widget.createAnOpenaiAccount')
+          }}</a>
+          <a href="https://platform.openai.com/account/api-keys" target="_blank" class="btn">{{
+            $t('widget.getYourApiKey')
+          }}</a>
         </div>
-        <p>Once you have your key, paste it in the box below and you will then have access to use AI Chat.</p>
+        <p>{{ $t('widget.onceYouHaveYourKeyPaste') }}</p>
       </div>
       <AIChatSettings v-if="!tool.apiKey || showSettings" />
       <div v-if="tool.apiKey" class="chatWindow">
@@ -125,9 +129,7 @@ const onPrompt = async () => {
           <div class="message assistant">
             <fa icon="fa-robot" />
             <div class="block">
-              <div>
-                Hello! I'm an AI powered by <a href="https://openai.com/" target="_blank">OpenAI</a>. How can I help?
-              </div>
+              <div v-html="$t('widget.helloImAnAi')"></div>
             </div>
           </div>
           <div v-for="(res, index) in responses" :key="index" class="message" :class="res.role ? res.role : ''">
@@ -148,7 +150,8 @@ const onPrompt = async () => {
           <div v-if="errorMessage" class="message assistant apiError">
             <div class="block">
               <div>
-                <small><strong>ChatGPT responded with an error:</strong></small
+                <small
+                  ><strong>{{ $t('widget.chatgptRespondedWithAnError') }}</strong></small
                 ><br />
                 {{ errorMessage }}
               </div>
@@ -156,8 +159,16 @@ const onPrompt = async () => {
           </div>
         </div>
         <form class="group fill compact" novalidate @submit.prevent="onPrompt()">
-          <input v-model="prompt" type="text" class="input" placeholder="Ask the AI a question" maxlength="2000" />
-          <button class="btn" type="submit" aria-label="Send message"><fa icon="fa-paper-plane"></fa></button>
+          <input
+            v-model="prompt"
+            type="text"
+            class="input"
+            :placeholder="$t('widget.askTheAiAQuestion')"
+            maxlength="2000"
+          />
+          <button class="btn" type="submit" :aria-label="$t('widget.sendMessage')">
+            <fa icon="fa-paper-plane"></fa>
+          </button>
         </form>
       </div>
     </div>

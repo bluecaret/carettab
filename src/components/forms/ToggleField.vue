@@ -21,6 +21,7 @@ function handleToggled() {
     class="toggle"
     style="flex: 0 0 auto"
     :aria-pressed="props.modelValue ? 'true' : 'false'"
+    :aria-label="props.modelValue ? $t('common.enabled') : $t('common.disabled')"
     @click="handleToggled"
   >
     <div class="toggleIcon">

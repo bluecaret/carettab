@@ -64,22 +64,24 @@ const handleNewWidgetClick = (type) => {
 </script>
 
 <template>
-  <PageHeading title="Settings dashbaord"></PageHeading>
+  <PageHeading :title="$t('dashboard.settingsDashboard')"></PageHeading>
   <div class="page">
     <ModalWindow v-if="!store.clearWhatsNewBox" :show="whatsNewModal" @close="whatsNewModal = false">
       <template #button>
         <div class="whatsNewBox" @click="whatsNewModal = true">
           <div class="group fill">
             <fa class="whatsNewIcon" icon="fa-bell"></fa>
-            <h3 class="newUpdateTitle fill">NEW UPDATE &mdash; Version 4.0.0</h3>
+            <h3 class="newUpdateTitle fill">
+              {{ $t('dashboard.newUpdate') }} &mdash; {{ $t('settings.version', ['4.0.0']) }}
+            </h3>
             <button type="button" class="btn fit" @click="whatsNewModal = true">
-              <div class="fit">Read what's new!</div>
+              <div class="fit">{{ $t('dashboard.readWhatsNew') }}</div>
             </button>
             <button
               type="button"
               class="btn fit btnText"
-              title="Dismiss"
-              aria-label="Dismiss"
+              :title="$t('dashboard.dismiss')"
+              :aria-label="$t('dashboard.dismiss')"
               @click.stop="handleClearWhatsNew"
             >
               <fa icon="fa-xmark"></fa>
@@ -92,33 +94,24 @@ const handleNewWidgetClick = (type) => {
           <button
             class="btn btnText mla whatsNewModalClose"
             type="button"
-            aria-label="{{'options.common.close' | translate}}"
+            :aria-label="$t('common.close')"
             @click="whatsNewModal = false"
           >
             <fa icon="fa-close" />
           </button>
           <div class="whatsNewModalContent">
-            <h3>What's new in version 4.0.0</h3>
+            <h3>{{ $t('updates.whatsNewInVersion', ['4.0.0']) }}</h3>
             <div class="group">
               <div class="fill">
                 <h4>{{ $t('updates.newFeatures') }}</h4>
                 <ul class="ul">
-                  <li>{{ $t('updates.v380.shadows') }}</li>
-                  <li>{{ $t('updates.v380.randomColor') }}</li>
-                  <li>{{ $t('updates.v380.dayOfYear') }}</li>
-                  <li>{{ $t('updates.v380.quarter') }}</li>
-                  <li>{{ $t('updates.v380.suffix') }}</li>
-                  <li>{{ $t('updates.v380.delimiter') }}</li>
-                  <li>{{ $t('updates.v380.search') }}</li>
-                  <li>{{ $t('updates.v380.open') }}</li>
+                  <li></li>
                 </ul>
               </div>
               <div class="fill">
                 <h4>{{ $t('updates.fixesAndOthers') }}</h4>
                 <ul class="ul">
-                  <li>{{ $t('updates.v380.timeDrift') }}</li>
-                  <li>{{ $t('updates.v380.weather') }}</li>
-                  <li>{{ $t('updates.v380.shortcuts') }}</li>
+                  <li></li>
                 </ul>
               </div>
             </div>
@@ -126,7 +119,7 @@ const handleNewWidgetClick = (type) => {
         </div>
       </template>
     </ModalWindow>
-    <h2 class="introHeader">Your Tab, Your Rules - Infinite customization at your fingertips!</h2>
+    <h2 class="introHeader">{{ $t('common.slogan') }}</h2>
     <draggable
       class="blockContainer"
       :list="store.config.layers"
@@ -145,8 +138,8 @@ const handleNewWidgetClick = (type) => {
         <div v-if="store.config.layers.length < 1" class="block">
           <div class="group stack fill widgetHeader">
             <fa icon="fa-shapes" class="widgetHeaderIcon"></fa>
-            <h3>You have no widgets yet</h3>
-            <p>Start creating your own New Tab page</p>
+            <h3>{{ $t('dashboard.youHaveNoWidgetsYet') }}</h3>
+            <p>{{ $t('dashboard.startCreatingYourOwnNewTabPage') }}</p>
           </div>
         </div>
       </template>
@@ -164,19 +157,19 @@ const handleNewWidgetClick = (type) => {
             </div>
           </div>
           <div class="mla" style="font-size: 0.65em; opacity: 0.5">
-            <strong title="Widget ID Number" style="text-transform: uppercase">{{ element.id }}</strong>
+            <strong :title="$t('common.widgetIdNumber')" style="text-transform: uppercase">{{ element.id }}</strong>
           </div>
           <div class="group">
             <ToggleField :model-value="element.on" @update:model-value="toggleWidget(element.id)"></ToggleField>
             <div class="btnGroup">
               <button type="button" class="btn" :disabled="!element.on" @click="openWidget(element.id, element.widget)">
-                <fa icon="fa-pen" fixed-width></fa>Edit
+                <fa icon="fa-pen" fixed-width></fa>{{ $t('common.edit') }}
               </button>
               <button
                 type="button"
                 class="btn"
-                aria-label="Duplicate widget"
-                title="Duplicate widget"
+                :aria-label="$t('dashboard.duplicateWidget')"
+                :title="$t('dashboard.duplicateWidget')"
                 @click="duplicateWidget(element.id, element.widget)"
               >
                 <fa icon="fa-copy" fixed-width></fa>
@@ -184,8 +177,8 @@ const handleNewWidgetClick = (type) => {
               <button
                 type="button"
                 class="btn"
-                aria-label="Delete widget"
-                title="Delete widget"
+                :aria-label="$t('dashboard.deleteWidget')"
+                :title="$t('dashboard.deleteWidget')"
                 @click="deleteWidget(element.id, element.widget)"
               >
                 <fa icon="fa-trash" fixed-width></fa>

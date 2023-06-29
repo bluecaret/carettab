@@ -1,0 +1,12 @@
+{
+  "dashboard": {
+    "review": "סקירה"
+  },
+  "updates": {
+    "fixesAndOthers": "תיקונים ושינויים נוספים",
+    "newFeatures": "תכונות חדשות"
+  },
+  "settings": {
+    "credit": "CaretTab{'|'} נוצר על ידי {'|'}BlueCaret{'|'} וברישיון תחת {'|'}GPL 3.0{'|'}."
+  }
+}

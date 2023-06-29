@@ -38,15 +38,15 @@ const selectTimezone = (tz) => {
     <div class="blockContainer">
       <FieldAccordion>
         <template #label>
-          <div class="label">Label</div>
+          <div class="label">{{ $t('widget.label') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="enableLabel" class="label mra">Enable label</label>
+            <label for="enableLabel" class="label mra">{{ $t('widget.enableLabel') }}</label>
             <ToggleField v-model="widget.label.on" tag-id="enableLabel"></ToggleField>
           </div>
           <div v-if="widget.label.on" class="block">
-            <label for="labelText" class="label mra">Label text</label>
+            <label for="labelText" class="label mra">{{ $t('widget.labelText') }}</label>
             <input id="labelText" v-model="widget.label.label" type="text" class="input w20" />
           </div>
           <WidgetSegmentFont
@@ -66,8 +66,8 @@ const selectTimezone = (tz) => {
       </FieldAccordion>
       <div class="block">
         <div class="label mra">
-          <label for="clockTimezone">Timezone</label>
-          <div class="desc">Enter a timezone name (e.g. "America/Los_Angeles").</div>
+          <label for="clockTimezone">{{ $t('widget.timezone') }}</label>
+          <div class="desc">{{ $t('widget.enterATimezoneName') }}</div>
         </div>
         <AutocompleteField
           tag-id="clockTimezone"
@@ -79,30 +79,30 @@ const selectTimezone = (tz) => {
       </div>
       <FieldAccordion>
         <template #label>
-          <div class="label">Indicators</div>
+          <div class="label">{{ $t('widget.indicators') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="indicatorSize" class="label mra">Indicator size</label>
+            <label for="indicatorSize" class="label mra">{{ $t('widget.indicatorSize') }}</label>
             <NumberField v-model="widget.indicator.size" :increment="5" :min="0" class="w10" tag-id="indicatorSize">
             </NumberField>
           </div>
           <div class="block">
-            <label for="clockSize" class="label mra">Padding</label>
+            <label for="clockSize" class="label mra">{{ $t('widget.padding') }}</label>
             <NumberField v-model="widget.indicator.padding" :increment="5" :min="0" class="w10" tag-id="clockSize">
             </NumberField>
           </div>
           <div class="block">
             <div class="label mra">
-              <label for="useDots">Dots</label>
-              <div class="desc">Shows dots to represent on/off state. Disable to use text (e.g. 1's and 0's).</div>
+              <label for="useDots">{{ $t('widget.dots') }}</label>
+              <div class="desc">{{ $t('widget.showsDotsToRepresentOnOffState') }}</div>
             </div>
             <ToggleField v-model="widget.indicator.dot" tag-id="useDots"></ToggleField>
           </div>
           <div v-if="!widget.indicator.dot" class="block">
-            <div class="label mra">Indicator labels</div>
+            <div class="label mra">{{ $t('widget.indicatorLabels') }}</div>
             <div class="group compact">
-              <label for="onLabel" class="desc">On</label>
+              <label for="onLabel" class="desc">{{ $t('widget.on') }}</label>
               <input
                 v-model="widget.indicator.onLabel"
                 type="text"
@@ -113,7 +113,7 @@ const selectTimezone = (tz) => {
               />
             </div>
             <div class="group compact">
-              <label for="offLabel" class="desc">Off</label>
+              <label for="offLabel" class="desc">{{ $t('widget.off') }}</label>
               <input
                 v-model="widget.indicator.offLabel"
                 type="text"
@@ -125,48 +125,48 @@ const selectTimezone = (tz) => {
             </div>
           </div>
           <div class="block">
-            <label for="showSec" class="label mra">Show seconds</label>
+            <label for="showSec" class="label mra">{{ $t('widget.showSeconds') }}</label>
             <ToggleField v-model="widget.indicator.seconds" tag-id="showSec"></ToggleField>
           </div>
           <div class="block">
             <div class="label mra">
-              <label for="hideExtra">Show extra indicators</label>
-              <div class="desc">Displays unused indicators to create a complete grid.</div>
+              <label for="hideExtra">{{ $t('widget.showExtraIndicators') }}</label>
+              <div class="desc">{{ $t('widget.displaysUnusedIndicators') }}</div>
             </div>
             <ToggleField v-model="widget.indicator.extras" tag-id="hideExtra"></ToggleField>
           </div>
 
           <div class="block">
-            <label for="overrideColors" class="label mra">Override colors</label>
+            <label for="overrideColors" class="label mra">{{ $t('widget.overrideColors') }}</label>
             <ToggleField v-model="widget.indicator.overrideColors" tag-id="overrideColors"></ToggleField>
           </div>
           <template v-if="widget.indicator.overrideColors">
             <div class="block">
-              <label for="onc" class="label mra">Hour - on</label>
+              <label for="onc" class="label mra">{{ $t('widget.hour') }} - {{ $t('widget.on') }}</label>
               <ColorField v-model="widget.indicator.hourOnColor" tag-id="onc" class="w20"></ColorField>
             </div>
             <div class="block">
-              <label for="offc" class="label mra">Hour - off</label>
+              <label for="offc" class="label mra">{{ $t('widget.hour') }} - {{ $t('widget.off') }}</label>
               <ColorField v-model="widget.indicator.hourOffColor" tag-id="offc" class="w20"></ColorField>
             </div>
             <div class="block">
-              <label for="onc" class="label mra">Minute - on</label>
+              <label for="onc" class="label mra">{{ $t('widget.minute') }} - {{ $t('widget.on') }}</label>
               <ColorField v-model="widget.indicator.minOnColor" tag-id="onc" class="w20"></ColorField>
             </div>
             <div class="block">
-              <label for="offc" class="label mra">Minute - off</label>
+              <label for="offc" class="label mra">{{ $t('widget.minute') }} - {{ $t('widget.off') }}</label>
               <ColorField v-model="widget.indicator.minOffColor" tag-id="offc" class="w20"></ColorField>
             </div>
             <div class="block">
-              <label for="onc" class="label mra">Seconds - on</label>
+              <label for="onc" class="label mra">{{ $t('widget.seconds') }} - {{ $t('widget.on') }}</label>
               <ColorField v-model="widget.indicator.secOnColor" tag-id="onc" class="w20"></ColorField>
             </div>
             <div class="block">
-              <label for="offc" class="label mra">Seconds - off</label>
+              <label for="offc" class="label mra">{{ $t('widget.seconds') }} - {{ $t('widget.off') }}</label>
               <ColorField v-model="widget.indicator.secOffColor" tag-id="offc" class="w20"></ColorField>
             </div>
             <div class="block">
-              <label for="indShadow" class="label mra">Shadow</label>
+              <label for="indShadow" class="label mra">{{ $t('common.shadow') }}</label>
               <ColorField v-model="widget.indicator.shadow" shadow tag-id="indShadow" class="w20"> </ColorField>
             </div>
           </template>
@@ -174,13 +174,13 @@ const selectTimezone = (tz) => {
       </FieldAccordion>
       <FieldAccordion>
         <template #label>
-          <div class="label">Relative time</div>
+          <div class="label">{{ $t('widget.relativeTime') }}</div>
         </template>
         <template #children>
           <div class="block">
             <div class="label mra">
-              <label for="enableRt">Enable relative time</label>
-              <div class="desc">Shows the difference in time compared to your computer's time.</div>
+              <label for="enableRt">{{ $t('widget.enableRelativeTime') }}</label>
+              <div class="desc">{{ $t('widget.showsTheDifferenceInTime') }}</div>
             </div>
             <ToggleField v-model="widget.relative.on" tag-id="enableRt"></ToggleField>
           </div>

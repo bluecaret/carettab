@@ -1,0 +1,12 @@
+{
+  "dashboard": {
+    "review": "评论"
+  },
+  "updates": {
+    "fixesAndOthers": "修复和其他变化",
+    "newFeatures": "新功能"
+  },
+  "settings": {
+    "credit": "CaretTab{'|'}由{'|'}BlueCaret{'|'}创建，并以{'|'}GPL 3.0{'|'}的方式授权。"
+  }
+}

@@ -30,7 +30,7 @@ const getUploadedImage = () => {
     const reader = new FileReader()
 
     if (!files[0].type.match(fileTypePattern)) {
-      alert('Invalid file type. Please select an image file.')
+      alert($t('settings.invalidFileType'))
       return
     }
 
@@ -48,15 +48,13 @@ const processImage = (imgSrc) => {
 
   browser.storage.local.set({ currentWallpaper: newBg }, () => {
     if (chrome.runtime.lastError && chrome.runtime.lastError.message.startsWith('QUOTA_BYTES')) {
-      let msg = 'Sorry, the file size of your image is too big.'
-      msg += ' Try a smaller image or resize your image at'
-      msg += ' https://www.reduceimages.com/'
+      let msg = $t('settings.fileSizeTooBig', ['https://www.reduceimages.com/'])
       alert(msg)
       console.error('Background image failed, image file too large', chrome.runtime.lastError.message)
       return
     }
     if (chrome.runtime.lastError) {
-      let msg = 'Sorry, image failed to save. Please try again.'
+      let msg = $t('settings.imageFailedToSave')
       alert(msg)
       console.error(
         'Background image failed for unknown reason',
@@ -198,19 +196,19 @@ const handleImageAdjustmentReset = () => {
 <template>
   <FieldAccordion>
     <template #label>
-      <div class="label">Wallpaper</div>
+      <div class="label">{{ $t('settings.wallpaper') }}</div>
     </template>
     <template #children>
       <div class="block">
         <div class="group fill">
-          <label for="backgroundColor" class="label mra">Color</label>
+          <label for="backgroundColor" class="label mra">{{ $t('settings.color') }}</label>
           <ColorField v-model="store.config.global.wallpaper.background" tag-id="backgroundColor" class="w20">
           </ColorField>
         </div>
       </div>
       <div class="block stack">
         <div class="group fill">
-          <label for="backgroundColor" class="label mra">Background Image</label>
+          <label for="backgroundColor" class="label mra">{{ $t('settings.backgroundImage') }}</label>
           <div
             v-if="
               store.config.global.wallpaper.type &&
@@ -221,18 +219,26 @@ const handleImageAdjustmentReset = () => {
           >
             <div class="desc">
               <span>
-                {{ store.config.global.wallpaper.type === 'none' ? 'Image' : '' }}
-                {{ store.config.global.wallpaper.type === 'upload' ? 'Uploaded image' : '' }}
+                {{ store.config.global.wallpaper.type === 'none' ? $t('settings.image') : '' }}
+                {{ store.config.global.wallpaper.type === 'upload' ? $t('settings.uploadedImage') : '' }}
                 {{
-                  store.config.global.wallpaper.type === 'pattern' ? `Pattern: ${store.config.global.wallpaper.id}` : ''
+                  store.config.global.wallpaper.type === 'pattern'
+                    ? $t('settings.patternName', [store.config.global.wallpaper.id])
+                    : ''
                 }}
-                {{ store.config.global.wallpaper.type === 'unphoto' ? 'Unsplash.com Photo' : '' }}
-                {{ store.config.global.wallpaper.type === 'untopic' ? 'Unsplash.com Topic: ' : '' }}
-                {{ store.config.global.wallpaper.type === 'uncollection' ? 'Unsplash.com Collection: ' : '' }}
-                {{ store.config.global.wallpaper.type === 'pxphoto' ? 'Pexels.com Photo' : '' }}
-                {{ store.config.global.wallpaper.type === 'pxcurated' ? 'Pexels.com Curated Photos' : '' }}
-                {{ store.config.global.wallpaper.type === 'pxcollection' ? 'Pexels.com Collection: ' : '' }}
-                {{ store.config.global.wallpaper.type === 'pxcarettab' ? 'Hand-picked for CaretTab: ' : '' }}
+                {{ store.config.global.wallpaper.type === 'unphoto' ? $t('settings.unsplashComPhoto') : '' }}
+                {{ store.config.global.wallpaper.type === 'untopic' ? $t('settings.unsplashComTopicName') : '' }}
+                {{
+                  store.config.global.wallpaper.type === 'uncollection' ? $t('settings.unsplashComCollectionName') : ''
+                }}
+                {{ store.config.global.wallpaper.type === 'pxphoto' ? $t('settings.pexelsComPhoto') : '' }}
+                {{ store.config.global.wallpaper.type === 'pxcurated' ? $t('settings.pexelsComCuratedPhotos') : '' }}
+                {{
+                  store.config.global.wallpaper.type === 'pxcollection' ? $t('settings.pexelsComCollectionName') : ''
+                }}
+                {{
+                  store.config.global.wallpaper.type === 'pxcarettab' ? $t('settings.handPickedForCarettabName') : ''
+                }}
                 <a
                   v-if="store.config.global.wallpaper.type === 'untopic'"
                   target="_blank"
@@ -254,7 +260,7 @@ const handleImageAdjustmentReset = () => {
                 type="button"
                 @click="store.goTo('patterns')"
               >
-                Select pattern
+                {{ $t('settings.selectPattern') }}
               </button>
               <button
                 v-if="['unphoto', 'untopic', 'uncollection'].includes(store.config.global.wallpaper.type)"
@@ -262,7 +268,7 @@ const handleImageAdjustmentReset = () => {
                 type="button"
                 @click="store.goTo('unsplash')"
               >
-                Search Unsplash
+                {{ $t('settings.searchUnsplash') }}
               </button>
               <button
                 v-if="
@@ -272,7 +278,7 @@ const handleImageAdjustmentReset = () => {
                 type="button"
                 @click="store.goTo('pexels')"
               >
-                Search Pexels
+                {{ $t('settings.searchPexels') }}
               </button>
               <button
                 v-if="
@@ -284,9 +290,11 @@ const handleImageAdjustmentReset = () => {
                 type="button"
                 @click="handleRefreshImage()"
               >
-                Refresh
+                {{ $t('common.refresh') }}
               </button>
-              <button class="btn" type="button" @click="handleRemoveImage()"><fa icon="fa-xmark" /> Remove</button>
+              <button class="btn" type="button" @click="handleRemoveImage()">
+                <fa icon="fa-xmark" /> {{ $t('common.remove') }}
+              </button>
             </div>
           </div>
           <div
@@ -307,7 +315,7 @@ const handleImageAdjustmentReset = () => {
               @change="getUploadedImage($event)"
             />
             <div v-if="store.config.global.wallpaper.type === 'default'" class="desc">
-              Currently showing default image
+              {{ $t('settings.currentlyShowingDefaultImage') }}
             </div>
             <div class="group compact">
               <DropdownMenu ref="imageTypeMenu">
@@ -320,13 +328,19 @@ const handleImageAdjustmentReset = () => {
                 <template #menu>
                   <ul class="imageSelectMenu">
                     <li v-if="store.config.global.wallpaper.type !== 'default'">
-                      <button class="btn btnBlock" type="button" @click="handleRemoveImage(true)">Default</button>
+                      <button class="btn btnBlock" type="button" @click="handleRemoveImage(true)">
+                        {{ $t('settings.default') }}
+                      </button>
                     </li>
                     <li>
-                      <button class="btn btnBlock" type="button" @click="handleUploadBtnClick()">Upload file</button>
+                      <button class="btn btnBlock" type="button" @click="handleUploadBtnClick()">
+                        {{ $t('settings.uploadFile') }}
+                      </button>
                     </li>
                     <li>
-                      <button class="btn btnBlock" type="button" @click="store.goTo('patterns')">Pattern</button>
+                      <button class="btn btnBlock" type="button" @click="store.goTo('patterns')">
+                        {{ $t('settings.pattern') }}
+                      </button>
                     </li>
                     <li>
                       <button :disabled="!user.paid" class="btn btnBlock" type="button" @click="store.goTo('pexels')">
@@ -345,11 +359,9 @@ const handleImageAdjustmentReset = () => {
                 v-if="store.config.global.wallpaper.type === 'default'"
                 class="btn"
                 type="button"
-                title="Remove image"
-                aria-label="Remove image"
                 @click="handleRemoveImage()"
               >
-                <fa icon="fa-xmark" /> Remove
+                <fa icon="fa-xmark" /> {{ $t('common.remove') }}
               </button>
             </div>
           </div>
@@ -367,7 +379,7 @@ const handleImageAdjustmentReset = () => {
               <button type="button" class="imageDetails">
                 <fa icon="fa-images" fixed-width></fa>
                 <span>
-                  Photo taken by
+                  {{ $t('settings.photoTakenBy') }}
                   <a
                     target="_blank"
                     :href="store.config.global.wallpaperApi.authorLink + '?utm_source=carettab&utm_medium=referral'"
@@ -378,7 +390,7 @@ const handleImageAdjustmentReset = () => {
                 <a
                   class="imageDetailsPhotoLink"
                   target="_blank"
-                  title="Open link to photo"
+                  :title="$t('settings.openLinkToPhoto')"
                   :href="store.config.global.wallpaperApi.photoLink + '?utm_source=carettab&utm_medium=referral'"
                 >
                   <fa icon="fa-arrow-up-right-from-square" fixed-width></fa>
@@ -387,7 +399,7 @@ const handleImageAdjustmentReset = () => {
             </template>
             <template #menu>
               <div class="imageDetailsDescription">
-                <h3 class="label">Photo details:</h3>
+                <h3 class="label">{{ $t('settings.photoDetails') }}</h3>
                 <p
                   v-if="
                     store.config.global.wallpaperApi.photoTitle &&
@@ -412,7 +424,7 @@ const handleImageAdjustmentReset = () => {
       </div>
       <template v-if="store.config.global.wallpaper.type && store.config.global.wallpaper.type !== 'none'">
         <div class="block">
-          <div class="label mra">Brightness</div>
+          <div class="label mra">{{ $t('settings.brightness') }}</div>
           <div class="range w20">
             <output class="output">{{ store.config.global.wallpaper.brightness }}</output>
             <input
@@ -426,7 +438,7 @@ const handleImageAdjustmentReset = () => {
         </div>
         <div class="block">
           <div class="label mra">
-            <div><PremiumLabel />Contrast</div>
+            <div><PremiumLabel />{{ $t('settings.contrast') }}</div>
           </div>
           <div class="range w20">
             <output class="output">{{ store.config.global.wallpaper.contrast }}</output>
@@ -442,7 +454,7 @@ const handleImageAdjustmentReset = () => {
         </div>
         <div class="block">
           <div class="label mra">
-            <div><PremiumLabel />Saturation</div>
+            <div><PremiumLabel />{{ $t('settings.saturation') }}</div>
           </div>
           <div class="range w20">
             <output class="output">{{ store.config.global.wallpaper.saturation }}</output>
@@ -458,7 +470,7 @@ const handleImageAdjustmentReset = () => {
         </div>
         <div class="block">
           <div class="label mra">
-            <div><PremiumLabel />Blur</div>
+            <div><PremiumLabel />{{ $t('settings.blur') }}</div>
           </div>
           <div class="range w20">
             <output class="output">{{ store.config.global.wallpaper.blur }}</output>
@@ -473,9 +485,9 @@ const handleImageAdjustmentReset = () => {
           </div>
         </div>
         <div class="block">
-          <label for="imageFilter" class="label mra">Filter</label>
+          <label for="imageFilter" class="label mra">{{ $t('settings.filter') }}</label>
           <select id="imageFilter" v-model="store.config.global.wallpaper.filter" name="imageFilter" class="select w20">
-            <option value="normal">Normal</option>
+            <option value="normal">{{ $t('settings.normal') }}</option>
             <option value="multiply">Multiply</option>
             <option value="screen">Screen</option>
             <option value="overlay">Overlay</option>
@@ -494,29 +506,29 @@ const handleImageAdjustmentReset = () => {
           </select>
         </div>
         <div class="block">
-          <label for="imageFill" class="label mra">Fill</label>
+          <label for="imageFill" class="label mra">{{ $t('settings.fill') }}</label>
           <select id="imageFill" v-model="store.config.global.wallpaper.size" name="imageFill" class="select w20">
-            <option value="cover">Cover</option>
-            <option value="contain">Contain</option>
-            <option value="repeat">Repeat</option>
-            <option value="scale">Scale</option>
-            <option value="scaleRepeat">Scale and repeat</option>
+            <option value="cover">{{ $t('settings.cover') }}</option>
+            <option value="contain">{{ $t('settings.contain') }}</option>
+            <option value="repeat">{{ $t('settings.repeat') }}</option>
+            <option value="scale">{{ $t('settings.scale') }}</option>
+            <option value="scaleRepeat">{{ $t('settings.scaleAndRepeat') }}</option>
           </select>
         </div>
         <div
           v-if="store.config.global.wallpaper.size === 'scale' || store.config.global.wallpaper.size === 'scaleRepeat'"
           class="block"
         >
-          <div class="label mra">Scale</div>
+          <div class="label mra">{{ $t('settings.scale') }}</div>
           <div class="range w20">
             <output class="output">{{ store.config.global.wallpaper.scale }}</output>
             <input v-model="store.config.global.wallpaper.scale" type="range" class="rangeInput" min="0" max="200" />
           </div>
         </div>
         <div class="block">
-          <div class="label mra">Reset styles</div>
+          <div class="label mra">{{ $t('settings.resetStyles') }}</div>
           <button type="button" class="btn fit" @click="handleImageAdjustmentReset()">
-            <fa icon="fa-rotate-left"></fa> Reset Styles
+            <fa icon="fa-rotate-left"></fa> {{ $t('settings.resetStyles') }}
           </button>
         </div>
       </template>

@@ -425,7 +425,6 @@ export const blueprints = [
             radius: 8,
             shadow: [false, 0, 0, 20, 0, 0, 0, 0.35],
           },
-          disableSelection: false,
           element: {
             primaryColor: [220, 15, 85, 1],
             secondaryColor: [220, 15, 60, 1],
@@ -444,7 +443,6 @@ export const blueprints = [
             underline: false,
           },
           hideSettings: false,
-          lang: 'enUS',
           schema: '2.0',
           tabTitle: {
             custom: 'CaretTab: New tab page',

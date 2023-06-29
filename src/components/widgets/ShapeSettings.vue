@@ -25,7 +25,7 @@ const widget = reactive(store.config[widgetStore][ci.value])
     </div>
     <div class="blockContainer">
       <div class="block">
-        <label for="shapeType" class="label">Type</label>
+        <label for="shapeType" class="label">{{ $t('widget.type') }}</label>
         <select id="shapeType" v-model="widget.shape" name="shapeType" class="select w20">
           <option value="rectangle">Rectangle</option>
           <option value="circle">Circle</option>
@@ -51,30 +51,30 @@ const widget = reactive(store.config[widgetStore][ci.value])
         </select>
       </div>
       <div class="block">
-        <label for="rotate" class="label">Rotate</label>
+        <label for="rotate" class="label">{{ $t('widget.rotate') }}</label>
         <div class="range w20">
           <output class="output">{{ widget.rotate }}&deg;</output>
           <input id="rotate" v-model="widget.rotate" type="range" class="rangeInput" min="0" max="360" />
         </div>
       </div>
       <div class="block">
-        <label for="background" class="label mra">Background color</label>
+        <label for="background" class="label mra">{{ $t('widget.backgroundColor') }}</label>
         <ColorField v-model="widget.base.container.background" tag-id="background" class="w20" />
       </div>
       <div class="block">
-        <label for="shadow" class="label mra">Shadow</label>
+        <label for="shadow" class="label mra">{{ $t('common.shadow') }}</label>
         <ColorField v-model="widget.base.container.shadow" shadow tag-id="shadow" class="w20" />
       </div>
       <div v-if="['rectangle', 'circle', 'halfCircle'].includes(widget.shape)" class="block">
-        <label for="borderSize" class="label">Border size</label>
+        <label for="borderSize" class="label">{{ $t('common.borderSize') }}</label>
         <NumberField v-model="widget.base.container.borderSize" tag-id="borderSize" class="w10" />
       </div>
       <div v-if="['rectangle', 'circle', 'halfCircle'].includes(widget.shape)" class="block">
-        <label for="borderColor" class="label">Border color</label>
+        <label for="borderColor" class="label">{{ $t('common.borderColor') }}</label>
         <ColorField v-model="widget.base.container.borderColor" tag-id="borderColor" class="w20" />
       </div>
       <div v-if="['rectangle'].includes(widget.shape)" class="block">
-        <label for="radius" class="label mra">Rounded corners</label>
+        <label for="radius" class="label mra">{{ $t('widget.roundedCorners') }}</label>
         <NumberField v-model="widget.base.container.radius" tag-id="radius" :min="0" class="w10"></NumberField>
       </div>
     </div>

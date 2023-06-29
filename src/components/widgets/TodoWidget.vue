@@ -34,18 +34,18 @@ const containerStyles = computed(() => {
 const getFilterName = computed(() => {
   switch (props.widget.filter) {
     case 'all':
-      return 'All'
+      return $t('widget.all')
     case 'done':
-      return 'Done'
+      return $t('widget.done')
     case 'undone':
-      return 'Not done'
+      return $t('widget.notDone')
     case 'flag':
-      return 'Flag'
+      return $t('widget.flag')
     case 'noflag':
-      return 'No Flag'
+      return $t('widget.noFlag')
 
     default:
-      return 'All'
+      return $t('widget.all')
   }
 })
 
@@ -228,7 +228,7 @@ const doneColor = computed(() => {
     <FontLink v-if="props.widget.base.font.override" :widget="props.widget"></FontLink>
     <div class="widgetInner">
       <div class="heading">
-        <h2 class="title">Todo</h2>
+        <h2 class="title">{{ props.widget.label.label }}</h2>
       </div>
 
       <draggable
@@ -260,14 +260,14 @@ const doneColor = computed(() => {
                       type="button"
                       @click="handleFlag(element)"
                     >
-                      <fa icon="fa-flag" fixed-width />Flag
+                      <fa icon="fa-flag" fixed-width />{{ $t('widget.flag') }}
                     </button>
                   </li>
                   <li>
                     <ModalWindow :show="editing === element.id" size="460px" @close="editing = null">
                       <template #button>
                         <button class="btn btnBlock" type="button" @click="handleEditOpen(element)">
-                          <fa icon="fa-pen" fixed-width />Edit
+                          <fa icon="fa-pen" fixed-width />{{ $t('common.edit') }}
                         </button>
                       </template>
                       <template #window>
@@ -276,11 +276,13 @@ const doneColor = computed(() => {
                             <button class="btn btnText close" type="button" aria-label="Close" @click="editing = null">
                               <fa icon="fa-close" />
                             </button>
-                            <h3>Edit task</h3>
+                            <h3>{{ $t('widget.editTask') }}</h3>
                           </div>
                           <div class="group fill compact">
                             <input v-model="editingName" type="text" class="input" />
-                            <button type="button" class="btn" @click="handleEditSave(element)">Save</button>
+                            <button type="button" class="btn" @click="handleEditSave(element)">
+                              {{ $t('common.save') }}
+                            </button>
                           </div>
                         </div>
                       </template>
@@ -288,7 +290,7 @@ const doneColor = computed(() => {
                   </li>
                   <li>
                     <button class="btn btnBlock" type="button" @click="handleDelete(element)">
-                      <fa icon="fa-trash" fixed-width />Delete
+                      <fa icon="fa-trash" fixed-width />{{ $t('widget.delete') }}
                     </button>
                   </li>
                 </ul>
@@ -319,32 +321,32 @@ const doneColor = computed(() => {
                 <ul class="taskMenu">
                   <li>
                     <button class="btn btnBlock" type="button" @click="handleFilterChange()">
-                      <fa icon="fa-filter" fixed-width /> Filter: {{ getFilterName }}
+                      <fa icon="fa-filter" fixed-width /> {{ $t('widget.filterName') }} {{ getFilterName }}
                     </button>
                   </li>
                   <li>
                     <button class="btn btnBlock" type="button" @click="handleMarkAllDone()">
-                      <fa icon="fa-circle-check" fixed-width />Mark all as done
+                      <fa icon="fa-circle-check" fixed-width />{{ $t('widget.markAllAsDone') }}
                     </button>
                   </li>
                   <li>
                     <button class="btn btnBlock" type="button" @click="handleMarkAllUndone()">
-                      <fa icon="fa-circle" fixed-width />Mark all as undone
+                      <fa icon="fa-circle" fixed-width />{{ $t('widget.markAllAsUndone') }}
                     </button>
                   </li>
                   <li>
                     <button class="btn btnBlock" type="button" @click="handleClearFlags()">
-                      <fa icon="fa-flag" fixed-width />Clear all flags
+                      <fa icon="fa-flag" fixed-width />{{ $t('widget.clearAllFlags') }}
                     </button>
                   </li>
                   <li>
                     <button class="btn btnBlock" type="button" @click="handleDeleteDone()">
-                      <fa icon="fa-trash" fixed-width />Delete done tasks
+                      <fa icon="fa-trash" fixed-width />{{ $t('widget.deleteDoneTasks') }}
                     </button>
                   </li>
                   <li>
                     <button class="btn btnBlock" type="button" @click="handleDeleteAll()">
-                      <fa icon="fa-trash" fixed-width />Delete all tasks
+                      <fa icon="fa-trash" fixed-width />{{ $t('widget.deleteAllTasks') }}
                     </button>
                   </li>
                 </ul>
@@ -356,7 +358,7 @@ const doneColor = computed(() => {
                   <div class="check">
                     <fa icon="fa-circle-plus" fixed-width />
                   </div>
-                  <div class="addTaskName">Add task...</div>
+                  <div class="addTaskName">{{ $t('widget.addTask') }}</div>
                 </button>
               </template>
               <template #window>
@@ -365,11 +367,11 @@ const doneColor = computed(() => {
                     <button class="btn btnText close" type="button" aria-label="Close" @click="handleAddModalClose()">
                       <fa icon="fa-close" />
                     </button>
-                    <h3>Add task</h3>
+                    <h3>{{ $t('widget.addTask2') }}</h3>
                   </div>
                   <form novalidate class="group fill compact" @submit.prevent="handleAddTask()">
                     <input ref="newNameEl" v-model="newName" type="text" class="input" />
-                    <button type="submit" class="btn">Save</button>
+                    <button type="submit" class="btn">{{ $t('common.save') }}</button>
                   </form>
                 </div>
               </template>

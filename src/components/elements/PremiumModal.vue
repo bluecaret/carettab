@@ -11,7 +11,6 @@ const emit = defineEmits(['close'])
 
 const user = inject('user')
 const isJustSubscribed = ref(false)
-const privacyLink = 'https://www.bluecaret.com/privacy/'
 
 const handleReload = () => {
   window.location.reload()
@@ -42,7 +41,7 @@ const handleLicenseKey = async () => {
         <button
           class="premiumModalClose"
           type="button"
-          aria-label="Close modal"
+          :aria-label="$t('common.close')"
           @click="store.showPremiumModal = false"
         >
           <fa icon="fa-close" />
@@ -50,9 +49,9 @@ const handleLicenseKey = async () => {
         <fa icon="fa-gem" class="premiumModalIcon" />
 
         <div v-if="!user.paid && !isJustSubscribed">
-          <h2 class="premiumModalHeading">Premium Access</h2>
+          <h2 class="premiumModalHeading">{{ $t('settings.premiumAccess') }}</h2>
           <p class="premiumModalSubheading">
-            Support the development of CaretTab with a Premium subscription. Here&apos;s what you get:
+            {{ $t('settings.supportTheDevelopmentOfCarettab') }}
           </p>
           <ul class="premiumModalFeatures">
             <li>
@@ -99,51 +98,44 @@ const handleLicenseKey = async () => {
             </li>
           </ul>
           <div class="premiumModalFooter">
-            <div class="premiumModalPrice">Only <span>$2</span> USD per month!</div>
+            <!-- eslint-disable-next-line vue/no-v-html -->
+            <div class="premiumModalPrice" v-html="$t('settings.onlyUsdPerMonth', ['$2'])"></div>
             <button class="premiumModalBtn premiumModalSubscribeBtn" type="button" @click="handleSubscribe()">
-              Subscribe now
+              {{ $t('settings.subscribeNow') }}
             </button>
           </div>
         </div>
 
         <div v-if="user.paid && !isJustSubscribed">
-          <h2 class="premiumModalHeading">
-            <span class="premiumModalSubscribedHeading">Thank you for your support by subscribing to</span
-            ><span>Premium Access</span>
-          </h2>
+          <h2 class="premiumModalHeading" v-html="$t('settings.thankYouForYourSupport')"></h2>
           <p class="premiumModalSubheading">
-            By paying for Premium Access you receive many benefits within CaretTab including random background images,
-            background effects, and more. Paying for Premium Access helps support the development of CaretTab. If you
-            would like to cancel or manage your subscription you can click the button below.
+            {{ $t('settings.byPayingForPremiumAccess') }}
           </p>
           <div class="premiumModalFooter">
             <button class="premiumModalBtn premiumModalSubscribeBtn" type="button" @click="handleSubscribe()">
-              Manage or cancel subscription
+              {{ $t('settings.manageOrCancelSubscription') }}
             </button>
           </div>
         </div>
 
         <div v-if="isJustSubscribed">
-          <h2 class="premiumModalHeading">
-            <span class="premiumModalSubscribedHeading">Thank you! You are now subscribed to</span
-            ><span>Premium Access</span>
-          </h2>
+          <h2 class="premiumModalHeading" v-html="$t('settings.thankYouYouAreNowSubscribed')"></h2>
           <p class="premiumModalSubheading">
-            In order for premium features to be fully enabled, it is recommended to reload your tab.
+            {{ $t('settings.inOrderForPremiumFeaturesToBeFullyEnabled') }}
           </p>
           <div class="premiumModalFooter">
             <button class="premiumModalBtn premiumModalSubscribeBtn" type="button" @click="handleReload()">
-              Reload tab and enjoy!
+              {{ $t('settings.reloadTabAndEnjoy') }}
             </button>
           </div>
         </div>
 
         <div class="premiumModalDisclaimer">
-          Subscription billed on a monthly recurring basis. Cancel at any time for any reason.
-          <br />Payments processed via Stripe through ExtensionPay. View the
-          <a :href="privacyLink" rel="noreferrer" target="_blank">privacy policy</a>.
+          <span v-html="$t('settings.subscriptionBilledOn')"></span>
           <div v-if="!user.paid">
-            <button type="button" class="license" tabindex="-1" @click="handleLicenseKey">Enter a license key</button>
+            <button type="button" class="license" tabindex="-1" @click="handleLicenseKey">
+              {{ $t('settings.enterALicenseKey') }}
+            </button>
           </div>
         </div>
       </div>

@@ -48,8 +48,6 @@ watch(
   }
 )
 
-const showPremiumModal = ref(false)
-
 const getReviewLink = () => {
   if (navigator.userAgent.match(/edg/i)) {
     return 'https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe'
@@ -90,12 +88,7 @@ const handleOpenPremiumModal = () => {
     <TodoSettings v-if="['todo'].includes(settingsPage)"></TodoSettings>
     <footer class="footer">
       <a href="https://carettab.com" class="btn btnText appName">
-        <svg
-          alt="Logo for CaretTab shown as a depiction of a browser tab with a pixelated caret symbol on the inside"
-          class="logo"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 128 128"
-        >
+        <svg :alt="$t('settings.logoAlt')" class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
           <rect x="24" y="80" width="16" height="16" />
           <rect x="40" y="64" width="16" height="16" />
           <rect x="72" y="64" width="16" height="16" />
@@ -111,7 +104,7 @@ const handleOpenPremiumModal = () => {
         <template #button>
           <button class="btn btnText" type="button">
             <fa icon="fa-info" fixed-width></fa>
-            Info
+            {{ $t('settings.infoMenu') }}
           </button>
         </template>
         <template #menu>
@@ -119,20 +112,26 @@ const handleOpenPremiumModal = () => {
             <div class="group stack" style="gap: 1.6rem">
               <div class="group stack compact">
                 <div>
-                  <small class="version">{{ $t('options.common.version') }} {{ ver }}</small>
+                  <small class="version">{{ $t('settings.version', [ver]) }}</small>
                 </div>
                 <div>
-                  <a href="https://www.carettab.com/" class="link">CaretTab</a> is created by
-                  <a href="https://www.bluecaret.com" class="link">BlueCaret</a> and licensed by
-                  <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="link">GPL 3.0</a
-                  >{{ store.tSplit($t('options.dashboard.credit'))[5] }}
+                  <a href="https://www.carettab.com/" class="link">{{ store.tSplit($t('settings.credit'))[0] }}</a
+                  >{{ store.tSplit($t('settings.credit'))[1] }}
+                  <a href="https://www.bluecaret.com" class="link">{{ store.tSplit($t('settings.credit'))[2] }}</a
+                  >{{ store.tSplit($t('settings.credit'))[3] }}
+                  <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="link">{{
+                    store.tSplit($t('settings.credit'))[4]
+                  }}</a
+                  >{{ store.tSplit($t('settings.credit'))[5] }}
                 </div>
               </div>
               <div class="group compact">
-                <a class="btn fit" href="https://github.com/bluecaret/carettab/wiki/Changelog">Changelog</a>
-                <a class="btn fit" href="https://www.bluecaret.com/about">About BlueCaret</a>
-                <a class="btn fit" href="https://www.bluecaret.com/privacy">Privacy Policy</a>
-                <a class="btn fit" href="https://www.bluecaret.com/terms">Terms of Use</a>
+                <a class="btn fit" href="https://github.com/bluecaret/carettab/wiki/Changelog">{{
+                  $t('settings.changelog')
+                }}</a>
+                <a class="btn fit" href="https://www.bluecaret.com/about">{{ $t('settings.aboutBluecaret') }}</a>
+                <a class="btn fit" href="https://www.bluecaret.com/privacy">{{ $t('settings.privacyPolicy') }}</a>
+                <a class="btn fit" href="https://www.bluecaret.com/terms">{{ $t('settings.termsOfUse') }}</a>
               </div>
             </div>
           </div>
@@ -140,11 +139,11 @@ const handleOpenPremiumModal = () => {
       </DropdownMenu>
       <a href="https://github.com/bluecaret/carettab/discussions" class="btn btnText" target="_blank">
         <fa icon="fa-question" fixed-width></fa>
-        Help
+        {{ $t('settings.help') }}
       </a>
       <a :href="getReviewLink()" class="btn btnText" target="_blank">
         <fa icon="fa-star-half-stroke" fixed-width></fa>
-        {{ $t('options.dashboard.review') }}
+        {{ $t('dashboard.review') }}
       </a>
       <button
         ref="premiumBtnRef"
@@ -155,9 +154,9 @@ const handleOpenPremiumModal = () => {
       >
         <div>
           <fa icon="fa-gem" fixed-width></fa>
-          {{ user.paid ? 'You have Premium Access!' : 'Get Premium Access' }}
+          {{ user.paid ? $t('settings.youHavePremiumAccess') : $t('settings.getPremiumAccess') }}
         </div>
-        <span v-if="user.paid">Manage subscription</span>
+        <span v-if="user.paid">{{ $t('settings.manageSubscription') }}</span>
       </button>
     </footer>
   </div>

@@ -37,7 +37,7 @@ const handleUnsplashPhotoSearch = () => {
 </script>
 
 <template>
-  <PageHeading title="Unsplash.com photos" back-page="dashboard"></PageHeading>
+  <PageHeading :title="$t('settings.unsplashComPhotos')" back-page="dashboard"></PageHeading>
   <div class="page">
     <div class="tabs">
       <button
@@ -46,7 +46,7 @@ const handleUnsplashPhotoSearch = () => {
         type="button"
         @click="handleTabChange('search')"
       >
-        Search
+        {{ $t('settings.search') }}
       </button>
       <button
         class="btn tab"
@@ -54,7 +54,7 @@ const handleUnsplashPhotoSearch = () => {
         type="button"
         @click="handleTabChange('topics')"
       >
-        Topics
+        {{ $t('settings.topics') }}
       </button>
       <button
         class="btn tab"
@@ -62,26 +62,26 @@ const handleUnsplashPhotoSearch = () => {
         type="button"
         @click="handleTabChange('collections')"
       >
-        Collections
+        {{ $t('settings.collections') }}
       </button>
     </div>
     <div class="blockContainer">
       <div v-if="store.unsplashTab === 'collections' || store.unsplashTab === 'topics'" class="block">
         <div class="label">
-          <label for="backgroundColor">Random daily photo from Unsplash lists</label>
-          <div class="desc">Selecting a list will show a random photo from that list each day.</div>
+          <label for="backgroundColor">{{ $t('settings.unsplashTabTopicsLabel') }}</label>
+          <div class="desc">{{ $t('settings.unsplashTabTopicsDescription') }}</div>
         </div>
       </div>
       <div v-if="store.unsplashTab === 'search'" class="block">
         <div class="label">
-          <label for="backgroundColor">Search Unsplash photos</label>
-          <div class="desc">Find a single photo from Unsplash to use as the wallpaper.</div>
+          <label for="backgroundColor">{{ $t('settings.unsplashTabSearchLabel') }}</label>
+          <div class="desc">{{ $t('settings.unsplashTabSearchDescription') }}</div>
         </div>
         <form class="group fill compact" novalidate @submit.prevent="handleUnsplashPhotoSearch()">
           <input v-model="store.unsplashSearchTerm" type="text" class="input fill" />
           <button type="submit" class="btn">
             <fa icon="fa-search" fixed-width></fa>
-            Search
+            {{ $t('settings.search') }}
           </button>
         </form>
       </div>
@@ -93,16 +93,16 @@ const handleUnsplashPhotoSearch = () => {
           "
           class="unsplashResultsDefault"
         >
-          Search for a photo above to see results.
+          {{ $t('settings.searchForAPhotoAboveToSeeResults') }}
         </div>
         <div
           v-if="store.unsplashStatus === 'results' && store.unsplashSearchResults.length <= 0"
           class="unsplashResultsDefault"
         >
-          No results found, please try another search.
+          {{ $t('settings.noResultsFoundPleaseTryAnotherSearch') }}
         </div>
         <div v-if="store.unsplashStatus === 'results' && store.unsplashSearchResults.length > 0" class="group fill">
-          <label id="unsplashSelect" class="label">Search results</label>
+          <label id="unsplashSelect" class="label">{{ $t('settings.searchResults') }}</label>
         </div>
         <div v-if="store.unsplashStatus === 'results' && store.unsplashSearchResults.length > 0" class="group fill">
           <div class="bgTypeList">
@@ -142,8 +142,8 @@ const handleUnsplashPhotoSearch = () => {
         </div>
         <div v-if="!store.isLoading && store.unsplashSearchResults.length > 0" class="pagination">
           <button
-            aria-label="Previous page"
-            title="Previous page"
+            :aria-label="$t('common.previousPage')"
+            :title="$t('common.previousPage')"
             type="button"
             class="btn"
             :disabled="store.unsplashSearchPage <= 1"
@@ -151,10 +151,10 @@ const handleUnsplashPhotoSearch = () => {
           >
             <fa icon="fa-caret-left" fixed-width></fa>
           </button>
-          <div class="currentPage" aria-current="true">Page {{ store.unsplashSearchPage }}</div>
+          <div class="currentPage" aria-current="true">{{ $t('settings.pageCount', [store.unsplashSearchPage]) }}</div>
           <button
-            aria-label="Next page"
-            title="Next page"
+            :aria-label="$t('common.nextPage')"
+            :title="$t('common.nextPage')"
             type="button"
             class="btn"
             :disabled="store.unsplashSearchResults.length <= 20"
@@ -190,15 +190,15 @@ const handleUnsplashPhotoSearch = () => {
                 <a target="_blank" :href="photo.links.html + '?utm_source=carettab&utm_medium=referral'">{{
                   photo.title
                 }}</a
-                ><span>{{ photo.total_photos }} Photos</span>
+                ><span>{{ $t('settings.photosCount', [photo.total_photos]) }}</span>
               </div>
             </button>
           </div>
         </div>
         <div v-if="!store.isLoading && store.unsplashTopicResults.length > 0" class="pagination">
           <button
-            aria-label="Previous page"
-            title="Previous page"
+            :aria-label="$t('common.previousPage')"
+            :title="$t('common.previousPage')"
             type="button"
             class="btn"
             :disabled="store.unsplashTopicPage <= 1"
@@ -206,10 +206,10 @@ const handleUnsplashPhotoSearch = () => {
           >
             <fa icon="fa-caret-left" fixed-width></fa>
           </button>
-          <div class="currentPage" aria-current="true">Page {{ store.unsplashTopicPage }}</div>
+          <div class="currentPage" aria-current="true">{{ $t('settings.pageCount', [store.unsplashTopicPage]) }}</div>
           <button
-            aria-label="Next page"
-            title="Next page"
+            :aria-label="$t('common.nextPage')"
+            :title="$t('common.nextPage')"
             type="button"
             class="btn"
             :disabled="store.unsplashTopicResults.length <= 20"
@@ -245,15 +245,15 @@ const handleUnsplashPhotoSearch = () => {
                 <a target="_blank" :href="photo.links.html + '?utm_source=carettab&utm_medium=referral'">{{
                   photo.title
                 }}</a
-                ><span>{{ photo.total_photos }} Photos</span>
+                ><span>{{ $t('settings.photosCount', [photo.total_photos]) }}</span>
               </div>
             </button>
           </div>
         </div>
         <div v-if="!store.isLoading && store.unsplashCollectionResults.length > 0" class="pagination">
           <button
-            aria-label="Previous page"
-            title="Previous page"
+            :aria-label="$t('common.previousPage')"
+            :title="$t('common.previousPage')"
             type="button"
             class="btn"
             :disabled="store.unsplashCollectionPage <= 1"
@@ -261,10 +261,12 @@ const handleUnsplashPhotoSearch = () => {
           >
             <fa icon="fa-caret-left" fixed-width></fa>
           </button>
-          <div class="currentPage" aria-current="true">Page {{ store.unsplashCollectionPage }}</div>
+          <div class="currentPage" aria-current="true">
+            {{ $t('settings.pageCount', [store.unsplashCollectionPage]) }}
+          </div>
           <button
-            aria-label="Next page"
-            title="Next page"
+            :aria-label="$t('common.nextPage')"
+            :title="$t('common.nextPage')"
             type="button"
             class="btn"
             :disabled="store.unsplashCollectionResults.length <= 20"

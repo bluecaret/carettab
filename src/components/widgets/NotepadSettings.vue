@@ -11,11 +11,7 @@ const sync = ref(widget.sync)
 
 const changeStorageLocation = async () => {
   if (widget.sync) {
-    if (
-      confirm(
-        'Do you want to disable syncing of your notes? Notes will no longer update on other computers. Changing this setting could potentially result in a loss of notes, please backup your notes before proceeding. \n\nOnce syncing is disabled, you will be able to add up to 250,000 characters in your notes.'
-      )
-    ) {
+    if (confirm($t('widget.doYouWantToDisableSyncingOfYourNotes'))) {
       const notesKey = `notes-${widget.id}`
       const currentNotes = await getStorage(notesKey, 'sync')
       await setStorage({ ['notes-' + widget.id]: currentNotes[notesKey] }, 'local')
@@ -25,11 +21,7 @@ const changeStorageLocation = async () => {
       sync.value = true
     }
   } else {
-    if (
-      confirm(
-        'Are you sure you want to enable syncing of notes? Your current notes will start to sync across other computers with this browser that you have logged into. \n\n**NOTE** Synced notes are limited to only 7,000 characters. If you currently have more than that, you may lose some of your notes. Please backup your notes before proceeding!'
-      )
-    ) {
+    if (confirm($t('widget.areYouSureYouWantToEnableSyncing'))) {
       const notesKey = `notes-${widget.id}`
       const currentNotes = await getStorage(notesKey, 'local')
       await setStorage({ ['notes-' + widget.id]: currentNotes[notesKey].slice(0, 7000) }, 'sync')
@@ -51,32 +43,32 @@ const changeStorageLocation = async () => {
     </div>
     <div class="blockContainer">
       <div class="block">
-        <label for="overrideColors" class="label">Override colors</label>
+        <label for="overrideColors" class="label">{{ $t('widget.overrideColors') }}</label>
         <ToggleField v-model="widget.overrideColors" tag-id="overrideColors"></ToggleField>
       </div>
       <FieldAccordion>
         <template #label>
-          <div class="label">Text box</div>
+          <div class="label">{{ $t('widget.textBox') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <div class="label mra">Width</div>
+            <div class="label mra">{{ $t('widget.width') }}</div>
             <NumberField v-model="widget.width" tag-id="width" class="w10" :min="1" :increment="10"></NumberField>
           </div>
           <div class="block">
-            <label for="height" class="label mra">Height</label>
+            <label for="height" class="label mra">{{ $t('widget.height') }}</label>
             <NumberField v-model="widget.height" tag-id="height" class="w10" :min="1" :increment="10"></NumberField>
           </div>
           <div class="block">
-            <label for="padding" class="label mra">Padding</label>
+            <label for="padding" class="label mra">{{ $t('common.padding') }}</label>
             <NumberField v-model="widget.padding" tag-id="padding" class="w10" :min="0" :increment="1"></NumberField>
           </div>
           <div v-if="widget.overrideColors" class="block">
-            <label for="backgroundColor" class="label">Background</label>
+            <label for="backgroundColor" class="label">{{ $t('common.background') }}</label>
             <ColorField v-model="widget.background" class="w20" tag-id="backgroundColor"></ColorField>
           </div>
           <div class="block">
-            <label for="borderWidth" class="label mra">Border size</label>
+            <label for="borderWidth" class="label mra">{{ $t('common.borderSize') }}</label>
             <NumberField
               v-model="widget.borderWidth"
               tag-id="borderWidth"
@@ -86,11 +78,11 @@ const changeStorageLocation = async () => {
             ></NumberField>
           </div>
           <div v-if="widget.overrideColors" class="block">
-            <label for="borderColor" class="label">Border color</label>
+            <label for="borderColor" class="label">{{ $t('common.borderColor') }}</label>
             <ColorField v-model="widget.borderColor" class="w20" tag-id="borderColor"></ColorField>
           </div>
           <div class="block">
-            <label for="borderRadius" class="label">Rounded corners</label>
+            <label for="borderRadius" class="label">{{ $t('widget.roundedCorners') }}</label>
             <NumberField
               v-model="widget.borderRadius"
               tag-id="borderRadius"
@@ -100,35 +92,33 @@ const changeStorageLocation = async () => {
             ></NumberField>
           </div>
           <div v-if="widget.overrideColors" class="block">
-            <label for="shadow" class="label">Shadow</label>
+            <label for="shadow" class="label">{{ $t('common.shadow') }}</label>
             <ColorField v-model="widget.shadow" class="w20" shadow tag-id="shadow"></ColorField>
           </div>
         </template>
       </FieldAccordion>
       <div class="block">
         <div class="label">
-          <label for="sync">Sync notes</label>
+          <label for="sync">{{ $t('widget.syncNotes') }}</label>
           <div class="desc">
-            Allow notes to sync across computers. You must be signed in to the browser for syncing to work. Browsers
-            have a higher restriction on syncing data, this means notes will be limited to only 7,000 characters.
-            Disabling sync for notes allows up to 250,000 characters.
+            {{ $t('widget.allowNotesToSync') }}
           </div>
-          <div class="desc">Notes are currently limited to {{ widget.sync ? '7,000' : '250,000' }} characters.</div>
+          <div class="desc">{{ $t('widget.notesAreCurrentlyLimitedTo', [widget.sync ? '7,000' : '250,000']) }}</div>
         </div>
         <ToggleField v-model="sync" tag-id="sync" @click="changeStorageLocation()"></ToggleField>
       </div>
       <div class="block">
         <div class="label">
-          <label for="spellCheck">Enable Browser Spellcheck</label>
-          <div class="desc">Allows the browser to run spellcheck on the notes (if available).</div>
+          <label for="spellCheck">{{ $t('widget.enableBrowserSpellcheck') }}</label>
+          <div class="desc">{{ $t('widget.allowsTheBrowserToRunSpellcheck') }}</div>
         </div>
         <ToggleField v-model="widget.spellCheck" tag-id="spellCheck"></ToggleField>
       </div>
       <div class="block">
         <div class="label">
-          <label for="spellCheck">Show count</label>
+          <label for="spellCheck">{{ $t('widget.showCount') }}</label>
           <div class="desc">
-            Display the current character count and the total allowed in the bottom of the notepad.
+            {{ $t('widget.displayTheCurrentCharacterCount') }}
           </div>
         </div>
         <ToggleField v-model="widget.showCharLimit" tag-id="showCharLimit"></ToggleField>

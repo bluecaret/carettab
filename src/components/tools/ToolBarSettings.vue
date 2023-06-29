@@ -31,8 +31,8 @@ const showToolbarTools = ref(false)
         <div class="group fill">
           <div class="group compact mra">
             <div class="label">
-              <label for="enableToolbar">Toolbar</label>
-              <div class="desc">Enable a toolbar for quick access to useful tools.</div>
+              <label for="enableToolbar">{{ $t('widget.toolbar') }}</label>
+              <div class="desc">{{ $t('widget.enableAToolbarForQuickAccessToUsefulTools') }}</div>
             </div>
           </div>
           <ToggleField v-model="store.config.toolbar.on" tag-id="enableToolbar"></ToggleField>
@@ -42,8 +42,8 @@ const showToolbarTools = ref(false)
               type="button"
               class="btn"
               :class="{ active: showToolbarTools }"
-              aria-label="Toggle and reorder tools"
-              title="Toggle and reorder tools"
+              :aria-label="$t('widget.toggleAndReorderTools')"
+              :title="$t('widget.toggleAndReorderTools')"
               @click="showToolbarTools = !showToolbarTools"
             >
               <fa icon="fa-shapes" fixed-width></fa>
@@ -53,8 +53,8 @@ const showToolbarTools = ref(false)
               type="button"
               class="btn"
               :class="{ active: showToolbarSettings }"
-              aria-label="Edit toolbar settings"
-              title="Edit toolbar settings"
+              :aria-label="$t('widget.editToolbarSettings')"
+              :title="$t('widget.editToolbarSettings')"
               @click="showToolbarSettings = !showToolbarSettings"
             >
               <fa icon="fa-pen" fixed-width></fa>
@@ -64,23 +64,23 @@ const showToolbarTools = ref(false)
       </div>
       <FieldAccordion v-if="showToolbarSettings" start-open>
         <template #label>
-          <div class="label">Bar</div>
+          <div class="label">{{ $t('widget.bar') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="tbWidth" class="label mra">Size</label>
+            <label for="tbWidth" class="label mra">{{ $t('common.size') }}</label>
             <NumberField v-model="store.config.toolbar.size" :min="20" tag-id="tbWidth" class="w10"></NumberField>
           </div>
           <div class="block">
-            <label for="tbBackground" class="label mra">Background</label>
+            <label for="tbBackground" class="label mra">{{ $t('common.background') }}</label>
             <ColorField v-model="store.config.toolbar.background" tag-id="tbBackground" class="w20"></ColorField>
           </div>
           <div class="block">
-            <label for="tbShadow" class="label mra">Shadow</label>
+            <label for="tbShadow" class="label mra">{{ $t('common.shadow') }}</label>
             <ColorField v-model="store.config.toolbar.shadow" shadow tag-id="tbShadow" class="w20"></ColorField>
           </div>
           <div class="block">
-            <label for="tbBorderSize" class="label mra">Border size</label>
+            <label for="tbBorderSize" class="label mra">{{ $t('common.borderSize') }}</label>
             <NumberField
               v-model="store.config.toolbar.borderSize"
               :min="0"
@@ -90,7 +90,7 @@ const showToolbarTools = ref(false)
             ></NumberField>
           </div>
           <div class="block">
-            <label for="tbBorderColor" class="label mra">Border color</label>
+            <label for="tbBorderColor" class="label mra">{{ $t('common.borderColor') }}</label>
             <ColorField v-model="store.config.toolbar.borderColor" tag-id="tbBorderColor" class="w20"></ColorField>
           </div>
         </template>
@@ -101,15 +101,15 @@ const showToolbarTools = ref(false)
         </template>
         <template #children>
           <div class="block">
-            <label for="tbAlign" class="label mra">Align</label>
+            <label for="tbAlign" class="label mra">{{ $t('widget.align') }}</label>
             <select id="tbAlign" v-model="store.config.toolbar.align" name="tbAlign" class="select w20">
-              <option value="flex-start">Top</option>
-              <option value="center">Middle</option>
-              <option value="flex-end">Bottom</option>
+              <option value="flex-start">{{ $t('widget.top') }}</option>
+              <option value="center">{{ $t('widget.middle') }}</option>
+              <option value="flex-end">{{ $t('widget.bottom') }}</option>
             </select>
           </div>
           <div class="block">
-            <label for="tbForeground" class="label mra">Color</label>
+            <label for="tbForeground" class="label mra">{{ $t('common.color') }}</label>
             <ColorField v-model="store.config.toolbar.foreground" tag-id="tbForeground" class="w20"></ColorField>
           </div>
         </template>
@@ -117,7 +117,7 @@ const showToolbarTools = ref(false)
     </template>
     <template #item="{ element }">
       <div v-if="showToolbarTools && store.config.toolbar.on" class="block">
-        <button type="button" class="drag">
+        <button type="button" class="drag" :aria-label="$t('common.dragToReorder')">
           <fa icon="fa-grip-vertical" size="xs" fixed-width></fa>
         </button>
         <div class="group">
@@ -135,9 +135,4 @@ const showToolbarTools = ref(false)
       </div>
     </template>
   </draggable>
-  <!-- <h3 class="subtitle">Toolbar style</h3> -->
-  <!-- <div class="blockContainer"></div> -->
-  <!-- </div> -->
 </template>
-
-<style lang="scss" scoped></style>

@@ -18,28 +18,28 @@ const widget = reactive(store.config[widgetStore][ci.value])
     </div>
     <div class="blockContainer">
       <div class="block">
-        <label for="labelOn" class="label">Enable label</label>
+        <label for="labelOn" class="label">{{ $t('widget.enableLabel') }}</label>
         <ToggleField v-model="widget.label.on" tag-id="labelOn" />
       </div>
       <div v-if="widget.label.on" class="block">
-        <label for="labelText" class="label">Label</label>
+        <label for="labelText" class="label">{{ $t('widget.labelText') }}</label>
         <input id="labelText" v-model="widget.label.label" type="text" class="input w20" />
       </div>
       <FieldAccordion>
         <template #label>
-          <div class="label">Completed tasks</div>
+          <div class="label">{{ $t('widget.completedTasks') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="strike" class="label">Strikethrough</label>
+            <label for="strike" class="label">{{ $t('widget.strikethrough') }}</label>
             <ToggleField v-model="widget.done.strikethrough" tag-id="strike" />
           </div>
           <div class="block">
-            <label for="override" class="label">Override color</label>
+            <label for="override" class="label">{{ $t('widget.overrideColors') }}</label>
             <ToggleField v-model="widget.done.overrideColor" tag-id="override" />
           </div>
           <div v-if="widget.done.overrideColor" class="block">
-            <label for="doneColor" class="label">Color</label>
+            <label for="doneColor" class="label">{{ $t('common.color') }}</label>
             <ColorField v-model="widget.done.color" tag-id="doneColor" class="w20" />
           </div>
         </template>

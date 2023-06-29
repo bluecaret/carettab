@@ -35,7 +35,7 @@ const getMyLoc = () => {
     (err) => {
       store.isLoading = false
       console.warn(`ERROR(${err.code}): ${err.message}`)
-      alert('Unable to get your location.')
+      alert($t('widget.unableToGetYourLocation'))
     },
     {
       timeout: 5000,
@@ -68,12 +68,12 @@ const refreshWeather = async () => {
     <div class="blockContainer">
       <FieldAccordion>
         <template #label>
-          <div class="label">Location</div>
+          <div class="label">{{ $t('widget.location') }}</div>
         </template>
         <template #children>
           <div class="block">
             <div class="label mra">
-              <div class="desc">Current location:</div>
+              <div class="desc">{{ $t('widget.currentLocation') }}</div>
               <strong>{{ widget.location.name }}</strong>
               <div class="desc">
                 <strong>
@@ -83,33 +83,33 @@ const refreshWeather = async () => {
               </div>
             </div>
             <div class="btnGroup">
-              <button type="button" class="btn mla" @click="refreshWeather">Refresh</button>
+              <button type="button" class="btn mla" @click="refreshWeather">{{ $t('common.refresh') }}</button>
               <ModalWindow :show="showLocationSearch" size="400px" @close="showLocationSearch = false">
                 <template #button>
-                  <button type="button" class="btn" @click="openLocSearch">Change location</button>
+                  <button type="button" class="btn" @click="openLocSearch">{{ $t('widget.changeLocation') }}</button>
                 </template>
                 <template #window>
                   <div class="locSearchModal block stack">
                     <button
                       class="locSearchModalClose"
                       type="button"
-                      aria-label="Close modal"
+                      :aria-label="$t('common.close')"
                       @click="showLocationSearch = false"
                     >
                       <fa icon="fa-close" />
                     </button>
-                    <h2 class="locSearchModalHeading">Find a location</h2>
+                    <h2 class="locSearchModalHeading">{{ $t('widget.findALocation') }}</h2>
                     <div class="group stack fill">
                       <div for="locSearchModalInput" class="label">
-                        <label for="locSearchModalInput">Search</label>
-                        <div class="desc">City name, postal code, coordinates, etc.</div>
+                        <label for="locSearchModalInput">{{ $t('settings.search') }}</label>
+                        <div class="desc">{{ $t('widget.cityNamePostalCodeCoordinatesEtc') }}</div>
                       </div>
                       <form novalidate class="group fill compact" @submit.prevent="searchLoc">
                         <input
                           id="locSearchModalInput"
                           v-model="locQueary"
                           type="text"
-                          placeholder="Enter a location"
+                          :placeholder="$t('widget.enterALocation')"
                           class="input"
                         />
                         <button type="submit" class="btn" aria-label="Search" title="Search">
@@ -118,8 +118,8 @@ const refreshWeather = async () => {
                         <button
                           type="button"
                           class="btn"
-                          aria-label="Get my location"
-                          title="Get my location"
+                          :aria-label="$t('widget.getMyLocation')"
+                          :title="$t('widget.getMyLocation')"
                           @click="getMyLoc"
                         >
                           <fa icon="fa-location-crosshairs" />
@@ -140,17 +140,17 @@ const refreshWeather = async () => {
             </div>
           </div>
           <div class="block">
-            <label for="locname" class="label mra">Show location name</label>
+            <label for="locname" class="label mra">{{ $t('widget.showLocationName') }}</label>
             <ToggleField v-model="widget.label.on" tag-id="locname"></ToggleField>
           </div>
           <div v-if="widget.overrideColors && widget.label.on" class="block">
-            <label for="loccolor" class="label mra">Location color</label>
+            <label for="loccolor" class="label mra">{{ $t('widget.locationColor') }}</label>
             <ColorField v-model="widget.label.color" tag-id="loccolor" class="w20"></ColorField>
           </div>
         </template>
       </FieldAccordion>
       <div class="block">
-        <label for="layout" class="label mra">Layout</label>
+        <label for="layout" class="label mra">{{ $t('widget.layout') }}</label>
         <select id="layout" v-model="widget.layout" name="layout" class="select w20">
           <option value="2">Nimbus</option>
           <option value="1">Boreas Eurus</option>
@@ -161,57 +161,57 @@ const refreshWeather = async () => {
       </div>
       <div class="block">
         <div class="group fill">
-          <label for="elColors" class="label mra">Override text colors</label>
+          <label for="elColors" class="label mra">{{ $t('widget.overrideTextColors') }}</label>
           <ToggleField v-model="widget.overrideColors" tag-id="elColors"></ToggleField>
         </div>
       </div>
       <FieldAccordion>
         <template #label>
-          <div class="label">Measurements and numbers</div>
+          <div class="label">{{ $t('widget.measurementsAndNumbers') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="scale" class="label mra">Temperature scale</label>
+            <label for="scale" class="label mra">{{ $t('widget.temperatureScale') }}</label>
             <select id="scale" v-model="widget.scale" name="scale" class="select w20">
               <option :value="true">Fahrenheit - &deg;F</option>
               <option :value="false">Celsius - &deg;C</option>
             </select>
           </div>
           <div class="block">
-            <label for="unit" class="label mra">Measurement units</label>
+            <label for="unit" class="label mra">{{ $t('widget.measurementUnits') }}</label>
             <select id="unit" v-model="widget.unit" name="unit" class="select w20">
               <option :value="true">Imperial</option>
               <option :value="false">Metric</option>
             </select>
           </div>
           <div class="block">
-            <label for="roundDecimals" class="label mra">Round decimals</label>
+            <label for="roundDecimals" class="label mra">{{ $t('widget.roundDecimals') }}</label>
             <ToggleField v-model="widget.roundDecimals" tag-id="roundDecimals"></ToggleField>
           </div>
           <div class="block">
-            <label for="tf" class="label mra">24 hour time</label>
+            <label for="tf" class="label mra">{{ $t('widget.24HourTime') }}</label>
             <ToggleField v-model="widget.twentyFour" tag-id="tf"></ToggleField>
           </div>
         </template>
       </FieldAccordion>
     </div>
-    <h3 class="subtitle">Current weather</h3>
+    <h3 class="subtitle">{{ $t('widget.currentWeather') }}</h3>
     <div class="blockContainer">
       <div class="block">
-        <label for="currentOn" class="label mra">Current weather</label>
+        <label for="currentOn" class="label mra">{{ $t('widget.currentWeather') }}</label>
         <ToggleField v-model="widget.current.on" tag-id="currentOn"></ToggleField>
       </div>
       <FieldAccordion v-if="widget.current.on">
         <template #label>
-          <div class="label">Temperature</div>
+          <div class="label">{{ $t('widget.temperature') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="currentTemp" class="label mra">Current temperature</label>
+            <label for="currentTemp" class="label mra">{{ $t('widget.currentTemperature') }}</label>
             <ToggleField v-model="widget.current.temperature.currently" tag-id="currentTemp"></ToggleField>
           </div>
           <div v-if="widget.overrideColors && widget.current.temperature.currently" class="block">
-            <label for="currentTempColor" class="label mra">Current temperature color</label>
+            <label for="currentTempColor" class="label mra">{{ $t('widget.currentTemperatureColor') }}</label>
             <ColorField
               v-model="widget.current.temperature.currentlyColor"
               tag-id="currentTempColor"
@@ -219,30 +219,30 @@ const refreshWeather = async () => {
             ></ColorField>
           </div>
           <div class="block">
-            <label for="currentFeelsLike" class="label mra">Feels like</label>
+            <label for="currentFeelsLike" class="label mra">{{ $t('widget.feelsLike') }}</label>
             <ToggleField v-model="widget.current.temperature.feelsLike" tag-id="currentFeelsLike"></ToggleField>
           </div>
           <div v-if="widget.overrideColors && widget.current.temperature.feelsLike" class="block">
-            <label for="flc" class="label mra">Feels like color</label>
+            <label for="flc" class="label mra">{{ $t('widget.feelsLikeColor') }}</label>
             <ColorField v-model="widget.current.temperature.feelsLikeColor" tag-id="flc" class="w20"></ColorField>
           </div>
           <div class="block">
-            <label for="currentDegSym" class="label mra">Degree symbol</label>
+            <label for="currentDegSym" class="label mra">{{ $t('widget.degreeSymbol') }}</label>
             <ToggleField v-model="widget.current.temperature.degree" tag-id="currentDegSym"></ToggleField>
           </div>
         </template>
       </FieldAccordion>
       <FieldAccordion v-if="widget.current.on">
         <template #label>
-          <div class="label">Statistics</div>
+          <div class="label">{{ $t('widget.statistics') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="currentCondition" class="label mra">Condition</label>
+            <label for="currentCondition" class="label mra">{{ $t('widget.condition') }}</label>
             <ToggleField v-model="widget.current.condition.on" tag-id="currentCondition"></ToggleField>
           </div>
           <div class="block">
-            <label for="currentConditionColor" class="label mra">Condition</label>
+            <label for="currentConditionColor" class="label mra">{{ $t('widget.condition') }}</label>
             <ColorField
               v-model="widget.current.condition.color"
               tag-id="currentConditionColor"
@@ -250,42 +250,42 @@ const refreshWeather = async () => {
             ></ColorField>
           </div>
           <div class="block">
-            <label for="currentHum" class="label mra">Humidity</label>
+            <label for="currentHum" class="label mra">{{ $t('widget.humidity') }}</label>
             <ToggleField v-model="widget.current.humidity.on" tag-id="currentHum"></ToggleField>
           </div>
           <div v-if="widget.overrideColors && widget.current.humidity.on" class="block">
-            <label for="currentHumidityColor" class="label mra">Humidity color</label>
+            <label for="currentHumidityColor" class="label mra">{{ $t('widget.humidityColor') }}</label>
             <ColorField v-model="widget.current.humidity.color" tag-id="currentHumidityColor" class="w20"></ColorField>
           </div>
           <div class="block">
-            <label for="currentPre" class="label mra">Pressure</label>
+            <label for="currentPre" class="label mra">{{ $t('widget.pressure') }}</label>
             <ToggleField v-model="widget.current.pressure.on" tag-id="currentPre"></ToggleField>
           </div>
           <div v-if="widget.overrideColors && widget.current.pressure.on" class="block">
-            <label for="currentPressureColor" class="label mra">Pressure</label>
+            <label for="currentPressureColor" class="label mra">{{ $t('widget.pressure') }}</label>
             <ColorField v-model="widget.current.pressure.color" tag-id="currentPressureColor" class="w20"></ColorField>
           </div>
           <div class="block">
-            <label for="currentWind" class="label mra">Wind</label>
+            <label for="currentWind" class="label mra">{{ $t('widget.wind') }}</label>
             <ToggleField v-model="widget.current.wind.on" tag-id="currentWind"></ToggleField>
           </div>
           <div v-if="widget.current.wind.on" class="block">
-            <label for="windUnit" class="label mra">Wind units</label>
+            <label for="windUnit" class="label mra">{{ $t('widget.windUnits') }}</label>
             <select id="windUnit" v-model="widget.windUnit" name="windUnit" class="select w10">
               <option :value="true">{{ widget.unit ? 'mph' : 'kph' }}</option>
               <option :value="false">{{ widget.unit ? 'ft/s' : 'm/s' }}</option>
             </select>
           </div>
           <div v-if="widget.current.wind.on" class="block">
-            <label for="currentWindColor" class="label mra">Wind color</label>
+            <label for="currentWindColor" class="label mra">{{ $t('widget.windColor') }}</label>
             <ColorField v-model="widget.current.wind.color" tag-id="currentWindColor" class="w20"></ColorField>
           </div>
           <div class="block">
-            <label for="currentSunrise" class="label mra">Sunrise</label>
+            <label for="currentSunrise" class="label mra">{{ $t('widget.sunrise') }}</label>
             <ToggleField v-model="widget.current.astro.sunrise" tag-id="currentSunrise"></ToggleField>
           </div>
           <div v-if="widget.overrideColors && widget.current.astro.sunrise" class="block">
-            <label for="currentSunriseColor" class="label mra">Sunrise color</label>
+            <label for="currentSunriseColor" class="label mra">{{ $t('widget.sunriseColor') }}</label>
             <ColorField
               v-model="widget.current.astro.sunriseColor"
               tag-id="currentSunriseColor"
@@ -293,19 +293,19 @@ const refreshWeather = async () => {
             ></ColorField>
           </div>
           <div class="block">
-            <label for="currentSunset" class="label mra">Sunset</label>
+            <label for="currentSunset" class="label mra">{{ $t('widget.sunset') }}</label>
             <ToggleField v-model="widget.current.astro.sunset" tag-id="currentSunset"></ToggleField>
           </div>
           <div v-if="widget.overrideColors && widget.current.astro.sunset" class="block">
-            <label for="currentSunsetColor" class="label mra">Sunset color</label>
+            <label for="currentSunsetColor" class="label mra">{{ $t('widget.sunsetColor') }}</label>
             <ColorField v-model="widget.current.astro.sunsetColor" tag-id="currentSunsetColor" class="w20"></ColorField>
           </div>
           <div class="block">
-            <label for="currentMoon" class="label mra">Moon phase</label>
+            <label for="currentMoon" class="label mra">{{ $t('widget.moonPhase') }}</label>
             <ToggleField v-model="widget.current.astro.moonPhase" tag-id="currentMoon"></ToggleField>
           </div>
           <div v-if="widget.overrideColors && widget.current.astro.moonPhase" class="block">
-            <label for="currentMoon" class="label mra">Moon phase color</label>
+            <label for="currentMoon" class="label mra">{{ $t('widget.moonPhaseColor') }}</label>
             <ColorField
               v-model="widget.current.astro.moonPhaseColor"
               tag-id="currentMoonColor"
@@ -316,16 +316,16 @@ const refreshWeather = async () => {
       </FieldAccordion>
       <FieldAccordion v-if="widget.current.on">
         <template #label>
-          <div class="label">Icon</div>
+          <div class="label">{{ $t('widget.icon') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="currentIcon" class="label mra" aria-label="Enable icon">Enable icon</label>
+            <label for="currentIcon" class="label mra" aria-label="Enable icon">{{ $t('widget.enableIcon') }}</label>
             <ToggleField v-model="widget.current.icon.on" tag-id="currentIcon"></ToggleField>
           </div>
           <div v-if="widget.current.icon.on" class="block">
             <label for="currentIconAnimated" class="label mra">
-              <div><PremiumLabel />Animated icons</div>
+              <div><PremiumLabel />{{ $t('widget.animatedIcons') }}</div>
             </label>
             <ToggleField
               v-model="widget.current.icon.animated"
@@ -335,57 +335,57 @@ const refreshWeather = async () => {
           </div>
           <template v-if="widget.current.icon.on">
             <div class="block">
-              <label for="colorSun" class="label mra">Sun color</label>
+              <label for="colorSun" class="label mra">{{ $t('widget.sunColor') }}</label>
               <ColorField v-model="widget.current.icon.colors.sun" tag-id="colorSun" class="w20"></ColorField>
             </div>
             <div class="block">
-              <label for="colorMoon" class="label mra">Moon color</label>
+              <label for="colorMoon" class="label mra">{{ $t('widget.moonColor') }}</label>
               <ColorField v-model="widget.current.icon.colors.moon" tag-id="colorMoon" class="w20"></ColorField>
             </div>
             <div class="block">
-              <label for="colorCloud" class="label mra">Cloud color</label>
+              <label for="colorCloud" class="label mra">{{ $t('widget.cloudColor') }}</label>
               <ColorField v-model="widget.current.icon.colors.cloud" tag-id="colorCloud" class="w20"></ColorField>
             </div>
             <div class="block">
-              <label for="colorRain" class="label mra">Rain color</label>
+              <label for="colorRain" class="label mra">{{ $t('widget.rainColor') }}</label>
               <ColorField v-model="widget.current.icon.colors.rain" tag-id="colorRain" class="w20"></ColorField>
             </div>
             <div class="block">
-              <label for="colorSnow" class="label mra">Snow color</label>
+              <label for="colorSnow" class="label mra">{{ $t('widget.snowColor') }}</label>
               <ColorField v-model="widget.current.icon.colors.snow" tag-id="colorSnow" class="w20"></ColorField>
             </div>
             <div class="block">
-              <label for="colorThunder" class="label mra">Lightning color</label>
+              <label for="colorThunder" class="label mra">{{ $t('widget.lightningColor') }}</label>
               <ColorField v-model="widget.current.icon.colors.thunder" tag-id="colorThunder" class="w20"></ColorField>
             </div>
           </template>
         </template>
       </FieldAccordion>
     </div>
-    <h3 class="subtitle">Forecast weather</h3>
+    <h3 class="subtitle">{{ $t('widget.forecastWeather') }}</h3>
     <div class="blockContainer">
       <div class="block">
-        <label for="forecastOn" class="label mra">Forecast weather</label>
+        <label for="forecastOn" class="label mra">{{ $t('widget.forecastWeather') }}</label>
         <ToggleField v-model="widget.forecast.on" tag-id="forecastOn"></ToggleField>
       </div>
       <FieldAccordion v-if="widget.forecast.on">
         <template #label>
-          <div class="label">Days</div>
+          <div class="label">{{ $t('widget.days') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="forecastDays" class="label mra">Number of days to show</label>
+            <label for="forecastDays" class="label mra">{{ $t('widget.numberOfDaysToShow') }}</label>
             <div class="range w20">
               <output class="output">{{ widget.forecast.days }}</output>
               <input id="forecastDays" v-model="widget.forecast.days" type="range" class="rangeInput" min="1" max="5" />
             </div>
           </div>
           <div class="block">
-            <label for="forecastHideToday" class="label mra">Hide today</label>
+            <label for="forecastHideToday" class="label mra">{{ $t('widget.hideToday') }}</label>
             <ToggleField v-model="widget.forecast.hideToday" tag-id="forecastHideToday"></ToggleField>
           </div>
           <div class="block">
-            <label for="forecastDayName" class="label mra">Show date</label>
+            <label for="forecastDayName" class="label mra">{{ $t('widget.showDate') }}</label>
             <ToggleField v-model="widget.forecast.day.on" tag-id="forecastDayName"></ToggleField>
           </div>
           <div class="block"></div>
@@ -393,15 +393,15 @@ const refreshWeather = async () => {
       </FieldAccordion>
       <FieldAccordion v-if="widget.forecast.on">
         <template #label>
-          <div class="label">Temperature</div>
+          <div class="label">{{ $t('widget.temperature') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="forecastHigh" class="label mra">Day's high temperature</label>
+            <label for="forecastHigh" class="label mra">{{ $t('widget.daysHighTemperature') }}</label>
             <ToggleField v-model="widget.forecast.temperature.high" tag-id="forecastHigh"></ToggleField>
           </div>
           <div v-if="widget.overrideColors && widget.forecast.temperature.high" class="block">
-            <label for="forecastHighColor" class="label mra">High temperature color</label>
+            <label for="forecastHighColor" class="label mra">{{ $t('widget.highTemperatureColor') }}</label>
             <ColorField
               v-model="widget.forecast.temperature.highColor"
               tag-id="forecastHighColor"
@@ -409,11 +409,11 @@ const refreshWeather = async () => {
             ></ColorField>
           </div>
           <div class="block">
-            <label for="forecastLow" class="label mra">Day's low temperature</label>
+            <label for="forecastLow" class="label mra">{{ $t('widget.daysLowTemperature') }}</label>
             <ToggleField v-model="widget.forecast.temperature.low" tag-id="forecastLow"></ToggleField>
           </div>
           <div v-if="widget.overrideColors && widget.forecast.temperature.low" class="block">
-            <label for="forecastLowColor" class="label mra">Low temperature color</label>
+            <label for="forecastLowColor" class="label mra">{{ $t('widget.lowTemperatureColor') }}</label>
             <ColorField
               v-model="widget.forecast.temperature.lowColor"
               tag-id="forecastLowColor"
@@ -421,23 +421,23 @@ const refreshWeather = async () => {
             ></ColorField>
           </div>
           <div class="block">
-            <label for="forecastDegSym" class="label mra">Degree Symbol</label>
+            <label for="forecastDegSym" class="label mra">{{ $t('widget.degreeSymbol') }}</label>
             <ToggleField v-model="widget.forecast.temperature.degree" tag-id="forecastDegSym"></ToggleField>
           </div>
         </template>
       </FieldAccordion>
       <FieldAccordion v-if="widget.forecast.on">
         <template #label>
-          <div class="label">Icon</div>
+          <div class="label">{{ $t('widget.icon') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="forecastIcon" class="label mra">Enable icon</label>
+            <label for="forecastIcon" class="label mra">{{ $t('widget.enableIcon') }}</label>
             <ToggleField v-model="widget.forecast.icon.on" tag-id="forecastIcon"></ToggleField>
           </div>
           <div v-if="widget.forecast.icon.on" class="block">
             <label for="forecastIconAnimated" class="label mra">
-              <div><PremiumLabel />Animated icons</div>
+              <div><PremiumLabel />{{ $t('widget.animatedIcons') }}</div>
             </label>
             <ToggleField
               v-model="widget.forecast.icon.animated"
@@ -446,27 +446,27 @@ const refreshWeather = async () => {
             ></ToggleField>
           </div>
           <div v-if="widget.forecast.icon.on" class="block">
-            <label for="fcolorSun" class="label mra">Sun color</label>
+            <label for="fcolorSun" class="label mra">{{ $t('widget.sunColor') }}</label>
             <ColorField v-model="widget.forecast.icon.colors.sun" tag-id="fcolorSun" class="w20"></ColorField>
           </div>
           <div v-if="widget.forecast.icon.on" class="block">
-            <label for="fcolorMoon" class="label mra">Moon color</label>
+            <label for="fcolorMoon" class="label mra">{{ $t('widget.moonColor') }}</label>
             <ColorField v-model="widget.forecast.icon.colors.moon" tag-id="fcolorMoon" class="w20"></ColorField>
           </div>
           <div v-if="widget.forecast.icon.on" class="block">
-            <label for="fcolorCloud" class="label mra">Cloud color</label>
+            <label for="fcolorCloud" class="label mra">{{ $t('widget.cloudColor') }}</label>
             <ColorField v-model="widget.forecast.icon.colors.cloud" tag-id="fcolorCloud" class="w20"></ColorField>
           </div>
           <div v-if="widget.forecast.icon.on" class="block">
-            <label for="fcolorRain" class="label mra">Rain color</label>
+            <label for="fcolorRain" class="label mra">{{ $t('widget.rainColor') }}</label>
             <ColorField v-model="widget.forecast.icon.colors.rain" tag-id="fcolorRain" class="w20"></ColorField>
           </div>
           <div v-if="widget.forecast.icon.on" class="block">
-            <label for="fcolorSnow" class="label mra">Snow color</label>
+            <label for="fcolorSnow" class="label mra">{{ $t('widget.snowColor') }}</label>
             <ColorField v-model="widget.forecast.icon.colors.snow" tag-id="fcolorSnow" class="w20"></ColorField>
           </div>
           <div v-if="widget.forecast.icon.on" class="block">
-            <label for="fcolorThunder" class="label mra">Lightning color</label>
+            <label for="fcolorThunder" class="label mra">{{ $t('widget.lightningColor') }}</label>
             <ColorField v-model="widget.forecast.icon.colors.thunder" tag-id="fcolorThunder" class="w20"></ColorField>
           </div>
         </template>

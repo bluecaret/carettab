@@ -18,8 +18,15 @@ const widget = reactive(store.config[widgetStore][ci.value])
     </div>
     <div class="blockContainer">
       <div class="block">
-        <label for="text" class="label">Text</label>
-        <input id="text" v-model="widget.text" type="text" name="text" class="input w30" placeholder="Enter text..." />
+        <label for="text" class="label">{{ $t('widget.text') }}</label>
+        <input
+          id="text"
+          v-model="widget.text"
+          type="text"
+          name="text"
+          class="input w30"
+          :placeholder="$t('widget.enterText')"
+        />
       </div>
     </div>
   </div>

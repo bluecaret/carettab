@@ -41,20 +41,24 @@ const handleGoBackBtn = () => {
       ref="backBtnEl"
       class="btn goBack"
       type="button"
-      :aria-label="store.settingsPage === 'dashboard' ? 'Close' : 'Go back'"
-      :title="store.settingsPage === 'dashboard' ? 'Close and save settings' : 'Go back to previous page'"
+      :aria-label="store.settingsPage === 'dashboard' ? $t('common.close') : $t('common.goBack')"
+      :title="
+        store.settingsPage === 'dashboard' ? $t('common.closeAndSaveSettings') : $t('common.goBackToPreviousPage')
+      "
       @click="handleGoBackBtn()"
     >
       <fa :icon="store.settingsPage === 'dashboard' ? 'fa-xmark' : 'fa-caret-left'" size="lg" />
     </button>
     <h1>
-      {{ props.title }} <span v-if="widgetId" class="widgetId" title="Widget ID Number">{{ widgetId }}</span>
+      {{ props.title }}
+      <span v-if="widgetId" class="widgetId" :title="$t('common.widgetIdNumber')">{{ widgetId }}</span>
     </h1>
     <div class="headerLinks">
       <div class="btnGroup">
         <button
           class="btn previewBtn"
-          aria-label="Hide settings"
+          :aria-label="$t('settings.hideSettings')"
+          :title="$t('settings.temporarilyHideTheSettngsMenu')"
           @mouseenter="store.togglePanelPreview = true"
           @mouseleave="store.togglePanelPreview = false"
           @click="store.togglePanelPreview = true"
@@ -65,8 +69,8 @@ const handleGoBackBtn = () => {
         <button
           class="btn"
           :class="{ active: store.showOutliner }"
-          aria-label="Toggle widget outlines"
-          title="Shows an outline around all widgets. Useful when positioning widgets."
+          :aria-label="$t('settings.toggleWidgetOutlines')"
+          :title="$t('settings.showsAnOutlineAroundAllWidgets')"
           @click="store.showOutliner = !store.showOutliner"
         >
           <fa icon="fa-vector-square" fixed-width></fa>
@@ -74,17 +78,17 @@ const handleGoBackBtn = () => {
         <button
           class="btn"
           :class="{ active: store.panelMove }"
-          aria-label="Move settings"
-          title="Temporarily move the settings panel to the opposite side of the screen."
+          :aria-label="$t('settings.moveSettings')"
+          :title="$t('settings.temporarilyMoveTheSettingsPanel')"
           @click="store.panelMove = !store.panelMove"
         >
           <fa v-if="!store.panelMove" icon="fa-arrow-right-to-bracket" rotation="180" fixed-width></fa>
           <fa v-if="store.panelMove" icon="fa-arrow-right-to-bracket" fixed-width></fa>
         </button>
       </div>
-      <button class="btn" aria-label="Save" title="Save all current settings" @click="handleSave()">
+      <button class="btn" :title="$t('common.saveAllCurrentSettings')" @click="handleSave()">
         <fa icon="fa-floppy-disk"></fa>
-        {{ $t('options.common.save') }}
+        {{ $t('common.save') }}
       </button>
     </div>
   </header>

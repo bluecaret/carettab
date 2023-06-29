@@ -36,21 +36,21 @@ const deleteQuote = (id) => {
     <div class="blockContainer">
       <FieldAccordion>
         <template #label>
-          <div class="label">Quote display</div>
+          <div class="label">{{ $t('widget.quoteDisplay') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="showAuthor" class="label">Show author</label>
+            <label for="showAuthor" class="label">{{ $t('widget.showAuthor') }}</label>
             <ToggleField v-model="widget.showAuthor" tag-id="showAuthor"></ToggleField>
           </div>
           <div class="block">
-            <label for="showQuoteMarks" class="label">Show quote marks</label>
+            <label for="showQuoteMarks" class="label">{{ $t('widget.showQuoteMarks') }}</label>
             <ToggleField v-model="widget.showQuoteMarks" tag-id="showQuoteMarks"></ToggleField>
           </div>
         </template>
       </FieldAccordion>
     </div>
-    <h3 class="subtitle">Quotes</h3>
+    <h3 class="subtitle">{{ $t('widget.quotes') }}</h3>
     <template v-if="widget.quotes && widget.quotes.length > 0">
       <draggable
         class="blockContainer"
@@ -67,14 +67,13 @@ const deleteQuote = (id) => {
           <div class="block">
             <div class="group fill">
               <div class="label fill">
-                <div>Enter your custom quotes below.</div>
+                <div>{{ $t('widget.enterYourCustomQuotesBelow') }}</div>
                 <div class="desc">
-                  Adding multiple quotes will cause the quote to be updated each day. By default, the next quote in the
-                  list will be used. Enable "random" to pick a random quote instead.
+                  {{ $t('widget.addingMultipleQuotesWillCause') }}
                 </div>
               </div>
               <div class="group stack compact mla">
-                <label for="random" class="desc">Random</label>
+                <label for="random" class="desc">{{ $t('widget.random') }}</label>
                 <ToggleField v-model="widget.random" tag-id="random"></ToggleField>
               </div>
             </div>
@@ -86,9 +85,21 @@ const deleteQuote = (id) => {
               <div type="button" class="drag fit">
                 <fa icon="fa-grip-vertical" size="xs" fixed-width></fa>
               </div>
-              <input v-model="element.text" class="input" type="text" placeholder="Quote" aria-label="Quote" />
-              <input v-model="element.author" class="input w16" type="text" placeholder="Author" aria-label="Author" />
-              <button type="button" class="btn" aria-label="Delete quote" @click="deleteQuote(element.id)">
+              <input
+                v-model="element.text"
+                class="input"
+                type="text"
+                :placeholder="$t('widget.quote')"
+                :aria-label="$t('widget.quote')"
+              />
+              <input
+                v-model="element.author"
+                class="input w16"
+                type="text"
+                :placeholder="$t('widget.author')"
+                :aria-label="$t('widget.author')"
+              />
+              <button type="button" class="btn" :aria-label="$t('widget.deleteQuote')" @click="deleteQuote(element.id)">
                 <fa icon="fa-trash" fixed-width></fa>
               </button>
             </div>
@@ -99,7 +110,7 @@ const deleteQuote = (id) => {
             <div class="group fill">
               <button type="button" class="btn" @click="addQuote()">
                 <fa icon="fa-plus"></fa>
-                Add new quote
+                {{ $t('widget.addNewQuote') }}
               </button>
             </div>
           </div>
@@ -108,5 +119,3 @@ const deleteQuote = (id) => {
     </template>
   </div>
 </template>
-
-<style lang="scss" scoped></style>

@@ -35,11 +35,7 @@ const importSettings = () => {
 
         // handle settings imported from v3
         if (settings.misc && settings.misc.schema === '1.1') {
-          if (
-            confirm(
-              'Settings are from an older version of CaretTab. We will do our best to import them, but some settings may not be compatible. Do you want to continue?'
-            )
-          ) {
+          if (confirm($t('advanced.importOldVersionWarning'))) {
             store.isLoading = false
             mergeV3Settings(settings)
             return
@@ -50,9 +46,7 @@ const importSettings = () => {
         }
 
         if (!settings.config.global.schema || settings.config.global.schema !== store.config.global.schema) {
-          alert(
-            'Settings are from an older version of CaretTab and are not compatible with the current version. We recommend you reset your settings and start fresh.'
-          )
+          alert($t('advanced.importNotCompatible'))
           store.isLoading = false
           return
         }
@@ -62,9 +56,7 @@ const importSettings = () => {
         await setStorage({ nextWallpaper: settings.nextWallpaper }, 'local')
         await store.save()
         store.isLoading = false
-        alert(
-          'Import successful! The page will now be reloaded. If you have any issues, please contact us at bluecaret@outlook.com'
-        )
+        alert($t('advanced.importSuccessful', ['bluecaret@outlook.com']))
         window.location.reload()
       }
       reader.readAsText(input.files[0])
@@ -75,37 +67,35 @@ const importSettings = () => {
 </script>
 
 <template>
-  <PageHeading title="Advanced Settings" back-page="dashboard"></PageHeading>
+  <PageHeading :title="$t('advanced.advancedSettings')" back-page="dashboard"></PageHeading>
   <div class="page">
     <div class="blockContainer">
       <div class="block">
         <div class="group fill">
           <div class="label mra">
-            <label for="hideSettings">Export/Import settings</label>
+            <label for="hideSettings">{{ $t('advanced.exportImportSettings') }}</label>
             <div class="desc">
-              Export all CaretTab settings to a file. Clicking the button will download a file to your computer. Do not
-              edit this file to ensure no errors when you re-import. When importing CaretTab settings, ensure you use
-              the 'carettab-settings.json' file that was downloaded when you clicked export.
+              {{ $t('advanced.exportImportSettingsDescription') }}
             </div>
           </div>
           <div class="btnGroup">
-            <button type="button" class="btn" @click="exportSettings()">Export</button>
-            <button type="button" class="btn" @click="importSettings()">Import</button>
+            <button type="button" class="btn" @click="exportSettings()">{{ $t('advanced.export') }}</button>
+            <button type="button" class="btn" @click="importSettings()">{{ $t('advanced.import') }}</button>
           </div>
         </div>
       </div>
       <div class="block">
         <div class="group fill">
           <div class="label mra">
-            <label for="hideSettings">Reset to default</label>
+            <label for="hideSettings">{{ $t('advanced.resetToDefault') }}</label>
             <div class="desc">
-              <strong>This will remove all of your information and settings.</strong>
-              If you are signed into Premium Access, you will remain signed in.
+              <strong>{{ $t('advanced.resetToDefaultDescription') }}</strong>
+              {{ $t('advanced.resetToDefaultDescription2') }}
             </div>
           </div>
           <div class="fit">
             <button type="button" class="btn fit" style="border-color: orange; color: orange" @click="store.reset()">
-              Reset to default
+              {{ $t('advanced.resetToDefault') }}
             </button>
           </div>
         </div>
@@ -113,11 +103,10 @@ const importSettings = () => {
       <div class="block">
         <div class="group fill">
           <div class="label mra">
-            <label for="hideSettings">Reset back to fresh install</label>
+            <label for="hideSettings">{{ $t('advanced.resetBackToFreshInstall') }}</label>
             <div class="desc">
-              <strong>This will remove EVERYTHING.</strong>
-              This option essentially resets CaretTab to the state it was in when you first installed it. Use this
-              option only as a last resort if you are experiencing issues with CaretTab.
+              <strong>{{ $t('advanced.thisWillRemoveEverything') }}</strong>
+              {{ $t('advanced.resetBackToFreshDescription') }}
             </div>
           </div>
           <div class="fit">
@@ -127,7 +116,7 @@ const importSettings = () => {
               style="border-color: orangered; color: orangered"
               @click="store.resetAll()"
             >
-              Reset all!
+              {{ $t('advanced.resetAll') }}
             </button>
           </div>
         </div>

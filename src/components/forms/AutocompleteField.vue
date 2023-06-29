@@ -159,14 +159,14 @@ onUnmounted(() => {
     />
     <button class="autocompleteClear" type="button" @click="clearInput">
       <fa icon="fa fa-close"></fa>
-      Clear
+      {{ $t('common.clear') }}
     </button>
     <ul v-if="showList" ref="listEl" class="autocompleteList" tabindex="-1" :style="left && 'right: auto; left: 0;'">
       <li class="autocompleteItem">
         <div v-if="allowCustom" class="autocompleteDesc">
-          Start typing to filter list. Click on a match when found.<br />Select "custom" to use your own input.
+          {{ $t('settings.startTypingToFilterList') }}
         </div>
-        <div v-else class="autocompleteDesc">Start typing to filter list. Click on a match when found.</div>
+        <div v-else class="autocompleteDesc">{{ $t('settings.startTypingToFilterListClickOnAMatchWhenFound') }}</div>
       </li>
       <li
         v-for="(item, index) in filteredList"
@@ -184,7 +184,7 @@ onUnmounted(() => {
           :style="props.fonts && `font-family: '${inputValue}';`"
           @click="selectItem({ id: inputValue, label: inputValue })"
         >
-          <span style="opacity: 0.7">Custom:</span> {{ inputValue }}
+          <span style="opacity: 0.7">{{ $t('settings.custom') }}</span> {{ inputValue }}
         </button>
         <button v-else type="button" :style="props.fonts && `font-family: '${item.label}';`" @click="selectItem(item)">
           {{ item.label }}

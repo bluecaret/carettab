@@ -50,9 +50,9 @@ const resetOverride = () => {
 <template>
   <div class="block">
     <div class="group fill">
-      <label class="label mra">Container box</label>
+      <label class="label mra">{{ $t('settings.containerBox') }}</label>
       <div v-if="!props.noOverride" class="group compact">
-        <label for="overrideGlobalFont" class="desc">Override global</label>
+        <label for="overrideGlobalFont" class="desc">{{ $t('common.overrideGlobal') }}</label>
         <ToggleField
           tag-id="overrideGlobalFont"
           :model-value="props.override"
@@ -63,22 +63,22 @@ const resetOverride = () => {
     </div>
     <div v-if="props.noOverride || props.override" class="group fill">
       <div class="group stack">
-        <label for="elPcl" class="desc">Primary color</label>
+        <label for="elPcl" class="desc">{{ $t('settings.primaryColor') }}</label>
         <ColorField tag-id="elPcl" class="w8" :model-value="props.primaryColor" @update:model-value="handlePclUpdate">
         </ColorField>
       </div>
       <div class="group stack">
-        <label for="elScl" class="desc">Secondary color</label>
+        <label for="elScl" class="desc">{{ $t('settings.secondaryColor') }}</label>
         <ColorField tag-id="elScl" class="w8" :model-value="props.secondaryColor" @update:model-value="handleSclUpdate">
         </ColorField>
       </div>
       <div class="group stack">
-        <label for="elTcl" class="desc">Tertiary color</label>
+        <label for="elTcl" class="desc">{{ $t('settings.tertiaryColor') }}</label>
         <ColorField tag-id="elTcl" class="w8" :model-value="props.tertiaryColor" @update:model-value="handleTclUpdate">
         </ColorField>
       </div>
       <div class="group stack">
-        <label for="elShadow" class="desc">Shadow</label>
+        <label for="elShadow" class="desc">{{ $t('common.shadow') }}</label>
         <ColorField
           shadow
           tag-id="elShadow"

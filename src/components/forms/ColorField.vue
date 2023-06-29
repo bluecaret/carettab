@@ -365,7 +365,7 @@ const getSwatchColor = (swatch) => {
     <template #button>
       <button
         :id="tagId"
-        :aria-label="`Select ${props.shadow ? 'shadow' : 'color'}`"
+        :aria-label="props.shadow ? $t('settings.selectShadow') : $t('settings.selectColor')"
         class="btn pickerButton"
         :class="props.shadow && !enable && 'pickerButtonDisable'"
         :disabled="props.disabled"
@@ -381,17 +381,17 @@ const getSwatchColor = (swatch) => {
       <div class="colorMenu">
         <div class="block stack">
           <div class="group fill">
-            <h3 class="label mra">{{ props.shadow ? 'Shadow' : 'Color' }}</h3>
+            <h3 class="label mra">{{ props.shadow ? $t('common.shadow') : $t('common.color') }}</h3>
             <div v-if="props.shadow" class="group compact">
-              <label for="toggleShadow" class="desc">Enable</label>
+              <label for="toggleShadow" class="desc">{{ $t('common.enable') }}</label>
               <ToggleField v-model="enable" tag-id="toggleShadow" @update:model-value="handleUpdate()"> </ToggleField>
             </div>
             <button
               class="btn btnText"
               :class="{ active: store.useSwatches }"
               type="button"
-              aria-label="View swatches"
-              title="View swatches"
+              :aria-label="$t('settings.viewSwatches')"
+              :title="$t('settings.viewSwatches')"
               :disabled="props.shadow && !enable"
               @click="handleSwatchToggle()"
             >
@@ -404,7 +404,7 @@ const getSwatchColor = (swatch) => {
               <NumberField
                 v-model="x"
                 tag-id="shadowX"
-                aria-label="Offset shadow direction x coordinates"
+                :aria-label="$t('settings.offsetShadowDirectionXCoordinates')"
                 :increment="1"
                 :disabled="props.shadow && !enable"
                 @update:model-value="handleUpdate()"
@@ -416,7 +416,7 @@ const getSwatchColor = (swatch) => {
               <NumberField
                 v-model="y"
                 tag-id="shadowY"
-                aria-label="Offset shadow direction y coordinates"
+                :aria-label="$t('settings.offsetShadowDirectionYCoordinates')"
                 :increment="1"
                 :disabled="props.shadow && !enable"
                 @update:model-value="handleUpdate()"
@@ -424,11 +424,11 @@ const getSwatchColor = (swatch) => {
               </NumberField>
             </div>
             <div class="group compact fill">
-              <label for="shadowBlur" class="desc">Blur</label>
+              <label for="shadowBlur" class="desc">{{ $t('settings.blur') }}</label>
               <NumberField
                 v-model="blur"
                 tag-id="shadowBlur"
-                aria-label="Shadow blur radius"
+                :aria-label="$t('settings.shadowBlur')"
                 :increment="1"
                 :min="0"
                 :disabled="props.shadow && !enable"
@@ -516,6 +516,7 @@ const getSwatchColor = (swatch) => {
                 <button
                   v-for="(swatch, i) in swatchGroup"
                   :key="i"
+                  :aria-label="$t('settings.selectSwatchNumber', [i])"
                   type="button"
                   class="btn swatch"
                   :style="getSwatchColor(swatch)"
@@ -526,11 +527,8 @@ const getSwatchColor = (swatch) => {
             </div>
           </template>
           <div class="group fill">
-            <ul class="palette" aria-label="Color palette. Save your custom colors to the palette.">
-              <li
-                class="paletteIcon"
-                title="Save your colors to the palette by clicking the plus. Remove them by clicking the edit button."
-              >
+            <ul class="palette" :aria-label="$t('settings.colorPaletteSaveYourCustomColors')">
+              <li class="paletteIcon" :title="$t('settings.saveYourColorsToThePaletteBy')">
                 <fa icon="fa-palette" />
               </li>
               <li v-for="(color, index) in store.palette" :key="index">
@@ -540,20 +538,20 @@ const getSwatchColor = (swatch) => {
                   :aria-label="
                     editPalette
                       ? color.length
-                        ? 'Remove color'
+                        ? $t('settings.removeColor')
                         : ''
                       : color.length
-                      ? 'Select saved color'
-                      : 'Save current color'
+                      ? $t('settings.selectSavedColor')
+                      : $t('settings.saveCurrentColor')
                   "
                   :title="
                     editPalette
                       ? color.length
-                        ? 'Remove color'
+                        ? $t('settings.removeColor')
                         : ''
                       : color.length
-                      ? 'Select saved color'
-                      : 'Save current color'
+                      ? $t('settings.selectSavedColor')
+                      : $t('settings.saveCurrentColor')
                   "
                   :disabled="(editPalette && !color.length) || (props.shadow && !enable)"
                   @click="handlePaletteColorClick(color, index)"
@@ -566,8 +564,8 @@ const getSwatchColor = (swatch) => {
                 <button
                   class="btn"
                   :class="{ active: editPalette }"
-                  aria-label="Edit palette"
-                  title="Edit palette"
+                  :aria-label="$t('settings.editPalette')"
+                  :title="$t('settings.editPalette')"
                   :disabled="props.shadow && !enable"
                   @click="editPalette = !editPalette"
                 >

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref } from 'vue'
 
 const length = ref(12)
 const password = ref('')
@@ -78,7 +78,7 @@ const generatePassword = () => {
       <div class="blockContainer">
         <div class="block">
           <div class="group fill">
-            <label class="label" for="length">Length</label>
+            <label class="label" for="length">{{ $t('widget.length') }}</label>
             <div class="range fill">
               <output class="output">{{ length }}</output>
               <input id="length" v-model="length" type="range" class="rangeInput" min="8" max="32" />
@@ -88,9 +88,9 @@ const generatePassword = () => {
         <div class="block">
           <div class="group stack fill">
             <div class="group fill">
-              <div class="label mra">Allowed characters</div>
+              <div class="label mra">{{ $t('widget.allowedCharacters') }}</div>
               <div class="group compact">
-                <label for="any" class="desc">Any</label>
+                <label for="any" class="desc">{{ $t('widget.any') }}</label>
                 <ToggleField v-model="any" tag-id="any" />
               </div>
             </div>
@@ -225,11 +225,13 @@ const generatePassword = () => {
           </div>
         </div>
         <div class="block">
-          <button type="button" class="btn mra mla" @click="generatePassword">Generate password</button>
+          <button type="button" class="btn mra mla" @click="generatePassword">
+            {{ $t('widget.generatePassword') }}
+          </button>
         </div>
       </div>
       <div v-if="password" class="generated">
-        <h3>Your generated password:</h3>
+        <h3>{{ $t('widget.yourGeneratedPassword') }}</h3>
         <pre>{{ password }}</pre>
       </div>
     </div>

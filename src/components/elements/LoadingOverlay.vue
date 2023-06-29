@@ -1,6 +1,6 @@
 <template>
   <div class="app-loading">
-    <div class="loading" :aria-label="$t('options.common.loadingPleaseWait')">
+    <div class="loading" :aria-label="$t('common.loadingPleaseWait')">
       <div></div>
       <div></div>
       <div></div>

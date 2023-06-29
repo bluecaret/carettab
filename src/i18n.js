@@ -1,27 +1,45 @@
 import { createI18n } from 'vue-i18n'
-import enUS from '@/locales/enUS.json'
-import zhCN from '@/locales/zhCN.json'
-import zhTW from '@/locales/zhTW.json'
-import frFR from '@/locales/frFR.json'
-import deDE from '@/locales/deDE.json'
-import heIL from '@/locales/heIL.json'
-import itIT from '@/locales/itIT.json'
-import jaJP from '@/locales/jaJP.json'
-import koKR from '@/locales/koKR.json'
-import ptBR from '@/locales/ptBR.json'
-import ptPT from '@/locales/ptPT.json'
-import ruRU from '@/locales/ruRU.json'
-import esMX from '@/locales/esMX.json'
-import svSE from '@/locales/svSE.json'
-import ukUA from '@/locales/ukUA.json'
-import urPK from '@/locales/urPK.json'
-import viVN from '@/locales/viVN.json'
+import enUS from '@/locales/en-US.json'
+import zhCN from '@/locales/zh-CN.json'
+import zhTW from '@/locales/zh-TW.json'
+import frFR from '@/locales/fr-FR.json'
+import deDE from '@/locales/de-DE.json'
+import heIL from '@/locales/he-IL.json'
+import itIT from '@/locales/it-IT.json'
+import jaJP from '@/locales/ja-JP.json'
+import koKR from '@/locales/ko-KR.json'
+import ptBR from '@/locales/pt-BR.json'
+import ptPT from '@/locales/pt-PT.json'
+import ruRU from '@/locales/ru-RU.json'
+import esMX from '@/locales/es-MX.json'
+import svSE from '@/locales/sv-SE.json'
+import ukUA from '@/locales/uk-UA.json'
+import urPK from '@/locales/ur-PK.json'
+import viVN from '@/locales/vi-VN.json'
 
 // Create Vue I18n instance.
 export const i18n = createI18n({
   legacy: false,
   globalInjection: true,
-  locale: 'enUS',
-  fallbackLocale: 'enUS',
-  messages: { enUS, zhCN, zhTW, frFR, deDE, heIL, itIT, jaJP, koKR, ptBR, ptPT, ruRU, esMX, svSE, ukUA, urPK, viVN },
+  locale: 'en-US',
+  fallbackLocale: 'en-US',
+  messages: {
+    'en-US': enUS,
+    'zh-CN': zhCN,
+    'zh-TW': zhTW,
+    'fr-FR': frFR,
+    'de-DE': deDE,
+    'he-IL': heIL,
+    'it-IT': itIT,
+    'ja-JP': jaJP,
+    'ko-KR': koKR,
+    'pt-BR': ptBR,
+    'pt-PT': ptPT,
+    'ru-RU': ruRU,
+    'es-MX': esMX,
+    'sv-SE': svSE,
+    'uk-UA': ukUA,
+    'ur-PK': urPK,
+    'vi-VN': viVN,
+  },
 })

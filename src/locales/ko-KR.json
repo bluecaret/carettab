@@ -1,0 +1,12 @@
+{
+  "dashboard": {
+    "review": "검토"
+  },
+  "updates": {
+    "fixesAndOthers": "수정 및 기타 변경 사항",
+    "newFeatures": "새로운 기능"
+  },
+  "settings": {
+    "credit": "CaretTab{'|'}은 {'|'}BlueCaret{'|'}에 의해 만들어졌으며 {'|'}GPL 3.0{'|'}에 따라 라이선스가 부여되었습니다."
+  }
+}

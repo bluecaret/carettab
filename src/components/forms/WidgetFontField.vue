@@ -29,13 +29,13 @@ const updateFamily = (family) => {
   <FieldAccordion :start-open="startOpen">
     <template #label>
       <div class="label">
-        <div>Widget font styles</div>
-        <div class="desc">Changes size, font, color, and other settings for the widget's text.</div>
+        <div>{{ $t('settings.widgetFontStyles') }}</div>
+        <div class="desc">{{ $t('settings.changesSizeFontColorForTheWidgetsText') }}</div>
       </div>
     </template>
     <template #children>
       <div v-if="!props.globalSetting" class="block">
-        <label for="fontSize" class="label mra"> Size </label>
+        <label for="fontSize" class="label mra"> {{ $t('common.size') }} </label>
         <NumberField
           v-model="widget.size"
           tag-id="fontSize"
@@ -46,13 +46,13 @@ const updateFamily = (family) => {
         ></NumberField>
       </div>
       <div v-if="!props.globalSetting" class="block">
-        <label for="overrideGlobalFont" class="label mra">Override global</label>
+        <label for="overrideGlobalFont" class="label mra">{{ $t('common.overrideGlobal') }}</label>
         <ToggleField v-model="widget.override" tag-id="overrideGlobalFont"> </ToggleField>
       </div>
       <template v-if="props.globalSetting || widget.override">
         <div class="block">
           <label for="fontFamily" class="label mra">
-            <div><PremiumLabel v-if="!props.globalSetting" />Font</div>
+            <div><PremiumLabel v-if="!props.globalSetting" />{{ $t('settings.font') }}</div>
           </label>
           <AutocompleteField
             class="w34"
@@ -68,19 +68,13 @@ const updateFamily = (family) => {
           ></AutocompleteField>
         </div>
         <div class="block">
-          <label for="widgetLetterSpacing" class="label mra"> Letter spacing </label>
-          <NumberField
-            v-model="widget.letterSpacing"
-            tag-id="widgetLetterSpacing"
-            class="w10"
-            aria-label="Letter spacing"
-            :increment="0.2"
-          >
+          <label for="widgetLetterSpacing" class="label mra"> {{ $t('settings.letterSpacing') }} </label>
+          <NumberField v-model="widget.letterSpacing" tag-id="widgetLetterSpacing" class="w10" :increment="0.2">
           </NumberField>
         </div>
         <div class="block">
           <label class="label mra">
-            <div><PremiumLabel v-if="!props.globalSetting" />Style</div>
+            <div><PremiumLabel v-if="!props.globalSetting" />{{ $t('settings.style') }}</div>
           </label>
           <select
             id="fontBold"
@@ -88,7 +82,7 @@ const updateFamily = (family) => {
             name="fontBold"
             class="select w11"
             :disabled="!props.globalSetting && !user.paid"
-            aria-label="Weight"
+            :aria-label="$t('settings.weight')"
           >
             <option v-for="wgt in fontWeight" :key="wgt.id" :value="wgt.id">
               {{ wgt.label }}
@@ -97,7 +91,7 @@ const updateFamily = (family) => {
           <div class="btnGroup">
             <button
               id="togglePosition"
-              aria-label="Italic"
+              :aria-label="$t('settings.italic')"
               class="btn"
               type="button"
               :class="{ active: widget.italic }"
@@ -108,7 +102,7 @@ const updateFamily = (family) => {
             </button>
             <button
               id="togglePosition"
-              aria-label="Underline"
+              :aria-label="$t('settings.underline')"
               class="btn"
               type="button"
               :class="{ active: widget.underline }"
@@ -121,7 +115,7 @@ const updateFamily = (family) => {
         </div>
         <div class="block">
           <label for="textTranform" class="label mra">
-            <div><PremiumLabel v-if="!props.globalSetting" />Case</div>
+            <div><PremiumLabel v-if="!props.globalSetting" />{{ $t('settings.case') }}</div>
           </label>
           <select
             id="textTranform"
@@ -136,11 +130,11 @@ const updateFamily = (family) => {
           </select>
         </div>
         <div class="block">
-          <label for="widgetFontColor" class="label mra"> Color </label>
+          <label for="widgetFontColor" class="label mra"> {{ $t('common.color') }} </label>
           <ColorField v-model="widget.color" tag-id="widgetFontColor" class="w20"> </ColorField>
         </div>
         <div class="block">
-          <label for="widgetFontShadow" class="label mra"> Shadow </label>
+          <label for="widgetFontShadow" class="label mra"> {{ $t('common.shadow') }} </label>
           <ColorField v-model="widget.shadow" shadow text tag-id="widgetFontShadow" class="w20"> </ColorField>
         </div>
       </template>

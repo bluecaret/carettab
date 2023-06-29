@@ -32,18 +32,18 @@ const handleOpenPremiumModal = () => {
     <template #button>
       <button ref="addWidgetBtnEl" type="button" class="btn btnText addBtn" @click.stop="show = true">
         <fa icon="fa-plus"></fa>
-        Add new widget
+        {{ $t('settings.addNewWidget') }}
       </button>
     </template>
     <template #window>
       <div class="modal">
         <header class="modalHeader">
-          <h1 class="modalTitle">Choose your new widget</h1>
+          <h1 class="modalTitle">{{ $t('settings.chooseYourNewWidget') }}</h1>
           <button
             ref="modalCloseEl"
             class="modalClose"
             type="button"
-            aria-label="{{'options.common.close' | translate}}"
+            :aria-label="$t('common.close')"
             @click="show = false"
           >
             <fa icon="fa-close" />
@@ -76,16 +76,16 @@ const handleOpenPremiumModal = () => {
                 </div>
                 <div class="widgetItemContent">
                   <div v-if="widget.limit !== 0" class="widgetLimitDesc">
-                    <span>You reached the limit for this widget.</span>
+                    <span>{{ $t('settings.youReachedTheLimitForThisWidget') }}</span>
                   </div>
                   <div v-if="widget.limit !== 0" class="widgetPremiumDesc">
-                    <fa icon="fa-gem" /><span>Go Premium for unlimited widgets and more!</span>
+                    <fa icon="fa-gem" /><span>{{ $t('settings.goPremiumForUnlimitedWidgetsAndMore') }}</span>
                   </div>
                   <div v-if="widget.limit === 0" class="widgetLimitDesc">
-                    <span>Only available with Premium Access.</span>
+                    <span>{{ $t('settings.onlyAvailableWithPremiumAccess') }}</span>
                   </div>
                   <div v-if="widget.limit === 0" class="widgetPremiumDesc">
-                    <fa icon="fa-gem" /><span>Go Premium to get this widget and more customization!</span>
+                    <fa icon="fa-gem" /><span>{{ $t('settings.goPremiumToGetThisWidgetAndMoreCustomization') }}</span>
                   </div>
                 </div>
               </button>

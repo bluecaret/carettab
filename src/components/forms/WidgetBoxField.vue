@@ -29,12 +29,12 @@ const widget = reactive(widgetPrep.value)
   <FieldAccordion :start-open="startOpen">
     <template #label>
       <div class="label">
-        <div>Widget container</div>
+        <div>{{ $t('settings.widgetContainer') }}</div>
         <div class="desc">
           {{
             props.noBoxStyles
-              ? "Changes size and position for the widget's container."
-              : "Changes size, position, colors, and other settings for the widget's container."
+              ? $t('settings.changesSizeAndPositionForTheWidgetsContainer')
+              : $t('settings.changesSizePositionColorsForTheWidgetsContainer')
           }}
         </div>
       </div>
@@ -50,14 +50,14 @@ const widget = reactive(widgetPrep.value)
       />
       <div v-if="!props.noBoxStyles && !props.globalSetting" class="block">
         <label for="overrideGlobalFont" class="label mra">
-          <div><PremiumLabel />Override global container styles</div>
+          <div><PremiumLabel />{{ $t('settings.overrideGlobalContainerStyles') }}</div>
         </label>
         <ToggleField v-model="widget.override" tag-id="overrideGlobalFont" :disabled="!user.paid"> </ToggleField>
       </div>
       <template v-if="!props.noBoxStyles && (props.globalSetting || (user.paid && widget.override))">
         <div class="block">
           <label for="boxPadding" class="label mra">
-            <div><PremiumLabel />Padding</div>
+            <div><PremiumLabel />{{ $t('common.padding') }}</div>
           </label>
           <NumberField
             v-model="widget.padding"
@@ -71,7 +71,7 @@ const widget = reactive(widgetPrep.value)
         </div>
         <div class="block">
           <label for="boxRounded" class="label mra">
-            <div><PremiumLabel />Rounded</div>
+            <div><PremiumLabel />{{ $t('common.rounded') }}</div>
           </label>
           <NumberField
             v-model="widget.radius"
@@ -85,7 +85,7 @@ const widget = reactive(widgetPrep.value)
         </div>
         <div class="block">
           <label for="boxBs" class="label mra">
-            <div><PremiumLabel />Border size</div>
+            <div><PremiumLabel />{{ $t('common.borderSize') }}</div>
           </label>
           <NumberField
             v-model="widget.borderSize"
@@ -99,19 +99,19 @@ const widget = reactive(widgetPrep.value)
         </div>
         <div class="block">
           <label for="boxBc" class="label mra">
-            <div><PremiumLabel />Border color</div>
+            <div><PremiumLabel />{{ $t('common.borderColor') }}</div>
           </label>
           <ColorField v-model="widget.borderColor" tag-id="boxBc" class="w20" :disabled="!user.paid"> </ColorField>
         </div>
         <div class="block">
           <label for="boxBg" class="label mra">
-            <div><PremiumLabel />Background</div>
+            <div><PremiumLabel />{{ $t('common.background') }}</div>
           </label>
           <ColorField v-model="widget.background" tag-id="boxBg" class="w20" :disabled="!user.paid"> </ColorField>
         </div>
         <div class="block">
           <label for="boxShadow" class="label mra">
-            <div><PremiumLabel />Shadow</div>
+            <div><PremiumLabel />{{ $t('common.shadow') }}</div>
           </label>
           <ColorField v-model="widget.shadow" shadow tag-id="boxShadow" class="w20" :disabled="!user.paid">
           </ColorField>

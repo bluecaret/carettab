@@ -87,7 +87,7 @@ const deleteLink = (id) => {
     </div>
     <div class="blockContainer">
       <div class="block">
-        <label for="position" class="label">Type</label>
+        <label for="position" class="label">{{ $t('widget.type') }}</label>
         <select id="position" v-model="widget.type" class="select w20">
           <option value="ql">Quick links</option>
           <option value="bk">Browser's bookmarks</option>
@@ -98,14 +98,13 @@ const deleteLink = (id) => {
         <div class="label">
           <div>Bookmarks</div>
           <div class="desc">
-            The bookmarks type uses the bookmarks saved in your browser. Permissions are needed to access your
-            bookmarks. If you prefer to not allow this permission, try the quick links type instead.
+            {{ $t('widget.theBookmarksTypeUses') }}
           </div>
         </div>
         <RequestPermissionModal
           permission="bookmarks"
           permission-label="Bookmarks"
-          reason="The Bookmarks permission is needed to retrieve the bookmarks you have saved in the browser. Denying this permission will prevent the Bookmarks bar from being shown."
+          :reason="$t('widget.theBookmarksPermissionIsNeeded')"
           @requested="checkBookmarksPermission()"
         />
       </div>
@@ -118,19 +117,18 @@ const deleteLink = (id) => {
         <div class="label">
           <div>Most Visited</div>
           <div class="desc">
-            The most visited type access the list of top sites you have visited. Permissions are needed to access your
-            top sites. If you prefer to not allow this permission, try the quick links type instead.
+            {{ $t('widget.theMostVisitedTypeAccess') }}
           </div>
         </div>
         <RequestPermissionModal
           permission="topSites"
           permission-label="Top Sites"
-          reason="The top sites permission is needed to retrieve the list of tope sites you have visited. Denying this permission will prevent the Most Visited list from being shown."
+          :reason="$t('widget.theTopSitesPermissionIsNeeded')"
           @requested="checkTopSitesPermission()"
         />
       </div>
       <div class="block">
-        <label for="position" class="label">Layout</label>
+        <label for="position" class="label">{{ $t('widget.layout') }}</label>
         <select id="position" v-model="widget.layout" class="select w20">
           <option value="ch">Classic horizontal</option>
           <option value="cv">Classic vertical</option>
@@ -142,21 +140,21 @@ const deleteLink = (id) => {
       </div>
       <FieldAccordion>
         <template #label>
-          <div class="label">Link spacing</div>
+          <div class="label">{{ $t('widget.linkSpacing') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="linkmargin" class="label">Space between links</label>
+            <label for="linkmargin" class="label">{{ $t('widget.spaceBetweenLinks') }}</label>
             <NumberField v-model="widget.link.margin" tag-id="linkmargin" :min="0" class="w10"></NumberField>
           </div>
           <div class="block">
-            <label for="linkpadding" class="label">Padding around link text</label>
+            <label for="linkpadding" class="label">{{ $t('widget.paddingAroundLinkText') }}</label>
             <NumberField v-model="widget.link.padding" tag-id="linkpadding" :min="0" class="w10"></NumberField>
           </div>
           <div class="block">
             <div class="label">
-              <label for="linkmaxwidth">Max width of link</label>
-              <div class="desc">Maximum width a link can be before the text is truncated.</div>
+              <label for="linkmaxwidth">{{ $t('widget.maxWidthOfLink') }}</label>
+              <div class="desc">{{ $t('widget.maximumWidthALink') }}</div>
             </div>
             <NumberField v-model="widget.link.maxWidth" tag-id="linkmaxwidth" :min="1" class="w10"></NumberField>
           </div>
@@ -164,56 +162,55 @@ const deleteLink = (id) => {
       </FieldAccordion>
       <FieldAccordion>
         <template #label>
-          <div class="label">Link styles</div>
+          <div class="label">{{ $t('widget.linkStyles') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="showTitle" class="label mra">Show title</label>
+            <label for="showTitle" class="label mra">{{ $t('widget.showTitle') }}</label>
             <ToggleField v-model="widget.link.titles" tag-id="showTitle"></ToggleField>
           </div>
           <div class="block">
-            <label for="showIcons" class="label">Show favicon</label>
+            <label for="showIcons" class="label">{{ $t('widget.showFavicon') }}</label>
             <RequestPermissionModal
               v-if="!faviconPermission"
               permission="favicon"
               permission-label="Favicons"
-              reason="The Favicons permission is needed to retrieve the favicons of bookmarks. This only allows retrieving the icons websites use in the browser's address bar and does not allow any other access. Denying this permission will prevent the favicons from being shown."
+              :reason="$t('widget.theFaviconsPermissionIsNeeded')"
               @requested="checkFaviconPermission()"
             />
             <ToggleField v-if="faviconPermission" id="showIcons" v-model="widget.link.icons"></ToggleField>
           </div>
           <div v-if="faviconPermission && widget.link.icons" class="block">
             <div class="label">
-              <label for="iconSize">Favicon size</label>
+              <label for="iconSize">{{ $t('widget.faviconSize') }}</label>
               <div v-if="widget.link.icons && faviconPermission" class="desc">
-                Recommended to not set the favicon size above 32. Higher sizes could result in poor image quality and
-                larger downloads.
+                {{ $t('widget.recommendedToNotSetTheFaviconSize') }}
               </div>
             </div>
             <NumberField v-model="widget.link.iconSize" tag-id="iconSize" :min="1" class="w10"></NumberField>
           </div>
           <div class="block">
-            <label for="linkbackground" class="label">Background</label>
+            <label for="linkbackground" class="label">{{ $t('common.background') }}</label>
             <ColorField v-model="widget.link.background" tag-id="linkbackground" class="w20"></ColorField>
           </div>
           <div class="block">
-            <label for="linkhoverbackground" class="label">Background when hovering</label>
+            <label for="linkhoverbackground" class="label">{{ $t('widget.backgroundWhenHovering') }}</label>
             <ColorField v-model="widget.link.hoverBackground" tag-id="linkhoverbackground" class="w20"></ColorField>
           </div>
           <div class="block">
-            <label for="linkShadow" class="label">Shadow</label>
+            <label for="linkShadow" class="label">{{ $t('common.shadow') }}</label>
             <ColorField v-model="widget.link.shadow" shadow tag-id="linkShadow" class="w20"></ColorField>
           </div>
           <div class="block">
-            <label for="linkborderSize" class="label">Border size</label>
+            <label for="linkborderSize" class="label">{{ $t('common.borderSize') }}</label>
             <NumberField v-model="widget.link.borderSize" tag-id="linkborderSize" :min="0" class="w10"></NumberField>
           </div>
           <div class="block">
-            <label for="linkborderColor" class="label">Border color</label>
+            <label for="linkborderColor" class="label">{{ $t('common.borderColor') }}</label>
             <ColorField v-model="widget.link.borderColor" tag-id="linkborderColor" class="w20"></ColorField>
           </div>
           <div class="block">
-            <label for="linkborderRadius" class="label">Rounded corners</label>
+            <label for="linkborderRadius" class="label">{{ $t('widget.roundedCorners') }}</label>
             <NumberField
               v-model="widget.link.borderRadius"
               tag-id="linkborderRadius"
@@ -224,11 +221,11 @@ const deleteLink = (id) => {
         </template>
       </FieldAccordion>
       <div class="block">
-        <label for="openInNewTab" class="label mra">Open in new tab</label>
+        <label for="openInNewTab" class="label mra">{{ $t('widget.openInNewTab') }}</label>
         <ToggleField id="openInNewTab" v-model="widget.link.openInNewTab"></ToggleField>
       </div>
     </div>
-    <h3 v-if="widget.type === 'ql'" class="subtitle">Quick links</h3>
+    <h3 v-if="widget.type === 'ql'" class="subtitle">{{ $t('widget.quickLinks') }}</h3>
     <template v-if="widget.type === 'ql'">
       <draggable
         class="blockContainer"
@@ -251,8 +248,8 @@ const deleteLink = (id) => {
                 v-model="element.title"
                 class="input w16"
                 type="text"
-                placeholder="Link title"
-                aria-label="Title"
+                :placeholder="$t('widget.linkTitle')"
+                :aria-label="$t('widget.linkTitle')"
               />
               <input
                 v-model="element.url"
@@ -262,7 +259,7 @@ const deleteLink = (id) => {
                 :disabled="element.special !== 'none' ? 'disabled' : null"
                 aria-label="URL"
               />
-              <button type="button" class="btn" aria-label="Delete link" @click="deleteLink(element.id)">
+              <button type="button" class="btn" :aria-label="$t('widget.deleteLink')" @click="deleteLink(element.id)">
                 <fa icon="fa-trash" fixed-width></fa>
               </button>
             </div>
@@ -274,13 +271,13 @@ const deleteLink = (id) => {
               <div>
                 <button type="button" class="btn fit" @click="addLink()">
                   <fa icon="fa-plus"></fa>
-                  Add new link
+                  {{ $t('widget.addNewLink') }}
                 </button>
               </div>
               <DropdownMenu ref="newSpecialLinkEl" style="width: auto">
                 <template #button>
                   <button type="button" class="btn">
-                    Add special link
+                    {{ $t('widget.addSpecialLink') }}
                     <fa icon="fa-caret-down"></fa>
                   </button>
                 </template>
@@ -314,7 +311,7 @@ const deleteLink = (id) => {
                         btn-label="Most Visited (Needs permission)"
                         permission="topSites"
                         permission-label="Top Sites"
-                        reason="The top sites permission is needed to retrieve the list of tope sites you have visited. Denying this permission will prevent the Most Visited list from being shown."
+                        :reason="$t('widget.theTopSitesPermissionIsNeeded')"
                         @requested="checkTopSitesPermission()"
                       />
                     </li>

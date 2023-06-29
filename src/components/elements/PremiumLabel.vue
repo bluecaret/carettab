@@ -29,9 +29,7 @@ const handleOpenPremiumModal = () => {
       class="premiumLabel"
       :class="{ premiumLabelPaid: user.paid }"
       :title="
-        user.paid
-          ? 'Thank you for subscribing to Premium. Enjoy the benefits!'
-          : 'Sign up for Premium to access this feature'
+        user.paid ? $t('settings.thankYouForSubscribingToPremium') : $t('settings.signUpForPremiumToAccessThisFeature')
       "
       @click.stop="handleOpenPremiumModal()"
     >

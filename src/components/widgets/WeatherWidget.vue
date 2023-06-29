@@ -319,13 +319,19 @@ const forecastTempLowStyle = () => {
           {{ getCurrently }}
         </div>
         <div v-if="current.temperature.feelsLike" class="feelsLike" :style="currentTempFeelsStyle()">
-          Feels like
+          {{ $t('widget.feelsLike') }}
           {{ getFeelsLike }}
         </div>
         <div
           v-if="current.wind.on"
           class="wind"
-          :title="`Wind is currently blowing at ${getWindText} from the ${weatherData.current.wind_dir} (${weatherData.current.wind_degree}°).`"
+          :title="
+            $t('widget.windIsCurrentlyBlowing', [
+              getWindText,
+              weatherData.current.wind_dir,
+              weatherData.current.wind_degree,
+            ])
+          "
           :style="currentWindStyle()"
         >
           <WeatherAuxIcon :icon="'wind' + weatherData.current.wind_degree" :style="iconStyle()" />
@@ -382,7 +388,7 @@ const forecastTempLowStyle = () => {
                 :style="iconStyle()"
               />
               <div v-if="forecast.day.on" class="date" :style="forecastDateStyle()">
-                {{ index === 0 ? 'Today' : DateTime.fromFormat(day.date, 'yyyy-MM-dd').toFormat('ccc') }}
+                {{ index === 0 ? $t('widget.today') : DateTime.fromFormat(day.date, 'yyyy-MM-dd').toFormat('ccc') }}
               </div>
               <div v-if="forecast.temperature.high" class="high" :style="forecastTempHighStyle()">
                 {{ props.widget.scale ? round(day.day.maxtemp_f) : round(day.day.maxtemp_c)
@@ -431,13 +437,19 @@ const forecastTempLowStyle = () => {
           >
             <div>
               <div v-if="current.temperature.feelsLike" class="feelsLike" :style="currentTempFeelsStyle()">
-                Feels like
+                {{ $t('widget.feelsLike') }}
                 {{ getFeelsLike }}
               </div>
               <div
                 v-if="current.wind.on"
                 class="wind"
-                :title="`Wind is currently blowing at ${getWindText} from the ${weatherData.current.wind_dir} (${weatherData.current.wind_degree}°).`"
+                :title="
+                  $t('widget.windIsCurrentlyBlowing', [
+                    getWindText,
+                    weatherData.current.wind_dir,
+                    weatherData.current.wind_degree,
+                  ])
+                "
                 :style="currentWindStyle()"
               >
                 <WeatherAuxIcon :icon="'wind' + weatherData.current.wind_degree" :style="iconStyle()" />
@@ -493,7 +505,7 @@ const forecastTempLowStyle = () => {
                 :style="iconStyle()"
               />
               <div v-if="forecast.day.on" class="date" :style="forecastDateStyle()">
-                {{ index === 0 ? 'Today' : DateTime.fromFormat(day.date, 'yyyy-MM-dd').toFormat('ccc') }}
+                {{ index === 0 ? $t('widget.today') : DateTime.fromFormat(day.date, 'yyyy-MM-dd').toFormat('ccc') }}
               </div>
               <div class="tempWrapper">
                 <div v-if="forecast.temperature.high" class="high" :style="forecastTempHighStyle()">
@@ -537,7 +549,7 @@ const forecastTempLowStyle = () => {
               {{ getCurrently }}
             </div>
             <div v-if="current.temperature.feelsLike" class="feelsLike" :style="currentTempFeelsStyle()">
-              Feels like
+              {{ $t('widget.feelsLike') }}
               {{ getFeelsLike }}
             </div>
           </div>
@@ -549,7 +561,13 @@ const forecastTempLowStyle = () => {
               <div
                 v-if="current.wind.on"
                 class="wind"
-                :title="`Wind is currently blowing at ${getWindText} from the ${weatherData.current.wind_dir} (${weatherData.current.wind_degree}°).`"
+                :title="
+                  $t('widget.windIsCurrentlyBlowing', [
+                    getWindText,
+                    weatherData.current.wind_dir,
+                    weatherData.current.wind_degree,
+                  ])
+                "
                 :style="currentWindStyle()"
               >
                 <WeatherAuxIcon :icon="'wind' + weatherData.current.wind_degree" :style="iconStyle()" />
@@ -607,7 +625,7 @@ const forecastTempLowStyle = () => {
                 :style="iconStyle()"
               />
               <div v-if="forecast.day.on" class="date" :style="forecastDateStyle()">
-                {{ index === 0 ? 'Today' : DateTime.fromFormat(day.date, 'yyyy-MM-dd').toFormat('cccc') }}
+                {{ index === 0 ? $t('widget.today') : DateTime.fromFormat(day.date, 'yyyy-MM-dd').toFormat('cccc') }}
               </div>
               <div class="tempWrapper">
                 <div v-if="forecast.temperature.high" class="high" :style="forecastTempHighStyle()">

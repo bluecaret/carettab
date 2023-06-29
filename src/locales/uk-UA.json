@@ -1,0 +1,12 @@
+{
+  "dashboard": {
+    "review": "Огляд"
+  },
+  "updates": {
+    "fixesAndOthers": "Виправлення та інші зміни",
+    "newFeatures": "Нові функції"
+  },
+  "settings": {
+    "credit": "CaretTab{'|'} створено {'|'}BlueCaret{'|'} і ліцензовано за {'|'}GPL 3.0{'|'}."
+  }
+}

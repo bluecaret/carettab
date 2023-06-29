@@ -89,24 +89,24 @@ const handlePatternSelect = (id) => {
 </script>
 
 <template>
-  <PageHeading title="Patterns" back-page="dashboard"></PageHeading>
+  <PageHeading :title="$t('settings.patterns')" back-page="dashboard"></PageHeading>
   <div class="page">
     <div class="blockContainer">
       <div class="block">
-        <label for="backgroundColor" class="label">Wallpaper color</label>
+        <label for="backgroundColor" class="label">{{ $t('settings.wallpaperColor') }}</label>
         <ColorField v-model="store.config.global.wallpaper.background" tag-id="backgroundColor" class="w20">
         </ColorField>
       </div>
       <div class="block stack">
         <div class="group fill">
-          <label id="patternSelect" class="label mra">Choose a pattern</label>
+          <label id="patternSelect" class="label mra">{{ $t('settings.chooseAPattern') }}</label>
           <button
             v-if="store.config.global.wallpaper.type === 'pattern'"
             class="btn"
             type="button"
             @click="handleRemoveImage()"
           >
-            Remove pattern
+            {{ $t('settings.removePattern') }}
           </button>
         </div>
         <div class="group fill">

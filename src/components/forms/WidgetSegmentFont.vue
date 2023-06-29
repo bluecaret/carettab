@@ -58,8 +58,8 @@ const resetOverride = () => {
 <template>
   <div class="block">
     <div class="label mra">
-      <label :for="`${type}-override`">Override widget styles</label>
-      <div class="desc">Change the color, font size, and position for this element.</div>
+      <label :for="`${type}-override`">{{ $t('settings.overrideWidgetStyles') }}</label>
+      <div class="desc">{{ $t('settings.changeTheColorFontSizeAndPositionForThisElement') }}</div>
     </div>
     <ToggleField :tag-id="`${type}-override`" :model-value="props.override" @update:model-value="handleOverrideUpdate">
     </ToggleField>
@@ -85,7 +85,7 @@ const resetOverride = () => {
     ></NumberField>
   </div>
   <div v-if="props.override" class="block">
-    <label :for="`${type}-fontSize`" class="label mra"> Size </label>
+    <label :for="`${type}-fontSize`" class="label mra"> {{ $t('common.size') }} </label>
     <NumberField
       class="w10"
       :tag-id="`${type}-fontSize`"
@@ -95,7 +95,7 @@ const resetOverride = () => {
     ></NumberField>
   </div>
   <div v-if="props.override" class="block">
-    <label :for="`${type}-letterSpacing`" class="label mra"> Letter spacing </label>
+    <label :for="`${type}-letterSpacing`" class="label mra"> {{ $t('settings.letterSpacing') }} </label>
     <NumberField
       class="w10"
       :tag-id="`${type}-letterSpacing`"
@@ -105,7 +105,7 @@ const resetOverride = () => {
     ></NumberField>
   </div>
   <div v-if="props.override" class="block">
-    <label :for="`${type}-fontColor`" class="label mra"> Color </label>
+    <label :for="`${type}-fontColor`" class="label mra"> {{ $t('common.color') }} </label>
     <ColorField
       :tag-id="`${type}-fontColor`"
       :model-value="props.color"
@@ -115,7 +115,7 @@ const resetOverride = () => {
     </ColorField>
   </div>
   <div v-if="props.override" class="block">
-    <label :for="`${type}-fontColor`" class="label mra"> Shadow </label>
+    <label :for="`${type}-fontColor`" class="label mra"> {{ $t('common.shadow') }} </label>
     <ColorField
       class="w20"
       shadow

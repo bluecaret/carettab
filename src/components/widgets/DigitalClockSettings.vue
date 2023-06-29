@@ -44,15 +44,15 @@ const selectTimezone = (tz) => {
     <div class="blockContainer">
       <FieldAccordion>
         <template #label>
-          <div class="label">Label</div>
+          <div class="label">{{ $t('widget.label') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="enableLabel" class="label">Enable label</label>
+            <label for="enableLabel" class="label">{{ $t('widget.enableLabel') }}</label>
             <ToggleField v-model="widget.label.on" tag-id="enableLabel" class="mla"></ToggleField>
           </div>
           <div v-if="widget.label.on" class="block">
-            <label for="labelText" class="label">Label text</label>
+            <label for="labelText" class="label">{{ $t('widget.labelText') }}</label>
             <input id="labelText" v-model="widget.label.label" type="text" class="input mla w20" />
           </div>
           <WidgetSegmentFont
@@ -72,8 +72,8 @@ const selectTimezone = (tz) => {
       </FieldAccordion>
       <div class="block">
         <div class="label mra">
-          <label for="clockTimezone">Timezone</label>
-          <div class="desc">Enter a timezone name (e.g. "America/Los_Angeles").</div>
+          <label for="clockTimezone">{{ $t('widget.timezone') }}</label>
+          <div class="desc">{{ $t('widget.enterATimezoneName') }}</div>
         </div>
         <AutocompleteField
           tag-id="clockTimezone"
@@ -85,22 +85,22 @@ const selectTimezone = (tz) => {
       </div>
       <FieldAccordion>
         <template #label>
-          <div class="label">Spacing</div>
+          <div class="label">{{ $t('widget.spacing') }}</div>
         </template>
         <template #children>
           <div class="block">
             <div class="label mra">
-              <label for="monospace">Equal width digits</label>
+              <label for="monospace">{{ $t('widget.equalWidthDigits') }}</label>
               <div class="desc">
-                Make each digit within the clock equal widths (e.g. "1" will be the same width as "9").
+                {{ $t('widget.makeEachDigitWithinEqual') }}
               </div>
             </div>
             <ToggleField v-model="widget.monospace" tag-id="monospace"></ToggleField>
           </div>
           <div class="block">
             <div class="label mra">
-              <label for="spaceBetween">Spacing between digit segments</label>
-              <div class="desc">The spacing between segments such as hour, minute and delimiters.</div>
+              <label for="spaceBetween">{{ $t('widget.spacingBetweenDigitSegments') }}</label>
+              <div class="desc">{{ $t('widget.theSpacingBetweenSegments') }}</div>
             </div>
             <NumberField v-model="widget.spaceBetween" class="w10" tag-id="spaceBetween"> </NumberField>
           </div>
@@ -108,24 +108,24 @@ const selectTimezone = (tz) => {
       </FieldAccordion>
       <FieldAccordion>
         <template #label>
-          <div class="label">Hour</div>
+          <div class="label">{{ $t('widget.hour') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="enableHour" class="label mra">Enable hour</label>
+            <label for="enableHour" class="label mra">{{ $t('widget.enableHour') }}</label>
             <ToggleField v-model="widget.hour.on" tag-id="enableHour"></ToggleField>
           </div>
           <div v-if="widget.hour.on" class="block">
             <div class="label mra">
               <label for="twentyFour">24-hour</label>
-              <div class="desc">Displays hour in 24-hour format (military time).</div>
+              <div class="desc">{{ $t('widget.displaysHourIn24') }}</div>
             </div>
             <ToggleField v-model="widget.hour.twentyFour" tag-id="twentyFour"></ToggleField>
           </div>
           <div v-if="widget.hour.on" class="block">
             <div class="label mra">
-              <label for="hourTwoDigit">Two digit</label>
-              <div class="desc">Will display a leading zero if number is less than 10.</div>
+              <label for="hourTwoDigit">{{ $t('widget.twoDigit') }}</label>
+              <div class="desc">{{ $t('widget.willDisplayALeadingZero') }}</div>
             </div>
             <ToggleField v-model="widget.hour.twoDigit" tag-id="hourTwoDigit"></ToggleField>
           </div>
@@ -146,17 +146,17 @@ const selectTimezone = (tz) => {
       </FieldAccordion>
       <FieldAccordion>
         <template #label>
-          <div class="label">Minute</div>
+          <div class="label">{{ $t('widget.minute') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="enableMin" class="label mra">Enable minute</label>
+            <label for="enableMin" class="label mra">{{ $t('widget.enableMinute') }}</label>
             <ToggleField v-model="widget.min.on" tag-id="enableMin"></ToggleField>
           </div>
           <div v-if="widget.min.on" class="block">
             <div class="label mra">
-              <label for="minTwoDigit">Two digit</label>
-              <div class="desc">Will display a leading zero if number is less than 10.</div>
+              <label for="minTwoDigit">{{ $t('widget.twoDigit') }}</label>
+              <div class="desc">{{ $t('widget.willDisplayALeadingZero') }}</div>
             </div>
             <ToggleField v-model="widget.min.twoDigit" tag-id="minTwoDigit"></ToggleField>
           </div>
@@ -177,17 +177,17 @@ const selectTimezone = (tz) => {
       </FieldAccordion>
       <FieldAccordion>
         <template #label>
-          <div class="label">Second</div>
+          <div class="label">{{ $t('widget.seconds') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="enableSec" class="label mra">Enable second</label>
+            <label for="enableSec" class="label mra">{{ $t('widget.enableSecond') }}</label>
             <ToggleField v-model="widget.sec.on" tag-id="enableSec"></ToggleField>
           </div>
           <div v-if="widget.sec.on" class="block">
             <div class="label mra">
-              <label for="secTwoDigit">Two digit</label>
-              <div class="desc">Will display a leading zero if number is less than 10.</div>
+              <label for="secTwoDigit">{{ $t('widget.twoDigit') }}</label>
+              <div class="desc">{{ $t('widget.willDisplayALeadingZero') }}</div>
             </div>
             <ToggleField v-model="widget.sec.twoDigit" tag-id="secTwoDigit"></ToggleField>
           </div>
@@ -208,18 +208,18 @@ const selectTimezone = (tz) => {
       </FieldAccordion>
       <FieldAccordion>
         <template #label>
-          <div class="label">Meridiem</div>
+          <div class="label">{{ $t('widget.meridiem') }}</div>
         </template>
         <template #children>
           <div class="block">
             <div class="label mra">
-              <label for="enableMeridiem">Enable meridiem</label>
-              <div class="desc">Displays "a.m." or "p.m." if using 12-hour format.</div>
+              <label for="enableMeridiem">{{ $t('widget.enableMeridiem') }}</label>
+              <div class="desc">{{ $t('widget.displaysAMOrPM') }}</div>
             </div>
             <ToggleField v-model="widget.meridiem.on" tag-id="enableMeridiem"></ToggleField>
           </div>
           <div v-if="widget.meridiem.on" class="block">
-            <label for="" class="label mra">Meridiem labels</label>
+            <label for="" class="label mra">{{ $t('widget.meridiemLabels') }}</label>
             <div class="group compact">
               <label for="mdAm" class="desc">A.M.</label>
               <input id="mdAm" v-model="widget.meridiem.am" type="text" class="input w6" maxlength="20" />
@@ -246,15 +246,15 @@ const selectTimezone = (tz) => {
       </FieldAccordion>
       <FieldAccordion>
         <template #label>
-          <div class="label">Delimiter</div>
+          <div class="label">{{ $t('widget.delimiter') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="enableDl" class="label mra">Enable delimiter</label>
+            <label for="enableDl" class="label mra">{{ $t('widget.enableDelimiter') }}</label>
             <ToggleField v-model="widget.delimiter.on" tag-id="enableDl"></ToggleField>
           </div>
           <div v-if="widget.delimiter.on" class="block">
-            <label id="dlSymLabel" for="dlSym1" class="label mra">Symbol</label>
+            <label id="dlSymLabel" for="dlSym1" class="label mra">{{ $t('widget.symbol') }}</label>
             <div class="group compact">
               <label for="dlSym1" class="desc">1st</label>
               <input id="dlSym1" v-model="widget.delimiter.symbol1" type="text" class="input w5" maxlength="20" />
@@ -270,8 +270,8 @@ const selectTimezone = (tz) => {
           </div>
           <div v-if="widget.delimiter.on" class="block">
             <div class="label mra">
-              <label for="dlBlink">Blink</label>
-              <div class="desc">Every second the delimiter will blink similar to a some real digital clocks.</div>
+              <label for="dlBlink">{{ $t('widget.blink') }}</label>
+              <div class="desc">{{ $t('widget.everySecondTheDelimiterWillBlink') }}</div>
             </div>
             <ToggleField v-model="widget.delimiter.blink" tag-id="dlBlink"></ToggleField>
           </div>
@@ -292,13 +292,13 @@ const selectTimezone = (tz) => {
       </FieldAccordion>
       <FieldAccordion>
         <template #label>
-          <div class="label">Relative time</div>
+          <div class="label">{{ $t('widget.relativeTime') }}</div>
         </template>
         <template #children>
           <div class="block">
             <div class="label mra">
-              <label for="enableRt">Enable relative time</label>
-              <div class="desc">Shows the difference in time compared to your computer's time.</div>
+              <label for="enableRt">{{ $t('widget.enableRelativeTime') }}</label>
+              <div class="desc">{{ $t('widget.showsTheDifferenceInTime') }}</div>
             </div>
             <ToggleField v-model="widget.relative.on" tag-id="enableRt"></ToggleField>
           </div>

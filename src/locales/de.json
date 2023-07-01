@@ -164,8 +164,6 @@
     "shadowBlur": "Schatten Unschärfe",
     "showsAnOutlineAroundAllWidgets": "Zeigt einen Umriss um alle Widgets. Nützlich bei der Positionierung von Widgets.",
     "signUpForPremiumToAccessThisFeature": "Melden Sie sich für Premium an, um auf diese Funktion zuzugreifen",
-    "startTypingToFilterList": "Beginnen Sie mit der Eingabe, um die Liste zu filtern. Klicken Sie auf einen Treffer, wenn Sie ihn gefunden haben. Wählen Sie \"Benutzerdefiniert\", um Ihre eigene Eingabe zu verwenden.",
-    "startTypingToFilterListClickOnAMatchWhenFound": "Beginnen Sie mit der Eingabe, um die Liste zu filtern. Klicken Sie auf einen Treffer, wenn Sie ihn gefunden haben.",
     "style": "Stil",
     "subscribeNow": "Jetzt abonnieren",
     "subscriptionBilledOn": "Das Abonnement wird monatlich wiederkehrend abgerechnet. Jederzeit aus beliebigem Grund kündbar. <br />Zahlungen werden über Stripe durch ExtensionPay abgewickelt. Lesen Sie die <a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">Datenschutzbestimmungen</a>.",
@@ -216,7 +214,11 @@
     "windowAlignmentAndPosition": "Ausrichtung und Position der Fenster",
     "yesApplyBlueprint": "Ja, Blaupause anwenden",
     "youHavePremiumAccess": "Sie haben Premium-Zugang!",
-    "youReachedTheLimitForThisWidget": "Sie haben das Limit für dieses Widget erreicht."
+    "youReachedTheLimitForThisWidget": "Sie haben das Limit für dieses Widget erreicht.",
+    "filteredItems": "Gefilterte Elemente",
+    "allItems": "Alle Artikel",
+    "viewAll": "Alle anzeigen",
+    "viewFiltered": "Ansicht gefiltert"
   },
   "advanced": {
     "advancedSettings": "Erweiterte Einstellungen",

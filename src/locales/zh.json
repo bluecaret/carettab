@@ -164,8 +164,6 @@
     "shadowBlur": "阴影模糊",
     "showsAnOutlineAroundAllWidgets": "在所有小组件周围显示一个轮廓。在定位小组件时很有用。",
     "signUpForPremiumToAccessThisFeature": "注册成为高级会员以获得此功能",
-    "startTypingToFilterList": "开始键入以过滤列表。找到后点击一个匹配项。选择 \"自定义 \"来使用你自己的输入。",
-    "startTypingToFilterListClickOnAMatchWhenFound": "开始键入以过滤列表。找到后点击匹配。",
     "style": "风格",
     "subscribeNow": "现在订阅",
     "subscriptionBilledOn": "订阅的费用按月循环计算。可在任何时候以任何理由取消。<br />支付通过Stripe通过ExtensionPay处理。查看<a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\" >隐私政策</a>。",
@@ -216,7 +214,11 @@
     "windowAlignmentAndPosition": "窗口对齐和位置",
     "yesApplyBlueprint": "是的，应用蓝图",
     "youHavePremiumAccess": "你有高级访问权!",
-    "youReachedTheLimitForThisWidget": "你已经达到了这个小部件的极限。"
+    "youReachedTheLimitForThisWidget": "你已经达到了这个小部件的极限。",
+    "filteredItems": "筛选的项目",
+    "allItems": "所有项目",
+    "viewAll": "查看全部",
+    "viewFiltered": "查看已过滤的"
   },
   "advanced": {
     "advancedSettings": "高级设置",

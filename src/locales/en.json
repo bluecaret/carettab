@@ -170,8 +170,6 @@
     "enterALicenseKey": "Enter a license key",
     "allowPermission": "Allow permission",
     "allowCarettabAccessTo": "Allow CaretTab access to {0}?",
-    "startTypingToFilterList": "Start typing to filter list. Click on a match when found. Select \"custom\" to use your own input.",
-    "startTypingToFilterListClickOnAMatchWhenFound": "Start typing to filter list. Click on a match when found.",
     "custom": "Custom:",
     "selectShadow": "Select shadow",
     "selectColor": "Select color",
@@ -216,7 +214,11 @@
     "underline": "Underline",
     "case": "Case",
     "overrideWidgetStyles": "Override widget styles",
-    "changeTheColorFontSizeAndPositionForThisElement": "Change the color, font size, and position for this element."
+    "changeTheColorFontSizeAndPositionForThisElement": "Change the color, font size, and position for this element.",
+    "filteredItems": "Filtered items",
+    "allItems": "All items",
+    "viewAll": "View all",
+    "viewFiltered": "View filtered"
   },
   "advanced": {
     "importOldVersionWarning": "Settings are from an older version of CaretTab. We will do our best to import them, but some settings may not be compatible. Do you want to continue?",

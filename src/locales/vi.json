@@ -164,8 +164,6 @@
     "shadowBlur": "Bóng mờ",
     "showsAnOutlineAroundAllWidgets": "Hiển thị một phác thảo xung quanh tất cả các vật dụng. \nHữu ích khi định vị vật dụng.",
     "signUpForPremiumToAccessThisFeature": "Đăng ký Premium để truy cập tính năng này",
-    "startTypingToFilterList": "Bắt đầu nhập để lọc danh sách. \nNhấp vào một trận đấu khi tìm thấy. \nChọn \"tùy chỉnh\" để sử dụng đầu vào của riêng bạn.",
-    "startTypingToFilterListClickOnAMatchWhenFound": "Bắt đầu nhập để lọc danh sách. \nNhấp vào một trận đấu khi tìm thấy.",
     "style": "Phong cách",
     "subscribeNow": "Theo dõi ngay",
     "subscriptionBilledOn": "Đăng ký được lập hóa đơn trên cơ sở định kỳ hàng tháng. \nHủy bỏ bất cứ lúc nào vì bất kỳ lý do gì. \n<br />Các khoản thanh toán được xử lý qua Stripe thông qua ExtensionPay. \nXem <a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">chính sách quyền riêng tư</a>.",
@@ -216,7 +214,11 @@
     "windowAlignmentAndPosition": "Căn chỉnh và vị trí cửa sổ",
     "yesApplyBlueprint": "Có, áp dụng kế hoạch chi tiết",
     "youHavePremiumAccess": "Bạn có quyền truy cập cao cấp!",
-    "youReachedTheLimitForThisWidget": "Bạn đã đạt đến giới hạn cho tiện ích này."
+    "youReachedTheLimitForThisWidget": "Bạn đã đạt đến giới hạn cho tiện ích này.",
+    "filteredItems": "Các mục đã lọc",
+    "allItems": "Tất cả món đồ",
+    "viewAll": "Xem tất cả",
+    "viewFiltered": "Xem đã lọc"
   },
   "advanced": {
     "advancedSettings": "Cài đặt nâng cao",

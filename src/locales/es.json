@@ -164,8 +164,6 @@
     "shadowBlur": "Desenfoque de sombra",
     "showsAnOutlineAroundAllWidgets": "Muestra un contorno alrededor de todos los widgets. Útil para posicionar los widgets.",
     "signUpForPremiumToAccessThisFeature": "Regístrate en Premium para acceder a esta función",
-    "startTypingToFilterList": "Empiece a escribir para filtrar la lista. Haga clic en una coincidencia cuando la encuentre. Seleccione \"personalizado\" para utilizar su propia entrada.",
-    "startTypingToFilterListClickOnAMatchWhenFound": "Empiece a escribir para filtrar la lista. Haga clic en una coincidencia cuando la encuentre.",
     "style": "Estilo",
     "subscribeNow": "Suscríbase ahora",
     "subscriptionBilledOn": "Suscripción facturada mensualmente de forma recurrente. Cancelar en cualquier momento por cualquier motivo. <br />Pagos procesados vía Stripe a través de ExtensionPay. Ver la <a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">política de privacidad</a>.",
@@ -216,7 +214,11 @@
     "windowAlignmentAndPosition": "Alineación y posición de las ventanas",
     "yesApplyBlueprint": "Sí, aplicar plano",
     "youHavePremiumAccess": "¡Tiene acceso Premium!",
-    "youReachedTheLimitForThisWidget": "Has alcanzado el límite para este widget."
+    "youReachedTheLimitForThisWidget": "Has alcanzado el límite para este widget.",
+    "filteredItems": "Elementos filtrados",
+    "allItems": "Todos los artículos",
+    "viewAll": "Ver todos",
+    "viewFiltered": "Ver filtrado"
   },
   "advanced": {
     "advancedSettings": "Configuración avanzada",

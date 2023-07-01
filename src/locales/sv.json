@@ -164,8 +164,6 @@
     "shadowBlur": "Oskärpa i skugga",
     "showsAnOutlineAroundAllWidgets": "Visar en kontur runt alla widgetar. Användbart vid positionering av widgetar.",
     "signUpForPremiumToAccessThisFeature": "Registrera dig för Premium för att få tillgång till denna funktion",
-    "startTypingToFilterList": "Börja skriva för att filtrera listan. Klicka på en matchning när den hittas. Välj \"anpassad\" för att använda din egen inmatning.",
-    "startTypingToFilterListClickOnAMatchWhenFound": "Börja skriva för att filtrera listan. Klicka på en matchning när den hittas.",
     "style": "Stil",
     "subscribeNow": "Prenumerera nu",
     "subscriptionBilledOn": "Abonnemanget faktureras månadsvis återkommande. Kan sägas upp när som helst av vilken anledning som helst. <br /> Betalningar behandlas via Stripe genom ExtensionPay. Visa <a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">sekretesspolicyn</a>.",
@@ -216,7 +214,11 @@
     "windowAlignmentAndPosition": "Fönstrets inriktning och position",
     "yesApplyBlueprint": "Ja, använd ritning",
     "youHavePremiumAccess": "Du har Premium Access!",
-    "youReachedTheLimitForThisWidget": "Du har nått gränsen för denna widget."
+    "youReachedTheLimitForThisWidget": "Du har nått gränsen för denna widget.",
+    "filteredItems": "Filtrerade artiklar",
+    "allItems": "Alla artiklar",
+    "viewAll": "Visa alla",
+    "viewFiltered": "Visa filtrerad"
   },
   "advanced": {
     "advancedSettings": "Avancerade inställningar",

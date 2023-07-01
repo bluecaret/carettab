@@ -164,8 +164,6 @@
     "shadowBlur": "טשטוש צל",
     "showsAnOutlineAroundAllWidgets": "מציג קווי מתאר סביב כל הווידג'טים. \nשימושי בעת מיקום ווידג'טים.",
     "signUpForPremiumToAccessThisFeature": "הירשם ל-Premium כדי לגשת לתכונה זו",
-    "startTypingToFilterList": "התחל להקליד לרשימת הסינון. \nלחץ על התאמה כאשר נמצא. \nבחר \"מותאם אישית\" כדי להשתמש בקלט משלך.",
-    "startTypingToFilterListClickOnAMatchWhenFound": "התחל להקליד לרשימת הסינון. \nלחץ על התאמה כאשר נמצא.",
     "style": "סִגְנוֹן",
     "subscribeNow": "הירשם עכשיו",
     "subscriptionBilledOn": "מנוי מחויב על בסיס חודשי חוזר. \nבטל בכל עת מכל סיבה שהיא. \n<br />תשלומים מעובדים באמצעות Stripe דרך ExtensionPay. \nעיין ב<a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">מדיניות הפרטיות</a>.",
@@ -216,7 +214,11 @@
     "windowAlignmentAndPosition": "יישור ומיקום החלון",
     "yesApplyBlueprint": "כן, החל תוכנית",
     "youHavePremiumAccess": "יש לך גישת פרימיום!",
-    "youReachedTheLimitForThisWidget": "הגעת למגבלה עבור ווידג'ט זה."
+    "youReachedTheLimitForThisWidget": "הגעת למגבלה עבור ווידג'ט זה.",
+    "filteredItems": "פריטים מסוננים",
+    "allItems": "כל הפריטים",
+    "viewAll": "צפה בהכל",
+    "viewFiltered": "תצוגה מסוננת"
   },
   "advanced": {
     "advancedSettings": "הגדרות מתקדמות",

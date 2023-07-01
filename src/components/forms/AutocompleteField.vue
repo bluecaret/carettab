@@ -52,6 +52,7 @@ const inputValue = ref(
     : ''
 )
 const showList = ref(false)
+const showFiltered = ref(false)
 const selectedIndex = ref(-1)
 const inputEl = ref(null)
 const listEl = ref(null)
@@ -71,6 +72,7 @@ function updateList() {
 
 function closeList() {
   showList.value = false
+  if (props.allowCustom) return
   if (
     !filteredList.value.some((item) =>
       props.useLabel
@@ -89,6 +91,7 @@ function selectItem(item) {
 }
 
 function handleKeyDown(event) {
+  showFiltered.value = true
   switch (event.key) {
     case 'ArrowDown':
       event.preventDefault()
@@ -163,13 +166,18 @@ onUnmounted(() => {
     </button>
     <ul v-if="showList" ref="listEl" class="autocompleteList" tabindex="-1" :style="left && 'right: auto; left: 0;'">
       <li class="autocompleteItem">
-        <div v-if="allowCustom" class="autocompleteDesc">
-          {{ $t('settings.startTypingToFilterList') }}
-        </div>
-        <div v-else class="autocompleteDesc">{{ $t('settings.startTypingToFilterListClickOnAMatchWhenFound') }}</div>
+        <button type="button" class="toggleFilterBtn" @click="showFiltered = !showFiltered">
+          <div>
+            <fa :icon="showFiltered ? 'fa-filter' : 'fa-filter-circle-xmark'" />
+            {{ showFiltered ? $t('settings.filteredItems') : $t('settings.allItems') }}
+          </div>
+          <div class="switchViewBtn">
+            {{ showFiltered ? $t('settings.viewAll') : $t('settings.viewFiltered') }}
+          </div>
+        </button>
       </li>
       <li
-        v-for="(item, index) in filteredList"
+        v-for="(item, index) in showFiltered ? filteredList : props.list"
         :key="item.id"
         class="autocompleteItem"
         :class="{ active: selectedIndex === index }"
@@ -286,6 +294,19 @@ onUnmounted(() => {
         cursor: pointer;
         max-width: 40rem;
       }
+      button.toggleFilterBtn {
+        display: flex;
+        align-items: center;
+        padding: var(--s4) var(--s4);
+        color: var(--cTextSubtle);
+        .switchViewBtn {
+          border: 1px solid var(--cBtnBorder);
+          color: var(--cBtnFg);
+          padding: 0.1em 0.5em;
+          margin-inline-start: auto;
+          border-radius: var(--radius);
+        }
+      }
 
       &.active {
         background-color: hsl(var(--cInputBgH) var(--cInputBgS) calc(var(--cInputBgL) + 10%));
@@ -293,9 +314,10 @@ onUnmounted(() => {
     }
 
     .autocompleteDesc {
-      padding: var(--s4) var(--s4);
+      padding: var(--s4) var(--s4) var(--s2);
       font-size: 0.9em;
-      font-style: italic;
+      color: var(--cTextSubtle);
+      cursor: default;
     }
   }
 }

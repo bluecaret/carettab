@@ -164,8 +164,6 @@
     "shadowBlur": "شیڈو بلر",
     "showsAnOutlineAroundAllWidgets": "تمام ویجٹ کے ارد گرد ایک خاکہ دکھاتا ہے۔ \nوجیٹس کی پوزیشننگ کرتے وقت مفید ہے۔",
     "signUpForPremiumToAccessThisFeature": "اس خصوصیت تک رسائی کے لیے پریمیم کے لیے سائن اپ کریں۔",
-    "startTypingToFilterList": "فلٹر لسٹ میں ٹائپ کرنا شروع کریں۔ \nملنے پر میچ پر کلک کریں۔ \nاپنا ان پٹ استعمال کرنے کے لیے \"کسٹم\" کو منتخب کریں۔",
-    "startTypingToFilterListClickOnAMatchWhenFound": "فلٹر لسٹ میں ٹائپ کرنا شروع کریں۔ \nملنے پر میچ پر کلک کریں۔",
     "style": "انداز",
     "subscribeNow": "اب سبسکرائب کریں",
     "subscriptionBilledOn": "سبسکرپشن کا بل ماہانہ اعادی بنیاد پر لگایا جاتا ہے۔ \nکسی بھی وجہ سے کسی بھی وقت منسوخ کریں۔ \n<br />ExtensionPay کے ذریعے سٹرائپ کے ذریعے ادائیگیوں پر کارروائی کی جاتی ہے۔ \n<a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">رازداری کی پالیسی</a> دیکھیں۔",
@@ -216,7 +214,11 @@
     "windowAlignmentAndPosition": "کھڑکی کی سیدھ اور پوزیشن",
     "yesApplyBlueprint": "ہاں، بلیو پرنٹ لاگو کریں۔",
     "youHavePremiumAccess": "آپ کے پاس پریمیم رسائی ہے!",
-    "youReachedTheLimitForThisWidget": "آپ اس ویجیٹ کی حد کو پہنچ گئے ہیں۔"
+    "youReachedTheLimitForThisWidget": "آپ اس ویجیٹ کی حد کو پہنچ گئے ہیں۔",
+    "filteredItems": "فلٹر شدہ اشیاء",
+    "allItems": "تمام چیزیں",
+    "viewAll": "سب دیکھیں",
+    "viewFiltered": "فلٹر شدہ دیکھیں"
   },
   "advanced": {
     "advancedSettings": "اعلی درجے کی ترتیبات",

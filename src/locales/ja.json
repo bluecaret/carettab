@@ -164,8 +164,6 @@
     "shadowBlur": "シャドウブラー",
     "showsAnOutlineAroundAllWidgets": "すべてのウィジェットの周囲にアウトラインを表示します。ウィジェットを配置するときに便利です。",
     "signUpForPremiumToAccessThisFeature": "この機能を利用するにはプレミアムに登録する",
-    "startTypingToFilterList": "リストをフィルタリングするために入力を開始します。一致するものが見つかったらクリックする。独自の入力を使用するには「カスタム」を選択します。",
-    "startTypingToFilterListClickOnAMatchWhenFound": "リストをフィルタリングするために入力を開始します。一致するものが見つかったらクリックします。",
     "style": "スタイル",
     "subscribeNow": "今すぐ申し込む",
     "subscriptionBilledOn": "サブスクリプションは毎月定期的に課金されます。理由の如何を問わず、いつでもキャンセル可能。<br />お支払いはExtensionPayを通じてStripeで処理されます。<a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">プライバシーポリシー</a>をご覧ください。",
@@ -216,7 +214,11 @@
     "windowAlignmentAndPosition": "ウィンドウのアライメントと位置",
     "yesApplyBlueprint": "はい、設計図を適用します",
     "youHavePremiumAccess": "プレミアム・アクセスがあります！",
-    "youReachedTheLimitForThisWidget": "このウィジェットの制限に達しました。"
+    "youReachedTheLimitForThisWidget": "このウィジェットの制限に達しました。",
+    "filteredItems": "フィルタリングされた項目",
+    "allItems": "全商品",
+    "viewAll": "すべてを見る",
+    "viewFiltered": "フィルターを通す"
   },
   "advanced": {
     "advancedSettings": "詳細設定",

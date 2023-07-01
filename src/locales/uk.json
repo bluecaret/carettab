@@ -164,8 +164,6 @@
     "shadowBlur": "Розмиття тіней",
     "showsAnOutlineAroundAllWidgets": "Показує контур навколо всіх віджетів. Корисно при позиціонуванні віджетів.",
     "signUpForPremiumToAccessThisFeature": "Підпишіться на Premium, щоб отримати доступ до цієї функції",
-    "startTypingToFilterList": "Почніть вводити, щоб відфільтрувати список. Клацніть на відповідність, коли знайдете. Виберіть \"власний\", щоб використати власне введення.",
-    "startTypingToFilterListClickOnAMatchWhenFound": "Почніть вводити, щоб відфільтрувати список. Клацніть на відповідність, коли знайдете.",
     "style": "Стиль",
     "subscribeNow": "Підпишіться зараз",
     "subscriptionBilledOn": "Підписка оплачується на щомісячній основі. Скасувати в будь-який час з будь-якої причини. <br />Платежі обробляються через Stripe через ExtensionPay. Перегляньте <a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">політику конфіденційності</a>.",
@@ -216,7 +214,11 @@
     "windowAlignmentAndPosition": "Вирівнювання та положення вікна",
     "yesApplyBlueprint": "Так, застосувати креслення",
     "youHavePremiumAccess": "У вас є преміум-доступ!",
-    "youReachedTheLimitForThisWidget": "Ви досягли ліміту для цього віджету."
+    "youReachedTheLimitForThisWidget": "Ви досягли ліміту для цього віджету.",
+    "filteredItems": "Відфільтровані елементи",
+    "allItems": "Всі предмети",
+    "viewAll": "Переглянути всі",
+    "viewFiltered": "Переглянути відфільтровані"
   },
   "advanced": {
     "advancedSettings": "Додаткові налаштування",

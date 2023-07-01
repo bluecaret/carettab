@@ -164,8 +164,6 @@
     "shadowBlur": "Размытие теней",
     "showsAnOutlineAroundAllWidgets": "Показывает контур вокруг всех виджетов. Полезно при позиционировании виджетов.",
     "signUpForPremiumToAccessThisFeature": "Подпишитесь на Premium, чтобы получить доступ к этой функции",
-    "startTypingToFilterList": "Начните вводить текст для фильтрации списка. Нажмите на найденное совпадение. Выберите \"пользовательский\", чтобы использовать свой собственный ввод.",
-    "startTypingToFilterListClickOnAMatchWhenFound": "Начните вводить текст для фильтрации списка. Нажмите на совпадение, когда оно будет найдено.",
     "style": "Стиль",
     "subscribeNow": "Подписаться сейчас",
     "subscriptionBilledOn": "Счет за подписку выставляется на ежемесячной периодической основе. Отмена в любое время по любой причине. <br />Платежи осуществляются через Stripe посредством ExtensionPay. Ознакомьтесь с <a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">политикой конфиденциальности</a>.",
@@ -216,7 +214,11 @@
     "windowAlignmentAndPosition": "Выравнивание и положение окна",
     "yesApplyBlueprint": "Да, применяйте чертеж",
     "youHavePremiumAccess": "У вас есть премиум-доступ!",
-    "youReachedTheLimitForThisWidget": "Вы достигли лимита для этого виджета."
+    "youReachedTheLimitForThisWidget": "Вы достигли лимита для этого виджета.",
+    "filteredItems": "Отфильтрованные элементы",
+    "allItems": "Все предметы",
+    "viewAll": "Смотреть все",
+    "viewFiltered": "Просмотр отфильтрованного"
   },
   "advanced": {
     "advancedSettings": "Расширенные настройки",

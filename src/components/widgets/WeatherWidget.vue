@@ -6,7 +6,6 @@ import { setWidgetContainerStyles, hsl, shadow } from '@/helpers/widgets.js'
 import { getWeather } from '@/helpers/weather.js'
 import WeatherIcon from '@/components/widgets/WeatherIcon.vue'
 import WeatherAuxIcon from '@/components/widgets/WeatherAuxIcon.vue'
-import {} from '@/assets/lists.js'
 
 const user = inject('user')
 const store = useSettingsStore()

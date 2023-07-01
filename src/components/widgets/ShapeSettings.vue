@@ -1,7 +1,6 @@
 <script setup>
 import { ref, reactive, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
-import { searchEngines } from '@/assets/lists.js'
 
 const store = useSettingsStore()
 const user = inject('user')

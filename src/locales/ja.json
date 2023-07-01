@@ -521,7 +521,9 @@
     "windIsCurrentlyBlowing": "風は現在｛1｝（｛2｝°）から｛0｝で吹いている。",
     "windUnits": "風力ユニット",
     "year": "年",
-    "yourGeneratedPassword": "生成されたパスワード"
+    "yourGeneratedPassword": "生成されたパスワード",
+    "ignoreMeridiemForTextAlignment": "テキストアライメントのためのmeridiemを無視する",
+    "ignoreMeridiemForTextAlignmentDesc": "あたかも子午線が表示されていないかのように、時刻を中央に表示できるようにします。注意: ウィジェットコンテナから子午線がはみ出ることがあります。"
   },
   "welcome": {
     "basicLayout": "基本レイアウト",

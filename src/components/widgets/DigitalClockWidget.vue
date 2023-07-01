@@ -186,7 +186,11 @@ const getRelativeTime = computed(() => {
             >{{ dl }}</span
           >
         </div>
-        <div v-if="props.widget.meridiem.on" class="clockPart meridiem">
+        <div
+          v-if="props.widget.meridiem.on"
+          class="clockPart meridiem"
+          :style="props.widget.meridiem.ignoreForAlignment ? 'width: 0; margin-inline: 0;' : ''"
+        >
           <span
             v-for="(md, index) in getFormattedTime.toFormat('a') === 'AM'
               ? props.widget.meridiem.am.split('')

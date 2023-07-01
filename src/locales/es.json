@@ -521,7 +521,9 @@
     "windIsCurrentlyBlowing": "El viento sopla actualmente a {0} del {1} ({2}°).",
     "windUnits": "Unidades eólicas",
     "year": "Año",
-    "yourGeneratedPassword": "Tu contraseña generada:"
+    "yourGeneratedPassword": "Tu contraseña generada:",
+    "ignoreMeridiemForTextAlignment": "Ignorar meridiem para la alineación del texto",
+    "ignoreMeridiemForTextAlignmentDesc": "Permite tener la hora centrada como si no se mostrara el meridiem. Nota: puede hacer que el meridiem se extienda más allá del contenedor del widget."
   },
   "welcome": {
     "basicLayout": "Diseño básico",

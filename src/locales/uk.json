@@ -521,7 +521,9 @@
     "windIsCurrentlyBlowing": "В даний час вітер дме в {0} з {1} ({2}°.)",
     "windUnits": "Вітрові установки",
     "year": "Рік",
-    "yourGeneratedPassword": "Ваш згенерований пароль:"
+    "yourGeneratedPassword": "Ваш згенерований пароль:",
+    "ignoreMeridiemForTextAlignment": "Ігнорувати meridiem для вирівнювання тексту",
+    "ignoreMeridiemForTextAlignmentDesc": "Дозволяє вирівняти час по центру так, ніби мерідіум не показано. Примітка: може призвести до того, що меридіум буде виходити за межі контейнера віджету."
   },
   "welcome": {
     "basicLayout": "Базовий макет",

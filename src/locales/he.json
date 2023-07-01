@@ -521,7 +521,9 @@
     "windIsCurrentlyBlowing": "הרוח נושבת כעת ב-{0} מה-{1} (°{2}).",
     "windUnits": "יחידות רוח",
     "year": "שָׁנָה",
-    "yourGeneratedPassword": "הסיסמה שנוצרה שלך:"
+    "yourGeneratedPassword": "הסיסמה שנוצרה שלך:",
+    "ignoreMeridiemForTextAlignment": "התעלם ממרידיים עבור יישור טקסט",
+    "ignoreMeridiemForTextAlignmentDesc": "מאפשר לך לרכז את הזמן כאילו המרידיום לא הוצג. \nהערה: עלול לגרום למרידיום להתרחב מעבר למיכל הווידג'ט."
   },
   "welcome": {
     "basicLayout": "פריסה בסיסית",

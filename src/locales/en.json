@@ -522,7 +522,9 @@
     "daysHighTemperature": "Day's high temperature",
     "highTemperatureColor": "High temperature color",
     "daysLowTemperature": "Day's low temperature",
-    "lowTemperatureColor": "Low temperature color"
+    "lowTemperatureColor": "Low temperature color",
+    "ignoreMeridiemForTextAlignment": "Ignore meridiem for text alignment",
+    "ignoreMeridiemForTextAlignmentDesc": "Allows you to have the time centered as if the meridiem wasn't shown. Note: may cause the meridiem to extend past the widget container."
   },
   "welcome": {
     "selectALanguage": "Select a language",

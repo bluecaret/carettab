@@ -521,7 +521,9 @@
     "windIsCurrentlyBlowing": "Il vento soffia attualmente a {0} da {1} ({2}°).",
     "windUnits": "Unità eoliche",
     "year": "Anno",
-    "yourGeneratedPassword": "La password generata:"
+    "yourGeneratedPassword": "La password generata:",
+    "ignoreMeridiemForTextAlignment": "Ignorare il meridiem per l'allineamento del testo",
+    "ignoreMeridiemForTextAlignmentDesc": "Consente di centrare l'ora come se il meridiano non fosse visualizzato. Nota: può causare l'estensione del meridiano oltre il contenitore del widget."
   },
   "welcome": {
     "basicLayout": "Layout di base",

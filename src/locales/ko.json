@@ -521,7 +521,9 @@
     "windIsCurrentlyBlowing": "현재 {1}({2}°)에서 {0} 방향으로 바람이 불고 있습니다.",
     "windUnits": "바람 단위",
     "year": "연도",
-    "yourGeneratedPassword": "생성된 비밀번호입니다:"
+    "yourGeneratedPassword": "생성된 비밀번호입니다:",
+    "ignoreMeridiemForTextAlignment": "텍스트 정렬을 위한 메리디엠 무시",
+    "ignoreMeridiemForTextAlignmentDesc": "메리디엠이 표시되지 않은 것처럼 시간을 중앙에 표시할 수 있습니다. 참고: 메리디엠이 위젯 컨테이너를 넘어 확장될 수 있습니다."
   },
   "welcome": {
     "basicLayout": "기본 레이아웃",

@@ -521,7 +521,9 @@
     "windIsCurrentlyBlowing": "اس وقت ہوا {0} پر {1} ({2}°) سے چل رہی ہے۔",
     "windUnits": "ونڈ یونٹس",
     "year": "سال",
-    "yourGeneratedPassword": "آپ کا تیار کردہ پاس ورڈ:"
+    "yourGeneratedPassword": "آپ کا تیار کردہ پاس ورڈ:",
+    "ignoreMeridiemForTextAlignment": "متن کی سیدھ کے لیے میریڈیم کو نظر انداز کریں۔",
+    "ignoreMeridiemForTextAlignmentDesc": "آپ کو وقت کو مرکز میں رکھنے کی اجازت دیتا ہے گویا میریڈیم نہیں دکھایا گیا تھا۔ \nنوٹ: میریڈیم کو ویجیٹ کنٹینر سے آگے بڑھا سکتا ہے۔"
   },
   "welcome": {
     "basicLayout": "بنیادی ترتیب",

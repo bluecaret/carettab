@@ -2,7 +2,7 @@ import { baseWidgetStyles } from '@/classes/BaseWidgetStyles.js'
 
 export class DigitalClock {
   id = ''
-  timezone = 'America/Los_Angeles'
+  timezone = 'local'
   monospace = true
   spaceBetween = 0
   label = {
@@ -54,6 +54,7 @@ export class DigitalClock {
     on: true,
     am: 'am',
     pm: 'pm',
+    ignoreForAlignment: false,
     override: false,
     color: [0, 0, 100, 1],
     shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],

@@ -521,7 +521,9 @@
     "windIsCurrentlyBlowing": "Der Wind weht derzeit mit {0} aus der {1} ({2}°).",
     "windUnits": "Windkraftanlagen",
     "year": "Jahr",
-    "yourGeneratedPassword": "Ihr generiertes Passwort:"
+    "yourGeneratedPassword": "Ihr generiertes Passwort:",
+    "ignoreMeridiemForTextAlignment": "Meridiem für die Textausrichtung ignorieren",
+    "ignoreMeridiemForTextAlignmentDesc": "Ermöglicht es Ihnen, die Uhrzeit zentriert darzustellen, als ob das Meridiem nicht angezeigt würde. Hinweis: Dies kann dazu führen, dass das Meridiem über den Widget-Container hinausragt."
   },
   "welcome": {
     "basicLayout": "Grundlegendes Layout",

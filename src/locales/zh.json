@@ -521,7 +521,9 @@
     "windIsCurrentlyBlowing": "目前风向为{0}，从{1}（{2}°）吹来。",
     "windUnits": "风力单位",
     "year": "年",
-    "yourGeneratedPassword": "你生成的密码："
+    "yourGeneratedPassword": "你生成的密码：",
+    "ignoreMeridiemForTextAlignment": "忽略文本对齐的meridiem",
+    "ignoreMeridiemForTextAlignmentDesc": "允许你把时间放在中心位置，就像不显示子午线一样。注意：可能会导致子午线延伸到小组件的容器之外。"
   },
   "welcome": {
     "basicLayout": "基本布局",

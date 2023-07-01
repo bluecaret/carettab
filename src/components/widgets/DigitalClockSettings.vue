@@ -229,6 +229,15 @@ const selectTimezone = (tz) => {
               <input id="mdPm" v-model="widget.meridiem.pm" type="text" class="input w6" maxlength="20" />
             </div>
           </div>
+          <div class="block">
+            <div class="label mra">
+              <label for="ignoreForAlignment">{{ $t('widget.ignoreMeridiemForTextAlignment') }}</label>
+              <div class="desc">
+                {{ $t('widget.ignoreMeridiemForTextAlignmentDesc') }}
+              </div>
+            </div>
+            <ToggleField v-model="widget.meridiem.ignoreForAlignment" tag-id="ignoreForAlignment"></ToggleField>
+          </div>
           <WidgetSegmentFont
             v-if="widget.meridiem.on"
             v-model:override="widget.meridiem.override"

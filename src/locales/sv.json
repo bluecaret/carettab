@@ -521,7 +521,9 @@
     "windIsCurrentlyBlowing": "Vinden blåser för närvarande vid {0} från {1} ({2}°).",
     "windUnits": "Vindkraftverk",
     "year": "År",
-    "yourGeneratedPassword": "Ditt genererade lösenord:"
+    "yourGeneratedPassword": "Ditt genererade lösenord:",
+    "ignoreMeridiemForTextAlignment": "Ignorera meridiem för textjustering",
+    "ignoreMeridiemForTextAlignmentDesc": "Gör det möjligt att centrera tiden som om meridiem inte visades. Obs: kan göra att meridiem sträcker sig längre än widgetbehållaren."
   },
   "welcome": {
     "basicLayout": "Grundläggande layout",

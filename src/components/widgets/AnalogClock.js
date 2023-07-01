@@ -2,7 +2,7 @@ import { baseWidgetStyles } from '@/classes/BaseWidgetStyles.js'
 
 export class AnalogClock {
   id = ''
-  timezone = 'America/Los_Angeles'
+  timezone = 'local'
   size = 70
   face = {
     style: 'dash',

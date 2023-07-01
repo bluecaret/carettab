@@ -2,7 +2,7 @@ import { baseWidgetStyles } from '@/classes/BaseWidgetStyles.js'
 
 export class DateWidget {
   id = ''
-  timezone = 'America/Los_Angeles'
+  timezone = 'local'
   format = 'middle'
   short = false
   delimiter = {

@@ -2,7 +2,7 @@ import { baseWidgetStyles } from '@/classes/BaseWidgetStyles.js'
 
 export class BinaryClock {
   id = ''
-  timezone = 'America/Los_Angeles'
+  timezone = 'local'
   indicator = {
     size: 50,
     dot: false,

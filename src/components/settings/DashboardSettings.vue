@@ -2,7 +2,6 @@
 import { ref, onMounted } from 'vue'
 import draggable from 'vuedraggable'
 import { useSettingsStore, setStorage, getStorage } from '@/store.js'
-import { storeToRefs } from 'pinia'
 import { widgetTypes } from '@/assets/lists.js'
 import ToolBarSettings from '@/components/tools/ToolBarSettings.vue'
 import AddWidgetModal from '@/components/elements/AddWidgetModal.vue'
@@ -12,24 +11,20 @@ import GlobalWidgetSettings from '@/components/settings/GlobalWidgetSettings.vue
 import ExtensionSettings from '@/components/settings/ExtensionSettings.vue'
 
 const store = useSettingsStore()
-const { status } = storeToRefs(store)
 
 const whatsNewModal = ref(false)
 const drag = ref(false)
 
 onMounted(async () => {
-  const whatsNew = await getStorage('clearWhatsNewBox', 'local')
-  store.clearWhatsNewBox = whatsNew.clearWhatsNewBox
-
-  if (status === 'updated' || status === 'highlightSettings') {
-    await setStorage({ caretTabStatus: 'existing' }, 'local')
+  if (store.status === 'updated' || store.status === 'highlightSettings') {
+    await setStorage({ status: 'existing' }, 'local')
     store.status = 'existing'
   }
 })
 
 const handleClearWhatsNew = async () => {
-  await setStorage({ caretTabStatus: 'existing' }, 'local')
-  await setStorage({ updateTimestamp: null }, 'local')
+  await setStorage({ status: 'existing' }, 'local')
+  await setStorage({ updatedTimestamp: null }, 'local')
   await setStorage({ clearWhatsNewBox: true }, 'local')
   store.status = 'existing'
   store.clearWhatsNewBox = true

@@ -121,6 +121,9 @@ export const clearAllStorage = async (area = 'local') => {
 
 export const useSettingsStore = defineStore('settings', () => {
   const status = ref('existing')
+  const prevVersion = ref('')
+  const newVersion = ref('')
+  const updatedTimestamp = ref('')
   const clearWhatsNewBox = ref(false)
   const settingsOpen = ref(false)
   const settingsPage = ref('dashboard')
@@ -160,7 +163,13 @@ export const useSettingsStore = defineStore('settings', () => {
   const config = reactive(new Defaults())
 
   const load = async () => {
-    let store = await getStorage(null, 'sync')
+    const updateStatus = await getStorage(['status', 'prevVersion', 'newVersion'], 'local')
+    const store = await getStorage(null, 'sync')
+
+    status.value = updateStatus.status
+    prevVersion.value = updateStatus.prevVersion
+    newVersion.value = updateStatus.newVersion
+    updatedTimestamp.value = updateStatus.updatedTimestamp
 
     if (store) {
       let keys = Object.keys(store)
@@ -392,6 +401,9 @@ export const useSettingsStore = defineStore('settings', () => {
   return {
     // Temp Settings
     status,
+    prevVersion,
+    newVersion,
+    updatedTimestamp,
     clearWhatsNewBox,
     settingsOpen,
     settingsPage,

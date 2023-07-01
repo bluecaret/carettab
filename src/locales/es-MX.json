@@ -13,7 +13,19 @@
   "updates": {
     "fixesAndOthers": "Correcciones y otros cambios",
     "newFeatures": "Novedades",
-    "whatsNewInVersion": "Novedades de la versión {0}"
+    "whatsNewInVersion": "Novedades de la versión {0}",
+    "v400": {
+      "aGameChangingUpdate": "Una actualización que cambia las reglas del juego y pone al alcance de tu mano una personalización sin precedentes.",
+      "awesomeLetsGo": "¡Genial, vamos!",
+      "carettabHasBeenUpdatedToVersion_4": "CaretTab se ha actualizado a la versión 4.",
+      "gotItImReady": "¡Lo tengo, estoy listo!",
+      "imExcitedToAnnounce": "Me complace anunciar el lanzamiento de la versión 4 de CaretTab. Esta actualización ha sido reescrita desde cero en un marco moderno con muchas, muchas nuevas opciones. ¡Junto con más widgets, una barra de herramientas, personalización avanzada, la extensión también debe correr más suave y ser más pequeño en tamaño!",
+      "important": "IMPORTANTE:",
+      "pleaseReadAbove": "Por favor, lea arriba...",
+      "theUpcomingScreenWillGuide": "La siguiente pantalla le guiará a través de los ajustes iniciales para ayudarle a ponerse en marcha con la nueva actualización. Cuando elija un diseño en el paso siguiente, tenga en cuenta que los ajustes que se hayan migrado se mantendrán y conservarán.",
+      "thisSubstantialUpdateHas": "Esta importante actualización ha hecho necesario restablecer la mayoría de sus ajustes a su estado por defecto. Comprendo que esto pueda causarle molestias y le agradezco su paciencia. Ten por seguro que el contenido creado por el usuario en los widgets se ha migrado y colocado en un widget desactivado, y que también se han migrado algunos otros ajustes. Gracias por tu vital contribución a la trayectoria de esta aplicación.",
+      "imExcitedForYouToDiveInto": "Estoy deseando que te sumerjas en la personalización ilimitada y las nuevas funciones dinámicas de esta actualización. Si tienes alguna pregunta o problema, no dudes en ponerte en contacto con nosotros en la página de {'|'}support{'|'} o por correo electrónico en {'|'}."
+    }
   },
   "settings": {
     "credit": "CaretTab{'|'} ha sido creado por {'|'}BlueCaret{'|'} y licenciado bajo {'|'}GPL 3.0{'|'}.",
@@ -510,5 +522,12 @@
     "windUnits": "Unidades eólicas",
     "year": "Año",
     "yourGeneratedPassword": "Tu contraseña generada:"
+  },
+  "welcome": {
+    "basicLayout": "Diseño básico",
+    "emptyCanvas": "Lienzo vacío",
+    "getAJumpStart": "¿Empezar con un diseño básico o empezar de cero con un lienzo vacío?",
+    "next": "Siguiente",
+    "selectALanguage": "Seleccione un idioma"
   }
 }

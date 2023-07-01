@@ -13,7 +13,19 @@
   "updates": {
     "fixesAndOthers": "Fixes and other changes",
     "newFeatures": "New features",
-    "whatsNewInVersion": "What's new in version {0}"
+    "whatsNewInVersion": "What's new in version {0}",
+    "v400": {
+      "carettabHasBeenUpdatedToVersion_4": "CaretTab has been updated to version 4!",
+      "aGameChangingUpdate": "A game-changing update that brings unprecedented customization to your fingertips!",
+      "imExcitedToAnnounce": "I'm excited to announce the release of CaretTab version 4! This update has been rewritten from scratch in a modern framework with many, many new options. Along with more widgets, a toolbar, advanced customization, the extension should also run smoother and be smaller in size!",
+      "awesomeLetsGo": "Awesome, let's go!",
+      "important": "IMPORTANT:",
+      "thisSubstantialUpdateHas": "This substantial update has necessitated a reset of most of your settings to their default state. I understand this may inconvenience you and I'm grateful for your patience. Rest assured, your user-created content within widgets has been migrated and placed in a disabled widget, a handful of other settings, where able, have been migrated as well. Thank you for your vital contribution to this app's journey.",
+      "theUpcomingScreenWillGuide": "The upcoming screen will guide you through initial settings to help you get up and running with the new update. When choosing a layout in the subsequent step, please know that any settings that have been migrated will still be maintained and preserved.",
+      "pleaseReadAbove": "Please read above...",
+      "gotItImReady": "Got it, I'm ready!",
+      "imExcitedForYouToDiveInto": "I'm excited for you to dive into the boundless customization and dynamic new features of this update! If you have any questions or problems please reach out on the {'|'}support page{'|'} or via email at {'|'}."
+    }
   },
   "settings": {
     "logoAlt": "Logo for CaretTab shown as a depiction of a browser tab with a pixelated caret symbol on the inside",
@@ -511,5 +523,12 @@
     "highTemperatureColor": "High temperature color",
     "daysLowTemperature": "Day's low temperature",
     "lowTemperatureColor": "Low temperature color"
+  },
+  "welcome": {
+    "selectALanguage": "Select a language",
+    "next": "Next",
+    "getAJumpStart": "Get a jump-start with a basic layout or start fresh with an empty canvas?",
+    "basicLayout": "Basic layout",
+    "emptyCanvas": "Empty canvas"
   }
 }

@@ -35,8 +35,6 @@ export const mergeV3Settings = async (allowMigration) => {
   console.info('%cVersion 3 settings found. Attempting to migrate to version 4.', 'color:teal;font-weight:bold;')
   store.isLoading = true
 
-  // TODO: handle supplemental settings in local storage
-
   let allLocalConfigs = await getStorage('', 'local')
   let allSyncConfigs = await getStorage('', 'sync')
 
@@ -58,7 +56,7 @@ export const mergeV3Settings = async (allowMigration) => {
     merge.config = {}
     merge.config.layers = []
     merge.config.global = {}
-    merge.config.global.lang = oldI18n.lang.replace('-', '')
+    merge.config.global.lang = oldI18n.lang
     merge.config.global.disableSelection = oldMisc.disableSelect
     merge.config.global.hideSettings = oldMisc.hideMenu
 
@@ -414,7 +412,7 @@ export const mergeV3Settings = async (allowMigration) => {
 
   await removeStorage('caretTabNewVersion', 'local')
   await removeStorage('caretTabPrevVersion', 'local')
-  await removeStorage('caretTabPrevVersion', 'local')
+  await removeStorage('caretTabStatus', 'local')
   await removeStorage('ct-notes', 'local')
   await removeStorage('ct-bookmark', 'sync')
   await removeStorage('ct-date', 'sync')

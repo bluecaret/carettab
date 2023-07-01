@@ -13,7 +13,19 @@
   "updates": {
     "fixesAndOthers": "修复和其他变化",
     "newFeatures": "新功能",
-    "whatsNewInVersion": "版本{0}中的新内容"
+    "whatsNewInVersion": "版本{0}中的新内容",
+    "v400": {
+      "aGameChangingUpdate": "一个改变游戏规则的更新，为你的指尖带来了前所未有的定制化服务!",
+      "awesomeLetsGo": "真棒，我们走吧!",
+      "carettabHasBeenUpdatedToVersion_4": "CaretTab已经更新到第4版了!",
+      "gotItImReady": "明白了，我准备好了!",
+      "imExcitedToAnnounce": "我很高兴地宣布CaretTab第四版的发布!这次更新是在一个现代框架中从头开始重写的，有许多新的选项。除了更多的小工具、工具栏、高级定制外，该扩展程序还应该运行得更流畅，体积更小！\"！",
+      "important": "重要的是：",
+      "pleaseReadAbove": "请阅读上文...",
+      "theUpcomingScreenWillGuide": "即将到来的屏幕将指导你进行初始设置，以帮助你启动和运行新的更新。在随后的步骤中选择一个布局时，请知道任何已经迁移的设置仍将被维护和保留。",
+      "thisSubstantialUpdateHas": "这一实质性的更新需要将您的大部分设置重置为默认状态。我理解这可能会给你带来不便，我很感谢你的耐心。请放心，您在小工具中创建的用户内容已被迁移并放置在一个禁用的小工具中，其他一些设置，如果可以的话，也被迁移了。感谢你对这个应用程序的旅程作出的重要贡献。",
+      "imExcitedForYouToDiveInto": "我很高兴你能潜心研究这次更新的无限定制和动态新功能如果你有任何疑问或问题，请在{'|'}支持页面{'|'}或通过电子邮件{'|'}联系。"
+    }
   },
   "settings": {
     "credit": "CaretTab{'|'}由{'|'}BlueCaret{'|'}创建，并以{'|'}GPL 3.0{'|'}的方式授权。",
@@ -510,5 +522,12 @@
     "windUnits": "风力单位",
     "year": "年",
     "yourGeneratedPassword": "你生成的密码："
+  },
+  "welcome": {
+    "basicLayout": "基本布局",
+    "emptyCanvas": "空的画布",
+    "getAJumpStart": "是用基本的布局来启动，还是用空的画布来重新开始？",
+    "next": "下一页",
+    "selectALanguage": "选择一种语言"
   }
 }

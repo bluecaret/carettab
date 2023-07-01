@@ -13,7 +13,19 @@
   "updates": {
     "fixesAndOthers": "Korrekturen und andere Änderungen",
     "newFeatures": "Neue Funktionen",
-    "whatsNewInVersion": "Was ist neu in Version {0}"
+    "whatsNewInVersion": "Was ist neu in Version {0}",
+    "v400": {
+      "aGameChangingUpdate": "Ein spielveränderndes Update, das Ihnen eine noch nie dagewesene Anpassungsmöglichkeit bietet!",
+      "awesomeLetsGo": "Großartig, los geht's!",
+      "carettabHasBeenUpdatedToVersion_4": "CaretTab wurde auf Version 4 aktualisiert!",
+      "gotItImReady": "Verstanden, ich bin bereit!",
+      "imExcitedToAnnounce": "Ich freue mich, die Veröffentlichung von CaretTab Version 4 ankündigen zu können! Dieses Update wurde von Grund auf in einem modernen Framework mit vielen, vielen neuen Optionen neu geschrieben. Zusammen mit mehr Widgets, eine Symbolleiste, erweiterte Anpassung, sollte die Erweiterung auch reibungsloser laufen und in der Größe kleiner sein!",
+      "important": "WICHTIG!",
+      "pleaseReadAbove": "Bitte lesen Sie oben...",
+      "theUpcomingScreenWillGuide": "Der folgende Bildschirm führt Sie durch die ersten Einstellungen, um Ihnen den Einstieg in das neue Update zu erleichtern. Wenn Sie im nächsten Schritt ein Layout auswählen, beachten Sie bitte, dass alle Einstellungen, die migriert wurden, weiterhin beibehalten werden.",
+      "thisSubstantialUpdateHas": "Diese umfangreiche Aktualisierung hat es erforderlich gemacht, die meisten Ihrer Einstellungen auf ihren Standardzustand zurückzusetzen. Ich verstehe, dass dies zu Unannehmlichkeiten führen kann, und ich bin Ihnen für Ihre Geduld dankbar. Seien Sie versichert, dass Ihre vom Benutzer erstellten Inhalte innerhalb der Widgets migriert und in einem deaktivierten Widget platziert wurden, und dass eine Handvoll anderer Einstellungen, sofern möglich, ebenfalls migriert wurden. Vielen Dank für Ihren wichtigen Beitrag zur Entwicklung dieser App.",
+      "imExcitedForYouToDiveInto": "Ich freue mich darauf, dass Sie die grenzenlosen Anpassungsmöglichkeiten und dynamischen neuen Funktionen dieses Updates nutzen können! Wenn Sie Fragen oder Probleme haben, wenden Sie sich bitte an die {'|'}Supportseite oder per E-Mail an {'|'}."
+    }
   },
   "settings": {
     "credit": "CaretTab{'|'} wurde von {'|'}BlueCaret{'|'} erstellt und steht unter der {'|'}GPL 3.0{'|'}.",
@@ -510,5 +522,12 @@
     "windUnits": "Windkraftanlagen",
     "year": "Jahr",
     "yourGeneratedPassword": "Ihr generiertes Passwort:"
+  },
+  "welcome": {
+    "basicLayout": "Grundlegendes Layout",
+    "emptyCanvas": "Leere Leinwand",
+    "getAJumpStart": "Mit einem Grundlayout starten oder mit einer leeren Leinwand neu beginnen?",
+    "next": "Weiter",
+    "selectALanguage": "Wählen Sie eine Sprache"
   }
 }

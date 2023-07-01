@@ -8,7 +8,7 @@ import SettingsPanel from '@/components/settings/SettingsPanel.vue'
 import LoadingOverlay from '@/components/elements/LoadingOverlay.vue'
 import { fontList } from '@/assets/lists.js'
 import { ExtPay } from '@/assets/ExtPay.js'
-import { checkLicense } from '@/helpers/data.js'
+import { checkLicense, compareVersions, checkVersionInRange } from '@/helpers/data.js'
 import { mergeV3Settings } from '@/helpers/mergeOldSettings.js'
 import PremiumModal from '@/components/elements/PremiumModal.vue'
 
@@ -20,27 +20,37 @@ const { isLoading, settingsOpen } = storeToRefs(store)
 
 onMounted(async () => {
   await store.load()
-  updateTime()
-  locale.value = store.config.global.lang
-
-  // Run a full user check against the server now that the app has loaded
-  const refreshUserCheck = async () => {
-    let chromeStore = await getStorage(['userLicense'], 'local')
-    let validLicense = await checkLicense(chromeStore.userLicense)
-    // Only check extPay if user hasn't used a license key
-    if (!validLicense) {
-      try {
-        const getUser = await extpay.getUser()
-        updateUser({ ...getUser })
-      } catch (error) {
-        console.warn('Failed to check extensionPay user', error)
-      }
-    }
-    // after checking paid status, run v3 migration
-    mergeV3Settings(true)
-  }
+  setupTempSettings()
   refreshUserCheck()
 })
+
+const setupTempSettings = async () => {
+  updateTime()
+
+  locale.value = store.config.global.lang
+
+  const whatsNew = await getStorage('clearWhatsNewBox', 'local')
+  store.clearWhatsNewBox = whatsNew.clearWhatsNewBox
+}
+
+// Run a full user check against the server now that the app has loaded
+const refreshUserCheck = async () => {
+  let chromeStore = await getStorage(['userLicense'], 'local')
+  let validLicense = await checkLicense(chromeStore.userLicense)
+  // Only check extPay if user hasn't used a license key
+  if (!validLicense) {
+    try {
+      const getUser = await extpay.getUser()
+      updateUser({ ...getUser })
+    } catch (error) {
+      console.warn('Failed to check extensionPay user', error)
+    }
+  }
+  // after checking paid status, run v3 migration
+  if (store.status === 'updated' && checkVersionInRange(store.prevVersion, '3.X.X')) {
+    mergeV3Settings(true)
+  }
+}
 
 const updateTime = () => {
   store.currentTime = new Date()

@@ -2,6 +2,7 @@
 import { computed, watch } from 'vue'
 import { DateTime } from 'luxon'
 import { useSettingsStore } from '@/store.js'
+import { checkVersionInRange } from '@/helpers/data.js'
 import { hsl, shadow } from '@/helpers/widgets.js'
 import WallpaperLayer from '@/components/elements/WallpaperLayer.vue'
 import ToggleSettings from '@/components/settings/ToggleSettings.vue'
@@ -19,6 +20,8 @@ import ShapeWidget from '@/components/widgets/ShapeWidget.vue'
 import TextWidget from '@/components/widgets/TextWidget.vue'
 import TodoWidget from '@/components/widgets/TodoWidget.vue'
 import ToolBar from '@/components/tools/ToolBar.vue'
+import WelcomePage from '@/components/settings/WelcomePage.vue'
+import UpdatedPage from '@/components/settings/UpdatedPage.vue'
 
 const store = useSettingsStore()
 
@@ -197,6 +200,10 @@ const setTabTitle = () => {
       </template>
     </div>
     <ToggleSettings></ToggleSettings>
+    <WelcomePage v-if="store.status === 'installed'" />
+
+    <!-- Currently only showing if prevVersion is within v3.X.X. Normal updates shouldn't show an update page -->
+    <UpdatedPage v-if="store.status === 'updated' && checkVersionInRange(store.prevVersion, '3.X.X')" />
   </div>
 </template>
 

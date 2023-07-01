@@ -13,7 +13,19 @@
   "updates": {
     "fixesAndOthers": "수정 및 기타 변경 사항",
     "newFeatures": "새로운 기능",
-    "whatsNewInVersion": "버전 {0}의 새로운 기능"
+    "whatsNewInVersion": "버전 {0}의 새로운 기능",
+    "v400": {
+      "aGameChangingUpdate": "전례 없는 커스터마이징을 손끝으로 구현하는 획기적인 업데이트!",
+      "awesomeLetsGo": "멋지다, 가자!",
+      "carettabHasBeenUpdatedToVersion_4": "캐럿탭이 버전 4로 업데이트되었습니다!",
+      "gotItImReady": "알았어요, 준비됐어요!",
+      "imExcitedToAnnounce": "캐럿탭 버전 4의 출시를 발표하게 되어 기쁩니다! 이번 업데이트는 최신 프레임워크에서 처음부터 다시 작성되었으며, 수많은 새로운 옵션이 추가되었습니다. 더 많은 위젯, 도구 모음, 고급 사용자 지정과 함께 확장 프로그램이 더 원활하게 실행되고 크기가 더 작아졌습니다!",
+      "important": "중요:",
+      "pleaseReadAbove": "위 내용을 읽어주세요...",
+      "theUpcomingScreenWillGuide": "다음 화면에서는 새 업데이트를 시작하고 실행하는 데 도움이 되는 초기 설정을 안내합니다. 다음 단계에서 레이아웃을 선택할 때 마이그레이션된 모든 설정은 계속 유지 및 보존된다는 점을 알아두세요.",
+      "thisSubstantialUpdateHas": "이번 대규모 업데이트로 인해 대부분의 설정을 기본 상태로 초기화해야 했습니다. 불편을 끼쳐 드린 점 양해 부탁드리며, 기다려 주셔서 감사합니다. 위젯 내에서 사용자가 만든 콘텐츠는 마이그레이션되어 비활성화된 위젯에 배치되었으며, 가능한 경우 몇 가지 다른 설정도 마이그레이션되었으니 안심하세요. 이 앱의 여정에 중요한 기여를 해주셔서 감사합니다.",
+      "imExcitedForYouToDiveInto": "이번 업데이트의 무한한 커스터마이징과 역동적인 새로운 기능을 경험해 보실 수 있기를 기대합니다! 질문이나 문제가 있으시면 {'|'}지원 페이지{'|'} 또는 이메일 {'|'}로 문의해 주세요."
+    }
   },
   "settings": {
     "credit": "CaretTab{'|'}은 {'|'}BlueCaret{'|'}에 의해 만들어졌으며 {'|'}GPL 3.0{'|'}에 따라 라이선스가 부여되었습니다.",
@@ -510,5 +522,12 @@
     "windUnits": "바람 단위",
     "year": "연도",
     "yourGeneratedPassword": "생성된 비밀번호입니다:"
+  },
+  "welcome": {
+    "basicLayout": "기본 레이아웃",
+    "emptyCanvas": "빈 캔버스",
+    "getAJumpStart": "기본 레이아웃으로 빠르게 시작하거나 빈 캔버스로 새로 시작하고 싶으신가요?",
+    "next": "다음",
+    "selectALanguage": "언어 선택"
   }
 }

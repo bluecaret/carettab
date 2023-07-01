@@ -13,7 +13,19 @@
   "updates": {
     "fixesAndOthers": "Corrections et autres changements",
     "newFeatures": "Nouvelles fonctionnalités",
-    "whatsNewInVersion": "Nouveautés de la version {0}"
+    "whatsNewInVersion": "Nouveautés de la version {0}",
+    "v400": {
+      "aGameChangingUpdate": "Une mise à jour qui change la donne et apporte une personnalisation sans précédent au bout de vos doigts !",
+      "awesomeLetsGo": "Génial, allons-y !",
+      "carettabHasBeenUpdatedToVersion_4": "CaretTab a été mis à jour à la version 4 !",
+      "gotItImReady": "J'ai compris, je suis prêt !",
+      "imExcitedToAnnounce": "Je suis heureux d'annoncer la sortie de la version 4 de CaretTab ! Cette mise à jour a été réécrite à partir de zéro dans un cadre moderne avec beaucoup, beaucoup de nouvelles options. Avec plus de widgets, une barre d'outils, une personnalisation avancée, l'extension devrait également fonctionner de manière plus fluide et être plus petite en taille !",
+      "important": "IMPORTANT :",
+      "pleaseReadAbove": "Veuillez lire ci-dessus...",
+      "theUpcomingScreenWillGuide": "L'écran suivant vous guidera dans les réglages initiaux pour vous aider à utiliser la nouvelle mise à jour. Lorsque vous choisirez une mise en page à l'étape suivante, sachez que tous les paramètres qui ont été migrés seront maintenus et préservés.",
+      "thisSubstantialUpdateHas": "Cette mise à jour substantielle a nécessité la réinitialisation de la plupart de vos paramètres à leur état par défaut. Je comprends que cela puisse vous gêner et je vous remercie de votre patience. Rassurez-vous, votre contenu créé par l'utilisateur dans les widgets a été transféré et placé dans un widget désactivé, et une poignée d'autres paramètres, lorsqu'ils étaient possibles, ont également été transférés. Nous vous remercions de votre contribution essentielle à l'évolution de cette application.",
+      "imExcitedForYouToDiveInto": "Je suis impatient de vous voir plonger dans la personnalisation illimitée et les nouvelles fonctionnalités dynamiques de cette mise à jour ! Si vous avez des questions ou des problèmes, n'hésitez pas à nous contacter sur la page d'assistance {'|'} ou par email à {'|'}."
+    }
   },
   "settings": {
     "credit": "CaretTab{'|'} est créé par {'|'}BlueCaret{'|'} et placé sous licence {'|'}GPL 3.0{'|'}.",
@@ -510,5 +522,12 @@
     "windUnits": "Unités éoliennes",
     "year": "Année",
     "yourGeneratedPassword": "Votre mot de passe généré :"
+  },
+  "welcome": {
+    "basicLayout": "Disposition de base",
+    "emptyCanvas": "Toile vide",
+    "getAJumpStart": "Prendre un bon départ avec une mise en page de base ou repartir à zéro avec un canevas vide ?",
+    "next": "Suivant",
+    "selectALanguage": "Sélectionner une langue"
   }
 }

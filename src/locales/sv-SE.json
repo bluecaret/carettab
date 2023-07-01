@@ -13,7 +13,19 @@
   "updates": {
     "fixesAndOthers": "Korrigeringar och andra ändringar",
     "newFeatures": "Nya funktioner",
-    "whatsNewInVersion": "Vad är nytt i version {0}?"
+    "whatsNewInVersion": "Vad är nytt i version {0}?",
+    "v400": {
+      "aGameChangingUpdate": "En banbrytande uppdatering som ger dig oöverträffade anpassningsmöjligheter!",
+      "awesomeLetsGo": "Grymt, nu kör vi!",
+      "carettabHasBeenUpdatedToVersion_4": "CaretTab har uppdaterats till version 4!",
+      "gotItImReady": "Uppfattat, jag är redo!",
+      "imExcitedToAnnounce": "Jag är glad att kunna meddela lanseringen av CaretTab version 4! Denna uppdatering har skrivits om från grunden i ett modernt ramverk med många, många nya alternativ. Tillsammans med fler widgetar, ett verktygsfält, avancerad anpassning, bör tillägget också köras smidigare och vara mindre i storlek!",
+      "important": "VIKTIGT:",
+      "pleaseReadAbove": "Vänligen läs ovan...",
+      "theUpcomingScreenWillGuide": "Den kommande skärmen kommer att vägleda dig genom de första inställningarna för att hjälpa dig att komma igång med den nya uppdateringen. När du väljer layout i det efterföljande steget ska du veta att alla inställningar som har migrerats fortfarande kommer att underhållas och bevaras.",
+      "thisSubstantialUpdateHas": "Denna omfattande uppdatering har gjort det nödvändigt att återställa de flesta av dina inställningar till standardinställningarna. Jag förstår att detta kan vara besvärligt för dig och jag är tacksam för ditt tålamod. Du kan vara säker på att ditt användarskapade innehåll i widgetar har migrerats och placerats i en inaktiverad widget, och en handfull andra inställningar har också migrerats, där så är möjligt. Tack för ditt viktiga bidrag till den här appens resa.",
+      "imExcitedForYouToDiveInto": "Jag ser fram emot att du ska dyka ner i den gränslösa anpassningen och de dynamiska nya funktionerna i den här uppdateringen! Om du har några frågor eller problem är du välkommen att kontakta oss på {'|'}supportsidan{'|'} eller via e-post på {'|'}."
+    }
   },
   "settings": {
     "credit": "CaretTab{'|'} är skapad av {'|'}BlueCaret{'|'} och licensierad under {'|'}GPL 3.0{'|'}.",
@@ -510,5 +522,12 @@
     "windUnits": "Vindkraftverk",
     "year": "År",
     "yourGeneratedPassword": "Ditt genererade lösenord:"
+  },
+  "welcome": {
+    "basicLayout": "Grundläggande layout",
+    "emptyCanvas": "Tom duk",
+    "getAJumpStart": "Få en bra start med en grundläggande layout eller börja om från början med en tom duk?",
+    "next": "Nästa",
+    "selectALanguage": "Välj ett språk"
   }
 }

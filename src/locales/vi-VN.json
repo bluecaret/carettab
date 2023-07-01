@@ -13,7 +13,19 @@
   "updates": {
     "fixesAndOthers": "Bản sửa lỗi và các thay đổi khác",
     "newFeatures": "Các tính năng mới",
-    "whatsNewInVersion": "Có gì mới trong phiên bản {0}"
+    "whatsNewInVersion": "Có gì mới trong phiên bản {0}",
+    "v400": {
+      "aGameChangingUpdate": "Một bản cập nhật thay đổi cuộc chơi mang đến khả năng tùy chỉnh chưa từng có trong tầm tay của bạn!",
+      "awesomeLetsGo": "Tuyệt vời, đi thôi!",
+      "carettabHasBeenUpdatedToVersion_4": "CaretTab đã được cập nhật lên phiên bản 4!",
+      "gotItImReady": "Hiểu rồi, tôi đã sẵn sàng!",
+      "imExcitedToAnnounce": "Tôi vui mừng thông báo về việc phát hành CaretTab phiên bản 4! \nBản cập nhật này đã được viết lại từ đầu trong một khuôn khổ hiện đại với rất nhiều tùy chọn mới. \nCùng với nhiều widget hơn, thanh công cụ, tùy chỉnh nâng cao, tiện ích mở rộng cũng sẽ chạy mượt mà hơn và có kích thước nhỏ hơn!",
+      "important": "QUAN TRỌNG:",
+      "pleaseReadAbove": "Xin vui lòng đọc ở trên...",
+      "theUpcomingScreenWillGuide": "Màn hình sắp tới sẽ hướng dẫn bạn qua các cài đặt ban đầu để giúp bạn bắt đầu và chạy với bản cập nhật mới. \nKhi chọn bố cục trong bước tiếp theo, vui lòng biết rằng mọi cài đặt đã được di chuyển sẽ vẫn được duy trì và giữ nguyên.",
+      "thisSubstantialUpdateHas": "Bản cập nhật quan trọng này đã yêu cầu đặt lại hầu hết các cài đặt của bạn về trạng thái mặc định. \nTôi hiểu điều này có thể gây bất tiện cho bạn và tôi rất biết ơn vì sự kiên nhẫn của bạn. \nHãy yên tâm, nội dung do người dùng tạo trong các tiện ích con của bạn đã được di chuyển và đặt trong một tiện ích con bị vô hiệu hóa, một số cài đặt khác, nếu có thể, cũng đã được di chuyển. \nCảm ơn bạn đã đóng góp quan trọng của bạn cho cuộc hành trình của ứng dụng này.",
+      "imExcitedForYouToDiveInto": "Tôi rất vui khi bạn đi sâu vào khả năng tùy chỉnh vô hạn và các tính năng mới năng động của bản cập nhật này! \nNếu bạn có bất kỳ câu hỏi hoặc vấn đề nào, vui lòng liên hệ trên {'|'}trang hỗ trợ{'|'} hoặc qua email tại {'|'}."
+    }
   },
   "settings": {
     "credit": "CaretTab{'|'} được tạo bởi {'|'}BlueCaret{'|'} và được cấp phép theo {'|'}GPL 3.0{'|'}.",
@@ -510,5 +522,12 @@
     "windUnits": "đơn vị gió",
     "year": "Năm",
     "yourGeneratedPassword": "Mật khẩu đã tạo của bạn:"
+  },
+  "welcome": {
+    "basicLayout": "Bố cục cơ bản",
+    "emptyCanvas": "vải trống",
+    "getAJumpStart": "Bắt đầu với một bố cục cơ bản hay bắt đầu mới với một canvas trống?",
+    "next": "Kế tiếp",
+    "selectALanguage": "Chọn một ngôn ngữ"
   }
 }

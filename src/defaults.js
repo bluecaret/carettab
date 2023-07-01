@@ -1,7 +1,7 @@
 export class Defaults {
   global = {
     schema: '2.0',
-    lang: 'en-US',
+    lang: 'en',
     hideSettings: false,
     disableSelection: false,
     wallpaper: {

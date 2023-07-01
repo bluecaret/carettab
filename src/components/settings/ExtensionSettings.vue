@@ -47,7 +47,9 @@ const handleLangSelect = (event) => {
           name="lang"
           @change="handleLangSelect($event)"
         >
-          <option v-for="lang in languages" :key="lang.id" :value="lang.id">{{ lang.label }}</option>
+          <option v-for="lang in languages" :key="lang.id" :value="lang.id">
+            {{ lang.name }} &mdash; {{ lang.label }}
+          </option>
         </select>
       </div>
       <div class="block">

@@ -125,23 +125,21 @@ export const toolTypes = [
 ]
 
 export const languages = [
-  { id: 'en-US', label: 'English', name: 'English (United States)' },
-  { id: 'zh-CN', label: '简体中文（中国大陆）', name: 'Simplified Chinese (China Mainland)' },
-  { id: 'zh-TW', label: '繁体中文（台湾）', name: 'Traditional Chinese (Taiwan)' },
-  { id: 'fr-FR', label: 'Français', name: 'French (France)' },
-  { id: 'de-DE', label: 'Deutsch', name: 'German (Germany)' },
-  { id: 'he-IL', label: 'עברית', name: 'Hebrew (Israel)' },
-  { id: 'it-IT', label: 'Italiano (Italia)', name: 'Italian (Italy)' },
-  { id: 'ja-JP', label: '日本語', name: 'Japanese (Japan)' },
-  { id: 'ko-KR', label: '한국어', name: 'Korean (Korea)' },
-  { id: 'pt-BR', label: 'Portugues (brasil)', name: 'Portuguese (Brazil)' },
-  { id: 'pt-PT', label: 'Portugues (portugal)', name: 'Portuguese (Portugal)' },
-  { id: 'ru-RU', label: 'Pусский', name: 'Russian (Russia)' },
-  { id: 'es-MX', label: 'Español', name: 'Spanish (Mexico)' },
-  { id: 'sv-SE', label: 'Svenska (Sverige)', name: 'Swedish (Sweden)' },
-  { id: 'uk-UA', label: 'Українська', name: 'Ukrainian (Ukraine)' },
-  { id: 'ur-PK', label: 'اردو (پاکستان)', name: 'Urdu (Pakistan)' },
-  { id: 'vi-VN', label: 'Tiếng Việt', name: 'Vietnamese (Vietnam)' },
+  { id: 'en', label: 'English', name: 'English' },
+  { id: 'zh', label: '中国人', name: 'Chinese' },
+  { id: 'fr', label: 'Français', name: 'French' },
+  { id: 'de', label: 'Deutsch', name: 'German' },
+  { id: 'he', label: 'עברית', name: 'Hebrew' },
+  { id: 'it', label: 'Italiano', name: 'Italian' },
+  { id: 'ja', label: '日本語', name: 'Japanese' },
+  { id: 'ko', label: '한국어', name: 'Korean' },
+  { id: 'pt', label: 'Portugues', name: 'Portuguese' },
+  { id: 'ru', label: 'Pусский', name: 'Russian' },
+  { id: 'es', label: 'Español', name: 'Spanish' },
+  { id: 'sv', label: 'Svenska', name: 'Swedish' },
+  { id: 'uk', label: 'Українська', name: 'Ukrainian' },
+  { id: 'ur', label: 'اردو', name: 'Urdu' },
+  { id: 'vi', label: 'Tiếng Việt', name: 'Vietnamese' },
 ]
 
 export const span = [

@@ -1,10 +1,77 @@
 <script setup>
-import { ref } from 'vue'
-import { useSettingsStore, setStorage } from '@/store.js'
+import { useI18n } from 'vue-i18n'
+import { ref, onMounted } from 'vue'
+import { useSettingsStore, getStorage, setStorage } from '@/store.js'
 
+const { locale } = useI18n({ useScope: 'global' })
 const store = useSettingsStore()
 const page = ref(1)
 const readyBtnDisabled = ref(true)
+
+onMounted(async () => {
+  const oldLang = await getStorage(['ct-i18n'], 'sync')
+  if (oldLang['ct-i18n'] && oldLang['ct-i18n'].lang) {
+    switch (oldLang['ct-i18n'].lang) {
+      case 'de-DE':
+        locale.value = 'de'
+        break
+      case 'en-US':
+        locale.value = 'en'
+        break
+      case 'es-MX':
+        locale.value = 'es'
+        break
+      case 'fr-FR':
+        locale.value = 'fr'
+        break
+      case 'he-IL':
+        locale.value = 'he'
+        break
+      case 'it-IT':
+        locale.value = 'it'
+        break
+      case 'ja-JP':
+        locale.value = 'ja'
+        break
+      case 'ko-KR':
+        locale.value = 'ko'
+        break
+      case 'pt-BR':
+        locale.value = 'pt'
+        break
+      case 'pt-PT':
+        locale.value = 'pt'
+        break
+      case 'ru-RU':
+        locale.value = 'ru'
+        break
+      case 'sv-SE':
+        locale.value = 'sv'
+        break
+      case 'uk-UA':
+        locale.value = 'uk'
+        break
+      case 'ur-PK':
+        locale.value = 'ur'
+        break
+      case 'vi-VN':
+        locale.value = 'vi'
+        break
+      case 'zh-CN':
+        locale.value = 'zh'
+        break
+      case 'zh-TW':
+        locale.value = 'zh'
+        break
+
+      default:
+        locale.value = 'en'
+        break
+    }
+  } else {
+    locale.value = store.config.global.lang
+  }
+})
 
 const handleNext = () => {
   page.value = 2

@@ -102,7 +102,12 @@ const handleFinishWelcome = () => {
             name="lang"
             @change="handleLangSelect($event)"
           >
-            <option v-for="lang in languages" :key="lang.id" :value="lang.id">{{ lang.label }}</option>
+            <template v-for="lang in languages" :key="lang.id">
+              <option v-if="lang.id === 'en'" :value="lang.id">
+                {{ lang.name }}
+              </option>
+              <option v-else :value="lang.id">{{ lang.name }} &mdash; {{ lang.label }}</option>
+            </template>
           </select>
           <button class="btn" type="button" @click="handleNext()">{{ $t('welcome.next') }}</button>
         </div>

@@ -56,7 +56,65 @@ export const mergeV3Settings = async (allowMigration) => {
     merge.config = {}
     merge.config.layers = []
     merge.config.global = {}
-    merge.config.global.lang = oldI18n.lang
+
+    switch (oldI18n.lang) {
+      case 'de-DE':
+        merge.config.global.lang = 'de'
+        break
+      case 'en-US':
+        merge.config.global.lang = 'en'
+        break
+      case 'es-MX':
+        merge.config.global.lang = 'es'
+        break
+      case 'fr-FR':
+        merge.config.global.lang = 'fr'
+        break
+      case 'he-IL':
+        merge.config.global.lang = 'he'
+        break
+      case 'it-IT':
+        merge.config.global.lang = 'it'
+        break
+      case 'ja-JP':
+        merge.config.global.lang = 'ja'
+        break
+      case 'ko-KR':
+        merge.config.global.lang = 'ko'
+        break
+      case 'pt-BR':
+        merge.config.global.lang = 'pt'
+        break
+      case 'pt-PT':
+        merge.config.global.lang = 'pt'
+        break
+      case 'ru-RU':
+        merge.config.global.lang = 'ru'
+        break
+      case 'sv-SE':
+        merge.config.global.lang = 'sv'
+        break
+      case 'uk-UA':
+        merge.config.global.lang = 'uk'
+        break
+      case 'ur-PK':
+        merge.config.global.lang = 'ur'
+        break
+      case 'vi-VN':
+        merge.config.global.lang = 'vi'
+        break
+      case 'zh-CN':
+        merge.config.global.lang = 'zh'
+        break
+      case 'zh-TW':
+        merge.config.global.lang = 'zh'
+        break
+
+      default:
+        merge.config.global.lang = 'en'
+        break
+    }
+
     merge.config.global.disableSelection = oldMisc.disableSelect
     merge.config.global.hideSettings = oldMisc.hideMenu
 

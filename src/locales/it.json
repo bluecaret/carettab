@@ -525,7 +525,16 @@
     "year": "Anno",
     "yourGeneratedPassword": "La password generata:",
     "ignoreMeridiemForTextAlignment": "Ignorare il meridiem per l'allineamento del testo",
-    "ignoreMeridiemForTextAlignmentDesc": "Consente di centrare l'ora come se il meridiano non fosse visualizzato. Nota: può causare l'estensione del meridiano oltre il contenitore del widget."
+    "ignoreMeridiemForTextAlignmentDesc": "Consente di centrare l'ora come se il meridiano non fosse visualizzato. Nota: può causare l'estensione del meridiano oltre il contenitore del widget.",
+    "clear": "Libero",
+    "lap": "Giro",
+    "reset": "Reset",
+    "soundDisabled": "Suono disattivato",
+    "soundEnabled": "Suono abilitato",
+    "start": "Inizio",
+    "startStop": "Avvio/arresto",
+    "stop": "Stop",
+    "switchingTabsWarning": "NOTA: a causa delle impostazioni del browser, questo strumento potrebbe interrompersi o resettarsi quando si cambia scheda. Eseguire una prova prima di affidarsi allo strumento."
   },
   "welcome": {
     "basicLayout": "Layout di base",

@@ -73,14 +73,27 @@ export class Defaults {
         on: true,
       },
       {
-        id: 'aiChat',
+        id: 'converter',
         on: true,
-        apiKey: '',
-        model: 'gpt-3.5-turbo',
+      },
+      {
+        id: 'timer',
+        on: true,
+        sound: true,
+      },
+      {
+        id: 'stopwatch',
+        on: true,
       },
       {
         id: 'passwordGenerator',
         on: true,
+      },
+      {
+        id: 'aiChat',
+        on: true,
+        apiKey: '',
+        model: 'gpt-3.5-turbo',
       },
     ],
   }

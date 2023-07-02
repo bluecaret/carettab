@@ -525,7 +525,16 @@
     "year": "שָׁנָה",
     "yourGeneratedPassword": "הסיסמה שנוצרה שלך:",
     "ignoreMeridiemForTextAlignment": "התעלם ממרידיים עבור יישור טקסט",
-    "ignoreMeridiemForTextAlignmentDesc": "מאפשר לך לרכז את הזמן כאילו המרידיום לא הוצג. \nהערה: עלול לגרום למרידיום להתרחב מעבר למיכל הווידג'ט."
+    "ignoreMeridiemForTextAlignmentDesc": "מאפשר לך לרכז את הזמן כאילו המרידיום לא הוצג. \nהערה: עלול לגרום למרידיום להתרחב מעבר למיכל הווידג'ט.",
+    "clear": "ברור",
+    "lap": "הקפה",
+    "reset": "אִתחוּל",
+    "soundDisabled": "הצליל מושבת",
+    "soundEnabled": "סאונד מופעל",
+    "start": "הַתחָלָה",
+    "startStop": "התחל הפסק",
+    "stop": "תפסיק",
+    "switchingTabsWarning": "הערה: עקב הגדרות הדפדפן, כלי זה עשוי להשהות או להתאפס בעת החלפת כרטיסיות. \nנסה להפעיל אותו לפני שתסתמך על הכלי."
   },
   "welcome": {
     "basicLayout": "פריסה בסיסית",

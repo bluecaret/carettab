@@ -525,7 +525,16 @@
     "year": "年",
     "yourGeneratedPassword": "你生成的密码：",
     "ignoreMeridiemForTextAlignment": "忽略文本对齐的meridiem",
-    "ignoreMeridiemForTextAlignmentDesc": "允许你把时间放在中心位置，就像不显示子午线一样。注意：可能会导致子午线延伸到小组件的容器之外。"
+    "ignoreMeridiemForTextAlignmentDesc": "允许你把时间放在中心位置，就像不显示子午线一样。注意：可能会导致子午线延伸到小组件的容器之外。",
+    "clear": "清楚",
+    "lap": "立",
+    "reset": "复位",
+    "soundDisabled": "声音禁用",
+    "soundEnabled": "启用声音",
+    "start": "开始",
+    "startStop": "启动/停止",
+    "stop": "停止",
+    "switchingTabsWarning": "注意：由于浏览器设置的原因，这个工具在切换标签时可能会暂停或重置。在依赖该工具之前，请试运行。"
   },
   "welcome": {
     "basicLayout": "基本布局",

@@ -5,6 +5,7 @@ const props = defineProps({
   max: Number,
   min: Number,
   tagId: String,
+  placeholder: String,
   disabled: Boolean,
 })
 const emit = defineEmits(['update:modelValue'])
@@ -43,6 +44,7 @@ function handleArrowUpdate(up) {
       :min="min"
       :max="max"
       :disabled="props.disabled ? 'disabled' : null"
+      :placeholder="props.placeholder ? props.placeholder : ''"
       @input="handleUpdate"
     />
     <button

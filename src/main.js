@@ -122,6 +122,10 @@ import {
   faCompassDrafting,
   faTriangleExclamation,
   faArrowRotateRight,
+  faRightLeft,
+  faStopwatch,
+  faHourglassHalf,
+  faCirclePlay,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faItalic,
@@ -218,7 +222,11 @@ library.add(
   faLock,
   faCompassDrafting,
   faTriangleExclamation,
-  faArrowRotateRight
+  faArrowRotateRight,
+  faRightLeft,
+  faStopwatch,
+  faHourglassHalf,
+  faCirclePlay
 )
 
 // Run quick user check based on storage for a faster load

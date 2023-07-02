@@ -525,7 +525,16 @@
     "year": "Năm",
     "yourGeneratedPassword": "Mật khẩu đã tạo của bạn:",
     "ignoreMeridiemForTextAlignment": "Bỏ qua kinh tuyến để căn chỉnh văn bản",
-    "ignoreMeridiemForTextAlignmentDesc": "Cho phép bạn căn thời gian ở giữa như thể kinh tuyến không được hiển thị. \nLưu ý: có thể khiến kinh tuyến kéo dài qua vùng chứa tiện ích con."
+    "ignoreMeridiemForTextAlignmentDesc": "Cho phép bạn căn thời gian ở giữa như thể kinh tuyến không được hiển thị. \nLưu ý: có thể khiến kinh tuyến kéo dài qua vùng chứa tiện ích con.",
+    "clear": "Thông thoáng",
+    "lap": "vòng",
+    "reset": "Cài lại",
+    "soundDisabled": "Âm thanh bị tắt",
+    "soundEnabled": "Đã bật âm thanh",
+    "start": "Bắt đầu",
+    "startStop": "Băt đâu dưng",
+    "stop": "Dừng lại",
+    "switchingTabsWarning": "LƯU Ý: Do cài đặt trình duyệt, công cụ này có thể tạm dừng hoặc đặt lại khi chuyển đổi tab. \nVui lòng chạy thử trước khi dựa vào công cụ."
   },
   "welcome": {
     "basicLayout": "Bố cục cơ bản",

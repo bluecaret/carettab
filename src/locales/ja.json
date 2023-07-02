@@ -525,7 +525,16 @@
     "year": "年",
     "yourGeneratedPassword": "生成されたパスワード",
     "ignoreMeridiemForTextAlignment": "テキストアライメントのためのmeridiemを無視する",
-    "ignoreMeridiemForTextAlignmentDesc": "あたかも子午線が表示されていないかのように、時刻を中央に表示できるようにします。注意: ウィジェットコンテナから子午線がはみ出ることがあります。"
+    "ignoreMeridiemForTextAlignmentDesc": "あたかも子午線が表示されていないかのように、時刻を中央に表示できるようにします。注意: ウィジェットコンテナから子午線がはみ出ることがあります。",
+    "clear": "クリア",
+    "lap": "ラップ",
+    "reset": "リセット",
+    "soundDisabled": "サウンド無効",
+    "soundEnabled": "サウンド有効",
+    "start": "スタート",
+    "startStop": "スタート/ストップ",
+    "stop": "ストップ",
+    "switchingTabsWarning": "注意：ブラウザの設定により、このツールはタブを切り替えたときに一時停止またはリセットされることがあります。このツールに依存する前に、試用してください。"
   },
   "welcome": {
     "basicLayout": "基本レイアウト",

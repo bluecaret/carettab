@@ -525,7 +525,16 @@
     "year": "Jahr",
     "yourGeneratedPassword": "Ihr generiertes Passwort:",
     "ignoreMeridiemForTextAlignment": "Meridiem für die Textausrichtung ignorieren",
-    "ignoreMeridiemForTextAlignmentDesc": "Ermöglicht es Ihnen, die Uhrzeit zentriert darzustellen, als ob das Meridiem nicht angezeigt würde. Hinweis: Dies kann dazu führen, dass das Meridiem über den Widget-Container hinausragt."
+    "ignoreMeridiemForTextAlignmentDesc": "Ermöglicht es Ihnen, die Uhrzeit zentriert darzustellen, als ob das Meridiem nicht angezeigt würde. Hinweis: Dies kann dazu führen, dass das Meridiem über den Widget-Container hinausragt.",
+    "clear": "Klar",
+    "lap": "Runde",
+    "reset": "Zurücksetzen",
+    "soundDisabled": "Ton deaktiviert",
+    "soundEnabled": "Ton aktiviert",
+    "start": "Start",
+    "startStop": "Start/Stopp",
+    "stop": "Stopp",
+    "switchingTabsWarning": "HINWEIS: Aufgrund von Browsereinstellungen kann dieses Tool beim Wechseln der Registerkarten anhalten oder zurückgesetzt werden. Bitte testen Sie es, bevor Sie sich auf das Tool verlassen."
   },
   "welcome": {
     "basicLayout": "Grundlegendes Layout",

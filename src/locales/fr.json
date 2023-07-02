@@ -525,7 +525,16 @@
     "year": "Année",
     "yourGeneratedPassword": "Votre mot de passe généré :",
     "ignoreMeridiemForTextAlignment": "Ignorer le meridiem pour l'alignement du texte",
-    "ignoreMeridiemForTextAlignmentDesc": "Permet de centrer l'heure comme si le méridien n'était pas affiché. Remarque : le méridien peut dépasser le conteneur du widget."
+    "ignoreMeridiemForTextAlignmentDesc": "Permet de centrer l'heure comme si le méridien n'était pas affiché. Remarque : le méridien peut dépasser le conteneur du widget.",
+    "clear": "Clair",
+    "lap": "Lap",
+    "reset": "Remise à zéro",
+    "soundDisabled": "Son désactivé",
+    "soundEnabled": "Son activé",
+    "start": "Démarrage",
+    "startStop": "Marche/Arrêt",
+    "stop": "Arrêter",
+    "switchingTabsWarning": "REMARQUE : En raison des paramètres du navigateur, cet outil peut se mettre en pause ou se réinitialiser lorsque l'on change d'onglet. Veuillez faire un essai avant de vous fier à l'outil."
   },
   "welcome": {
     "basicLayout": "Disposition de base",

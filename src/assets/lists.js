@@ -120,6 +120,9 @@ export const widgetTypes = [
 
 export const toolTypes = [
   { tool: 'calculator', name: 'Calculator', icon: 'fa-calculator', premium: false },
+  { tool: 'converter', name: 'Unit Converter', icon: 'fa-right-left', premium: false },
+  { tool: 'timer', name: 'Timer', icon: 'fa-hourglass-half', premium: false },
+  { tool: 'stopwatch', name: 'Stopwatch', icon: 'fa-stopwatch', premium: false },
   { tool: 'passwordGenerator', name: 'Password Generator', icon: 'fa-asterisk', premium: false },
   { tool: 'aiChat', name: 'AI Chat', icon: 'fa-robot', premium: true },
 ]

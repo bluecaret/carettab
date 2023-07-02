@@ -2,15 +2,16 @@
 import { ref, reactive } from 'vue'
 import { Configuration, OpenAIApi } from 'openai'
 import { useSettingsStore } from '@/store.js'
+import { useAIChatStore } from '@/components/tools/toolStore.js'
 import AIChatSettings from '@/components/tools/AIChatSettings.vue'
 
 const store = useSettingsStore()
+const aiStore = useAIChatStore()
 const tool = reactive(store.config.toolbar.tools.find((t) => t.id === 'aiChat'))
 
 const showSettings = ref(tool.apiKey ? false : true)
 const toolPanelEl = ref(null)
 const prompt = ref('')
-const responses = ref([])
 const loading = ref(false)
 const errorMessage = ref('')
 
@@ -18,7 +19,7 @@ const onPrompt = async () => {
   if (!prompt.value) return
   loading.value = true
   errorMessage.value = ''
-  responses.value.push({ role: 'user', content: prompt.value })
+  aiStore.responses.push({ role: 'user', content: prompt.value })
   setTimeout(() => {
     toolPanelEl.value.scrollTop = toolPanelEl.value.scrollHeight
   }, 0)
@@ -29,9 +30,9 @@ const onPrompt = async () => {
     const openai = new OpenAIApi(configuration)
     const completion = await openai.createChatCompletion({
       model: tool.model,
-      messages: responses.value,
+      messages: aiStore.responses,
     })
-    responses.value.push(completion.data.choices[0].message)
+    aiStore.responses.push(completion.data.choices[0].message)
     loading.value = false
   } catch (error) {
     if (error.response) {
@@ -132,7 +133,7 @@ const onPrompt = async () => {
               <div v-html="$t('widget.helloImAnAi')"></div>
             </div>
           </div>
-          <div v-for="(res, index) in responses" :key="index" class="message" :class="res.role ? res.role : ''">
+          <div v-for="(res, index) in aiStore.responses" :key="index" class="message" :class="res.role ? res.role : ''">
             <fa :icon="res.role === 'user' ? 'fa-face-smile' : 'fa-robot'" />
             <div class="block">
               <div>

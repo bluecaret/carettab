@@ -1,12 +1,18 @@
 <script setup>
 import { ref, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
-import AIChatTool from '@/components/tools/AIChatTool.vue'
+import { useStopwatchStore, useTimerStore } from '@/components/tools/toolStore.js'
 import CalculatorTool from '@/components/tools/CalculatorTool.vue'
+import ConverterTool from '@/components/tools/ConverterTool.vue'
+import TimerTool from '@/components/tools/TimerTool.vue'
+import StopwatchTool from '@/components/tools/StopwatchTool.vue'
 import PasswordGeneratorTool from '@/components/tools/PasswordGeneratorTool.vue'
+import AIChatTool from '@/components/tools/AIChatTool.vue'
 import { toolTypes } from '@/assets/lists.js'
 
 const store = useSettingsStore()
+const stopwatchStore = useStopwatchStore()
+const timerStore = useTimerStore()
 const user = inject('user')
 const selected = ref('')
 
@@ -33,14 +39,19 @@ const getToolType = (id) => {
             @click="toggleTool(tool.id)"
           >
             <fa :icon="`${getToolType(tool.id).icon}`" fixed-width />
+            <fa v-if="tool.id === 'stopwatch' && stopwatchStore.running" class="toolRunning" icon="fa-circle-play" />
+            <fa v-if="tool.id === 'timer' && timerStore.running" class="toolRunning" icon="fa-circle-play" />
           </button>
         </li>
       </template>
     </ul>
   </div>
-  <AIChatTool v-if="selected === 'aiChat'" />
   <CalculatorTool v-if="selected === 'calculator'" />
+  <ConverterTool v-if="selected === 'converter'" />
+  <TimerTool v-if="selected === 'timer'" />
+  <StopwatchTool v-if="selected === 'stopwatch'" />
   <PasswordGeneratorTool v-if="selected === 'passwordGenerator'" />
+  <AIChatTool v-if="selected === 'aiChat'" />
 </template>
 
 <style lang="scss" scoped>
@@ -75,6 +86,7 @@ ul {
 }
 
 .toolBtn {
+  position: relative;
   display: grid;
   place-items: center;
   aspect-ratio: 1 / 1;
@@ -100,6 +112,15 @@ ul {
     .svg-inline--fa {
       font-size: 0.65em;
     }
+  }
+  .toolRunning {
+    position: absolute;
+    inset: auto 0.2em 0.2em auto;
+    font-size: 0.5em;
+    background-color: hsl(0 0 0 / 0.8);
+    color: hsl(0 0 100% / 0.8);
+    padding: 0.15em;
+    border-radius: 50%;
   }
 }
 </style>

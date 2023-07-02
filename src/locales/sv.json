@@ -525,7 +525,16 @@
     "year": "År",
     "yourGeneratedPassword": "Ditt genererade lösenord:",
     "ignoreMeridiemForTextAlignment": "Ignorera meridiem för textjustering",
-    "ignoreMeridiemForTextAlignmentDesc": "Gör det möjligt att centrera tiden som om meridiem inte visades. Obs: kan göra att meridiem sträcker sig längre än widgetbehållaren."
+    "ignoreMeridiemForTextAlignmentDesc": "Gör det möjligt att centrera tiden som om meridiem inte visades. Obs: kan göra att meridiem sträcker sig längre än widgetbehållaren.",
+    "clear": "Klart",
+    "lap": "Varv",
+    "reset": "Återställ",
+    "soundDisabled": "Ljudet är avstängt",
+    "soundEnabled": "Ljud aktiverat",
+    "start": "Start",
+    "startStop": "Start/Stopp",
+    "stop": "Stopp",
+    "switchingTabsWarning": "OBS: På grund av webbläsarinställningar kan verktyget pausas eller återställas när du byter flik. Vänligen provkör det innan du förlitar dig på verktyget."
   },
   "welcome": {
     "basicLayout": "Grundläggande layout",

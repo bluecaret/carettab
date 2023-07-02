@@ -526,7 +526,16 @@
     "daysLowTemperature": "Day's low temperature",
     "lowTemperatureColor": "Low temperature color",
     "ignoreMeridiemForTextAlignment": "Ignore meridiem for text alignment",
-    "ignoreMeridiemForTextAlignmentDesc": "Allows you to have the time centered as if the meridiem wasn't shown. Note: may cause the meridiem to extend past the widget container."
+    "ignoreMeridiemForTextAlignmentDesc": "Allows you to have the time centered as if the meridiem wasn't shown. Note: may cause the meridiem to extend past the widget container.",
+    "startStop": "Start/Stop",
+    "reset": "Reset",
+    "lap": "Lap",
+    "switchingTabsWarning": "NOTE: Due to browser settings, this tool might pause or reset when switching tabs. Please trial run it before relying on the tool.",
+    "clear": "Clear",
+    "stop": "Stop",
+    "start": "Start",
+    "soundEnabled": "Sound enabled",
+    "soundDisabled": "Sound disabled"
   },
   "welcome": {
     "selectALanguage": "Select a language",

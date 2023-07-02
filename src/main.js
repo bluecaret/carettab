@@ -126,6 +126,11 @@ import {
   faStopwatch,
   faHourglassHalf,
   faCirclePlay,
+  faPaintBrush,
+  faInfinity,
+  faCloudSunRain,
+  faBrain,
+  faBorderStyle,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faItalic,
@@ -226,7 +231,12 @@ library.add(
   faRightLeft,
   faStopwatch,
   faHourglassHalf,
-  faCirclePlay
+  faCirclePlay,
+  faPaintBrush,
+  faInfinity,
+  faCloudSunRain,
+  faBrain,
+  faBorderStyle
 )
 
 // Run quick user check based on storage for a faster load

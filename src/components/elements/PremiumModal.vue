@@ -35,7 +35,13 @@ const handleLicenseKey = async () => {
 </script>
 
 <template>
-  <ModalWindow :show="store.showPremiumModal" :button-ref="store.premiumModalBtnRef" no-teleport @close="emit('close')">
+  <ModalWindow
+    size="840px"
+    :show="store.showPremiumModal"
+    :button-ref="store.premiumModalBtnRef"
+    no-teleport
+    @close="emit('close')"
+  >
     <template #window>
       <div class="premiumModalContent">
         <button
@@ -46,7 +52,19 @@ const handleLicenseKey = async () => {
         >
           <fa icon="fa-close" />
         </button>
-        <fa icon="fa-gem" class="premiumModalIcon" />
+        <svg class="premiumModalIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+          <defs>
+            <linearGradient id="gemGradient" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="20%" style="stop-color: var(--cPremium2)" />
+              <stop offset="80%" style="stop-color: var(--cPremium)" />
+            </linearGradient>
+          </defs>
+          <path
+            style="fill: url(#gemGradient)"
+            d="M116.7 33.8c4.5-6.1 11.7-9.8 19.3-9.8H376c7.6 0 14.8 3.6 19.3 9.8l112 152c6.8 9.2 6.1 21.9-1.5 30.4l-232 256c-4.5 5-11 7.9-17.8 7.9s-13.2-2.9-17.8-7.9l-232-256c-7.7-8.5-8.3-21.2-1.5-30.4l112-152zm38.5 39.8c-3.3 2.5-4.2 7-2.1 10.5l57.4 95.6L63.3 192c-4.1 .3-7.3 3.8-7.3 8s3.2 7.6 7.3 8l192 16c.4 0 .9 0 1.3 0l192-16c4.1-.3 7.3-3.8 7.3-8s-3.2-7.6-7.3-8L301.5 179.8l57.4-95.6c2.1-3.5 1.2-8.1-2.1-10.5s-7.9-2-10.7 1L256 172.2 165.9 74.6c-2.8-3-7.4-3.4-10.7-1z"
+          />
+        </svg>
 
         <div v-if="!user.paid && !isJustSubscribed">
           <h2 class="premiumModalHeading">{{ $t('settings.premiumAccess') }}</h2>
@@ -57,43 +75,73 @@ const handleLicenseKey = async () => {
             <li>
               <span><fa icon="fa-images" /></span>
               <div>
-                Pexels.com and Unsplash.com
-                <div>Display a single or daily random wallpaper from Pexels.com and Unsplash.com.</div>
+                {{ $t('settings.dailyWallpaperAndEffects') }}
+                <div>
+                  {{ $t('settings.startYourDayWithFreshHighResolution') }}
+                </div>
               </div>
             </li>
             <li>
-              <span><fa icon="fa-circle-half-stroke" /></span>
+              <span><fa icon="fa-paint-brush" /></span>
               <div>
-                Background effects
-                <div>Change the size, contrast, saturation and blur of the wallpaper.</div>
+                {{ $t('settings.widgetPersonalization') }}
+                <div>
+                  {{ $t('settings.makeYourWidgetsTrulyYours') }}
+                </div>
+              </div>
+            </li>
+            <li>
+              <span><fa icon="fa-infinity" /></span>
+              <div>
+                {{ $t('settings.unlimitedWidgets') }}
+                <div>
+                  {{ $t('settings.breakFreeFromRestrictions') }}
+                </div>
+              </div>
+            </li>
+            <li>
+              <span><fa icon="fa-cloud-sun-rain" /></span>
+              <div>
+                {{ $t('settings.animatedWeatherIcons') }}
+                <div>
+                  {{ $t('settings.brightenUpYourNewTab') }}
+                </div>
+              </div>
+            </li>
+            <li>
+              <span><fa icon="fa-brain" /></span>
+              <div>
+                {{ $t('settings.aiChatAssistant') }}
+                <div>
+                  {{ $t('settings.experienceThePowerOfAi') }}
+                </div>
               </div>
             </li>
             <li>
               <span><fa icon="fa-font" /></span>
               <div>
-                More fonts
-                <div>Choose from even more fonts provided by Google Fonts.</div>
+                {{ $t('settings.individualWidgetStyles') }}
+                <div>
+                  {{ $t('settings.embraceDiversityOptForADifferent') }}
+                </div>
               </div>
             </li>
             <li>
-              <span><fa icon="fa-clock" /></span>
+              <span><fa icon="fa-border-style" /></span>
               <div>
-                Analog clock styles
-                <div>Choose from different clock face and clock hand styles for the analog clock.</div>
-              </div>
-            </li>
-            <li>
-              <span><fa icon="fa-note-sticky" /></span>
-              <div>
-                Notepad
-                <div>Take quick notes or keep track of your grocery list with the Notepad widget.</div>
+                {{ $t('settings.enhancedLayoutWidgets') }}
+                <div>
+                  {{ $t('settings.upgradeYourNewTabAesthetics') }}
+                </div>
               </div>
             </li>
             <li>
               <span><fa icon="fa-gem" /></span>
               <div>
-                And more!
-                <div>Even more premium features available now and planned for the future!</div>
+                {{ $t('settings.andMore') }}
+                <div>
+                  {{ $t('settings.discoverAnExpandingGalaxy') }}
+                </div>
               </div>
             </li>
           </ul>
@@ -145,9 +193,9 @@ const handleLicenseKey = async () => {
 
 <style lang="scss" scoped>
 .premiumModalContent {
-  --getPremiumModalBg: hsla(205, 100%, 18%, 1);
-  --getPremiumModalBg2: hsla(205, 100%, 30%, 1);
-  --getPremiumModalColor: hsla(205, 100%, 90%, 1);
+  --getPremiumModalBg: hsl(var(--cPremiumH) var(--cPremiumS) calc(var(--cPremiumL) - 25%) / 1);
+  --getPremiumModalBg2: hsl(var(--cPremium2H) var(--cPremium2S) calc(var(--cPremium2L) - 35%) / 1);
+  --getPremiumModalColor: var(--cText);
 
   position: relative;
   padding: var(--s6);
@@ -164,9 +212,10 @@ const handleLicenseKey = async () => {
   h2 {
     font-size: 3.2rem;
     font-weight: 300;
-    margin: 0 0 var(--s3);
+    margin: 0 0 var(--s5);
     text-transform: uppercase;
     text-align: center;
+    text-shadow: 0 0.1em 0.3em hsl(0 0% 0% / 0.8);
   }
   p {
     margin: 0 auto var(--s5);
@@ -192,9 +241,11 @@ const handleLicenseKey = async () => {
 
 .premiumModalIcon {
   display: block;
-  font-size: 5.4rem;
-  margin: var(--s5) auto;
+  width: 7rem;
+  height: auto;
+  margin: var(--s2) auto;
   text-align: center;
+  filter: drop-shadow(0 0.2em 0.5em hsl(0 0% 0% / 0.6));
 }
 
 .premiumModalPrice {
@@ -212,10 +263,9 @@ const handleLicenseKey = async () => {
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--s6) var(--s8);
+  gap: var(--s5) var(--s6);
   li {
     display: flex;
-    align-items: center;
     gap: var(--s5);
     padding: 0;
     span {
@@ -223,20 +273,21 @@ const handleLicenseKey = async () => {
       display: grid;
       place-items: center;
       font-size: 3rem;
-      background-color: var(--getPremiumModalBg2);
+      background-color: hsl(var(--cPremiumH) var(--cPremiumS) calc(var(--cPremiumL) - 35%) / 1);
       color: var(--getPremiumModalColor);
       width: 5rem;
       height: 5rem;
       border-radius: 50%;
       .svg-inline--fa {
-        font-size: 3rem;
+        font-size: 2.8rem;
       }
     }
     > div {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 600;
+      line-height: 1.3;
       > div {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         font-weight: 300;
       }
     }
@@ -265,8 +316,9 @@ const handleLicenseKey = async () => {
 
 .premiumModalBtn {
   border: 0;
-  background-color: var(--getPremiumModalBg2);
+  background-color: var(--cPremium);
   color: var(--getPremiumModalColor);
+  text-shadow: 0 0.1em 0.2em var(--cShadow);
   display: inline-flex;
   align-items: center;
   padding: 0 var(--s5);

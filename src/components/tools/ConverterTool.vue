@@ -9,7 +9,6 @@ const loading = ref(false)
 let timer = null
 
 const openConverter = async (id) => {
-  console.log(id.target.value)
   loading.value = true
   await nextTick()
   store.group = id.target.value

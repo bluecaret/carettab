@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from 'vue'
+import { reactive, toRaw } from 'vue'
 import { useSettingsStore, setStorage } from '@/store.js'
 
 const store = useSettingsStore()
@@ -9,7 +9,7 @@ let timer = null
 const saveKey = () => {
   clearTimeout(timer)
   timer = setTimeout(() => {
-    setStorage({ ['toolbar']: store.config.toolbar }, 'sync')
+    setStorage({ ['toolbar']: { ...toRaw(store.config.toolbar) } }, 'sync')
   }, 2000)
 }
 </script>

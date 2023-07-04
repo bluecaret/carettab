@@ -1,5 +1,5 @@
 <script setup>
-import { computed, watch, ref, onMounted, inject } from 'vue'
+import { computed, watch, ref, onMounted, onBeforeUnmount, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { DateTime } from 'luxon'
 import { setWidgetContainerStyles, setWidgetSegmentStyles, hsl, shadow } from '@/helpers/widgets.js'
@@ -24,6 +24,15 @@ let timeout = null
 
 onMounted(() => {
   timeUpdate()
+  if (props.widget.sec.smoothSeconds) {
+    setInterval(timeUpdate, 60000)
+  }
+})
+
+onBeforeUnmount(() => {
+  if (timeout) {
+    clearInterval(timeUpdate)
+  }
 })
 
 watch(
@@ -31,14 +40,7 @@ watch(
   () => {
     // If smooth seconds, use CSS animation, but seconds will need to be synced up
     // every minute to ensure animation doesn't cause time to drift.
-    if (props.widget.sec.smoothSeconds) {
-      if (timeout) {
-        clearTimeout(timeout)
-      }
-      timeout = setTimeout(() => {
-        timeUpdate()
-      }, 60000)
-    } else {
+    if (currentTime.value.invalid || !props.widget.sec.smoothSeconds) {
       timeUpdate()
     }
   }

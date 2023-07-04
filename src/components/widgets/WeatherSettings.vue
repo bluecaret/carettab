@@ -388,7 +388,10 @@ const refreshWeather = async () => {
             <label for="forecastDayName" class="label mra">{{ $t('widget.showDate') }}</label>
             <ToggleField v-model="widget.forecast.day.on" tag-id="forecastDayName"></ToggleField>
           </div>
-          <div class="block"></div>
+          <div v-if="widget.overrideColors && widget.forecast.day.on" class="block">
+            <label for="forecastDayColor" class="label mra">{{ $t('widget.dateColor') }}</label>
+            <ColorField v-model="widget.forecast.day.color" tag-id="forecastDayColor" class="w20"></ColorField>
+          </div>
         </template>
       </FieldAccordion>
       <FieldAccordion v-if="widget.forecast.on">

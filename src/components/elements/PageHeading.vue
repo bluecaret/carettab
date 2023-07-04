@@ -77,6 +77,15 @@ const handleGoBackBtn = () => {
         </button>
         <button
           class="btn"
+          :class="{ active: store.showGrid }"
+          :aria-label="$t('settings.showAGridToHelpWithPositioning')"
+          :title="$t('settings.showAGridToHelpWithPositioning')"
+          @click="store.showGrid = !store.showGrid"
+        >
+          <fa icon="fa-border-none" fixed-width></fa>
+        </button>
+        <button
+          class="btn"
           :class="{ active: store.panelMove }"
           :aria-label="$t('settings.moveSettings')"
           :title="$t('settings.temporarilyMoveTheSettingsPanel')"

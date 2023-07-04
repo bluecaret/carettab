@@ -234,7 +234,8 @@
     "enhancedLayoutWidgets": "Enhanced Layout Widgets",
     "upgradeYourNewTabAesthetics": "Upgrade your New Tab aesthetics with innovative Shape and Text widgets, delivering an improved and engaging visual experience.",
     "andMore": "And More!",
-    "discoverAnExpandingGalaxy": "Discover an expanding galaxy of premium features, continuously updated and refined to enhance your New Tab experience."
+    "discoverAnExpandingGalaxy": "Discover an expanding galaxy of premium features, continuously updated and refined to enhance your New Tab experience.",
+    "showAGridToHelpWithPositioning": "Show a grid to help with positioning"
   },
   "advanced": {
     "importOldVersionWarning": "Settings are from an older version of CaretTab. We will do our best to import them, but some settings may not be compatible. Do you want to continue?",

@@ -199,6 +199,7 @@ const setTabTitle = () => {
         <div v-if="!layer.on && layer.widget === 'todo'"></div>
       </template>
     </div>
+    <div v-if="store.showGrid" class="positioningGrid"></div>
     <ToggleSettings></ToggleSettings>
     <WelcomePage v-if="store.status === 'installed'" />
 
@@ -208,6 +209,50 @@ const setTabTitle = () => {
 </template>
 
 <style lang="scss">
+.positioningGrid {
+  --grid-spacing: 100px;
+  --grid-color: rgba(255, 255, 255, 0.3);
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --line-color: rgba(255, 255, 255, 1);
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  overflow: hidden;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='1' viewBox='0 0 100 1'%3E%3Cline x1='0' y1='0' x2='100' y2='0' stroke='%23000000' stroke-opacity='0.2' stroke-width='1' stroke-dasharray='2,6'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='100' viewBox='0 0 1 100'%3E%3Cline x1='0' y1='0' x2='0' y2='100' stroke='%23000000' stroke-opacity='0.2' stroke-width='1' stroke-dasharray='2,6'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='1' viewBox='0 0 100 1'%3E%3Cline x1='0' y1='0' x2='100' y2='0' stroke='%23ffffff' stroke-opacity='0.3' stroke-width='1' stroke-dasharray='2,6'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='100' viewBox='0 0 1 100'%3E%3Cline x1='0' y1='0' x2='0' y2='100' stroke='%23ffffff' stroke-opacity='0.3' stroke-width='1' stroke-dasharray='2,6'/%3E%3C/svg%3E");
+  background-position: calc(50% - 1px) calc(50% - 1px), calc(50% - 1px) calc(50% - 1px), 50% 50%, 50% 50%;
+  background-size: var(--grid-spacing) var(--grid-spacing);
+  background-repeat: repeat;
+  pointer-events: none;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+  }
+  &::before {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, hsl(0 0 100% / 0.5) 50%, hsl(0 0 0 / 0.5) 50%);
+    background-size: 8px 1px;
+    translate: 0 -1px;
+  }
+
+  &::after {
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, hsl(0 0 100% / 0.5) 50%, hsl(0 0 0 / 0.5) 50%);
+    background-size: 1px 8px;
+    translate: -1px 0;
+  }
+}
+
 .outliner {
   &::before,
   &::after {

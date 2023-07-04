@@ -135,6 +135,7 @@ export const useSettingsStore = defineStore('settings', () => {
   const showPremiumModal = ref(false)
   const premiumModalBtnRef = ref(null)
   const showOutliner = ref(false)
+  const showGrid = ref(false)
   const currentTime = ref('Sat Jan 01 2000 00:00:00 GMT-0800 (Pacific Standard Time)')
   const wallpaper = ref('default')
   const palette = ref([[], [], [], [], [], [], [], []])
@@ -415,6 +416,7 @@ export const useSettingsStore = defineStore('settings', () => {
     showPremiumModal,
     premiumModalBtnRef,
     showOutliner,
+    showGrid,
     currentTime,
     wallpaper,
     palette,

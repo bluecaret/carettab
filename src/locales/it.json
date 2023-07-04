@@ -550,7 +550,8 @@
     "start": "Inizio",
     "startStop": "Avvio/arresto",
     "stop": "Stop",
-    "switchingTabsWarning": "NOTA: a causa delle impostazioni del browser, questo strumento potrebbe interrompersi o resettarsi quando si cambia scheda. Eseguire una prova prima di affidarsi allo strumento."
+    "switchingTabsWarning": "NOTA: a causa delle impostazioni del browser, questo strumento potrebbe interrompersi o resettarsi quando si cambia scheda. Eseguire una prova prima di affidarsi allo strumento.",
+    "dateColor": "Data colore"
   },
   "welcome": {
     "basicLayout": "Layout di base",

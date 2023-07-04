@@ -551,7 +551,8 @@
     "stop": "Stop",
     "start": "Start",
     "soundEnabled": "Sound enabled",
-    "soundDisabled": "Sound disabled"
+    "soundDisabled": "Sound disabled",
+    "dateColor": "Date color"
   },
   "welcome": {
     "selectALanguage": "Select a language",

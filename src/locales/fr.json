@@ -550,7 +550,8 @@
     "start": "Démarrage",
     "startStop": "Marche/Arrêt",
     "stop": "Arrêter",
-    "switchingTabsWarning": "REMARQUE : En raison des paramètres du navigateur, cet outil peut se mettre en pause ou se réinitialiser lorsque l'on change d'onglet. Veuillez faire un essai avant de vous fier à l'outil."
+    "switchingTabsWarning": "REMARQUE : En raison des paramètres du navigateur, cet outil peut se mettre en pause ou se réinitialiser lorsque l'on change d'onglet. Veuillez faire un essai avant de vous fier à l'outil.",
+    "dateColor": "Date couleur"
   },
   "welcome": {
     "basicLayout": "Disposition de base",

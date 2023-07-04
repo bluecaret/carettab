@@ -550,7 +550,8 @@
     "start": "Inicio",
     "startStop": "Arrancar/Parar",
     "stop": "Stop",
-    "switchingTabsWarning": "NOTA: Debido a la configuración del navegador, esta herramienta podría detenerse o reiniciarse al cambiar de pestaña. Por favor, probarlo antes de confiar en la herramienta."
+    "switchingTabsWarning": "NOTA: Debido a la configuración del navegador, esta herramienta podría detenerse o reiniciarse al cambiar de pestaña. Por favor, probarlo antes de confiar en la herramienta.",
+    "dateColor": "Fecha color"
   },
   "welcome": {
     "basicLayout": "Diseño básico",

@@ -550,7 +550,8 @@
     "start": "Start",
     "startStop": "Start/Stopp",
     "stop": "Stopp",
-    "switchingTabsWarning": "HINWEIS: Aufgrund von Browsereinstellungen kann dieses Tool beim Wechseln der Registerkarten anhalten oder zurückgesetzt werden. Bitte testen Sie es, bevor Sie sich auf das Tool verlassen."
+    "switchingTabsWarning": "HINWEIS: Aufgrund von Browsereinstellungen kann dieses Tool beim Wechseln der Registerkarten anhalten oder zurückgesetzt werden. Bitte testen Sie es, bevor Sie sich auf das Tool verlassen.",
+    "dateColor": "Datum Farbe"
   },
   "welcome": {
     "basicLayout": "Grundlegendes Layout",

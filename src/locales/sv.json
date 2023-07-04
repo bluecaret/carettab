@@ -550,7 +550,8 @@
     "start": "Start",
     "startStop": "Start/Stopp",
     "stop": "Stopp",
-    "switchingTabsWarning": "OBS: På grund av webbläsarinställningar kan verktyget pausas eller återställas när du byter flik. Vänligen provkör det innan du förlitar dig på verktyget."
+    "switchingTabsWarning": "OBS: På grund av webbläsarinställningar kan verktyget pausas eller återställas när du byter flik. Vänligen provkör det innan du förlitar dig på verktyget.",
+    "dateColor": "Datum färg"
   },
   "welcome": {
     "basicLayout": "Grundläggande layout",

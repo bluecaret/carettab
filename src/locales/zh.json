@@ -550,7 +550,8 @@
     "start": "开始",
     "startStop": "启动/停止",
     "stop": "停止",
-    "switchingTabsWarning": "注意：由于浏览器设置的原因，这个工具在切换标签时可能会暂停或重置。在依赖该工具之前，请试运行。"
+    "switchingTabsWarning": "注意：由于浏览器设置的原因，这个工具在切换标签时可能会暂停或重置。在依赖该工具之前，请试运行。",
+    "dateColor": "日期颜色"
   },
   "welcome": {
     "basicLayout": "基本布局",

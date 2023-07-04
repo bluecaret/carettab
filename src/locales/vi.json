@@ -550,7 +550,8 @@
     "start": "Bắt đầu",
     "startStop": "Băt đâu dưng",
     "stop": "Dừng lại",
-    "switchingTabsWarning": "LƯU Ý: Do cài đặt trình duyệt, công cụ này có thể tạm dừng hoặc đặt lại khi chuyển đổi tab. \nVui lòng chạy thử trước khi dựa vào công cụ."
+    "switchingTabsWarning": "LƯU Ý: Do cài đặt trình duyệt, công cụ này có thể tạm dừng hoặc đặt lại khi chuyển đổi tab. \nVui lòng chạy thử trước khi dựa vào công cụ.",
+    "dateColor": "màu ngày tháng"
   },
   "welcome": {
     "basicLayout": "Bố cục cơ bản",

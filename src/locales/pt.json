@@ -550,7 +550,8 @@
     "start": "Início",
     "startStop": "Arranque/Paragem",
     "stop": "Parar",
-    "switchingTabsWarning": "NOTA: Devido às definições do browser, esta ferramenta pode fazer uma pausa ou reiniciar quando se muda de separador. Faça um teste antes de confiar na ferramenta."
+    "switchingTabsWarning": "NOTA: Devido às definições do browser, esta ferramenta pode fazer uma pausa ou reiniciar quando se muda de separador. Faça um teste antes de confiar na ferramenta.",
+    "dateColor": "Cor da data"
   },
   "welcome": {
     "basicLayout": "Esquema de base",

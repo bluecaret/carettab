@@ -52,7 +52,7 @@ const handleLangSelect = (event) => {
           </option>
         </select>
       </div>
-      <div class="block">
+      <div class="block stack">
         <div class="group fill">
           <div class="label mra">
             <label for="tabTitle">{{ $t('settings.tabTitle') }}</label>

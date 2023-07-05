@@ -236,7 +236,8 @@
     "upgradeYourNewTabAesthetics": "Actualice la estética de su nueva pestaña con los innovadores widgets de forma y texto, que ofrecen una experiencia visual mejorada y atractiva.",
     "widgetPersonalization": "Personalización de widgets",
     "showAGridToHelpWithPositioning": "Mostrar una cuadrícula para facilitar el posicionamiento",
-    "dragToReorderWidgets": "Arrastre para reordenar los widgets. Los widgets situados más arriba en la lista se superpondrán a los demás, mientras que los situados más abajo se superpondrán en caso de solapamiento."
+    "dragToReorderWidgets": "Arrastre para reordenar los widgets. Los widgets situados más arriba en la lista se superpondrán a los demás, mientras que los situados más abajo se superpondrán en caso de solapamiento.",
+    "overridesContainerBackgroundColorBorderAndPadding": "Anula el color de fondo, el borde y el relleno del contenedor."
   },
   "advanced": {
     "advancedSettings": "Configuración avanzada",

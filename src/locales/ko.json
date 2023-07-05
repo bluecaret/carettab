@@ -236,7 +236,8 @@
     "upgradeYourNewTabAesthetics": "혁신적인 도형 및 텍스트 위젯으로 새 탭의 미학을 업그레이드하여 개선되고 매력적인 시각적 경험을 제공하세요.",
     "widgetPersonalization": "위젯 개인화",
     "showAGridToHelpWithPositioning": "위치 지정에 도움이 되는 그리드 표시",
-    "dragToReorderWidgets": "드래그하여 위젯 순서를 변경합니다. 목록에서 위쪽 위젯은 다른 위젯 위에 겹쳐지고, 아래쪽 위젯은 겹치는 경우 아래에 겹쳐집니다."
+    "dragToReorderWidgets": "드래그하여 위젯 순서를 변경합니다. 목록에서 위쪽 위젯은 다른 위젯 위에 겹쳐지고, 아래쪽 위젯은 겹치는 경우 아래에 겹쳐집니다.",
+    "overridesContainerBackgroundColorBorderAndPadding": "컨테이너 배경색, 테두리 및 패딩 재정의"
   },
   "advanced": {
     "advancedSettings": "고급 설정",

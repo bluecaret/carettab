@@ -236,7 +236,8 @@
     "upgradeYourNewTabAesthetics": "Uppgradera estetiken i Nya fliken med innovativa Shape- och Text-widgetar som ger en bättre och mer engagerande visuell upplevelse.",
     "widgetPersonalization": "Anpassning av widgetar",
     "showAGridToHelpWithPositioning": "Visa ett rutnät för att underlätta positioneringen",
-    "dragToReorderWidgets": "Dra för att ändra ordningen på widgetar. Widgetar högre upp i listan överlagrar andra, medan widgetar lägre ner underlagras vid överlappning."
+    "dragToReorderWidgets": "Dra för att ändra ordningen på widgetar. Widgetar högre upp i listan överlagrar andra, medan widgetar lägre ner underlagras vid överlappning.",
+    "overridesContainerBackgroundColorBorderAndPadding": "Åsidosätter behållarens bakgrundsfärg, kant och utfyllnad"
   },
   "advanced": {
     "advancedSettings": "Avancerade inställningar",

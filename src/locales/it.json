@@ -236,7 +236,8 @@
     "upgradeYourNewTabAesthetics": "Migliorate l'estetica delle vostre nuove schede con gli innovativi widget Forma e Testo, che offrono un'esperienza visiva migliorata e coinvolgente.",
     "widgetPersonalization": "Personalizzazione del widget",
     "showAGridToHelpWithPositioning": "Mostrare una griglia per facilitare il posizionamento",
-    "dragToReorderWidgets": "Trascinare per riordinare i widget. I widget più in alto nell'elenco si sovrappongono agli altri, mentre quelli più in basso si sovrappongono."
+    "dragToReorderWidgets": "Trascinare per riordinare i widget. I widget più in alto nell'elenco si sovrappongono agli altri, mentre quelli più in basso si sovrappongono.",
+    "overridesContainerBackgroundColorBorderAndPadding": "Sovrascrive il colore di sfondo, il bordo e il padding del contenitore."
   },
   "advanced": {
     "advancedSettings": "Impostazioni avanzate",

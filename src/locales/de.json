@@ -236,7 +236,8 @@
     "upgradeYourNewTabAesthetics": "Verbessern Sie die Ästhetik Ihrer neuen Registerkarte mit innovativen Form- und Text-Widgets, die ein verbessertes und ansprechendes visuelles Erlebnis bieten.",
     "widgetPersonalization": "Widget-Personalisierung",
     "showAGridToHelpWithPositioning": "Ein Raster anzeigen, um bei der Positionierung zu helfen",
-    "dragToReorderWidgets": "Ziehen Sie, um Widgets neu anzuordnen. Widgets, die weiter oben in der Liste stehen, überlagern andere, während Widgets, die weiter unten stehen, bei Überlappung unterlegt werden."
+    "dragToReorderWidgets": "Ziehen Sie, um Widgets neu anzuordnen. Widgets, die weiter oben in der Liste stehen, überlagern andere, während Widgets, die weiter unten stehen, bei Überlappung unterlegt werden.",
+    "overridesContainerBackgroundColorBorderAndPadding": "Überschreibt die Hintergrundfarbe, den Rahmen und die Auffüllung des Containers"
   },
   "advanced": {
     "advancedSettings": "Erweiterte Einstellungen",

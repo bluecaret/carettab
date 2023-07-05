@@ -198,7 +198,13 @@ const elementStyles = computed(() => {
     align-items: center;
     background: transparent;
     border: none;
+    font-family: inherit;
     font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    text-decoration: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
     width: 100%;
     border-radius: inherit;
     color: currentColor;
@@ -216,7 +222,13 @@ const elementStyles = computed(() => {
     background: transparent;
     border-radius: inherit;
     border: none;
+    font-family: inherit;
     font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    text-decoration: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
     color: currentColor;
     cursor: pointer;
     padding: var(--elementPadding) calc(var(--elementPadding) / 2);

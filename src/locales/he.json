@@ -235,7 +235,8 @@
     "unlimitedWidgets": "ווידג'טים ללא הגבלה",
     "upgradeYourNewTabAesthetics": "שדרג את אסתטיקת הכרטיסייה החדשה שלך עם ווידג'טים חדשניים של צורה וטקסט, המספקים חוויה ויזואלית משופרת ומושכת.",
     "widgetPersonalization": "התאמה אישית של ווידג'ט",
-    "showAGridToHelpWithPositioning": "הצג רשת כדי לעזור במיקום"
+    "showAGridToHelpWithPositioning": "הצג רשת כדי לעזור במיקום",
+    "dragToReorderWidgets": "גרור כדי לסדר מחדש ווידג'טים. \nווידג'טים גבוהים יותר ברשימה ישכבו על אחרים, בעוד הנמוכים יותר יהיו תחתונים במקרה של חפיפה."
   },
   "advanced": {
     "advancedSettings": "הגדרות מתקדמות",

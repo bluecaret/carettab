@@ -235,7 +235,8 @@
     "unlimitedWidgets": "Widgets illimités",
     "upgradeYourNewTabAesthetics": "Améliorez l'esthétique de vos nouveaux onglets grâce à des widgets de forme et de texte innovants, offrant une expérience visuelle améliorée et attrayante.",
     "widgetPersonalization": "Personnalisation des widgets",
-    "showAGridToHelpWithPositioning": "Afficher une grille pour faciliter le positionnement"
+    "showAGridToHelpWithPositioning": "Afficher une grille pour faciliter le positionnement",
+    "dragToReorderWidgets": "Faites glisser pour réorganiser les widgets. Les widgets situés en haut de la liste se superposent aux autres, tandis que les widgets situés en bas de la liste se superposent aux autres en cas de chevauchement."
   },
   "advanced": {
     "advancedSettings": "Paramètres avancés",

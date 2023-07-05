@@ -235,7 +235,8 @@
     "unlimitedWidgets": "无限的小工具",
     "upgradeYourNewTabAesthetics": "用创新的形状和文本部件升级你的新标签的美学，提供一个改进的和有吸引力的视觉体验。",
     "widgetPersonalization": "小工具个性化",
-    "showAGridToHelpWithPositioning": "显示一个网格以帮助定位"
+    "showAGridToHelpWithPositioning": "显示一个网格以帮助定位",
+    "dragToReorderWidgets": "拖动来重新排列小工具。列表中较高的部件将覆盖在其他部件上，而较低的部件在重叠的情况下将被置于下方。"
   },
   "advanced": {
     "advancedSettings": "高级设置",

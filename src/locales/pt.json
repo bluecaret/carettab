@@ -235,7 +235,8 @@
     "unlimitedWidgets": "Widgets ilimitados",
     "upgradeYourNewTabAesthetics": "Actualize a estética do seu Novo separador com widgets inovadores de Forma e Texto, proporcionando uma experiência visual melhorada e cativante.",
     "widgetPersonalization": "Personalização de widgets",
-    "showAGridToHelpWithPositioning": "Mostrar uma grelha para ajudar no posicionamento"
+    "showAGridToHelpWithPositioning": "Mostrar uma grelha para ajudar no posicionamento",
+    "dragToReorderWidgets": "Arraste para reordenar os widgets. Os widgets no topo da lista irão sobrepor-se aos outros, enquanto os inferiores irão sobrepor-se em caso de sobreposição."
   },
   "advanced": {
     "advancedSettings": "Definições avançadas",

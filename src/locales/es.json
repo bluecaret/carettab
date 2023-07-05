@@ -235,7 +235,8 @@
     "unlimitedWidgets": "Widgets ilimitados",
     "upgradeYourNewTabAesthetics": "Actualice la estética de su nueva pestaña con los innovadores widgets de forma y texto, que ofrecen una experiencia visual mejorada y atractiva.",
     "widgetPersonalization": "Personalización de widgets",
-    "showAGridToHelpWithPositioning": "Mostrar una cuadrícula para facilitar el posicionamiento"
+    "showAGridToHelpWithPositioning": "Mostrar una cuadrícula para facilitar el posicionamiento",
+    "dragToReorderWidgets": "Arrastre para reordenar los widgets. Los widgets situados más arriba en la lista se superpondrán a los demás, mientras que los situados más abajo se superpondrán en caso de solapamiento."
   },
   "advanced": {
     "advancedSettings": "Configuración avanzada",

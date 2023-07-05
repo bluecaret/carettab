@@ -140,7 +140,7 @@ const handleNewWidgetClick = (type) => {
       </template>
       <template #item="{ element, index }">
         <div class="block" :class="{ outliner: store.showOutliner, disabled: !element.on }" :data-index="index">
-          <button type="button" class="drag">
+          <button type="button" class="drag" title="$t('settings.dragToReorderWidgets')">
             <fa icon="fa-grip-vertical" size="xs" fixed-width></fa>
           </button>
           <div class="group">

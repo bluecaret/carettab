@@ -235,7 +235,8 @@
     "unlimitedWidgets": "Tiện ích không giới hạn",
     "upgradeYourNewTabAesthetics": "Nâng cấp tính thẩm mỹ cho Tab mới của bạn với các tiện ích Hình dạng và Văn bản sáng tạo, mang lại trải nghiệm hình ảnh được cải thiện và hấp dẫn.",
     "widgetPersonalization": "Cá nhân hóa tiện ích",
-    "showAGridToHelpWithPositioning": "Hiển thị lưới để trợ giúp định vị"
+    "showAGridToHelpWithPositioning": "Hiển thị lưới để trợ giúp định vị",
+    "dragToReorderWidgets": "Kéo để sắp xếp lại các widget. \nCác tiện ích cao hơn trong danh sách sẽ phủ lên các tiện ích khác, trong khi các tiện ích thấp hơn sẽ xếp dưới trong trường hợp chồng chéo."
   },
   "advanced": {
     "advancedSettings": "Cài đặt nâng cao",

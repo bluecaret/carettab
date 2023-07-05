@@ -1,5 +1,5 @@
 <script setup>
-import { computed, watch, ref, inject } from 'vue'
+import { computed, ref, inject, nextTick, onMounted, onBeforeUnmount } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { DateTime } from 'luxon'
 import { setWidgetContainerStyles, setWidgetSegmentStyles } from '@/helpers/widgets.js'
@@ -17,25 +17,24 @@ const props = defineProps({
 const blinkStatus = ref(false)
 let timeout = null
 
-watch(
-  () => store.currentTime,
-  () => {
-    // If smooth seconds, use CSS animation, but seconds will need to be synced up
-    // every minute to ensure animation doesn't cause time to drift.
-    if (props.widget.delimiter.blink) {
+onMounted(() => {
+  blinkStatus.value = true
+  timeout = setInterval(() => {
+    blinkStatus.value = false
+    nextTick(() => {
       blinkStatus.value = true
-      if (timeout) {
-        clearTimeout(timeout)
-      }
-      timeout = setTimeout(() => {
-        blinkStatus.value = false
-      }, 60000)
-    }
+    })
+  }, 3000)
+})
+
+onBeforeUnmount(() => {
+  if (timeout) {
+    clearInterval(timeout)
   }
-)
+})
 
 const blink = computed(() => {
-  return blinkStatus.value ? 'digitalClockBlink 1s steps(2) infinite' : 'none'
+  return props.widget.delimiter.blink && blinkStatus.value ? 'digitalClockBlink 1s steps(2) infinite' : 'none'
 })
 
 const containerStyles = computed(() => {

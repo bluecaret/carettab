@@ -133,38 +133,36 @@ const handlePexelsPhotoSearch = () => {
         </div>
         <div v-if="store.pexelsStatus === 'results' && store.pexelsSearchResults.length > 0" class="group fill">
           <div class="bgTypeList">
-            <button
-              v-for="photo in store.pexelsSearchResults.slice(0, 20)"
-              :key="photo.id"
-              aria-labelledby="pexelsSelect"
-              type="button"
-              class="bgTypeListItem"
-              :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
-              @click="
-                getSelectedPexelsImage(photo.id, photo.alt ? photo.alt : $t('settings.photoFromPexelsCom'), photo.url)
-              "
-            >
-              <div
-                class="bgTypeListItemPreview"
-                :alt="photo.alt ? photo.alt : $t('settings.photoFromPexelsCom')"
+            <div v-for="photo in store.pexelsSearchResults.slice(0, 20)" :key="photo.id" class="bgTypeListItemWrapper">
+              <a
+                class="bgTypeListItemLink"
+                target="_blank"
+                :href="photo.url"
                 :title="photo.alt ? photo.alt : $t('settings.photoFromPexelsCom')"
-                :style="`background-image: url(${photo.src.medium})`"
-              ></div>
-              <div class="bgTypeListItemName">
-                <a
-                  class="pexelsDescription"
-                  target="_blank"
-                  :href="photo.url"
+              >
+                <fa icon="fa-up-right-from-square" />
+              </a>
+              <button
+                aria-labelledby="pexelsSelect"
+                type="button"
+                class="bgTypeListItem"
+                :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
+                @click="
+                  getSelectedPexelsImage(photo.id, photo.alt ? photo.alt : $t('settings.photoFromPexelsCom'), photo.url)
+                "
+              >
+                <div
+                  class="bgTypeListItemPreview"
+                  :alt="photo.alt ? photo.alt : $t('settings.photoFromPexelsCom')"
                   :title="photo.alt ? photo.alt : $t('settings.photoFromPexelsCom')"
-                >
-                  {{ photo.alt ? photo.alt : $t('settings.photoFromPexelsCom') }}
-                </a>
-                <div>
-                  By
-                  <a target="_blank" :href="photo.photographer_url">{{ photo.photographer }}</a>
+                  :style="`background-image: url(${photo.src.medium})`"
+                ></div>
+                <div class="bgTypeListItemName">
+                  <div class="pexelsDescription">{{ photo.alt ? photo.alt : $t('settings.photoFromPexelsCom') }}</div>
+                  <div>By {{ photo.photographer }}</div>
                 </div>
-              </div>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
         <div v-if="!store.isLoading && store.pexelsSearchResults.length > 0" class="pagination">
@@ -194,38 +192,36 @@ const handlePexelsPhotoSearch = () => {
       <div v-if="!store.isLoading && store.pexelsTab === 'curated'" class="block stack center">
         <div class="group fill">
           <div class="bgTypeList">
-            <button
-              v-for="photo in store.pexelsCuratedResults.slice(0, 20)"
-              :key="photo.id"
-              aria-labelledby="pexelsSelect"
-              type="button"
-              class="bgTypeListItem"
-              :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
-              @click="
-                getSelectedPexelsImage(photo.id, photo.alt ? photo.alt : $t('settings.photoFromPexelsCom'), photo.url)
-              "
-            >
-              <div
-                class="bgTypeListItemPreview"
-                :alt="photo.alt ? photo.alt : $t('settings.photoFromPexelsCom')"
+            <div v-for="photo in store.pexelsCuratedResults.slice(0, 20)" :key="photo.id" class="bgTypeListItemWrapper">
+              <a
+                class="bgTypeListItemLink"
+                target="_blank"
+                :href="photo.url"
                 :title="photo.alt ? photo.alt : $t('settings.photoFromPexelsCom')"
-                :style="`background-image: url(${photo.src.medium})`"
-              ></div>
-              <div class="bgTypeListItemName">
-                <a
-                  class="pexelsDescription"
-                  target="_blank"
-                  :href="photo.url"
+              >
+                <fa icon="fa-up-right-from-square" />
+              </a>
+              <button
+                aria-labelledby="pexelsSelect"
+                type="button"
+                class="bgTypeListItem"
+                :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
+                @click="
+                  getSelectedPexelsImage(photo.id, photo.alt ? photo.alt : $t('settings.photoFromPexelsCom'), photo.url)
+                "
+              >
+                <div
+                  class="bgTypeListItemPreview"
+                  :alt="photo.alt ? photo.alt : $t('settings.photoFromPexelsCom')"
                   :title="photo.alt ? photo.alt : $t('settings.photoFromPexelsCom')"
-                >
-                  {{ photo.alt ? photo.alt : $t('settings.photoFromPexelsCom') }}
-                </a>
-                <div>
-                  By
-                  <a target="_blank" :href="photo.photographer_url">{{ photo.photographer }}</a>
+                  :style="`background-image: url(${photo.src.medium})`"
+                ></div>
+                <div class="bgTypeListItemName">
+                  <div class="pexelsDescription">{{ photo.alt ? photo.alt : $t('settings.photoFromPexelsCom') }}</div>
+                  <div>By {{ photo.photographer }}</div>
                 </div>
-              </div>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
         <div v-if="!store.isLoading && store.pexelsCuratedResults.length > 0" class="pagination">
@@ -255,19 +251,32 @@ const handlePexelsPhotoSearch = () => {
       <div v-if="!store.isLoading && store.pexelsTab === 'collections'" class="block stack center">
         <div class="group fill">
           <div class="bgTypeList">
-            <button
+            <div
               v-for="collection in store.pexelsCollectionResults.slice(0, 20)"
               :key="collection.id"
-              aria-labelledby="pexelsSelect"
-              type="button"
-              class="bgTypeListItem"
-              :class="store.config.global.wallpaper.id === collection.id ? 'active' : ''"
-              @click="getSelectedPexelsImage(collection.id, collection.title, null)"
+              class="bgTypeListItemWrapper"
             >
-              <div class="bgTypeListItemName pexelsCollectionName">
-                {{ collection.title }}<span>{{ $t('settings.photosCount', [collection.photos_count]) }}</span>
-              </div>
-            </button>
+              <a
+                class="bgTypeListItemLink"
+                target="_blank"
+                :href="`https://www.pexels.com/collections/${collection.id}/`"
+                title="View list on Pexels.com"
+              >
+                <fa icon="fa-up-right-from-square" />
+              </a>
+              <button
+                aria-labelledby="pexelsSelect"
+                type="button"
+                class="bgTypeListItem"
+                :class="store.config.global.wallpaper.id === collection.id ? 'active' : ''"
+                @click="getSelectedPexelsImage(collection.id, collection.title, null)"
+              >
+                <div class="bgTypeListItemName pexelsCollectionName">
+                  <div class="pexelsDescription">{{ collection.title }}</div>
+                  <span>{{ $t('settings.photosCount', [collection.photos_count]) }}</span>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
         <div v-if="!store.isLoading && store.pexelsCollectionResults.length > 0" class="pagination">
@@ -299,19 +308,32 @@ const handlePexelsPhotoSearch = () => {
       <div v-if="!store.isLoading && store.pexelsTab === 'carettab'" class="block stack center">
         <div class="group fill">
           <div class="bgTypeList">
-            <button
+            <div
               v-for="collection in store.pexelsCarettabResults.slice(0, 20)"
               :key="collection.id"
-              aria-labelledby="pexelsSelect"
-              type="button"
-              class="bgTypeListItem"
-              :class="store.config.global.wallpaper.id === collection.id ? 'active' : ''"
-              @click="getSelectedPexelsImage(collection.id, collection.title, null)"
+              class="bgTypeListItemWrapper"
             >
-              <div class="bgTypeListItemName pexelsCollectionName">
-                {{ collection.title }}<span>{{ $t('settings.photosCount', [collection.photos_count]) }}</span>
-              </div>
-            </button>
+              <a
+                class="bgTypeListItemLink"
+                target="_blank"
+                :href="`https://www.pexels.com/collections/${collection.id}/`"
+                title="View list on Pexels.com"
+              >
+                <fa icon="fa-up-right-from-square" />
+              </a>
+              <button
+                aria-labelledby="pexelsSelect"
+                type="button"
+                class="bgTypeListItem"
+                :class="store.config.global.wallpaper.id === collection.id ? 'active' : ''"
+                @click="getSelectedPexelsImage(collection.id, collection.title, null)"
+              >
+                <div class="bgTypeListItemName pexelsCollectionName">
+                  <div class="pexelsDescription">{{ collection.title }}</div>
+                  <span>{{ $t('settings.photosCount', [collection.photos_count]) }}</span>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
         <div v-if="!store.isLoading && store.pexelsCarettabResults.length > 0" class="pagination">
@@ -355,6 +377,19 @@ const handlePexelsPhotoSearch = () => {
 
 .bgTypeList {
   grid-template-columns: 1fr 1fr;
+}
+
+.bgTypeListItemWrapper {
+  position: relative;
+}
+
+.bgTypeListItemLink {
+  position: absolute;
+  inset: var(--s4) var(--s4) auto auto;
+  font-size: 1.2rem;
+  padding: 0.6rem;
+  background-color: hsl(0 0 0 / 0.5);
+  border-radius: var(--s3);
 }
 
 .bgTypeListItemName,

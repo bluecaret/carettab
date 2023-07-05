@@ -240,15 +240,15 @@ const handleImageAdjustmentReset = () => {
                   store.config.global.wallpaper.type === 'pxcarettab' ? $t('settings.handPickedForCarettabName') : ''
                 }}
                 <a
-                  v-if="store.config.global.wallpaper.type === 'untopic'"
+                  v-if="['uncollection', 'untopic'].includes(store.config.global.wallpaper.type)"
                   target="_blank"
                   :href="store.config.global.wallpaperApi.listLink + '?utm_source=carettab&utm_medium=referral'"
                   >{{ store.config.global.wallpaperApi.listName }}</a
                 >
                 <a
-                  v-if="store.config.global.wallpaper.type === 'uncollection'"
+                  v-if="['pxcarettab', 'pxcollection', 'pxcurated'].includes(store.config.global.wallpaper.type)"
                   target="_blank"
-                  :href="store.config.global.wallpaperApi.listLink + '?utm_source=carettab&utm_medium=referral'"
+                  :href="store.config.global.wallpaperApi.listLink"
                   >{{ store.config.global.wallpaperApi.listName }}</a
                 >
               </span>

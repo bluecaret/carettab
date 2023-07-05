@@ -106,38 +106,38 @@ const handleUnsplashPhotoSearch = () => {
         </div>
         <div v-if="store.unsplashStatus === 'results' && store.unsplashSearchResults.length > 0" class="group fill">
           <div class="bgTypeList">
-            <button
+            <div
               v-for="photo in store.unsplashSearchResults.slice(0, 20)"
               :key="photo.id"
-              aria-labelledby="unsplashSelect"
-              type="button"
-              class="bgTypeListItem"
-              :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
-              @click="getSelectedUnsplashImage(photo.id, photo.title, photo.links.html)"
+              class="bgTypeListItemWrapper"
             >
-              <div
-                class="bgTypeListItemPreview"
-                :alt="photo.alt_description"
+              <a
+                class="bgTypeListItemLink"
+                target="_blank"
+                :href="photo.links.html + '?utm_source=carettab&utm_medium=referral'"
                 :title="photo.description"
-                :style="`background-image: url(${photo.urls.thumb})`"
-              ></div>
-              <div class="unsplashName bgTypeListItemName">
-                <a
-                  v-if="photo.description"
-                  class="unsplashDescription"
-                  target="_blank"
-                  :href="photo.links.html + '?utm_source=carettab&utm_medium=referral'"
+              >
+                <fa icon="fa-up-right-from-square" />
+              </a>
+              <button
+                aria-labelledby="unsplashSelect"
+                type="button"
+                class="bgTypeListItem"
+                :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
+                @click="getSelectedUnsplashImage(photo.id, photo.title, photo.links.html)"
+              >
+                <div
+                  class="bgTypeListItemPreview"
+                  :alt="photo.alt_description"
                   :title="photo.description"
-                  >{{ photo.description }}</a
-                >
-                <div>
-                  By
-                  <a target="_blank" :href="photo.user.links.html + '?utm_source=carettab&utm_medium=referral'">{{
-                    photo.user.name ? photo.user.name : photo.user.username
-                  }}</a>
+                  :style="`background-image: url(${photo.urls.thumb})`"
+                ></div>
+                <div class="unsplashName bgTypeListItemName">
+                  <div v-if="photo.description" class="unsplashDescription">{{ photo.description }}</div>
+                  <span>By {{ photo.user.name ? photo.user.name : photo.user.username }}</span>
                 </div>
-              </div>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
         <div v-if="!store.isLoading && store.unsplashSearchResults.length > 0" class="pagination">
@@ -167,32 +167,38 @@ const handleUnsplashPhotoSearch = () => {
       <div v-if="!store.isLoading && store.unsplashTab === 'topics'" class="block stack center">
         <div class="group fill">
           <div class="bgTypeList">
-            <button
-              v-for="photo in store.unsplashTopicResults.slice(0, 20)"
-              :key="photo.id"
-              aria-labelledby="unsplashSelect"
-              type="button"
-              class="bgTypeListItem"
-              :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
-              @click="getSelectedUnsplashImage(photo.id, photo.title, photo.links.html)"
-            >
-              <div v-if="photo.preview_photos && photo.preview_photos.length > 0" class="unsplashPreviewList">
-                <div
-                  v-for="preview in photo.preview_photos.slice(0, 3)"
-                  :key="preview.id"
-                  class="bgTypeListItemPreview"
-                  :alt="preview.alt_description"
-                  :title="preview.description"
-                  :style="`background-image: url(${preview.urls.thumb})`"
-                ></div>
-              </div>
-              <div class="bgTypeListItemName unsplashName">
-                <a target="_blank" :href="photo.links.html + '?utm_source=carettab&utm_medium=referral'">{{
-                  photo.title
-                }}</a
-                ><span>{{ $t('settings.photosCount', [photo.total_photos]) }}</span>
-              </div>
-            </button>
+            <div v-for="photo in store.unsplashTopicResults.slice(0, 20)" :key="photo.id" class="bgTypeListItemWrapper">
+              <a
+                class="bgTypeListItemLink"
+                target="_blank"
+                :href="photo.links.html + '?utm_source=carettab&utm_medium=referral'"
+                :title="photo.title"
+              >
+                <fa icon="fa-up-right-from-square" />
+              </a>
+              <button
+                aria-labelledby="unsplashSelect"
+                type="button"
+                class="bgTypeListItem"
+                :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
+                @click="getSelectedUnsplashImage(photo.id, photo.title, photo.links.html)"
+              >
+                <div v-if="photo.preview_photos && photo.preview_photos.length > 0" class="unsplashPreviewList">
+                  <div
+                    v-for="preview in photo.preview_photos.slice(0, 3)"
+                    :key="preview.id"
+                    class="bgTypeListItemPreview"
+                    :alt="preview.alt_description"
+                    :title="preview.description"
+                    :style="`background-image: url(${preview.urls.thumb})`"
+                  ></div>
+                </div>
+                <div class="bgTypeListItemName unsplashName">
+                  <div v-if="photo.title" class="unsplashDescription">{{ photo.title }}</div>
+                  <span>{{ $t('settings.photosCount', [photo.total_photos]) }}</span>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
         <div v-if="!store.isLoading && store.unsplashTopicResults.length > 0" class="pagination">
@@ -222,32 +228,42 @@ const handleUnsplashPhotoSearch = () => {
       <div v-if="!store.isLoading && store.unsplashTab === 'collections'" class="block stack center">
         <div class="group fill">
           <div class="bgTypeList">
-            <button
+            <div
               v-for="photo in store.unsplashCollectionResults.slice(0, 20)"
               :key="photo.id"
-              aria-labelledby="unsplashSelect"
-              type="button"
-              class="bgTypeListItem"
-              :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
-              @click="getSelectedUnsplashImage(photo.id, photo.title, photo.links.html)"
+              class="bgTypeListItemWrapper"
             >
-              <div v-if="photo.preview_photos && photo.preview_photos.length > 0" class="unsplashPreviewList">
-                <div
-                  v-for="preview in photo.preview_photos.slice(0, 3)"
-                  :key="preview.id"
-                  class="bgTypeListItemPreview"
-                  :alt="preview.alt_description"
-                  :title="preview.description"
-                  :style="`background-image: url(${preview.urls.thumb})`"
-                ></div>
-              </div>
-              <div class="unsplashName bgTypeListItemName">
-                <a target="_blank" :href="photo.links.html + '?utm_source=carettab&utm_medium=referral'">{{
-                  photo.title
-                }}</a
-                ><span>{{ $t('settings.photosCount', [photo.total_photos]) }}</span>
-              </div>
-            </button>
+              <a
+                class="bgTypeListItemLink"
+                target="_blank"
+                :href="photo.links.html + '?utm_source=carettab&utm_medium=referral'"
+                :title="photo.title"
+              >
+                <fa icon="fa-up-right-from-square" />
+              </a>
+              <button
+                aria-labelledby="unsplashSelect"
+                type="button"
+                class="bgTypeListItem"
+                :class="store.config.global.wallpaper.id === photo.id ? 'active' : ''"
+                @click="getSelectedUnsplashImage(photo.id, photo.title, photo.links.html)"
+              >
+                <div v-if="photo.preview_photos && photo.preview_photos.length > 0" class="unsplashPreviewList">
+                  <div
+                    v-for="preview in photo.preview_photos.slice(0, 3)"
+                    :key="preview.id"
+                    class="bgTypeListItemPreview"
+                    :alt="preview.alt_description"
+                    :title="preview.description"
+                    :style="`background-image: url(${preview.urls.thumb})`"
+                  ></div>
+                </div>
+                <div class="unsplashName bgTypeListItemName">
+                  <div v-if="photo.title" class="unsplashDescription">{{ photo.title }}</div>
+                  <span>{{ $t('settings.photosCount', [photo.total_photos]) }}</span>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
         <div v-if="!store.isLoading && store.unsplashCollectionResults.length > 0" class="pagination">
@@ -293,6 +309,19 @@ const handleUnsplashPhotoSearch = () => {
 
 .bgTypeList {
   grid-template-columns: 1fr 1fr;
+}
+
+.bgTypeListItemWrapper {
+  position: relative;
+}
+
+.bgTypeListItemLink {
+  position: absolute;
+  inset: var(--s4) var(--s4) auto auto;
+  font-size: 1.2rem;
+  padding: 0.6rem;
+  background-color: hsl(0 0 0 / 0.5);
+  border-radius: var(--s3);
 }
 
 .unsplashPreviewList {

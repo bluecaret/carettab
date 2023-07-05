@@ -57,7 +57,7 @@ export const savePexelsInfoToGlobal = (type, id, image, title, link) => {
           id: id,
           timestamp: new Date().toString(),
         },
-        pexels: {
+        wallpaperApi: {
           photoTitle: image.description,
           photoLink: image.links.html,
           photoAlt: image.alt_description,
@@ -209,7 +209,8 @@ export const getSelectedPexelsImage = async (id = '', title = '', link = '') => 
     chrome.storage.local.set({ nextWallpaper: nextImage })
 
     // Apply settings related to pexels images
-    savePexelsInfoToGlobal(pexelsType, id, image, title, link)
+    const createListLink = link ? link : `https://www.pexels.com/collections/${id}/`
+    savePexelsInfoToGlobal(pexelsType, id, image, title, createListLink)
 
     // Apply image to shared bg value
     store.wallpaper = image

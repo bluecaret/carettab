@@ -132,6 +132,7 @@ import {
   faBrain,
   faBorderStyle,
   faBorderNone,
+  faUpRightFromSquare,
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faItalic,
@@ -238,7 +239,8 @@ library.add(
   faCloudSunRain,
   faBrain,
   faBorderStyle,
-  faBorderNone
+  faBorderNone,
+  faUpRightFromSquare
 )
 
 // Run quick user check based on storage for a faster load

@@ -93,7 +93,7 @@ export const saveUnsplashInfoToGlobal = (type, id, image, title, link) => {
           id: id,
           timestamp: new Date().toString(),
         },
-        unsplash: {
+        wallpaperApi: {
           photoTitle: image.description,
           photoLink: image.links.html,
           photoAlt: image.alt_description,

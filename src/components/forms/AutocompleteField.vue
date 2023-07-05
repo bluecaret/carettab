@@ -61,8 +61,14 @@ const filteredList = computed(() => {
   return props.list.filter(
     (item) =>
       item.id === '' ||
-      item.label.toLowerCase().includes(inputValue.value?.toLowerCase()) ||
-      item.id.toLowerCase().includes(inputValue.value?.toLowerCase())
+      item.label
+        .toLowerCase()
+        .replace(/[^a-zA-Z0-9]/g, '')
+        .includes(inputValue.value?.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()) ||
+      item.id
+        .toLowerCase()
+        .replace(/[^a-zA-Z0-9]/g, '')
+        .includes(inputValue.value?.replace(/[^a-zA-Z0-9]/g, '').toLowerCase())
   )
 })
 

@@ -20,6 +20,8 @@ if (props.widgetStore === 'global') {
 const widget = reactive(widgetPrep.value)
 
 const handleAlignUpdate = (alignment) => {
+  widget.x = 0
+  widget.y = 0
   widget.alignment = alignment
 }
 

@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, onMounted, inject, onBeforeUnmount } from 'vue'
 import { DateTime } from 'luxon'
-import { useSettingsStore, setStorage } from '@/store.js'
+import { useSettingsStore, setStorage, getStorage } from '@/store.js'
 import { setWidgetContainerStyles, hsl, shadow } from '@/helpers/widgets.js'
 import { getWeather } from '@/helpers/weather.js'
 import WeatherIcon from '@/components/widgets/WeatherIcon.vue'
@@ -24,9 +24,25 @@ const weatherData = ref(null)
 let autoUpdate = null
 
 onMounted(async () => {
-  updateWeather()
+  let weatherKey = 'weather-' + props.widget.id
+  const cachedWeather = await getStorage([weatherKey], 'local')
+  if (cachedWeather[weatherKey]) {
+    // Apply cached data right away
+    weatherData.value = cachedWeather[weatherKey]
 
-  // update weather if chrome storage updates
+    // Check when cached was last updated, if old, get latest
+    const current = DateTime.fromJSDate(new Date(store.currentTime))
+    const lastUpdated = DateTime.fromFormat(cachedWeather[weatherKey].current.last_updated, 'yyyy-MM-dd HH:mm')
+    const duration = current.diff(lastUpdated).as('hours')
+    if (duration > 0.75) {
+      updateWeather()
+    }
+  } else {
+    // If no cache, grab latest
+    updateWeather()
+  }
+
+  // update weather if chrome storage settings update
   chrome.storage.onChanged.addListener((changes, area) => {
     let wKey = 'weather-' + props.widget.id
     if (area === 'local' && changes[wKey]) {
@@ -34,9 +50,10 @@ onMounted(async () => {
     }
   })
 
+  // Automatically refresh weather after period of time if tab is left open.
   autoUpdate = setInterval(() => {
     updateWeather()
-  }, 3600000) // 1 hour
+  }, 2700000) // 45 minutes
 })
 
 onBeforeUnmount(() => {
@@ -46,6 +63,7 @@ onBeforeUnmount(() => {
 const updateWeather = async () => {
   let data = await getWeather(props.widget.location.url, store.config.global.lang)
   weatherData.value = data
+  console.log(data)
   await setStorage({ ['weather-' + props.widget.id]: data }, 'local')
 }
 

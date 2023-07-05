@@ -37,7 +37,9 @@ const getTextColor = computed(() => {
   <button
     ref="toggleSettingsEl"
     :class="{ settingsToggle: true, open: settingsOpen, hide: store.config.global.hideSettings }"
-    :title="settingsOpen ? $t('common.close') : status === 'updated' ? $t('common.updated') : $t('common.open')"
+    :title="
+      settingsOpen ? $t('common.closeAndSaveSettings') : status === 'updated' ? $t('common.updated') : $t('common.open')
+    "
     @click="toggleSettings"
   >
     <span></span><span></span><span></span>

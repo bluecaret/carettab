@@ -84,7 +84,6 @@ const showToolbarTools = ref(false)
             <NumberField
               v-model="store.config.toolbar.borderSize"
               :min="0"
-              :max="5"
               tag-id="tbBorderSize"
               class="w10"
             ></NumberField>

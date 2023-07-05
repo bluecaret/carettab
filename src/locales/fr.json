@@ -237,7 +237,7 @@
     "widgetPersonalization": "Personnalisation des widgets",
     "showAGridToHelpWithPositioning": "Afficher une grille pour faciliter le positionnement",
     "dragToReorderWidgets": "Faites glisser pour réorganiser les widgets. Les widgets situés en haut de la liste se superposent aux autres, tandis que les widgets situés en bas de la liste se superposent aux autres en cas de chevauchement.",
-    "overridesContainerBackgroundColorBorderAndPadding": "Remplace la couleur d'arrière-plan, la bordure et l'espacement du conteneur."
+    "overridesContainerStyles": "Remplace la couleur d'arrière-plan, la bordure et l'espacement du conteneur."
   },
   "advanced": {
     "advancedSettings": "Paramètres avancés",

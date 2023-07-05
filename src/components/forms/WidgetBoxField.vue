@@ -51,7 +51,7 @@ const widget = reactive(widgetPrep.value)
       <div v-if="!props.noBoxStyles && !props.globalSetting" class="block">
         <label for="overrideGlobalFont" class="label mra">
           <div><PremiumLabel />{{ $t('settings.overrideGlobalContainerStyles') }}</div>
-          <div class="desc">{{ $t('settings.overridesContainerBackgroundColorBorderAndPadding') }}</div>
+          <div class="desc">{{ $t('settings.overridesContainerStyles') }}</div>
         </label>
         <ToggleField v-model="widget.override" tag-id="overrideGlobalFont" :disabled="!user.paid"> </ToggleField>
       </div>

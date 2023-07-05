@@ -237,7 +237,7 @@
     "widgetPersonalization": "Персонализация виджетов",
     "showAGridToHelpWithPositioning": "Покажите сетку, чтобы помочь с позиционированием",
     "dragToReorderWidgets": "Перетащите для изменения порядка расположения виджетов. Виджеты, расположенные выше в списке, будут перекрывать другие, а ниже - в случае перекрытия.",
-    "overridesContainerBackgroundColorBorderAndPadding": "Переопределяет цвет фона, границы и отступы контейнера."
+    "overridesContainerStyles": "Переопределяет цвет фона, границы и отступы контейнера."
   },
   "advanced": {
     "advancedSettings": "Расширенные настройки",

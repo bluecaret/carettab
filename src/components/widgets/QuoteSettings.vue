@@ -51,7 +51,7 @@ const deleteQuote = (id) => {
       </FieldAccordion>
     </div>
     <h3 class="subtitle">{{ $t('widget.quotes') }}</h3>
-    <template v-if="widget.quotes && widget.quotes.length > 0">
+    <template v-if="widget.quotes">
       <draggable
         class="blockContainer"
         :list="widget.quotes"

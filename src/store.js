@@ -17,6 +17,7 @@ import { Loadshedding } from '@/components/widgets/Loadshedding.js'
 import { Shape } from '@/components/widgets/Shape.js'
 import { Text } from '@/components/widgets/Text.js'
 import { Todo } from '@/components/widgets/Todo.js'
+import cloneDeep from 'lodash/cloneDeep'
 
 const availableWidgets = new Map([
   ['digitalClock', DigitalClock],
@@ -278,7 +279,7 @@ export const useSettingsStore = defineStore('settings', () => {
 
     let widgetClass = availableWidgets.get(widgetType.type)
     let newWidget = new widgetClass()
-    newWidget = { ...originalWidget }
+    newWidget = cloneDeep(originalWidget)
     newWidget.id = ''
     newWidget.id = getNewId
     createLayer(newWidget.id, widgetType.type)

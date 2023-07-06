@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue'
+
 const props = defineProps({
   modelValue: Number,
   increment: { type: Number, default: 1 },
@@ -9,6 +11,9 @@ const props = defineProps({
   disabled: Boolean,
 })
 const emit = defineEmits(['update:modelValue'])
+const delay = ref(null)
+const timer = ref(null)
+const isHold = ref(false)
 
 function handleUpdate(event) {
   emit('update:modelValue', parseFloat(event.target.value))
@@ -32,6 +37,26 @@ function handleArrowUpdate(up) {
     emit('update:modelValue', parseFloat(updated.toFixed(1)))
   }
 }
+
+function handleArrowStart(up) {
+  handleArrowUpdate(up)
+  isHold.value = true
+  delay.value = setTimeout(() => {
+    if (isHold.value) {
+      timer.value = setInterval(() => {
+        if (isHold.value) {
+          handleArrowUpdate(up)
+        }
+      }, 200)
+    }
+  }, 350)
+}
+
+function handleArrowDone() {
+  isHold.value = false
+  if (delay.value) setTimeout(delay.value)
+  if (timer.value) clearInterval(timer.value)
+}
 </script>
 
 <template>
@@ -52,7 +77,8 @@ function handleArrowUpdate(up) {
       tabindex="-1"
       :aria-label="$t('settings.increaseNumber')"
       :disabled="props.disabled ? 'disabled' : null"
-      @click="handleArrowUpdate(true)"
+      @pointerdown="handleArrowStart(true)"
+      @pointerup="handleArrowDone()"
     >
       <fa icon="fa-plus"></fa>
     </button>
@@ -61,7 +87,8 @@ function handleArrowUpdate(up) {
       tabindex="-1"
       :aria-label="$t('settings.decreaseNumber')"
       :disabled="props.disabled ? 'disabled' : null"
-      @click="handleArrowUpdate(false)"
+      @pointerdown="handleArrowStart(false)"
+      @pointerup="handleArrowDone()"
     >
       <fa icon="fa-minus"></fa>
     </button>

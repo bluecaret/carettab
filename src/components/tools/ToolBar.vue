@@ -60,7 +60,7 @@ const getToolType = (id) => {
   top: 0;
   left: 0;
   bottom: 0;
-  z-index: 10;
+  z-index: 11;
   width: var(--toolbarSize);
   font-size: var(--toolbarSize);
   background-color: var(--toolbarBg);

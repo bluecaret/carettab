@@ -162,9 +162,10 @@ $optionsToggleUpdateNoticeOffset: 16px;
   height: $optionsToggleHeight;
   cursor: pointer;
   overflow: hidden;
-  border: 3px solid currentColor;
+  background-color: hsl(0 0 0 / 0.7);
+  border: 3px solid hsl(0 0 100% / 0.7);
   border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
+  animation: pulse 1s ease-in-out 10 forwards;
   animation-direction: alternate;
   pointer-events: none;
 }

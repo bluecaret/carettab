@@ -69,8 +69,8 @@ const handleBasicLayout = async () => {
 }
 
 const handleFinishWelcome = () => {
-  store.status = 'existing'
-  setStorage({ status: 'existing' }, 'local')
+  store.status = 'highlightSettings'
+  setStorage({ status: 'highlightSettings' }, 'local')
 }
 </script>
 

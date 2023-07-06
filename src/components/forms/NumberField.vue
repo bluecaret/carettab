@@ -16,7 +16,8 @@ const timer = ref(null)
 const isHold = ref(false)
 
 function handleUpdate(event) {
-  emit('update:modelValue', parseFloat(event.target.value))
+  const cleanedInput = event.target.value.replace(/[^0-9.-]/g, '')
+  if (!isNaN(parseFloat(cleanedInput))) emit('update:modelValue', parseFloat(cleanedInput))
 }
 
 function handleArrowUpdate(up) {

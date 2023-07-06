@@ -237,7 +237,8 @@
     "discoverAnExpandingGalaxy": "Discover an expanding galaxy of premium features, continuously updated and refined to enhance your New Tab experience.",
     "showAGridToHelpWithPositioning": "Show a grid to help with positioning",
     "dragToReorderWidgets": "Drag to reorder widgets. Widgets higher in the list will overlay others, while lower will underlay in case of overlap.",
-    "overridesContainerStyles": "Overrides container background color, border, and padding"
+    "overridesContainerStyles": "Overrides container background color, border, and padding",
+    "renameWidget": "Rename widget"
   },
   "advanced": {
     "importOldVersionWarning": "Settings are from an older version of CaretTab. We will do our best to import them, but some settings may not be compatible. Do you want to continue?",

@@ -237,7 +237,8 @@
     "widgetPersonalization": "ウィジェットのパーソナライズ",
     "showAGridToHelpWithPositioning": "グリッド表示で位置決め",
     "dragToReorderWidgets": "ドラッグしてウィジェットを並べ替えます。リストの上位のウィジェットは他のウィジェットの上に重なり、下位のウィジェットは重なっている場合は下に重なります。",
-    "overridesContainerStyles": "コンテナの背景色、ボーダー、パディングをオーバーライドする。"
+    "overridesContainerStyles": "コンテナの背景色、ボーダー、パディングをオーバーライドする。",
+    "renameWidget": "ウィジェットの名前を変更する"
   },
   "advanced": {
     "advancedSettings": "詳細設定",

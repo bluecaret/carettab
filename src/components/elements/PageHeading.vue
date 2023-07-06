@@ -50,8 +50,7 @@ const handleGoBackBtn = () => {
       <fa :icon="store.settingsPage === 'dashboard' ? 'fa-xmark' : 'fa-caret-left'" size="lg" />
     </button>
     <h1>
-      {{ props.title }}
-      <span v-if="widgetId" class="widgetId" :title="$t('common.widgetIdNumber')">{{ widgetId }}</span>
+      {{ props.widgetId ? store.config.layers.find((l) => (l.id = props.widgetId)).name : props.title }}
     </h1>
     <div class="headerLinks">
       <div class="btnGroup">

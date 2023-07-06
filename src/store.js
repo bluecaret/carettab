@@ -239,8 +239,12 @@ export const useSettingsStore = defineStore('settings', () => {
   }
 
   const createLayer = (id, type) => {
+    const widgetType = widgetTypes.find((w) => w.type === type)
+    const newName = widgetType.name + ' (' + id + ')'
+
     let newLayer = new Layer()
     newLayer.id = id
+    newLayer.name = newName
     newLayer.widget = type
     config.layers.unshift(newLayer)
   }

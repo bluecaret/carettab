@@ -237,7 +237,8 @@
     "widgetPersonalization": "התאמה אישית של ווידג'ט",
     "showAGridToHelpWithPositioning": "הצג רשת כדי לעזור במיקום",
     "dragToReorderWidgets": "גרור כדי לסדר מחדש ווידג'טים. \nווידג'טים גבוהים יותר ברשימה ישכבו על אחרים, בעוד הנמוכים יותר יהיו תחתונים במקרה של חפיפה.",
-    "overridesContainerStyles": "עוקף את צבע הרקע, הגבול והריפוד של מיכל"
+    "overridesContainerStyles": "עוקף את צבע הרקע, הגבול והריפוד של מיכל",
+    "renameWidget": "שנה את שם הווידג'ט"
   },
   "advanced": {
     "advancedSettings": "הגדרות מתקדמות",

@@ -1,7 +1,7 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, toRaw } from 'vue'
 import draggable from 'vuedraggable'
-import { useSettingsStore, setStorage, getStorage } from '@/store.js'
+import { useSettingsStore, setStorage } from '@/store.js'
 import { widgetTypes } from '@/assets/lists.js'
 import ToolBarSettings from '@/components/tools/ToolBarSettings.vue'
 import AddWidgetModal from '@/components/elements/AddWidgetModal.vue'
@@ -14,6 +14,8 @@ const store = useSettingsStore()
 
 const whatsNewModal = ref(false)
 const drag = ref(false)
+const renaming = ref(null)
+const renamingName = ref('')
 
 onMounted(async () => {
   if (store.status === 'updated' || store.status === 'highlightSettings') {
@@ -55,6 +57,19 @@ const getWidgetDetails = (t) => {
 
 const handleNewWidgetClick = (type) => {
   store.newWidget(type)
+}
+
+const handleRenameOpen = (id) => {
+  const layer = store.config.layers.find((l) => l.id === id)
+  renamingName.value = layer.name
+  renaming.value = id
+}
+
+const handleRenameSave = (id) => {
+  const layer = store.config.layers.find((l) => l.id === id)
+  layer.name = renamingName.value
+  renaming.value = null
+  setStorage({ layers: [...toRaw(store.config.layers)] }, 'sync')
 }
 </script>
 
@@ -140,26 +155,53 @@ const handleNewWidgetClick = (type) => {
       </template>
       <template #item="{ element, index }">
         <div class="block" :class="{ outliner: store.showOutliner, disabled: !element.on }" :data-index="index">
-          <button type="button" class="drag" title="$t('settings.dragToReorderWidgets')">
+          <button type="button" class="drag" :title="$t('settings.dragToReorderWidgets')">
             <fa icon="fa-grip-vertical" size="xs" fixed-width></fa>
           </button>
           <div class="group">
-            <div class="label">
+            <div class="label" :title="`${getWidgetDetails(element.widget).name} (ID: ${element.id})`">
               <div>
                 <fa :icon="getWidgetDetails(element.widget).icon" size="lg" fixed-width></fa>
-                {{ getWidgetDetails(element.widget).name }}
+                {{ element.name ?? getWidgetDetails(element.widget).name }}
               </div>
             </div>
           </div>
-          <div class="mla" style="font-size: 0.65em; opacity: 0.5">
-            <strong :title="$t('common.widgetIdNumber')" style="text-transform: uppercase">{{ element.id }}</strong>
-          </div>
-          <div class="group">
+          <div class="group mla">
             <ToggleField :model-value="element.on" @update:model-value="toggleWidget(element.id)"></ToggleField>
             <div class="btnGroup">
               <button type="button" class="btn" :disabled="!element.on" @click="openWidget(element.id, element.widget)">
-                <fa icon="fa-pen" fixed-width></fa>{{ $t('common.edit') }}
+                <fa icon="fa-cog" fixed-width></fa>{{ $t('common.edit') }}
               </button>
+              <ModalWindow :show="renaming === element.id" size="460px" @close="renaming = null">
+                <template #button>
+                  <button
+                    class="btn"
+                    type="button"
+                    :disabled="!element.on"
+                    :aria-label="$t('settings.renameWidget')"
+                    :title="$t('settings.renameWidget')"
+                    @click="handleRenameOpen(element.id)"
+                  >
+                    <fa icon="fa-i-cursor" fixed-width></fa>
+                  </button>
+                </template>
+                <template #window>
+                  <div class="block stack editModal">
+                    <div class="fill">
+                      <button class="btn btnText close" type="button" aria-label="Close" @click="renaming = null">
+                        <fa icon="fa-close" />
+                      </button>
+                      <h3>{{ $t('settings.renameWidget') }}</h3>
+                    </div>
+                    <div class="group fill compact">
+                      <input v-model="renamingName" type="text" class="input" />
+                      <button type="button" class="btn" @click="handleRenameSave(element.id)">
+                        {{ $t('common.save') }}
+                      </button>
+                    </div>
+                  </div>
+                </template>
+              </ModalWindow>
               <button
                 type="button"
                 class="btn"
@@ -328,5 +370,34 @@ const handleNewWidgetClick = (type) => {
   padding: 0;
   min-height: 0;
   background-color: hsl(var(--cBlockH) calc(var(--cBlockS) + 20%) calc(var(--cBlockL) + 3%));
+}
+
+.editModal {
+  position: relative;
+  .close {
+    display: inline-flex;
+    float: right;
+    margin-inline-start: 0.8em;
+    margin-block-end: 0.5em;
+    background-color: transparent;
+    border: 0;
+    min-height: 2.8rem;
+    cursor: pointer;
+  }
+  h3 {
+    margin: 0 0 var(--s5) 0;
+    font-size: 2.2rem;
+  }
+  h4 {
+    margin: 0 0 var(--s4) 0;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+  p {
+    font-size: 1.6rem;
+  }
+  .group {
+    justify-content: flex-end;
+  }
 }
 </style>

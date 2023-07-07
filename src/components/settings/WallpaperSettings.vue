@@ -8,6 +8,9 @@ import {
   getRandomPhotoFromUnsplashList,
 } from '@/helpers/unsplash.js'
 import { preparePexelsWallpaperObj, savePexelsInfoToGlobal, getRandomPhotoFromPexelsList } from '@/helpers/pexels.js'
+import { getByteSize } from '@/helpers/data.js'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 if (typeof browser === 'undefined') {
   var browser = chrome
@@ -44,18 +47,26 @@ const getUploadedImage = () => {
 }
 
 const processImage = (imgSrc) => {
+  const toLargeMsg = t('settings.fileSizeTooBig', ['https://www.reduceimages.com/'])
+  const generalErrorMsg = t('settings.imageFailedToSave')
+
   const newBg = { base64: imgSrc }
+  const newBgSize = getByteSize(newBg)
+  console.log(newBgSize)
+
+  if (newBgSize > 4000000) {
+    alert(toLargeMsg)
+    return
+  }
 
   browser.storage.local.set({ currentWallpaper: newBg }, () => {
     if (chrome.runtime.lastError && chrome.runtime.lastError.message.startsWith('QUOTA_BYTES')) {
-      let msg = $t('settings.fileSizeTooBig', ['https://www.reduceimages.com/'])
-      alert(msg)
+      alert(toLargeMsg)
       console.error('Background image failed, image file too large', chrome.runtime.lastError.message)
       return
     }
     if (chrome.runtime.lastError) {
-      let msg = $t('settings.imageFailedToSave')
-      alert(msg)
+      alert(generalErrorMsg)
       console.error(
         'Background image failed for unknown reason',
         chrome.runtime.lastError.message,

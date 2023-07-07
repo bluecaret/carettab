@@ -1,7 +1,6 @@
 <!-- eslint-disable no-undef -->
 <script setup>
 import { useSettingsStore } from '@/store.js'
-// import { languages } from '@/assets/lists.js';
 
 if (typeof browser === 'undefined') {
   var browser = chrome

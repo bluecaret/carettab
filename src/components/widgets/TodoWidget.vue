@@ -4,6 +4,8 @@ import draggable from 'vuedraggable'
 import { useSettingsStore, generateUID, setStorage } from '@/store.js'
 import { setWidgetContainerStyles, hsl } from '@/helpers/widgets.js'
 import { TodoItem } from '@/components/widgets/Todo.js'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 const store = useSettingsStore()
 const user = inject('user')
@@ -34,18 +36,18 @@ const containerStyles = computed(() => {
 const getFilterName = computed(() => {
   switch (props.widget.filter) {
     case 'all':
-      return $t('widget.all')
+      return t('widget.all')
     case 'done':
-      return $t('widget.done')
+      return t('widget.done')
     case 'undone':
-      return $t('widget.notDone')
+      return t('widget.notDone')
     case 'flag':
-      return $t('widget.flag')
+      return t('widget.flag')
     case 'noflag':
-      return $t('widget.noFlag')
+      return t('widget.noFlag')
 
     default:
-      return $t('widget.all')
+      return t('widget.all')
   }
 })
 

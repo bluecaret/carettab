@@ -1,3 +1,5 @@
+<script setup></script>
+
 <template>
   <div class="app-loading">
     <div class="loading" :aria-label="$t('common.loadingPleaseWait')">

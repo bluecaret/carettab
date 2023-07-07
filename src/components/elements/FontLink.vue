@@ -1,6 +1,5 @@
 <script setup>
 import { computed } from 'vue'
-import { fontList } from '@/assets/lists.js'
 
 const props = defineProps({
   widget: {

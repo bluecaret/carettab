@@ -8,7 +8,7 @@ import SettingsPanel from '@/components/settings/SettingsPanel.vue'
 import LoadingOverlay from '@/components/elements/LoadingOverlay.vue'
 import { fontList } from '@/assets/lists.js'
 import { ExtPay } from '@/assets/ExtPay.js'
-import { checkLicense, compareVersions, checkVersionInRange } from '@/helpers/data.js'
+import { checkLicense, checkVersionInRange } from '@/helpers/data.js'
 import { mergeV3Settings } from '@/helpers/mergeOldSettings.js'
 import PremiumModal from '@/components/elements/PremiumModal.vue'
 

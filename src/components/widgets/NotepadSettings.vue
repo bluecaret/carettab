@@ -1,6 +1,8 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import { useSettingsStore, getStorage, setStorage, removeStorage } from '@/store.js'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 const store = useSettingsStore()
 
@@ -11,7 +13,7 @@ const sync = ref(widget.sync)
 
 const changeStorageLocation = async () => {
   if (widget.sync) {
-    if (confirm($t('widget.doYouWantToDisableSyncingOfYourNotes'))) {
+    if (confirm(t('widget.doYouWantToDisableSyncingOfYourNotes'))) {
       const notesKey = `notes-${widget.id}`
       const currentNotes = await getStorage(notesKey, 'sync')
       await setStorage({ ['notes-' + widget.id]: currentNotes[notesKey] }, 'local')
@@ -21,7 +23,7 @@ const changeStorageLocation = async () => {
       sync.value = true
     }
   } else {
-    if (confirm($t('widget.areYouSureYouWantToEnableSyncing'))) {
+    if (confirm(t('widget.areYouSureYouWantToEnableSyncing'))) {
       const notesKey = `notes-${widget.id}`
       const currentNotes = await getStorage(notesKey, 'local')
       await setStorage({ ['notes-' + widget.id]: currentNotes[notesKey].slice(0, 7000) }, 'sync')

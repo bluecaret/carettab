@@ -2,6 +2,8 @@
 import { ref, reactive, inject } from 'vue'
 import { useSettingsStore, setStorage } from '@/store.js'
 import { getLocation, getWeather } from '@/helpers/weather.js'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 const store = useSettingsStore()
 
@@ -35,7 +37,7 @@ const getMyLoc = () => {
     (err) => {
       store.isLoading = false
       console.warn(`ERROR(${err.code}): ${err.message}`)
-      alert($t('widget.unableToGetYourLocation'))
+      alert(t('widget.unableToGetYourLocation'))
     },
     {
       timeout: 5000,

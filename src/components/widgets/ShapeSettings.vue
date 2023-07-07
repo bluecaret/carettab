@@ -1,9 +1,8 @@
 <script setup>
-import { ref, reactive, inject } from 'vue'
+import { ref, reactive } from 'vue'
 import { useSettingsStore } from '@/store.js'
 
 const store = useSettingsStore()
-const user = inject('user')
 
 const widgetStore = 'shapes'
 const ci = ref(store.config[widgetStore].findIndex((c) => c.id === store.editing))

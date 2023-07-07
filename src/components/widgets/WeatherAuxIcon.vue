@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 /*!
  *  WEATHER ICON DESIGN COMES FROM: Erik Flowers - erik@helloerik.com
  *  Maintained at http://erikflowers.github.io/weather-icons

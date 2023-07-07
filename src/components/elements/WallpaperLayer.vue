@@ -1,12 +1,10 @@
 <script setup>
 import { ref, watch, onMounted, computed, inject } from 'vue'
+import { DateTime } from 'luxon'
 import { useSettingsStore, getStorage, setStorage } from '@/store.js'
-import {
-  prepareUnsplashWallpaperObj,
-  saveUnsplashInfoToGlobal,
-  getRandomPhotoFromUnsplashList,
-} from '@/helpers/unsplash.js'
-import { preparePexelsWallpaperObj, savePexelsInfoToGlobal, getRandomPhotoFromPexelsList } from '@/helpers/pexels.js'
+import { prepareUnsplashWallpaperObj, getRandomPhotoFromUnsplashList } from '@/helpers/unsplash.js'
+import { preparePexelsWallpaperObj, getRandomPhotoFromPexelsList } from '@/helpers/pexels.js'
+import cloneDeep from 'lodash/cloneDeep'
 
 const user = inject('user')
 const store = useSettingsStore()
@@ -95,11 +93,19 @@ const bgRepeat = computed(() => {
 
 const loadWallpaper = async () => {
   const globalStorage = await getStorage('global', 'sync')
+
   let imageType = ''
-  if (globalStorage.global && globalStorage.global.wallpaper.type) imageType = globalStorage.global.wallpaper.type
+  if (globalStorage.global && globalStorage.global.wallpaper.type) {
+    imageType = globalStorage.global.wallpaper.type
+  }
 
   loadCurrentWallpaper(imageType)
-  if (user.value.paid) {
+  if (
+    user.value.paid &&
+    globalStorage.global &&
+    globalStorage.global.wallpaper &&
+    globalStorage.global.wallpaper.lock === false
+  ) {
     getNextWallpaper(
       globalStorage.global.wallpaper.type,
       globalStorage.global.wallpaper.timestamp,
@@ -130,26 +136,30 @@ const loadCurrentWallpaper = async (imageType) => {
 }
 
 const getNextWallpaper = async (type, timestamp, id) => {
+  const globalStorage = await getStorage('global', 'sync')
+  const newStore = cloneDeep(globalStorage.global)
+  let now = DateTime.now()
+  let thenPlusOne = DateTime.fromJSDate(new Date(timestamp))
+    .set({ hour: 0, minute: 0, second: 0, millisecond: 0 })
+    .plus({ days: 1 })
   if (['untopic', 'uncollection'].includes(type)) {
-    let now = new Date()
-    let then = new Date(timestamp)
-    let thenPlusOne = new Date(then.getFullYear(), then.getMonth(), then.getDate() + 1, 0, 0, 0, 0)
-
     // Get next random wallpaper if it's a new day
     if (thenPlusOne < now) {
       // Set 'next' wallpaper to current wallpaper
       let nextWallpaper = await getStorage('nextWallpaper', 'local')
       if (nextWallpaper.nextWallpaper) {
         let nextImage = prepareUnsplashWallpaperObj(nextWallpaper.nextWallpaper)
-        saveUnsplashInfoToGlobal(
-          type,
-          id,
-          nextImage,
-          store.config.global.wallpaperApi.listName,
-          store.config.global.wallpaperApi.listLink
-        )
 
-        setStorage({ currentWallpaper: nextImage }, 'local')
+        newStore.wallpaper.type = type
+        newStore.wallpaper.id = id
+        newStore.wallpaper.timestamp = new Date().toString()
+        newStore.wallpaperApi.photoTitle = nextImage.description
+        newStore.wallpaperApi.photoLink = nextImage.links.html
+        newStore.wallpaperApi.photoAlt = nextImage.alt_description
+        newStore.wallpaperApi.authorName = nextImage.user.name
+        newStore.wallpaperApi.authorLink = nextImage.user.links.html
+
+        await setStorage({ currentWallpaper: nextImage }, 'local')
         store.wallpaper = nextImage
         wallpaperSrc.value = `url(${nextImage.base64})`
       }
@@ -160,28 +170,26 @@ const getNextWallpaper = async (type, timestamp, id) => {
         setStorage({ nextWallpaper: newRandomPhoto }, 'local')
       }
 
-      store.save()
+      setStorage({ global: newStore }, 'sync')
     }
   } else if (['pxcurated', 'pxcollection', 'pxcarettab'].includes(type)) {
-    let now = new Date()
-    let then = new Date(timestamp)
-    let thenPlusOne = new Date(then.getFullYear(), then.getMonth(), then.getDate() + 1, 0, 0, 0, 0)
-
     // Get next random wallpaper if it's a new day
     if (thenPlusOne < now) {
       // Set 'next' wallpaper to current wallpaper
       let nextWallpaper = await getStorage('nextWallpaper', 'local')
       if (nextWallpaper.nextWallpaper) {
         let nextImage = nextWallpaper.nextWallpaper
-        savePexelsInfoToGlobal(
-          type,
-          id,
-          nextImage,
-          store.config.global.wallpaperApi.listName,
-          store.config.global.wallpaperApi.listLink
-        )
 
-        setStorage({ currentWallpaper: nextImage }, 'local')
+        newStore.wallpaper.type = type
+        newStore.wallpaper.id = id
+        newStore.wallpaper.timestamp = new Date().toString()
+        newStore.wallpaperApi.photoTitle = nextImage.description
+        newStore.wallpaperApi.photoLink = nextImage.links.html
+        newStore.wallpaperApi.photoAlt = nextImage.alt_description
+        newStore.wallpaperApi.authorName = nextImage.user.name
+        newStore.wallpaperApi.authorLink = nextImage.user.links.html
+
+        await setStorage({ currentWallpaper: nextImage }, 'local')
         store.wallpaper = nextImage
         wallpaperSrc.value = `url(${nextImage.base64})`
       }
@@ -193,7 +201,7 @@ const getNextWallpaper = async (type, timestamp, id) => {
         setStorage({ nextWallpaper: modifiedNew }, 'local')
       }
 
-      store.save()
+      setStorage({ global: newStore }, 'sync')
     }
   }
 }

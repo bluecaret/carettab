@@ -238,7 +238,9 @@
     "showAGridToHelpWithPositioning": "グリッド表示で位置決め",
     "dragToReorderWidgets": "ドラッグしてウィジェットを並べ替えます。リストの上位のウィジェットは他のウィジェットの上に重なり、下位のウィジェットは重なっている場合は下に重なります。",
     "overridesContainerStyles": "コンテナの背景色、ボーダー、パディングをオーバーライドする。",
-    "renameWidget": "ウィジェットの名前を変更する"
+    "renameWidget": "ウィジェットの名前を変更する",
+    "lock": "ロック",
+    "lockThisPhotoToSet": "この写真をロックして永久保存版にするか、ロックを解除してランダムな日替わり写真を続けます。"
   },
   "advanced": {
     "advancedSettings": "詳細設定",

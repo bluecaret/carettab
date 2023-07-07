@@ -238,7 +238,9 @@
     "showAGridToHelpWithPositioning": "Hiển thị lưới để trợ giúp định vị",
     "dragToReorderWidgets": "Kéo để sắp xếp lại các widget. \nCác tiện ích cao hơn trong danh sách sẽ phủ lên các tiện ích khác, trong khi các tiện ích thấp hơn sẽ xếp dưới trong trường hợp chồng chéo.",
     "overridesContainerStyles": "Ghi đè màu nền, đường viền và phần đệm của vùng chứa",
-    "renameWidget": "Đổi tên tiện ích"
+    "renameWidget": "Đổi tên tiện ích",
+    "lock": "Khóa",
+    "lockThisPhotoToSet": "Khóa ảnh này để đặt nó làm lựa chọn vĩnh viễn của bạn hoặc mở khóa để tiếp tục với các ảnh ngẫu nhiên hàng ngày."
   },
   "advanced": {
     "advancedSettings": "Cài đặt nâng cao",

@@ -238,7 +238,9 @@
     "showAGridToHelpWithPositioning": "Ein Raster anzeigen, um bei der Positionierung zu helfen",
     "dragToReorderWidgets": "Ziehen Sie, um Widgets neu anzuordnen. Widgets, die weiter oben in der Liste stehen, überlagern andere, während Widgets, die weiter unten stehen, bei Überlappung unterlegt werden.",
     "overridesContainerStyles": "Überschreibt die Hintergrundfarbe, den Rahmen und die Auffüllung des Containers",
-    "renameWidget": "Widget umbenennen"
+    "renameWidget": "Widget umbenennen",
+    "lock": "Schloss",
+    "lockThisPhotoToSet": "Sperren Sie dieses Foto, um es als dauerhafte Wahl festzulegen, oder entsperren Sie es, um mit zufälligen täglichen Fotos fortzufahren."
   },
   "advanced": {
     "advancedSettings": "Erweiterte Einstellungen",

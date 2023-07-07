@@ -74,6 +74,7 @@ const processImage = (imgSrc) => {
             type: 'upload',
             id: '', // Image ID
             timestamp: '', // Image timestamp
+            lock: false,
           },
           wallpaperApi: {
             photoTitle: '',
@@ -103,6 +104,7 @@ const handleRemoveImage = (isDefault = false) => {
           type: isDefault ? 'default' : 'none',
           id: '', // Image ID
           timestamp: '', // Image timestamp
+          lock: false,
         },
         wallpaperApi: {
           photoTitle: '',
@@ -143,6 +145,7 @@ const handleRefreshImage = async () => {
       store.config.global.wallpaper.id
     )
     if (newRandomPhoto) {
+      store.config.global.wallpaper.lock = false
       setStorage({ nextWallpaper: newRandomPhoto }, 'local')
     }
   } else if (['pxphoto', 'pxcurated', 'pxcollection', 'pxcarettab'].includes(store.config.global.wallpaper.type)) {
@@ -167,6 +170,7 @@ const handleRefreshImage = async () => {
       store.config.global.wallpaper.id
     )
     if (newRandomPhoto) {
+      store.config.global.wallpaper.lock = false
       let modifiedNew = await preparePexelsWallpaperObj(newRandomPhoto)
       setStorage({ nextWallpaper: modifiedNew }, 'local')
     }
@@ -190,6 +194,11 @@ const handleImageAdjustmentReset = () => {
       },
     },
   })
+}
+
+const handleImageLock = () => {
+  console.log('toggle lock')
+  store.config.global.wallpaper.lock = !store.config.global.wallpaper.lock
 }
 </script>
 
@@ -260,7 +269,7 @@ const handleImageAdjustmentReset = () => {
                 type="button"
                 @click="store.goTo('patterns')"
               >
-                {{ $t('settings.selectPattern') }}
+                <fa icon="fa-search" /> {{ $t('settings.selectPattern') }}
               </button>
               <button
                 v-if="['unphoto', 'untopic', 'uncollection'].includes(store.config.global.wallpaper.type)"
@@ -268,7 +277,7 @@ const handleImageAdjustmentReset = () => {
                 type="button"
                 @click="store.goTo('unsplash')"
               >
-                {{ $t('settings.searchUnsplash') }}
+                <fa icon="fa-search" /> {{ $t('settings.searchUnsplash') }}
               </button>
               <button
                 v-if="
@@ -278,7 +287,7 @@ const handleImageAdjustmentReset = () => {
                 type="button"
                 @click="store.goTo('pexels')"
               >
-                {{ $t('settings.searchPexels') }}
+                <fa icon="fa-search" /> {{ $t('settings.searchPexels') }}
               </button>
               <button
                 v-if="
@@ -290,7 +299,22 @@ const handleImageAdjustmentReset = () => {
                 type="button"
                 @click="handleRefreshImage()"
               >
-                {{ $t('common.refresh') }}
+                <fa icon="fa-refresh" /> {{ $t('common.refresh') }}
+              </button>
+              <button
+                v-if="
+                  ['untopic', 'uncollection', 'pxcurated', 'pxcollection', 'pxcarettab'].includes(
+                    store.config.global.wallpaper.type
+                  )
+                "
+                class="btn"
+                :class="{ active: store.config.global.wallpaper.lock }"
+                type="button"
+                :title="$t('settings.lockThisPhotoToSet')"
+                :aria-label="$t('settings.lockThisPhotoToSet')"
+                @click="handleImageLock()"
+              >
+                <fa icon="fa-lock" /> {{ $t('settings.lock') }}
               </button>
               <button class="btn" type="button" @click="handleRemoveImage()">
                 <fa icon="fa-xmark" /> {{ $t('common.remove') }}

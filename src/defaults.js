@@ -16,6 +16,7 @@ export class Defaults {
       contrast: 10,
       blur: 0,
       scale: 100,
+      lock: false,
     },
     wallpaperApi: {
       photoTitle: '',

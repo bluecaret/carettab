@@ -238,7 +238,9 @@
     "showAGridToHelpWithPositioning": "위치 지정에 도움이 되는 그리드 표시",
     "dragToReorderWidgets": "드래그하여 위젯 순서를 변경합니다. 목록에서 위쪽 위젯은 다른 위젯 위에 겹쳐지고, 아래쪽 위젯은 겹치는 경우 아래에 겹쳐집니다.",
     "overridesContainerStyles": "컨테이너 배경색, 테두리 및 패딩 재정의",
-    "renameWidget": "위젯 이름 바꾸기"
+    "renameWidget": "위젯 이름 바꾸기",
+    "lock": "잠금",
+    "lockThisPhotoToSet": "이 사진을 잠그면 영구 선택으로 설정할 수 있고, 잠금을 해제하면 매일 무작위로 사진을 계속 볼 수 있습니다."
   },
   "advanced": {
     "advancedSettings": "고급 설정",

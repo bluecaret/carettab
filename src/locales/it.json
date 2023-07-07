@@ -238,7 +238,9 @@
     "showAGridToHelpWithPositioning": "Mostrare una griglia per facilitare il posizionamento",
     "dragToReorderWidgets": "Trascinare per riordinare i widget. I widget più in alto nell'elenco si sovrappongono agli altri, mentre quelli più in basso si sovrappongono.",
     "overridesContainerStyles": "Sovrascrive il colore di sfondo, il bordo e il padding del contenitore.",
-    "renameWidget": "Rinominare il widget"
+    "renameWidget": "Rinominare il widget",
+    "lock": "Blocco",
+    "lockThisPhotoToSet": "Bloccare questa foto per impostarla come scelta permanente, oppure sbloccarla per continuare con le foto giornaliere casuali."
   },
   "advanced": {
     "advancedSettings": "Impostazioni avanzate",

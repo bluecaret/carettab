@@ -238,7 +238,9 @@
     "showAGridToHelpWithPositioning": "显示一个网格以帮助定位",
     "dragToReorderWidgets": "拖动来重新排列小工具。列表中较高的部件将覆盖在其他部件上，而较低的部件在重叠的情况下将被置于下方。",
     "overridesContainerStyles": "覆盖容器的背景颜色、边框和填充。",
-    "renameWidget": "重命名小组件"
+    "renameWidget": "重命名小组件",
+    "lock": "锁定",
+    "lockThisPhotoToSet": "锁定这张照片以将其作为您的永久选择，或解锁以继续使用随机的每日照片。"
   },
   "advanced": {
     "advancedSettings": "高级设置",

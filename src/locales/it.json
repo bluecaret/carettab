@@ -240,7 +240,10 @@
     "overridesContainerStyles": "Sovrascrive il colore di sfondo, il bordo e il padding del contenitore.",
     "renameWidget": "Rinominare il widget",
     "lock": "Blocco",
-    "lockThisPhotoToSet": "Bloccare questa foto per impostarla come scelta permanente, oppure sbloccarla per continuare con le foto giornaliere casuali."
+    "lockThisPhotoToSet": "Bloccare questa foto per impostarla come scelta permanente, oppure sbloccarla per continuare con le foto giornaliere casuali.",
+    "widgetIsRunningOutOfStorageSpace": "Il widget sta esaurendo lo spazio di archiviazione",
+    "addingMoreContent": "L'aggiunta di altro contenuto al widget potrebbe causare il mancato salvataggio delle modifiche.",
+    "cautionYouAreAboutToRunOutOfStorage": "Attenzione: Lo spazio di memoria sta per esaurirsi. L'aggiunta di ulteriori contenuti o widget potrebbe impedire di salvare le modifiche."
   },
   "advanced": {
     "advancedSettings": "Impostazioni avanzate",

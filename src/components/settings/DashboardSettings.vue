@@ -129,6 +129,14 @@ const handleRenameSave = (id) => {
         </div>
       </template>
     </ModalWindow>
+    <div v-if="store.storageWarning.includes('sync')" class="storageWarning">
+      <div class="group fill">
+        <fa size="lg" icon="fa-triangle-exclamation"></fa>
+        <h3 class="fill">
+          {{ $t('settings.cautionYouAreAboutToRunOutOfStorage') }}
+        </h3>
+      </div>
+    </div>
     <h2 class="introHeader">{{ $t('common.slogan') }}</h2>
     <draggable
       class="blockContainer"
@@ -165,6 +173,23 @@ const handleRenameSave = (id) => {
                 {{ element.name ?? getWidgetDetails(element.widget).name }}
               </div>
             </div>
+            <DropdownMenu v-if="store.storageWarning.includes(element.id)" style="width: auto">
+              <template #button>
+                <button
+                  type="button"
+                  class="btn btnText storageWarningIcon"
+                  :aria-label="$t('settings.widgetIsRunningOutOfStorageSpace')"
+                >
+                  <fa size="lg" icon="fa-triangle-exclamation"></fa>
+                </button>
+              </template>
+              <template #menu>
+                <div class="block stack">
+                  <div class="label">{{ $t('settings.widgetIsRunningOutOfStorageSpace') }}</div>
+                  <div class="desc">{{ $t('settings.addingMoreContent') }}</div>
+                </div>
+              </template>
+            </DropdownMenu>
           </div>
           <div class="group mla">
             <ToggleField :model-value="element.on" @update:model-value="toggleWidget(element.id)"></ToggleField>
@@ -399,5 +424,26 @@ const handleRenameSave = (id) => {
   .group {
     justify-content: flex-end;
   }
+}
+
+.storageWarning {
+  border: 2px solid var(--cWarning);
+  color: hsl(var(--cWarningH) var(--cWarningS) calc(var(--cWarningL) + 25%));
+  margin-block-end: var(--s5);
+  border-radius: var(--s4);
+  padding: var(--s4) var(--s5);
+
+  h3 {
+    display: block;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    margin: 0;
+  }
+}
+
+.storageWarningIcon {
+  color: var(--cWarning);
+  cursor: help;
 }
 </style>

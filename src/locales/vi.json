@@ -240,7 +240,10 @@
     "overridesContainerStyles": "Ghi đè màu nền, đường viền và phần đệm của vùng chứa",
     "renameWidget": "Đổi tên tiện ích",
     "lock": "Khóa",
-    "lockThisPhotoToSet": "Khóa ảnh này để đặt nó làm lựa chọn vĩnh viễn của bạn hoặc mở khóa để tiếp tục với các ảnh ngẫu nhiên hàng ngày."
+    "lockThisPhotoToSet": "Khóa ảnh này để đặt nó làm lựa chọn vĩnh viễn của bạn hoặc mở khóa để tiếp tục với các ảnh ngẫu nhiên hàng ngày.",
+    "widgetIsRunningOutOfStorageSpace": "Tiện ích sắp hết dung lượng lưu trữ",
+    "addingMoreContent": "Việc thêm nhiều nội dung hơn vào tiện ích con có thể dẫn đến việc không thể lưu các thay đổi.",
+    "cautionYouAreAboutToRunOutOfStorage": "Thận trọng: Bạn sắp hết dung lượng lưu trữ. \nViệc thêm nội dung hoặc tiện ích bổ sung có thể khiến bạn không thể lưu các thay đổi."
   },
   "advanced": {
     "advancedSettings": "Cài đặt nâng cao",

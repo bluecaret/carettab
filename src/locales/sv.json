@@ -240,7 +240,10 @@
     "overridesContainerStyles": "Åsidosätter behållarens bakgrundsfärg, kant och utfyllnad",
     "renameWidget": "Byt namn på widget",
     "lock": "Lås",
-    "lockThisPhotoToSet": "Lås detta foto för att göra det till ditt permanenta val, eller lås upp för att fortsätta med slumpmässiga dagliga foton."
+    "lockThisPhotoToSet": "Lås detta foto för att göra det till ditt permanenta val, eller lås upp för att fortsätta med slumpmässiga dagliga foton.",
+    "widgetIsRunningOutOfStorageSpace": "Widgeten håller på att få slut på lagringsutrymme",
+    "addingMoreContent": "Om du lägger till mer innehåll i widgeten kan det leda till att ändringarna inte sparas.",
+    "cautionYouAreAboutToRunOutOfStorage": "Varning! Ditt lagringsutrymme håller på att ta slut. Om du lägger till ytterligare innehåll eller widgetar kan det hända att du inte kan spara ändringarna."
   },
   "advanced": {
     "advancedSettings": "Avancerade inställningar",

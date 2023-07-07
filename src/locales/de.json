@@ -240,7 +240,10 @@
     "overridesContainerStyles": "Überschreibt die Hintergrundfarbe, den Rahmen und die Auffüllung des Containers",
     "renameWidget": "Widget umbenennen",
     "lock": "Schloss",
-    "lockThisPhotoToSet": "Sperren Sie dieses Foto, um es als dauerhafte Wahl festzulegen, oder entsperren Sie es, um mit zufälligen täglichen Fotos fortzufahren."
+    "lockThisPhotoToSet": "Sperren Sie dieses Foto, um es als dauerhafte Wahl festzulegen, oder entsperren Sie es, um mit zufälligen täglichen Fotos fortzufahren.",
+    "widgetIsRunningOutOfStorageSpace": "Dem Widget geht der Speicherplatz aus",
+    "addingMoreContent": "Das Hinzufügen weiterer Inhalte zum Widget kann dazu führen, dass die Änderungen nicht gespeichert werden können.",
+    "cautionYouAreAboutToRunOutOfStorage": "Achtung! Ihr Speicherplatz wird bald erschöpft sein. Das Hinzufügen von zusätzlichen Inhalten oder Widgets kann dazu führen, dass Sie Änderungen nicht mehr speichern können."
   },
   "advanced": {
     "advancedSettings": "Erweiterte Einstellungen",

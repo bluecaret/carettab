@@ -240,7 +240,10 @@
     "overridesContainerStyles": "覆盖容器的背景颜色、边框和填充。",
     "renameWidget": "重命名小组件",
     "lock": "锁定",
-    "lockThisPhotoToSet": "锁定这张照片以将其作为您的永久选择，或解锁以继续使用随机的每日照片。"
+    "lockThisPhotoToSet": "锁定这张照片以将其作为您的永久选择，或解锁以继续使用随机的每日照片。",
+    "widgetIsRunningOutOfStorageSpace": "小工具的存储空间即将耗尽",
+    "addingMoreContent": "向小组件添加更多的内容可能导致无法保存更改。",
+    "cautionYouAreAboutToRunOutOfStorage": "请注意：你的存储空间即将耗尽。添加额外的内容或小工具可能会使你无法保存更改。"
   },
   "advanced": {
     "advancedSettings": "高级设置",

@@ -3,6 +3,7 @@ import { ref, reactive } from 'vue'
 import { defineStore } from 'pinia'
 import { Layer } from '@/classes/Layer.js'
 import { widgetTypes, toolTypes } from '@/assets/lists.js'
+import { isStorageApproachingFull } from '@/helpers/data.js'
 import { Defaults } from '@/defaults.js'
 import { DigitalClock } from '@/components/widgets/DigitalClock.js'
 import { AnalogClock } from '@/components/widgets/AnalogClock.js'
@@ -137,6 +138,7 @@ export const useSettingsStore = defineStore('settings', () => {
   const premiumModalBtnRef = ref(null)
   const showOutliner = ref(false)
   const showGrid = ref(false)
+  const storageWarning = ref([])
   const currentTime = ref('Sat Jan 01 2000 00:00:00 GMT-0800 (Pacific Standard Time)')
   const wallpaper = ref('default')
   const palette = ref([[], [], [], [], [], [], [], []])
@@ -168,6 +170,14 @@ export const useSettingsStore = defineStore('settings', () => {
     const updateStatus = await getStorage(['status', 'prevVersion', 'newVersion'], 'local')
     const store = await getStorage(null, 'sync')
 
+    if (
+      isStorageApproachingFull(store) ||
+      isStorageApproachingFull(store.global, true) ||
+      isStorageApproachingFull(store.layers, true)
+    ) {
+      if (!['sync'].includes(storageWarning.value)) storageWarning.value.push('sync')
+    }
+
     status.value = updateStatus.status
     prevVersion.value = updateStatus.prevVersion
     newVersion.value = updateStatus.newVersion
@@ -189,11 +199,18 @@ export const useSettingsStore = defineStore('settings', () => {
         }
       })
 
+      if (isStorageApproachingFull(store.toolbar, true)) {
+        if (!['toolbar'].includes(storageWarning.value)) storageWarning.value.push('toolbar')
+      }
+
       widgetTypes.forEach((widget) => {
         let allOfType = []
         let filterToType = keys.filter((k) => k.startsWith(widget.id + '-'))
         if (filterToType.length > 0) {
           filterToType.forEach((k) => {
+            if (isStorageApproachingFull(store[k], true)) {
+              if (![k].includes(storageWarning.value)) storageWarning.value.push(k)
+            }
             allOfType.push(store[k])
           })
         }
@@ -217,9 +234,24 @@ export const useSettingsStore = defineStore('settings', () => {
         newStore['toolbar'] = JSON.parse(JSON.stringify(config.toolbar))
         newStore['layers'] = JSON.parse(JSON.stringify(config.layers))
 
+        if (
+          isStorageApproachingFull(newStore) ||
+          isStorageApproachingFull(newStore.global, true) ||
+          isStorageApproachingFull(newStore.layers, true)
+        ) {
+          if (!['sync'].includes(storageWarning.value)) storageWarning.value.push('sync')
+        }
+
+        if (isStorageApproachingFull(newStore.toolbar, true)) {
+          if (!['toolbar'].includes(storageWarning.value)) storageWarning.value.push('toolbar')
+        }
+
         widgetTypes.forEach((widget) => {
           if (config[widget.store].length > 0) {
             config[widget.store].forEach((c) => {
+              if (isStorageApproachingFull(c, true)) {
+                if (![c.id].includes(storageWarning.value)) storageWarning.value.push(c.id)
+              }
               newStore[c.id] = JSON.parse(JSON.stringify(c))
             })
           }
@@ -422,6 +454,7 @@ export const useSettingsStore = defineStore('settings', () => {
     premiumModalBtnRef,
     showOutliner,
     showGrid,
+    storageWarning,
     currentTime,
     wallpaper,
     palette,

@@ -240,7 +240,10 @@
     "overridesContainerStyles": "Remplace la couleur d'arrière-plan, la bordure et l'espacement du conteneur.",
     "renameWidget": "Renommer le widget",
     "lock": "Verrouiller",
-    "lockThisPhotoToSet": "Verrouillez cette photo pour en faire votre choix permanent, ou déverrouillez-la pour continuer avec les photos quotidiennes aléatoires."
+    "lockThisPhotoToSet": "Verrouillez cette photo pour en faire votre choix permanent, ou déverrouillez-la pour continuer avec les photos quotidiennes aléatoires.",
+    "widgetIsRunningOutOfStorageSpace": "L'espace de stockage du widget est épuisé",
+    "addingMoreContent": "L'ajout d'un contenu supplémentaire au widget peut entraîner l'impossibilité d'enregistrer les modifications.",
+    "cautionYouAreAboutToRunOutOfStorage": "Attention : Vous allez bientôt manquer d'espace de stockage. L'ajout de contenu supplémentaire ou de widgets peut vous empêcher de sauvegarder les modifications."
   },
   "advanced": {
     "advancedSettings": "Paramètres avancés",

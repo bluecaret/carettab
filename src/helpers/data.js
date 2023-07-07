@@ -1,3 +1,8 @@
+export const MAX_STORAGE_BYTES = 102400
+export const STORAGE_BUFFER_BYTES = 4000
+export const MAX_ITEM_STORAGE_BYTES = 8192
+export const ITEM_STORAGE_BUFFER_BYTES = 500
+
 /**
  * Convert image blob data to base64
  * @param blob
@@ -89,4 +94,21 @@ export const checkVersionInRange = (version, range) => {
   }
 
   return true
+}
+
+/**
+ * Convert string to bytes to get size
+ */
+export const getByteSize = (data) => {
+  return new Blob([JSON.stringify(data)]).size
+}
+
+/**
+ * Check if storage is approaching full
+ */
+export const isStorageApproachingFull = (data, isItem = false) => {
+  const quota = isItem ? MAX_ITEM_STORAGE_BYTES : MAX_STORAGE_BYTES
+  const buffer = isItem ? ITEM_STORAGE_BUFFER_BYTES : STORAGE_BUFFER_BYTES
+  const byteSize = getByteSize(data)
+  return byteSize + buffer > quota
 }

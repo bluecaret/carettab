@@ -88,15 +88,17 @@ const handleOpenPremiumModal = () => {
     <TodoSettings v-if="['todo'].includes(settingsPage)"></TodoSettings>
     <footer class="footer">
       <a href="https://carettab.com" class="btn btnText appName">
-        <svg :alt="$t('settings.logoAlt')" class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-          <rect x="24" y="80" width="16" height="16" />
-          <rect x="40" y="64" width="16" height="16" />
-          <rect x="72" y="64" width="16" height="16" />
-          <rect x="56" y="48" width="16" height="16" />
-          <rect x="88" y="80" width="16" height="16" />
+        <svg :alt="$t('settings.logoAlt')" class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 369">
           <path
-            d="M123 20V0H88v20h-9V0H44v20h-9V10 0H25 10 0v10 10 10 20 78h128V20H123zM118 118H10V10h15v20h19 35 9 30V118z"
+            d="M20 332 201 18h99l181 314-10 19H334l-83-145-84 145H31l-11-19Zm32-7h101l87-150h21l87 150h101L286 43h-70L52 325Z"
           />
+          <circle cx="208.3" cy="30.1" r="30.1" />
+          <circle cx="292.7" cy="30.1" r="30.1" />
+          <circle cx="250.6" cy="184" r="30.1" />
+          <circle cx="470.5" cy="338" r="30.1" />
+          <circle cx="340.8" cy="338.4" r="30.1" />
+          <circle cx="160.2" cy="338.4" r="30.1" />
+          <circle cx="30.7" cy="338" r="30.1" />
         </svg>
         CaretTab
       </a>
@@ -164,7 +166,7 @@ const handleOpenPremiumModal = () => {
 
 <style lang="scss" scoped>
 .logo {
-  width: var(--s5);
+  width: var(--s7);
   height: auto;
 
   * {

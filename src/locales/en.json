@@ -28,7 +28,7 @@
     }
   },
   "settings": {
-    "logoAlt": "Logo for CaretTab shown as a depiction of a browser tab with a pixelated caret symbol on the inside",
+    "logoAlt": "Logo for CaretTab with a blue caret symbol in the middle on top of a darker blue background",
     "infoMenu": "Info",
     "version": "Version {0}",
     "changelog": "Changelog",

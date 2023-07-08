@@ -1,7 +1,6 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import { DateTime } from 'luxon'
-// import * as locale from 'locale-codes'
 import { useSettingsStore } from '@/store.js'
 import WidgetSegmentFont from '@/components/forms/WidgetSegmentFont.vue'
 

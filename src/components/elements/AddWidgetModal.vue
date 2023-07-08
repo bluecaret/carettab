@@ -46,7 +46,7 @@ const handleOpenPremiumModal = () => {
             :aria-label="$t('common.close')"
             @click="show = false"
           >
-            <fa icon="fa-close" />
+            <fa icon="fa-xmark" />
           </button>
         </header>
         <div class="modalContent">

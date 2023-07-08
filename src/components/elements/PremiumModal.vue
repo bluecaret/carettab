@@ -45,7 +45,7 @@ const handleLicenseKey = async () => {
     <template #window>
       <div class="premiumModalContent">
         <button
-          class="premiumModalClose"
+          class="modalClose premiumModalClose"
           type="button"
           :aria-label="$t('common.close')"
           @click="store.showPremiumModal = false"
@@ -229,14 +229,6 @@ const handleLicenseKey = async () => {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background-color: transparent;
-  padding: 1rem;
-  border: 0;
-  cursor: pointer;
-  span {
-    font-size: 2.4rem;
-    color: var(--getPremiumModalColor);
-  }
 }
 
 .premiumModalIcon {

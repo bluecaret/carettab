@@ -219,52 +219,56 @@ const selectLoc = (loc) => {
               </button>
             </template>
             <template #window>
-              <div class="locSearchModal block stack">
-                <button
-                  class="locSearchModalClose"
-                  type="button"
-                  aria-label="Close modal"
-                  @click="showLocationSearch = false"
-                >
-                  <fa icon="fa-close" />
-                </button>
-                <h2 class="locSearchModalHeading">Find a location</h2>
-                <div class="group stack fill">
-                  <label for="locSearchModalInput" class="label"
-                    >Search
-                    <div class="desc">(city name, postal code, coordinates, etc.)</div></label
+              <div class="modal">
+                <header class="modalHeader">
+                  <h1 class="modalTitle">Find a location</h1>
+                  <button
+                    class="modalClose"
+                    type="button"
+                    :aria-label="$t('common.close')"
+                    @click="showLocationSearch = false"
                   >
-                  <form novalidate class="group fill compact" @submit.prevent="searchLoc">
-                    <input
-                      id="locSearchModalInput"
-                      v-model="locQueary"
-                      type="text"
-                      placeholder="Enter a location"
-                      class="input"
-                    />
-                    <button type="submit" class="btn" aria-label="Search" title="Search">
-                      <fa icon="fa-magnifying-glass" />
-                    </button>
-                    <button
-                      type="button"
-                      class="btn"
-                      aria-label="Get my location"
-                      title="Get my location"
-                      @click="getMyLoc"
+                    <fa icon="fa-xmark" />
+                  </button>
+                </header>
+                <div class="modalContent">
+                  <div class="group stack fill">
+                    <label for="locSearchModalInput" class="label"
+                      >Search
+                      <div class="desc">(city name, postal code, coordinates, etc.)</div></label
                     >
-                      <fa icon="fa-location-crosshairs" />
-                    </button>
-                  </form>
+                    <form novalidate class="group fill compact" @submit.prevent="searchLoc">
+                      <input
+                        id="locSearchModalInput"
+                        v-model="locQueary"
+                        type="text"
+                        placeholder="Enter a location"
+                        class="input"
+                      />
+                      <button type="submit" class="btn" aria-label="Search" title="Search">
+                        <fa icon="fa-magnifying-glass" />
+                      </button>
+                      <button
+                        type="button"
+                        class="btn"
+                        aria-label="Get my location"
+                        title="Get my location"
+                        @click="getMyLoc"
+                      >
+                        <fa icon="fa-location-crosshairs" />
+                      </button>
+                    </form>
+                  </div>
+                  <ul v-if="hasSearched" class="locSearchModalList">
+                    <li v-for="item in locationList" :key="item.id">
+                      <button type="button" class="btn stack locSearchModalResultBtn" @click="selectLoc(item)">
+                        <strong>{{ item.name }}</strong>
+                        <div>{{ item.region }}</div>
+                      </button>
+                    </li>
+                    <li v-if="hasSearched && locationList.length <= 0">No locations found.</li>
+                  </ul>
                 </div>
-                <ul v-if="hasSearched" class="locSearchModalList">
-                  <li v-for="item in locationList" :key="item.id">
-                    <button type="button" class="btn stack locSearchModalResultBtn" @click="selectLoc(item)">
-                      <strong>{{ item.name }}</strong>
-                      <div>{{ item.region }}</div>
-                    </button>
-                  </li>
-                  <li v-if="hasSearched && locationList.length <= 0">No locations found.</li>
-                </ul>
               </div>
             </template>
           </ModalWindow>
@@ -275,35 +279,12 @@ const selectLoc = (loc) => {
 </template>
 
 <style lang="scss" scoped>
-.locSearchModal {
-  position: relative;
-}
-
-.locSearchModalHeading {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.locSearchModalClose {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: transparent;
-  padding: 1rem;
-  border: 0;
-  cursor: pointer;
-  span {
-    font-size: 2.4rem;
-    color: var(--getPremiumModalColor);
-  }
-}
-
 .locSearchModalList {
   display: flex;
   flex-direction: column;
   gap: var(--s3);
   list-style: none;
-  margin: 0;
+  margin: var(--s5) 0 0 0;
   padding: 0;
   width: 100%;
 }

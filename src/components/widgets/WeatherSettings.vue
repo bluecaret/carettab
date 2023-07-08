@@ -91,51 +91,55 @@ const refreshWeather = async () => {
                   <button type="button" class="btn" @click="openLocSearch">{{ $t('widget.changeLocation') }}</button>
                 </template>
                 <template #window>
-                  <div class="locSearchModal block stack">
-                    <button
-                      class="locSearchModalClose"
-                      type="button"
-                      :aria-label="$t('common.close')"
-                      @click="showLocationSearch = false"
-                    >
-                      <fa icon="fa-close" />
-                    </button>
-                    <h2 class="locSearchModalHeading">{{ $t('widget.findALocation') }}</h2>
-                    <div class="group stack fill">
-                      <div for="locSearchModalInput" class="label">
-                        <label for="locSearchModalInput">{{ $t('settings.search') }}</label>
-                        <div class="desc">{{ $t('widget.cityNamePostalCodeCoordinatesEtc') }}</div>
+                  <div class="modal">
+                    <header class="modalHeader">
+                      <h1 class="modalTitle">{{ $t('widget.findALocation') }}</h1>
+                      <button
+                        class="modalClose"
+                        type="button"
+                        :aria-label="$t('common.close')"
+                        @click="showLocationSearch = false"
+                      >
+                        <fa icon="fa-xmark" />
+                      </button>
+                    </header>
+                    <div class="modalContent">
+                      <div class="group stack fill">
+                        <div for="locSearchModalInput" class="label">
+                          <label for="locSearchModalInput">{{ $t('settings.search') }}</label>
+                          <div class="desc">{{ $t('widget.cityNamePostalCodeCoordinatesEtc') }}</div>
+                        </div>
+                        <form novalidate class="group fill compact" @submit.prevent="searchLoc">
+                          <input
+                            id="locSearchModalInput"
+                            v-model="locQueary"
+                            type="text"
+                            :placeholder="$t('widget.enterALocation')"
+                            class="input"
+                          />
+                          <button type="submit" class="btn" aria-label="Search" title="Search">
+                            <fa icon="fa-magnifying-glass" />
+                          </button>
+                          <button
+                            type="button"
+                            class="btn"
+                            :aria-label="$t('widget.getMyLocation')"
+                            :title="$t('widget.getMyLocation')"
+                            @click="getMyLoc"
+                          >
+                            <fa icon="fa-location-crosshairs" />
+                          </button>
+                        </form>
                       </div>
-                      <form novalidate class="group fill compact" @submit.prevent="searchLoc">
-                        <input
-                          id="locSearchModalInput"
-                          v-model="locQueary"
-                          type="text"
-                          :placeholder="$t('widget.enterALocation')"
-                          class="input"
-                        />
-                        <button type="submit" class="btn" aria-label="Search" title="Search">
-                          <fa icon="fa-magnifying-glass" />
-                        </button>
-                        <button
-                          type="button"
-                          class="btn"
-                          :aria-label="$t('widget.getMyLocation')"
-                          :title="$t('widget.getMyLocation')"
-                          @click="getMyLoc"
-                        >
-                          <fa icon="fa-location-crosshairs" />
-                        </button>
-                      </form>
+                      <ul class="locSearchModalList">
+                        <li v-for="item in searchResults" :key="item.id">
+                          <button type="button" class="btn stack locSearchModalResultBtn" @click="selectLoc(item)">
+                            <strong>{{ item.name }}</strong>
+                            <div>{{ item.region }}{{ item.region && item.country ? ', ' : '' }}{{ item.country }}</div>
+                          </button>
+                        </li>
+                      </ul>
                     </div>
-                    <ul class="locSearchModalList">
-                      <li v-for="item in searchResults" :key="item.id">
-                        <button type="button" class="btn stack locSearchModalResultBtn" @click="selectLoc(item)">
-                          <strong>{{ item.name }}</strong>
-                          <div>{{ item.region }}{{ item.region && item.country ? ', ' : '' }}{{ item.country }}</div>
-                        </button>
-                      </li>
-                    </ul>
                   </div>
                 </template>
               </ModalWindow>
@@ -481,34 +485,12 @@ const refreshWeather = async () => {
 </template>
 
 <style lang="scss" scoped>
-.locSearchModal {
-  position: relative;
-}
-
-.locSearchModalHeading {
-  margin-top: 0;
-}
-
-.locSearchModalClose {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: transparent;
-  padding: 1rem;
-  border: 0;
-  cursor: pointer;
-  span {
-    font-size: 2.4rem;
-    color: var(--getPremiumModalColor);
-  }
-}
-
 .locSearchModalList {
   display: flex;
   flex-direction: column;
   gap: var(--s3);
   list-style: none;
-  margin: 0;
+  margin: var(--s5) 0 0 0;
   padding: 0;
   width: 100%;
 }

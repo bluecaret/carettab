@@ -100,17 +100,14 @@ const handleRenameSave = (id) => {
         </div>
       </template>
       <template #window>
-        <div class="block whatsNewModal">
-          <button
-            class="btn btnText mla whatsNewModalClose"
-            type="button"
-            :aria-label="$t('common.close')"
-            @click="whatsNewModal = false"
-          >
-            <fa icon="fa-close" />
-          </button>
-          <div class="whatsNewModalContent">
-            <h3>{{ $t('updates.whatsNewInVersion', ['4.0.0']) }}</h3>
+        <div class="modal">
+          <header class="modalHeader">
+            <h1 class="modalTitle">{{ $t('updates.whatsNewInVersion', ['4.0.0']) }}</h1>
+            <button class="modalClose" type="button" :aria-label="$t('common.close')" @click="whatsNewModal = false">
+              <fa icon="fa-xmark" />
+            </button>
+          </header>
+          <div class="modalContent">
             <div class="group">
               <div class="fill">
                 <h4>{{ $t('updates.newFeatures') }}</h4>
@@ -211,18 +208,25 @@ const handleRenameSave = (id) => {
                   </button>
                 </template>
                 <template #window>
-                  <div class="block stack editModal">
-                    <div class="fill">
-                      <button class="btn btnText close" type="button" aria-label="Close" @click="renaming = null">
-                        <fa icon="fa-close" />
+                  <div class="modal">
+                    <header class="modalHeader">
+                      <h1 class="modalTitle">{{ $t('settings.renameWidget') }}</h1>
+                      <button
+                        class="modalClose"
+                        type="button"
+                        :aria-label="$t('common.close')"
+                        @click="renaming = null"
+                      >
+                        <fa icon="fa-xmark" />
                       </button>
-                      <h3>{{ $t('settings.renameWidget') }}</h3>
-                    </div>
-                    <div class="group fill compact">
-                      <input v-model="renamingName" type="text" class="input" />
-                      <button type="button" class="btn" @click="handleRenameSave(element.id)">
-                        {{ $t('common.save') }}
-                      </button>
+                    </header>
+                    <div class="modalContent">
+                      <form class="group fill compact" novalidate @submit.prevent="handleRenameSave(element.id)">
+                        <input v-model="renamingName" type="text" class="input" />
+                        <button type="submit" class="btn">
+                          {{ $t('common.save') }}
+                        </button>
+                      </form>
                     </div>
                   </div>
                 </template>
@@ -330,35 +334,6 @@ const handleRenameSave = (id) => {
   }
 }
 
-.whatsNewModal {
-  position: relative;
-  .whatsNewModalClose {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background-color: transparent;
-    padding: 1rem;
-    border: 0;
-    cursor: pointer;
-    .svg-inline--fa {
-      font-size: 2.4rem;
-      color: var(--getPremiumModalColor);
-    }
-  }
-  h3 {
-    margin: 0 0 var(--s5) 0;
-    font-size: 2.4rem;
-  }
-  h4 {
-    margin: 0 0 var(--s4) 0;
-    font-size: 2rem;
-    font-weight: 400;
-  }
-  .group {
-    align-items: start;
-  }
-}
-
 .widgetHeader {
   padding: var(--s4);
   gap: var(--s3);
@@ -395,35 +370,6 @@ const handleRenameSave = (id) => {
   padding: 0;
   min-height: 0;
   background-color: hsl(var(--cBlockH) calc(var(--cBlockS) + 20%) calc(var(--cBlockL) + 3%));
-}
-
-.editModal {
-  position: relative;
-  .close {
-    display: inline-flex;
-    float: right;
-    margin-inline-start: 0.8em;
-    margin-block-end: 0.5em;
-    background-color: transparent;
-    border: 0;
-    min-height: 2.8rem;
-    cursor: pointer;
-  }
-  h3 {
-    margin: 0 0 var(--s5) 0;
-    font-size: 2.2rem;
-  }
-  h4 {
-    margin: 0 0 var(--s4) 0;
-    font-size: 2rem;
-    font-weight: 400;
-  }
-  p {
-    font-size: 1.6rem;
-  }
-  .group {
-    justify-content: flex-end;
-  }
 }
 
 .storageWarning {

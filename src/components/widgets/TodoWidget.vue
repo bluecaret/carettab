@@ -273,18 +273,25 @@ const doneColor = computed(() => {
                         </button>
                       </template>
                       <template #window>
-                        <div class="block editModal">
-                          <div class="fill">
-                            <button class="btn btnText close" type="button" aria-label="Close" @click="editing = null">
-                              <fa icon="fa-close" />
+                        <div class="modal">
+                          <header class="modalHeader">
+                            <h1 class="modalTitle">{{ $t('widget.editTask') }}</h1>
+                            <button
+                              class="modalClose"
+                              type="button"
+                              :aria-label="$t('common.close')"
+                              @click="editing = null"
+                            >
+                              <fa icon="fa-xmark" />
                             </button>
-                            <h3>{{ $t('widget.editTask') }}</h3>
-                          </div>
-                          <div class="group fill compact">
-                            <input v-model="editingName" type="text" class="input" />
-                            <button type="button" class="btn" @click="handleEditSave(element)">
-                              {{ $t('common.save') }}
-                            </button>
+                          </header>
+                          <div class="modalContent">
+                            <form class="group fill compact" novalidate @submit.prevent="handleEditSave(element)">
+                              <input v-model="editingName" type="text" class="input" />
+                              <button type="submit" class="btn">
+                                {{ $t('common.save') }}
+                              </button>
+                            </form>
                           </div>
                         </div>
                       </template>
@@ -364,17 +371,24 @@ const doneColor = computed(() => {
                 </button>
               </template>
               <template #window>
-                <div class="block editModal">
-                  <div class="fill">
-                    <button class="btn btnText close" type="button" aria-label="Close" @click="handleAddModalClose()">
-                      <fa icon="fa-close" />
+                <div class="modal">
+                  <header class="modalHeader">
+                    <h1 class="modalTitle">{{ $t('widget.addTask2') }}</h1>
+                    <button
+                      class="modalClose"
+                      type="button"
+                      :aria-label="$t('common.close')"
+                      @click="handleAddModalClose()"
+                    >
+                      <fa icon="fa-xmark" />
                     </button>
-                    <h3>{{ $t('widget.addTask2') }}</h3>
+                  </header>
+                  <div class="modalContent">
+                    <form class="group fill compact" novalidate @submit.prevent="handleAddTask()">
+                      <input ref="newNameEl" v-model="newName" type="text" class="input" />
+                      <button type="submit" class="btn">{{ $t('common.save') }}</button>
+                    </form>
                   </div>
-                  <form novalidate class="group fill compact" @submit.prevent="handleAddTask()">
-                    <input ref="newNameEl" v-model="newName" type="text" class="input" />
-                    <button type="submit" class="btn">{{ $t('common.save') }}</button>
-                  </form>
                 </div>
               </template>
             </ModalWindow>
@@ -472,35 +486,6 @@ const doneColor = computed(() => {
   margin: 0;
   gap: var(--s4);
   padding: var(--s4);
-}
-
-.editModal {
-  position: relative;
-  .close {
-    display: inline-flex;
-    float: right;
-    margin-inline-start: 0.8em;
-    margin-block-end: 0.5em;
-    background-color: transparent;
-    border: 0;
-    min-height: 2.8rem;
-    cursor: pointer;
-  }
-  h3 {
-    margin: 0 0 var(--s5) 0;
-    font-size: 2.2rem;
-  }
-  h4 {
-    margin: 0 0 var(--s4) 0;
-    font-size: 2rem;
-    font-weight: 400;
-  }
-  p {
-    font-size: 1.6rem;
-  }
-  .group {
-    justify-content: flex-end;
-  }
 }
 
 .dragGhost {

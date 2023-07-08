@@ -37,20 +37,17 @@ const requestPermission = async () => {
       </button>
     </template>
     <template #window>
-      <div class="block permissionModal">
-        <div class="permissionContent">
-          <button
-            class="btn btnText close"
-            type="button"
-            :aria-label="$t('common.close')"
-            @click="whatsNewModal = false"
-          >
-            <fa icon="fa-close" />
+      <div class="modal">
+        <header class="modalHeader">
+          <h1 class="modalTitle">{{ $t('settings.allowCarettabAccessTo', [props.permissionLabel]) }}</h1>
+          <button class="modalClose" type="button" :aria-label="$t('common.close')" @click="show = false">
+            <fa icon="fa-xmark" />
           </button>
-          <h3>{{ $t('settings.allowCarettabAccessTo', [props.permissionLabel]) }}</h3>
+        </header>
+        <div class="modalContent">
           <p>{{ props.reason }}</p>
-          <div class="group">
-            <button type="button" class="btn btnText" @click="show = false">{{ $t('common.deny') }}</button>
+          <div class="group fill">
+            <button type="button" class="btn btnText mla" @click="show = false">{{ $t('common.deny') }}</button>
             <button type="button" class="btn" @click="requestPermission()">{{ $t('settings.allowPermission') }}</button>
           </div>
         </div>
@@ -58,34 +55,3 @@ const requestPermission = async () => {
     </template>
   </ModalWindow>
 </template>
-
-<style lang="scss" scoped>
-.permissionModal {
-  position: relative;
-  .close {
-    display: inline-flex;
-    float: right;
-    margin-inline-start: 0.8em;
-    margin-block-end: 0.5em;
-    background-color: transparent;
-    border: 0;
-    min-height: 2.8rem;
-    cursor: pointer;
-  }
-  h3 {
-    margin: 0 0 var(--s5) 0;
-    font-size: 2.2rem;
-  }
-  h4 {
-    margin: 0 0 var(--s4) 0;
-    font-size: 2rem;
-    font-weight: 400;
-  }
-  p {
-    font-size: 1.6rem;
-  }
-  .group {
-    justify-content: flex-end;
-  }
-}
-</style>

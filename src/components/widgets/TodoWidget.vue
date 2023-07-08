@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, inject, toRaw, onMounted, nextTick } from 'vue'
+import { ref, computed, inject, toRaw, onMounted, nextTick, watch } from 'vue'
 import draggable from 'vuedraggable'
 import { useSettingsStore, generateUID, setStorage } from '@/store.js'
 import { setWidgetContainerStyles, hsl } from '@/helpers/widgets.js'
@@ -28,6 +28,13 @@ const props = defineProps({
 onMounted(() => {
   handleFilterSet()
 })
+
+// watch(
+//   () => props.widget,
+//   () => {
+//     handleFilterSet()
+//   }
+// )
 
 const containerStyles = computed(() => {
   return setWidgetContainerStyles(props.widget, store.config.global, user.value.paid)
@@ -155,8 +162,20 @@ const handleDeleteAll = () => {
   }
 }
 
-const handleListReorder = () => {
-  setStorage({ [props.widget.id]: { ...toRaw(props.widget) } }, 'sync')
+const handleListReorder = (event) => {
+  console.log(event)
+  const getWidget = store.config.todos.find((w) => w.id === props.widget.id)
+  const newIndex = event.moved.newIndex
+  const oldIndex = event.moved.oldIndex
+
+  if (newIndex >= getWidget.list.length) {
+    let k = newIndex - getWidget.list.length + 1
+    while (k--) {
+      getWidget.list.push(undefined)
+    }
+  }
+  getWidget.list.splice(newIndex, 0, getWidget.list.splice(oldIndex, 1)[0])
+  setStorage({ [props.widget.id]: { ...toRaw(getWidget) } }, 'sync')
 }
 
 const handleFilterSet = (filter = props.widget.filter) => {
@@ -243,7 +262,7 @@ const doneColor = computed(() => {
         handle=".drag"
         @start="drag = true"
         @end="drag = false"
-        @change="handleListReorder()"
+        @change="handleListReorder($event)"
       >
         <template #item="{ element }">
           <li class="task" :class="{ done: element.done }">

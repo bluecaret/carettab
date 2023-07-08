@@ -421,6 +421,18 @@ const doneColor = computed(() => {
 <style lang="scss" scoped>
 .todo {
   grid-template-columns: 1fr;
+  .widgetInner {
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+.widgetInner::-webkit-scrollbar {
+  display: none;
+}
+
+.widgetInner:focus-within::-webkit-scrollbar,
+.widgetInner:hover::-webkit-scrollbar {
+  display: block;
 }
 
 .heading {
@@ -469,6 +481,7 @@ const doneColor = computed(() => {
   align-items: center;
   gap: 0.5em;
   padding: 0.3em;
+  text-align: left;
   .drag {
     opacity: 0;
     transition: opacity 0.2s;

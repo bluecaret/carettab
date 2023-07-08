@@ -17,7 +17,6 @@ const displayQuote = ref({ text: '*no quote found*', author: '*no quote found*' 
 
 const setDisplayQuote = () => {
   const current = props.widget.currentQuote ? props.widget.quotes[props.widget.currentQuote] : props.widget.quotes[0]
-  console.log(current)
   if (current) {
     displayQuote.value.text = current.text
     displayQuote.value.author = current.author

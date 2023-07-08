@@ -17,7 +17,36 @@ export default defineConfig({
   build: {
     sourcemap: false,
     emptyOutDir: true,
-    chunkSizeWarningLimit: 800,
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          fa: [
+            '@fortawesome/fontawesome-svg-core',
+            '@fortawesome/free-solid-svg-icons',
+            '@fortawesome/vue-fontawesome',
+          ],
+          vue: ['vue'],
+          vuetools: ['pinia', 'vue-i18n', 'vuedraggable'],
+          vendors: ['luxon', 'lodash', 'convert', 'openai'],
+          de: ['./src/locales/de.json'],
+          en: ['./src/locales/en.json'],
+          es: ['./src/locales/es.json'],
+          fr: ['./src/locales/fr.json'],
+          he: ['./src/locales/he.json'],
+          it: ['./src/locales/it.json'],
+          ja: ['./src/locales/ja.json'],
+          ko: ['./src/locales/ko.json'],
+          pt: ['./src/locales/pt.json'],
+          ru: ['./src/locales/ru.json'],
+          sv: ['./src/locales/sv.json'],
+          uk: ['./src/locales/uk.json'],
+          ur: ['./src/locales/ur.json'],
+          vi: ['./src/locales/vi.json'],
+          zh: ['./src/locales/zh.json'],
+        },
+      },
+    },
   },
   plugins: [
     vue(),

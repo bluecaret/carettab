@@ -215,7 +215,7 @@ const handleLicenseKey = async () => {
     margin: 0 0 var(--s5);
     text-transform: uppercase;
     text-align: center;
-    text-shadow: 0 0.1em 0.3em hsl(0 0% 0% / 0.8);
+    text-shadow: 0 0.1em 0.3em hsl(0deg 0% 0% / 0.8);
   }
   p {
     margin: 0 auto var(--s5);
@@ -245,7 +245,7 @@ const handleLicenseKey = async () => {
   height: auto;
   margin: var(--s2) auto;
   text-align: center;
-  filter: drop-shadow(0 0.2em 0.5em hsl(0 0% 0% / 0.6));
+  filter: drop-shadow(0 0.2em 0.5em hsl(0deg 0% 0% / 0.6));
 }
 
 .premiumModalPrice {

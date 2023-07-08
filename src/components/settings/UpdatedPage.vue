@@ -159,7 +159,7 @@ const handleFinish = () => {
   backdrop-filter: blur(30px) brightness(1.1);
   padding: var(--s8);
   border-radius: 2rem;
-  box-shadow: 0 0 5rem 0 hsl(0 0 0 / 0.6);
+  box-shadow: 0 0 5rem 0 hsl(0deg 0% 0% / 0.6);
   h1 {
     display: flex;
     gap: 0.3em;

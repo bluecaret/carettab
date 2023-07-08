@@ -117,8 +117,8 @@ ul {
     position: absolute;
     inset: auto 0.2em 0.2em auto;
     font-size: 0.5em;
-    background-color: hsl(0 0 0 / 0.8);
-    color: hsl(0 0 100% / 0.8);
+    background-color: hsl(0deg 0% 0% / 0.8);
+    color: hsl(0deg 0% 100% / 0.8);
     padding: 0.15em;
     border-radius: 50%;
   }

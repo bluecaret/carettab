@@ -320,7 +320,7 @@ const handleUnsplashPhotoSearch = () => {
   inset: var(--s4) var(--s4) auto auto;
   font-size: 1.2rem;
   padding: 0.6rem;
-  background-color: hsl(0 0 0 / 0.5);
+  background-color: hsl(0deg 0% 0% / 0.5);
   border-radius: var(--s3);
 }
 

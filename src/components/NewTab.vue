@@ -237,7 +237,7 @@ const setTabTitle = () => {
     left: 0;
     width: 100%;
     height: 1px;
-    background: linear-gradient(to right, hsl(0 0 100% / 0.5) 50%, hsl(0 0 0 / 0.5) 50%);
+    background: linear-gradient(to right, hsl(0deg 0% 100% / 0.5) 50%, hsl(0deg 0% 0% / 0.5) 50%);
     background-size: 8px 1px;
     translate: 0 -1px;
   }
@@ -247,7 +247,7 @@ const setTabTitle = () => {
     left: 50%;
     width: 1px;
     height: 100%;
-    background: linear-gradient(to bottom, hsl(0 0 100% / 0.5) 50%, hsl(0 0 0 / 0.5) 50%);
+    background: linear-gradient(to bottom, hsl(0deg 0% 100% / 0.5) 50%, hsl(0deg 0% 0% / 0.5) 50%);
     background-size: 1px 8px;
     translate: -1px 0;
   }

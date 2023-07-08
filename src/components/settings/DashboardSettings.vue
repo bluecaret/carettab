@@ -100,7 +100,7 @@ const handleRenameSave = (id) => {
         </div>
       </template>
       <template #window>
-        <div class="modal">
+        <div class="modal whatsNewModal">
           <header class="modalHeader">
             <h1 class="modalTitle">{{ $t('updates.whatsNewInVersion', ['4.0.0']) }}</h1>
             <button class="modalClose" type="button" :aria-label="$t('common.close')" @click="whatsNewModal = false">
@@ -108,19 +108,120 @@ const handleRenameSave = (id) => {
             </button>
           </header>
           <div class="modalContent">
+            <p>This is a big one! In no particular order:</p>
             <div class="group">
               <div class="fill">
-                <h4>{{ $t('updates.newFeatures') }}</h4>
+                <h4 class="subtitle">{{ $t('updates.newFeatures') }}</h4>
                 <ul class="ul">
-                  <li></li>
+                  <li>Improved settings panel design</li>
+                  <li>Todo widget. Keep track of your tasks.</li>
+                  <li>
+                    Shape and Text widgets. These are purely presentational widgets to help you design the perfect tab.*
+                  </li>
+                  <li>
+                    Toolbar with tools such as AI Chat*, calculator, unit conversion, password generator, timer,
+                    stopwatch.
+                  </li>
+                  <li>Add multiples of any widget. *Some widgets require Premium Access to add multiple.</li>
+                  <li>Blueprints. Quickly get a New Tab layout with the click of a button.</li>
+                  <li>Give the widget a name for easier managing of your multiple widgets.</li>
+                  <li>
+                    Show an outline around widgets and a grid on the page to help with widget positioning. You can also
+                    temporarily move the settings to the other side if it is in the way.
+                  </li>
+                  <li>Get wallpapers from Pexels.com.*</li>
+                  <li>Easily set default styling for widgets.</li>
+                  <li>Add container styles to every widget such as a background color and border.*</li>
+                  <li>Set a different font, color, and text styles for every widget.</li>
+                  <li>
+                    New positioning system for widgets. Placing widgets will now be easier, more precise, and provide
+                    tons more freedom.
+                  </li>
+                  <li>Search engine select menu. Easily change the search engine temporarily from the tab page.*</li>
+                  <li>
+                    Some widgets have even more customization that allow you to customize the color and other styles of
+                    specific elements within the widget.
+                  </li>
+                  <li>
+                    New color picker with color sliders, swatches, opacity, and an option to save colors to use them
+                    elsewhere.
+                  </li>
+                  <li>
+                    Weather layouts. Now choose between several layouts for the weather widget including some utility
+                    layouts that make it easier to show a single detail for extra customization.
+                  </li>
+                  <li>
+                    The weather icons have been updated and are now animated* and multi-colored. And yes, you can
+                    customize the colors!
+                  </li>
+                  <li>
+                    Improved use of storage space in your browser. This allows even more widgets and content before
+                    hitting the storage limit. A warning will also show in case you do get close to that limit anyway.
+                  </li>
+                  <li>
+                    Default wallpaper. CaretTab now comes out of the box with a beautiful photo of a Juniper plant as
+                    the default background. You can easily switch to this photo at any time.
+                  </li>
+                  <li>
+                    New layout options for Quick Links including the option of placing the "Bookmarks bar" anywhere like
+                    a standard widget.
+                  </li>
+                  <li>
+                    But wait, there's more! I've been at this for a while now, there are many, many new additions and
+                    changes that are just too numerous to list here. Explore the settings panel to find them all!
+                  </li>
                 </ul>
               </div>
               <div class="fill">
-                <h4>{{ $t('updates.fixesAndOthers') }}</h4>
+                <h4 class="subtitle">Changes from previous version</h4>
                 <ul class="ul">
-                  <li></li>
+                  <li>
+                    Rebuilt the entire extension from scratch in a new, modern framework. This will make it easier and
+                    quicker for me to build out more features in the future.
+                  </li>
+                  <li>
+                    Saved settings been tweaked for better performance and space utilization. The result in this is an
+                    unfortunate clearing of your saved settings. I tried to migrate as many settings as I was able.
+                  </li>
+                  <li>Smaller file size!</li>
+                  <li>
+                    Dynamic scaling is no longer an option. This option added too much complexity and issues with the
+                    improved positioning system.
+                  </li>
+                  <li>
+                    Global size is no longer an option. Each widget has a default size applied, and can be changed
+                    independently.
+                  </li>
+                  <li>All fonts are available under the free plan.</li>
+                  <li>All fonts other than the default Source Sans Pro now require internet to load.</li>
+                  <li>
+                    Color themes and random color theme options have been removed. These may come back in a different
+                    manner in the future.
+                  </li>
+                  <li>
+                    Tab title no longer relies on an added clock to show the time/date. You can now set the title's own
+                    timezone and time format.
+                  </li>
+                  <li>
+                    Offset and margin options have been removed as they are no longer needed with the new positioning
+                    system.
+                  </li>
+                  <li>Settings panel only has dark mode now. Light mode may return in the future.</li>
+                  <li>
+                    Due to so many changes, translations have been completely redone using DeepL. This means some
+                    translations are possibly worse now. Contact me if you notice any major issues.
+                  </li>
+                  <li>Clock styles (digital, analog, binary) have been split into individual widgets.</li>
+                  <li>All analog clock face and hand styles are now available in the free plan.</li>
+                  <li>The notepad widget is now available in the free plan. Add multiple notepads with Premium.</li>
+                  <li>The message widget is now called Quotes with a new optional Author field.</li>
+                  <li>New extension logo!</li>
+                  <li>Better support website: <a href="https://carettab.com/help">carettab.com/help</a></li>
                 </ul>
               </div>
+            </div>
+            <div>
+              <small>* Only available with Premium Access</small>
             </div>
           </div>
         </div>
@@ -331,6 +432,18 @@ const handleRenameSave = (id) => {
     font-weight: 600;
     font-size: 1.8rem;
     margin: 0;
+  }
+}
+
+.whatsNewModal {
+  .subtitle {
+    margin-block: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  .modalContent .group {
+    align-items: start;
   }
 }
 

@@ -88,7 +88,11 @@ const getBookmarks = () => {
   if (!bookmarksPermission.value) return
   loading.value = true
   chrome.bookmarks.getTree((tree) => {
-    const bookmarks = tree[0].children.find((node) => node.id === '1' && node.parentId === '0').children
+    let bookmarks = tree[0].children.find((node) => node.id === '1' && node.parentId === '0').children
+    bookmarks.forEach((link, index) => {
+      link.id = index
+      link.special = 'none'
+    })
     allLinks.value = [...bookmarks]
     loading.value = false
     nextTick(() => organizeLinks())
@@ -337,7 +341,7 @@ const setQuickLinksVars = computed(() => {
             :target="props.widget.link.openInNewTab ? '_blank' : '_self'"
           >
             <img
-              v-if="props.widget.link.icons && faviconPermission && link.special === 'none'"
+              v-if="props.widget.link.icons && faviconPermission"
               class="linkFavicon"
               :src="getIcon(link.url)"
               :alt="`Favicon for ${link.url}`"

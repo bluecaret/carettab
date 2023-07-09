@@ -243,7 +243,8 @@
     "lockThisPhotoToSet": "Bloqueie esta fotografia para a definir como a sua escolha permanente ou desbloqueie-a para continuar com as fotografias diárias aleatórias.",
     "widgetIsRunningOutOfStorageSpace": "O widget está a ficar sem espaço de armazenamento",
     "addingMoreContent": "A adição de mais conteúdo ao widget pode resultar numa falha ao guardar as alterações.",
-    "cautionYouAreAboutToRunOutOfStorage": "Cuidado: Está prestes a ficar sem espaço de armazenamento. A adição de conteúdo adicional ou widgets pode impedir que consiga guardar as alterações."
+    "cautionYouAreAboutToRunOutOfStorage": "Cuidado: Está prestes a ficar sem espaço de armazenamento. A adição de conteúdo adicional ou widgets pode impedir que consiga guardar as alterações.",
+    "youHaveReachedTheMaximumNumberOfWidgets": "Atingiu o número máximo de widgets. O espaço de armazenamento permitido pelo browser não permite mais."
   },
   "advanced": {
     "advancedSettings": "Definições avançadas",

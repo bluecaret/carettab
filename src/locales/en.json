@@ -243,7 +243,8 @@
     "lock": "Lock",
     "cautionYouAreAboutToRunOutOfStorage": "Caution: You are about to run out of storage space. Adding additional content or widgets may prevent you from being able to save changes.",
     "widgetIsRunningOutOfStorageSpace": "Widget is running out of storage space",
-    "addingMoreContent": "Adding more content to the widget could result in a failure to save changes."
+    "addingMoreContent": "Adding more content to the widget could result in a failure to save changes.",
+    "youHaveReachedTheMaximumNumberOfWidgets": "You have reached the maximum number of widgets. The storage space allowed by the browser does not allow more."
   },
   "advanced": {
     "importOldVersionWarning": "Settings are from an older version of CaretTab. We will do our best to import them, but some settings may not be compatible. Do you want to continue?",

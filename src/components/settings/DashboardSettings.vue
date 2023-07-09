@@ -247,9 +247,12 @@ const handleRenameSave = (id) => {
       @end="drag = false"
     >
       <template #header>
-        <div class="block addWidgetBar">
+        <div v-if="store.config.layers.length < 500" class="block addWidgetBar">
           <AddWidgetModal @selected="handleNewWidgetClick($event)"></AddWidgetModal>
           <BlueprintModal />
+        </div>
+        <div v-if="store.config.layers.length >= 500" class="block">
+          {{ $t('settings.youHaveReachedTheMaximumNumberOfWidgets') }}
         </div>
         <div v-if="store.config.layers.length < 1" class="block">
           <div class="group stack fill widgetHeader">

@@ -243,7 +243,8 @@
     "lockThisPhotoToSet": "Lås detta foto för att göra det till ditt permanenta val, eller lås upp för att fortsätta med slumpmässiga dagliga foton.",
     "widgetIsRunningOutOfStorageSpace": "Widgeten håller på att få slut på lagringsutrymme",
     "addingMoreContent": "Om du lägger till mer innehåll i widgeten kan det leda till att ändringarna inte sparas.",
-    "cautionYouAreAboutToRunOutOfStorage": "Varning! Ditt lagringsutrymme håller på att ta slut. Om du lägger till ytterligare innehåll eller widgetar kan det hända att du inte kan spara ändringarna."
+    "cautionYouAreAboutToRunOutOfStorage": "Varning! Ditt lagringsutrymme håller på att ta slut. Om du lägger till ytterligare innehåll eller widgetar kan det hända att du inte kan spara ändringarna.",
+    "youHaveReachedTheMaximumNumberOfWidgets": "Du har nått det maximala antalet widgets. Det lagringsutrymme som webbläsaren tillåter tillåter inte mer."
   },
   "advanced": {
     "advancedSettings": "Avancerade inställningar",

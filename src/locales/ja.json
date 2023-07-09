@@ -243,7 +243,8 @@
     "lockThisPhotoToSet": "この写真をロックして永久保存版にするか、ロックを解除してランダムな日替わり写真を続けます。",
     "widgetIsRunningOutOfStorageSpace": "ウィジェットのストレージ容量が不足している",
     "addingMoreContent": "ウィジェットにさらにコンテンツを追加すると、変更の保存に失敗する可能性があります。",
-    "cautionYouAreAboutToRunOutOfStorage": "注意ストレージ容量が不足しそうです。コンテンツやウィジェットを追加すると、変更を保存できなくなる可能性があります。"
+    "cautionYouAreAboutToRunOutOfStorage": "注意ストレージ容量が不足しそうです。コンテンツやウィジェットを追加すると、変更を保存できなくなる可能性があります。",
+    "youHaveReachedTheMaximumNumberOfWidgets": "ウィジェットの最大数に達しました。ブラウザが許可するストレージ容量ではこれ以上は許可されません。"
   },
   "advanced": {
     "advancedSettings": "詳細設定",

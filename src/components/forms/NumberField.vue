@@ -73,26 +73,28 @@ function handleArrowDone() {
       :placeholder="props.placeholder ? props.placeholder : ''"
       @input="handleUpdate"
     />
-    <button
-      class="numBtn"
-      tabindex="-1"
-      :aria-label="$t('settings.increaseNumber')"
-      :disabled="props.disabled ? 'disabled' : null"
-      @pointerdown="handleArrowStart(true)"
-      @pointerup="handleArrowDone()"
-    >
-      <fa icon="fa-plus"></fa>
-    </button>
-    <button
-      class="numBtn"
-      tabindex="-1"
-      :aria-label="$t('settings.decreaseNumber')"
-      :disabled="props.disabled ? 'disabled' : null"
-      @pointerdown="handleArrowStart(false)"
-      @pointerup="handleArrowDone()"
-    >
-      <fa icon="fa-minus"></fa>
-    </button>
+    <div class="numBtnGroup">
+      <button
+        class="numBtn"
+        tabindex="-1"
+        :aria-label="$t('settings.increaseNumber')"
+        :disabled="props.disabled ? 'disabled' : null"
+        @pointerdown="handleArrowStart(true)"
+        @pointerup="handleArrowDone()"
+      >
+        <fa icon="fa-plus"></fa>
+      </button>
+      <button
+        class="numBtn"
+        tabindex="-1"
+        :aria-label="$t('settings.decreaseNumber')"
+        :disabled="props.disabled ? 'disabled' : null"
+        @pointerdown="handleArrowStart(false)"
+        @pointerup="handleArrowDone()"
+      >
+        <fa icon="fa-minus"></fa>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -100,11 +102,11 @@ function handleArrowDone() {
 .num {
   display: grid;
   grid-template-columns: 1fr 2rem;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
 
   input {
-    grid-row: 1 / 3;
     grid-column: 1 / 3;
+    grid-row: 1 / 2;
     appearance: none;
     background-image: linear-gradient(to right, var(--cArrowFade), var(--cArrowFade));
     background-position: calc(100% - 2rem) 0.2em;
@@ -126,28 +128,26 @@ function handleArrowDone() {
   }
 }
 
-.numBtn {
+.numBtnGroup {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
-  background: transparent;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  background-color: var(--cInputBg);
+  border-radius: var(--s3);
+  transition: scale 0.1s, box-shadow 0.1s;
+}
+
+.numBtn {
+  background-color: transparent;
   border: 0;
-  width: auto;
-  height: auto;
   padding: 0;
   font-size: 1.2rem;
   cursor: pointer;
   display: grid;
   place-items: center;
   color: var(--cArrow);
-
-  &:last-of-type {
-    grid-row: 2 / 3;
-  }
-
-  &:hover,
-  &:focus-within {
-    scale: 1.3;
-  }
 
   &:active {
     opacity: 0.5;
@@ -157,6 +157,13 @@ function handleArrowDone() {
     cursor: not-allowed;
     color: var(--cArrowDisabled);
     scale: 1;
+  }
+}
+
+.num:hover {
+  .numBtnGroup {
+    scale: 1.5;
+    box-shadow: 0 0 0 1px var(--cArrowDisabled);
   }
 }
 </style>

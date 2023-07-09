@@ -244,7 +244,9 @@
     "widgetIsRunningOutOfStorageSpace": "ウィジェットのストレージ容量が不足している",
     "addingMoreContent": "ウィジェットにさらにコンテンツを追加すると、変更の保存に失敗する可能性があります。",
     "cautionYouAreAboutToRunOutOfStorage": "注意ストレージ容量が不足しそうです。コンテンツやウィジェットを追加すると、変更を保存できなくなる可能性があります。",
-    "youHaveReachedTheMaximumNumberOfWidgets": "ウィジェットの最大数に達しました。ブラウザが許可するストレージ容量ではこれ以上は許可されません。"
+    "youHaveReachedTheMaximumNumberOfWidgets": "ウィジェットの最大数に達しました。ブラウザが許可するストレージ容量ではこれ以上は許可されません。",
+    "shareYourCreation": "あなたの作品をシェアしてください！",
+    "doYouHaveALayout": "他の人が気に入りそうなレイアウトをお持ちですか？設定のエクスポートとスクリーンショットを{'|'}まで送っていただければ、リストに加えるかもしれません。設定のエクスポートは、設定ダッシュボード > 拡張機能設定 > 詳細 > エクスポートから行えます。"
   },
   "advanced": {
     "advancedSettings": "詳細設定",

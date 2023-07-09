@@ -147,6 +147,14 @@ const handleBlueprintSelection = async (blueprint) => {
               </ModalWindow>
             </li>
           </ul>
+          <div class="explanation">
+            <div class="explanationTitle">{{ $t('settings.shareYourCreation') }}</div>
+            <div class="explanationDesc">
+              {{ store.tSplit($t('settings.doYouHaveALayout'))[0] }}
+              <a href="mailto:dev@bluecaret.com">dev@bluecaret.com</a>
+              {{ store.tSplit($t('settings.doYouHaveALayout'))[1] }}
+            </div>
+          </div>
         </div>
       </div>
     </template>
@@ -154,6 +162,11 @@ const handleBlueprintSelection = async (blueprint) => {
 </template>
 
 <style lang="scss" scoped>
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
 .btn.addBtn {
   width: 100%;
   justify-content: center;
@@ -239,7 +252,6 @@ const handleBlueprintSelection = async (blueprint) => {
   border-radius: var(--s4);
   background: var(--g3);
   color: var(--cTextSubtle);
-  margin-block-end: var(--s4);
 }
 
 .explanationTitle {

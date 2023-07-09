@@ -244,7 +244,9 @@
     "widgetIsRunningOutOfStorageSpace": "Tiện ích sắp hết dung lượng lưu trữ",
     "addingMoreContent": "Việc thêm nhiều nội dung hơn vào tiện ích con có thể dẫn đến việc không thể lưu các thay đổi.",
     "cautionYouAreAboutToRunOutOfStorage": "Thận trọng: Bạn sắp hết dung lượng lưu trữ. \nViệc thêm nội dung hoặc tiện ích bổ sung có thể khiến bạn không thể lưu các thay đổi.",
-    "youHaveReachedTheMaximumNumberOfWidgets": "Bạn đã đạt đến số lượng vật dụng tối đa. \nKhông gian lưu trữ được trình duyệt cho phép không cho phép nhiều hơn."
+    "youHaveReachedTheMaximumNumberOfWidgets": "Bạn đã đạt đến số lượng vật dụng tối đa. \nKhông gian lưu trữ được trình duyệt cho phép không cho phép nhiều hơn.",
+    "shareYourCreation": "Chia sẻ sáng tạo của bạn!",
+    "doYouHaveALayout": "Bạn có bố cục mà bạn nghĩ người khác sẽ thích không? \nGửi bản xuất cài đặt của bạn và ảnh chụp màn hình tới {'|'} và tôi có thể thêm nó vào danh sách. \nBạn có thể xuất cài đặt của mình bằng cách đi tới Bảng điều khiển cài đặt > Cài đặt tiện ích mở rộng > Nâng cao > Xuất"
   },
   "advanced": {
     "advancedSettings": "Cài đặt nâng cao",

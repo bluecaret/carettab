@@ -244,7 +244,9 @@
     "widgetIsRunningOutOfStorageSpace": "小工具的存储空间即将耗尽",
     "addingMoreContent": "向小组件添加更多的内容可能导致无法保存更改。",
     "cautionYouAreAboutToRunOutOfStorage": "请注意：你的存储空间即将耗尽。添加额外的内容或小工具可能会使你无法保存更改。",
-    "youHaveReachedTheMaximumNumberOfWidgets": "你已经达到了小部件的最大数量。浏览器所允许的存储空间不允许更多。"
+    "youHaveReachedTheMaximumNumberOfWidgets": "你已经达到了小部件的最大数量。浏览器所允许的存储空间不允许更多。",
+    "shareYourCreation": "分享你的创作!",
+    "doYouHaveALayout": "你有一个你认为别人会喜欢的布局吗？请将您的设置和截图导出到{'|'}，我可能会将其添加到列表中。你可以通过进入设置仪表板>扩展设置>高级>导出你的设置。"
   },
   "advanced": {
     "advancedSettings": "高级设置",

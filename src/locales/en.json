@@ -244,7 +244,9 @@
     "cautionYouAreAboutToRunOutOfStorage": "Caution: You are about to run out of storage space. Adding additional content or widgets may prevent you from being able to save changes.",
     "widgetIsRunningOutOfStorageSpace": "Widget is running out of storage space",
     "addingMoreContent": "Adding more content to the widget could result in a failure to save changes.",
-    "youHaveReachedTheMaximumNumberOfWidgets": "You have reached the maximum number of widgets. The storage space allowed by the browser does not allow more."
+    "youHaveReachedTheMaximumNumberOfWidgets": "You have reached the maximum number of widgets. The storage space allowed by the browser does not allow more.",
+    "shareYourCreation": "Share your creation!",
+    "doYouHaveALayout": "Do you have a layout you think others would love? Send an export of your settings and a screenshot to {'|'} and I might add it to the list. You can export your settings by going to the Settings Dashboard > Extension Settings > Advanced > Export"
   },
   "advanced": {
     "importOldVersionWarning": "Settings are from an older version of CaretTab. We will do our best to import them, but some settings may not be compatible. Do you want to continue?",

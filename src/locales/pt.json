@@ -244,7 +244,9 @@
     "widgetIsRunningOutOfStorageSpace": "O widget está a ficar sem espaço de armazenamento",
     "addingMoreContent": "A adição de mais conteúdo ao widget pode resultar numa falha ao guardar as alterações.",
     "cautionYouAreAboutToRunOutOfStorage": "Cuidado: Está prestes a ficar sem espaço de armazenamento. A adição de conteúdo adicional ou widgets pode impedir que consiga guardar as alterações.",
-    "youHaveReachedTheMaximumNumberOfWidgets": "Atingiu o número máximo de widgets. O espaço de armazenamento permitido pelo browser não permite mais."
+    "youHaveReachedTheMaximumNumberOfWidgets": "Atingiu o número máximo de widgets. O espaço de armazenamento permitido pelo browser não permite mais.",
+    "shareYourCreation": "Partilhe a sua criação!",
+    "doYouHaveALayout": "Tem um esquema que acha que os outros iriam adorar? Envie uma exportação das suas definições e uma captura de ecrã para {'|'} e poderei adicioná-la à lista. Pode exportar as suas definições acedendo ao Painel de controlo das definições > Definições de extensão > Avançadas > Exportar"
   },
   "advanced": {
     "advancedSettings": "Definições avançadas",

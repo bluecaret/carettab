@@ -244,7 +244,9 @@
     "widgetIsRunningOutOfStorageSpace": "Dem Widget geht der Speicherplatz aus",
     "addingMoreContent": "Das Hinzufügen weiterer Inhalte zum Widget kann dazu führen, dass die Änderungen nicht gespeichert werden können.",
     "cautionYouAreAboutToRunOutOfStorage": "Achtung! Ihr Speicherplatz wird bald erschöpft sein. Das Hinzufügen von zusätzlichen Inhalten oder Widgets kann dazu führen, dass Sie Änderungen nicht mehr speichern können.",
-    "youHaveReachedTheMaximumNumberOfWidgets": "Sie haben die maximale Anzahl von Widgets erreicht. Der vom Browser zugelassene Speicherplatz lässt nicht mehr zu."
+    "youHaveReachedTheMaximumNumberOfWidgets": "Sie haben die maximale Anzahl von Widgets erreicht. Der vom Browser zugelassene Speicherplatz lässt nicht mehr zu.",
+    "shareYourCreation": "Teilen Sie Ihre Kreation!",
+    "doYouHaveALayout": "Haben Sie ein Layout, von dem Sie glauben, dass es anderen gefallen würde? Schicken Sie einen Export Ihrer Einstellungen und einen Screenshot an {'|'} und ich nehme es vielleicht in die Liste auf. Sie können Ihre Einstellungen exportieren, indem Sie auf dem Dashboard Einstellungen > Erweiterungseinstellungen > Erweitert > Exportieren gehen."
   },
   "advanced": {
     "advancedSettings": "Erweiterte Einstellungen",

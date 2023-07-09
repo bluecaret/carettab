@@ -244,7 +244,9 @@
     "widgetIsRunningOutOfStorageSpace": "Widgeten håller på att få slut på lagringsutrymme",
     "addingMoreContent": "Om du lägger till mer innehåll i widgeten kan det leda till att ändringarna inte sparas.",
     "cautionYouAreAboutToRunOutOfStorage": "Varning! Ditt lagringsutrymme håller på att ta slut. Om du lägger till ytterligare innehåll eller widgetar kan det hända att du inte kan spara ändringarna.",
-    "youHaveReachedTheMaximumNumberOfWidgets": "Du har nått det maximala antalet widgets. Det lagringsutrymme som webbläsaren tillåter tillåter inte mer."
+    "youHaveReachedTheMaximumNumberOfWidgets": "Du har nått det maximala antalet widgets. Det lagringsutrymme som webbläsaren tillåter tillåter inte mer.",
+    "shareYourCreation": "Dela med dig av din skapelse!",
+    "doYouHaveALayout": "Har du en layout som du tror att andra skulle älska? Skicka en export av dina inställningar och en skärmdump till {'|'} så kanske jag lägger till den i listan. Du kan exportera dina inställningar genom att gå till Inställningspanelen > Tilläggsinställningar > Avancerat > Exportera"
   },
   "advanced": {
     "advancedSettings": "Avancerade inställningar",

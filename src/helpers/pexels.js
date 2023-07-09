@@ -187,7 +187,7 @@ export const getSelectedPexelsImage = async (id = '', title = '', link = '') => 
 
       const getNextImage = await getRandomPhotoFromPexelsList(pexelsType, id)
       modifiedNextImage = await preparePexelsWallpaperObj(getNextImage)
-    } else if (['curated'].includes(store.pexelsTab)) {
+    } else if (['curated'].includes(store.pexelsTab) && !id) {
       let getImage = await getRandomPhotoFromPexelsList(pexelsType, null)
       modifiedImage = await preparePexelsWallpaperObj(getImage)
 
@@ -195,6 +195,9 @@ export const getSelectedPexelsImage = async (id = '', title = '', link = '') => 
       modifiedNextImage = await preparePexelsWallpaperObj(getNextImage)
     } else {
       let path = `/photo/${id}`
+
+      // If curated photo but not random, change type to pxphoto
+      if (['curated'].includes(store.pexelsTab) && id) pexelsType = 'pxphoto'
 
       const getImage = await requestPexelsData(path)
       const base64Image = await setupPexelsBase64Data(getImage)

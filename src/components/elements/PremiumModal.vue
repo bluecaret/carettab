@@ -155,7 +155,7 @@ const handleLicenseKey = async () => {
         </div>
 
         <div v-if="user.paid && !isJustSubscribed">
-          <h2 class="premiumModalHeading" v-html="$t('settings.thankYouForYourSupport')"></h2>
+          <h2 class="premiumModalHeading">{{ $t('settings.thankYouForYourSupport') }}</h2>
           <p class="premiumModalSubheading">
             {{ $t('settings.byPayingForPremiumAccess') }}
           </p>

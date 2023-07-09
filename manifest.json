@@ -15,11 +15,7 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://dtfv5mvrx9.execute-api.us-west-2.amazonaws.com/*",
-        "https://extensionpay.com/*",
-        "https://fonts.googleapis.com/*"
-      ],
+      "matches": ["https://extensionpay.com/*"],
       "js": ["import-ExtPay.js"],
       "run_at": "document_start"
     }
@@ -29,6 +25,7 @@
     "type": "module"
   },
   "permissions": ["storage"],
+  "host_permissions": ["https://dtfv5mvrx9.execute-api.us-west-2.amazonaws.com/*", "https://fonts.googleapis.com/*"],
   "optional_permissions": ["favicon", "bookmarks", "topSites"],
   "optional_host_permissions": ["https://developer.sepush.co.za/*", "https://api.openai.com/"],
   "commands": {

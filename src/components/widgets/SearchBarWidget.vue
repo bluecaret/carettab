@@ -97,6 +97,12 @@ const setBarStyles = computed(() => {
   `
 })
 
+const setSearchIconShadow = computed(() => {
+  return `drop-shadow(${shadow(
+    props.widget.base.font.override ? props.widget.base.font.shadow : store.config.global.font.shadow
+  )})`
+})
+
 const elementStyles = computed(() => {
   if (
     (props.widget.base.font.override && props.widget.base.font.shadow[0] === false) ||
@@ -205,6 +211,7 @@ const elementStyles = computed(() => {
     text-decoration: inherit;
     letter-spacing: inherit;
     text-transform: inherit;
+    text-shadow: inherit;
     width: 100%;
     border-radius: inherit;
     color: currentColor;
@@ -229,11 +236,13 @@ const elementStyles = computed(() => {
     text-decoration: inherit;
     letter-spacing: inherit;
     text-transform: inherit;
+    text-shadow: inherit;
     color: currentColor;
     cursor: pointer;
     padding: var(--elementPadding) calc(var(--elementPadding) / 2);
     .svg-inline--fa {
       font-size: inherit;
+      filter: v-bind(setSearchIconShadow);
     }
     &:last-child {
       padding-right: var(--elementPadding);

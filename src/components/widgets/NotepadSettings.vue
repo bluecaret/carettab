@@ -54,14 +54,6 @@ const changeStorageLocation = async () => {
         </template>
         <template #children>
           <div class="block">
-            <div class="label mra">{{ $t('widget.width') }}</div>
-            <NumberField v-model="widget.width" tag-id="width" class="w10" :min="1" :increment="10"></NumberField>
-          </div>
-          <div class="block">
-            <label for="height" class="label mra">{{ $t('widget.height') }}</label>
-            <NumberField v-model="widget.height" tag-id="height" class="w10" :min="1" :increment="10"></NumberField>
-          </div>
-          <div class="block">
             <label for="padding" class="label mra">{{ $t('common.padding') }}</label>
             <NumberField v-model="widget.padding" tag-id="padding" class="w10" :min="0" :increment="1"></NumberField>
           </div>

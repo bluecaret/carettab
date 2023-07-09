@@ -43,9 +43,7 @@ const containerStyles = computed(() => {
     <div class="widgetInner">
       <div
         class="textbox"
-        :style="`width: ${widget.width}px; height: ${widget.height}px; border-radius: ${
-          widget.borderRadius
-        }px; background-color: ${hsl(
+        :style="`border-radius: ${widget.borderRadius}px; background-color: ${hsl(
           widget.overrideColors ? widget.background : store.config.global.element.primaryColor
         )}; box-shadow: ${shadow(
           widget.overrideColors ? widget.shadow : store.config.global.element.shadow
@@ -73,6 +71,14 @@ const containerStyles = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+.notepad {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.widgetInner {
+  width: 100%;
+  height: 100%;
+}
 .textbox {
   position: relative;
   width: 100%;
@@ -90,7 +96,6 @@ const containerStyles = computed(() => {
   background: transparent;
   padding: 0;
   margin: 0;
-  resize: none;
   font-family: inherit;
   font-weight: inherit;
   line-height: 1.3;

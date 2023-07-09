@@ -27,6 +27,6 @@ export const baseWidgetStyles = {
     borderColor: [0, 0, 0, 0.8],
     background: [0, 0, 0, 0.4],
     shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
-    padding: 20,
+    padding: 0,
   },
 }

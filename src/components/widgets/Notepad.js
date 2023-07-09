@@ -5,8 +5,6 @@ export class Notepad {
   sync = false
   spellCheck = true
   showCharLimit = true
-  width = 300
-  height = 200
   padding = 12
   borderWidth = 1
   borderRadius = 5
@@ -16,6 +14,11 @@ export class Notepad {
   overrideColors = true
   base = {
     ...baseWidgetStyles,
+    autoSize: false,
+    width: 400,
+    widthUnit: 'pixels',
+    height: 400,
+    heightUnit: 'pixels',
     font: { ...baseWidgetStyles.font, override: true, size: 14, family: 'Roboto Mono', color: [0, 0, 80, 1] },
   }
 }

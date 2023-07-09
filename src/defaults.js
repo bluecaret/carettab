@@ -50,7 +50,7 @@ export class Defaults {
       borderColor: [0, 0, 0, 0.15],
       borderSize: 0,
       radius: 8,
-      padding: 20,
+      padding: 0,
     },
     element: {
       primaryColor: [220, 15, 85, 1],

@@ -76,7 +76,6 @@ const performSearch = () => {
 
 const setBarStyles = computed(() => {
   return `
-    width: ${props.widget.size}px;
     border-style: solid;
     border-width: 0;
     border${props.widget.borderBottom ? '-bottom' : ''}-width: ${props.widget.borderSize}px;
@@ -176,7 +175,11 @@ const elementStyles = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+.searchBar {
+  grid-template-columns: 1fr;
+}
 .searchBarWrapper {
+  width: 100%;
   display: inline-grid;
   grid-template-columns: 1fr;
   font-size: 16px;

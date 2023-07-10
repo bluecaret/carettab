@@ -93,10 +93,6 @@ const widget = reactive(store.config[widgetStore][ci.value])
             <ToggleField v-model="widget.overrideColors" tag-id="colorOverride"></ToggleField>
           </div>
           <div class="block">
-            <label for="size" class="label">{{ $t('widget.width') }}</label>
-            <NumberField id="size" v-model="widget.size" name="size" :min="0" :step="1" class="w10"></NumberField>
-          </div>
-          <div class="block">
             <label for="padding" class="label">{{ $t('common.padding') }}</label>
             <NumberField
               id="padding"

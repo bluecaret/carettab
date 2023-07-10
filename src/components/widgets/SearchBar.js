@@ -10,7 +10,6 @@ export class SearchBar {
   engineLabel = false
   dropdown = false
   padding = 10
-  size = 500
   borderSize = 1
   borderBottom = false
   radius = 6
@@ -19,5 +18,10 @@ export class SearchBar {
   borderColor = [0, 0, 100, 1]
   boxShadow = [false, 1, 1, 5, 0, 0, 0, 0.8]
   label = 'Search the web...'
-  base = { ...baseWidgetStyles, font: { ...baseWidgetStyles.font, size: 20 } }
+  base = {
+    ...baseWidgetStyles,
+    width: 500,
+    widthUnit: 'pixels',
+    font: { ...baseWidgetStyles.font, size: 20 },
+  }
 }

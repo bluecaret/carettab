@@ -192,7 +192,7 @@ const getMostVisited = () => {
   background-color: transparent;
   box-shadow: none;
   border-radius: 1.9rem;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
   text-decoration: none;

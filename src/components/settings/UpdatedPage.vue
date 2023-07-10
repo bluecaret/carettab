@@ -165,7 +165,7 @@ const handleFinish = () => {
     gap: 0.3em;
     justify-content: center;
     align-items: center;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 5.4rem;
     font-weight: 100;
     margin: 0 0 var(--s4) 0;

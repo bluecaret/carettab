@@ -85,7 +85,7 @@ const getFontFamily = computed(() => {
   if (store.config.global.font.family && ff) {
     return `"${ff.label}"`
   }
-  return '"Source Sans Pro"'
+  return '"Source Sans 3"'
 })
 
 const buildFontLink = computed(() => {

@@ -132,7 +132,7 @@ onBeforeUnmount(() => {
   background-color: var(--cModalBg);
   border-radius: var(--s4);
 
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
   font-size: 1.8rem;
   font-weight: 300;
   color: var(--cText);

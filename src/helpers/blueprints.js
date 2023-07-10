@@ -23,7 +23,7 @@ export const blueprints = [
           font: {
             bold: 200,
             color: [0, 0, 100, 1],
-            family: 'Source Sans Pro',
+            family: 'Source Sans 3',
             italic: false,
             letterSpacing: 0,
             shadow: [true, 1, 1, 2, 0, 0, 0, 1],
@@ -175,7 +175,7 @@ export const blueprints = [
               font: {
                 override: false,
                 color: [200, 10, 90, 1],
-                family: 'Source Sans Pro',
+                family: 'Source Sans 3',
                 size: 140,
                 bold: 400,
                 italic: false,
@@ -319,7 +319,7 @@ export const blueprints = [
               font: {
                 override: false,
                 color: [200, 10, 90, 1],
-                family: 'Source Sans Pro',
+                family: 'Source Sans 3',
                 size: 50,
                 bold: 400,
                 italic: false,
@@ -373,7 +373,7 @@ export const blueprints = [
               font: {
                 override: false,
                 color: [200, 10, 90, 1],
-                family: 'Source Sans Pro',
+                family: 'Source Sans 3',
                 size: 24,
                 bold: 400,
                 italic: false,
@@ -424,7 +424,7 @@ export const blueprints = [
           font: {
             bold: 400,
             color: [220, 15, 85, 1],
-            family: 'Source Sans Pro',
+            family: 'Source Sans 3',
             italic: false,
             letterSpacing: 0,
             shadow: [true, 1, 1, 2, 0, 0, 0, 1],
@@ -482,7 +482,7 @@ export const blueprints = [
               font: {
                 bold: 400,
                 color: [0, 0, 100, 1],
-                family: 'Source Sans Pro',
+                family: 'Source Sans 3',
                 italic: false,
                 letterSpacing: 0,
                 override: true,
@@ -605,7 +605,7 @@ export const blueprints = [
               font: {
                 bold: 400,
                 color: [168, 55, 65, 1],
-                family: 'Source Sans Pro',
+                family: 'Source Sans 3',
                 italic: false,
                 letterSpacing: 10,
                 override: true,
@@ -727,7 +727,7 @@ export const blueprints = [
               font: {
                 bold: 400,
                 color: [200, 10, 90, 1],
-                family: 'Source Sans Pro',
+                family: 'Source Sans 3',
                 italic: false,
                 letterSpacing: 0,
                 override: false,
@@ -804,7 +804,7 @@ export const blueprints = [
               font: {
                 bold: 400,
                 color: [200, 10, 90, 1],
-                family: 'Source Sans Pro',
+                family: 'Source Sans 3',
                 italic: false,
                 letterSpacing: 0,
                 override: false,
@@ -881,7 +881,7 @@ export const blueprints = [
               font: {
                 bold: 400,
                 color: [200, 10, 90, 1],
-                family: 'Source Sans Pro',
+                family: 'Source Sans 3',
                 italic: false,
                 letterSpacing: 0,
                 override: false,
@@ -958,7 +958,7 @@ export const blueprints = [
               font: {
                 bold: 400,
                 color: [200, 10, 90, 1],
-                family: 'Source Sans Pro',
+                family: 'Source Sans 3',
                 italic: false,
                 letterSpacing: 0,
                 override: false,
@@ -1141,7 +1141,7 @@ export const blueprints = [
               font: {
                 override: true,
                 color: [168, 55, 77, 1],
-                family: 'Source Sans Pro',
+                family: 'Source Sans 3',
                 size: 40,
                 bold: 400,
                 italic: false,
@@ -1274,7 +1274,7 @@ export const blueprints = [
               font: {
                 bold: 400,
                 color: [200, 10, 90, 1],
-                family: 'Source Sans Pro',
+                family: 'Source Sans 3',
                 italic: false,
                 letterSpacing: 0,
                 override: false,
@@ -1357,7 +1357,7 @@ export const blueprints = [
               font: {
                 bold: 400,
                 color: [11, 67, 61, 1],
-                family: 'Source Sans Pro',
+                family: 'Source Sans 3',
                 italic: false,
                 letterSpacing: 0,
                 override: true,
@@ -1519,7 +1519,7 @@ export const blueprints = [
               font: {
                 bold: 400,
                 color: [200, 10, 90, 1],
-                family: 'Source Sans Pro',
+                family: 'Source Sans 3',
                 italic: false,
                 letterSpacing: 0,
                 override: false,
@@ -1596,7 +1596,7 @@ export const blueprints = [
               font: {
                 bold: 400,
                 color: [45, 100, 84, 1],
-                family: 'Source Sans Pro',
+                family: 'Source Sans 3',
                 italic: false,
                 letterSpacing: 0,
                 override: true,

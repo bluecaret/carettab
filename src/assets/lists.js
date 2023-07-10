@@ -181,7 +181,7 @@ export const fontList = [
   { id: 'Roboto+Mono', label: 'Roboto Mono' },
   { id: 'Roboto+Slab', label: 'Roboto Slab' },
   { id: 'Silkscreen', label: 'Silkscreen' },
-  { id: 'Source+Sans+Pro', label: 'Source Sans Pro' },
+  { id: 'Source+Sans+3', label: 'Source Sans 3' },
   { id: 'Ubuntu', label: 'Ubuntu' },
 ]
 

@@ -143,7 +143,7 @@ $optionsToggleUpdateNoticeOffset: 16px;
 
     &::before {
       content: 'NEW';
-      font-family: 'Source Sans Pro', sans-serif;
+      font-family: 'Source Sans 3', sans-serif;
       font-size: 8px;
     }
   }

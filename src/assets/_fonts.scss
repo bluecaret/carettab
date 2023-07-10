@@ -1,26 +1,65 @@
 $font-src: '/fonts';
 
-/* source-sans-pro-300 - cyrillic_latin_vietnamese */
 @font-face {
   font-display: swap; 
-  font-family: 'Source Sans Pro';
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 100;
+  src: url('#{$font-src}/source-sans-3-extralight.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap; 
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 200;
+  src: url('#{$font-src}/source-sans-3-extralight.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap; 
+  font-family: 'Source Sans 3';
   font-style: normal;
   font-weight: 300;
-  src: url('#{$font-src}/source-sans-pro-v21-cyrillic_latin_vietnamese-300.woff2') format('woff2');
+  src: url('#{$font-src}/source-sans-3-light.woff2') format('woff2');
 }
-/* source-sans-pro-regular - cyrillic_latin_vietnamese */
 @font-face {
   font-display: swap; 
-  font-family: 'Source Sans Pro';
+  font-family: 'Source Sans 3';
   font-style: normal;
   font-weight: 400;
-  src: url('#{$font-src}/source-sans-pro-v21-cyrillic_latin_vietnamese-regular.woff2') format('woff2');
+  src: url('#{$font-src}/source-sans-3-regular.woff2') format('woff2');
 }
-/* source-sans-pro-600 - cyrillic_latin_vietnamese */
+@font-face {
+  font-display: swap; 
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 500;
+  src: url('#{$font-src}/source-sans-3-medium.woff2') format('woff2');
+}
 @font-face {
   font-display: swap;
-  font-family: 'Source Sans Pro';
+  font-family: 'Source Sans 3';
   font-style: normal;
   font-weight: 600;
-  src: url('#{$font-src}/source-sans-pro-v21-cyrillic_latin_vietnamese-600.woff2') format('woff2');
+  src: url('#{$font-src}/source-sans-3-semibold.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 700;
+  src: url('#{$font-src}/source-sans-3-bold.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 800;
+  src: url('#{$font-src}/source-sans-3-extrabold.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 900;
+  src: url('#{$font-src}/source-sans-3-black.woff2') format('woff2');
 }

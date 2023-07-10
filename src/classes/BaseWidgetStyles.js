@@ -10,7 +10,7 @@ export const baseWidgetStyles = {
   font: {
     override: false,
     color: [200, 10, 90, 1],
-    family: 'Source Sans Pro',
+    family: 'Source Sans 3',
     size: 20,
     bold: 400,
     italic: false,

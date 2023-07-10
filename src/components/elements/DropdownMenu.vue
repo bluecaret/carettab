@@ -136,7 +136,7 @@ defineExpose({ close })
   border: 0.1rem solid var(--cDropdownBorder);
   border-radius: var(--s3);
   overflow: hidden;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
   font-size: 1.8rem;
   font-weight: 300;
   color: var(--cText);

@@ -36,7 +36,7 @@ export class Defaults {
     font: {
       color: [220, 15, 85, 1],
       shadow: [true, 1, 1, 2, 0, 0, 0, 1],
-      family: 'Source Sans Pro',
+      family: 'Source Sans 3',
       size: 20,
       bold: 400,
       italic: false,

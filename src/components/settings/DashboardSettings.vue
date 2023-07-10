@@ -193,7 +193,7 @@ const handleRenameSave = (id) => {
                     independently.
                   </li>
                   <li>All fonts are available under the free plan.</li>
-                  <li>All fonts other than the default Source Sans Pro now require internet to load.</li>
+                  <li>All fonts other than the default Source Sans 3 now require internet to load.</li>
                   <li>
                     Color themes and random color theme options have been removed. These may come back in a different
                     manner in the future.
@@ -431,7 +431,7 @@ const handleRenameSave = (id) => {
   }
   h3 {
     display: block;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-weight: 600;
     font-size: 1.8rem;
     margin: 0;
@@ -497,7 +497,7 @@ const handleRenameSave = (id) => {
 
   h3 {
     display: block;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-weight: 400;
     font-size: 1.6rem;
     margin: 0;

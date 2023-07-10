@@ -231,7 +231,7 @@ const handleKeyup = (e) => {
   height: 6rem;
   cursor: pointer;
   background-color: hsl(var(--g3H) var(--g3S) calc(var(--g3L) + 2%));
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
   font-weight: 400;
   border: 0;
   border-radius: var(--s4);

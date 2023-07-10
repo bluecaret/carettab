@@ -55,7 +55,7 @@ function handleArrowStart(up) {
 
 function handleArrowDone() {
   isHold.value = false
-  if (delay.value) setTimeout(delay.value)
+  if (delay.value) clearTimeout(delay.value)
   if (timer.value) clearInterval(timer.value)
 }
 </script>

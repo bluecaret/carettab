@@ -48,7 +48,7 @@ function handleArrowStart(up) {
         if (isHold.value) {
           handleArrowUpdate(up)
         }
-      }, 200)
+      }, 40)
     }
   }, 350)
 }

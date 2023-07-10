@@ -21,7 +21,7 @@ export const blueprints = [
             tertiaryColor: [220, 15, 40, 1],
           },
           font: {
-            bold: 200,
+            bold: 300,
             color: [0, 0, 100, 1],
             family: 'Source Sans 3',
             italic: false,
@@ -359,7 +359,7 @@ export const blueprints = [
             overrideColors: true,
             background: [0, 0, 100, 0],
             borderColor: [0, 0, 100, 0.4],
-            boxShadow: [true, 0, 2, 2, 0, 0, 0, 0.2],
+            boxShadow: [false, 0, 2, 2, 0, 0, 0, 0.2],
             label: 'Search the web...',
             base: {
               width: 600,

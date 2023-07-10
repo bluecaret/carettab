@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, inject } from 'vue'
+import { inject, computed } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { fontList, fontWeight, textTransform } from '@/assets/lists.js'
 
@@ -12,16 +12,25 @@ const props = defineProps({
 
 const store = useSettingsStore()
 const user = inject('user')
-const widgetPrep = ref(null)
-if (props.widgetStore === 'global') {
-  widgetPrep.value = store.config.global.font
-} else {
-  widgetPrep.value = store.config[props.widgetStore][props.index].base.font
-}
-const widget = reactive(widgetPrep.value)
+const widget = computed({
+  get: () => {
+    if (props.widgetStore === 'global') {
+      return store.config.global.font
+    } else {
+      return store.config[props.widgetStore][props.index].base.font
+    }
+  },
+  set: (newValue) => {
+    if (props.widgetStore === 'global') {
+      store.config.global.font = newValue
+    } else {
+      store.config[props.widgetStore][props.index].base.font = newValue
+    }
+  },
+})
 
 const updateFamily = (family) => {
-  widget.family = family.label
+  widget.value.family = family.label
 }
 </script>
 

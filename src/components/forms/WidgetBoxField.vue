@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, inject } from 'vue'
+import { ref, reactive, inject, computed } from 'vue'
 import { useSettingsStore } from '@/store.js'
 
 const user = inject('user')
@@ -16,13 +16,22 @@ const props = defineProps({
 })
 
 const store = useSettingsStore()
-const widgetPrep = ref(null)
-if (props.widgetStore === 'global') {
-  widgetPrep.value = store.config.global.container
-} else {
-  widgetPrep.value = store.config[props.widgetStore][props.index].base.container
-}
-const widget = reactive(widgetPrep.value)
+const widget = computed({
+  get: () => {
+    if (props.widgetStore === 'global') {
+      return store.config.global.container
+    } else {
+      return store.config[props.widgetStore][props.index].base.container
+    }
+  },
+  set: (newValue) => {
+    if (props.widgetStore === 'global') {
+      store.config.global.container = newValue
+    } else {
+      store.config[props.widgetStore][props.index].base.container = newValue
+    }
+  },
+})
 </script>
 
 <template>

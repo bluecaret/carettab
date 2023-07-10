@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { computed } from 'vue'
 import { useSettingsStore } from '@/store.js'
 
 const props = defineProps({
@@ -11,22 +11,31 @@ const props = defineProps({
 })
 
 const store = useSettingsStore()
-const widgetPrep = ref(null)
-if (props.widgetStore === 'global') {
-  widgetPrep.value = store.config.global
-} else {
-  widgetPrep.value = store.config[props.widgetStore][props.index].base
-}
-const widget = reactive(widgetPrep.value)
+const widget = computed({
+  get: () => {
+    if (props.widgetStore === 'global') {
+      return store.config.global
+    } else {
+      return store.config[props.widgetStore][props.index].base
+    }
+  },
+  set: (newValue) => {
+    if (props.widgetStore === 'global') {
+      store.config.global = newValue
+    } else {
+      store.config[props.widgetStore][props.index].base = newValue
+    }
+  },
+})
 
 const handleAlignUpdate = (alignment) => {
-  widget.x = 0
-  widget.y = 0
-  widget.alignment = alignment
+  widget.value.x = 0
+  widget.value.y = 0
+  widget.value.alignment = alignment
 }
 
 const handleCAlignUpdate = (alignment) => {
-  widget.container.alignment = alignment
+  widget.value.container.alignment = alignment
 }
 </script>
 

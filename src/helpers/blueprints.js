@@ -168,7 +168,6 @@ export const blueprints = [
               height: 400,
               widthUnit: 'auto',
               heightUnit: 'auto',
-              autoSize: true,
               alignment: 'c',
               x: 0,
               y: 0,
@@ -312,7 +311,6 @@ export const blueprints = [
               height: 400,
               widthUnit: 'auto',
               heightUnit: 'auto',
-              autoSize: true,
               alignment: 'c',
               x: 0,
               y: -110,
@@ -366,7 +364,6 @@ export const blueprints = [
               height: 400,
               widthUnit: 'auto',
               heightUnit: 'auto',
-              autoSize: true,
               alignment: 'c',
               x: 0,
               y: 120,
@@ -468,7 +465,6 @@ export const blueprints = [
           {
             base: {
               alignment: 'n',
-              autoSize: true,
               container: {
                 alignment: 'w',
                 background: [0, 0, 0, 0.4],
@@ -591,7 +587,6 @@ export const blueprints = [
           {
             base: {
               alignment: 'c',
-              autoSize: true,
               container: {
                 alignment: 'c',
                 background: [0, 0, 0, 0.4],
@@ -713,7 +708,6 @@ export const blueprints = [
           {
             base: {
               alignment: 'c',
-              autoSize: true,
               container: {
                 alignment: 'c',
                 background: [0, 0, 0, 0.4],
@@ -790,7 +784,6 @@ export const blueprints = [
           {
             base: {
               alignment: 'c',
-              autoSize: true,
               container: {
                 alignment: 'c',
                 background: [0, 0, 0, 0.4],
@@ -867,7 +860,6 @@ export const blueprints = [
           {
             base: {
               alignment: 'c',
-              autoSize: true,
               container: {
                 alignment: 'c',
                 background: [0, 0, 0, 0.4],
@@ -944,7 +936,6 @@ export const blueprints = [
           {
             base: {
               alignment: 'c',
-              autoSize: true,
               container: {
                 alignment: 'c',
                 background: [0, 0, 0, 0.4],
@@ -1134,7 +1125,6 @@ export const blueprints = [
               height: 400,
               widthUnit: 'auto',
               heightUnit: 'auto',
-              autoSize: true,
               alignment: 'c',
               x: 0,
               y: -250,
@@ -1260,7 +1250,6 @@ export const blueprints = [
           {
             base: {
               alignment: 'c',
-              autoSize: true,
               container: {
                 alignment: 'sw',
                 background: [0, 0, 0, 0.4],
@@ -1343,7 +1332,6 @@ export const blueprints = [
           {
             base: {
               alignment: 'c',
-              autoSize: true,
               container: {
                 alignment: 'c',
                 background: [0, 0, 0, 0.4],
@@ -1459,7 +1447,6 @@ export const blueprints = [
             background: [187, 100, 38, 1],
             base: {
               alignment: 'c',
-              autoSize: false,
               container: {
                 alignment: 'sw',
                 background: [0, 0, 0, 0.4],
@@ -1505,7 +1492,6 @@ export const blueprints = [
           {
             base: {
               alignment: 'c',
-              autoSize: true,
               container: {
                 alignment: 'sw',
                 background: [0, 0, 0, 0.4],
@@ -1582,7 +1568,6 @@ export const blueprints = [
             background: [11, 67, 61, 1],
             base: {
               alignment: 'c',
-              autoSize: true,
               container: {
                 alignment: 'sw',
                 background: [0, 0, 0, 0.4],

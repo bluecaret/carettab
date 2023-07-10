@@ -3,7 +3,6 @@ export const baseWidgetStyles = {
   height: 400,
   widthUnit: 'auto',
   heightUnit: 'auto',
-  autoSize: true,
   alignment: 'c',
   x: 0,
   y: 0,

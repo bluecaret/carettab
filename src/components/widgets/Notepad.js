@@ -14,7 +14,6 @@ export class Notepad {
   overrideColors = true
   base = {
     ...baseWidgetStyles,
-    autoSize: false,
     width: 400,
     widthUnit: 'pixels',
     height: 400,

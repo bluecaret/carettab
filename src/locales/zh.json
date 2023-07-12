@@ -166,7 +166,7 @@
     "signUpForPremiumToAccessThisFeature": "注册成为高级会员以获得此功能",
     "style": "风格",
     "subscribeNow": "现在订阅",
-    "subscriptionBilledOn": "订阅的费用按月循环计算。可在任何时候以任何理由取消。<br />支付通过Stripe通过ExtensionPay处理。查看<a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\" >隐私政策</a>。",
+    "subscriptionBilledOn": "订购按月循环计费。可随时以任何理由取消。<br />通过ExtensionPay的Stripe付款。查看<a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">隐私政策</a>。",
     "supportTheDevelopmentOfCarettab": "通过高级订阅支持CaretTab的发展。以下是你得到的东西：",
     "tabTitle": "标签标题",
     "tabTitleCustomText": "自定义文本",
@@ -246,7 +246,8 @@
     "cautionYouAreAboutToRunOutOfStorage": "请注意：你的存储空间即将耗尽。添加额外的内容或小工具可能会使你无法保存更改。",
     "youHaveReachedTheMaximumNumberOfWidgets": "你已经达到了小部件的最大数量。浏览器所允许的存储空间不允许更多。",
     "shareYourCreation": "分享你的创作!",
-    "doYouHaveALayout": "你有一个你认为别人会喜欢的布局吗？请将您的设置和截图导出到{'|'}，我可能会将其添加到列表中。你可以通过进入设置仪表板>扩展设置>高级>导出你的设置。"
+    "doYouHaveALayout": "你有一个你认为别人会喜欢的布局吗？请将您的设置和截图导出到{'|'}，我可能会将其添加到列表中。你可以通过进入设置仪表板>扩展设置>高级>导出你的设置。",
+    "paymentsProcessedViaStripe": "通过ExtensionPay的Stripe付款。查看{'|'}隐私政策{'|'}。"
   },
   "advanced": {
     "advancedSettings": "高级设置",

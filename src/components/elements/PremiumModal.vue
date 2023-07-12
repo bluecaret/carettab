@@ -179,7 +179,14 @@ const handleLicenseKey = async () => {
         </div>
 
         <div class="premiumModalDisclaimer">
-          <span v-html="$t('settings.subscriptionBilledOn')"></span>
+          <span
+            >{{ $t('settings.subscriptionBilledOn') }}<br />{{
+              store.tSplit($t('settings.paymentsProcessedViaStripe'))[0]
+            }}<a href="https://www.bluecaret.com/privacy/" rel="noreferrer" target="_blank">{{
+              store.tSplit($t('settings.paymentsProcessedViaStripe'))[1]
+            }}</a
+            >{{ store.tSplit($t('settings.paymentsProcessedViaStripe'))[2] }}</span
+          >
           <div v-if="!user.paid">
             <button type="button" class="license" tabindex="-1" @click="handleLicenseKey">
               {{ $t('settings.enterALicenseKey') }}

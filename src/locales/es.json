@@ -246,7 +246,8 @@
     "cautionYouAreAboutToRunOutOfStorage": "Precaución: Está a punto de quedarse sin espacio de almacenamiento. Si añades contenido o widgets adicionales, es posible que no puedas guardar los cambios.",
     "youHaveReachedTheMaximumNumberOfWidgets": "Has alcanzado el número máximo de widgets. El espacio de almacenamiento permitido por el navegador no permite más.",
     "shareYourCreation": "¡Comparta su creación!",
-    "doYouHaveALayout": "¿Tienes un diseño que crees que les encantaría a los demás? Envía una exportación de tus ajustes y una captura de pantalla a {'|'} y puede que lo añada a la lista. Puedes exportar tus ajustes yendo al Panel de Ajustes > Ajustes de Extensión > Avanzado > Exportar."
+    "doYouHaveALayout": "¿Tienes un diseño que crees que les encantaría a los demás? Envía una exportación de tus ajustes y una captura de pantalla a {'|'} y puede que lo añada a la lista. Puedes exportar tus ajustes yendo al Panel de Ajustes > Ajustes de Extensión > Avanzado > Exportar.",
+    "paymentsProcessedViaStripe": "Pagos procesados vía Stripe a través de ExtensionPay. Ver la {'|'}política de privacidad{'|'}."
   },
   "advanced": {
     "advancedSettings": "Configuración avanzada",

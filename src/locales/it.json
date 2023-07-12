@@ -246,7 +246,8 @@
     "cautionYouAreAboutToRunOutOfStorage": "Attenzione: Lo spazio di memoria sta per esaurirsi. L'aggiunta di ulteriori contenuti o widget potrebbe impedire di salvare le modifiche.",
     "youHaveReachedTheMaximumNumberOfWidgets": "È stato raggiunto il numero massimo di widget. Lo spazio di memoria consentito dal browser non permette di aggiungere altro.",
     "shareYourCreation": "Condividete la vostra creazione!",
-    "doYouHaveALayout": "Avete un layout che pensate possa piacere ad altri? Inviate un'esportazione delle vostre impostazioni e una schermata a {'|'} e potrei aggiungerlo all'elenco. È possibile esportare le impostazioni accedendo alla dashboard Impostazioni > Impostazioni dell'estensione > Avanzate > Esporta."
+    "doYouHaveALayout": "Avete un layout che pensate possa piacere ad altri? Inviate un'esportazione delle vostre impostazioni e una schermata a {'|'} e potrei aggiungerlo all'elenco. È possibile esportare le impostazioni accedendo alla dashboard Impostazioni > Impostazioni dell'estensione > Avanzate > Esporta.",
+    "paymentsProcessedViaStripe": "Pagamenti elaborati tramite Stripe attraverso ExtensionPay. Visualizza l'informativa sulla {'|'}privacy {'|'}."
   },
   "advanced": {
     "advancedSettings": "Impostazioni avanzate",

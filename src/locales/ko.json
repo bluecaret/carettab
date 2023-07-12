@@ -246,7 +246,8 @@
     "cautionYouAreAboutToRunOutOfStorage": "주의: 저장 공간이 곧 부족해집니다. 콘텐츠나 위젯을 추가하면 변경 내용을 저장하지 못할 수 있습니다.",
     "youHaveReachedTheMaximumNumberOfWidgets": "최대 위젯 수에 도달했습니다. 브라우저에서 허용하는 저장 공간이 더 이상 허용하지 않습니다.",
     "shareYourCreation": "창작물을 공유하세요!",
-    "doYouHaveALayout": "다른 사람들이 좋아할 만한 레이아웃이 있나요? 설정 내보내기와 스크린샷을 {'|'}로 보내주시면 목록에 추가해드릴 수 있습니다. 설정 대시보드 > 확장 프로그램 설정 > 고급 > 내보내기로 이동하여 설정을 내보낼 수 있습니다."
+    "doYouHaveALayout": "다른 사람들이 좋아할 만한 레이아웃이 있나요? 설정 내보내기와 스크린샷을 {'|'}로 보내주시면 목록에 추가해드릴 수 있습니다. 설정 대시보드 > 확장 프로그램 설정 > 고급 > 내보내기로 이동하여 설정을 내보낼 수 있습니다.",
+    "paymentsProcessedViaStripe": "Stripe를 통해 익스텐션페이를 통해 처리된 결제. 개인정보처리방침{'|'}을 확인하세요{'|'}."
   },
   "advanced": {
     "advancedSettings": "고급 설정",

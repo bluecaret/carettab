@@ -114,11 +114,11 @@ const handleFinish = () => {
         </p>
         <p>
           {{ store.tSplit($t('updates.v400.imExcitedForYouToDiveInto'))[0] }}
-          <a href="https://github.com/bluecaret/carettab/discussions" target="_blank">{{
+          <a href="https://carettab.com/help" target="_blank">{{
             store.tSplit($t('updates.v400.imExcitedForYouToDiveInto'))[1]
           }}</a>
           {{ store.tSplit($t('updates.v400.imExcitedForYouToDiveInto'))[2] }}
-          <a href="mailto:bluecaret@outlook.com">bluecaret@outlook.com</a>
+          <a href="mailto:dev@bluecaret.com">dev@bluecaret.com</a>
           {{ store.tSplit($t('updates.v400.imExcitedForYouToDiveInto'))[3] }}
         </p>
         <div class="group fill">

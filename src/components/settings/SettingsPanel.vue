@@ -139,7 +139,7 @@ const handleOpenPremiumModal = () => {
           </div>
         </template>
       </DropdownMenu>
-      <a href="https://github.com/bluecaret/carettab/discussions" class="btn btnText" target="_blank">
+      <a href="https://carettab.com/help" class="btn btnText" target="_blank">
         <fa icon="fa-question" fixed-width></fa>
         {{ $t('settings.help') }}
       </a>

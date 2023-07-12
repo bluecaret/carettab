@@ -56,7 +56,7 @@ const importSettings = () => {
         await setStorage({ nextWallpaper: settings.nextWallpaper }, 'local')
         await store.save()
         store.isLoading = false
-        alert($t('advanced.importSuccessful', ['bluecaret@outlook.com']))
+        alert($t('advanced.importSuccessful', ['dev@bluecaret.com']))
         window.location.reload()
       }
       reader.readAsText(input.files[0])

@@ -4,7 +4,7 @@ A New Tab page extension with all the options for displaying time, date, search,
 
 For more information visit the website for [CaretTab](http://www.carettab.com)
 
-For help or feature suggestions visit the [CaretTab Support page](https://github.com/bluecaret/carettab/discussions)
+For help or feature suggestions visit the [CaretTab Support page](https://carettab.com/help)
 
 ## Features
 

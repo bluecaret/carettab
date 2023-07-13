@@ -4,7 +4,7 @@ import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import { crx } from '@crxjs/vite-plugin'
-import manifest from './manifest.json' assert { type: 'json' } // Node >=17
+import manifest from './manifest.config.js'
 
 // https://vitejs.dev/config/
 export default defineConfig({

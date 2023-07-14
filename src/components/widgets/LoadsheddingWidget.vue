@@ -124,7 +124,9 @@ const getDayData = () => {
           new Date(e.end).getMinutes().toString().padStart(2, '0'),
       })
     })
-    newDays.push({ date: day.date, data: newDay })
+    if (newDay && newDay.length > 0) {
+      newDays.push({ date: day.date, data: newDay })
+    }
   })
   days.value = [...newDays]
 }

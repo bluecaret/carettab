@@ -30,9 +30,14 @@ const premiumBtnRef = ref(null)
 let ver = ref('#.#.#')
 
 onMounted(async () => {
-  const response = await fetch('/manifest.json')
-  const file = await response.json()
-  ver.value = await file.version
+  try {
+    if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.getManifest) {
+      const manifest = chrome.runtime.getManifest()
+      ver.value = manifest.version
+    }
+  } catch (error) {
+    console.warn('Warning, failed to get version number:', error)
+  }
 })
 
 onUnmounted(() => {

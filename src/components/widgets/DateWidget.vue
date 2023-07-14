@@ -42,85 +42,75 @@ const getFormattedDate = computed(() => {
 })
 
 const getDateParts = computed(() => {
-  let dow = '',
-    yr = '',
-    mh = '',
-    dy = ''
+  const parts = []
 
   if (props.widget.dayOfWeek.on) {
     if (props.widget.dayOfWeek.abbreviated) {
-      dow = getFormattedDate.value.toFormat('ccc') // Mon
+      parts.push({ type: 'dayOfWeek', value: getFormattedDate.value.toFormat('ccc') }) // Mon
     } else {
-      dow = getFormattedDate.value.toFormat('cccc') // Monday
+      parts.push({ type: 'dayOfWeek', value: getFormattedDate.value.toFormat('cccc') }) // Monday
     }
-  } else {
-    dow = ''
   }
 
   if (props.widget.year.on) {
     if (props.widget.year.twoDigit) {
-      yr = getFormattedDate.value.toFormat('yy') // 23
+      parts.push({ type: 'year', value: getFormattedDate.value.toFormat('yy') }) // 23
     } else {
-      yr = getFormattedDate.value.toFormat('y') // 2023
+      parts.push({ type: 'year', value: getFormattedDate.value.toFormat('y') }) // 2023
     }
-  } else {
-    yr = ''
   }
 
   if (props.widget.month.on) {
     if (props.widget.short) {
       if (props.widget.month.twoDigit) {
-        mh = getFormattedDate.value.toFormat('LL') // 08
+        parts.push({ type: 'month', value: getFormattedDate.value.toFormat('LL') }) // 08
       } else {
-        mh = getFormattedDate.value.toFormat('L') // 8
+        parts.push({ type: 'month', value: getFormattedDate.value.toFormat('L') }) // 8
       }
     } else {
       if (props.widget.month.abbreviated) {
-        mh = getFormattedDate.value.toFormat('LLL') // Aug
+        parts.push({ type: 'month', value: getFormattedDate.value.toFormat('LLL') }) // Aug
       } else {
-        mh = getFormattedDate.value.toFormat('LLLL') // August
+        parts.push({ type: 'month', value: getFormattedDate.value.toFormat('LLLL') }) // August
       }
     }
-  } else {
-    mh = ''
   }
 
   if (props.widget.day.on) {
     if (props.widget.day.twoDigit) {
-      dy = getFormattedDate.value.toFormat('dd') // 06
+      parts.push({ type: 'day', value: getFormattedDate.value.toFormat('dd') }) // 06
     } else {
-      dy = getFormattedDate.value.toFormat('d') // 6
+      parts.push({ type: 'day', value: getFormattedDate.value.toFormat('d') }) // 6
     }
-  } else {
-    dy = ''
   }
 
-  if (props.widget.format === 'little') {
-    return [
-      { type: 'dayOfWeek', value: dow },
-      { type: 'day', value: dy },
-      { type: 'month', value: mh },
-      { type: 'year', value: yr },
-    ]
-  }
-  if (props.widget.format === 'middle') {
-    return [
-      { type: 'dayOfWeek', value: dow },
-      { type: 'month', value: mh },
-      { type: 'day', value: dy },
-      { type: 'year', value: yr },
-    ]
-  }
-  if (props.widget.format === 'big') {
-    return [
-      { type: 'dayOfWeek', value: dow },
-      { type: 'year', value: yr },
-      { type: 'month', value: mh },
-      { type: 'day', value: dy },
-    ]
+  const lastIndex = parts.length - 1
+  const format = props.widget.format || 'default'
+  const formatOrder = {
+    default: ['dayOfWeek', 'month', 'day', 'year'],
+    little: ['dayOfWeek', 'day', 'month', 'year'],
+    middle: ['dayOfWeek', 'month', 'day', 'year'],
+    big: ['dayOfWeek', 'year', 'month', 'day'],
   }
 
-  return [dow, yr, mh, dy]
+  const orderedParts = formatOrder[format].map((type) => parts.find((p) => p.type === type)).filter(Boolean)
+
+  let compiledParts = orderedParts.map((part, index) => {
+    if (!part) return
+
+    const isLastPart = index === lastIndex
+    let shouldShowDelimiter = false
+    if (!isLastPart && parts[index + 1] && props.widget[parts[index + 1].type].on) {
+      shouldShowDelimiter = true
+    }
+
+    return {
+      ...part,
+      showDelimiter: shouldShowDelimiter,
+    }
+  })
+
+  return compiledParts
 })
 
 // Function that offsets the date's quarter by the user's preference
@@ -150,18 +140,10 @@ const getQuarterOffset = () => {
           }}</span>
         </div>
         <template v-for="(part, index) in getDateParts" :key="part.type">
-          <div
-            v-if="props.widget[part.type].on"
-            :class="`datePart datePart-${part.type}`"
-            :style="segmentStyles(part.type)"
-          >
+          <div :class="`datePart datePart-${part.type}`" :style="segmentStyles(part.type)">
             {{ part.value }}
           </div>
-          <div
-            v-if="props.widget[part.type].on && props.widget.delimiter.on"
-            :class="`datePart delimiter-${index + 2}`"
-            :style="segmentStyles('delimiter')"
-          >
+          <div v-if="part.showDelimiter" :class="`datePart delimiter-${index + 2}`" :style="segmentStyles('delimiter')">
             <span>{{
               props.widget.short
                 ? props.widget.delimiter[`shortSymbol${index + 2}`]

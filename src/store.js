@@ -139,7 +139,7 @@ export const useSettingsStore = defineStore('settings', () => {
   const showOutliner = ref(false)
   const showGrid = ref(false)
   const storageWarning = ref([])
-  const currentTime = ref('Sat Jan 01 2000 00:00:00 GMT-0800 (Pacific Standard Time)')
+  const currentTime = ref(new Date())
   const wallpaper = ref('default')
   const palette = ref([[], [], [], [], [], [], [], []])
   const useSwatches = ref(false)

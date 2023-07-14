@@ -20,7 +20,6 @@ import PageHeading from '@/components/elements/PageHeading.vue'
 import RequestPermissionModal from '@/components/elements/RequestPermissionModal.vue'
 import QuickLinksNode from '@/components/widgets/QuickLinksNode.vue'
 import { getStorage } from '@/store.js'
-import { checkLicense } from '@/helpers/data.js'
 
 import './assets/main.scss'
 
@@ -39,10 +38,6 @@ async function init() {
   if (Object.keys(user).length > 0) {
     userInfo.value = { ...user.extensionpay_user }
   }
-
-  let chromeStore = await getStorage(['userLicense'], 'local')
-  let validLicense = await checkLicense(chromeStore.userLicense)
-  userInfo.value.paid = validLicense
 
   app.provide('user', userInfo)
   app.provide('updateUser', (u) => {

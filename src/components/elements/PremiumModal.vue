@@ -1,8 +1,6 @@
 <script setup>
 import { inject, ref } from 'vue'
 import { ExtPay } from '@/assets/ExtPay.js'
-import { getStorage, setStorage } from '@/store.js'
-import { checkLicense } from '@/helpers/data.js'
 import { useSettingsStore } from '@/store.js'
 
 const extpay = ExtPay('carettab')
@@ -18,19 +16,6 @@ const handleReload = () => {
 
 const handleSubscribe = () => {
   extpay.openPaymentPage()
-}
-
-const handleLicenseKey = async () => {
-  let chromeStore = await getStorage(['userLicense'], 'local')
-  let prompt = window.prompt('Enter your license key.', chromeStore.userLicense ? chromeStore.userLicense : '')
-  const validLicense = await checkLicense(prompt)
-  if (validLicense) {
-    await window.alert('Enjoy your free access to CaretTab Premium!\n\n*Please do not share this license key*')
-    await setStorage({ userLicense: prompt }, 'local')
-    location.reload()
-  } else {
-    window.alert('These are not the droids you are looking for.')
-  }
 }
 </script>
 
@@ -187,11 +172,6 @@ const handleLicenseKey = async () => {
             }}</a
             >{{ store.tSplit($t('settings.paymentsProcessedViaStripe'))[2] }}</span
           >
-          <div v-if="!user.paid">
-            <button type="button" class="license" tabindex="-1" @click="handleLicenseKey">
-              {{ $t('settings.enterALicenseKey') }}
-            </button>
-          </div>
         </div>
       </div>
     </template>
@@ -332,20 +312,5 @@ const handleLicenseKey = async () => {
   font-size: 1.8rem;
   padding: 0 var(--s9);
   text-transform: uppercase;
-}
-
-.license {
-  border: none;
-  background: transparent;
-  padding: 0;
-  margin: 0.4rem 0 0 0;
-  color: currentColor;
-  font-size: inherit;
-  font-weight: inherit;
-  opacity: 0.2;
-  cursor: pointer;
-  &:focus {
-    outline: none;
-  }
 }
 </style>

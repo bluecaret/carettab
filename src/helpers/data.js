@@ -17,26 +17,6 @@ export const blobToBase64 = async (blob) => {
 }
 
 /**
- * Check license against AWS
- */
-export const checkLicense = async (license) => {
-  let validLicense = false
-  try {
-    const request = await fetch(`https://dtfv5mvrx9.execute-api.us-west-2.amazonaws.com/v1/license/${license}`, {
-      method: 'GET',
-      redirect: 'follow',
-      headers: { authorizationToken: chrome.runtime.id },
-    })
-    const data = await request.json()
-    validLicense = JSON.parse(data.data)
-  } catch (error) {
-    console.warn('Failed to check license', error)
-    validLicense = false
-  }
-  return validLicense
-}
-
-/**
  * Compare two version numbers. Return 1 if greater than, -1 if less than, 0 if equal
  */
 export const compareVersions = (version1, version2) => {

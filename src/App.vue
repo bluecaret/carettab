@@ -8,7 +8,7 @@ import SettingsPanel from '@/components/settings/SettingsPanel.vue'
 import LoadingOverlay from '@/components/elements/LoadingOverlay.vue'
 import { fontList } from '@/assets/lists.js'
 import { ExtPay } from '@/assets/ExtPay.js'
-import { checkLicense, checkVersionInRange } from '@/helpers/data.js'
+import { checkVersionInRange } from '@/helpers/data.js'
 import { mergeV3Settings } from '@/helpers/mergeOldSettings.js'
 import PremiumModal from '@/components/elements/PremiumModal.vue'
 
@@ -35,16 +35,11 @@ const setupTempSettings = async () => {
 
 // Run a full user check against the server now that the app has loaded
 const refreshUserCheck = async () => {
-  let chromeStore = await getStorage(['userLicense'], 'local')
-  let validLicense = await checkLicense(chromeStore.userLicense)
-  // Only check extPay if user hasn't used a license key
-  if (!validLicense) {
-    try {
-      const getUser = await extpay.getUser()
-      updateUser({ ...getUser })
-    } catch (error) {
-      console.warn('Failed to check extensionPay user', error)
-    }
+  try {
+    const getUser = await extpay.getUser()
+    updateUser({ ...getUser })
+  } catch (error) {
+    console.warn('Failed to check extensionPay user', error)
   }
   // after checking paid status, run v3 migration
   if (store.status === 'updated' && checkVersionInRange(store.prevVersion, '3.X.X')) {

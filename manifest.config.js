@@ -79,10 +79,6 @@ const getManifestSettings = (env) => {
         resources: ['src/assets/ExtPay.js'],
         matches: ['https://extensionpay.com/*'],
       },
-      {
-        resources: ['fonts/*.woff2'],
-        extension_ids: [],
-      },
     ],
   }
 

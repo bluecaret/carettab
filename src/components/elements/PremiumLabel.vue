@@ -22,7 +22,7 @@ const handleOpenPremiumModal = () => {
 </script>
 
 <template>
-  <div v-if="!user.paid" class="premiumLabelWrap" :style="wrapStyles">
+  <div class="premiumLabelWrap" :style="wrapStyles">
     <button
       ref="premiumLabelRef"
       type="button"
@@ -68,14 +68,14 @@ const handleOpenPremiumModal = () => {
 
   .gem {
     height: 1.6rem;
-    // color: white;
-    // background: linear-gradient(to top left, var(--cPremium) 0%, var(--cPremium2) 90%);
   }
 
   &.premiumLabelPaid {
-    color: var(--cPremium);
     .gem {
       height: 1.2rem;
+      * {
+        fill: var(--cTextSubtle) !important;
+      }
     }
   }
 }

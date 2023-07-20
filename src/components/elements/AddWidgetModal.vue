@@ -60,7 +60,10 @@ const handleOpenPremiumModal = () => {
               >
                 <fa class="widgetItemIcon" :icon="widget.icon" fixed-width />
                 <div class="widgetItemContent">
-                  <div class="widgetItemName">{{ widget.name }}</div>
+                  <div class="widgetItemName">
+                    {{ widget.name }}
+                    <PremiumLabel v-if="widget.limit === 0" />
+                  </div>
                   <div class="widgetItemDesc">{{ widget.desc }}</div>
                 </div>
               </button>
@@ -154,6 +157,9 @@ const handleOpenPremiumModal = () => {
   font-size: 2.2rem;
   font-weight: 300;
   color: var(--cBtnFg);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3em;
 }
 .widgetItemDesc {
   font-size: 1.3rem;

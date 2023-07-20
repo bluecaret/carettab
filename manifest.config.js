@@ -1,7 +1,6 @@
 import { defineManifest } from '@crxjs/vite-plugin'
 
 const getManifestSettings = (env) => {
-  console.log('Environment mode: ', env.mode)
   const baseManifest = {
     manifest_version: 3,
     short_name: 'CaretTab',

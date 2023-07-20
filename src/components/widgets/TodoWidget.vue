@@ -163,7 +163,6 @@ const handleDeleteAll = () => {
 }
 
 const handleListReorder = (event) => {
-  console.log(event)
   const getWidget = store.config.todos.find((w) => w.id === props.widget.id)
   const newIndex = event.moved.newIndex
   const oldIndex = event.moved.oldIndex

@@ -63,7 +63,6 @@ onBeforeUnmount(() => {
 const updateWeather = async () => {
   let data = await getWeather(props.widget.location.url, store.config.global.lang)
   weatherData.value = data
-  console.log(data)
   await setStorage({ ['weather-' + props.widget.id]: data }, 'local')
 }
 

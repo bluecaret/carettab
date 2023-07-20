@@ -52,7 +52,6 @@ const processImage = (imgSrc) => {
 
   const newBg = { base64: imgSrc }
   const newBgSize = getByteSize(newBg)
-  console.log(newBgSize)
 
   if (newBgSize > 4000000) {
     alert(toLargeMsg)
@@ -208,7 +207,6 @@ const handleImageAdjustmentReset = () => {
 }
 
 const handleImageLock = () => {
-  console.log('toggle lock')
   store.config.global.wallpaper.lock = !store.config.global.wallpaper.lock
 }
 </script>

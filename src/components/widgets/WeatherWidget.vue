@@ -905,4 +905,94 @@ const forecastTempLowStyle = () => {
     }
   }
 }
+
+.weatherContainer.layoutBarebonesV {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-auto-flow: row;
+  gap: 0.5em;
+  .currentContainer,
+  .currentDataContainer,
+  .forecastContainer,
+  .forecast,
+  .tempContainer,
+  .statsContainer,
+  .sunContainer,
+  .moonContainer,
+  .dayContainer,
+  .dateContainer {
+    gap: 0.5em;
+  }
+  .currentContainer,
+  .currentDataContainer,
+  .forecastContainer,
+  .forecast,
+  .iconContainer,
+  .locationContainer,
+  .tempContainer,
+  .conditionContainer,
+  .statsContainer,
+  .sunContainer,
+  .moonContainer,
+  .dayContainer,
+  .dateContainer,
+  .currently,
+  .feelsLike,
+  .stat,
+  .high,
+  .low {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+  }
+}
+.weatherContainer.layoutBarebonesH {
+  grid-template-columns: auto;
+  grid-template-rows: 1fr;
+  grid-auto-flow: column;
+  gap: 0.5em;
+  .container-nw &,
+  .container-w &,
+  .container-sw & {
+    justify-content: start;
+  }
+  .currentContainer,
+  .currentDataContainer,
+  .forecastContainer,
+  .forecast,
+  .tempContainer,
+  .statsContainer,
+  .sunContainer,
+  .moonContainer,
+  .dayContainer,
+  .dateContainer {
+    gap: 0.5em;
+  }
+  .currentContainer,
+  .currentDataContainer,
+  .forecastContainer,
+  .forecast,
+  .iconContainer,
+  .locationContainer,
+  .tempContainer,
+  .conditionContainer,
+  .statsContainer,
+  .sunContainer,
+  .moonContainer,
+  .dayContainer,
+  .dateContainer,
+  .currently,
+  .feelsLike,
+  .stat,
+  .high,
+  .low {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr;
+    grid-auto-flow: column;
+  }
+  .currentDataContainer,
+  .forecastContainer {
+    flex-direction: row;
+  }
+}
 </style>

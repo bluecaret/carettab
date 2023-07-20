@@ -158,9 +158,9 @@ const refreshWeather = async () => {
       <div class="block">
         <label for="layout" class="label mra">{{ $t('widget.layout') }}</label>
         <select id="layout" v-model="widget.layout" name="layout" class="select w20">
-          <option value="2">Nimbus</option>
-          <option value="1">Boreas Eurus</option>
-          <option value="1a">Zephyrus</option>
+          <option value="Classic">Classic</option>
+          <option value="ClassicV">Classic V</option>
+          <option value="Nimbus">Nimbus</option>
           <option value="BarebonesV">Bare Bones V</option>
           <option value="BarebonesH">Bare Bones H</option>
         </select>

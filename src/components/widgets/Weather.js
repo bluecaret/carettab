@@ -2,7 +2,7 @@ import { baseWidgetStyles } from '@/classes/BaseWidgetStyles.js'
 
 export class Weather {
   id = ''
-  layout = '2'
+  layout = 'Classic'
   location = {
     country: 'United States of America',
     id: 2670971,
@@ -98,5 +98,9 @@ export class Weather {
       lowColor: [213, 87, 76, 1],
     },
   }
-  base = { ...baseWidgetStyles, font: { ...baseWidgetStyles.font, size: 22 } }
+  base = {
+    ...baseWidgetStyles,
+    container: { ...baseWidgetStyles.conatiner, alignment: 'w' },
+    font: { ...baseWidgetStyles.font, size: 22 },
+  }
 }

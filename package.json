@@ -14,7 +14,7 @@
     "compile:chrome": "npm run compile",
     "compile:edge": "vite build && web-ext build --source-dir=dist --artifacts-dir=artifacts --filename=\"carettab_edge%{version}.zip\"",
     "compile:beta": "vite build --mode beta && web-ext build --source-dir=dist --artifacts-dir=artifacts --filename=\"carettab_chrome_beta%{version}.zip\"",
-    "compile:all": "rimraf artifacts/ && npm run compile:chrome && npm run compile:edge"
+    "compile:all": "rimraf artifacts/ && rimraf dist/ && npm run compile:chrome && npm run compile:edge"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",

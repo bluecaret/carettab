@@ -178,6 +178,7 @@ const handleCAlignUpdate = (alignment) => {
             v-model="widget.width"
             tag-id="widgetWidth"
             class="w8"
+            :increment="10"
           ></NumberField>
           <select
             id="widgetWidthUnit"

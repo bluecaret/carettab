@@ -906,6 +906,86 @@ const forecastTempLowStyle = () => {
   }
 }
 
+.weatherContainer.layoutWeatherman {
+  gap: 1em;
+
+  .currentContainer {
+    grid-column: 1 / 2;
+    gap: 0.14em;
+    .currentDataContainer {
+      grid-row: 2 / 3;
+      gap: 0.14em;
+    }
+    .iconContainer,
+    .locationContainer {
+      width: 100%;
+    }
+    .icon {
+      width: 4em;
+    }
+    .tempContainer {
+      grid-template-columns: 1fr;
+      .currently {
+        font-size: 2.6em;
+        width: 100%;
+      }
+      .feelsLike {
+        width: 100%;
+      }
+    }
+    .conditionContainer,
+    .statsContainer,
+    .sunContainer,
+    .moonContainer {
+      grid-auto-flow: column;
+      gap: 0.4em;
+      font-size: 0.8em;
+    }
+
+    .conditionContainer {
+    }
+  }
+
+  .forecastContainer {
+    grid-column: 2 / 3;
+    gap: 0.2em;
+  }
+  .forecast {
+    grid-auto-flow: column;
+    width: 100%;
+    .iconContainer,
+    .dateContainer,
+    .tempContainer,
+    .high,
+    .low {
+      width: 100%;
+    }
+    .dayContainer {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 0.14em;
+    }
+    .iconContainer {
+      grid-row: 1 / 2;
+    }
+    .icon {
+      width: 4em;
+    }
+    .dateContainer {
+      grid-row: 2 / 3;
+    }
+    .tempContainer {
+      grid-template-columns: 1fr;
+      grid-row: 3 / 4;
+    }
+    .high {
+      font-size: 2.6em;
+    }
+    .low {
+    }
+  }
+}
+
 .weatherContainer.layoutBarebonesV {
   grid-template-columns: 1fr;
   grid-template-rows: auto;

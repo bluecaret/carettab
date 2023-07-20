@@ -161,8 +161,9 @@ const refreshWeather = async () => {
           <option value="Classic">Classic</option>
           <option value="ClassicV">Classic V</option>
           <option value="Nimbus">Nimbus</option>
-          <option value="BarebonesV">Bare Bones V</option>
-          <option value="BarebonesH">Bare Bones H</option>
+          <option value="Weatherman">Weatherman</option>
+          <option value="BarebonesV">Barebones V</option>
+          <option value="BarebonesH">Barebones H</option>
         </select>
       </div>
       <div class="block">

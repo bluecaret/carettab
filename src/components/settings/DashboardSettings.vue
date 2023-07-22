@@ -24,7 +24,7 @@ onMounted(async () => {
     store.status = 'existing'
   }
   if ((!store.clearWhatsNewBox, store.updatedTimestamp)) {
-    let updated = DateTime.fromFormat(store.updatedTimestamp, 'F')
+    let updated = DateTime.fromFormat(store.updatedTimestamp, 'F').plus({ days: 7 })
     let now = DateTime.now()
     if (updated <= now) {
       handleClearWhatsNew()

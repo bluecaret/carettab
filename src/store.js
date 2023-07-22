@@ -167,7 +167,7 @@ export const useSettingsStore = defineStore('settings', () => {
   const config = reactive(new Defaults())
 
   const load = async () => {
-    const updateStatus = await getStorage(['status', 'prevVersion', 'newVersion'], 'local')
+    const updateStatus = await getStorage(['status', 'prevVersion', 'newVersion', 'updatedTimestamp'], 'local')
     const store = await getStorage(null, 'sync')
 
     if (

@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, toRaw } from 'vue'
+import { DateTime } from 'luxon'
 import draggable from 'vuedraggable'
 import { useSettingsStore, setStorage } from '@/store.js'
 import { widgetTypes } from '@/assets/lists.js'
@@ -22,6 +23,13 @@ onMounted(async () => {
     await setStorage({ status: 'existing' }, 'local')
     store.status = 'existing'
   }
+  if ((!store.clearWhatsNewBox, store.updatedTimestamp)) {
+    let updated = DateTime.fromFormat(store.updatedTimestamp, 'F')
+    let now = DateTime.now()
+    if (updated <= now) {
+      handleClearWhatsNew()
+    }
+  }
 })
 
 const handleClearWhatsNew = async () => {
@@ -29,6 +37,7 @@ const handleClearWhatsNew = async () => {
   await setStorage({ updatedTimestamp: null }, 'local')
   await setStorage({ clearWhatsNewBox: true }, 'local')
   store.status = 'existing'
+  store.updatedTimestamp = null
   store.clearWhatsNewBox = true
 }
 

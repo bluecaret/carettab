@@ -33,7 +33,8 @@ const getUploadedImage = () => {
     const reader = new FileReader()
 
     if (!files[0].type.match(fileTypePattern)) {
-      alert($t('settings.invalidFileType'))
+      const invalidFileTypeMsg = t('settings.invalidFileType')
+      alert(invalidFileTypeMsg)
       return
     }
 

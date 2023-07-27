@@ -2,8 +2,10 @@
 <script setup>
 import { useSettingsStore, getStorage, setStorage } from '@/store.js'
 import { mergeV3Settings } from '@/helpers/mergeOldSettings.js'
+import { useI18n } from 'vue-i18n'
 
 const store = useSettingsStore()
+const { t } = useI18n()
 
 const exportSettings = async () => {
   let currentWallpaper = await getStorage('currentWallpaper', 'local')
@@ -46,7 +48,8 @@ const importSettings = () => {
         }
 
         if (!settings.config.global.schema || settings.config.global.schema !== store.config.global.schema) {
-          alert($t('advanced.importNotCompatible'))
+          const importNotCompatibleMsg = t('advanced.importNotCompatible')
+          alert(importNotCompatibleMsg)
           store.isLoading = false
           return
         }
@@ -56,7 +59,8 @@ const importSettings = () => {
         await setStorage({ nextWallpaper: settings.nextWallpaper }, 'local')
         await store.save()
         store.isLoading = false
-        alert($t('advanced.importSuccessful', ['dev@bluecaret.com']))
+        const importSuccessfulMsg = t('advanced.importSuccessful', ['dev@bluecaret.com'])
+        alert(importSuccessfulMsg)
         window.location.reload()
       }
       reader.readAsText(input.files[0])

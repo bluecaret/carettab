@@ -37,7 +37,8 @@ const getMyLoc = () => {
     (err) => {
       store.isLoading = false
       console.warn(`ERROR(${err.code}): ${err.message}`)
-      alert(t('widget.unableToGetYourLocation'))
+      const unableToGetYourLocationMsg = t('widget.unableToGetYourLocation')
+      alert(unableToGetYourLocationMsg)
     },
     {
       timeout: 5000,

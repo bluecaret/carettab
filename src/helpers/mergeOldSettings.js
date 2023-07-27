@@ -206,7 +206,7 @@ export const mergeV3Settings = async (allowMigration) => {
       newWidget.type = 'ql'
       newWidget.quickLinks = [
         ...oldQuickLink.links.map((l) => {
-          return { id: l.id, title: l.label, url: l.url }
+          return { id: l.id, title: l.label, url: l.url, special: 'none' }
         }),
       ]
       newWidget.link.icons = oldQuickLink.icons
@@ -317,22 +317,36 @@ export const mergeV3Settings = async (allowMigration) => {
       newLayer.on = false
 
       newWidget.timezone = oldDate.timezone
-      newWidget.day.on = oldDate.day.enabled
-      newWidget.day.twoDigit = oldDate.day.twoDigit
-      newWidget.dayOfWeek.on = oldDate.dayOfWeek.enabled
-      newWidget.dayOfWeek.abbreviated = oldDate.dayOfWeek.abbr
-      newWidget.dayOfYear.on = oldDate.dayOfYear.enabled
-      newWidget.dayOfYear.suffixLabel = oldDate.dayOfYear.label
-      newWidget.month.on = oldDate.month.enabled
-      newWidget.month.abbreviated = oldDate.month.abbr
-      newWidget.month.twoDigit = oldDate.month.twoDigit
-      newWidget.quarter.on = oldDate.quarter.enabled
-      newWidget.quarter.suffixLabel = oldDate.quarter.label
-      newWidget.quarter.start = oldDate.quarter.start
-      newWidget.week.on = oldDate.week.enabled
-      newWidget.week.prefixLabel = oldDate.week.label
-      newWidget.year.on = oldDate.year.enabled
-      newWidget.year.twoDigit = oldDate.year.twoDigit
+      if (oldDate.day) {
+        newWidget.day.on = oldDate.day.enabled
+        newWidget.day.twoDigit = oldDate.day.twoDigit
+      }
+      if (oldDate.dayOfWeek) {
+        newWidget.dayOfWeek.on = oldDate.dayOfWeek.enabled
+        newWidget.dayOfWeek.abbreviated = oldDate.dayOfWeek.abbr
+      }
+      if (oldDate.dayOfYear) {
+        newWidget.dayOfYear.on = oldDate.dayOfYear.enabled
+        newWidget.dayOfYear.suffixLabel = oldDate.dayOfYear.label
+      }
+      if (oldDate.month) {
+        newWidget.month.on = oldDate.month.enabled
+        newWidget.month.abbreviated = oldDate.month.abbr
+        newWidget.month.twoDigit = oldDate.month.twoDigit
+      }
+      if (oldDate.quarter) {
+        newWidget.quarter.on = oldDate.quarter.enabled
+        newWidget.quarter.suffixLabel = oldDate.quarter.label
+        newWidget.quarter.start = oldDate.quarter.start
+      }
+      if (oldDate.week) {
+        newWidget.week.on = oldDate.week.enabled
+        newWidget.week.prefixLabel = oldDate.week.label
+      }
+      if (oldDate.year) {
+        newWidget.year.on = oldDate.year.enabled
+        newWidget.year.twoDigit = oldDate.year.twoDigit
+      }
 
       merge.config.dates = []
       merge.config.dates.push(newWidget)

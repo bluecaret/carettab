@@ -91,7 +91,7 @@ const handleRenameSave = (id) => {
           <div class="group fill">
             <fa class="whatsNewIcon" icon="fa-bell"></fa>
             <h3 class="newUpdateTitle fill">
-              {{ $t('dashboard.newUpdate') }} &mdash; {{ $t('settings.version', ['4.0.0']) }}
+              {{ $t('dashboard.newUpdate') }} &mdash; {{ $t('settings.version', ['4.0.2']) }}
             </h3>
             <button type="button" class="btn fit" @click="whatsNewModal = true">
               <div class="fit">{{ $t('dashboard.readWhatsNew') }}</div>
@@ -111,7 +111,7 @@ const handleRenameSave = (id) => {
       <template #window>
         <div class="modal whatsNewModal">
           <header class="modalHeader">
-            <h1 class="modalTitle">{{ $t('updates.whatsNewInVersion', ['4.0.0']) }}</h1>
+            <h1 class="modalTitle">{{ $t('updates.whatsNewInVersion', ['4.0.2']) }}</h1>
             <button class="modalClose" type="button" :aria-label="$t('common.close')" @click="whatsNewModal = false">
               <fa icon="fa-xmark" />
             </button>
@@ -120,6 +120,14 @@ const handleRenameSave = (id) => {
             <p>This is a big one! In no particular order:</p>
             <div class="group">
               <div class="fill">
+                <h4 class="subtitle">v4.0.2 urgent patch</h4>
+                <ul>
+                  <li>
+                    Fixed various bugs with the settings migration from v3. If you have already gotten past the stuck
+                    loading screen, you will not notice any changes.
+                  </li>
+                  <li>Fixed bug with import settings option</li>
+                </ul>
                 <h4 class="subtitle">{{ $t('updates.newFeatures') }}</h4>
                 <ul class="ul">
                   <li>Improved settings panel design</li>

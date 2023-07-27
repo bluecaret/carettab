@@ -6,8 +6,8 @@ const getManifestSettings = (env) => {
     short_name: 'CaretTab',
     name: env.mode === 'beta' ? 'CaretTab BETA' : '__MSG_appName__',
     description: env.mode === 'beta' ? 'Beta version of the New Tab extension, CaretTab' : '__MSG_appDesc__',
-    version: `4.0.1`,
-    version_name: `4.0.1`,
+    version: `4.0.2`,
+    version_name: `4.0.2`,
     default_locale: 'en',
     icons: {
       16: 'img/icon16.png',

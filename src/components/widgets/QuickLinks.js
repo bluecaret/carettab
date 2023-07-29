@@ -24,5 +24,5 @@ export class QuickLinks {
     { title: 'Google', url: 'https://www.google.com', id: 'google', special: 'none' },
     { title: 'Gmail', url: 'https://www.gmail.com', id: 'gmail', special: 'none' },
   ]
-  base = { ...baseWidgetStyles, widthUnit: 'percent', width: 100, height: 100 }
+  base = { ...baseWidgetStyles, alignment: 'n', widthUnit: 'percent', width: 100, height: 100 }
 }

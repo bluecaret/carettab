@@ -91,7 +91,7 @@ const handleRenameSave = (id) => {
           <div class="group fill">
             <fa class="whatsNewIcon" icon="fa-bell"></fa>
             <h3 class="newUpdateTitle fill">
-              {{ $t('dashboard.newUpdate') }} &mdash; {{ $t('settings.version', ['4.0.3']) }}
+              {{ $t('dashboard.newUpdate') }} &mdash; {{ $t('settings.version', ['4.0.4']) }}
             </h3>
             <button type="button" class="btn fit" @click="whatsNewModal = true">
               <div class="fit">{{ $t('dashboard.readWhatsNew') }}</div>
@@ -111,13 +111,17 @@ const handleRenameSave = (id) => {
       <template #window>
         <div class="modal whatsNewModal">
           <header class="modalHeader">
-            <h1 class="modalTitle">{{ $t('updates.whatsNewInVersion', ['4.0.3']) }}</h1>
+            <h1 class="modalTitle">{{ $t('updates.whatsNewInVersion', ['4.0.4']) }}</h1>
             <button class="modalClose" type="button" :aria-label="$t('common.close')" @click="whatsNewModal = false">
               <fa icon="fa-xmark" />
             </button>
           </header>
           <div class="modalContent">
             <p>This is a big one! In no particular order:</p>
+            <h4 class="subtitle">v4.0.4 urgent patch</h4>
+            <ul>
+              <li>Fix for migration process from v3 to v4.</li>
+            </ul>
             <h4 class="subtitle">v4.0.3 bug fixes</h4>
             <ul>
               <li>Fixed language translation of date widget</li>

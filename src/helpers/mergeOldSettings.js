@@ -199,8 +199,8 @@ export const mergeV3Settings = async (allowMigration) => {
     }
 
     if (oldQuickLink && oldQuickLink.enabled) {
-      let newWidget = setupNewWidget('quickLink')
-      let newLayer = setupNewLayer(newWidget.id, 'quickLink')
+      let newWidget = setupNewWidget('quickLinks')
+      let newLayer = setupNewLayer(newWidget.id, 'quickLinks')
       newLayer.on = false
 
       newWidget.type = 'ql'
@@ -211,11 +211,6 @@ export const mergeV3Settings = async (allowMigration) => {
       ]
       newWidget.link.icons = oldQuickLink.icons
       newWidget.link.openInNewTab = oldQuickLink.openInNewTab
-      newWidget.specialLinks.apps = oldQuickLink.apps
-      newWidget.specialLinks.bookmarksManager = oldQuickLink.bookmarksManager
-      newWidget.specialLinks.history = oldQuickLink.history
-      newWidget.specialLinks.chromeTab = oldQuickLink.chromeTab
-      newWidget.specialLinks.mostVisited = oldQuickLink.mostVisited
 
       merge.config.quickLinks = []
       merge.config.quickLinks.push(newWidget)
@@ -223,8 +218,8 @@ export const mergeV3Settings = async (allowMigration) => {
     }
 
     if (oldBookmark && oldBookmark.enabled) {
-      let newWidget = setupNewWidget('quickLink')
-      let newLayer = setupNewLayer(newWidget.id, 'quickLink')
+      let newWidget = setupNewWidget('quickLinks')
+      let newLayer = setupNewLayer(newWidget.id, 'quickLinks')
       newLayer.on = false
 
       newWidget.type = 'bk'

@@ -37,8 +37,14 @@ const fontItalic = computed(() => {
   return config.italic ? config.italic : 'normal'
 })
 
+const toSentenceCase = (str) => {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 const getFormattedDate = computed(() => {
-  return DateTime.fromJSDate(store.currentTime).setZone(props.widget.timezone ? props.widget.timezone : 'default')
+  return DateTime.fromJSDate(store.currentTime)
+    .setLocale(store.config.global.lang)
+    .setZone(props.widget.timezone ? props.widget.timezone : 'default')
 })
 
 const getDateParts = computed(() => {
@@ -46,9 +52,11 @@ const getDateParts = computed(() => {
 
   if (props.widget.dayOfWeek.on) {
     if (props.widget.dayOfWeek.abbreviated) {
-      parts.push({ type: 'dayOfWeek', value: getFormattedDate.value.toFormat('ccc') }) // Mon
+      let dayOfWeek = toSentenceCase(getFormattedDate.value.toFormat('ccc')) // Mon
+      parts.push({ type: 'dayOfWeek', value: dayOfWeek })
     } else {
-      parts.push({ type: 'dayOfWeek', value: getFormattedDate.value.toFormat('cccc') }) // Monday
+      let dayOfWeek = toSentenceCase(getFormattedDate.value.toFormat('cccc')) // Monday
+      parts.push({ type: 'dayOfWeek', value: dayOfWeek })
     }
   }
 
@@ -69,9 +77,11 @@ const getDateParts = computed(() => {
       }
     } else {
       if (props.widget.month.abbreviated) {
-        parts.push({ type: 'month', value: getFormattedDate.value.toFormat('LLL') }) // Aug
+        let month = toSentenceCase(getFormattedDate.value.toFormat('LLL')) // Aug
+        parts.push({ type: 'month', value: month }) // Aug
       } else {
-        parts.push({ type: 'month', value: getFormattedDate.value.toFormat('LLLL') }) // August
+        let month = toSentenceCase(getFormattedDate.value.toFormat('LLLL')) // August
+        parts.push({ type: 'month', value: month }) // August
       }
     }
   }

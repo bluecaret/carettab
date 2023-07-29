@@ -91,7 +91,7 @@ const handleRenameSave = (id) => {
           <div class="group fill">
             <fa class="whatsNewIcon" icon="fa-bell"></fa>
             <h3 class="newUpdateTitle fill">
-              {{ $t('dashboard.newUpdate') }} &mdash; {{ $t('settings.version', ['4.0.2']) }}
+              {{ $t('dashboard.newUpdate') }} &mdash; {{ $t('settings.version', ['4.0.3']) }}
             </h3>
             <button type="button" class="btn fit" @click="whatsNewModal = true">
               <div class="fit">{{ $t('dashboard.readWhatsNew') }}</div>
@@ -111,24 +111,33 @@ const handleRenameSave = (id) => {
       <template #window>
         <div class="modal whatsNewModal">
           <header class="modalHeader">
-            <h1 class="modalTitle">{{ $t('updates.whatsNewInVersion', ['4.0.2']) }}</h1>
+            <h1 class="modalTitle">{{ $t('updates.whatsNewInVersion', ['4.0.3']) }}</h1>
             <button class="modalClose" type="button" :aria-label="$t('common.close')" @click="whatsNewModal = false">
               <fa icon="fa-xmark" />
             </button>
           </header>
           <div class="modalContent">
             <p>This is a big one! In no particular order:</p>
+            <h4 class="subtitle">v4.0.3 bug fixes</h4>
+            <ul>
+              <li>Fixed language translation of date widget</li>
+              <li>Replaced New Tab icon with a simplified version that responds to light/dark modes.</li>
+              <li>Fixed timezone for time in Tab title</li>
+              <li>Fixed issue where some wallpaper would not apply</li>
+              <li>Fixed alignment of quick links</li>
+              <li>Changed default alignment of quick links</li>
+            </ul>
+            <h4 class="subtitle">v4.0.2 urgent patch</h4>
+            <ul>
+              <li>
+                Fixed various bugs with the settings migration from v3. If you have already gotten past the stuck
+                loading screen, you will not notice any changes.
+              </li>
+              <li>Fixed bug with import settings option</li>
+            </ul>
             <div class="group">
               <div class="fill">
-                <h4 class="subtitle">v4.0.2 urgent patch</h4>
-                <ul>
-                  <li>
-                    Fixed various bugs with the settings migration from v3. If you have already gotten past the stuck
-                    loading screen, you will not notice any changes.
-                  </li>
-                  <li>Fixed bug with import settings option</li>
-                </ul>
-                <h4 class="subtitle">{{ $t('updates.newFeatures') }}</h4>
+                <h4 class="subtitle">v4.0.0 {{ $t('updates.newFeatures') }}</h4>
                 <ul class="ul">
                   <li>Improved settings panel design</li>
                   <li>Todo widget. Keep track of your tasks.</li>
@@ -190,7 +199,7 @@ const handleRenameSave = (id) => {
                 </ul>
               </div>
               <div class="fill">
-                <h4 class="subtitle">Changes from previous version</h4>
+                <h4 class="subtitle">v4.0.0 Changes from previous version</h4>
                 <ul class="ul">
                   <li>
                     Rebuilt the entire extension from scratch in a new, modern framework. This will make it easier and

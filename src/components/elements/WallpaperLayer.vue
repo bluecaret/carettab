@@ -228,6 +228,7 @@ watch(
         ? `wallpaperPattern pattern-${store.config.global.wallpaper.id}`
         : ''
     "
+    :style="`background-image: ${wallpaperSrc};`"
   >
     <div class="wallpaperBackdrop"></div>
   </div>
@@ -240,7 +241,6 @@ watch(
   inset: 0;
   height: 100vh;
   background-position: center;
-  background-image: v-bind(wallpaperSrc);
   background-size: v-bind(bgSize);
   background-repeat: v-bind(bgRepeat);
   scale: v-bind(bgScale);

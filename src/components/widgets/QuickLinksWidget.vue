@@ -357,9 +357,8 @@ const setQuickLinksVars = computed(() => {
             :icon-permission="faviconPermission"
           />
         </li>
-        <li ref="moreButtonEl" class="linkNode more">
+        <li v-if="showMore" ref="moreButtonEl" class="linkNode more">
           <QuickLinksNode
-            v-if="showMore"
             :icons="props.widget.link.icons"
             :titles="props.widget.link.titles"
             :open-in-new-tab="props.widget.link.openInNewTab"

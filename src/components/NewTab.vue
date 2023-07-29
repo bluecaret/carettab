@@ -70,7 +70,7 @@ const widgetNullCheck = (layer, widgetType, widget) => {
 }
 
 watch(
-  () => [store.config.global.tabTitle.type, store.currentTime],
+  () => [store.config.global.tabTitle.type, store.config.global.tabTitle.timezone, store.currentTime],
   () => {
     setTabTitle()
   }
@@ -80,7 +80,10 @@ const setTabTitle = () => {
   if (store.config.global.tabTitle.type === 'custom') {
     document.title = store.config.global.tabTitle.custom
   } else if (store.config.global.tabTitle.type === 'datetime') {
-    document.title = DateTime.fromJSDate(store.currentTime).toFormat(store.config.global.tabTitle.datetime)
+    document.title = DateTime.fromJSDate(store.currentTime)
+      .setLocale(store.config.global.lang)
+      .setZone(store.config.global.tabTitle.timezone ? store.config.global.tabTitle.timezone : 'default')
+      .toFormat(store.config.global.tabTitle.datetime)
   } else {
     document.title = 'New Tab'
   }

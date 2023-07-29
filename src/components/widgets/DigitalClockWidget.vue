@@ -84,7 +84,7 @@ const getFormattedTime = computed(() => {
   if (props.widget.timezone) {
     tz = props.widget.timezone !== 'local' ? props.widget.timezone : 'default'
   }
-  return DateTime.fromJSDate(store.currentTime).setZone(tz)
+  return DateTime.fromJSDate(store.currentTime).setLocale(store.config.global.lang).setZone(tz)
 })
 
 const getRelativeTime = computed(() => {

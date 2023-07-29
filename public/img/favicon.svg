@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="100%" height="100%"><svg width="100%" height="100%" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1.00238,0,0,1.00238,-0.00141378,65.0833)">
+        <path d="M19.768,331.334L200.721,17.916L299.279,17.916L480.232,331.334L469.406,350.084L333.03,350.084L250,206.272L166.97,350.084L30.594,350.084L19.768,331.334ZM52.244,325.084C52.244,325.084 152.536,325.084 152.536,325.084L239.175,175.022L260.825,175.022C260.825,175.022 347.464,325.084 347.464,325.084L447.756,325.084L284.845,42.916C284.845,42.916 215.155,42.916 215.155,42.916L52.244,325.084Z"></path>
+        <g transform="matrix(1.00644,0,0,1.00644,-1.86467,0.415664)">
+            <circle cx="208.378" cy="29.808" r="29.808"></circle>
+        </g>
+        <g transform="matrix(1.00644,0,0,1.00644,82.2691,0.415664)">
+            <circle cx="208.378" cy="29.808" r="29.808"></circle>
+        </g>
+        <g transform="matrix(1.00644,0,0,1.00644,40.2807,154)">
+            <circle cx="208.378" cy="29.808" r="29.808"></circle>
+        </g>
+        <g transform="matrix(1.00644,0,0,1.00644,259.687,307.584)">
+            <circle cx="208.378" cy="29.808" r="29.808"></circle>
+        </g>
+        <g transform="matrix(1.00644,0,0,1.00644,130.272,308)">
+            <circle cx="208.378" cy="29.808" r="29.808"></circle>
+        </g>
+        <g transform="matrix(1.00644,0,0,1.00644,-49.8674,308)">
+            <circle cx="208.378" cy="29.808" r="29.808"></circle>
+        </g>
+        <g transform="matrix(1.00644,0,0,1.00644,-179.126,307.584)">
+            <circle cx="208.378" cy="29.808" r="29.808"></circle>
+        </g>
+    </g>
+</svg><style>@media (prefers-color-scheme: light) { :root { fill: black; } }
+@media (prefers-color-scheme: dark) { :root { fill: white; } }
+</style></svg>

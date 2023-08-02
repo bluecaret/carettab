@@ -37,12 +37,20 @@ img {
 ::-webkit-scrollbar-track {
   background: hsl(0deg 0% 10%);
   border: solid 2px transparent;
+  .lightGrayMode &,
+  .lightMode & {
+    background: hsl(0deg 0% 90%);
+  }
 }
 
 ::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 0 15px hsl(0deg 0% 30%);
   border: solid 2px transparent;
   border-radius: 10px;
+  .lightGrayMode &,
+  .lightMode & {
+    box-shadow: inset 0 0 0 15px hsl(0deg 0% 60%);
+  }
 }
 
 .allowPointerEvent {

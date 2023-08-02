@@ -1,6 +1,6 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { computed, onMounted, inject } from 'vue'
+import { computed, onMounted, inject, watch } from 'vue'
 import { useSettingsStore, getStorage } from '@/store.js'
 import { storeToRefs } from 'pinia'
 import NewTab from '@/components/NewTab.vue'
@@ -22,7 +22,48 @@ onMounted(async () => {
   await store.load()
   setupTempSettings()
   refreshUserCheck()
+  applyUserColorSchemePreference()
 })
+
+watch(
+  () => store.config.global.mode,
+  () => {
+    applyUserColorSchemePreference()
+  }
+)
+
+const applyUserColorSchemePreference = () => {
+  const body = document.body
+
+  if (store.config.global.mode && store.config.global.mode !== 'auto') {
+    console.log('set mode', store.config.global.mode)
+    switch (store.config.global.mode) {
+      case 'dark':
+        body.className = 'darkMode'
+        break
+      case 'darkGray':
+        body.className = 'darkGrayMode'
+        break
+      case 'light':
+        body.className = 'lightMode'
+        break
+      case 'lightGray':
+        body.className = 'lightGrayMode'
+        break
+      default:
+        body.className = 'darkMode'
+        break
+    }
+  } else {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      body.className = 'darkMode'
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      body.className = 'lightMode'
+    } else {
+      body.className = 'defaultMode'
+    }
+  }
+}
 
 const setupTempSettings = async () => {
   updateTime()

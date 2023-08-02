@@ -106,6 +106,12 @@ const handleOpenPremiumModal = () => {
   justify-content: center;
   padding: var(--s4);
   background-color: hsl(var(--cBlockH) calc(var(--cBlockS) + 20%) calc(var(--cBlockL) + 5%));
+  .lightMode & {
+    background-color: hsl(var(--cBlockH) calc(var(--cBlockS) + 20%) calc(var(--cBlockL) - 11%));
+  }
+  .lightGrayMode & {
+    background-color: hsl(var(--cBlockH) 0% calc(var(--cBlockL) - 11%));
+  }
 }
 .widgetList {
   list-style: none;
@@ -160,6 +166,10 @@ const handleOpenPremiumModal = () => {
   display: inline-flex;
   align-items: baseline;
   gap: 0.3em;
+  .lightGrayMode &,
+  .lightMode & {
+    font-weight: 400;
+  }
 }
 .widgetItemDesc {
   font-size: 1.3rem;
@@ -176,6 +186,12 @@ const handleOpenPremiumModal = () => {
   background-blend-mode: darken;
   background-color: hsl(var(--g2H) calc(var(--g2S) - 40%) calc(var(--g2L) - 0.5%));
   --iconBg: hsl(var(--g2H) calc(var(--g2S) - 40%) calc(var(--g2L) - 1.5%));
+  .lightMode & {
+    background-color: hsl(var(--g2H) var(--g2S) calc(var(--g2L) - 9%));
+  }
+  .lightGrayMode & {
+    background-color: hsl(var(--g2H) var(--g2S) calc(var(--g2L) - 10%));
+  }
   .widgetItemIcon {
     font-size: 2rem;
   }

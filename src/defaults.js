@@ -3,6 +3,7 @@ export class Defaults {
     schema: '2.0',
     lang: 'en',
     hideSettings: false,
+    mode: 'auto',
     disableSelection: false,
     wallpaper: {
       background: [220, 25, 10, 1],

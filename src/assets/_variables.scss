@@ -9,13 +9,22 @@
 }
 
 :root {
-  color-scheme: light;
-  @media (prefers-color-scheme: dark) {
+  color-scheme: dark;
+  @media (prefers-color-scheme: light) {
+    color-scheme: light;
+    #settings {
+      color-scheme: light;
+    }
+  }
+  
+  .darkGray,
+  .darkMode {
     color-scheme: dark;
   }
   
-  #settings {
-    color-scheme: dark;
+  .lightGrayMode,
+  .lightMode {
+    color-scheme: light;
   }
 
   // sizes
@@ -29,7 +38,7 @@
   --s8: 4rem;
   --s9: 4.8rem;
   --radius: var(--s3);
-  
+
   // element colors
   $colorSets: (
     createColorVars('g1', '0deg', '0%', '9%'),
@@ -105,6 +114,243 @@
   @each $colorSet in $colorSets {
     @each $key, $value in $colorSet {
       #{$key}: #{$value};
+    }
+  }
+
+  .darkGrayMode {
+    $colorSets: (
+      createColorVars('g1', '0deg', '0%', '9%'),
+      createColorVars('g2', '203deg', '0%', '8%'),
+      createColorVars('g3', '203deg', '0%', '11%'),
+      createColorVars('g4', '203deg', '0%', '14%'),
+      createColorVars('g5', '203deg', '0%', '68%'),
+      createColorVars('g6', '210deg', '0%', '90%'),
+      createColorVars('b1', '216deg', '84%', '47%'),
+      createColorVars('b2', '204deg', '0%', '64%'),
+
+      createColorVars('cText', 'var(--g6H)', 'var(--g6S)', 'var(--g6L)'),
+      createColorVars('cTextSubtle', 'var(--g5H)', 'var(--g5S)', 'var(--g5L)'),
+      createColorVars('cError', '10deg', '90%', '51%'),
+      createColorVars('cWarning', '35deg', '90%', '51%'),
+
+      createColorVars('cShadow', '0deg', '0%', '0%', '0.5'),
+
+      createColorVars('cDropdownBg', 'var(--g1H)', 'var(--g1S)', 'var(--g1L)'),
+      createColorVars('cDropdownBorder', 'var(--g1H)', 'var(--g1S)', 'calc(var(--g1L) + 10%)'),
+
+      createColorVars('cBtnFg', 'var(--b2H)', 'var(--b2S)', 'calc(var(--b2L) + 10%)'),
+      createColorVars('cBtnBorder', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cBtnShadow', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cBtnFgActive', 'var(--g1H)', 'var(--g1S)', 'var(--g1L)'),
+      createColorVars('cBtnActive', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cBtnFgDisabled', 'var(--g5H)', 'var(--g5S)', 'calc(var(--g5L) - 10%)'),
+      createColorVars('cBtnBorderDisabled', 'var(--g5H)', 'var(--g5S)', 'calc(var(--g5L) - 30%)'),
+      
+      createColorVars('cInputBg', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+      createColorVars('cInputBorder', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+      createColorVars('cInputDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) - 5%)', '.35'),
+      createColorVars('cRangeTrack', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+      createColorVars('cRangeThumb', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cRangeOutput', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+      createColorVars('cRangeOutputText', 'var(--cTextH)', 'var(--cTextS)', 'var(--cTextL)'),
+      createColorVars('cRangeTrackDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) - 5%)', '.35'),
+      createColorVars('cRangeThumbDisabled', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+      createColorVars('cRangeOutputDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) - 5%)', '.35'),
+      createColorVars('cRangeOutputTextDisabled', 'var(--cTextH)', 'var(--cTextS)', 'var(--cTextL)'),
+
+      createColorVars('cToggleBg', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+      createColorVars('cToggleIndicator', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cToggleFg', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+
+      createColorVars('cToggleBgPressed', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+      createColorVars('cToggleIndicatorPressed', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cToggleFgPressed', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+
+      createColorVars('cToggleBgDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) - 5%)', '.35'),
+      createColorVars('cToggleIndicatorDisabled', 'var(--g5H)', 'var(--g5S)', 'calc(var(--g5L) - 30%)'),
+      createColorVars('cToggleFgDisabled', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) - 3%)'),
+
+      createColorVars('cArrow', 'var(--cBtnFgH)', 'var(--cBtnFgS)', 'var(--cBtnFgL)', '1'),
+      createColorVars('cArrowFade', 'var(--cArrowH)', 'var(--cArrowS)', 'var(--cArrowL)', '0.3'),
+      createColorVars('cArrowDisabled', 'var(--cArrowH)', '0%', 'var(--cArrowL)', '0.2'),
+
+      createColorVars('cBlock', 'var(--g4H)', 'var(--g4S)', 'var(--g4L)'),
+      createColorVars('cSubBlock', 'var(--g3H)', 'var(--g3S)', 'var(--g3L)'),
+
+      createColorVars('cPremium', 'var(--b1H)', 'var(--b1S)', 'var(--b1L)'),
+      createColorVars('cPremium2', 'var(--b2H)', '100%', 'var(--b2L)'),
+      createColorVars('cSettingsHeader', 'var(--g2H)', 'var(--g2S)', 'var(--g2L)'),
+      createColorVars('cSettingsFooter', 'var(--cSettingsHeaderH)', 'var(--cSettingsHeaderS)', 'var(--cSettingsHeaderL)'),
+      createColorVars('cSettingsPage', 'var(--g2H)', 'var(--g2S)', 'var(--g2L)'),
+      createColorVars('cSettingsPageScrollbar', 'var(--g4H)', 'var(--g4S)', 'var(--g4L)'),
+      createColorVars('cSettingsPageScrollthumb', 'var(--g3H)', 'var(--g3S)', 'calc(var(--g3L) + 12%)'),
+      createColorVars('cPanelBackdrop', '220deg', '40%', '60%', '0.3'),
+
+      createColorVars('cModalBg', 'var(--g4H)', 'var(--g4S)', 'var(--g4L)'),
+      createColorVars('cModalBackdrop', '0deg', '0%', '5%', '0.5'),
+    );
+    @each $colorSet in $colorSets {
+      @each $key, $value in $colorSet {
+        #{$key}: #{$value};
+      }
+    }
+  }
+
+  .lightMode {
+    $colorSetsLight: (
+      createColorVars('g1', '0deg', '0%', '91%'),
+      createColorVars('g2', '203deg', '82%', '92%'),
+      createColorVars('g3', '203deg', '50%', '89%'),
+      createColorVars('g4', '203deg', '52%', '86%'),
+      createColorVars('g5', '203deg', '22%', '32%'),
+      createColorVars('g6', '210deg', '30%', '10%'),
+      createColorVars('b1', '216deg', '84%', '53%'),
+      createColorVars('b2', '204deg', '100%', '36%'),
+
+      createColorVars('cText', 'var(--g6H)', 'var(--g6S)', 'var(--g6L)'),
+      createColorVars('cTextSubtle', 'var(--g5H)', 'var(--g5S)', 'var(--g5L)'),
+      createColorVars('cError', '10deg', '90%', '51%'),
+      createColorVars('cWarning', '35deg', '90%', '51%'),
+
+      createColorVars('cShadow', '0deg', '0%', '0%', '0.5'),
+
+      createColorVars('cDropdownBg', 'var(--g1H)', 'var(--g1S)', 'var(--g1L)'),
+      createColorVars('cDropdownBorder', 'var(--g1H)', 'var(--g1S)', 'calc(var(--g1L) - 40%)'),
+
+      createColorVars('cBtnFg', 'var(--b2H)', 'var(--b2S)', 'calc(var(--b2L) - 10%)'),
+      createColorVars('cBtnBorder', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cBtnShadow', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cBtnFgActive', 'var(--g1H)', 'var(--g1S)', 'var(--g1L)'),
+      createColorVars('cBtnActive', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cBtnFgDisabled', 'var(--g5H)', 'var(--g5S)', 'calc(var(--g5L) + 10%)'),
+      createColorVars('cBtnBorderDisabled', 'var(--g5H)', 'var(--g5S)', 'calc(var(--g5L) + 30%)'),
+      
+      createColorVars('cInputBg', 'var(--g2H)', 'var(--g2S)', '100%'),
+      createColorVars('cInputBorder', 'var(--g2H)', 'var(--g2S)', '100%'),
+      createColorVars('cInputDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) + 5%)', '.35'),
+      createColorVars('cRangeTrack', 'var(--g2H)', 'var(--g2S)', '100%'),
+      createColorVars('cRangeThumb', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cRangeOutput', 'var(--g2H)', 'var(--g2S)', '100%'),
+      createColorVars('cRangeOutputText', 'var(--cTextH)', 'var(--cTextS)', 'var(--cTextL)'),
+      createColorVars('cRangeTrackDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) + 10%)', '.35'),
+      createColorVars('cRangeThumbDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) - 40%)'),
+      createColorVars('cRangeOutputDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) + 10%)', '.35'),
+      createColorVars('cRangeOutputTextDisabled', 'var(--cTextH)', 'var(--cTextS)', 'var(--cTextL)'),
+
+      createColorVars('cToggleBg', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) + 10%)'),
+      createColorVars('cToggleIndicator', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cToggleFg', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) + 10%)'),
+
+      createColorVars('cToggleBgPressed', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) + 10%)'),
+      createColorVars('cToggleIndicatorPressed', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cToggleFgPressed', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) + 10%)'),
+
+      createColorVars('cToggleBgDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) + 5%)', '.35'),
+      createColorVars('cToggleIndicatorDisabled', 'var(--g5H)', 'var(--g5S)', 'calc(var(--g5L) + 30%)'),
+      createColorVars('cToggleFgDisabled', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) + 3%)'),
+
+      createColorVars('cArrow', 'var(--cBtnFgH)', 'var(--cBtnFgS)', 'var(--cBtnFgL)', '1'),
+      createColorVars('cArrowFade', 'var(--cArrowH)', 'var(--cArrowS)', 'var(--cArrowL)', '0.3'),
+      createColorVars('cArrowDisabled', 'var(--cArrowH)', '0%', 'var(--cArrowL)', '0.2'),
+
+      createColorVars('cBlock', 'var(--g4H)', 'var(--g4S)', 'var(--g4L)'),
+      createColorVars('cSubBlock', 'var(--g3H)', 'var(--g3S)', 'var(--g3L)'),
+
+      createColorVars('cPremium', 'var(--b1H)', 'var(--b1S)', 'calc(var(--b1L) + 20%)'),
+      createColorVars('cPremium2', 'var(--b2H)', 'var(--b2S)', 'calc(var(--b2L) + 30%)'),
+      createColorVars('cSettingsHeader', 'var(--g2H)', 'var(--g2S)', 'var(--g2L)'),
+      createColorVars('cSettingsFooter', 'var(--cSettingsHeaderH)', 'var(--cSettingsHeaderS)', 'var(--cSettingsHeaderL)'),
+      createColorVars('cSettingsPage', 'var(--g2H)', 'var(--g2S)', 'var(--g2L)'),
+      createColorVars('cSettingsPageScrollbar', 'var(--g4H)', 'var(--g4S)', 'var(--g4L)'),
+      createColorVars('cSettingsPageScrollthumb', 'var(--g3H)', 'var(--g3S)', 'calc(var(--g3L) - 12%)'),
+      createColorVars('cPanelBackdrop', '220deg', '40%', '60%', '0.3'),
+
+      createColorVars('cModalBg', 'var(--g4H)', 'var(--g4S)', 'var(--g4L)'),
+      createColorVars('cModalBackdrop', '0deg', '0%', '5%', '0.5'),
+    );
+    @each $colorSet in $colorSetsLight {
+      @each $key, $value in $colorSet {
+        #{$key}: #{$value};
+      }
+    }
+  }
+
+  .lightGrayMode {
+    $colorSetsLightGray: (
+      createColorVars('g1', '0deg', '0%', '91%'),
+      createColorVars('g2', '203deg', '0%', '92%'),
+      createColorVars('g3', '203deg', '0%', '89%'),
+      createColorVars('g4', '203deg', '0%', '86%'),
+      createColorVars('g5', '203deg', '0%', '32%'),
+      createColorVars('g6', '210deg', '0%', '10%'),
+      createColorVars('b1', '216deg', '84%', '53%'),
+      createColorVars('b2', '204deg', '0%', '36%'),
+
+      createColorVars('cText', 'var(--g6H)', 'var(--g6S)', 'var(--g6L)'),
+      createColorVars('cTextSubtle', 'var(--g5H)', 'var(--g5S)', 'var(--g5L)'),
+      createColorVars('cError', '10deg', '90%', '51%'),
+      createColorVars('cWarning', '35deg', '90%', '51%'),
+
+      createColorVars('cShadow', '0deg', '0%', '0%', '0.5'),
+
+      createColorVars('cDropdownBg', 'var(--g1H)', 'var(--g1S)', 'var(--g1L)'),
+      createColorVars('cDropdownBorder', 'var(--g1H)', 'var(--g1S)', 'calc(var(--g1L) - 40%)'),
+
+      createColorVars('cBtnFg', 'var(--b2H)', 'var(--b2S)', 'calc(var(--b2L) - 10%)'),
+      createColorVars('cBtnBorder', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cBtnShadow', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cBtnFgActive', 'var(--g1H)', 'var(--g1S)', 'var(--g1L)'),
+      createColorVars('cBtnActive', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cBtnFgDisabled', 'var(--g5H)', 'var(--g5S)', 'calc(var(--g5L) + 10%)'),
+      createColorVars('cBtnBorderDisabled', 'var(--g5H)', 'var(--g5S)', 'calc(var(--g5L) + 30%)'),
+      
+      createColorVars('cInputBg', 'var(--g2H)', 'var(--g2S)', '100%'),
+      createColorVars('cInputBorder', 'var(--g2H)', 'var(--g2S)', '100%'),
+      createColorVars('cInputDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) + 5%)', '.35'),
+      createColorVars('cRangeTrack', 'var(--g2H)', 'var(--g2S)', '100%'),
+      createColorVars('cRangeThumb', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cRangeOutput', 'var(--g2H)', 'var(--g2S)', '100%'),
+      createColorVars('cRangeOutputText', 'var(--cTextH)', 'var(--cTextS)', 'var(--cTextL)'),
+      createColorVars('cRangeTrackDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) + 10%)', '.35'),
+      createColorVars('cRangeThumbDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) - 40%)'),
+      createColorVars('cRangeOutputDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) + 10%)', '.35'),
+      createColorVars('cRangeOutputTextDisabled', 'var(--cTextH)', 'var(--cTextS)', 'var(--cTextL)'),
+
+      createColorVars('cToggleBg', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) + 10%)'),
+      createColorVars('cToggleIndicator', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cToggleFg', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) + 10%)'),
+
+      createColorVars('cToggleBgPressed', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) + 10%)'),
+      createColorVars('cToggleIndicatorPressed', 'var(--b2H)', 'var(--b2S)', 'var(--b2L)'),
+      createColorVars('cToggleFgPressed', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) + 10%)'),
+
+      createColorVars('cToggleBgDisabled', 'var(--g2H)', 'calc(var(--g2S) - 60%)', 'calc(var(--g2L) + 5%)', '.35'),
+      createColorVars('cToggleIndicatorDisabled', 'var(--g5H)', 'var(--g5S)', 'calc(var(--g5L) + 30%)'),
+      createColorVars('cToggleFgDisabled', 'var(--g2H)', 'var(--g2S)', 'calc(var(--g2L) + 3%)'),
+
+      createColorVars('cArrow', 'var(--cBtnFgH)', 'var(--cBtnFgS)', 'var(--cBtnFgL)', '1'),
+      createColorVars('cArrowFade', 'var(--cArrowH)', 'var(--cArrowS)', 'var(--cArrowL)', '0.3'),
+      createColorVars('cArrowDisabled', 'var(--cArrowH)', '0%', 'var(--cArrowL)', '0.2'),
+
+      createColorVars('cBlock', 'var(--g4H)', 'var(--g4S)', 'var(--g4L)'),
+      createColorVars('cSubBlock', 'var(--g3H)', 'var(--g3S)', 'var(--g3L)'),
+
+      createColorVars('cPremium', 'var(--b1H)', 'var(--b1S)', 'calc(var(--b1L) + 20%)'),
+      createColorVars('cPremium2', 'var(--b2H)', '100%', 'calc(var(--b2L) + 30%)'),
+      createColorVars('cSettingsHeader', 'var(--g2H)', 'var(--g2S)', 'var(--g2L)'),
+      createColorVars('cSettingsFooter', 'var(--cSettingsHeaderH)', 'var(--cSettingsHeaderS)', 'var(--cSettingsHeaderL)'),
+      createColorVars('cSettingsPage', 'var(--g2H)', 'var(--g2S)', 'var(--g2L)'),
+      createColorVars('cSettingsPageScrollbar', 'var(--g4H)', 'var(--g4S)', 'var(--g4L)'),
+      createColorVars('cSettingsPageScrollthumb', 'var(--g3H)', 'var(--g3S)', 'calc(var(--g3L) - 12%)'),
+      createColorVars('cPanelBackdrop', '220deg', '0%', '60%', '0.3'),
+
+      createColorVars('cModalBg', 'var(--g4H)', 'var(--g4S)', 'var(--g4L)'),
+      createColorVars('cModalBackdrop', '0deg', '0%', '5%', '0.5'),
+    );
+    @each $colorSet in $colorSetsLightGray {
+      @each $key, $value in $colorSet {
+        #{$key}: #{$value};
+      }
     }
   }
 }

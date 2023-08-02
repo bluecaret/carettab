@@ -414,6 +414,10 @@ const handleRenameSave = (id) => {
   margin: 0 auto 2rem auto;
   text-align: center;
   color: var(--b2);
+  .lightGrayMode &,
+  .lightMode & {
+    font-weight: 400;
+  }
 }
 
 .outliner {

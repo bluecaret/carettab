@@ -172,6 +172,12 @@ const handleBlueprintSelection = async (blueprint) => {
   justify-content: center;
   padding: var(--s4);
   background-color: hsl(var(--cBlockH) calc(var(--cBlockS) + 20%) calc(var(--cBlockL) + 5%));
+  .lightMode & {
+    background-color: hsl(var(--cBlockH) calc(var(--cBlockS) + 20%) calc(var(--cBlockL) - 11%));
+  }
+  .lightGrayMode & {
+    background-color: hsl(var(--cBlockH) 0% calc(var(--cBlockL) - 11%));
+  }
 }
 .blueprintList {
   list-style: none;

@@ -258,7 +258,7 @@ const getUnit = computed(() => {
     font-size: 1.3rem;
     font-weight: 400;
     margin: 0 0 var(--s3) 0;
-    opacity: 0.4;
+    opacity: 0.6;
     user-select: none;
     pointer-events: none;
   }

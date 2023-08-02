@@ -591,6 +591,12 @@ const getSwatchColor = (swatch) => {
   background-color: var(--g1);
   border-radius: var(--s3);
   list-style: none;
+  .lightMode & {
+    background-color: hsl(var(--g2H) 30% 80%);
+  }
+  .lightGrayMode & {
+    background-color: hsl(var(--g2H) 0% 80%);
+  }
   .btn {
     width: 100%;
     min-height: auto;
@@ -606,6 +612,10 @@ const getSwatchColor = (swatch) => {
     border: 1px solid var(--g4);
     background-color: transparent;
     color: var(--cTextSubtle);
+    .lightGrayMode &,
+    .lightMode & {
+      color: white;
+    }
     .fa-xmark {
       fill: white;
       stroke: black;
@@ -751,12 +761,12 @@ const getSwatchColor = (swatch) => {
 }
 .swatchGroup {
   display: grid;
-  grid-template-rows: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 2rem);
 }
 
 .swatch {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 100%;
   display: block;
   border: 0;
   padding: 0;

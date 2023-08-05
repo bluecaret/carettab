@@ -1447,7 +1447,7 @@ export const blueprints = [
             },
             id: 'wr-bluprt',
             label: { color: [0, 0, 100, 0.5], on: false },
-            layout: '1a',
+            layout: 'ClassicV',
             location: {
               country: 'United States of America',
               id: 2670971,

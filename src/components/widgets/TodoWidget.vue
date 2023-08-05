@@ -247,7 +247,7 @@ const doneColor = computed(() => {
   >
     <FontLink v-if="props.widget.base.font.override" :widget="props.widget"></FontLink>
     <div class="widgetInner">
-      <div class="heading">
+      <div v-if="props.widget.label.on" class="heading">
         <h2 class="title">{{ props.widget.label.label }}</h2>
       </div>
 
@@ -464,6 +464,10 @@ const doneColor = computed(() => {
   margin-inline-end: auto;
   align-items: center;
   text-align: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  letter-spacing: inherit;
 }
 
 .list {

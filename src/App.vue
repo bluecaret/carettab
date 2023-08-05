@@ -84,7 +84,7 @@ const refreshUserCheck = async () => {
   }
   // after checking paid status, run v3 migration
   if (store.status === 'updated' && checkVersionInRange(store.prevVersion, '3.X.X')) {
-    mergeV3Settings(true)
+    mergeV3Settings()
   }
 }
 

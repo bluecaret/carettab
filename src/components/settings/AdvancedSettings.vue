@@ -1,7 +1,6 @@
 <!-- eslint-disable no-undef -->
 <script setup>
 import { useSettingsStore, getStorage, setStorage } from '@/store.js'
-import { mergeV3Settings } from '@/helpers/mergeOldSettings.js'
 import { useI18n } from 'vue-i18n'
 
 const store = useSettingsStore()
@@ -34,18 +33,6 @@ const importSettings = () => {
       const reader = new FileReader()
       reader.onload = async (e) => {
         const settings = JSON.parse(e.target.result)
-
-        // handle settings imported from v3
-        if (settings.misc && settings.misc.schema === '1.1') {
-          if (confirm($t('advanced.importOldVersionWarning'))) {
-            store.isLoading = false
-            mergeV3Settings(settings)
-            return
-          } else {
-            store.isLoading = false
-            return
-          }
-        }
 
         if (!settings.config.global.schema || settings.config.global.schema !== store.config.global.schema) {
           const importNotCompatibleMsg = t('advanced.importNotCompatible')

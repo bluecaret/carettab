@@ -26,7 +26,7 @@ const availableWidgets = new Map([
   ['loadshedding', Loadshedding],
 ])
 
-export const mergeV3Settings = async (allowMigration) => {
+export const mergeV3Settings = async () => {
   const store = useSettingsStore()
   const oldDesignSettings = await getStorage('ct-misc', 'sync')
   if (!oldDesignSettings['ct-misc'] || oldDesignSettings['ct-misc'].schema !== '1.1') {
@@ -38,122 +38,89 @@ export const mergeV3Settings = async (allowMigration) => {
   let allLocalConfigs = await getStorage('', 'local')
   let allSyncConfigs = await getStorage('', 'sync')
 
-  if (allowMigration) {
-    let oldBookmark = allSyncConfigs['ct-bookmark']
-    let oldDate = allSyncConfigs['ct-date']
-    let oldDesign = allSyncConfigs['ct-design']
-    let oldI18n = allSyncConfigs['ct-i18n']
-    let oldLoadshedding = allSyncConfigs['ct-loadshedding']
-    let oldMessage = allSyncConfigs['ct-message']
-    let oldMisc = allSyncConfigs['ct-misc']
-    let oldNotepad = allSyncConfigs['ct-notepad']
-    let oldQuickLink = allSyncConfigs['ct-quick-link']
-    let oldsearch = allSyncConfigs['ct-search']
-    let oldTime = allSyncConfigs['ct-time']
-    let oldWeather = allSyncConfigs['ct-weather']
+  let oldBookmark = allSyncConfigs?.['ct-bookmark'] ?? null
+  let oldDate = allSyncConfigs?.['ct-date'] ?? null
+  let oldDesign = allSyncConfigs?.['ct-design'] ?? null
+  let oldI18n = allSyncConfigs?.['ct-i18n'] ?? null
+  let oldLoadshedding = allSyncConfigs?.['ct-loadshedding'] ?? null
+  let oldMessage = allSyncConfigs?.['ct-message'] ?? null
+  let oldMisc = allSyncConfigs?.['ct-misc'] ?? null
+  let oldNotepad = allSyncConfigs?.['ct-notepad'] ?? null
+  let oldQuickLink = allSyncConfigs?.['ct-quick-link'] ?? null
+  let oldsearch = allSyncConfigs?.['ct-search'] ?? null
+  let oldTime = allSyncConfigs?.['ct-time'] ?? null
+  let oldWeather = allSyncConfigs?.['ct-weather'] ?? null
 
-    let merge = {}
-    merge.config = {}
-    merge.config.layers = []
-    merge.config.global = {}
+  let merge = {}
+  merge.config = {}
+  merge.config.layers = []
+  merge.config.global = {}
 
-    switch (oldI18n.lang) {
-      case 'de-DE':
-        merge.config.global.lang = 'de'
-        break
-      case 'en-US':
-        merge.config.global.lang = 'en'
-        break
-      case 'es-MX':
-        merge.config.global.lang = 'es'
-        break
-      case 'fr-FR':
-        merge.config.global.lang = 'fr'
-        break
-      case 'he-IL':
-        merge.config.global.lang = 'he'
-        break
-      case 'it-IT':
-        merge.config.global.lang = 'it'
-        break
-      case 'ja-JP':
-        merge.config.global.lang = 'ja'
-        break
-      case 'ko-KR':
-        merge.config.global.lang = 'ko'
-        break
-      case 'pt-BR':
-        merge.config.global.lang = 'pt'
-        break
-      case 'pt-PT':
-        merge.config.global.lang = 'pt'
-        break
-      case 'ru-RU':
-        merge.config.global.lang = 'ru'
-        break
-      case 'sv-SE':
-        merge.config.global.lang = 'sv'
-        break
-      case 'uk-UA':
-        merge.config.global.lang = 'uk'
-        break
-      case 'ur-PK':
-        merge.config.global.lang = 'ur'
-        break
-      case 'vi-VN':
-        merge.config.global.lang = 'vi'
-        break
-      case 'zh-CN':
-        merge.config.global.lang = 'zh'
-        break
-      case 'zh-TW':
-        merge.config.global.lang = 'zh'
-        break
+  try {
+    if (oldI18n && oldI18n.lang) {
+      switch (oldI18n.lang) {
+        case 'de-DE':
+          merge.config.global.lang = 'de'
+          break
+        case 'en-US':
+          merge.config.global.lang = 'en'
+          break
+        case 'es-MX':
+          merge.config.global.lang = 'es'
+          break
+        case 'fr-FR':
+          merge.config.global.lang = 'fr'
+          break
+        case 'he-IL':
+          merge.config.global.lang = 'he'
+          break
+        case 'it-IT':
+          merge.config.global.lang = 'it'
+          break
+        case 'ja-JP':
+          merge.config.global.lang = 'ja'
+          break
+        case 'ko-KR':
+          merge.config.global.lang = 'ko'
+          break
+        case 'pt-BR':
+          merge.config.global.lang = 'pt'
+          break
+        case 'pt-PT':
+          merge.config.global.lang = 'pt'
+          break
+        case 'ru-RU':
+          merge.config.global.lang = 'ru'
+          break
+        case 'sv-SE':
+          merge.config.global.lang = 'sv'
+          break
+        case 'uk-UA':
+          merge.config.global.lang = 'uk'
+          break
+        case 'ur-PK':
+          merge.config.global.lang = 'ur'
+          break
+        case 'vi-VN':
+          merge.config.global.lang = 'vi'
+          break
+        case 'zh-CN':
+          merge.config.global.lang = 'zh'
+          break
+        case 'zh-TW':
+          merge.config.global.lang = 'zh'
+          break
 
-      default:
-        merge.config.global.lang = 'en'
-        break
+        default:
+          merge.config.global.lang = 'en'
+          break
+      }
     }
+  } catch (error) {
+    console.warn('An error occurred while attempting to migrate language settings', error)
+  }
 
-    merge.config.global.disableSelection = oldMisc.disableSelect
-    merge.config.global.hideSettings = oldMisc.hideMenu
-
-    merge.config.global.tabTitle = {}
-    merge.config.global.tabTitle.type = [20, 30, 40, 50].includes(oldMisc.title)
-      ? 'newtab'
-      : oldMisc.title === 60
-      ? 'custom'
-      : 'newtab'
-    merge.config.global.tabTitle.custom = oldMisc.title.text ? 'newtab' : 'New Tab'
-
-    merge.config.global.font = {}
-    merge.config.global.font.color = hexToHSLArray(oldDesign.foreground)
-    merge.config.global.font.shadow = [
-      oldDesign.shadow,
-      oldDesign.shadowXOffset,
-      oldDesign.shadowYOffset,
-      oldDesign.shadowBlur,
-      ...hexToHSLArray(oldDesign.shadowColor),
-    ]
-
-    merge.config.global.container = {}
-    merge.config.global.container.shadow = [
-      oldDesign.shadow,
-      oldDesign.shadowXOffset,
-      oldDesign.shadowYOffset,
-      oldDesign.shadowBlur,
-      ...hexToHSLArray(oldDesign.shadowColor),
-    ]
-
-    merge.config.global.element = {}
-    merge.config.global.element.shadow = [
-      oldDesign.shadow,
-      oldDesign.shadowXOffset,
-      oldDesign.shadowYOffset,
-      oldDesign.shadowBlur,
-      ...hexToHSLArray(oldDesign.shadowColor),
-    ]
-
+  try {
     merge.config.global.wallpaper = {}
     merge.config.global.wallpaper.background = hexToHSLArray(oldDesign.background)
     merge.config.global.wallpaper.brightness = oldDesign.brightness
@@ -180,7 +147,11 @@ export const mergeV3Settings = async (allowMigration) => {
         break
     }
     merge.config.global.wallpaper.size = oldImageSize
+  } catch (error) {
+    console.warn('An error occurred while attempting to migrate wallpaper settings', error)
+  }
 
+  try {
     if (oldMessage && oldMessage.enabled) {
       let newWidget = setupNewWidget('quote')
       let newLayer = setupNewLayer(newWidget.id, 'quote')
@@ -197,7 +168,11 @@ export const mergeV3Settings = async (allowMigration) => {
       merge.config.quotes.push(newWidget)
       merge.config.layers.push(newLayer)
     }
+  } catch (error) {
+    console.warn('An error occurred while attempting to migrate message settings', error)
+  }
 
+  try {
     if (oldQuickLink && oldQuickLink.enabled) {
       let newWidget = setupNewWidget('quickLinks')
       let newLayer = setupNewLayer(newWidget.id, 'quickLinks')
@@ -216,7 +191,11 @@ export const mergeV3Settings = async (allowMigration) => {
       merge.config.quickLinks.push(newWidget)
       merge.config.layers.push(newLayer)
     }
+  } catch (error) {
+    console.warn('An error occurred while attempting to migrate quick link settings', error)
+  }
 
+  try {
     if (oldBookmark && oldBookmark.enabled) {
       let newWidget = setupNewWidget('quickLinks')
       let newLayer = setupNewLayer(newWidget.id, 'quickLinks')
@@ -235,7 +214,11 @@ export const mergeV3Settings = async (allowMigration) => {
       merge.config.quickLinks.push(newWidget)
       merge.config.layers.push(newLayer)
     }
+  } catch (error) {
+    console.warn('An error occurred while attempting to migrate bookmark settings', error)
+  }
 
+  try {
     if (oldTime && oldTime.clocks.length > 0) {
       merge.config.analogClocks = []
       merge.config.digitalClocks = []
@@ -305,7 +288,11 @@ export const mergeV3Settings = async (allowMigration) => {
         }
       })
     }
+  } catch (error) {
+    console.warn('An error occurred while attempting to migrate clock settings', error)
+  }
 
+  try {
     if (oldDate && oldDate.enabled) {
       let newWidget = setupNewWidget('date')
       let newLayer = setupNewLayer(newWidget.id, 'date')
@@ -347,7 +334,11 @@ export const mergeV3Settings = async (allowMigration) => {
       merge.config.dates.push(newWidget)
       merge.config.layers.push(newLayer)
     }
+  } catch (error) {
+    console.warn('An error occurred while attempting to migrate date settings', error)
+  }
 
+  try {
     if (oldsearch && oldsearch.enabled) {
       let newWidget = setupNewWidget('searchBar')
       let newLayer = setupNewLayer(newWidget.id, 'searchBar')
@@ -397,7 +388,11 @@ export const mergeV3Settings = async (allowMigration) => {
       merge.config.searchBars.push(newWidget)
       merge.config.layers.push(newLayer)
     }
+  } catch (error) {
+    console.warn('An error occurred while attempting to migrate search settings', error)
+  }
 
+  try {
     if (oldWeather && oldWeather.enabled) {
       let newWidget = setupNewWidget('weather')
       let newLayer = setupNewLayer(newWidget.id, 'weather')
@@ -433,7 +428,11 @@ export const mergeV3Settings = async (allowMigration) => {
       merge.config.weathers.push(newWidget)
       merge.config.layers.push(newLayer)
     }
+  } catch (error) {
+    console.warn('An error occurred while attempting to migrate weather settings', error)
+  }
 
+  try {
     if (oldNotepad && oldNotepad.enabled) {
       let newWidget = setupNewWidget('notepad')
       let newLayer = setupNewLayer(newWidget.id, 'notepad')
@@ -453,7 +452,11 @@ export const mergeV3Settings = async (allowMigration) => {
         await setStorage({ ['notes-' + newWidget.id]: '' + allLocalConfigs['ct-notes'] }, 'local')
       }
     }
+  } catch (error) {
+    console.warn('An error occurred while attempting to migrate notepad settings', error)
+  }
 
+  try {
     if (oldLoadshedding && oldLoadshedding.areas.length > 0) {
       merge.config.loadsheddings = []
       oldLoadshedding.areas.clocks.forEach((ls) => {
@@ -471,32 +474,43 @@ export const mergeV3Settings = async (allowMigration) => {
         merge.config.layers.push(newLayer)
       })
     }
+  } catch (error) {
+    console.warn('An error occurred while attempting to migrate loadshedding settings', error)
+  }
 
+  try {
     store.$patch({ config: merge.config })
     await store.save()
     console.info('%cSettings have been migrated.', 'color:teal;font-weight:bold;', merge)
+  } catch (error) {
+    console.warn('An error occurred while attempting to save migrated data', error)
   }
 
-  await removeStorage('caretTabNewVersion', 'local')
-  await removeStorage('caretTabPrevVersion', 'local')
-  await removeStorage('caretTabStatus', 'local')
-  await removeStorage('ct-notes', 'local')
-  await removeStorage('ct-bookmark', 'sync')
-  await removeStorage('ct-date', 'sync')
-  await removeStorage('ct-design', 'sync')
-  await removeStorage('ct-i18n', 'sync')
-  await removeStorage('ct-loadshedding', 'sync')
-  await removeStorage('ct-message', 'sync')
-  await removeStorage('ct-misc', 'sync')
-  await removeStorage('ct-notepad', 'sync')
-  await removeStorage('ct-notes', 'sync')
-  await removeStorage('ct-order', 'sync')
-  await removeStorage('ct-quick-link', 'sync')
-  await removeStorage('ct-search', 'sync')
-  await removeStorage('ct-time', 'sync')
-  await removeStorage('ct-weather', 'sync')
-  console.info('%cOld settings been removed.', 'color:teal;font-weight:bold;')
-  console.info('%cMigration has been complete.', 'color:teal;font-weight:bold;')
+  try {
+    await removeStorage('caretTabNewVersion', 'local')
+    await removeStorage('caretTabPrevVersion', 'local')
+    await removeStorage('caretTabStatus', 'local')
+    await removeStorage('ct-notes', 'local')
+    await removeStorage('ct-bookmark', 'sync')
+    await removeStorage('ct-date', 'sync')
+    await removeStorage('ct-design', 'sync')
+    await removeStorage('ct-i18n', 'sync')
+    await removeStorage('ct-loadshedding', 'sync')
+    await removeStorage('ct-message', 'sync')
+    await removeStorage('ct-misc', 'sync')
+    await removeStorage('ct-notepad', 'sync')
+    await removeStorage('ct-notes', 'sync')
+    await removeStorage('ct-order', 'sync')
+    await removeStorage('ct-quick-link', 'sync')
+    await removeStorage('ct-search', 'sync')
+    await removeStorage('ct-time', 'sync')
+    await removeStorage('ct-weather', 'sync')
+    console.info('%cOld, no longer used settings been removed to save storage.', 'color:teal;font-weight:bold;')
+  } catch (error) {
+    console.warn('An error occurred while attempting to clear out unused settings', error)
+  }
+
+  console.info('%cMigration attempt has finished.', 'color:teal;font-weight:bold;')
   store.isLoading = false
 }
 

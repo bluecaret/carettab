@@ -19,6 +19,9 @@ import { Shape } from '@/components/widgets/Shape.js'
 import { Text } from '@/components/widgets/Text.js'
 import { Todo } from '@/components/widgets/Todo.js'
 import cloneDeep from 'lodash/cloneDeep'
+import merge from 'lodash/merge'
+import defaultsDeep from 'lodash/defaultsDeep'
+import has from 'lodash/has'
 
 const availableWidgets = new Map([
   ['digitalClock', DigitalClock],
@@ -186,8 +189,38 @@ export const useSettingsStore = defineStore('settings', () => {
     if (store) {
       let keys = Object.keys(store)
 
-      if (store.global) config.global = store.global
-      if (store.toolbar) config.toolbar = store.toolbar
+      if (store.global) {
+        const globalDefaults = new Defaults().global
+        const updatedGlobal = updateGlobalWithNewSettings(store.global, globalDefaults)
+
+        if (updatedGlobal) {
+          console.info(
+            `%cGlobal settings have been updated, adding new features.`,
+            'background-color:darkseagreen;color: black;',
+            updatedGlobal
+          )
+          config.global = updatedGlobal
+        } else {
+          console.info(`Loading Global settings.`, store.global)
+          config.global = store.global
+        }
+      }
+      if (store.toolbar) {
+        const toolbarDefaults = new Defaults().toolbar
+        const updatedToolbar = updateGlobalWithNewSettings(store.toolbar, toolbarDefaults)
+
+        if (updatedToolbar) {
+          console.info(
+            `%cToolbar settings have been updated, adding new features.`,
+            'background-color:darkseagreen;color: black;',
+            updatedToolbar
+          )
+          config.toolbar = updatedToolbar
+        } else {
+          console.info(`Loading Toolbar settings.`, store.toolbar)
+          config.toolbar = store.toolbar
+        }
+      }
       if (store.layers) config.layers = store.layers
 
       // Check if all tools exist in toolbar by comparing with toolTypes, if not add them to the store:
@@ -211,7 +244,23 @@ export const useSettingsStore = defineStore('settings', () => {
             if (isStorageApproachingFull(store[k], true)) {
               if (![k].includes(storageWarning.value)) storageWarning.value.push(k)
             }
-            allOfType.push(store[k])
+
+            if (store[k]) {
+              // Check if new features have been added
+              const updatedWidget = updateWithNewSettings(store[k], availableWidgets.get(widget.type))
+
+              if (updatedWidget) {
+                console.info(
+                  `%c${widget.name} settings have been updated, adding new features.`,
+                  'background-color:darkseagreen;color: black;',
+                  updatedWidget
+                )
+                allOfType.push(updatedWidget)
+              } else {
+                console.info(`Loading ${widget.name} settings.`, store[k])
+                allOfType.push(store[k])
+              }
+            }
           })
         }
 
@@ -223,6 +272,39 @@ export const useSettingsStore = defineStore('settings', () => {
     if (colors && colors.palette && colors.palette.length > 0) {
       palette.value = [...colors.palette]
     }
+  }
+
+  // Recursive function to check for missing properties when updating settings
+  const hasAllProperties = (obj, referenceObj) => {
+    return Object.keys(referenceObj).every((key) => {
+      if (typeof referenceObj[key] === 'object' && referenceObj[key] !== null) {
+        return has(obj, key) && hasAllProperties(obj[key], referenceObj[key])
+      }
+      return has(obj, key)
+    })
+  }
+
+  const updateWithNewSettings = (itemCurrentSettings, ItemClass) => {
+    // Create a new instance of the default settings class.
+    const defaultSettings = new ItemClass()
+
+    // Only update if there are missing properties.
+    if (!hasAllProperties(itemCurrentSettings, defaultSettings)) {
+      // Use Lodash's merge and defaultsDeep functions to combine settings and ensure any missing default values are filled in.
+      const updatedSettings = merge({}, defaultsDeep(itemCurrentSettings, defaultSettings), itemCurrentSettings)
+      return updatedSettings
+    }
+    return false
+  }
+
+  const updateGlobalWithNewSettings = (globalSettings, globalDefaults) => {
+    // Only update if there are missing properties.
+    if (!hasAllProperties(globalSettings, globalDefaults)) {
+      // Use Lodash's merge and defaultsDeep functions to combine settings and ensure any missing default values are filled in.
+      const updatedSettings = merge({}, defaultsDeep(globalSettings, globalDefaults), globalSettings)
+      return updatedSettings
+    }
+    return false
   }
 
   const save = () => {

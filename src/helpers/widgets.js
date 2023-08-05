@@ -80,7 +80,9 @@ export const setWidgetContainerStyles = (widget, global, paid) => {
       ? 'max-content'
       : widget.base.height + (widget.base.heightUnit === 'pixels' ? 'px' : '%')
   };`
-  const translate = `translate: ${widget.base.x}px ${-widget.base.y}px;`
+  const translate = `translate: ${widget.base.x}${widget.base.xUnit === 'pixels' ? 'px' : 'dvw'} ${-widget.base.y}${
+    widget.base.yUnit === 'pixels' ? 'px' : 'dvh'
+  };`
   const radius = `border-radius: ${paid ? box.radius : 0}px; `
   const borderColor = `hsl(${box.borderColor[0]}deg ${box.borderColor[1]}% ${box.borderColor[2]}% / ${box.borderColor[3]});`
   const border = `border: ${paid ? box.borderSize : 0}px solid ${borderColor}; `

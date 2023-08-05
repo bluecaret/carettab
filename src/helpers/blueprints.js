@@ -171,6 +171,8 @@ export const blueprints = [
               alignment: 'c',
               x: 0,
               y: 0,
+              xUnit: 'pixels',
+              yUnit: 'pixels',
               font: {
                 override: false,
                 color: [200, 10, 90, 1],
@@ -314,6 +316,8 @@ export const blueprints = [
               alignment: 'c',
               x: 0,
               y: -110,
+              xUnit: 'pixels',
+              yUnit: 'pixels',
               font: {
                 override: false,
                 color: [200, 10, 90, 1],
@@ -366,6 +370,8 @@ export const blueprints = [
               alignment: 'c',
               x: 0,
               y: 120,
+              xUnit: 'pixels',
+              yUnit: 'pixels',
               font: {
                 override: false,
                 color: [200, 10, 90, 1],
@@ -492,6 +498,8 @@ export const blueprints = [
               widthUnit: 'percent',
               x: 0,
               y: -6,
+              xUnit: 'pixels',
+              yUnit: 'pixels',
             },
             id: 'ql-bluprt',
             layout: 'ch',
@@ -614,6 +622,8 @@ export const blueprints = [
               widthUnit: 'auto',
               x: 0,
               y: 220,
+              xUnit: 'pixels',
+              yUnit: 'pixels',
             },
             delimiter: {
               blink: false,
@@ -735,6 +745,8 @@ export const blueprints = [
               widthUnit: 'auto',
               x: 420,
               y: -30,
+              xUnit: 'pixels',
+              yUnit: 'pixels',
             },
             center: { color: [0, 0, 100, 1], on: true },
             face: {
@@ -811,6 +823,8 @@ export const blueprints = [
               widthUnit: 'auto',
               x: 140,
               y: -30,
+              xUnit: 'pixels',
+              yUnit: 'pixels',
             },
             center: { color: [0, 0, 100, 1], on: true },
             face: {
@@ -887,6 +901,8 @@ export const blueprints = [
               widthUnit: 'auto',
               x: -140,
               y: -30,
+              xUnit: 'pixels',
+              yUnit: 'pixels',
             },
             center: { color: [0, 0, 100, 1], on: true },
             face: {
@@ -963,6 +979,8 @@ export const blueprints = [
               widthUnit: 'auto',
               x: -420,
               y: -30,
+              xUnit: 'pixels',
+              yUnit: 'pixels',
             },
             center: { color: [0, 0, 100, 1], on: true },
             face: {
@@ -1127,6 +1145,8 @@ export const blueprints = [
               alignment: 'c',
               x: 0,
               y: -250,
+              xUnit: 'pixels',
+              yUnit: 'pixels',
               font: {
                 override: true,
                 color: [168, 55, 77, 1],
@@ -1277,6 +1297,8 @@ export const blueprints = [
               widthUnit: 'auto',
               x: 320,
               y: 170,
+              xUnit: 'pixels',
+              yUnit: 'pixels',
             },
             center: { color: [253, 64, 20, 1], on: true },
             face: {
@@ -1359,6 +1381,8 @@ export const blueprints = [
               widthUnit: 'pixels',
               x: 130,
               y: -250,
+              xUnit: 'pixels',
+              yUnit: 'pixels',
             },
             current: {
               astro: {
@@ -1474,6 +1498,8 @@ export const blueprints = [
               widthUnit: 'pixels',
               x: -380,
               y: -60,
+              xUnit: 'pixels',
+              yUnit: 'pixels',
             },
             borderColor: [11, 67, 61, 1],
             borderRadius: 0,
@@ -1519,6 +1545,8 @@ export const blueprints = [
               widthUnit: 'pixels',
               x: -40,
               y: 250,
+              xUnit: 'pixels',
+              yUnit: 'pixels',
             },
             currentQuote: 1,
             id: 'qt-bluprt',
@@ -1595,6 +1623,8 @@ export const blueprints = [
               widthUnit: 'pixels',
               x: 160,
               y: -90,
+              xUnit: 'pixels',
+              yUnit: 'pixels',
             },
             borderBottom: false,
             borderColor: [253, 64, 20, 1],

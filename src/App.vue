@@ -123,23 +123,11 @@ const getFontFamily = computed(() => {
   }
   return '"Source Sans 3"'
 })
-
-const buildFontLink = computed(() => {
-  const base = 'https://fonts.googleapis.com/css2?family='
-  const post = '&display=swap'
-  let wght = '400'
-  if (store.config.global.font.bold < 400) {
-    wght = `${store.config.global.font.bold};400`
-  } else if (store.config.global.font.bold > 400) {
-    wght = `400;${store.config.global.font.bold}`
-  }
-  return `${base}${store.config.global.font.family}:wght@${wght}${post}`
-})
 </script>
 
 <template>
   <div class="appInner">
-    <link id="google-font-link" rel="stylesheet" :href="buildFontLink" />
+    <FontLink :global="true"></FontLink>
     <NewTab></NewTab>
     <SettingsPanel v-if="settingsOpen"></SettingsPanel>
     <div id="modals"></div>

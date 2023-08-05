@@ -36,7 +36,6 @@ const applyUserColorSchemePreference = () => {
   const body = document.body
 
   if (store.config.global.mode && store.config.global.mode !== 'auto') {
-    console.log('set mode', store.config.global.mode)
     switch (store.config.global.mode) {
       case 'dark':
         body.className = 'darkMode'

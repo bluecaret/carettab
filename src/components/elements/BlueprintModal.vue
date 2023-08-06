@@ -62,7 +62,7 @@ const handleBlueprintSelection = async (blueprint) => {
 </script>
 
 <template>
-  <ModalWindow :show="show" :button-ref="blueprintBtnEl" size="800px" @close="show = false">
+  <ModalWindow :show="show" :button-ref="blueprintBtnEl" size="900px" @close="show = false">
     <template #button>
       <button ref="blueprintBtnEl" type="button" class="btn btnText addBtn" @click.stop="show = true">
         <fa icon="fa-compass-drafting" /> {{ $t('settings.useABlueprint') }}
@@ -72,9 +72,7 @@ const handleBlueprintSelection = async (blueprint) => {
       <div class="modal">
         <header class="modalHeader">
           <h1 class="modalTitle">
-            <fa icon="fa-compass-drafting" style="margin-right: 1.5rem" size="lg" />{{
-              $t('settings.selectABlueprintToTransformYourNewTab')
-            }}
+            {{ $t('settings.selectABlueprintToTransformYourNewTab') }}
           </h1>
           <button
             ref="modalCloseEl"
@@ -87,12 +85,10 @@ const handleBlueprintSelection = async (blueprint) => {
           </button>
         </header>
         <div class="modalContent">
-          <div class="explanation">
-            <div class="explanationTitle">{{ $t('settings.whatsABlueprint') }}</div>
-            <div class="explanationDesc">
-              {{ $t('settings.whatsABlueprintDescription') }}
-            </div>
-          </div>
+          <p>
+            {{ $t('settings.whatsABlueprint') }}
+            {{ $t('settings.whatsABlueprintDescription') }}
+          </p>
           <ul class="blueprintList">
             <li v-for="blueprint in blueprints" :key="blueprint.id">
               <ModalWindow
@@ -104,6 +100,9 @@ const handleBlueprintSelection = async (blueprint) => {
                 <template #button>
                   <button type="button" class="blueprintItem" @click="showConfirmation = blueprint.id">
                     <div class="blueprintItemContent">
+                      <div class="blueprintItemPreview">
+                        <img :src="`/img/blueprints/${blueprint.id}.png`" alt="Screenshot of blueprint" />
+                      </div>
                       <div class="blueprintItemName"><fa icon="fa-compass-drafting" />{{ blueprint.name }}</div>
                       <div class="blueprintItemDesc">{{ blueprint.desc }}</div>
                     </div>
@@ -146,15 +145,17 @@ const handleBlueprintSelection = async (blueprint) => {
                 </template>
               </ModalWindow>
             </li>
+            <li>
+              <div class="blueprintItem explanation">
+                <div class="explanationTitle">{{ $t('settings.shareYourCreation') }}</div>
+                <div class="explanationDesc">
+                  {{ store.tSplit($t('settings.doYouHaveALayout'))[0] }}
+                  <a href="mailto:dev@bluecaret.com">dev@bluecaret.com</a>
+                  {{ store.tSplit($t('settings.doYouHaveALayout'))[1] }}
+                </div>
+              </div>
+            </li>
           </ul>
-          <div class="explanation">
-            <div class="explanationTitle">{{ $t('settings.shareYourCreation') }}</div>
-            <div class="explanationDesc">
-              {{ store.tSplit($t('settings.doYouHaveALayout'))[0] }}
-              <a href="mailto:dev@bluecaret.com">dev@bluecaret.com</a>
-              {{ store.tSplit($t('settings.doYouHaveALayout'))[1] }}
-            </div>
-          </div>
         </div>
       </div>
     </template>
@@ -202,8 +203,6 @@ const handleBlueprintSelection = async (blueprint) => {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template: auto 1fr / 1fr;
-  gap: var(--s4);
   padding: var(--s5) var(--s5);
   border-radius: var(--s4);
   text-align: left;
@@ -220,12 +219,25 @@ const handleBlueprintSelection = async (blueprint) => {
 }
 
 .blueprintItemContent {
-  display: flex;
-  flex-direction: column;
-  gap: var(--s4);
+  display: grid;
+  grid-template: 1fr auto / 17rem 1fr;
+  gap: var(--s5);
+  align-items: start;
+}
+
+.blueprintItemPreview {
+  grid-area: 2 / 1 / 3 / 2;
+  img {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+    line-height: 1;
+    box-shadow: 0 0 0.2rem 0.1rem hsl(var(--cBtnFgH) var(--cBtnFgS) var(--cBtnFgL) / 0.9);
+  }
 }
 
 .blueprintItemName {
+  grid-area: 1 / 1 / 2 / 3;
   font-size: 2.4rem;
   font-weight: 300;
   color: var(--cBtnFg);
@@ -233,7 +245,8 @@ const handleBlueprintSelection = async (blueprint) => {
   gap: var(--s4);
 }
 .blueprintItemDesc {
-  font-size: 1.6rem;
+  grid-area: 2 / 2 / 3 / 3;
+  font-size: 1.5rem;
   font-weight: 400;
   color: var(--cTextSubtle);
   line-height: 1.3;
@@ -258,6 +271,10 @@ const handleBlueprintSelection = async (blueprint) => {
   border-radius: var(--s4);
   background: var(--g3);
   color: var(--cTextSubtle);
+  cursor: default;
+  &:hover {
+    box-shadow: none;
+  }
 }
 
 .explanationTitle {

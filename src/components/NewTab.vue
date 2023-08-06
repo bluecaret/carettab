@@ -204,7 +204,8 @@ const setTabTitle = () => {
     </div>
     <div v-if="store.showGrid" class="positioningGrid"></div>
     <ToggleSettings></ToggleSettings>
-    <WelcomePage v-if="store.status === 'installed'" />
+    <!-- Only show welcome page if user doesn't already have layers when installed. If layers are present, a sync from another browser is likely. -->
+    <WelcomePage v-if="store.status === 'installed' && (!store.config.layers || store.config.layers.length <= 0)" />
 
     <!-- Currently only showing if prevVersion is within v3.X.X. Normal updates shouldn't show an update page -->
     <UpdatedPage v-if="store.status === 'updated' && checkVersionInRange(store.prevVersion, '3.X.X')" />

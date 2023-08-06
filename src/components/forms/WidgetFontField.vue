@@ -1,5 +1,5 @@
 <script setup>
-import { inject, computed } from 'vue'
+import { inject, computed, ref, nextTick } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { fontList, fontWeight, textTransform } from '@/assets/lists.js'
 
@@ -8,9 +8,13 @@ const props = defineProps({
   index: Number,
   widgetStore: String,
   startOpen: Boolean,
+  hideToggle: Boolean,
 })
 
 const store = useSettingsStore()
+const refreshDisplay = ref(false)
+const editGlobalModal = ref(false)
+const copyGlobalModal = ref(false)
 const user = inject('user')
 const widget = computed({
   get: () => {
@@ -32,10 +36,27 @@ const widget = computed({
 const updateFamily = (family) => {
   widget.value.family = family.label
 }
+
+const handleGlobalCopy = () => {
+  store.config[props.widgetStore][props.index].base.font.color = store.config.global.font.color
+  store.config[props.widgetStore][props.index].base.font.shadow = store.config.global.font.shadow
+  store.config[props.widgetStore][props.index].base.font.family = store.config.global.font.family
+  store.config[props.widgetStore][props.index].base.font.letterSpacing = store.config.global.font.letterSpacing
+  store.config[props.widgetStore][props.index].base.font.bold = store.config.global.font.bold
+  store.config[props.widgetStore][props.index].base.font.italic = store.config.global.font.italic
+  store.config[props.widgetStore][props.index].base.font.underline = store.config.global.font.underline
+  store.config[props.widgetStore][props.index].base.font.transform = store.config.global.font.transform
+
+  refreshDisplay.value = true
+  nextTick(() => {
+    refreshDisplay.value = false
+  })
+  copyGlobalModal.value = false
+}
 </script>
 
 <template>
-  <FieldAccordion :start-open="startOpen">
+  <FieldAccordion :start-open="startOpen" :hide-toggle="hideToggle">
     <template #label>
       <div class="label">
         <div>{{ $t('settings.widgetFontStyles') }}</div>
@@ -55,10 +76,82 @@ const updateFamily = (family) => {
         ></NumberField>
       </div>
       <div v-if="!props.globalSetting" class="block">
-        <label for="overrideGlobalFont" class="label mra">{{ $t('common.overrideGlobal') }}</label>
+        <div class="label mra">
+          <label for="overrideGlobalFont">{{ $t('common.overrideGlobal') }}</label>
+          <div class="group fill">
+            <div class="desc">
+              <ModalWindow :show="editGlobalModal" size="460px" @close="editGlobalModal = false">
+                <template #button>
+                  <button class="btn btnLink" type="button" @click="editGlobalModal = true">
+                    Edit global font settings
+                  </button>
+                </template>
+                <template #window>
+                  <div class="modal">
+                    <header class="modalHeader">
+                      <h1 class="modalTitle">Global Widget Font Styles</h1>
+                      <button
+                        class="modalClose"
+                        type="button"
+                        :aria-label="$t('common.close')"
+                        @click="editGlobalModal = false"
+                      >
+                        <fa icon="fa-xmark" />
+                      </button>
+                    </header>
+                    <div class="modalContent">
+                      <div class="block globalSettingsContainer">
+                        <WidgetFontField :index="0" widget-store="global" global-setting start-open hide-toggle />
+                      </div>
+                    </div>
+                  </div>
+                </template>
+              </ModalWindow>
+            </div>
+            <div v-if="widget.override" class="desc">
+              <ModalWindow :show="copyGlobalModal" size="460px" @close="copyGlobalModal = false">
+                <template #button>
+                  <button class="btn btnLink" type="button" @click="copyGlobalModal = true">Copy from global</button>
+                </template>
+                <template #window>
+                  <div class="modal">
+                    <header class="modalHeader">
+                      <h1 class="modalTitle">Copy global font styles</h1>
+                      <button
+                        class="modalClose"
+                        type="button"
+                        :aria-label="$t('common.close')"
+                        @click="copyGlobalModal = false"
+                      >
+                        <fa icon="fa-xmark" />
+                      </button>
+                    </header>
+                    <div class="modalContent">
+                      <p>This option will match the widget font settings with the current global font settings.</p>
+                      <div class="group fill">
+                        <button type="button" class="btn btnText mla" @click="copyGlobalModal = false">
+                          {{ $t('common.cancel') }}
+                        </button>
+                        <button type="button" class="btn" @click="handleGlobalCopy()">Copy from global</button>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+              </ModalWindow>
+            </div>
+          </div>
+        </div>
         <ToggleField v-model="widget.override" tag-id="overrideGlobalFont"> </ToggleField>
       </div>
-      <template v-if="props.globalSetting || widget.override">
+      <template v-if="!refreshDisplay && (props.globalSetting || widget.override)">
+        <div class="block">
+          <label for="widgetFontColor" class="label mra"> {{ $t('common.color') }} </label>
+          <ColorField v-model="widget.color" tag-id="widgetFontColor" class="w20"> </ColorField>
+        </div>
+        <div class="block">
+          <label for="widgetFontShadow" class="label mra"> {{ $t('common.shadow') }} </label>
+          <ColorField v-model="widget.shadow" shadow text tag-id="widgetFontShadow" class="w20"> </ColorField>
+        </div>
         <div class="block">
           <label for="fontFamily" class="label mra">
             <div><PremiumLabel v-if="!props.globalSetting" />{{ $t('settings.font') }}</div>
@@ -67,7 +160,7 @@ const updateFamily = (family) => {
             class="w34"
             left
             fonts
-            tag-id="test"
+            tag-id="fontFamily"
             use-label
             allow-custom
             :list="fontList"
@@ -99,7 +192,6 @@ const updateFamily = (family) => {
           </select>
           <div class="btnGroup">
             <button
-              id="togglePosition"
               :aria-label="$t('settings.italic')"
               class="btn"
               type="button"
@@ -110,7 +202,6 @@ const updateFamily = (family) => {
               <fa icon="fa-italic" fixed-width></fa>
             </button>
             <button
-              id="togglePosition"
               :aria-label="$t('settings.underline')"
               class="btn"
               type="button"
@@ -138,15 +229,13 @@ const updateFamily = (family) => {
             </option>
           </select>
         </div>
-        <div class="block">
-          <label for="widgetFontColor" class="label mra"> {{ $t('common.color') }} </label>
-          <ColorField v-model="widget.color" tag-id="widgetFontColor" class="w20"> </ColorField>
-        </div>
-        <div class="block">
-          <label for="widgetFontShadow" class="label mra"> {{ $t('common.shadow') }} </label>
-          <ColorField v-model="widget.shadow" shadow text tag-id="widgetFontShadow" class="w20"> </ColorField>
-        </div>
       </template>
     </template>
   </FieldAccordion>
 </template>
+
+<style lang="scss" scoped>
+.globalSettingsContainer {
+  padding: 0;
+}
+</style>

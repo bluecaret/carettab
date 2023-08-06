@@ -122,6 +122,20 @@ const handleLangSelect = (event) => {
       <div class="block">
         <div class="group fill">
           <div class="label mra">
+            <label for="colorMode">UI color mode</label>
+          </div>
+          <select id="colorMode" v-model="store.config.global.mode" name="colorMode" class="select w25">
+            <option value="auto">Use system preference</option>
+            <option value="dark">Dark</option>
+            <option value="darkGray">Dark Gray</option>
+            <option value="light">Light</option>
+            <option value="lightGray">Light Gray</option>
+          </select>
+        </div>
+      </div>
+      <div class="block">
+        <div class="group fill">
+          <div class="label mra">
             <label for="hideSettings">{{ $t('settings.hideSettingsButton') }}</label>
             <div class="desc">
               {{ $t('settings.hideSettingsButtonDescription') }}

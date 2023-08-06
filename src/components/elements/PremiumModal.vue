@@ -189,6 +189,12 @@ const handleSubscribe = () => {
   color: var(--getPremiumModalColor);
   background-color: var(--getPremiumModalBg);
   background-image: radial-gradient(100% 65% at 0% 0%, var(--getPremiumModalBg2) 0%, var(--getPremiumModalBg) 100%);
+
+  .lightGrayMode &,
+  .lightMode & {
+    --getPremiumModalBg: hsl(var(--cPremiumH) var(--cPremiumS) calc(var(--cPremiumL) + 12%) / 1);
+    --getPremiumModalBg2: hsl(var(--cPremium2H) var(--cPremium2S) calc(var(--cPremium2L) + 12%) / 1);
+  }
   a {
     color: var(--getPremiumModalColor);
     &:focus-visible {
@@ -203,12 +209,21 @@ const handleSubscribe = () => {
     text-transform: uppercase;
     text-align: center;
     text-shadow: 0 0.1em 0.3em hsl(0deg 0% 0% / 0.8);
+    .lightGrayMode &,
+    .lightMode & {
+      text-shadow: none;
+      font-weight: 400;
+    }
   }
   p {
     margin: 0 auto var(--s5);
     font-size: 1.5rem;
     font-weight: 300;
     text-align: center;
+    .lightGrayMode &,
+    .lightMode & {
+      font-weight: 400;
+    }
   }
 }
 
@@ -225,12 +240,20 @@ const handleSubscribe = () => {
   margin: var(--s2) auto;
   text-align: center;
   filter: drop-shadow(0 0.2em 0.5em hsl(0deg 0% 0% / 0.6));
+  .lightGrayMode &,
+  .lightMode & {
+    filter: drop-shadow(0 0.1em 0.2em hsl(0deg 0% 0% / 0.9));
+  }
 }
 
 .premiumModalPrice {
   font-size: 1.8rem;
   font-weight: 300;
   text-align: center;
+  .lightGrayMode &,
+  .lightMode & {
+    font-weight: 400;
+  }
   span {
     font-weight: 600;
   }
@@ -257,6 +280,10 @@ const handleSubscribe = () => {
       width: 5rem;
       height: 5rem;
       border-radius: 50%;
+      .lightGrayMode &,
+      .lightMode & {
+        background-color: hsl(var(--cPremiumH) var(--cPremiumS) calc(var(--cPremiumL) - 2%) / 1);
+      }
       .svg-inline--fa {
         font-size: 2.8rem;
       }
@@ -268,6 +295,10 @@ const handleSubscribe = () => {
       > div {
         font-size: 1.5rem;
         font-weight: 300;
+        .lightGrayMode &,
+        .lightMode & {
+          font-weight: 400;
+        }
       }
     }
   }
@@ -291,6 +322,10 @@ const handleSubscribe = () => {
   font-weight: 300;
   margin: var(--s6) 0 0 0;
   text-align: center;
+  .lightGrayMode &,
+  .lightMode & {
+    font-weight: 400;
+  }
 }
 
 .premiumModalBtn {
@@ -304,8 +339,13 @@ const handleSubscribe = () => {
   height: var(--s8);
   font-size: 1.4rem;
   font-weight: 600;
+  line-height: 1.1;
   cursor: pointer;
   border-radius: var(--s4);
+  .lightGrayMode &,
+  .lightMode & {
+    text-shadow: none;
+  }
 }
 
 .premiumModalSubscribeBtn {

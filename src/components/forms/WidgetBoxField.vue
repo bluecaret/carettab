@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, inject, computed } from 'vue'
+import { ref, nextTick, inject, computed } from 'vue'
 import { useSettingsStore } from '@/store.js'
 
 const user = inject('user')
@@ -9,6 +9,7 @@ const props = defineProps({
   index: Number,
   widgetStore: String,
   startOpen: Boolean,
+  hideToggle: Boolean,
   windowTitle: String,
   containerTitle: String,
   noContainerAlignment: Boolean,
@@ -16,6 +17,9 @@ const props = defineProps({
 })
 
 const store = useSettingsStore()
+const refreshDisplay = ref(false)
+const editGlobalModal = ref(false)
+const copyGlobalModal = ref(false)
 const widget = computed({
   get: () => {
     if (props.widgetStore === 'global') {
@@ -32,10 +36,25 @@ const widget = computed({
     }
   },
 })
+
+const handleGlobalCopy = () => {
+  store.config[props.widgetStore][props.index].base.container.background = store.config.global.container.background
+  store.config[props.widgetStore][props.index].base.container.borderColor = store.config.global.container.borderColor
+  store.config[props.widgetStore][props.index].base.container.shadow = store.config.global.container.shadow
+  store.config[props.widgetStore][props.index].base.container.padding = store.config.global.container.padding
+  store.config[props.widgetStore][props.index].base.container.radius = store.config.global.container.radius
+  store.config[props.widgetStore][props.index].base.container.borderSize = store.config.global.container.borderSize
+
+  refreshDisplay.value = true
+  nextTick(() => {
+    refreshDisplay.value = false
+  })
+  copyGlobalModal.value = false
+}
 </script>
 
 <template>
-  <FieldAccordion :start-open="startOpen">
+  <FieldAccordion :start-open="startOpen" :hide-toggle="hideToggle">
     <template #label>
       <div class="label">
         <div>{{ $t('settings.widgetContainer') }}</div>
@@ -58,20 +77,105 @@ const widget = computed({
         :no-container-alignment="props.noContainerAlignment"
       />
       <div v-if="!props.noBoxStyles && !props.globalSetting" class="block">
-        <label for="overrideGlobalFont" class="label mra">
-          <div><PremiumLabel />{{ $t('settings.overrideGlobalContainerStyles') }}</div>
+        <div class="label mra">
+          <label for="overrideGlobalContainer"
+            ><PremiumLabel />{{ $t('settings.overrideGlobalContainerStyles') }}</label
+          >
           <div class="desc">{{ $t('settings.overridesContainerStyles') }}</div>
-        </label>
-        <ToggleField v-model="widget.override" tag-id="overrideGlobalFont" :disabled="!user.paid"> </ToggleField>
+          <div class="group fill">
+            <div class="desc">
+              <ModalWindow :show="editGlobalModal" size="460px" @close="editGlobalModal = false">
+                <template #button>
+                  <button class="btn btnLink" type="button" @click="editGlobalModal = true">
+                    Edit global container settings
+                  </button>
+                </template>
+                <template #window>
+                  <div class="modal">
+                    <header class="modalHeader">
+                      <h1 class="modalTitle">Global Widget Container Styles</h1>
+                      <button
+                        class="modalClose"
+                        type="button"
+                        :aria-label="$t('common.close')"
+                        @click="editGlobalModal = false"
+                      >
+                        <fa icon="fa-xmark" />
+                      </button>
+                    </header>
+                    <div class="modalContent">
+                      <div class="block globalSettingsContainer">
+                        <WidgetBoxField :index="0" widget-store="global" global-setting start-open hide-toggle />
+                      </div>
+                    </div>
+                  </div>
+                </template>
+              </ModalWindow>
+            </div>
+            <div v-if="widget.override" class="desc">
+              <ModalWindow :show="copyGlobalModal" size="460px" @close="copyGlobalModal = false">
+                <template #button>
+                  <button class="btn btnLink" type="button" @click="copyGlobalModal = true">Copy from global</button>
+                </template>
+                <template #window>
+                  <div class="modal">
+                    <header class="modalHeader">
+                      <h1 class="modalTitle">Copy global container styles</h1>
+                      <button
+                        class="modalClose"
+                        type="button"
+                        :aria-label="$t('common.close')"
+                        @click="copyGlobalModal = false"
+                      >
+                        <fa icon="fa-xmark" />
+                      </button>
+                    </header>
+                    <div class="modalContent">
+                      <p>
+                        This option will match the widget container settings with the current global container settings.
+                      </p>
+                      <div class="group fill">
+                        <button type="button" class="btn btnText mla" @click="copyGlobalModal = false">
+                          {{ $t('common.cancel') }}
+                        </button>
+                        <button type="button" class="btn" @click="handleGlobalCopy()">Copy from global</button>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+              </ModalWindow>
+            </div>
+          </div>
+        </div>
+        <ToggleField v-model="widget.override" tag-id="overrideGlobalContainer" :disabled="!user.paid"> </ToggleField>
       </div>
-      <template v-if="!props.noBoxStyles && (props.globalSetting || (user.paid && widget.override))">
+      <template v-if="!refreshDisplay && !props.noBoxStyles && (props.globalSetting || (user.paid && widget.override))">
         <div class="block">
-          <label for="boxPadding" class="label mra">
-            <div><PremiumLabel />{{ $t('common.padding') }}</div>
+          <label for="boxBg" class="label mra">
+            <div><PremiumLabel />{{ $t('common.background') }}</div>
+          </label>
+          <ColorField v-model="widget.background" tag-id="boxBg" class="w20" :disabled="!user.paid"> </ColorField>
+        </div>
+        <div class="block">
+          <label for="boxShadow" class="label mra">
+            <div><PremiumLabel />{{ $t('common.shadow') }}</div>
+          </label>
+          <ColorField v-model="widget.shadow" shadow tag-id="boxShadow" class="w20" :disabled="!user.paid">
+          </ColorField>
+        </div>
+        <div class="block">
+          <label for="boxBc" class="label mra">
+            <div><PremiumLabel />{{ $t('common.borderColor') }}</div>
+          </label>
+          <ColorField v-model="widget.borderColor" tag-id="boxBc" class="w20" :disabled="!user.paid"> </ColorField>
+        </div>
+        <div class="block">
+          <label for="boxBs" class="label mra">
+            <div><PremiumLabel />{{ $t('common.borderSize') }}</div>
           </label>
           <NumberField
-            v-model="widget.padding"
-            tag-id="boxPadding"
+            v-model="widget.borderSize"
+            tag-id="boxBs"
             :increment="1"
             :min="0"
             :disabled="!user.paid"
@@ -94,12 +198,12 @@ const widget = computed({
           </NumberField>
         </div>
         <div class="block">
-          <label for="boxBs" class="label mra">
-            <div><PremiumLabel />{{ $t('common.borderSize') }}</div>
+          <label for="boxPadding" class="label mra">
+            <div><PremiumLabel />{{ $t('common.padding') }}</div>
           </label>
           <NumberField
-            v-model="widget.borderSize"
-            tag-id="boxBs"
+            v-model="widget.padding"
+            tag-id="boxPadding"
             :increment="1"
             :min="0"
             :disabled="!user.paid"
@@ -107,26 +211,13 @@ const widget = computed({
           >
           </NumberField>
         </div>
-        <div class="block">
-          <label for="boxBc" class="label mra">
-            <div><PremiumLabel />{{ $t('common.borderColor') }}</div>
-          </label>
-          <ColorField v-model="widget.borderColor" tag-id="boxBc" class="w20" :disabled="!user.paid"> </ColorField>
-        </div>
-        <div class="block">
-          <label for="boxBg" class="label mra">
-            <div><PremiumLabel />{{ $t('common.background') }}</div>
-          </label>
-          <ColorField v-model="widget.background" tag-id="boxBg" class="w20" :disabled="!user.paid"> </ColorField>
-        </div>
-        <div class="block">
-          <label for="boxShadow" class="label mra">
-            <div><PremiumLabel />{{ $t('common.shadow') }}</div>
-          </label>
-          <ColorField v-model="widget.shadow" shadow tag-id="boxShadow" class="w20" :disabled="!user.paid">
-          </ColorField>
-        </div>
       </template>
     </template>
   </FieldAccordion>
 </template>
+
+<style lang="scss" scoped>
+.globalSettingsContainer {
+  padding: 0;
+}
+</style>

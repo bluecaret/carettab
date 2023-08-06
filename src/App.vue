@@ -1,7 +1,7 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { computed, onMounted, inject } from 'vue'
-import { useSettingsStore, getStorage } from '@/store.js'
+import { computed, onMounted, inject, watch } from 'vue'
+import { useSettingsStore, getStorage, setStorage } from '@/store.js'
 import { storeToRefs } from 'pinia'
 import NewTab from '@/components/NewTab.vue'
 import SettingsPanel from '@/components/settings/SettingsPanel.vue'
@@ -22,7 +22,47 @@ onMounted(async () => {
   await store.load()
   setupTempSettings()
   refreshUserCheck()
+  applyUserColorSchemePreference()
 })
+
+watch(
+  () => store.config.global.mode,
+  () => {
+    applyUserColorSchemePreference()
+  }
+)
+
+const applyUserColorSchemePreference = () => {
+  const body = document.body
+
+  if (store.config.global.mode && store.config.global.mode !== 'auto') {
+    switch (store.config.global.mode) {
+      case 'dark':
+        body.className = 'darkMode'
+        break
+      case 'darkGray':
+        body.className = 'darkGrayMode'
+        break
+      case 'light':
+        body.className = 'lightMode'
+        break
+      case 'lightGray':
+        body.className = 'lightGrayMode'
+        break
+      default:
+        body.className = 'darkMode'
+        break
+    }
+  } else {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      body.className = 'darkMode'
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      body.className = 'lightMode'
+    } else {
+      body.className = 'defaultMode'
+    }
+  }
+}
 
 const setupTempSettings = async () => {
   updateTime()
@@ -43,7 +83,14 @@ const refreshUserCheck = async () => {
   }
   // after checking paid status, run v3 migration
   if (store.status === 'updated' && checkVersionInRange(store.prevVersion, '3.X.X')) {
-    mergeV3Settings(true)
+    mergeV3Settings()
+  }
+
+  // If status is still set to installed, but there are already layers,
+  // this is probably incorrect and needs changed to existing.
+  if (store.status === 'installed' && store.config.layers?.length > 0) {
+    store.status = 'existing'
+    setStorage({ status: 'existing' }, 'local')
   }
 }
 
@@ -82,23 +129,11 @@ const getFontFamily = computed(() => {
   }
   return '"Source Sans 3"'
 })
-
-const buildFontLink = computed(() => {
-  const base = 'https://fonts.googleapis.com/css2?family='
-  const post = '&display=swap'
-  let wght = '400'
-  if (store.config.global.font.bold < 400) {
-    wght = `${store.config.global.font.bold};400`
-  } else if (store.config.global.font.bold > 400) {
-    wght = `400;${store.config.global.font.bold}`
-  }
-  return `${base}${store.config.global.font.family}:wght@${wght}${post}`
-})
 </script>
 
 <template>
   <div class="appInner">
-    <link id="google-font-link" rel="stylesheet" :href="buildFontLink" />
+    <FontLink :global="true"></FontLink>
     <NewTab></NewTab>
     <SettingsPanel v-if="settingsOpen"></SettingsPanel>
     <div id="modals"></div>

@@ -50,17 +50,37 @@ const handleCAlignUpdate = (alignment) => {
           {{ $t('settings.widgetPositionsAreIndependent') }}
         </div>
       </div>
-      <div class="group stack compact">
+      <div class="group stack compact mla">
         <div class="group fill compact">
           <label class="desc mla" for="widgetOffsetY"> {{ $t('settings.upDown') }} </label>
-          <NumberField v-model="widget.y" class="w8" tag-id="widgetOffsetY" :increment="10"></NumberField>
+          <NumberField v-model="widget.y" class="w7" tag-id="widgetOffsetY"></NumberField>
+          <select
+            id="widgetYUnit"
+            v-model="widget.yUnit"
+            aria-label="Use pixels or percentage of screen width for positioning up/down"
+            class="select w8"
+            name="widgetYUnit"
+          >
+            <option :value="'pixels'">pixels</option>
+            <option :value="'percent'">%</option>
+          </select>
         </div>
         <div class="group fill compact">
           <label class="desc mla" for="widgetOffsetX"> {{ $t('settings.leftRight') }} </label>
-          <NumberField v-model="widget.x" class="w8" tag-id="widgetOffsetX" :increment="10"></NumberField>
+          <NumberField v-model="widget.x" class="w7" tag-id="widgetOffsetX"></NumberField>
+          <select
+            id="widgetXUnit"
+            v-model="widget.xUnit"
+            aria-label="Use pixels or percentage of screen width for positioning left/right"
+            class="select w8"
+            name="widgetXUnit"
+          >
+            <option :value="'pixels'">pixels</option>
+            <option :value="'percent'">%</option>
+          </select>
         </div>
       </div>
-      <div aria-labelledby="alignLabel" class="btnPlacementGroup w10">
+      <div aria-labelledby="alignLabel" class="btnPlacementGroup w8">
         <button
           type="button"
           :aria-label="$t('settings.topLeft')"
@@ -177,8 +197,7 @@ const handleCAlignUpdate = (alignment) => {
             v-if="widget.widthUnit !== 'auto'"
             v-model="widget.width"
             tag-id="widgetWidth"
-            class="w8"
-            :increment="10"
+            class="w7"
           ></NumberField>
           <select
             id="widgetWidthUnit"
@@ -198,8 +217,7 @@ const handleCAlignUpdate = (alignment) => {
             v-if="widget.heightUnit !== 'auto'"
             v-model="widget.height"
             tag-id="widgetHeight"
-            class="w8"
-            :increment="10"
+            class="w7"
           ></NumberField>
           <select
             id="widgetHeightUnit"
@@ -215,7 +233,7 @@ const handleCAlignUpdate = (alignment) => {
         </div>
       </div>
       <div v-if="!props.noContainerAlignment" class="group">
-        <div aria-labelledby="containerAlignLabel" class="btnPlacementGroup w10">
+        <div aria-labelledby="containerAlignLabel" class="btnPlacementGroup w8">
           <button
             type="button"
             :aria-label="$t('settings.topLeft')"

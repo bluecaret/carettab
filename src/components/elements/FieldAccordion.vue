@@ -5,13 +5,17 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  hideToggle: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const open = ref(null)
 </script>
 
 <template>
-  <details :open="props.startOpen" class="block fieldAccordion" @toggle="open = $event.target.open">
+  <details v-if="!hideToggle" :open="props.startOpen" class="block fieldAccordion" @toggle="open = $event.target.open">
     <summary class="group fill">
       <div class="group mra">
         <slot name="label"></slot>
@@ -22,6 +26,9 @@ const open = ref(null)
       <slot name="children"></slot>
     </div>
   </details>
+  <div v-if="hideToggle" class="subBlockContainer">
+    <slot name="children"></slot>
+  </div>
 </template>
 
 <style lang="scss" scoped>

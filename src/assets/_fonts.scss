@@ -63,3 +63,27 @@ $font-src: '/fonts';
   font-weight: 900;
   src: url('#{$font-src}/source-sans-3-black.woff2') format('woff2');
 }
+
+@font-face {
+  font-display: swap;
+  font-family: 'Display Free TFB';
+  font-style: normal;
+  font-weight: 400;
+  src: url('#{$font-src}/display-free-tfb.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: '7 Segments';
+  font-style: normal;
+  font-weight: 400;
+  src: url('#{$font-src}/7-segments.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: '7 Segmental Digital Display';
+  font-style: normal;
+  font-weight: 400;
+  src: url('#{$font-src}/7-segmental-digital-display.woff2') format('woff2');
+}

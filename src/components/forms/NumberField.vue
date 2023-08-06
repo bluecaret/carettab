@@ -160,10 +160,12 @@ function handleArrowDone() {
   }
 }
 
-.num:hover {
-  .numBtnGroup {
-    scale: 1.5;
-    box-shadow: 0 0 0 1px var(--cArrowDisabled);
-  }
+.num:hover .input:not(:disabled) + .numBtnGroup {
+  scale: 1.5;
+  box-shadow: 0 0 0 1px var(--cArrowDisabled);
+}
+
+.num .input:disabled + .numBtnGroup {
+  background-color: var(--cInputDisabled);
 }
 </style>

@@ -275,6 +275,12 @@ onUnmounted(() => {
     z-index: +1;
     margin: 0;
     padding: 0;
+    .lightMode & {
+      --autocompleteBorder: hsl(var(--cInputBgH) calc(var(--cInputBgS) - 40%) calc(var(--cInputBgL) - 20%));
+    }
+    .lightGrayMode & {
+      --autocompleteBorder: hsl(var(--cInputBgH) 0% calc(var(--cInputBgL) - 20%));
+    }
 
     .autocompleteItem {
       cursor: pointer;
@@ -316,6 +322,10 @@ onUnmounted(() => {
 
       &.active {
         background-color: hsl(var(--cInputBgH) var(--cInputBgS) calc(var(--cInputBgL) + 10%));
+        .lightGrayMode &,
+        .lightMode & {
+          background-color: hsl(var(--cInputBgH) var(--cInputBgS) calc(var(--cInputBgL) - 10%));
+        }
       }
     }
 

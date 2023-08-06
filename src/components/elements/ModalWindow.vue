@@ -116,14 +116,6 @@ onBeforeUnmount(() => {
   background-color: var(--cBackdrop);
   backdrop-filter: blur(40px);
 }
-// @keyframes fadeIn {
-//   from {
-//     opacity: 0;
-//   }
-//   to {
-//     opacity: 1;
-//   }
-// }
 
 .modalWindow {
   max-height: 90dvh;
@@ -136,6 +128,27 @@ onBeforeUnmount(() => {
   font-size: 1.8rem;
   font-weight: 300;
   color: var(--cText);
-  // animation: fadeIn 0.2s ease-out forwards;
+
+  &::-webkit-scrollbar {
+    width: 18px;
+    height: 18px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    box-shadow: inset 0 0 10px 10px var(--cSettingsPageScrollbar);
+    border: solid 4px transparent;
+    border-radius: var(--s4);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 10px 10px var(--cSettingsPageScrollthumb);
+    border: solid 6px transparent;
+    border-radius: 10px;
+  }
+  .lightGrayMode &,
+  .lightMode & {
+    font-weight: 400;
+  }
 }
 </style>

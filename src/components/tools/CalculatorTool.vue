@@ -206,13 +206,22 @@ const handleKeyup = (e) => {
   word-wrap: break-word;
   word-break: break-all;
   border-radius: var(--s4);
+  .lightGrayMode &,
+  .lightMode & {
+    background-color: hsl(var(--g1H) var(--g1S) calc(var(--g1L) + 9%));
+    font-weight: 400;
+  }
   .previous-operand {
     display: grid;
     place-items: end;
-    color: rgba(255, 255, 255, 0.75);
+    color: hsl(0deg 0% 100% / 0.75);
     font-size: 1.8rem;
     min-height: 2.4rem;
     text-align: right;
+    .lightGrayMode &,
+    .lightMode & {
+      color: hsla(0deg 0% 0% / 0.75);
+    }
   }
   .current-operand {
     display: grid;
@@ -221,6 +230,10 @@ const handleKeyup = (e) => {
     font-size: 3.8rem;
     min-height: 4.4rem;
     text-align: right;
+    .lightGrayMode &,
+    .lightMode & {
+      color: black;
+    }
   }
 }
 
@@ -236,8 +249,17 @@ const handleKeyup = (e) => {
   border: 0;
   border-radius: var(--s4);
   color: #fff;
+  .lightGrayMode &,
+  .lightMode & {
+    background-color: hsl(var(--g3H) var(--g3S) calc(var(--g3L) - 10%));
+    color: black;
+  }
   &:hover {
     background-color: hsl(var(--g3H) var(--g3S) calc(var(--g3L) + 4%));
+    .lightGrayMode &,
+    .lightMode & {
+      background-color: hsl(var(--g3H) var(--g3S) calc(var(--g3L) - 13%));
+    }
   }
   &:nth-child(2),
   &:nth-child(3) {
@@ -252,6 +274,10 @@ const handleKeyup = (e) => {
   background-color: var(--g3);
   color: var(--cTextSubtle);
   font-weight: 600;
+  .lightGrayMode &,
+  .lightMode & {
+    background-color: hsl(var(--g3H) var(--g3S) calc(var(--g3L) - 4%));
+  }
 }
 
 .calcBtnSpan {

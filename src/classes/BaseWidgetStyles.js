@@ -6,6 +6,8 @@ export const baseWidgetStyles = {
   alignment: 'c',
   x: 0,
   y: 0,
+  xUnit: 'pixels',
+  yUnit: 'pixels',
   font: {
     override: false,
     color: [200, 10, 90, 1],

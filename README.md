@@ -1,31 +1,10 @@
-# CaretTab
+# CaretTab - New Tab Dashboard
 
-A New Tab page extension with all the options for displaying time, date, search, favorite links, and more!
+A browser extension that replaces your New Tab page with a unique and fully customizable dashboard. **Your Tab, Your Rules!** Explore the realm of infinite customization right at your fingertips and transform the way you experience browsing. Get it today for free!
 
 For more information visit the website for [CaretTab](http://www.carettab.com)
 
 For help or feature suggestions visit the [CaretTab Support page](https://carettab.com/help)
-
-## Features
-
-- Display time and date on new tab page.
-- Digital/Analog/Binary clock options.
-- Add additional clocks with labels.
-- Customizable timezones for all clocks.
-- Display current weather and forecast.
-- Search Yahoo/Google/Baidu and more from new tab page.
-- Display favorite links for quick access and the bookmarks bar.
-- Include a custom message on the page.
-- Choose from a several different color themes or choose your own custom colors.
-- Use various provided patterns or your own background image.
-- Select your desired size, spacing, and placement of everything.
-- Choose from a handful of fonts or use any installed on your machine.
-- Customize everything! Toggle the time, seconds, time format, date, date format, search engine, 24 hour time, week numbers, tab title and more.
-- Sync support. Keep your settings across all devices. (Requires storage permissions)
-- Multiple languages supported!
-- Available on Chrome and Edge.
-
-Have any suggestions? Let me know on Twitter @BlueCaret
 
 ## Changelog
 
@@ -33,11 +12,16 @@ Have any suggestions? Let me know on Twitter @BlueCaret
 
 ## Explanation of permissions:
 
-- **Storage:** Used to store your settings.
-- Replace the page you see when opening a new tab: Used to replace the New Tab page with this extension.
-- (Optional) **Read the icons of the websites you visit:** Used to display the favicons (logos) of the website you add to your bookmarks bar or quick links.
-- (Optional) **Read a list of your most frequently visited websites:** Used to display the "most visited" menu on the bookmarks bar or quick links, when enabled.
-- (Optional) **Read and change your bookmarks:** Used to display your bookmarks on a bookmarks bar, when enabled.
+- **Storage**: Used to store your settings in the browser's storage area.
+- **Replace the page you see when opening a new tab**: Used to replace the New Tab page with this extension.
+- **This extension can read and change your data on sites**: The sites listed with this permission are used to retrieve data for CaretTab to function.
+- **https://extensionpay.com/***: This is the payment provider CaretTab users. It is required to allow payments for Premium Access to work.
+- **https://fonts.googleapis.com/***: The fonts available in the extension are from Google Fonts; this URL is where the fonts are loaded from.
+- **https://dtfv5mvrx9.execute-api.us-west-2.amazonaws.com/***: This is an Amazon Web Services server that CaretTab accesses to retrieve various data such us API access for weather among other data. Data is only ever retrieved from this address, never sent.
+- (Optional) **https://developer.sepush.co.za/***: Used to retrieve data for the Loadshedding widget.
+- (Optional) **Read the icons of the websites you visit**: Used to display the favicons (logos) of the website you add to your quick links.
+- (Optional) **Read a list of your most frequently visited websites**: Used to display the "most visited" menu on the quick links widget, when enabled.
+- (Optional) **Read and change your bookmarks**: Used to display your browser bookmarks on the quick links widget, when enabled.
 
 ## Install
 
@@ -51,9 +35,38 @@ You can install CaretTab through the browser web stores.
 
 **Note:** Since this is built for chromium browsers, it is possible to install CaretTab on other browsers, however, only Chrome and Edge are officially supported.
 
+## Contributions
+
+If you're considering contributing, kindly review this section.
+
+I welcome Pull Requests for:
+
+- Bug Fixes
+- Translation Fixes
+
+Currently not accepting Pull Requests for:
+
+- New Features
+- New Translations
+
+If you're eager to help, I genuinely value your intentions. However, since CaretTab is primarily a solo project, I strive to maintain its simplicity for easier management on my part. Consequently, I have limited time to review PRs for new features. Furthermore, each translation introduces extra overhead, which is why I'm currently not considering additional translations.
+
+### Environment setup
+
+Recommended to use Visual Studio Code and to install the suggested extensions in the `.vscode/extensions.json` file
+
+Install dependencies with `npm install`
+
+Lint with `npm run lint` and format code with `npm run format`.
+
+Run in development with `npm run dev`, then use the "Load Unpacked" option in the browser to start load the extension.
+
+Run `npm run build` to test a production compiled build.
+
+Run `npm run compile:all` to prep extension for updating to the store.
+
 ## Credit
 
 CaretTab was designed and developed by BlueCaret (John W Hancock)
-[http://www.carettab.com](http://www.carettab.com)
-[http://www.bluecaret.com](http://www.bluecaret.com)
-[http://www.johnwhancock.com](http://www.johnwhancock.com)
+
+[http://www.carettab.com](http://www.carettab.com) - [http://www.bluecaret.com](http://www.bluecaret.com)

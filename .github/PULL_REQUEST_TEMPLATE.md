@@ -1,27 +1,25 @@
-# Is this change approved?
+# Is this a PR for an accepted fix?
 
-Has this feature been approved by the repo owner? Changes to the repo should be brought up to the repo owner prior to starting work to avoid duplicate work and changes that don't fit with the extension's purpose.
+I welcome Pull Requests for:
 
-## What?
+- Bug Fixes
+- Translation Fixes
 
-Fixes # (issue)
+Currently not accepting Pull Requests for:
 
-## Why?
+- New Features
+- New Translations
 
-This is a requested feature / known bug / known issue / good to implement because blah.
+If you're eager to help, I genuinely value your intentions. However, since CaretTab is primarily a solo project, I strive to maintain its simplicity for easier management on my part. Consequently, I have limited time to review PRs for new features. Furthermore, each translation introduces extra overhead, which is why I'm currently not considering additional translations.
 
-## How?
+## Describe your fix
 
-Explain your code and any design decisions.
+This is a requested feature / known bug / known issue / good to implement because...
 
-## Testing?
+## Have you tested your code?
 
-Please verify that you can at least peform a successful dev build and production build.
+Please verify that you can peform a successful dev build, production build, and can see the change in the browser.
 
 ## Screenshots (optional)
 
-## Anything Else?
-
-Any follow up changes needed? Technical debt? Optimization? etc.
-
-<!-- Read more about pull requests: https://www.pullrequest.com/blog/writing-a-great-pull-request-description/  -->
+Add any screenshots that demonstrate your fix if appropriate.

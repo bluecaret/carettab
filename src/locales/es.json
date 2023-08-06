@@ -247,7 +247,22 @@
     "youHaveReachedTheMaximumNumberOfWidgets": "Has alcanzado el número máximo de widgets. El espacio de almacenamiento permitido por el navegador no permite más.",
     "shareYourCreation": "¡Comparta su creación!",
     "doYouHaveALayout": "¿Tienes un diseño que crees que les encantaría a los demás? Envía una exportación de tus ajustes y una captura de pantalla a {'|'} y puede que lo añada a la lista. Puedes exportar tus ajustes yendo al Panel de Ajustes > Ajustes de Extensión > Avanzado > Exportar.",
-    "paymentsProcessedViaStripe": "Pagos procesados vía Stripe a través de ExtensionPay. Ver la {'|'}política de privacidad{'|'}."
+    "paymentsProcessedViaStripe": "Pagos procesados vía Stripe a través de ExtensionPay. Ver la {'|'}política de privacidad{'|'}.",
+    "copyFromGlobal": "Copiar de global",
+    "copyGlobalContainerStyles": "Copiar estilos de contenedor globales",
+    "copyGlobalFontStyles": "Copiar estilos de fuente globales",
+    "dark": "Oscuro",
+    "darkGray": "Gris oscuro",
+    "editGlobalContainerSettings": "Editar la configuración global del contenedor",
+    "editGlobalFontSettings": "Editar la configuración global de fuentes",
+    "globalWidgetContainerStyles": "Estilos globales de contenedores de widgets",
+    "globalWidgetFontStyles": "Estilos de fuente del widget global",
+    "light": "Luz",
+    "lightGray": "Gris claro",
+    "thisOptionWillMatchTheWidgetContainer": "Esta opción hará coincidir la configuración del contenedor del widget con la configuración actual del contenedor global.",
+    "thisOptionWillMatchTheWidgetFont": "Esta opción hará coincidir la configuración de fuente del widget con la configuración de fuente global actual.",
+    "uiColorMode": "Modo de color de la interfaz de usuario",
+    "useSystemPreference": "Utilizar las preferencias del sistema"
   },
   "advanced": {
     "advancedSettings": "Configuración avanzada",

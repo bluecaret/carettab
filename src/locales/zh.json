@@ -247,7 +247,22 @@
     "yesApplyBlueprint": "是的，应用蓝图",
     "youHavePremiumAccess": "您拥有高级版许可！",
     "youHaveReachedTheMaximumNumberOfWidgets": "您已经达到了小部件总数的上限。浏览器分配的存储空间中已无法容纳更多数据。",
-    "youReachedTheLimitForThisWidget": "您已经达到了此小部件数量的上限。"
+    "youReachedTheLimitForThisWidget": "您已经达到了此小部件数量的上限。",
+    "copyFromGlobal": "从全局复制",
+    "copyGlobalContainerStyles": "复制全局容器样式",
+    "copyGlobalFontStyles": "复制全局字体样式",
+    "dark": "黑暗",
+    "darkGray": "深灰色",
+    "editGlobalContainerSettings": "编辑全局容器设置",
+    "editGlobalFontSettings": "编辑全局字体设置",
+    "globalWidgetContainerStyles": "全局小部件容器样式",
+    "globalWidgetFontStyles": "全局部件字体样式",
+    "light": "灯光",
+    "lightGray": "浅灰色",
+    "thisOptionWillMatchTheWidgetContainer": "该选项将使部件容器设置与当前全局容器设置相匹配。",
+    "thisOptionWillMatchTheWidgetFont": "该选项将使部件的字体设置与当前的全局字体设置相匹配。",
+    "uiColorMode": "用户界面色彩模式",
+    "useSystemPreference": "使用系统偏好"
   },
   "advanced": {
     "advancedSettings": "高级设置",

@@ -247,7 +247,22 @@
     "youHaveReachedTheMaximumNumberOfWidgets": "Vous avez atteint le nombre maximum de widgets. L'espace de stockage autorisé par le navigateur ne permet pas d'en ajouter davantage.",
     "shareYourCreation": "Partagez votre création !",
     "doYouHaveALayout": "Avez-vous une mise en page que vous pensez que d'autres aimeraient ? Envoyez une exportation de vos paramètres et une capture d'écran à {'|'} et je l'ajouterai peut-être à la liste. Vous pouvez exporter vos paramètres en allant dans le tableau de bord des paramètres > Paramètres de l'extension > Avancés > Exporter.",
-    "paymentsProcessedViaStripe": "Paiements traités par Stripe via ExtensionPay. Voir la {'|'}politique de confidentialité{'|'}."
+    "paymentsProcessedViaStripe": "Paiements traités par Stripe via ExtensionPay. Voir la {'|'}politique de confidentialité{'|'}.",
+    "copyFromGlobal": "Copie de la version globale",
+    "copyGlobalContainerStyles": "Copier les styles de conteneurs globaux",
+    "copyGlobalFontStyles": "Copier les styles de police globaux",
+    "dark": "Sombre",
+    "darkGray": "Gris foncé",
+    "editGlobalContainerSettings": "Modifier les paramètres globaux du conteneur",
+    "editGlobalFontSettings": "Modifier les paramètres globaux des polices",
+    "globalWidgetContainerStyles": "Styles globaux de conteneurs de widgets",
+    "globalWidgetFontStyles": "Styles de polices des widgets globaux",
+    "light": "Lumière",
+    "lightGray": "Gris clair",
+    "thisOptionWillMatchTheWidgetContainer": "Cette option permet de faire correspondre les paramètres du conteneur du widget avec les paramètres du conteneur global actuel.",
+    "thisOptionWillMatchTheWidgetFont": "Cette option permet de faire correspondre les paramètres de police du widget avec les paramètres de police globaux actuels.",
+    "uiColorMode": "Mode de couleur de l'interface utilisateur",
+    "useSystemPreference": "Utiliser les préférences du système"
   },
   "advanced": {
     "advancedSettings": "Paramètres avancés",

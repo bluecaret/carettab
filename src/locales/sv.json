@@ -247,7 +247,22 @@
     "youHaveReachedTheMaximumNumberOfWidgets": "Du har nått det maximala antalet widgets. Det lagringsutrymme som webbläsaren tillåter tillåter inte mer.",
     "shareYourCreation": "Dela med dig av din skapelse!",
     "doYouHaveALayout": "Har du en layout som du tror att andra skulle älska? Skicka en export av dina inställningar och en skärmdump till {'|'} så kanske jag lägger till den i listan. Du kan exportera dina inställningar genom att gå till Inställningspanelen > Tilläggsinställningar > Avancerat > Exportera",
-    "paymentsProcessedViaStripe": "Betalningar behandlas via Stripe genom ExtensionPay. Visa {'|'}sekretesspolicy{'|'}."
+    "paymentsProcessedViaStripe": "Betalningar behandlas via Stripe genom ExtensionPay. Visa {'|'}sekretesspolicy{'|'}.",
+    "copyFromGlobal": "Kopia från global",
+    "copyGlobalContainerStyles": "Kopiera globala behållarstilar",
+    "copyGlobalFontStyles": "Kopiera globala teckensnittsstilar",
+    "dark": "Mörk",
+    "darkGray": "Mörkgrå",
+    "editGlobalContainerSettings": "Redigera globala containerinställningar",
+    "editGlobalFontSettings": "Redigera globala teckensnittsinställningar",
+    "globalWidgetContainerStyles": "Globala stilar för widgetbehållare",
+    "globalWidgetFontStyles": "Typsnitt för globala widgetar",
+    "light": "Ljus",
+    "lightGray": "Ljusgrå",
+    "thisOptionWillMatchTheWidgetContainer": "Detta alternativ matchar widgetens containerinställningar med de aktuella globala containerinställningarna.",
+    "thisOptionWillMatchTheWidgetFont": "Detta alternativ matchar widgetens teckensnittsinställningar med de aktuella globala teckensnittsinställningarna.",
+    "uiColorMode": "Färgläge för användargränssnittet",
+    "useSystemPreference": "Använd systempreferens"
   },
   "advanced": {
     "advancedSettings": "Avancerade inställningar",

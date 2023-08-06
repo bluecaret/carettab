@@ -247,7 +247,22 @@
     "youHaveReachedTheMaximumNumberOfWidgets": "Bạn đã đạt đến số lượng vật dụng tối đa. \nKhông gian lưu trữ được trình duyệt cho phép không cho phép nhiều hơn.",
     "shareYourCreation": "Chia sẻ sáng tạo của bạn!",
     "doYouHaveALayout": "Bạn có bố cục mà bạn nghĩ người khác sẽ thích không? \nGửi bản xuất cài đặt của bạn và ảnh chụp màn hình tới {'|'} và tôi có thể thêm nó vào danh sách. \nBạn có thể xuất cài đặt của mình bằng cách đi tới Bảng điều khiển cài đặt > Cài đặt tiện ích mở rộng > Nâng cao > Xuất",
-    "paymentsProcessedViaStripe": "Thanh toán được xử lý qua Stripe thông qua ExtensionPay. \nXem {'|'}chính sách bảo mật{'|'}."
+    "paymentsProcessedViaStripe": "Thanh toán được xử lý qua Stripe thông qua ExtensionPay. \nXem {'|'}chính sách bảo mật{'|'}.",
+    "copyFromGlobal": "Sao chép từ toàn cầu",
+    "copyGlobalContainerStyles": "Sao chép kiểu vùng chứa toàn cầu",
+    "copyGlobalFontStyles": "Sao chép kiểu phông chữ chung",
+    "dark": "Tối tăm",
+    "darkGray": "Màu xám đen",
+    "editGlobalContainerSettings": "Chỉnh sửa cài đặt vùng chứa chung",
+    "editGlobalFontSettings": "Chỉnh sửa cài đặt phông chữ chung",
+    "globalWidgetContainerStyles": "Kiểu bộ chứa Widget toàn cầu",
+    "globalWidgetFontStyles": "Kiểu phông chữ Widget toàn cầu",
+    "light": "Ánh sáng",
+    "lightGray": "Xám nhạt",
+    "thisOptionWillMatchTheWidgetContainer": "Tùy chọn này sẽ khớp cài đặt vùng chứa tiện ích con với cài đặt vùng chứa chung hiện tại.",
+    "thisOptionWillMatchTheWidgetFont": "Tùy chọn này sẽ khớp cài đặt phông chữ tiện ích với cài đặt phông chữ chung hiện tại.",
+    "uiColorMode": "Chế độ màu giao diện người dùng",
+    "useSystemPreference": "Sử dụng tùy chọn hệ thống"
   },
   "advanced": {
     "advancedSettings": "Cài đặt nâng cao",

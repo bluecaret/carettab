@@ -247,7 +247,22 @@
     "youHaveReachedTheMaximumNumberOfWidgets": "הגעת למספר המרבי של ווידג'טים. \nשטח האחסון שמאפשר הדפדפן אינו מאפשר יותר.",
     "shareYourCreation": "שתף את היצירה שלך!",
     "doYouHaveALayout": "האם יש לך פריסה שאתה חושב שאחרים יאהבו? \nשלח ייצוא של ההגדרות שלך וצילום מסך אל {'|'} ואולי אוסיף אותו לרשימה. \nאתה יכול לייצא את ההגדרות שלך על ידי מעבר ללוח המחוונים של ההגדרות > הגדרות הרחבה > מתקדם > ייצוא",
-    "paymentsProcessedViaStripe": "תשלומים מעובדים באמצעות Stripe דרך ExtensionPay. \nהצג את {'|'}מדיניות הפרטיות{'|'}."
+    "paymentsProcessedViaStripe": "תשלומים מעובדים באמצעות Stripe דרך ExtensionPay. \nהצג את {'|'}מדיניות הפרטיות{'|'}.",
+    "copyFromGlobal": "העתק מגלובל",
+    "copyGlobalContainerStyles": "העתק סגנונות מכילים גלובליים",
+    "copyGlobalFontStyles": "העתק סגנונות גופנים גלובליים",
+    "dark": "אפל",
+    "darkGray": "אפור כהה",
+    "editGlobalContainerSettings": "ערוך את הגדרות המכולה הגלובליות",
+    "editGlobalFontSettings": "ערוך הגדרות גופנים גלובליות",
+    "globalWidgetContainerStyles": "סגנונות מיכל גלובליים של יישומון",
+    "globalWidgetFontStyles": "סגנונות גופנים יישומונים גלובליים",
+    "light": "אוֹר",
+    "lightGray": "אפור בהיר",
+    "thisOptionWillMatchTheWidgetContainer": "אפשרות זו תתאים את הגדרות מיכל הווידג'ט להגדרות המיכל הגלובלי הנוכחיות.",
+    "thisOptionWillMatchTheWidgetFont": "אפשרות זו תתאים את הגדרות גופן הווידג'ט להגדרות הגופן הגלובליות הנוכחיות.",
+    "uiColorMode": "מצב צבע ממשק משתמש",
+    "useSystemPreference": "השתמש בהעדפת מערכת"
   },
   "advanced": {
     "advancedSettings": "הגדרות מתקדמות",

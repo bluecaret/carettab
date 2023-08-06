@@ -87,13 +87,13 @@ const handleGlobalCopy = () => {
               <ModalWindow :show="editGlobalModal" size="460px" @close="editGlobalModal = false">
                 <template #button>
                   <button class="btn btnLink" type="button" @click="editGlobalModal = true">
-                    Edit global container settings
+                    {{ $t('settings.editGlobalContainerSettings') }}
                   </button>
                 </template>
                 <template #window>
                   <div class="modal">
                     <header class="modalHeader">
-                      <h1 class="modalTitle">Global Widget Container Styles</h1>
+                      <h1 class="modalTitle">{{ $t('settings.globalWidgetContainerStyles') }}</h1>
                       <button
                         class="modalClose"
                         type="button"
@@ -115,12 +115,14 @@ const handleGlobalCopy = () => {
             <div v-if="widget.override" class="desc">
               <ModalWindow :show="copyGlobalModal" size="460px" @close="copyGlobalModal = false">
                 <template #button>
-                  <button class="btn btnLink" type="button" @click="copyGlobalModal = true">Copy from global</button>
+                  <button class="btn btnLink" type="button" @click="copyGlobalModal = true">
+                    {{ $t('settings.copyFromGlobal') }}
+                  </button>
                 </template>
                 <template #window>
                   <div class="modal">
                     <header class="modalHeader">
-                      <h1 class="modalTitle">Copy global container styles</h1>
+                      <h1 class="modalTitle">{{ $t('settings.copyGlobalContainerStyles') }}</h1>
                       <button
                         class="modalClose"
                         type="button"
@@ -132,13 +134,15 @@ const handleGlobalCopy = () => {
                     </header>
                     <div class="modalContent">
                       <p>
-                        This option will match the widget container settings with the current global container settings.
+                        {{ $t('settings.thisOptionWillMatchTheWidgetContainer') }}
                       </p>
                       <div class="group fill">
                         <button type="button" class="btn btnText mla" @click="copyGlobalModal = false">
                           {{ $t('common.cancel') }}
                         </button>
-                        <button type="button" class="btn" @click="handleGlobalCopy()">Copy from global</button>
+                        <button type="button" class="btn" @click="handleGlobalCopy()">
+                          {{ $t('settings.copyFromGlobal') }}
+                        </button>
                       </div>
                     </div>
                   </div>

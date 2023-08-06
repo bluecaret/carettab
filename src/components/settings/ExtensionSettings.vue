@@ -122,14 +122,14 @@ const handleLangSelect = (event) => {
       <div class="block">
         <div class="group fill">
           <div class="label mra">
-            <label for="colorMode">UI color mode</label>
+            <label for="colorMode">{{ $t('settings.uiColorMode') }}</label>
           </div>
           <select id="colorMode" v-model="store.config.global.mode" name="colorMode" class="select w25">
-            <option value="auto">Use system preference</option>
-            <option value="dark">Dark</option>
-            <option value="darkGray">Dark Gray</option>
-            <option value="light">Light</option>
-            <option value="lightGray">Light Gray</option>
+            <option value="auto">{{ $t('settings.useSystemPreference') }}</option>
+            <option value="dark">{{ $t('settings.dark') }}</option>
+            <option value="darkGray">{{ $t('settings.darkGray') }}</option>
+            <option value="light">{{ $t('settings.light') }}</option>
+            <option value="lightGray">{{ $t('settings.lightGray') }}</option>
           </select>
         </div>
       </div>

@@ -247,7 +247,22 @@
     "youHaveReachedTheMaximumNumberOfWidgets": "Sie haben die maximale Anzahl von Widgets erreicht. Der vom Browser zugelassene Speicherplatz lässt nicht mehr zu.",
     "shareYourCreation": "Teilen Sie Ihre Kreation!",
     "doYouHaveALayout": "Haben Sie ein Layout, von dem Sie glauben, dass es anderen gefallen würde? Schicken Sie einen Export Ihrer Einstellungen und einen Screenshot an {'|'} und ich nehme es vielleicht in die Liste auf. Sie können Ihre Einstellungen exportieren, indem Sie auf dem Dashboard Einstellungen > Erweiterungseinstellungen > Erweitert > Exportieren gehen.",
-    "paymentsProcessedViaStripe": "Zahlungen werden über Stripe durch ExtensionPay verarbeitet. {'|'}Sehen Sie sich die Datenschutzrichtlinie an{'|'}."
+    "paymentsProcessedViaStripe": "Zahlungen werden über Stripe durch ExtensionPay verarbeitet. {'|'}Sehen Sie sich die Datenschutzrichtlinie an{'|'}.",
+    "copyFromGlobal": "Von global kopieren",
+    "copyGlobalContainerStyles": "Kopieren globaler Containerstile",
+    "copyGlobalFontStyles": "Globale Schriftstile kopieren",
+    "dark": "Dunkelheit",
+    "darkGray": "Dunkelgrau",
+    "editGlobalContainerSettings": "Globale Container-Einstellungen bearbeiten",
+    "editGlobalFontSettings": "Globale Schrifteinstellungen bearbeiten",
+    "globalWidgetContainerStyles": "Globale Widget-Container-Stile",
+    "globalWidgetFontStyles": "Globale Widget-Schriftstile",
+    "light": "Licht",
+    "lightGray": "Hellgrau",
+    "thisOptionWillMatchTheWidgetContainer": "Mit dieser Option werden die Einstellungen des Widget-Containers mit den aktuellen globalen Container-Einstellungen abgeglichen.",
+    "thisOptionWillMatchTheWidgetFont": "Mit dieser Option werden die Schrifteinstellungen des Widgets an die aktuellen globalen Schrifteinstellungen angepasst.",
+    "uiColorMode": "UI-Farbmodus",
+    "useSystemPreference": "Systempräferenz verwenden"
   },
   "advanced": {
     "advancedSettings": "Erweiterte Einstellungen",

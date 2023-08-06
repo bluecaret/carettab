@@ -247,7 +247,22 @@
     "youHaveReachedTheMaximumNumberOfWidgets": "È stato raggiunto il numero massimo di widget. Lo spazio di memoria consentito dal browser non permette di aggiungere altro.",
     "shareYourCreation": "Condividete la vostra creazione!",
     "doYouHaveALayout": "Avete un layout che pensate possa piacere ad altri? Inviate un'esportazione delle vostre impostazioni e una schermata a {'|'} e potrei aggiungerlo all'elenco. È possibile esportare le impostazioni accedendo alla dashboard Impostazioni > Impostazioni dell'estensione > Avanzate > Esporta.",
-    "paymentsProcessedViaStripe": "Pagamenti elaborati tramite Stripe attraverso ExtensionPay. Visualizza l'informativa sulla {'|'}privacy {'|'}."
+    "paymentsProcessedViaStripe": "Pagamenti elaborati tramite Stripe attraverso ExtensionPay. Visualizza l'informativa sulla {'|'}privacy {'|'}.",
+    "copyFromGlobal": "Copia da globale",
+    "copyGlobalContainerStyles": "Copiare gli stili del contenitore globale",
+    "copyGlobalFontStyles": "Copiare gli stili di carattere globali",
+    "dark": "Scuro",
+    "darkGray": "Grigio scuro",
+    "editGlobalContainerSettings": "Modifica delle impostazioni globali del contenitore",
+    "editGlobalFontSettings": "Modifica delle impostazioni globali dei font",
+    "globalWidgetContainerStyles": "Stili globali del contenitore di widget",
+    "globalWidgetFontStyles": "Stili di carattere del widget globale",
+    "light": "Luce",
+    "lightGray": "Grigio chiaro",
+    "thisOptionWillMatchTheWidgetContainer": "Questa opzione fa coincidere le impostazioni del contenitore del widget con quelle del contenitore globale corrente.",
+    "thisOptionWillMatchTheWidgetFont": "Questa opzione fa corrispondere le impostazioni dei font del widget con quelle globali correnti.",
+    "uiColorMode": "Modalità colore dell'interfaccia utente",
+    "useSystemPreference": "Utilizzare le preferenze di sistema"
   },
   "advanced": {
     "advancedSettings": "Impostazioni avanzate",

@@ -247,7 +247,22 @@
     "youHaveReachedTheMaximumNumberOfWidgets": "ウィジェットの最大数に達しました。ブラウザが許可するストレージ容量ではこれ以上は許可されません。",
     "shareYourCreation": "あなたの作品をシェアしてください！",
     "doYouHaveALayout": "他の人が気に入りそうなレイアウトをお持ちですか？設定のエクスポートとスクリーンショットを{'|'}まで送っていただければ、リストに加えるかもしれません。設定のエクスポートは、設定ダッシュボード > 拡張機能設定 > 詳細 > エクスポートから行えます。",
-    "paymentsProcessedViaStripe": "お支払いはExtensionPayを通じてStripeで処理されます。プライバシーポリシー{'|'}をご覧ください。{'|'}"
+    "paymentsProcessedViaStripe": "お支払いはExtensionPayを通じてStripeで処理されます。プライバシーポリシー{'|'}をご覧ください。{'|'}",
+    "copyFromGlobal": "グローバルからコピー",
+    "copyGlobalContainerStyles": "グローバル・コンテナ・スタイルをコピーする",
+    "copyGlobalFontStyles": "グローバルフォントスタイルのコピー",
+    "dark": "暗い",
+    "darkGray": "ダークグレー",
+    "editGlobalContainerSettings": "グローバルコンテナ設定の編集",
+    "editGlobalFontSettings": "グローバルフォント設定の編集",
+    "globalWidgetContainerStyles": "グローバルウィジェットコンテナスタイル",
+    "globalWidgetFontStyles": "グローバルウィジェットのフォントスタイル",
+    "light": "ライト",
+    "lightGray": "ライトグレー",
+    "thisOptionWillMatchTheWidgetContainer": "このオプションは、ウィジェットのコンテナ設定を現在のグローバルコンテナ設定にマッチさせます。",
+    "thisOptionWillMatchTheWidgetFont": "このオプションは、ウィジェットのフォント設定を現在のグローバルフォント設定にマッチさせます。",
+    "uiColorMode": "UIカラーモード",
+    "useSystemPreference": "システム環境設定を使用する"
   },
   "advanced": {
     "advancedSettings": "詳細設定",

@@ -247,7 +247,22 @@
     "youHaveReachedTheMaximumNumberOfWidgets": "최대 위젯 수에 도달했습니다. 브라우저에서 허용하는 저장 공간이 더 이상 허용하지 않습니다.",
     "shareYourCreation": "창작물을 공유하세요!",
     "doYouHaveALayout": "다른 사람들이 좋아할 만한 레이아웃이 있나요? 설정 내보내기와 스크린샷을 {'|'}로 보내주시면 목록에 추가해드릴 수 있습니다. 설정 대시보드 > 확장 프로그램 설정 > 고급 > 내보내기로 이동하여 설정을 내보낼 수 있습니다.",
-    "paymentsProcessedViaStripe": "Stripe를 통해 익스텐션페이를 통해 처리된 결제. 개인정보처리방침{'|'}을 확인하세요{'|'}."
+    "paymentsProcessedViaStripe": "Stripe를 통해 익스텐션페이를 통해 처리된 결제. 개인정보처리방침{'|'}을 확인하세요{'|'}.",
+    "copyFromGlobal": "글로벌에서 복사",
+    "copyGlobalContainerStyles": "글로벌 컨테이너 스타일 복사",
+    "copyGlobalFontStyles": "글로벌 글꼴 스타일 복사",
+    "dark": "Dark",
+    "darkGray": "짙은 회색",
+    "editGlobalContainerSettings": "글로벌 컨테이너 설정 편집",
+    "editGlobalFontSettings": "글로벌 글꼴 설정 편집",
+    "globalWidgetContainerStyles": "글로벌 위젯 컨테이너 스타일",
+    "globalWidgetFontStyles": "글로벌 위젯 글꼴 스타일",
+    "light": "빛",
+    "lightGray": "밝은 회색",
+    "thisOptionWillMatchTheWidgetContainer": "이 옵션은 위젯 컨테이너 설정을 현재 글로벌 컨테이너 설정과 일치시킵니다.",
+    "thisOptionWillMatchTheWidgetFont": "이 옵션은 위젯 글꼴 설정을 현재 글로벌 글꼴 설정과 일치시킵니다.",
+    "uiColorMode": "UI 색상 모드",
+    "useSystemPreference": "시스템 환경 설정 사용"
   },
   "advanced": {
     "advancedSettings": "고급 설정",

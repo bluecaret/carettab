@@ -247,7 +247,22 @@
     "youHaveReachedTheMaximumNumberOfWidgets": "Atingiu o número máximo de widgets. O espaço de armazenamento permitido pelo browser não permite mais.",
     "shareYourCreation": "Partilhe a sua criação!",
     "doYouHaveALayout": "Tem um esquema que acha que os outros iriam adorar? Envie uma exportação das suas definições e uma captura de ecrã para {'|'} e poderei adicioná-la à lista. Pode exportar as suas definições acedendo ao Painel de controlo das definições > Definições de extensão > Avançadas > Exportar",
-    "paymentsProcessedViaStripe": "Pagamentos processados via Stripe através do ExtensionPay. Ver a {'|'}política de privacidade{'|'}."
+    "paymentsProcessedViaStripe": "Pagamentos processados via Stripe através do ExtensionPay. Ver a {'|'}política de privacidade{'|'}.",
+    "copyFromGlobal": "Copiar de global",
+    "copyGlobalContainerStyles": "Copiar estilos de contentores globais",
+    "copyGlobalFontStyles": "Copiar estilos de letra globais",
+    "dark": "Escuro",
+    "darkGray": "Cinzento escuro",
+    "editGlobalContainerSettings": "Editar definições globais do contentor",
+    "editGlobalFontSettings": "Editar definições globais de tipo de letra",
+    "globalWidgetContainerStyles": "Estilos globais de contentores de widgets",
+    "globalWidgetFontStyles": "Estilos de tipos de letra do widget global",
+    "light": "Luz",
+    "lightGray": "Cinzento claro",
+    "thisOptionWillMatchTheWidgetContainer": "Esta opção fará coincidir as definições do contentor do widget com as definições actuais do contentor global.",
+    "thisOptionWillMatchTheWidgetFont": "Esta opção fará coincidir as definições de tipo de letra do widget com as definições de tipo de letra globais actuais.",
+    "uiColorMode": "Modo de cor da IU",
+    "useSystemPreference": "Utilizar a preferência do sistema"
   },
   "advanced": {
     "advancedSettings": "Definições avançadas",

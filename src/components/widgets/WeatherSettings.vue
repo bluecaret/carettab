@@ -56,7 +56,13 @@ const refreshWeather = async () => {
   store.isLoading = true
   let data = await getWeather(widget.location.url, store.config.global.lang)
   let wKey = 'weather-' + widget.id
-  await setStorage({ [wKey]: data }, 'local')
+  if (data === false) {
+    alert(
+      'Unable to retrieve weather data from servers at this time. Please check your internet connection or try again later.'
+    )
+  } else {
+    await setStorage({ [wKey]: data }, 'local')
+  }
   store.isLoading = false
 }
 </script>

@@ -62,8 +62,14 @@ onBeforeUnmount(() => {
 
 const updateWeather = async () => {
   let data = await getWeather(props.widget.location.url, store.config.global.lang)
-  weatherData.value = data
-  await setStorage({ ['weather-' + props.widget.id]: data }, 'local')
+  if (data === false) {
+    alert(
+      'Unable to retrieve weather data from servers at this time. Please check your internet connection or try again later.'
+    )
+  } else {
+    weatherData.value = data
+    await setStorage({ ['weather-' + props.widget.id]: data }, 'local')
+  }
 }
 
 const round = (num) => {

@@ -3,7 +3,7 @@
 import { ref, onMounted } from 'vue'
 import { DateTime } from 'luxon'
 import { useSettingsStore, setStorage } from '@/store.js'
-import { checkVersionInRange } from '@/helpers/data.js'
+import { checkVersionInRange, compareVersions } from '@/helpers/data.js'
 
 const store = useSettingsStore()
 const whatsNewModal = ref(false)
@@ -53,7 +53,7 @@ const handleClearWhatsNew = async () => {
     <template #window>
       <div class="modal whatsNewModal">
         <header class="modalHeader">
-          <h1 class="modalTitle">{{ $t('updates.whatsNewInVersion', ['4.1.0']) }}</h1>
+          <h1 class="modalTitle">{{ $t('updates.whatsNewInVersion', ['4.1.1']) }}</h1>
           <button class="modalClose" type="button" :aria-label="$t('common.close')" @click="whatsNewModal = false">
             <fa icon="fa-xmark" />
           </button>
@@ -61,7 +61,29 @@ const handleClearWhatsNew = async () => {
         <div class="modalContent">
           <div class="group">
             <div class="fill">
-              <h4 class="subtitle">{{ $t('updates.newFeatures') }}</h4>
+              <h4 class="subtitle">v4.1.1 {{ $t('updates.fixesAndOthers') }}</h4>
+              <ul class="ul">
+                <li>Fixed: Default items such as Todo tasks, quotes and quick links sometimes could not be removed.</li>
+                <li>Fixed: French translation of the word "save"</li>
+                <li>Fixed: Added error handling when weather data is unavailable</li>
+                <li>Fixed: Quick Links may not move overflow links to the "more" menu correctly</li>
+              </ul>
+              <h4 class="subtitle">v4.1.1 Known bugs</h4>
+              <ul class="ul">
+                <li>
+                  Bug: Weather data not downloading - I've discovered a problem with weather not loading correctly
+                  around 8PM PST every night. I haven't found a fix but am looking into it. It appears to only be an
+                  issue for about 1 hour at that time each night so far.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            v-if="compareVersions(store.prevVersion, '4.1.0') === -1 && checkVersionInRange(store.prevVersion, '4.X.X')"
+            class="group"
+          >
+            <div class="fill">
+              <h4 class="subtitle">v4.1.0 {{ $t('updates.newFeatures') }}</h4>
               <ul class="ul">
                 <li>
                   Added multiple color modes for the settings UI, choose from dark, dark gray, light, or light gray.
@@ -88,7 +110,7 @@ const handleClearWhatsNew = async () => {
               </ul>
             </div>
             <div class="fill">
-              <h4 class="subtitle">{{ $t('updates.fixesAndOthers') }}</h4>
+              <h4 class="subtitle">v4.1.0 {{ $t('updates.fixesAndOthers') }}</h4>
               <ul class="ul">
                 <li>Fixed: Todo widget label toggle wasn't toggling.</li>
                 <li>Fixed: Todo widget font setting was not applying.</li>

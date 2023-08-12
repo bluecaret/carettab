@@ -147,10 +147,10 @@ const organizeLinks = () => {
 
     if (['ch', 'ih'].includes(props.widget.layout)) {
       availableSpace.value =
-        linkListEl.value.getBoundingClientRect().width - moreButtonEl.value.getBoundingClientRect().width
+        linkListEl.value.getBoundingClientRect().width - moreButtonEl.value?.getBoundingClientRect().width
     } else if (['cv', 'iv'].includes(props.widget.layout)) {
       availableSpace.value =
-        linkListEl.value.getBoundingClientRect().height - moreButtonEl.value.getBoundingClientRect().height
+        linkListEl.value.getBoundingClientRect().height - moreButtonEl.value?.getBoundingClientRect().height
     }
     if (containerSize.value > availableSpace.value) {
       let size = 0

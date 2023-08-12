@@ -1,3 +1,10 @@
+export const newFeatureCheckIgnoreList = [
+  // Add items here that include user lists that should not be updated.
+  'list', // todo widget's tasks
+  'quickLinks', // quick link widget's links
+  'quotes', // quotes widget's quotes
+]
+
 export const widgetTypes = [
   {
     id: 'dc',

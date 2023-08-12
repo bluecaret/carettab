@@ -2,7 +2,7 @@
 import { ref, reactive } from 'vue'
 import { defineStore } from 'pinia'
 import { Layer } from '@/classes/Layer.js'
-import { widgetTypes, toolTypes } from '@/assets/lists.js'
+import { widgetTypes, toolTypes, newFeatureCheckIgnoreList } from '@/assets/lists.js'
 import { isStorageApproachingFull } from '@/helpers/data.js'
 import { Defaults } from '@/defaults.js'
 import { DigitalClock } from '@/components/widgets/DigitalClock.js'
@@ -274,11 +274,30 @@ export const useSettingsStore = defineStore('settings', () => {
     }
   }
 
+  // Function to remove ignored keys from an object
+  const sanitizeSettings = (obj, parentKey = '') => {
+    Object.keys(obj).forEach((key) => {
+      const fullKey = parentKey ? `${parentKey}.${key}` : key
+      if (newFeatureCheckIgnoreList.includes(fullKey)) {
+        delete obj[key]
+      } else if (typeof obj[key] === 'object' && obj[key] !== null) {
+        sanitizeSettings(obj[key], fullKey)
+      }
+    })
+    return obj
+  }
+
   // Recursive function to check for missing properties when updating settings
-  const hasAllProperties = (obj, referenceObj) => {
+  const hasAllProperties = (obj, referenceObj, parentKey = '') => {
     return Object.keys(referenceObj).every((key) => {
+      const fullKey = parentKey ? `${parentKey}.${key}` : key
+
+      if (newFeatureCheckIgnoreList.includes(fullKey)) {
+        return true // if key is in the ignore list, just return true to skip it
+      }
+
       if (typeof referenceObj[key] === 'object' && referenceObj[key] !== null) {
-        return has(obj, key) && hasAllProperties(obj[key], referenceObj[key])
+        return has(obj, key) && hasAllProperties(obj[key], referenceObj[key], fullKey)
       }
       return has(obj, key)
     })
@@ -290,8 +309,15 @@ export const useSettingsStore = defineStore('settings', () => {
 
     // Only update if there are missing properties.
     if (!hasAllProperties(itemCurrentSettings, defaultSettings)) {
+      // Sanitize both current settings and default settings before merge
+      const sanitizedDefaultSettings = sanitizeSettings({ ...defaultSettings })
+
       // Use Lodash's merge and defaultsDeep functions to combine settings and ensure any missing default values are filled in.
-      const updatedSettings = merge({}, defaultsDeep(itemCurrentSettings, defaultSettings), itemCurrentSettings)
+      const updatedSettings = merge(
+        {},
+        defaultsDeep(itemCurrentSettings, sanitizedDefaultSettings),
+        itemCurrentSettings
+      )
       return updatedSettings
     }
     return false
@@ -300,8 +326,11 @@ export const useSettingsStore = defineStore('settings', () => {
   const updateGlobalWithNewSettings = (globalSettings, globalDefaults) => {
     // Only update if there are missing properties.
     if (!hasAllProperties(globalSettings, globalDefaults)) {
+      // Sanitize both current settings and default settings before merge
+      const sanitizedDefaultSettings = sanitizeSettings({ ...globalDefaults })
+
       // Use Lodash's merge and defaultsDeep functions to combine settings and ensure any missing default values are filled in.
-      const updatedSettings = merge({}, defaultsDeep(globalSettings, globalDefaults), globalSettings)
+      const updatedSettings = merge({}, defaultsDeep(globalSettings, sanitizedDefaultSettings), globalSettings)
       return updatedSettings
     }
     return false

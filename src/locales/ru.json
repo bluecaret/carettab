@@ -166,7 +166,7 @@
     "signUpForPremiumToAccessThisFeature": "Подпишитесь на Premium, чтобы получить доступ к этой функции",
     "style": "Стиль",
     "subscribeNow": "Подписаться сейчас",
-    "subscriptionBilledOn": "Счет за подписку выставляется ежемесячно на рекуррентной основе. Отмена в любое время по любой причине. <br /> Платежи осуществляются через Stripe посредством ExtensionPay. Ознакомьтесь с <a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">политикой конфиденциальности</a>.",
+    "subscriptionBilledOn": "Счет за подписку выставляется ежемесячно на рекуррентной основе. Отмена в любое время по любой причине. <br /> Платежи осуществляются через Stripe посредством ExtensionPay. Ознакомьтесь с <a href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">политикой конфиденциальности</a>.",
     "supportTheDevelopmentOfCarettab": "Поддержите развитие CaretTab с помощью подписки Premium. Вот что вы получите:",
     "tabTitle": "Вкладка Название",
     "tabTitleCustomText": "Пользовательский текст",

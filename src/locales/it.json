@@ -166,7 +166,7 @@
     "signUpForPremiumToAccessThisFeature": "Iscriviti a Premium per accedere a questa funzione",
     "style": "Stile",
     "subscribeNow": "Iscriviti ora",
-    "subscriptionBilledOn": "L'abbonamento viene fatturato su base mensile ricorrente. È possibile annullare l'abbonamento in qualsiasi momento e per qualsiasi motivo. <br />Pagamenti elaborati tramite Stripe attraverso ExtensionPay. Visualizza la <a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">politica sulla privacy</a>.",
+    "subscriptionBilledOn": "L'abbonamento viene fatturato su base mensile ricorrente. È possibile annullare l'abbonamento in qualsiasi momento e per qualsiasi motivo. <br />Pagamenti elaborati tramite Stripe attraverso ExtensionPay. Visualizza la <a href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">politica sulla privacy</a>.",
     "supportTheDevelopmentOfCarettab": "Sostenete lo sviluppo di CaretTab con un abbonamento Premium. Ecco cosa otterrete:",
     "tabTitle": "Titolo della scheda",
     "tabTitleCustomText": "Testo personalizzato",

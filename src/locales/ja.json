@@ -166,7 +166,7 @@
     "signUpForPremiumToAccessThisFeature": "この機能を利用するにはプレミアムに登録する",
     "style": "スタイル",
     "subscribeNow": "今すぐ申し込む",
-    "subscriptionBilledOn": "サブスクリプションは毎月定期的に課金されます。理由の如何を問わず、いつでもキャンセル可能。<br />お支払いはExtensionPayを通じてStripeで処理されます。<a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">プライバシーポリシー</a>をご覧ください。",
+    "subscriptionBilledOn": "サブスクリプションは毎月定期的に請求されます。理由の如何を問わず、いつでもキャンセルできます。",
     "supportTheDevelopmentOfCarettab": "プレミアムサブスクリプションでCaretTabの開発をサポートしましょう。以下の特典があります：",
     "tabTitle": "タブタイトル",
     "tabTitleCustomText": "カスタムテキスト",

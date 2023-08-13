@@ -166,7 +166,7 @@
     "signUpForPremiumToAccessThisFeature": "Registrera dig för Premium för att få tillgång till denna funktion",
     "style": "Stil",
     "subscribeNow": "Prenumerera nu",
-    "subscriptionBilledOn": "Abonnemanget faktureras månadsvis återkommande. Kan sägas upp när som helst av vilken anledning som helst. <br /> Betalningar behandlas via Stripe genom ExtensionPay. Visa <a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">sekretesspolicyn</a>.",
+    "subscriptionBilledOn": "Abonnemanget faktureras månadsvis återkommande. Kan sägas upp när som helst oavsett anledning.",
     "supportTheDevelopmentOfCarettab": "Stöd utvecklingen av CaretTab med en Premium-prenumeration. Här är vad du får:",
     "tabTitle": "Flik Titel",
     "tabTitleCustomText": "Anpassad text",

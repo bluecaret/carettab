@@ -166,7 +166,7 @@
     "signUpForPremiumToAccessThisFeature": "הירשם ל-Premium כדי לגשת לתכונה זו",
     "style": "סִגְנוֹן",
     "subscribeNow": "הירשם עכשיו",
-    "subscriptionBilledOn": "מנוי מחויב על בסיס חודשי חוזר. \nבטל בכל עת מכל סיבה שהיא. \n<br />תשלומים מעובדים באמצעות Stripe דרך ExtensionPay. \nעיין ב<a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">מדיניות הפרטיות</a>.",
+    "subscriptionBilledOn": "מנוי מחויב על בסיס חודשי חוזר. \nבטל בכל עת מכל סיבה שהיא.",
     "supportTheDevelopmentOfCarettab": "תמכו בפיתוח CaretTab עם מנוי פרימיום. \nהנה מה שאתה מקבל:",
     "tabTitle": "כותרת הטבלה",
     "tabTitleCustomText": "טקסט מותאם אישית",

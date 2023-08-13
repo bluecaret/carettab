@@ -166,7 +166,7 @@
     "signUpForPremiumToAccessThisFeature": "Melden Sie sich für Premium an, um auf diese Funktion zuzugreifen",
     "style": "Stil",
     "subscribeNow": "Jetzt abonnieren",
-    "subscriptionBilledOn": "Das Abonnement wird monatlich wiederkehrend abgerechnet. Jederzeit aus beliebigem Grund kündbar. <br />Zahlungen werden über Stripe durch ExtensionPay abgewickelt. Lesen Sie die <a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">Datenschutzbestimmungen</a>.",
+    "subscriptionBilledOn": "Das Abonnement wird monatlich wiederkehrend abgerechnet. Jederzeit aus beliebigen Gründen kündbar.",
     "supportTheDevelopmentOfCarettab": "Unterstützen Sie die Entwicklung von CaretTab mit einem Premium-Abonnement. Hier ist, was Sie bekommen:",
     "tabTitle": "Registerkarte Titel",
     "tabTitleCustomText": "Benutzerdefinierter Text",

@@ -166,7 +166,7 @@
     "signUpForPremiumToAccessThisFeature": "Đăng ký Premium để truy cập tính năng này",
     "style": "Phong cách",
     "subscribeNow": "Theo dõi ngay",
-    "subscriptionBilledOn": "Đăng ký được lập hóa đơn trên cơ sở định kỳ hàng tháng. \nHủy bỏ bất cứ lúc nào vì bất kỳ lý do gì. \n<br />Các khoản thanh toán được xử lý qua Stripe thông qua ExtensionPay. \nXem <a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">chính sách quyền riêng tư</a>.",
+    "subscriptionBilledOn": "Đăng ký được lập hóa đơn trên cơ sở định kỳ hàng tháng. \nHủy bỏ bất cứ lúc nào vì bất kỳ lý do gì. \n<br />Các khoản thanh toán được xử lý qua Stripe thông qua ExtensionPay. \nXem <a href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">chính sách quyền riêng tư</a>.",
     "supportTheDevelopmentOfCarettab": "Hỗ trợ sự phát triển của CaretTab với đăng ký Premium. \nĐây là những gì bạn nhận được:",
     "tabTitle": "Tiêu đề tab",
     "tabTitleCustomText": "Văn bản tùy chỉnh",

@@ -2,7 +2,7 @@
 import { computed, ref, inject, nextTick, onMounted, onBeforeUnmount } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { DateTime } from 'luxon'
-import { setWidgetContainerStyles, setWidgetSegmentStyles } from '@/helpers/widgets.js'
+import { setWidgetContainerStyles, setWidgetSegmentStyles, getDynamicSize } from '@/helpers/widgets.js'
 
 const store = useSettingsStore()
 const user = inject('user')
@@ -33,6 +33,12 @@ onBeforeUnmount(() => {
   }
 })
 
+const isDynamicScaling = computed(() => {
+  return props.widget.base.container.override
+    ? props.widget.base.container.dynamicScaling
+    : store.config.global.container.dynamicScaling
+})
+
 const blink = computed(() => {
   return props.widget.delimiter.blink && blinkStatus.value ? 'digitalClockBlink 1s steps(2) infinite' : 'none'
 })
@@ -47,7 +53,7 @@ const segmentStyles = (type, lsUsesMargin = false) => {
 
 const fontSize = computed(() => {
   const config = props.widget.base.font.override ? props.widget.base.font : store.config.global.font
-  return config.size ? `${config.size}px` : '0'
+  return config.size ? getDynamicSize(config.size, isDynamicScaling.value) : '0'
 })
 
 const fontUnderline = computed(() => {

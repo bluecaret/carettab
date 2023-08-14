@@ -215,6 +215,16 @@ const handleGlobalCopy = () => {
           >
           </NumberField>
         </div>
+        <div class="block">
+          <label for="dynamicScaling" class="label mra">
+            Dynamic scaling
+            <div class="desc">
+              When setting widget size options such as position and font size, it will be relative to the size of the
+              screen. As your browser window is made smaller/larger, so will the widget.
+            </div>
+          </label>
+          <ToggleField v-model="widget.dynamicScaling" tag-id="dynamicScaling"> </ToggleField>
+        </div>
       </template>
     </template>
   </FieldAccordion>

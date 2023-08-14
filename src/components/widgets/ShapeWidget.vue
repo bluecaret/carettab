@@ -1,5 +1,9 @@
 <script setup>
 import { computed } from 'vue'
+import { useSettingsStore } from '@/store.js'
+import { getDynamicSize } from '@/helpers/widgets.js'
+
+const store = useSettingsStore()
 
 const props = defineProps({
   widget: {
@@ -8,11 +12,19 @@ const props = defineProps({
   },
 })
 
+const isDynamicScaling = computed(() => {
+  return props.widget.base.container.override
+    ? props.widget.base.container.dynamicScaling
+    : store.config.global.container.dynamicScaling
+})
+
 const getWidth = computed(() => {
   return `${
     props.widget.base.widthUnit === 'auto'
       ? 'max-content'
-      : props.widget.base.width + (props.widget.base.widthUnit === 'pixels' ? 'px' : '%')
+      : props.widget.base.widthUnit === 'pixels'
+      ? getDynamicSize(props.widget.base.width, isDynamicScaling.value)
+      : props.widget.base.width + '%'
   }`
 })
 
@@ -20,12 +32,14 @@ const getHeight = computed(() => {
   return `${
     props.widget.base.heightUnit === 'auto'
       ? 'max-content'
-      : props.widget.base.height + (props.widget.base.heightUnit === 'pixels' ? 'px' : '%')
+      : props.widget.base.heightUnit === 'pixels'
+      ? getDynamicSize(props.widget.base.height, isDynamicScaling.value)
+      : props.widget.base.height + '%'
   }`
 })
 
 const getRadius = computed(() => {
-  return `${props.widget.base.container.radius}px`
+  return getDynamicSize(props.widget.base.container.radius, isDynamicScaling.value)
 })
 
 const getBorderColor = computed(() => {
@@ -33,7 +47,7 @@ const getBorderColor = computed(() => {
 })
 
 const getBorderSize = computed(() => {
-  return `${props.widget.base.container.borderSize}px`
+  return getDynamicSize(props.widget.base.container.borderSize, isDynamicScaling.value)
 })
 
 const getRotate = computed(() => {
@@ -46,12 +60,22 @@ const getBackground = computed(() => {
 
 const getShadow = computed(() => {
   return props.widget.base.container.shadow[0]
-    ? `${props.widget.base.container.shadow[1]}px ${props.widget.base.container.shadow[2]}px ${props.widget.base.container.shadow[3]}px hsl(${props.widget.base.container.shadow[4]}deg ${props.widget.base.container.shadow[5]}% ${props.widget.base.container.shadow[6]}% / ${props.widget.base.container.shadow[7]})`
+    ? `${getDynamicSize(props.widget.base.container.shadow[1], isDynamicScaling.value)} ${getDynamicSize(
+        props.widget.base.container.shadow[2],
+        isDynamicScaling.value
+      )} ${getDynamicSize(props.widget.base.container.shadow[3], isDynamicScaling.value)} hsl(${
+        props.widget.base.container.shadow[4]
+      }deg ${props.widget.base.container.shadow[5]}% ${props.widget.base.container.shadow[6]}% / ${
+        props.widget.base.container.shadow[7]
+      })`
     : 'none'
 })
 
 const getTranslate = computed(() => {
-  return `${props.widget.base.x}px ${-props.widget.base.y}px`
+  return `${getDynamicSize(props.widget.base.x, isDynamicScaling.value)} ${getDynamicSize(
+    -props.widget.base.y,
+    isDynamicScaling.value
+  )}`
 })
 </script>
 

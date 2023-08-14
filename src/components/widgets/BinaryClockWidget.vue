@@ -2,7 +2,7 @@
 import { computed, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { DateTime } from 'luxon'
-import { setWidgetContainerStyles, setWidgetSegmentStyles, hsl, shadow } from '@/helpers/widgets.js'
+import { setWidgetContainerStyles, setWidgetSegmentStyles, hsl, shadow, getDynamicSize } from '@/helpers/widgets.js'
 
 const store = useSettingsStore()
 const user = inject('user')
@@ -60,12 +60,20 @@ const segmentStyles = (type, lsUsesMargin = false) => {
   return setWidgetSegmentStyles(props.widget, type, store.config.global, lsUsesMargin)
 }
 
+const isDynamicScaling = computed(() => {
+  return props.widget.base.container.override
+    ? props.widget.base.container.dynamicScaling
+    : store.config.global.container.dynamicScaling
+})
+
 const gridGap = computed(() => {
-  return props.widget.indicator.padding ? `${props.widget.indicator.padding}px` : '0'
+  return props.widget.indicator.padding
+    ? getDynamicSize(props.widget.indicator.padding * 10, isDynamicScaling.value)
+    : '0'
 })
 
 const dotSize = computed(() => {
-  return props.widget.indicator.size ? `${props.widget.indicator.size}px` : '0'
+  return props.widget.indicator.size ? getDynamicSize(props.widget.indicator.size, isDynamicScaling.value) : '0'
 })
 
 const getColors = (type, status) => {

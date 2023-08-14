@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, watch, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
-import { setWidgetContainerStyles, hsl, shadow } from '@/helpers/widgets.js'
+import { setWidgetContainerStyles, hsl, shadow, getDynamicSize } from '@/helpers/widgets.js'
 import { searchEngines } from '@/assets/lists.js'
 
 const store = useSettingsStore()
@@ -52,6 +52,12 @@ watch(
   }
 )
 
+const isDynamicScaling = computed(() => {
+  return props.widget.base.container.override
+    ? props.widget.base.container.dynamicScaling
+    : store.config.global.container.dynamicScaling
+})
+
 const containerStyles = computed(() => {
   return setWidgetContainerStyles(props.widget, store.config.global, user.value.paid)
 })
@@ -78,21 +84,24 @@ const setBarStyles = computed(() => {
   return `
     border-style: solid;
     border-width: 0;
-    border${props.widget.borderBottom ? '-bottom' : ''}-width: ${props.widget.borderSize}px;
+    border${props.widget.borderBottom ? '-bottom' : ''}-width: ${getDynamicSize(
+    props.widget.borderSize,
+    isDynamicScaling.value
+  )};
     border-color: ${hsl(
       props.widget.overrideColors ? props.widget.borderColor : store.config.global.element.primaryColor
     )};
     background-color: ${hsl(
       props.widget.overrideColors ? props.widget.background : store.config.global.element.secondaryColor
     )};
-    border-radius: ${props.widget.radius}px;
-    font-size: ${props.widget.base.font.size}px;
+    border-radius: ${getDynamicSize(props.widget.radius, isDynamicScaling.value)};
+    font-size: ${getDynamicSize(props.widget.base.font.size, isDynamicScaling.value)};
     text-shadow: ${shadow(
       props.widget.base.font.override ? props.widget.base.font.shadow : store.config.global.font.shadow
     )};
     box-shadow: ${shadow(props.widget.overrideColors ? props.widget.boxShadow : store.config.global.element.shadow)};
     color: ${hsl(props.widget.base.font.override ? props.widget.base.font.color : store.config.global.font.color)};
-    --elementPadding: ${props.widget.padding}px;
+    --elementPadding: ${getDynamicSize(props.widget.padding, isDynamicScaling.value)};
   `
 })
 

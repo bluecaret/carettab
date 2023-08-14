@@ -52,6 +52,7 @@ export class Defaults {
       borderSize: 0,
       radius: 8,
       padding: 0,
+      dynamicScaling: false,
     },
     element: {
       primaryColor: [220, 15, 85, 1],

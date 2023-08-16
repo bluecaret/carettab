@@ -18,6 +18,13 @@ watch(
   }
 )
 
+const getBaseFontSize = () => {
+  if (store.config.global.container.dynamicScaling) {
+    return `clamp(12px, 1.66dvw, 20px)`
+  }
+  return `20px`
+}
+
 const getShadow = computed(() => {
   if (store.config.global.font.shadow && store.config.global.font.shadow[0]) {
     return `${store.config.global.font.shadow[1]}px ${store.config.global.font.shadow[2]}px ${store.config.global.font.shadow[3]}px 0px hsl(${store.config.global.font.shadow[4]}deg ${store.config.global.font.shadow[5]}% ${store.config.global.font.shadow[6]}% / ${store.config.global.font.shadow[7]})`
@@ -34,39 +41,44 @@ const getTextColor = computed(() => {
 </script>
 
 <template>
-  <button
-    ref="toggleSettingsEl"
-    :class="{ settingsToggle: true, open: settingsOpen, hide: store.config.global.hideSettings }"
-    :title="
-      settingsOpen ? $t('common.closeAndSaveSettings') : status === 'updated' ? $t('common.updated') : $t('common.open')
-    "
-    @click="toggleSettings"
-  >
-    <span></span><span></span><span></span>
-    <div v-if="status === 'updated'" class="updateNotice"></div>
-  </button>
-  <div v-if="status === 'highlightSettings'" class="highlightSettings"></div>
+  <div class="settingsToggleWrapper" :style="`font-size: ${getBaseFontSize()}`">
+    <div v-if="status === 'highlightSettings'" class="highlightSettings"></div>
+    <button
+      ref="toggleSettingsEl"
+      :class="{ settingsToggle: true, open: settingsOpen, hide: store.config.global.hideSettings }"
+      :title="
+        settingsOpen
+          ? $t('common.closeAndSaveSettings')
+          : status === 'updated'
+          ? $t('common.updated')
+          : $t('common.open')
+      "
+      @click="toggleSettings"
+    >
+      <fa v-if="!store.settingsOpen" icon="fa-bars" />
+      <div v-if="status === 'updated'" class="updateNotice"><fa icon="fa-asterisk" /></div>
+    </button>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-$optionsToggleLine: 2px;
-$optionsToggleSize: 20px;
-$optionsToggleSpacing: 3px;
-$optionsTogglePadding: 30px;
-$optionsToggleHeight: ($optionsToggleSize + ($optionsTogglePadding * 2));
-$optionsToggleUpdateNoticeSize: 24px;
-$optionsToggleUpdateNoticeOffset: 16px;
-
-.settingsToggle {
+.settingsToggleWrapper {
+  --optionsToggleSize: 3em;
   position: fixed;
   z-index: 50;
   bottom: 0;
   right: 0;
+}
+
+.settingsToggle {
+  z-index: +1;
+  display: grid;
+  place-items: center;
   background: transparent;
   border: 0;
   padding: 0;
-  width: $optionsToggleHeight;
-  height: $optionsToggleHeight;
+  width: var(--optionsToggleSize);
+  height: var(--optionsToggleSize);
   color: v-bind(getTextColor);
   cursor: pointer;
   overflow: hidden;
@@ -76,34 +88,16 @@ $optionsToggleUpdateNoticeOffset: 16px;
     box-shadow: inset 0 0 0 3px currentColor;
   }
 
-  span {
+  > .svg-inline--fa {
     opacity: 0.5;
-    display: block;
-    position: absolute;
-    height: 2px;
-    width: $optionsToggleSize;
-    background: currentColor;
-    border-radius: 2px;
-    right: $optionsTogglePadding;
+    font-size: 1em;
     transition: opacity 0.5s;
-    box-shadow: v-bind(getShadow);
-
-    &:nth-of-type(1) {
-      bottom: ($optionsToggleSpacing + $optionsTogglePadding);
-    }
-
-    &:nth-of-type(2) {
-      bottom: calc(calc(calc(#{$optionsToggleSize} - #{$optionsToggleLine}) / 2) + #{$optionsTogglePadding});
-    }
-
-    &:nth-of-type(3) {
-      bottom: ($optionsToggleSize - $optionsToggleLine - $optionsToggleSpacing + $optionsTogglePadding);
-    }
+    filter: drop-shadow(v-bind(getShadow));
   }
 
   &:hover,
   &:focus-visible {
-    span {
+    > .svg-inline--fa {
       opacity: 1;
     }
   }
@@ -111,20 +105,16 @@ $optionsToggleUpdateNoticeOffset: 16px;
   &.open {
     width: 100vw;
     height: 100vh;
-
-    span {
-      // opacity: 0;
-    }
   }
 
   &.hide:not(.open) {
-    span {
+    > .svg-inline--fa {
       opacity: 0;
     }
 
     &:focus-visible,
     &:hover {
-      span {
+      > .svg-inline--fa {
         opacity: 1;
       }
     }
@@ -132,19 +122,14 @@ $optionsToggleUpdateNoticeOffset: 16px;
 
   .updateNotice {
     position: absolute;
-    bottom: 13px;
-    right: 15px;
-    display: grid;
-    place-items: center;
-    border: 2px solid currentColor;
+    top: 50%;
+    right: 2.7em;
+    transform: translateY(-70%);
+    transform-origin: bottom center;
     color: currentColor;
-    padding: 1px 3px;
-    border-radius: 6px;
-
-    &::before {
-      content: 'NEW';
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 8px;
+    font-size: 0.8em;
+    > .svg-inline--fa {
+      filter: drop-shadow(v-bind(getShadow));
     }
   }
 
@@ -155,11 +140,10 @@ $optionsToggleUpdateNoticeOffset: 16px;
 
 .highlightSettings {
   position: fixed;
-  z-index: 30;
   bottom: 0;
   right: 0;
-  width: $optionsToggleHeight;
-  height: $optionsToggleHeight;
+  width: var(--optionsToggleSize);
+  height: var(--optionsToggleSize);
   cursor: pointer;
   overflow: hidden;
   background-color: hsl(0deg 0% 0% / 0.7);

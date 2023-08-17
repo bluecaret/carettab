@@ -23,6 +23,16 @@ const widget = reactive(store.config[widgetStore][ci.value])
     </div>
     <div class="blockContainer">
       <div class="block">
+        <label for="dynamicScaling" class="label mra">
+          Dynamic scaling
+          <div class="desc">
+            When setting widget size options such as position and font size, it will be relative to the size of the
+            screen. As your browser window is made smaller/larger, so will the widget.
+          </div>
+        </label>
+        <ToggleField v-model="widget.base.container.dynamicScaling" tag-id="dynamicScaling"> </ToggleField>
+      </div>
+      <div class="block">
         <label for="shapeType" class="label">{{ $t('widget.type') }}</label>
         <select id="shapeType" v-model="widget.shape" name="shapeType" class="select w20">
           <option value="rectangle">Rectangle</option>

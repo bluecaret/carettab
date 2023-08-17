@@ -13,9 +13,7 @@ const props = defineProps({
 })
 
 const isDynamicScaling = computed(() => {
-  return props.widget.base.container.override
-    ? props.widget.base.container.dynamicScaling
-    : store.config.global.container.dynamicScaling
+  return props.widget.base.container.dynamicScaling
 })
 
 const getWidth = computed(() => {

@@ -166,7 +166,7 @@
     "signUpForPremiumToAccessThisFeature": "Inscreva-se no Premium para aceder a esta funcionalidade",
     "style": "Estilo",
     "subscribeNow": "Subscrever agora",
-    "subscriptionBilledOn": "A subscrição é facturada numa base mensal recorrente. Cancelamento a qualquer momento por qualquer motivo. <br />Pagamentos processados via Stripe através do ExtensionPay. Ver a <a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">política de privacidade</a>.",
+    "subscriptionBilledOn": "A subscrição é facturada numa base mensal recorrente. Cancelamento em qualquer altura e por qualquer motivo.",
     "supportTheDevelopmentOfCarettab": "Apoie o desenvolvimento do CaretTab com uma subscrição Premium. Eis o que obtém:",
     "tabTitle": "Título do separador",
     "tabTitleCustomText": "Texto personalizado",

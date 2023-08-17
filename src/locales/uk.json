@@ -166,7 +166,7 @@
     "signUpForPremiumToAccessThisFeature": "Підпишіться на Premium, щоб отримати доступ до цієї функції",
     "style": "Стиль",
     "subscribeNow": "Підпишіться зараз",
-    "subscriptionBilledOn": "Підписка оплачується на щомісячній основі. Скасувати в будь-який час з будь-якої причини. <br />Платежі обробляються через Stripe через ExtensionPay. Перегляньте <a :href=\"https://www.bluecaret.com/privacy/\" rel=\"noreferrer\" target=\"_blank\">політику конфіденційності</a>.",
+    "subscriptionBilledOn": "Підписка оплачується на щомісячній основі. Скасувати в будь-який час з будь-якої причини.",
     "supportTheDevelopmentOfCarettab": "Підтримайте розвиток CaretTab з підпискою Premium. Ось що ви отримаєте:",
     "tabTitle": "Назва вкладки",
     "tabTitleCustomText": "Користувацький текст",

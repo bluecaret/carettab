@@ -7,6 +7,7 @@ import { checkVersionInRange, compareVersions } from '@/helpers/data.js'
 
 const store = useSettingsStore()
 const whatsNewModal = ref(false)
+const ver = ref('#.#.#')
 
 onMounted(async () => {
   if ((!store.clearWhatsNewBox, store.updatedTimestamp)) {
@@ -15,6 +16,14 @@ onMounted(async () => {
     if (updated <= now) {
       handleClearWhatsNew()
     }
+  }
+  try {
+    if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.getManifest) {
+      const manifest = chrome.runtime.getManifest()
+      ver.value = manifest.version
+    }
+  } catch (error) {
+    console.warn('Warning, failed to get version number:', error)
   }
 })
 
@@ -34,7 +43,7 @@ const handleClearWhatsNew = async () => {
       <div class="whatsNewBox" @click="whatsNewModal = true">
         <div class="group fill">
           <fa class="whatsNewIcon" icon="fa-bell"></fa>
-          <h3 class="fill">{{ $t('dashboard.newUpdate') }} &mdash; {{ $t('settings.version', ['4.0.4']) }}</h3>
+          <h3 class="fill">{{ $t('dashboard.newUpdate') }} &mdash; {{ $t('settings.version', [ver]) }}</h3>
           <button type="button" class="btn fit" @click="whatsNewModal = true">
             <div class="fit">{{ $t('dashboard.readWhatsNew') }}</div>
           </button>
@@ -53,7 +62,7 @@ const handleClearWhatsNew = async () => {
     <template #window>
       <div class="modal whatsNewModal">
         <header class="modalHeader">
-          <h1 class="modalTitle">{{ $t('updates.whatsNewInVersion', ['4.1.1']) }}</h1>
+          <h1 class="modalTitle">{{ $t('updates.whatsNewInVersion', [ver]) }}</h1>
           <button class="modalClose" type="button" :aria-label="$t('common.close')" @click="whatsNewModal = false">
             <fa icon="fa-xmark" />
           </button>

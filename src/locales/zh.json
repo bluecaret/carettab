@@ -262,7 +262,9 @@
     "thisOptionWillMatchTheWidgetContainer": "该选项将使部件容器设置与当前全局容器设置相匹配。",
     "thisOptionWillMatchTheWidgetFont": "该选项将使部件的字体设置与当前的全局字体设置相匹配。",
     "uiColorMode": "用户界面色彩模式",
-    "useSystemPreference": "使用系统偏好"
+    "useSystemPreference": "使用系统偏好",
+    "dynamicScaling": "动态缩放",
+    "dynamicScalingDesc": "在设置 Widget 大小选项（如位置和字体大小）时，它将与屏幕大小相对应。当浏览器窗口变小/变大时，部件也会变小/变大。"
   },
   "advanced": {
     "advancedSettings": "高级设置",

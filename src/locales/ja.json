@@ -262,7 +262,9 @@
     "thisOptionWillMatchTheWidgetContainer": "このオプションは、ウィジェットのコンテナ設定を現在のグローバルコンテナ設定にマッチさせます。",
     "thisOptionWillMatchTheWidgetFont": "このオプションは、ウィジェットのフォント設定を現在のグローバルフォント設定にマッチさせます。",
     "uiColorMode": "UIカラーモード",
-    "useSystemPreference": "システム環境設定を使用する"
+    "useSystemPreference": "システム環境設定を使用する",
+    "dynamicScaling": "ダイナミック・スケーリング",
+    "dynamicScalingDesc": "位置やフォントサイズのようなウィジェットサイズオプションを設定するとき、それはスクリーンのサイズに相対的である。ブラウザウィンドウが小さく/大きくなると、ウィジェットも小さく/大きくなります。"
   },
   "advanced": {
     "advancedSettings": "詳細設定",

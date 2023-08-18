@@ -24,10 +24,9 @@ const widget = reactive(store.config[widgetStore][ci.value])
     <div class="blockContainer">
       <div class="block">
         <label for="dynamicScaling" class="label mra">
-          Dynamic scaling
+          {{ $t('settings.dynamicScaling') }}
           <div class="desc">
-            When setting widget size options such as position and font size, it will be relative to the size of the
-            screen. As your browser window is made smaller/larger, so will the widget.
+            {{ $t('settings.dynamicScalingDesc') }}
           </div>
         </label>
         <ToggleField v-model="widget.base.container.dynamicScaling" tag-id="dynamicScaling"> </ToggleField>

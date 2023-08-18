@@ -262,7 +262,9 @@
     "thisOptionWillMatchTheWidgetContainer": "이 옵션은 위젯 컨테이너 설정을 현재 글로벌 컨테이너 설정과 일치시킵니다.",
     "thisOptionWillMatchTheWidgetFont": "이 옵션은 위젯 글꼴 설정을 현재 글로벌 글꼴 설정과 일치시킵니다.",
     "uiColorMode": "UI 색상 모드",
-    "useSystemPreference": "시스템 환경 설정 사용"
+    "useSystemPreference": "시스템 환경 설정 사용",
+    "dynamicScaling": "동적 스케일링",
+    "dynamicScalingDesc": "위치 및 글꼴 크기와 같은 위젯 크기 옵션을 설정할 때 화면 크기에 비례하여 설정됩니다. 브라우저 창이 작아지거나 커지면 위젯도 함께 커집니다."
   },
   "advanced": {
     "advancedSettings": "고급 설정",

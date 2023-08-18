@@ -262,7 +262,9 @@
     "thisOptionWillMatchTheWidgetContainer": "Detta alternativ matchar widgetens containerinställningar med de aktuella globala containerinställningarna.",
     "thisOptionWillMatchTheWidgetFont": "Detta alternativ matchar widgetens teckensnittsinställningar med de aktuella globala teckensnittsinställningarna.",
     "uiColorMode": "Färgläge för användargränssnittet",
-    "useSystemPreference": "Använd systempreferens"
+    "useSystemPreference": "Använd systempreferens",
+    "dynamicScaling": "Dynamisk skalning",
+    "dynamicScalingDesc": "När du ställer in widgetens storlek, t.ex. position och teckenstorlek, kommer den att vara relativ i förhållande till skärmens storlek. När webbläsarfönstret görs mindre/större kommer widgeten också att göra det."
   },
   "advanced": {
     "advancedSettings": "Avancerade inställningar",

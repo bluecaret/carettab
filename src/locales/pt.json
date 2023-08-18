@@ -262,7 +262,9 @@
     "thisOptionWillMatchTheWidgetContainer": "Esta opção fará coincidir as definições do contentor do widget com as definições actuais do contentor global.",
     "thisOptionWillMatchTheWidgetFont": "Esta opção fará coincidir as definições de tipo de letra do widget com as definições de tipo de letra globais actuais.",
     "uiColorMode": "Modo de cor da IU",
-    "useSystemPreference": "Utilizar a preferência do sistema"
+    "useSystemPreference": "Utilizar a preferência do sistema",
+    "dynamicScaling": "Escalonamento dinâmico",
+    "dynamicScalingDesc": "Ao definir as opções de tamanho do widget, como a posição e o tamanho do tipo de letra, estas serão relativas ao tamanho do ecrã. Se a janela do browser ficar mais pequena/maior, o widget também ficará maior."
   },
   "advanced": {
     "advancedSettings": "Definições avançadas",

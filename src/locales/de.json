@@ -262,7 +262,9 @@
     "thisOptionWillMatchTheWidgetContainer": "Mit dieser Option werden die Einstellungen des Widget-Containers mit den aktuellen globalen Container-Einstellungen abgeglichen.",
     "thisOptionWillMatchTheWidgetFont": "Mit dieser Option werden die Schrifteinstellungen des Widgets an die aktuellen globalen Schrifteinstellungen angepasst.",
     "uiColorMode": "UI-Farbmodus",
-    "useSystemPreference": "Systempräferenz verwenden"
+    "useSystemPreference": "Systempräferenz verwenden",
+    "dynamicScaling": "Dynamische Skalierung",
+    "dynamicScalingDesc": "Wenn Sie die Größe des Widgets einstellen, z. B. die Position und die Schriftgröße, bezieht sich dies auf die Größe des Bildschirms. Wenn Ihr Browserfenster kleiner/größer wird, wird auch das Widget größer."
   },
   "advanced": {
     "advancedSettings": "Erweiterte Einstellungen",

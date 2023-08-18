@@ -23,6 +23,15 @@ const widget = reactive(store.config[widgetStore][ci.value])
     </div>
     <div class="blockContainer">
       <div class="block">
+        <label for="dynamicScaling" class="label mra">
+          {{ $t('settings.dynamicScaling') }}
+          <div class="desc">
+            {{ $t('settings.dynamicScalingDesc') }}
+          </div>
+        </label>
+        <ToggleField v-model="widget.base.container.dynamicScaling" tag-id="dynamicScaling"> </ToggleField>
+      </div>
+      <div class="block">
         <label for="shapeType" class="label">{{ $t('widget.type') }}</label>
         <select id="shapeType" v-model="widget.shape" name="shapeType" class="select w20">
           <option value="rectangle">Rectangle</option>

@@ -34,17 +34,30 @@ export const setPermission = async (permission, origins = false) => {
   })
 }
 
+export const getDynamicSize = (val, dynamic, height = false) => {
+  if (dynamic) {
+    if (height) return `${val / 19}dvh`
+    return `${val / 19}dvw`
+  }
+  return `${val}px`
+}
+
 export const setWidgetContainerStyles = (widget, global, paid) => {
   const box = widget.base.container.override ? widget.base.container : global.container
   const font = widget.base.font.override ? widget.base.font : global.font
 
   // Font styles
-  const fontSize = `font-size: ${widget.base.font.size}px; `
+  const fontSize = `font-size: ${getDynamicSize(widget.base.font.size, box.dynamicScaling)}; `
   const fontFamily = `font-family: "${paid ? font.family : global.font.family}"; `
   const fontWeight = `font-weight: ${paid ? font.bold : global.font.bold}; `
   const color = `color: hsl(${font.color[0]}deg ${font.color[1]}% ${font.color[2]}% / ${font.color[3]}); `
   const textShadow = font.shadow[0]
-    ? `text-shadow: ${font.shadow[1]}px ${font.shadow[2]}px ${font.shadow[3]}px hsl(${font.shadow[4]}deg ${font.shadow[5]}% ${font.shadow[6]}% / ${font.shadow[7]}); `
+    ? `text-shadow: ${getDynamicSize(font.shadow[1], box.dynamicScaling)} ${getDynamicSize(
+        font.shadow[2],
+        box.dynamicScaling
+      )} ${getDynamicSize(font.shadow[3], box.dynamicScaling)} hsl(${font.shadow[4]}deg ${font.shadow[5]}% ${
+        font.shadow[6]
+      }% / ${font.shadow[7]}); `
     : 'text-shadow: none;'
   const fontItalic = paid
     ? font.italic
@@ -73,26 +86,37 @@ export const setWidgetContainerStyles = (widget, global, paid) => {
   const width = `width: ${
     widget.base.widthUnit === 'auto'
       ? 'max-content'
-      : widget.base.width + (widget.base.widthUnit === 'pixels' ? 'px' : '%')
+      : widget.base.widthUnit === 'pixels'
+      ? getDynamicSize(widget.base.width, box.dynamicScaling)
+      : widget.base.width + '%'
   };`
   const height = `height: ${
     widget.base.heightUnit === 'auto'
       ? 'max-content'
-      : widget.base.height + (widget.base.heightUnit === 'pixels' ? 'px' : '%')
+      : widget.base.heightUnit === 'pixels'
+      ? getDynamicSize(widget.base.height, box.dynamicScaling)
+      : widget.base.height + '%'
   };`
-  const translate = `translate: ${widget.base.x}${widget.base.xUnit === 'pixels' ? 'px' : 'dvw'} ${-widget.base.y}${
-    widget.base.yUnit === 'pixels' ? 'px' : 'dvh'
-  };`
-  const radius = `border-radius: ${paid ? box.radius : 0}px; `
+  const translate = `
+    translate: ${
+      widget.base.xUnit === 'pixels' ? getDynamicSize(widget.base.x, box.dynamicScaling) : widget.base.x + 'dvw'
+    } ${widget.base.yUnit === 'pixels' ? getDynamicSize(-widget.base.y, box.dynamicScaling) : -widget.base.y + 'dvh'};
+  `
+  const radius = `border-radius: ${paid ? getDynamicSize(box.radius, box.dynamicScaling) : 0}; `
   const borderColor = `hsl(${box.borderColor[0]}deg ${box.borderColor[1]}% ${box.borderColor[2]}% / ${box.borderColor[3]});`
-  const border = `border: ${paid ? box.borderSize : 0}px solid ${borderColor}; `
+  const border = `border: ${paid ? getDynamicSize(box.borderSize, box.dynamicScaling) : 0} solid ${borderColor}; `
   const backgroundColor = paid
     ? `background-color: hsl(${box.background[0]}deg ${box.background[1]}% ${box.background[2]}% / ${box.background[3]}); `
     : `background-color: transparent;`
-  const padding = `padding: ${paid ? box.padding : 0}px; `
+  const padding = `padding: ${paid ? getDynamicSize(box.padding, box.dynamicScaling) : 0}; `
   const shadow = paid
     ? box.shadow[0]
-      ? `box-shadow: ${box.shadow[1]}px ${box.shadow[2]}px ${box.shadow[3]}px 0px hsl(${box.shadow[4]}deg ${box.shadow[5]}% ${box.shadow[6]}% / ${box.shadow[7]}); `
+      ? `box-shadow: ${getDynamicSize(box.shadow[1], box.dynamicScaling)} ${getDynamicSize(
+          box.shadow[2],
+          box.dynamicScaling
+        )} ${getDynamicSize(box.shadow[3], box.dynamicScaling)} 0px hsl(${box.shadow[4]}deg ${box.shadow[5]}% ${
+          box.shadow[6]
+        }% / ${box.shadow[7]}); `
       : 'box-shadow: none;'
     : 'box-shadow: none;'
 
@@ -109,15 +133,28 @@ export const setWidgetSegmentStyles = (widget, type, global, lsUsesMargin = fals
     : global.font
   const segment = widget[type].override ? widget[type] : widget.base.font
 
+  const isDynamicScaling = widget.base.container.override
+    ? widget.base.container.dynamicScaling
+    : global.container.dynamicScaling
+
   // Font styles
-  const fontSize = `font-size: ${segment.size}px; `
+  const fontSize = `font-size: ${getDynamicSize(segment.size, isDynamicScaling)}; `
   const letterSpacing = lsUsesMargin
-    ? `margin-inline: ${segmentWGlobal.letterSpacing}px; `
-    : `letter-spacing: ${segmentWGlobal.letterSpacing}px; `
-  const translate = `translate: ${segment.x * -1}px ${segment.y * -1}px; `
+    ? `margin-inline: ${getDynamicSize(segmentWGlobal.letterSpacing, isDynamicScaling)}; `
+    : `letter-spacing: ${getDynamicSize(segmentWGlobal.letterSpacing, isDynamicScaling)}; `
+  const translate = `translate: ${getDynamicSize(segment.x * -1, isDynamicScaling)} ${getDynamicSize(
+    segment.y * -1,
+    isDynamicScaling
+  )}; `
   const color = `color: hsl(${segmentWGlobal.color[0]}deg ${segmentWGlobal.color[1]}% ${segmentWGlobal.color[2]}% / ${segmentWGlobal.color[3]}); `
   const textShadow = segmentWGlobal.shadow[0]
-    ? `text-shadow: ${segmentWGlobal.shadow[1]}px ${segmentWGlobal.shadow[2]}px ${segmentWGlobal.shadow[3]}px hsl(${segmentWGlobal.shadow[4]}deg ${segmentWGlobal.shadow[5]}% ${segmentWGlobal.shadow[6]}% / ${segmentWGlobal.shadow[7]}); `
+    ? `text-shadow: 
+      ${getDynamicSize(segmentWGlobal.shadow[1], isDynamicScaling)} ${getDynamicSize(
+        segmentWGlobal.shadow[2],
+        isDynamicScaling
+      )} ${getDynamicSize(segmentWGlobal.shadow[3], isDynamicScaling)} hsl(${segmentWGlobal.shadow[4]}deg ${
+        segmentWGlobal.shadow[5]
+      }% ${segmentWGlobal.shadow[6]}% / ${segmentWGlobal.shadow[7]}); `
     : 'text-shadow: none;'
 
   let styles = `${fontSize}${letterSpacing}${color}${textShadow}${translate}`
@@ -129,9 +166,12 @@ export const hsl = (hsl) => {
   return `hsl(${hsl[0]}deg ${hsl[1]}% ${hsl[2]}% / ${hsl[3]})`
 }
 
-export const shadow = (shadow) => {
+export const shadow = (shadow, dynamic = false) => {
   return shadow[0]
-    ? `${shadow[1]}px ${shadow[2]}px ${shadow[3]}px hsl(${shadow[4]}deg ${shadow[5]}% ${shadow[6]}% / ${shadow[7]})`
+    ? `${getDynamicSize(shadow[1], dynamic)} ${getDynamicSize(shadow[2], dynamic)} ${getDynamicSize(
+        shadow[3],
+        dynamic
+      )} hsl(${shadow[4]}deg ${shadow[5]}% ${shadow[6]}% / ${shadow[7]})`
     : 'none'
 }
 

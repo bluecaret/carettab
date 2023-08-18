@@ -100,7 +100,7 @@ export class Weather {
   }
   base = {
     ...baseWidgetStyles,
-    container: { ...baseWidgetStyles.conatiner, alignment: 'w' },
+    container: { ...baseWidgetStyles.container, alignment: 'w' },
     font: { ...baseWidgetStyles.font, size: 22 },
   }
 }

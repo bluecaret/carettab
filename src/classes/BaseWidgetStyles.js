@@ -29,5 +29,6 @@ export const baseWidgetStyles = {
     background: [0, 0, 0, 0.4],
     shadow: [false, 1, 1, 5, 0, 0, 0, 0.8],
     padding: 0,
+    dynamicScaling: false,
   },
 }

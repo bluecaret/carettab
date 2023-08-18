@@ -262,7 +262,12 @@
     "thisOptionWillMatchTheWidgetContainer": "Esta opción hará coincidir la configuración del contenedor del widget con la configuración actual del contenedor global.",
     "thisOptionWillMatchTheWidgetFont": "Esta opción hará coincidir la configuración de fuente del widget con la configuración de fuente global actual.",
     "uiColorMode": "Modo de color de la interfaz de usuario",
-    "useSystemPreference": "Utilizar las preferencias del sistema"
+    "useSystemPreference": "Utilizar las preferencias del sistema",
+    "dynamicScaling": "Escalado dinámico",
+    "dynamicScalingDesc": "Al configurar las opciones de tamaño del widget, como la posición y el tamaño de la fuente, se hará en relación con el tamaño de la pantalla. A medida que la ventana del navegador se haga más pequeña o más grande, también lo hará el widget.",
+    "containerAlignmentAndSize": "Alineación y tamaño de los contenedores",
+    "setsTheSizeOfTheWidgetContainer": "Establece el tamaño del contenedor del widget",
+    "setsTheSizeOfTheWidgetContainerAndAlignment": "Define el tamaño del contenedor del widget y la alineación del contenido dentro del contenedor."
   },
   "advanced": {
     "advancedSettings": "Configuración avanzada",

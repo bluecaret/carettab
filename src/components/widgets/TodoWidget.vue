@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, inject, toRaw, onMounted, nextTick, watch } from 'vue'
+import { ref, computed, inject, toRaw, onMounted, nextTick } from 'vue'
 import draggable from 'vuedraggable'
 import { useSettingsStore, generateUID, setStorage } from '@/store.js'
 import { setWidgetContainerStyles, hsl } from '@/helpers/widgets.js'

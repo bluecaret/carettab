@@ -262,7 +262,12 @@
     "thisOptionWillMatchTheWidgetContainer": "Tùy chọn này sẽ khớp cài đặt vùng chứa tiện ích con với cài đặt vùng chứa chung hiện tại.",
     "thisOptionWillMatchTheWidgetFont": "Tùy chọn này sẽ khớp cài đặt phông chữ tiện ích với cài đặt phông chữ chung hiện tại.",
     "uiColorMode": "Chế độ màu giao diện người dùng",
-    "useSystemPreference": "Sử dụng tùy chọn hệ thống"
+    "useSystemPreference": "Sử dụng tùy chọn hệ thống",
+    "dynamicScaling": "Chia tỷ lệ động",
+    "dynamicScalingDesc": "Khi đặt các tùy chọn kích thước widget như vị trí và kích thước phông chữ, nó sẽ tương ứng với kích thước của màn hình. \nKhi cửa sổ trình duyệt của bạn được làm nhỏ hơn/lớn hơn, widget cũng vậy.",
+    "containerAlignmentAndSize": "Căn chỉnh và kích thước vùng chứa",
+    "setsTheSizeOfTheWidgetContainer": "Đặt kích thước của thùng chứa widget",
+    "setsTheSizeOfTheWidgetContainerAndAlignment": "Đặt kích thước của vùng chứa widget và căn chỉnh nội dung trong vùng chứa"
   },
   "advanced": {
     "advancedSettings": "Cài đặt nâng cao",

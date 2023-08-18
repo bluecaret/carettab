@@ -547,6 +547,14 @@ export const useSettingsStore = defineStore('settings', () => {
     settingsPage.value = page
   }
 
+  const getDynamicSize = (val, dynamic, height = false) => {
+    if (dynamic) {
+      if (height) return `${val / 19}dvh`
+      return `${val / 19}dvw`
+    }
+    return `${val}px`
+  }
+
   return {
     // Temp Settings
     status,
@@ -606,5 +614,6 @@ export const useSettingsStore = defineStore('settings', () => {
     resetAll,
     tSplit,
     goTo,
+    getDynamicSize,
   }
 })

@@ -262,7 +262,12 @@
     "thisOptionWillMatchTheWidgetContainer": "Cette option permet de faire correspondre les paramètres du conteneur du widget avec les paramètres du conteneur global actuel.",
     "thisOptionWillMatchTheWidgetFont": "Cette option permet de faire correspondre les paramètres de police du widget avec les paramètres de police globaux actuels.",
     "uiColorMode": "Mode de couleur de l'interface utilisateur",
-    "useSystemPreference": "Utiliser les préférences du système"
+    "useSystemPreference": "Utiliser les préférences du système",
+    "dynamicScaling": "Mise à l'échelle dynamique",
+    "dynamicScalingDesc": "Lorsque vous définissez les options de taille du widget, telles que la position et la taille de la police, elles sont relatives à la taille de l'écran. Lorsque la fenêtre de votre navigateur est réduite/agrandie, le widget l'est également.",
+    "containerAlignmentAndSize": "Alignement et taille des conteneurs",
+    "setsTheSizeOfTheWidgetContainer": "Définit la taille du conteneur du widget",
+    "setsTheSizeOfTheWidgetContainerAndAlignment": "Définit la taille du conteneur du widget et l’alignement du contenu dans le conteneur"
   },
   "advanced": {
     "advancedSettings": "Paramètres avancés",

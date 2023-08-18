@@ -215,6 +215,15 @@ const handleGlobalCopy = () => {
           >
           </NumberField>
         </div>
+        <div class="block">
+          <label for="dynamicScaling" class="label mra">
+            {{ $t('settings.dynamicScaling') }}
+            <div class="desc">
+              {{ $t('settings.dynamicScalingDesc') }}
+            </div>
+          </label>
+          <ToggleField v-model="widget.dynamicScaling" tag-id="dynamicScaling"> </ToggleField>
+        </div>
       </template>
     </template>
   </FieldAccordion>

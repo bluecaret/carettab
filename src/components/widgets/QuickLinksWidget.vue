@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, nextTick, computed, watch, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
-import { hsl, shadow, checkPermission, setWidgetContainerStyles } from '@/helpers/widgets.js'
+import { hsl, shadow, checkPermission, setWidgetContainerStyles, getDynamicSize } from '@/helpers/widgets.js'
 import QuickLinksNode from '@/components/widgets/QuickLinksNode.vue'
 
 const props = defineProps({
@@ -52,6 +52,12 @@ watch(
     prepareLinkList()
   }
 )
+
+const isDynamicScaling = computed(() => {
+  return props.widget.base.container.override
+    ? props.widget.base.container.dynamicScaling
+    : store.config.global.container.dynamicScaling
+})
 
 const prepareLinkList = async () => {
   if (props.widget.type === 'ql') {
@@ -237,22 +243,25 @@ const containerStyles = computed(() => {
 
 const setQuickLinksVars = computed(() => {
   return `
-      --linkMaxWidth: ${props.widget.link.maxWidth}px;
-      --linkMargin: ${props.widget.link.margin}px;
-      --linkPadding: ${props.widget.link.padding}px;
-      --linkBorder: ${props.widget.link.borderSize}px solid ${hsl(props.widget.link.borderColor)};
+      --linkMaxWidth: ${getDynamicSize(props.widget.link.maxWidth, isDynamicScaling.value)};
+      --linkMargin: ${getDynamicSize(props.widget.link.margin, isDynamicScaling.value)};
+      --linkPadding: ${getDynamicSize(props.widget.link.padding, isDynamicScaling.value)};
+      --linkBorder: ${getDynamicSize(props.widget.link.borderSize, isDynamicScaling.value)} solid ${hsl(
+    props.widget.link.borderColor
+  )};
       --linkShadow: ${shadow(props.widget.link.background)};
       --linkBackground: ${hsl(props.widget.link.background)};
       --linkHoverBackground: ${hsl(props.widget.link.hoverBackground)};
-      --linkBorderRadius: ${props.widget.link.borderRadius}px;
+      --linkBorderRadius: ${getDynamicSize(props.widget.link.borderRadius, isDynamicScaling.value)};
       --linkFamily: "${
         props.widget.base.font.override ? props.widget.base.font.family : store.config.global.font.family
       }";
-      --linkSize: ${props.widget.base.font.size}px;
-      --linkIconSize: ${props.widget.link.iconSize}px;
-      --linkLetterSpacing: ${
-        props.widget.base.font.override ? props.widget.base.font.letterSpacing : store.config.global.font.letterSpacing
-      }px;
+      --linkSize: ${getDynamicSize(props.widget.base.font.size, isDynamicScaling.value)};
+      --linkIconSize: ${getDynamicSize(props.widget.link.iconSize, isDynamicScaling.value)};
+      --linkLetterSpacing: ${getDynamicSize(
+        props.widget.base.font.override ? props.widget.base.font.letterSpacing : store.config.global.font.letterSpacing,
+        isDynamicScaling.value
+      )};
       --linkBold: ${props.widget.base.font.override ? props.widget.base.font.bold : store.config.global.font.weight};
       --linkItalic: ${props.widget.base.font.override ? props.widget.base.font.italic : store.config.global.font.style};
       --linkUnderline: ${

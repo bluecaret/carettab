@@ -262,7 +262,12 @@
     "thisOptionWillMatchTheWidgetContainer": "אפשרות זו תתאים את הגדרות מיכל הווידג'ט להגדרות המיכל הגלובלי הנוכחיות.",
     "thisOptionWillMatchTheWidgetFont": "אפשרות זו תתאים את הגדרות גופן הווידג'ט להגדרות הגופן הגלובליות הנוכחיות.",
     "uiColorMode": "מצב צבע ממשק משתמש",
-    "useSystemPreference": "השתמש בהעדפת מערכת"
+    "useSystemPreference": "השתמש בהעדפת מערכת",
+    "dynamicScaling": "קנה מידה דינמי",
+    "dynamicScalingDesc": "בעת הגדרת אפשרויות גודל ווידג'ט כגון מיקום וגודל גופן, זה יהיה יחסית לגודל המסך. \nככל שחלון הדפדפן שלך הופך לקטן/גדול יותר, כך גם הווידג'ט.",
+    "containerAlignmentAndSize": "יישור וגודל מיכל",
+    "setsTheSizeOfTheWidgetContainer": "מגדיר את גודל מיכל הווידג'ט",
+    "setsTheSizeOfTheWidgetContainerAndAlignment": "מגדיר את הגודל של מיכל הווידג'ט ויישור התוכן בתוך הכלי"
   },
   "advanced": {
     "advancedSettings": "הגדרות מתקדמות",

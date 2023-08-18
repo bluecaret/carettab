@@ -262,7 +262,12 @@
     "thisOptionWillMatchTheWidgetContainer": "یہ آپشن ویجیٹ کنٹینر کی ترتیبات کو موجودہ عالمی کنٹینر کی ترتیبات سے مماثل کرے گا۔",
     "thisOptionWillMatchTheWidgetFont": "یہ آپشن ویجیٹ فونٹ کی ترتیبات کو موجودہ عالمی فونٹ کی ترتیبات سے مماثل کرے گا۔",
     "uiColorMode": "UI کلر موڈ",
-    "useSystemPreference": "سسٹم کی ترجیح استعمال کریں۔"
+    "useSystemPreference": "سسٹم کی ترجیح استعمال کریں۔",
+    "dynamicScaling": "متحرک اسکیلنگ",
+    "dynamicScalingDesc": "ویجیٹ سائز کے اختیارات جیسے پوزیشن اور فونٹ سائز سیٹ کرتے وقت، یہ اسکرین کے سائز کے مطابق ہوگا۔ \nجیسا کہ آپ کے براؤزر ونڈو کو چھوٹا/بڑا بنایا گیا ہے، ویجیٹ بھی اسی طرح ہوگا۔",
+    "containerAlignmentAndSize": "کنٹینر کی سیدھ اور سائز",
+    "setsTheSizeOfTheWidgetContainer": "ویجیٹ کنٹینر کا سائز سیٹ کرتا ہے۔",
+    "setsTheSizeOfTheWidgetContainerAndAlignment": "ویجیٹ کنٹینر کا سائز اور کنٹینر کے اندر مواد کی سیدھ سیٹ کرتا ہے۔"
   },
   "advanced": {
     "advancedSettings": "اعلی درجے کی ترتیبات",

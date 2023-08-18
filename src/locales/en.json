@@ -262,7 +262,12 @@
     "editGlobalFontSettings": "Edit global font settings",
     "globalWidgetFontStyles": "Global Widget Font Styles",
     "copyGlobalFontStyles": "Copy global font styles",
-    "thisOptionWillMatchTheWidgetFont": "This option will match the widget font settings with the current global font settings."
+    "thisOptionWillMatchTheWidgetFont": "This option will match the widget font settings with the current global font settings.",
+    "dynamicScaling": "Dynamic scaling",
+    "dynamicScalingDesc": "When setting widget size options such as position and font size, it will be relative to the size of the screen. As your browser window is made smaller/larger, so will the widget.",
+    "containerAlignmentAndSize": "Container alignment and size",
+    "setsTheSizeOfTheWidgetContainer": "Sets the size of the widget container",
+    "setsTheSizeOfTheWidgetContainerAndAlignment": "Sets the size of the widget container and alignment of content within the container"
   },
   "advanced": {
     "importOldVersionWarning": "Settings are from an older version of CaretTab. We will do our best to import them, but some settings may not be compatible. Do you want to continue?",

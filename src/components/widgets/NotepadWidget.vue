@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, onMounted, inject } from 'vue'
 import { useSettingsStore, setStorage, getStorage } from '@/store.js'
-import { setWidgetContainerStyles, hsl, shadow } from '@/helpers/widgets.js'
+import { setWidgetContainerStyles, hsl, shadow, getDynamicSize } from '@/helpers/widgets.js'
 
 const store = useSettingsStore()
 const user = inject('user')
@@ -28,6 +28,12 @@ const saveNotes = () => {
   }, 1000)
 }
 
+const isDynamicScaling = computed(() => {
+  return props.widget.base.container.override
+    ? props.widget.base.container.dynamicScaling
+    : store.config.global.container.dynamicScaling
+})
+
 const containerStyles = computed(() => {
   return setWidgetContainerStyles(props.widget, store.config.global, user.value.paid)
 })
@@ -43,11 +49,11 @@ const containerStyles = computed(() => {
     <div class="widgetInner">
       <div
         class="textbox"
-        :style="`border-radius: ${widget.borderRadius}px; background-color: ${hsl(
+        :style="`border-radius: ${getDynamicSize(widget.borderRadius, isDynamicScaling)}; background-color: ${hsl(
           widget.overrideColors ? widget.background : store.config.global.element.primaryColor
         )}; box-shadow: ${shadow(
           widget.overrideColors ? widget.shadow : store.config.global.element.shadow
-        )}; border: ${widget.borderWidth}px solid ${hsl(
+        )}; border: ${getDynamicSize(widget.borderWidth, isDynamicScaling)} solid ${hsl(
           widget.overrideColors ? widget.borderColor : store.config.global.element.secondaryColor
         )}`"
       >
@@ -57,7 +63,10 @@ const containerStyles = computed(() => {
           :spellcheck="widget.spellCheck"
           :maxlength="widget.sync ? 7000 : 250000"
           autocomplete="off"
-          :style="`padding: ${widget.padding}px; border-radius: ${widget.borderRadius - widget.borderWidth}px;`"
+          :style="`padding: ${getDynamicSize(widget.padding, isDynamicScaling)}; border-radius: ${getDynamicSize(
+            widget.borderRadius - widget.borderWidth,
+            isDynamicScaling
+          )};`"
           placeholder="Take a note..."
           @keyup="saveNotes()"
           @paste="saveNotes()"

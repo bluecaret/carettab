@@ -2,7 +2,7 @@
 import { computed, watch, ref, onMounted, onBeforeUnmount, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { DateTime } from 'luxon'
-import { setWidgetContainerStyles, setWidgetSegmentStyles, hsl, shadow } from '@/helpers/widgets.js'
+import { setWidgetContainerStyles, setWidgetSegmentStyles, hsl, shadow, getDynamicSize } from '@/helpers/widgets.js'
 
 const store = useSettingsStore()
 const user = inject('user')
@@ -63,8 +63,14 @@ const segmentStyles = (type, lsUsesMargin = false) => {
   return setWidgetSegmentStyles(props.widget, type, store.config.global, lsUsesMargin)
 }
 
+const isDynamicScaling = computed(() => {
+  return props.widget.base.container.override
+    ? props.widget.base.container.dynamicScaling
+    : store.config.global.container.dynamicScaling
+})
+
 const fontSize = computed(() => {
-  return props.widget.size ? `${props.widget.size * 10}px` : '0'
+  return props.widget.size ? `${getDynamicSize(props.widget.size * 10, isDynamicScaling.value)}` : '0'
 })
 
 const faceStyle = computed(() => {

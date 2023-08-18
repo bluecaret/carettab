@@ -15,6 +15,7 @@ import { Notepad } from '@/components/widgets/Notepad.js'
 import { Quote } from '@/components/widgets/Quote.js'
 import { QuickLinks } from '@/components/widgets/QuickLinks.js'
 import { Loadshedding } from '@/components/widgets/Loadshedding.js'
+import { Fidget } from '@/components/widgets/Fidget.js'
 import { Shape } from '@/components/widgets/Shape.js'
 import { Text } from '@/components/widgets/Text.js'
 import { Todo } from '@/components/widgets/Todo.js'
@@ -34,6 +35,7 @@ const availableWidgets = new Map([
   ['searchBar', SearchBar],
   ['quickLinks', QuickLinks],
   ['loadshedding', Loadshedding],
+  ['fidget', Fidget],
   ['shape', Shape],
   ['text', Text],
   ['todo', Todo],

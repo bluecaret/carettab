@@ -20,17 +20,17 @@ const containerStyles = computed(() => {
 
 <template>
   <div
-    class="text widget"
+    class="fidget widget"
     :class="[props.widget.base.alignment, `container-${props.widget.base.container.alignment}`]"
     :style="containerStyles"
   >
     <FontLink v-if="props.widget.base.font.override" :widget="props.widget"></FontLink>
-    <div class="widgetInner">{{ props.widget.text }}</div>
+    FIDGET
   </div>
 </template>
 
 <style lang="scss" scoped>
-.text {
+.fidget {
   max-width: 100%;
 }
 </style>

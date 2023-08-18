@@ -106,6 +106,15 @@ export const widgetTypes = [
     desc: 'Stay ahead of power outages with this informative widget, helping South African residents manage their schedules better.',
   },
   {
+    id: 'fg',
+    type: 'fidget',
+    store: 'fidgets',
+    name: 'Fidget',
+    icon: 'fa-hands-clapping',
+    limit: 0,
+    desc: 'An interactive digital fidget toy to soothe ADHD and anxiety symptoms, offering tactile-like sensations for focused relaxation.',
+  },
+  {
     id: 'sh',
     type: 'shape',
     store: 'shapes',

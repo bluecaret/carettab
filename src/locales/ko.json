@@ -264,7 +264,10 @@
     "uiColorMode": "UI 색상 모드",
     "useSystemPreference": "시스템 환경 설정 사용",
     "dynamicScaling": "동적 스케일링",
-    "dynamicScalingDesc": "위치 및 글꼴 크기와 같은 위젯 크기 옵션을 설정할 때 화면 크기에 비례하여 설정됩니다. 브라우저 창이 작아지거나 커지면 위젯도 함께 커집니다."
+    "dynamicScalingDesc": "위치 및 글꼴 크기와 같은 위젯 크기 옵션을 설정할 때 화면 크기에 비례하여 설정됩니다. 브라우저 창이 작아지거나 커지면 위젯도 함께 커집니다.",
+    "containerAlignmentAndSize": "컨테이너 정렬 및 크기",
+    "setsTheSizeOfTheWidgetContainer": "위젯 컨테이너의 크기를 설정합니다.",
+    "setsTheSizeOfTheWidgetContainerAndAlignment": "위젯 컨테이너의 크기와 컨테이너 내 콘텐츠의 정렬을 설정합니다."
   },
   "advanced": {
     "advancedSettings": "고급 설정",

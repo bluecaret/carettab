@@ -180,19 +180,19 @@ const handleCAlignUpdate = (alignment) => {
     <div class="group fill">
       <div class="label">
         <label id="containerAlignLabel">{{
-          props.containerTitle ? props.containerTitle : 'Container alignment and size'
+          props.containerTitle ? props.containerTitle : $t('settings.containerAlignmentAndSize')
         }}</label>
         <div class="desc">
           {{
             props.noContainerAlignment
-              ? 'Sets the size of the widget container'
-              : 'Sets the size of the widget container and alignment of content within the container'
+              ? $t('settings.setsTheSizeOfTheWidgetContainer')
+              : $t('settings.setsTheSizeOfTheWidgetContainerAndAlignment')
           }}
         </div>
       </div>
       <div class="group stack compact mla">
         <div class="group fill compact">
-          <label class="desc mla" for="widgetWidth">Width</label>
+          <label class="desc mla" for="widgetWidth">{{ $t('widget.width') }}</label>
           <NumberField
             v-if="widget.widthUnit !== 'auto'"
             v-model="widget.width"
@@ -212,7 +212,7 @@ const handleCAlignUpdate = (alignment) => {
           </select>
         </div>
         <div class="group fill compact">
-          <label class="desc mla" for="widgetHeight">Height</label>
+          <label class="desc mla" for="widgetHeight">{{ $t('widget.height') }}</label>
           <NumberField
             v-if="widget.heightUnit !== 'auto'"
             v-model="widget.height"

@@ -264,7 +264,10 @@
     "uiColorMode": "用户界面色彩模式",
     "useSystemPreference": "使用系统偏好",
     "dynamicScaling": "动态缩放",
-    "dynamicScalingDesc": "在设置 Widget 大小选项（如位置和字体大小）时，它将与屏幕大小相对应。当浏览器窗口变小/变大时，部件也会变小/变大。"
+    "dynamicScalingDesc": "在设置 Widget 大小选项（如位置和字体大小）时，它将与屏幕大小相对应。当浏览器窗口变小/变大时，部件也会变小/变大。",
+    "containerAlignmentAndSize": "容器排列和尺寸",
+    "setsTheSizeOfTheWidgetContainer": "设置 widget 容器的大小",
+    "setsTheSizeOfTheWidgetContainerAndAlignment": "设置 widget 容器的大小和容器内内容的对齐方式"
   },
   "advanced": {
     "advancedSettings": "高级设置",

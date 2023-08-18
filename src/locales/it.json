@@ -264,7 +264,10 @@
     "uiColorMode": "Modalità colore dell'interfaccia utente",
     "useSystemPreference": "Utilizzare le preferenze di sistema",
     "dynamicScaling": "Scala dinamica",
-    "dynamicScalingDesc": "Quando si impostano le opzioni di dimensione del widget, come la posizione e la dimensione del carattere, queste saranno relative alle dimensioni dello schermo. Se la finestra del browser viene rimpicciolita/allargata, lo sarà anche il widget."
+    "dynamicScalingDesc": "Quando si impostano le opzioni di dimensione del widget, come la posizione e la dimensione del carattere, queste saranno relative alle dimensioni dello schermo. Se la finestra del browser viene rimpicciolita/allargata, lo sarà anche il widget.",
+    "containerAlignmentAndSize": "Allineamento e dimensioni dei contenitori",
+    "setsTheSizeOfTheWidgetContainer": "Imposta la dimensione del contenitore del widget",
+    "setsTheSizeOfTheWidgetContainerAndAlignment": "Imposta la dimensione del contenitore del widget e l'allineamento del contenuto all'interno del contenitore."
   },
   "advanced": {
     "advancedSettings": "Impostazioni avanzate",

@@ -264,7 +264,10 @@
     "uiColorMode": "UI-Farbmodus",
     "useSystemPreference": "Systempräferenz verwenden",
     "dynamicScaling": "Dynamische Skalierung",
-    "dynamicScalingDesc": "Wenn Sie die Größe des Widgets einstellen, z. B. die Position und die Schriftgröße, bezieht sich dies auf die Größe des Bildschirms. Wenn Ihr Browserfenster kleiner/größer wird, wird auch das Widget größer."
+    "dynamicScalingDesc": "Wenn Sie die Größe des Widgets einstellen, z. B. die Position und die Schriftgröße, bezieht sich dies auf die Größe des Bildschirms. Wenn Ihr Browserfenster kleiner/größer wird, wird auch das Widget größer.",
+    "containerAlignmentAndSize": "Ausrichtung und Größe der Behälter",
+    "setsTheSizeOfTheWidgetContainer": "Legt die Größe des Widget-Containers fest",
+    "setsTheSizeOfTheWidgetContainerAndAlignment": "Legt die Größe des Widget-Containers und die Ausrichtung des Inhalts innerhalb des Containers fest"
   },
   "advanced": {
     "advancedSettings": "Erweiterte Einstellungen",

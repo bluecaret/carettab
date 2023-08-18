@@ -264,7 +264,10 @@
     "uiColorMode": "Färgläge för användargränssnittet",
     "useSystemPreference": "Använd systempreferens",
     "dynamicScaling": "Dynamisk skalning",
-    "dynamicScalingDesc": "När du ställer in widgetens storlek, t.ex. position och teckenstorlek, kommer den att vara relativ i förhållande till skärmens storlek. När webbläsarfönstret görs mindre/större kommer widgeten också att göra det."
+    "dynamicScalingDesc": "När du ställer in widgetens storlek, t.ex. position och teckenstorlek, kommer den att vara relativ i förhållande till skärmens storlek. När webbläsarfönstret görs mindre/större kommer widgeten också att göra det.",
+    "containerAlignmentAndSize": "Behållarens inriktning och storlek",
+    "setsTheSizeOfTheWidgetContainer": "Ställer in storleken på widgetens behållare",
+    "setsTheSizeOfTheWidgetContainerAndAlignment": "Ställer in storleken på widgetbehållaren och inriktningen på innehållet i behållaren"
   },
   "advanced": {
     "advancedSettings": "Avancerade inställningar",

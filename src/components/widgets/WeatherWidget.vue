@@ -374,17 +374,17 @@ const forecastTempLowStyle = () => {
               <div v-if="current.astro.sunrise" class="stat sunrise" :style="currentSunriseStyle()">
                 <WeatherAuxIcon icon="sunrise" :style="iconStyle()" />
                 {{
-                  DateTime.fromFormat(weatherData.forecast.forecastday[0].astro.sunrise, 'hh:mm a').toFormat(
-                    props.widget.twentyFour ? 'HH:mm' : 'h:mm a'
-                  )
+                  DateTime.fromFormat(weatherData.forecast.forecastday[0].astro.sunrise, 'hh:mm a')
+                    .setLocale(store.config.global.lang)
+                    .toFormat(props.widget.twentyFour ? 'HH:mm' : 'h:mm a')
                 }}
               </div>
               <div v-if="current.astro.sunset" class="stat sunset" :style="currentSunsetStyle()">
                 <WeatherAuxIcon icon="sunset" :style="iconStyle()" />
                 {{
-                  DateTime.fromFormat(weatherData.forecast.forecastday[0].astro.sunset, 'hh:mm a').toFormat(
-                    props.widget.twentyFour ? 'HH:mm' : 'h:mm a'
-                  )
+                  DateTime.fromFormat(weatherData.forecast.forecastday[0].astro.sunset, 'hh:mm a')
+                    .setLocale(store.config.global.lang)
+                    .toFormat(props.widget.twentyFour ? 'HH:mm' : 'h:mm a')
                 }}
               </div>
             </div>
@@ -417,7 +417,13 @@ const forecastTempLowStyle = () => {
                 </div>
                 <div v-if="forecast.day.on" class="dateContainer">
                   <div class="date" :style="forecastDateStyle()">
-                    {{ index === 0 ? $t('widget.today') : DateTime.fromFormat(day.date, 'yyyy-MM-dd').toFormat('ccc') }}
+                    {{
+                      index === 0
+                        ? $t('widget.today')
+                        : DateTime.fromFormat(day.date, 'yyyy-MM-dd')
+                            .setLocale(store.config.global.lang)
+                            .toFormat('ccc')
+                    }}
                   </div>
                 </div>
                 <div v-if="forecast.temperature.high || forecast.temperature.low" class="tempContainer">

@@ -20,8 +20,8 @@ const widget = reactive(store.config[widgetStore][ci.value])
       <div class="block">
         <label for="fidgetType" class="label">{{ $t('widget.type') }}</label>
         <select id="fidgetType" v-model="widget.type" class="select w25" name="fidgetType">
-          <option value="spinner">Spinner</option>
-          <option value="bubblewrap">Bubble Wrap</option>
+          <option value="spinner">{{ $t('widget.spinner') }}</option>
+          <option value="bubblewrap">{{ $t('widget.bubbleWrap') }}</option>
         </select>
       </div>
       <div class="block">
@@ -29,26 +29,24 @@ const widget = reactive(store.config[widgetStore][ci.value])
         <ToggleField v-model="widget.overrideColors" tag-id="overrideColors"></ToggleField>
       </div>
       <div v-if="widget.overrideColors" class="block">
-        <label for="bubbleBg" class="label">Color</label>
+        <label for="bubbleBg" class="label">{{ $t('common.color') }}</label>
         <ColorField v-model="widget.primaryColor" tag-id="bubbleBg" class="w20" />
       </div>
       <div v-if="widget.overrideColors" class="block">
-        <label for="bubbleShadow" class="label">Shadow</label>
+        <label for="bubbleShadow" class="label">{{ $t('common.shadow') }}</label>
         <ColorField v-model="widget.shadow" shadow tag-id="bubbleShadow" class="w20" />
       </div>
     </div>
     <div v-if="widget.type === 'bubblewrap'" class="blockContainer">
       <div class="block">
-        <label for="popOnHover" class="label">Pop bubbles on hover</label>
+        <label for="popOnHover" class="label">{{ $t('widget.popBubblesOnHover') }}</label>
         <ToggleField v-model="widget.bubblewrap.popOnHover" tag-id="popOnHover" />
       </div>
       <div class="block">
         <div class="label">
-          <label for="bubbleSize">Bubbles per row</label>
+          <label for="bubbleSize">{{ $t('widget.bubblesPerRow') }}</label>
           <div class="desc">
-            Number of bubbles that will display in each row. If there is not enough height for a row to fit in, you will
-            not see any bubbles. For performance considerations, the total maximum number of bubbles shown in a
-            container is limited to 1,000.
+            {{ $t('widget.bubblesPerRowDesc') }}
           </div>
         </div>
         <select id="bubbleSize" v-model="widget.bubblewrap.size" class="select w10" name="bubbleSize">

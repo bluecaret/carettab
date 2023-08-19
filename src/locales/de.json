@@ -584,7 +584,12 @@
     "startStop": "Start/Stopp",
     "stop": "Stopp",
     "switchingTabsWarning": "HINWEIS: Aufgrund von Browsereinstellungen kann dieses Tool beim Wechseln der Registerkarten anhalten oder zurückgesetzt werden. Bitte testen Sie es, bevor Sie sich auf das Tool verlassen.",
-    "dateColor": "Datum Farbe"
+    "dateColor": "Datum Farbe",
+    "bubbleWrap": "Luftpolsterfolie",
+    "bubblesPerRow": "Blasen pro Zeile",
+    "bubblesPerRowDesc": "Anzahl der Blasen, die in jeder Zeile angezeigt werden. Wenn die Höhe einer Zeile nicht ausreicht, werden keine Blasen angezeigt. Aus Leistungserwägungen ist die Gesamtzahl der in einem Container angezeigten Blasen auf 1.000 begrenzt.",
+    "popBubblesOnHover": "Blasen beim Schweben platzen lassen",
+    "spinner": "Spinner"
   },
   "welcome": {
     "basicLayout": "Grundlegendes Layout",

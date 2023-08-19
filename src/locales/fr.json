@@ -584,7 +584,12 @@
     "startStop": "Marche/Arrêt",
     "stop": "Arrêter",
     "switchingTabsWarning": "REMARQUE : En raison des paramètres du navigateur, cet outil peut se mettre en pause ou se réinitialiser lorsque l'on change d'onglet. Veuillez faire un essai avant de vous fier à l'outil.",
-    "dateColor": "Date couleur"
+    "dateColor": "Date couleur",
+    "bubbleWrap": "Papier bulle",
+    "bubblesPerRow": "Bulles par ligne",
+    "bubblesPerRowDesc": "Nombre de bulles qui s'afficheront dans chaque rangée. Si la hauteur d'une ligne est insuffisante, aucune bulle ne s'affichera. Pour des raisons de performance, le nombre total de bulles affichées dans un conteneur est limité à 1 000.",
+    "popBubblesOnHover": "Faire des bulles au survol",
+    "spinner": "Spinner"
   },
   "welcome": {
     "basicLayout": "Disposition de base",

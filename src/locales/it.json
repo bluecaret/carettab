@@ -584,7 +584,12 @@
     "startStop": "Avvio/arresto",
     "stop": "Stop",
     "switchingTabsWarning": "NOTA: a causa delle impostazioni del browser, questo strumento potrebbe interrompersi o resettarsi quando si cambia scheda. Eseguire una prova prima di affidarsi allo strumento.",
-    "dateColor": "Data colore"
+    "dateColor": "Data colore",
+    "bubbleWrap": "Pluriball",
+    "bubblesPerRow": "Bolle per riga",
+    "bubblesPerRowDesc": "Numero di bolle che verranno visualizzate in ogni riga. Se l'altezza di una riga non è sufficiente, non verrà visualizzata alcuna bolla. Per motivi di prestazioni, il numero totale massimo di bolle visualizzate in un contenitore è limitato a 1.000.",
+    "popBubblesOnHover": "Bolle di sapone al passaggio del mouse",
+    "spinner": "Filatoio"
   },
   "welcome": {
     "basicLayout": "Layout di base",

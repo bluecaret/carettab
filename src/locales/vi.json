@@ -584,7 +584,12 @@
     "startStop": "Băt đâu dưng",
     "stop": "Dừng lại",
     "switchingTabsWarning": "LƯU Ý: Do cài đặt trình duyệt, công cụ này có thể tạm dừng hoặc đặt lại khi chuyển đổi tab. \nVui lòng chạy thử trước khi dựa vào công cụ.",
-    "dateColor": "màu ngày tháng"
+    "dateColor": "màu ngày tháng",
+    "bubbleWrap": "Bọc bong bóng",
+    "bubblesPerRow": "Bong bóng mỗi hàng",
+    "bubblesPerRowDesc": "Số bong bóng sẽ hiển thị trong mỗi hàng. \nNếu không đủ chiều cao cho một hàng vừa, bạn sẽ không thấy bất kỳ bong bóng nào. \nĐể cân nhắc về hiệu suất, tổng số bong bóng tối đa hiển thị trong một vùng chứa được giới hạn ở 1.000.",
+    "popBubblesOnHover": "Làm nổ bong bóng khi di chuột",
+    "spinner": "con quay"
   },
   "welcome": {
     "basicLayout": "Bố cục cơ bản",

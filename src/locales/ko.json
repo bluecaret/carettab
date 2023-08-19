@@ -584,7 +584,12 @@
     "startStop": "시작/중지",
     "stop": "중지",
     "switchingTabsWarning": "참고: 브라우저 설정에 따라 탭을 전환할 때 이 도구가 일시 중지되거나 재설정될 수 있습니다. 도구를 사용하기 전에 시험 사용해 보세요.",
-    "dateColor": "날짜 색상"
+    "dateColor": "날짜 색상",
+    "bubbleWrap": "버블 랩",
+    "bubblesPerRow": "행당 버블",
+    "bubblesPerRowDesc": "각 행에 표시될 풍선의 개수입니다. 행의 높이가 충분하지 않으면 거품이 표시되지 않습니다. 성능 고려 사항으로 인해 컨테이너에 표시되는 총 최대 풍선 수는 1,000개로 제한됩니다.",
+    "popBubblesOnHover": "마우스오버 시 거품 터뜨리기",
+    "spinner": "Spinner"
   },
   "welcome": {
     "basicLayout": "기본 레이아웃",

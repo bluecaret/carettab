@@ -1,6 +1,9 @@
 <script setup>
 import { ref, computed, nextTick, onMounted, watch } from 'vue'
+import { useSettingsStore } from '@/store.js'
 import { hsl, shadow } from '@/helpers/widgets.js'
+
+const store = useSettingsStore()
 
 const props = defineProps({
   widget: {
@@ -18,8 +21,10 @@ const bubbles = ref([])
 const bubbleStyle = computed(() => {
   return `
       --bubbleSize: ${props.widget.bubblewrap.size}%;
-      --bubbleBg: ${hsl(props.widget.bubblewrap.bubble)};
-      --bubbleShadow: ${shadow(props.widget.bubblewrap.shadow)};
+      --bubbleBg: ${hsl(
+        props.widget.overrideColors ? props.widget.primaryColor : store.config.global.element.primaryColor
+      )};
+      --bubbleShadow: ${shadow(props.widget.overrideColors ? props.widget.shadow : store.config.global.element.shadow)};
     `
 })
 
@@ -73,15 +78,15 @@ watch([props.widget], computeContainerSize)
 </script>
 
 <template>
-  <div class="bubblewrap" :style="bubbleStyle">
-    <div v-for="bubble in bubbles" :key="bubble.id" class="bubbleContainer" :class="{ popped: bubble.popped }">
-      <div class="bubble" @click="clickToPop(bubble.id)" @mouseover="hoverToPop(bubble.id)"></div>
+  <div class="fidgetBubblewrap" :style="bubbleStyle">
+    <div v-for="bubble in bubbles" :key="bubble.id" class="fidgetBubbleContainer" :class="{ popped: bubble.popped }">
+      <div class="fidgetBubble" @click="clickToPop(bubble.id)" @mouseover="hoverToPop(bubble.id)"></div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.bubblewrap {
+.fidgetBubblewrap {
   display: flex;
   justify-content: center;
   align-content: center;
@@ -91,7 +96,7 @@ watch([props.widget], computeContainerSize)
   height: 100%;
 }
 
-.bubbleContainer {
+.fidgetBubbleContainer {
   position: relative;
   display: grid;
   place-items: center;
@@ -101,7 +106,7 @@ watch([props.widget], computeContainerSize)
   overflow: hidden;
 }
 
-.bubble {
+.fidgetBubble {
   display: block;
   border-radius: 50%;
   width: 90%;
@@ -111,10 +116,10 @@ watch([props.widget], computeContainerSize)
   cursor: crosshair;
 }
 
-.bubbleContainer.popped {
+.fidgetBubbleContainer.popped {
   animation: explodeAnimation 0.17s forwards;
   pointer-events: none;
-  .bubble {
+  .fidgetBubble {
     cursor: default;
   }
 }

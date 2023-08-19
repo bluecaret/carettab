@@ -3,6 +3,7 @@ import { ref, computed, inject } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { setWidgetContainerStyles, getDynamicSize } from '@/helpers/widgets.js'
 import FidgetBubblewrap from '@/components/widgets/FidgetBubblewrap.vue'
+import FidgetSpinner from '@/components/widgets/FidgetSpinner.vue'
 
 const store = useSettingsStore()
 const user = inject('user')
@@ -35,13 +36,13 @@ const containerRef = ref(null)
     :style="containerStyles"
   >
     <FontLink v-if="props.widget.base.font.override" :widget="props.widget"></FontLink>
+    <FidgetSpinner v-if="props.widget.type === 'spinner'" :widget="props.widget" :container-ref="containerRef" />
     <FidgetBubblewrap v-if="props.widget.type === 'bubblewrap'" :widget="props.widget" :container-ref="containerRef" />
   </div>
 </template>
 
 <style lang="scss" scoped>
 .fidget {
-  max-width: 100%;
   grid-template-columns: 1fr;
 }
 </style>

@@ -589,7 +589,8 @@
     "bubblesPerRow": "Burbujas por fila",
     "bubblesPerRowDesc": "Número de burbujas que se mostrarán en cada fila. Si no hay suficiente altura para que quepa una fila, no verá ninguna burbuja. Por consideraciones de rendimiento, el número máximo total de burbujas mostradas en un contenedor está limitado a 1.000.",
     "popBubblesOnHover": "Revienta burbujas al pasar el ratón por encima",
-    "spinner": "Spinner"
+    "spinnerCircles": "Círculos giratorios",
+    "spinnerGear": "Engranaje giratorio"
   },
   "welcome": {
     "basicLayout": "Diseño básico",

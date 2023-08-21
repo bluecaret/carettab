@@ -36,7 +36,11 @@ const containerRef = ref(null)
     :style="containerStyles"
   >
     <FontLink v-if="props.widget.base.font.override" :widget="props.widget"></FontLink>
-    <FidgetSpinner v-if="props.widget.type === 'spinner'" :widget="props.widget" :container-ref="containerRef" />
+    <FidgetSpinner
+      v-if="['spinnercircles', 'spinnergear'].includes(props.widget.type)"
+      :widget="props.widget"
+      :container-ref="containerRef"
+    />
     <FidgetBubblewrap v-if="props.widget.type === 'bubblewrap'" :widget="props.widget" :container-ref="containerRef" />
   </div>
 </template>

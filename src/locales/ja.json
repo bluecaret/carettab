@@ -589,7 +589,8 @@
     "bubblesPerRow": "列ごとの泡",
     "bubblesPerRowDesc": "各列に表示されるバブルの数。行に収まるだけの高さがない場合は、気泡は表示されません。パフォーマンスを考慮し、コンテナ内に表示されるバブルの最大総数は1,000個に制限されています。",
     "popBubblesOnHover": "カーソルを合わせると泡が出る",
-    "spinner": "スピナー"
+    "spinnerCircles": "スピナー・サークル",
+    "spinnerGear": "スピナーギア"
   },
   "welcome": {
     "basicLayout": "基本レイアウト",

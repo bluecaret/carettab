@@ -589,7 +589,8 @@
     "bubblesPerRow": "Blasen pro Zeile",
     "bubblesPerRowDesc": "Anzahl der Blasen, die in jeder Zeile angezeigt werden. Wenn die Höhe einer Zeile nicht ausreicht, werden keine Blasen angezeigt. Aus Leistungserwägungen ist die Gesamtzahl der in einem Container angezeigten Blasen auf 1.000 begrenzt.",
     "popBubblesOnHover": "Blasen beim Schweben platzen lassen",
-    "spinner": "Spinner"
+    "spinnerCircles": "Spinner Kreise",
+    "spinnerGear": "Spinner-Getriebe"
   },
   "welcome": {
     "basicLayout": "Grundlegendes Layout",

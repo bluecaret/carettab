@@ -20,7 +20,8 @@ const widget = reactive(store.config[widgetStore][ci.value])
       <div class="block">
         <label for="fidgetType" class="label">{{ $t('widget.type') }}</label>
         <select id="fidgetType" v-model="widget.type" class="select w25" name="fidgetType">
-          <option value="spinner">{{ $t('widget.spinner') }}</option>
+          <option value="spinnercircles">{{ $t('widget.spinnerCircles') }}</option>
+          <option value="spinnergear">{{ $t('widget.spinnerGear') }}</option>
           <option value="bubblewrap">{{ $t('widget.bubbleWrap') }}</option>
         </select>
       </div>

@@ -589,7 +589,8 @@
     "bubblesPerRow": "Bolhas por linha",
     "bubblesPerRowDesc": "Número de bolhas que serão apresentadas em cada linha. Se não houver altura suficiente para uma linha caber, não verá quaisquer bolhas. Por questões de desempenho, o número máximo total de bolhas apresentadas num contentor está limitado a 1.000.",
     "popBubblesOnHover": "Rebentar bolhas ao passar o rato",
-    "spinner": "Girador"
+    "spinnerCircles": "Círculos giratórios",
+    "spinnerGear": "Engrenagem giratória"
   },
   "welcome": {
     "basicLayout": "Esquema de base",

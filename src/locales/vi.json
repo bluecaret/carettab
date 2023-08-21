@@ -589,7 +589,8 @@
     "bubblesPerRow": "Bong bóng mỗi hàng",
     "bubblesPerRowDesc": "Số bong bóng sẽ hiển thị trong mỗi hàng. \nNếu không đủ chiều cao cho một hàng vừa, bạn sẽ không thấy bất kỳ bong bóng nào. \nĐể cân nhắc về hiệu suất, tổng số bong bóng tối đa hiển thị trong một vùng chứa được giới hạn ở 1.000.",
     "popBubblesOnHover": "Làm nổ bong bóng khi di chuột",
-    "spinner": "con quay"
+    "spinnerCircles": "vòng tròn quay",
+    "spinnerGear": "bánh răng quay"
   },
   "welcome": {
     "basicLayout": "Bố cục cơ bản",

@@ -589,7 +589,8 @@
     "bubblesPerRow": "행당 버블",
     "bubblesPerRowDesc": "각 행에 표시될 풍선의 개수입니다. 행의 높이가 충분하지 않으면 거품이 표시되지 않습니다. 성능 고려 사항으로 인해 컨테이너에 표시되는 총 최대 풍선 수는 1,000개로 제한됩니다.",
     "popBubblesOnHover": "마우스오버 시 거품 터뜨리기",
-    "spinner": "Spinner"
+    "spinnerCircles": "스피너 서클",
+    "spinnerGear": "스피너 기어"
   },
   "welcome": {
     "basicLayout": "기본 레이아웃",

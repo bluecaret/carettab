@@ -590,7 +590,8 @@
     "bubblesPerRow": "Bubbles per row",
     "bubblesPerRowDesc": "Number of bubbles that will display in each row. If there is not enough height for a row to fit in, you will not see any bubbles. For performance considerations, the total maximum number of bubbles shown in a container is limited to 1,000.",
     "bubbleWrap": "Bubble Wrap",
-    "spinner": "Spinner"
+    "spinnerCircles": "Spinner Circles",
+    "spinnerGear": "Spinner Gear"
   },
   "welcome": {
     "selectALanguage": "Select a language",

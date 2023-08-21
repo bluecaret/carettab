@@ -589,7 +589,8 @@
     "bubblesPerRow": "Bubblor per rad",
     "bubblesPerRowDesc": "Antal bubblor som kommer att visas i varje rad. Om det inte finns tillräckligt med höjd för att en rad ska få plats kommer du inte att se några bubblor. Av prestandaskäl är det totala maximala antalet bubblor som visas i en behållare begränsat till 1 000.",
     "popBubblesOnHover": "Bubblor poppar upp när man hovrar",
-    "spinner": "Spinnare"
+    "spinnerCircles": "Snurrande cirklar",
+    "spinnerGear": "Spinnerväxel"
   },
   "welcome": {
     "basicLayout": "Grundläggande layout",

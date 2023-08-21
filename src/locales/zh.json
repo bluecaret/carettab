@@ -590,7 +590,8 @@
     "bubblesPerRow": "每行气泡数",
     "bubblesPerRowDesc": "每行显示的气泡数。如果某一行的高度不够，则不会显示任何气泡。出于性能考虑，一个容器中显示的气泡总数上限为 1,000。",
     "popBubblesOnHover": "悬停时弹出气泡",
-    "spinner": "旋转器"
+    "spinnerCircles": "旋转圈",
+    "spinnerGear": "旋转齿轮"
   },
   "welcome": {
     "basicLayout": "基本布局",

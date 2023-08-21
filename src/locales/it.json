@@ -589,7 +589,8 @@
     "bubblesPerRow": "Bolle per riga",
     "bubblesPerRowDesc": "Numero di bolle che verranno visualizzate in ogni riga. Se l'altezza di una riga non è sufficiente, non verrà visualizzata alcuna bolla. Per motivi di prestazioni, il numero totale massimo di bolle visualizzate in un contenitore è limitato a 1.000.",
     "popBubblesOnHover": "Bolle di sapone al passaggio del mouse",
-    "spinner": "Filatoio"
+    "spinnerCircles": "Cerchi rotanti",
+    "spinnerGear": "Ingranaggio Spinner"
   },
   "welcome": {
     "basicLayout": "Layout di base",

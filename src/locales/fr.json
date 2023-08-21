@@ -589,7 +589,8 @@
     "bubblesPerRow": "Bulles par ligne",
     "bubblesPerRowDesc": "Nombre de bulles qui s'afficheront dans chaque rangée. Si la hauteur d'une ligne est insuffisante, aucune bulle ne s'affichera. Pour des raisons de performance, le nombre total de bulles affichées dans un conteneur est limité à 1 000.",
     "popBubblesOnHover": "Faire des bulles au survol",
-    "spinner": "Spinner"
+    "spinnerCircles": "Cercles de rotation",
+    "spinnerGear": "Roue dentée"
   },
   "welcome": {
     "basicLayout": "Disposition de base",

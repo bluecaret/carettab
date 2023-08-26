@@ -63,7 +63,7 @@ onBeforeUnmount(() => {
 const updateWeather = async () => {
   let data = await getWeather(props.widget.location.url, store.config.global.lang)
   if (data === false) {
-    alert(
+    console.warn(
       'Unable to retrieve weather data from servers at this time. Please check your internet connection or try again later.'
     )
   } else {

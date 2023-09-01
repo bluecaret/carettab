@@ -500,9 +500,9 @@ const drawGame = () => {
     <FontLink v-if="props.widget.base.font.override" :widget="props.widget"></FontLink>
     <div class="widgetInner" :style="gameStyleVars">
       <aside class="stats">
-        <div class="score" title="Score"><fa icon="fa-worm" /> {{ score }}</div>
-        <div class="score highScore" title="High Score"><fa icon="fa-crown" /> {{ highScore }}</div>
-        <div class="score highScore" title="Game size">
+        <div class="score" :title="$t('widget.score')"><fa icon="fa-worm" /> {{ score }}</div>
+        <div class="score highScore" :title="$t('widget.highScore')"><fa icon="fa-crown" /> {{ highScore }}</div>
+        <div class="score highScore" :title="$t('widget.gameSize')">
           <fa icon="fa-border-all" /> {{ gameSize.cols }}/{{ gameSize.rows }}
         </div>
       </aside>
@@ -514,34 +514,34 @@ const drawGame = () => {
         ></canvas>
         <div v-if="gameOver && gameWon && !gameInProgress" class="gameOverlay" @click="restartGame">
           <div>
-            <p>You won!</p>
-            <p v-if="!newHighScore" class="gameOverlaySmallText">Score: {{ score }}</p>
+            <p>{{ $t('widget.youWon') }}</p>
+            <p v-if="!newHighScore" class="gameOverlaySmallText">{{ $t('widget.scoreColon') }} {{ score }}</p>
             <p v-if="newHighScore" class="gameOverlaySmallText">
-              <span>* New High Score *</span><br />Score: {{ score }}
+              <span>* {{ $t('widget.newHighScore') }} *</span><br />{{ $t('widget.scoreColon') }} {{ score }}
             </p>
-            <button type="submit">Restart</button>
+            <button type="submit">{{ $t('widget.restart') }}</button>
           </div>
         </div>
         <div v-if="gameOver && !gameWon && !gameInProgress" class="gameOverlay" @click="restartGame">
           <div>
-            <p>Game over!</p>
-            <p v-if="!newHighScore" class="gameOverlaySmallText">Score: {{ score }}</p>
+            <p>{{ $t('widget.gameOver') }}</p>
+            <p v-if="!newHighScore" class="gameOverlaySmallText">{{ $t('widget.scoreColon') }} {{ score }}</p>
             <p v-if="newHighScore" class="gameOverlaySmallText">
-              <span>* New High Score *</span><br />Score: {{ score }}
+              <span>* {{ $t('widget.newHighScore') }} *</span><br />{{ $t('widget.scoreColon') }} {{ score }}
             </p>
-            <button type="submit">Restart</button>
+            <button type="submit">{{ $t('widget.restart') }}</button>
           </div>
         </div>
         <div v-if="!gameOver && !gameInProgress" class="gameOverlay" @click="startGame">
           <div>
-            <p>Player Ready</p>
-            <button>Start</button>
+            <p>{{ $t('widget.playerReady') }}</p>
+            <button>{{ $t('widget.start') }}</button>
           </div>
         </div>
         <div v-if="!gameOver && gameInProgress && gamePaused" class="gameOverlay" @click="resumeGame">
           <div>
-            <p>Game Paused</p>
-            <button>Resume</button>
+            <p>{{ $t('widget.gamePaused') }}</p>
+            <button>{{ $t('widget.resume') }}</button>
           </div>
         </div>
       </div>

@@ -115,6 +115,15 @@ export const widgetTypes = [
     desc: 'An interactive digital fidget toy to soothe ADHD and anxiety symptoms, offering tactile-like sensations for focused relaxation.',
   },
   {
+    id: 'sk',
+    type: 'snake',
+    store: 'snakes',
+    name: 'Snake Game',
+    icon: 'fa-gamepad',
+    limit: 0,
+    desc: 'Maneuver a digital snake to collect items, adding a layer of dexterity and strategy to your browsing experience.',
+  },
+  {
     id: 'sh',
     type: 'shape',
     store: 'shapes',

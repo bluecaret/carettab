@@ -125,8 +125,6 @@ const stopDrag = () => {
 .fidgetSpinnerContainer {
   display: grid;
   place-items: center;
-  width: inherit;
-  height: inherit;
 }
 
 .fidgetSpinner {

@@ -17,6 +17,7 @@ import QuoteWidget from '@/components/widgets/QuoteWidget.vue'
 import QuickLinksWidget from '@/components/widgets/QuickLinksWidget.vue'
 import LoadsheddingWidget from '@/components/widgets/LoadsheddingWidget.vue'
 import FidgetWidget from '@/components/widgets/FidgetWidget.vue'
+import SnakeWidget from '@/components/widgets/SnakeWidget.vue'
 import ShapeWidget from '@/components/widgets/ShapeWidget.vue'
 import TextWidget from '@/components/widgets/TextWidget.vue'
 import TodoWidget from '@/components/widgets/TodoWidget.vue'
@@ -184,6 +185,14 @@ const setTabTitle = () => {
         >
         </FidgetWidget>
         <div v-if="!layer.on && layer.widget === 'fidget'"></div>
+        <SnakeWidget
+          v-if="widgetNullCheck(layer, 'snake', store.config.snakes)"
+          :class="{ outliner: store.showOutliner }"
+          :widget="store.config.snakes.find((c) => c.id === layer.id)"
+          :style="`z-index: ${store.config.layers.length - index}`"
+        >
+        </SnakeWidget>
+        <div v-if="!layer.on && layer.widget === 'snake'"></div>
         <ShapeWidget
           v-if="widgetNullCheck(layer, 'shape', store.config.shapes)"
           :class="{ outliner: store.showOutliner }"

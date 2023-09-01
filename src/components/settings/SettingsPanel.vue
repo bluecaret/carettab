@@ -18,6 +18,7 @@ import QuoteSettings from '@/components/widgets/QuoteSettings.vue'
 import QuickLinksSettings from '@/components/widgets/QuickLinksSettings.vue'
 import LoadsheddingSettings from '@/components/widgets/LoadsheddingSettings.vue'
 import FidgetSettings from '@/components/widgets/FidgetSettings.vue'
+import SnakeSettings from '@/components/widgets/SnakeSettings.vue'
 import ShapeSettings from '@/components/widgets/ShapeSettings.vue'
 import TextSettings from '@/components/widgets/TextSettings.vue'
 import TodoSettings from '@/components/widgets/TodoSettings.vue'
@@ -90,6 +91,7 @@ const handleOpenPremiumModal = () => {
     <QuickLinksSettings v-if="['quickLinks'].includes(settingsPage)"></QuickLinksSettings>
     <LoadsheddingSettings v-if="['loadshedding'].includes(settingsPage)"></LoadsheddingSettings>
     <FidgetSettings v-if="['fidget'].includes(settingsPage)"></FidgetSettings>
+    <SnakeSettings v-if="['snake'].includes(settingsPage)"></SnakeSettings>
     <ShapeSettings v-if="['shape'].includes(settingsPage)"></ShapeSettings>
     <TextSettings v-if="['text'].includes(settingsPage)"></TextSettings>
     <TodoSettings v-if="['todo'].includes(settingsPage)"></TodoSettings>

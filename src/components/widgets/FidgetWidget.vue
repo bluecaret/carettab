@@ -47,6 +47,6 @@ const containerRef = ref(null)
 
 <style lang="scss" scoped>
 .fidget {
-  grid-template-columns: 1fr;
+  display: flex;
 }
 </style>

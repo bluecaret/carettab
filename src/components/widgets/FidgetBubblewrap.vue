@@ -41,8 +41,8 @@ const computeContainerSize = async () => {
 
 const updateBubbles = () => {
   const effectiveBubbleSize = containerSize.value.width * (props.widget.bubblewrap.size * 0.01)
-  const bubblesPerRow = Math.floor(containerSize.value.width / effectiveBubbleSize)
-  const bubblesPerColumn = Math.floor(containerSize.value.height / effectiveBubbleSize)
+  const bubblesPerRow = Math.round(containerSize.value.width / effectiveBubbleSize)
+  const bubblesPerColumn = Math.round(containerSize.value.height / effectiveBubbleSize)
   let totalBubbles = bubblesPerColumn * bubblesPerRow
   if (totalBubbles > 1000) totalBubbles = 1000
 
@@ -93,7 +93,6 @@ watch([props.widget], computeContainerSize)
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  height: 100%;
 }
 
 .fidgetBubbleContainer {

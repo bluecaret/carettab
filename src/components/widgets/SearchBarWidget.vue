@@ -59,7 +59,7 @@ const isDynamicScaling = computed(() => {
 })
 
 const containerStyles = computed(() => {
-  return setWidgetContainerStyles(props.widget, store.config.global, user.value.paid)
+  return setWidgetContainerStyles(props.widget, store.config.global)
 })
 
 const setEngine = (en) => {

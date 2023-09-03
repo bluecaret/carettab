@@ -78,9 +78,9 @@ const handleGlobalCopy = () => {
       />
       <div v-if="!props.noBoxStyles && !props.globalSetting" class="block">
         <div class="label mra">
-          <label for="overrideGlobalContainer"
-            ><PremiumLabel />{{ $t('settings.overrideGlobalContainerStyles') }}</label
-          >
+          <label for="overrideGlobalContainer">
+            {{ $t('settings.overrideGlobalContainerStyles') }}
+          </label>
           <div class="desc">{{ $t('settings.overridesContainerStyles') }}</div>
           <div class="group fill">
             <div class="desc">
@@ -151,69 +151,44 @@ const handleGlobalCopy = () => {
             </div>
           </div>
         </div>
-        <ToggleField v-model="widget.override" tag-id="overrideGlobalContainer" :disabled="!user.paid"> </ToggleField>
+        <ToggleField v-model="widget.override" tag-id="overrideGlobalContainer"> </ToggleField>
       </div>
-      <template v-if="!refreshDisplay && !props.noBoxStyles && (props.globalSetting || (user.paid && widget.override))">
+      <template v-if="!refreshDisplay && !props.noBoxStyles && (props.globalSetting || widget.override)">
         <div class="block">
           <label for="boxBg" class="label mra">
-            <div><PremiumLabel />{{ $t('common.background') }}</div>
+            {{ $t('common.background') }}
           </label>
-          <ColorField v-model="widget.background" tag-id="boxBg" class="w20" :disabled="!user.paid"> </ColorField>
+          <ColorField v-model="widget.background" tag-id="boxBg" class="w20"> </ColorField>
         </div>
         <div class="block">
           <label for="boxShadow" class="label mra">
-            <div><PremiumLabel />{{ $t('common.shadow') }}</div>
+            {{ $t('common.shadow') }}
           </label>
-          <ColorField v-model="widget.shadow" shadow tag-id="boxShadow" class="w20" :disabled="!user.paid">
-          </ColorField>
+          <ColorField v-model="widget.shadow" shadow tag-id="boxShadow" class="w20"> </ColorField>
         </div>
         <div class="block">
           <label for="boxBc" class="label mra">
-            <div><PremiumLabel />{{ $t('common.borderColor') }}</div>
+            {{ $t('common.borderColor') }}
           </label>
-          <ColorField v-model="widget.borderColor" tag-id="boxBc" class="w20" :disabled="!user.paid"> </ColorField>
+          <ColorField v-model="widget.borderColor" tag-id="boxBc" class="w20"> </ColorField>
         </div>
         <div class="block">
           <label for="boxBs" class="label mra">
-            <div><PremiumLabel />{{ $t('common.borderSize') }}</div>
+            {{ $t('common.borderSize') }}
           </label>
-          <NumberField
-            v-model="widget.borderSize"
-            tag-id="boxBs"
-            :increment="1"
-            :min="0"
-            :disabled="!user.paid"
-            class="w10"
-          >
-          </NumberField>
+          <NumberField v-model="widget.borderSize" tag-id="boxBs" :increment="1" :min="0" class="w10"> </NumberField>
         </div>
         <div class="block">
           <label for="boxRounded" class="label mra">
-            <div><PremiumLabel />{{ $t('common.rounded') }}</div>
+            {{ $t('common.rounded') }}
           </label>
-          <NumberField
-            v-model="widget.radius"
-            tag-id="boxRounded"
-            :increment="1"
-            :min="0"
-            :disabled="!user.paid"
-            class="w10"
-          >
-          </NumberField>
+          <NumberField v-model="widget.radius" tag-id="boxRounded" :increment="1" :min="0" class="w10"> </NumberField>
         </div>
         <div class="block">
           <label for="boxPadding" class="label mra">
-            <div><PremiumLabel />{{ $t('common.padding') }}</div>
+            {{ $t('common.padding') }}
           </label>
-          <NumberField
-            v-model="widget.padding"
-            tag-id="boxPadding"
-            :increment="1"
-            :min="0"
-            :disabled="!user.paid"
-            class="w10"
-          >
-          </NumberField>
+          <NumberField v-model="widget.padding" tag-id="boxPadding" :increment="1" :min="0" class="w10"> </NumberField>
         </div>
         <div class="block">
           <label for="dynamicScaling" class="label mra">

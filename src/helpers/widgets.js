@@ -42,14 +42,14 @@ export const getDynamicSize = (val, dynamic, height = false) => {
   return `${val}px`
 }
 
-export const setWidgetContainerStyles = (widget, global, paid) => {
+export const setWidgetContainerStyles = (widget, global) => {
   const box = widget.base.container.override ? widget.base.container : global.container
   const font = widget.base.font.override ? widget.base.font : global.font
 
   // Font styles
   const fontSize = `font-size: ${getDynamicSize(widget.base.font.size, box.dynamicScaling)}; `
-  const fontFamily = `font-family: "${paid ? font.family : global.font.family}"; `
-  const fontWeight = `font-weight: ${paid ? font.bold : global.font.bold}; `
+  const fontFamily = `font-family: "${font.family}"; `
+  const fontWeight = `font-weight: ${font.bold}; `
   const color = `color: hsl(${font.color[0]}deg ${font.color[1]}% ${font.color[2]}% / ${font.color[3]}); `
   const textShadow = font.shadow[0]
     ? `text-shadow: ${getDynamicSize(font.shadow[1], box.dynamicScaling)} ${getDynamicSize(
@@ -59,27 +59,9 @@ export const setWidgetContainerStyles = (widget, global, paid) => {
         font.shadow[6]
       }% / ${font.shadow[7]}); `
     : 'text-shadow: none;'
-  const fontItalic = paid
-    ? font.italic
-      ? 'font-style: italic; '
-      : 'font-style: normal;'
-    : global.font.italic
-    ? 'font-style: italic; '
-    : 'font-style: normal;'
-  const fontUnderline = paid
-    ? font.underline
-      ? 'text-decoration: underline; '
-      : 'text-decoration: none;'
-    : global.font.underline
-    ? 'text-decoration: underline; '
-    : 'text-decoration: none;'
-  const fontCase = paid
-    ? font.transform
-      ? `text-transform: ${font.transform}; `
-      : 'text-transform: none;'
-    : global.font.transform
-    ? `text-transform: ${global.font.transform}; `
-    : 'text-transform: none;'
+  const fontItalic = font.italic ? 'font-style: italic; ' : 'font-style: normal;'
+  const fontUnderline = font.underline ? 'text-decoration: underline; ' : 'text-decoration: none;'
+  const fontCase = font.transform ? `text-transform: ${font.transform}; ` : 'text-transform: none;'
   const letterSpacing = `letter-spacing: ${font.letterSpacing * 0.01}em; `
 
   // Container box styles
@@ -102,22 +84,18 @@ export const setWidgetContainerStyles = (widget, global, paid) => {
       widget.base.xUnit === 'pixels' ? getDynamicSize(widget.base.x, box.dynamicScaling) : widget.base.x + 'dvw'
     } ${widget.base.yUnit === 'pixels' ? getDynamicSize(-widget.base.y, box.dynamicScaling) : -widget.base.y + 'dvh'};
   `
-  const radius = `border-radius: ${paid ? getDynamicSize(box.radius, box.dynamicScaling) : 0}; `
+  const radius = `border-radius: ${getDynamicSize(box.radius, box.dynamicScaling)}; `
   const borderColor = `hsl(${box.borderColor[0]}deg ${box.borderColor[1]}% ${box.borderColor[2]}% / ${box.borderColor[3]});`
-  const border = `border: ${paid ? getDynamicSize(box.borderSize, box.dynamicScaling) : 0} solid ${borderColor}; `
-  const backgroundColor = paid
-    ? `background-color: hsl(${box.background[0]}deg ${box.background[1]}% ${box.background[2]}% / ${box.background[3]}); `
-    : `background-color: transparent;`
-  const padding = `padding: ${paid ? getDynamicSize(box.padding, box.dynamicScaling) : 0}; `
-  const shadow = paid
-    ? box.shadow[0]
-      ? `box-shadow: ${getDynamicSize(box.shadow[1], box.dynamicScaling)} ${getDynamicSize(
-          box.shadow[2],
-          box.dynamicScaling
-        )} ${getDynamicSize(box.shadow[3], box.dynamicScaling)} 0px hsl(${box.shadow[4]}deg ${box.shadow[5]}% ${
-          box.shadow[6]
-        }% / ${box.shadow[7]}); `
-      : 'box-shadow: none;'
+  const border = `border: ${getDynamicSize(box.borderSize, box.dynamicScaling)} solid ${borderColor}; `
+  const backgroundColor = `background-color: hsl(${box.background[0]}deg ${box.background[1]}% ${box.background[2]}% / ${box.background[3]}); `
+  const padding = `padding: ${getDynamicSize(box.padding, box.dynamicScaling)}; `
+  const shadow = box.shadow[0]
+    ? `box-shadow: ${getDynamicSize(box.shadow[1], box.dynamicScaling)} ${getDynamicSize(
+        box.shadow[2],
+        box.dynamicScaling
+      )} ${getDynamicSize(box.shadow[3], box.dynamicScaling)} 0px hsl(${box.shadow[4]}deg ${box.shadow[5]}% ${
+        box.shadow[6]
+      }% / ${box.shadow[7]}); `
     : 'box-shadow: none;'
 
   let styles = `${fontSize}${fontFamily}${fontWeight}${color}${fontUnderline}${letterSpacing}${fontCase}${textShadow}${fontItalic}${width}${height}${translate}${radius}${border}${backgroundColor}${padding}${shadow}`

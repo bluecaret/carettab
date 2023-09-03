@@ -158,7 +158,7 @@ const handleGlobalCopy = () => {
         </div>
         <div class="block">
           <label for="fontFamily" class="label mra">
-            <div><PremiumLabel v-if="!props.globalSetting" />{{ $t('settings.font') }}</div>
+            {{ $t('settings.font') }}
           </label>
           <AutocompleteField
             class="w34"
@@ -169,7 +169,6 @@ const handleGlobalCopy = () => {
             allow-custom
             :list="fontList"
             :selected="widget.family"
-            :disabled="!props.globalSetting && !user.paid"
             @selected="(item) => updateFamily(item)"
           ></AutocompleteField>
         </div>
@@ -180,14 +179,13 @@ const handleGlobalCopy = () => {
         </div>
         <div class="block">
           <label class="label mra">
-            <div><PremiumLabel v-if="!props.globalSetting" />{{ $t('settings.style') }}</div>
+            {{ $t('settings.style') }}
           </label>
           <select
             id="fontBold"
             v-model="widget.bold"
             name="fontBold"
             class="select w11"
-            :disabled="!props.globalSetting && !user.paid"
             :aria-label="$t('settings.weight')"
           >
             <option v-for="wgt in fontWeight" :key="wgt.id" :value="wgt.id">
@@ -200,7 +198,6 @@ const handleGlobalCopy = () => {
               class="btn"
               type="button"
               :class="{ active: widget.italic }"
-              :disabled="!props.globalSetting && !user.paid"
               @click="widget.italic = !widget.italic"
             >
               <fa icon="fa-italic" fixed-width></fa>
@@ -210,7 +207,6 @@ const handleGlobalCopy = () => {
               class="btn"
               type="button"
               :class="{ active: widget.underline }"
-              :disabled="!props.globalSetting && !user.paid"
               @click="widget.underline = !widget.underline"
             >
               <fa icon="fa-underline" fixed-width></fa>
@@ -219,15 +215,9 @@ const handleGlobalCopy = () => {
         </div>
         <div class="block">
           <label for="textTranform" class="label mra">
-            <div><PremiumLabel v-if="!props.globalSetting" />{{ $t('settings.case') }}</div>
+            {{ $t('settings.case') }}
           </label>
-          <select
-            id="textTranform"
-            v-model="widget.transform"
-            name="textTranform"
-            class="select w20"
-            :disabled="!props.globalSetting && !user.paid"
-          >
+          <select id="textTranform" v-model="widget.transform" name="textTranform" class="select w20">
             <option v-for="opt in textTransform" :key="opt.id" :value="opt.id">
               {{ opt.label }}
             </option>

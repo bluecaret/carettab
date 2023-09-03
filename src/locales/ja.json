@@ -619,7 +619,7 @@
     "buteykoBreathingDesc": "コンスタンチン・ブテイコ博士によって開発されたこのテクニックは、過呼吸を最小限に抑え、健康全般を改善することを目的としている。その方法小さく静かに鼻から2秒間息を吸い込み、4秒間息を止め、静かに4秒間息を吐く。",
     "coherentBreathing": "コヒーレント・ブリージング",
     "coherentBreathingDesc": "交感神経と副交感神経のバランスを最適化するテクニック。その方法息を吸い、静かに吐きながら、それぞれ6秒ずつ同じ長さを保つ。",
-    "cycleCompletedOfTotal": "1}のサイクル{0}。",
+    "cycleCompletedOfTotal": "{1}のサイクル{0}。",
     "diaphragmaticBreathing": "横隔膜呼吸",
     "diaphragmaticBreathingDesc": "浅い胸式呼吸ではなく横隔膜を使うことに重点を置き、酸素交換を効率的に行う。やり方4秒間深く息を吸い、1秒間キープし、6秒間吐く。",
     "equalBreathing": "平等な呼吸",

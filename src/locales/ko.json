@@ -619,7 +619,7 @@
     "buteykoBreathingDesc": "콘스탄틴 부테이코 박사가 개발한 이 기술은 과호흡을 최소화하고 전반적인 건강을 개선하는 것을 목표로 합니다. 작동 방식: 코로 작고 조용하게 2초간 숨을 들이마시고 4초간 숨을 참은 다음 4초간 부드럽게 숨을 내쉽니다.",
     "coherentBreathing": "일관된 호흡",
     "coherentBreathingDesc": "교감 신경계와 부교감 신경계 사이의 균형을 최적화하는 기술입니다. 사용 방법 각각 6초씩 같은 시간 동안 부드럽게 숨을 들이쉬고 내쉽니다.",
-    "cycleCompletedOfTotal": "1}의 {0} 주기",
+    "cycleCompletedOfTotal": "{1}의 {0} 주기",
     "diaphragmaticBreathing": "횡격막 호흡",
     "diaphragmaticBreathingDesc": "얕은 흉식 호흡이 아닌 횡격막을 사용하는 데 중점을 두어 산소 교환에 효율적입니다. 작동 방식: 4초간 숨을 깊게 들이마시고 1초간 유지한 후 6초간 내쉬세요.",
     "equalBreathing": "동등한 호흡",

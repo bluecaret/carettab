@@ -150,6 +150,7 @@ export const toolTypes = [
   { tool: 'stopwatch', name: 'Stopwatch', icon: 'fa-stopwatch', premium: false },
   { tool: 'passwordGenerator', name: 'Password Generator', icon: 'fa-asterisk', premium: false },
   { tool: 'aiChat', name: 'AI Chat', icon: 'fa-robot', premium: true },
+  { tool: 'breathingExercise', name: 'Breathing Exercise', icon: 'fa-wind', premium: true },
 ]
 
 export const languages = [

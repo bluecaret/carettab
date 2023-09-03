@@ -8,6 +8,7 @@ import TimerTool from '@/components/tools/TimerTool.vue'
 import StopwatchTool from '@/components/tools/StopwatchTool.vue'
 import PasswordGeneratorTool from '@/components/tools/PasswordGeneratorTool.vue'
 import AIChatTool from '@/components/tools/AIChatTool.vue'
+import BreathingExerciseTool from '@/components/tools/BreathingExerciseTool.vue'
 import { toolTypes } from '@/assets/lists.js'
 
 const store = useSettingsStore()
@@ -52,6 +53,7 @@ const getToolType = (id) => {
   <StopwatchTool v-if="selected === 'stopwatch'" />
   <PasswordGeneratorTool v-if="selected === 'passwordGenerator'" />
   <AIChatTool v-if="selected === 'aiChat'" />
+  <BreathingExerciseTool v-if="selected === 'breathingExercise'" />
 </template>
 
 <style lang="scss" scoped>

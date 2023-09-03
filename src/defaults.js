@@ -98,6 +98,12 @@ export class Defaults {
         apiKey: '',
         model: 'gpt-3.5-turbo',
       },
+      {
+        id: 'breathingExercise',
+        on: true,
+        exercise: '',
+        cycles: 10,
+      },
     ],
   }
   layers = []

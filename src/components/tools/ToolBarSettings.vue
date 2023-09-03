@@ -13,6 +13,13 @@ const getToolDetails = (tool) => {
 
 const showToolbarSettings = ref(false)
 const showToolbarTools = ref(false)
+
+const handleToolbarToggle = () => {
+  if (!store.config.toolbar.on) {
+    showToolbarTools.value = false
+    showToolbarSettings.value = false
+  }
+}
 </script>
 
 <template>
@@ -35,10 +42,14 @@ const showToolbarTools = ref(false)
               <div class="desc">{{ $t('widget.enableAToolbarForQuickAccessToUsefulTools') }}</div>
             </div>
           </div>
-          <ToggleField v-model="store.config.toolbar.on" tag-id="enableToolbar"></ToggleField>
+          <ToggleField
+            v-model="store.config.toolbar.on"
+            tag-id="enableToolbar"
+            @update:model-value="handleToolbarToggle"
+          ></ToggleField>
           <div class="btnGroup">
             <button
-              v-if="store.config.toolbar.on"
+              :disabled="!store.config.toolbar.on"
               type="button"
               class="btn"
               :class="{ active: showToolbarTools }"
@@ -47,9 +58,10 @@ const showToolbarTools = ref(false)
               @click="showToolbarTools = !showToolbarTools"
             >
               <fa icon="fa-shapes" fixed-width></fa>
+              Tools
             </button>
             <button
-              v-if="store.config.toolbar.on"
+              :disabled="!store.config.toolbar.on"
               type="button"
               class="btn"
               :class="{ active: showToolbarSettings }"

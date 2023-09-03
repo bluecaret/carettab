@@ -20,6 +20,7 @@ export const blobToBase64 = async (blob) => {
  * Compare two version numbers. Return 1 if greater than, -1 if less than, 0 if equal
  */
 export const compareVersions = (version1, version2) => {
+  if (!version1 || !version2) return false
   /*
   compareVersions('1.0.0', '1.0.1') // Output: -1
   compareVersions('2.0', '1.9.9') // Output: 1
@@ -53,6 +54,7 @@ export const compareVersions = (version1, version2) => {
  * Check if version is within a range. Uses "X" as a wildcard. Returns boolean.
  */
 export const checkVersionInRange = (version, range) => {
+  if (!version || !range) return false
   /*
   checkVersionInRange('3.0.1', '3.X.X') // Output: true
   checkVersionInRange('2.9.1', '3.X.X') // Output: false

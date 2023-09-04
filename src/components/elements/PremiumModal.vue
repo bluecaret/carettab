@@ -58,74 +58,52 @@ const handleSubscribe = () => {
           </p>
           <ul class="premiumModalFeatures">
             <li>
+              <span><fa icon="fa-cubes" /></span>
+              <div>
+                {{ $t('settings.premiumWidgets') }}
+                <div>Shapes, Text, Fidget Toy, Snake Game.</div>
+              </div>
+            </li>
+            <li>
+              <span><fa icon="fa-tools" /></span>
+              <div>
+                {{ $t('settings.premiumTools') }}
+                <div>AI Chat, Breathing Exercise.</div>
+              </div>
+            </li>
+            <li>
               <span><fa icon="fa-images" /></span>
               <div>
-                {{ $t('settings.dailyWallpaperAndEffects') }}
+                {{ $t('settings.freshWallpapers') }}
                 <div>
-                  {{ $t('settings.startYourDayWithFreshHighResolution') }}
+                  {{ $t('settings.switchUpYourSceneryWithHigh') }}
                 </div>
               </div>
             </li>
             <li>
               <span><fa icon="fa-paint-brush" /></span>
               <div>
-                {{ $t('settings.widgetPersonalization') }}
+                {{ $t('settings.visualMagic') }}
                 <div>
-                  {{ $t('settings.makeYourWidgetsTrulyYours') }}
-                </div>
-              </div>
-            </li>
-            <li>
-              <span><fa icon="fa-infinity" /></span>
-              <div>
-                {{ $t('settings.unlimitedWidgets') }}
-                <div>
-                  {{ $t('settings.breakFreeFromRestrictions') }}
+                  {{ $t('settings.transformYourWallpaper') }}
                 </div>
               </div>
             </li>
             <li>
               <span><fa icon="fa-cloud-sun-rain" /></span>
               <div>
-                {{ $t('settings.animatedWeatherIcons') }}
+                {{ $t('settings.weatherDeluxe') }}
                 <div>
-                  {{ $t('settings.brightenUpYourNewTab') }}
+                  {{ $t('settings.experienceWeatherInANewLight') }}
                 </div>
               </div>
             </li>
             <li>
-              <span><fa icon="fa-brain" /></span>
+              <span><fa icon="fa-rocket" /></span>
               <div>
-                {{ $t('settings.aiChatAssistant') }}
+                {{ $t('settings.widgetBoosts') }}
                 <div>
-                  {{ $t('settings.experienceThePowerOfAi') }}
-                </div>
-              </div>
-            </li>
-            <li>
-              <span><fa icon="fa-font" /></span>
-              <div>
-                {{ $t('settings.individualWidgetStyles') }}
-                <div>
-                  {{ $t('settings.embraceDiversityOptForADifferent') }}
-                </div>
-              </div>
-            </li>
-            <li>
-              <span><fa icon="fa-border-style" /></span>
-              <div>
-                {{ $t('settings.enhancedLayoutWidgets') }}
-                <div>
-                  {{ $t('settings.upgradeYourNewTabAesthetics') }}
-                </div>
-              </div>
-            </li>
-            <li>
-              <span><fa icon="fa-gem" /></span>
-              <div>
-                {{ $t('settings.andMore') }}
-                <div>
-                  {{ $t('settings.discoverAnExpandingGalaxy') }}
+                  {{ $t('settings.elevateTheUtilityOfSpecific') }}
                 </div>
               </div>
             </li>

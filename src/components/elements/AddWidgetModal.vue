@@ -21,6 +21,12 @@ const hasReachedLimit = (type) => {
   return widgetLayers.length >= widget.limit
 }
 
+const hasReachedMax = (type) => {
+  const widgetLayers = store.config.layers.filter((layer) => layer.widget === type)
+  const widget = widgetTypes.find((w) => w.type === type)
+  return widgetLayers.length >= widget.max
+}
+
 const handleOpenPremiumModal = () => {
   store.showPremiumModal = true
   store.premiumModalBtnRef = modalCloseEl
@@ -52,23 +58,21 @@ const handleOpenPremiumModal = () => {
         <div class="modalContent">
           <ul class="widgetList">
             <li v-for="widget in widgetTypes" :key="widget.type">
-              <button
-                v-if="user.paid || !hasReachedLimit(widget.type)"
-                type="button"
-                class="widgetItem"
-                @click="handleWidgetClick(widget.type)"
-              >
-                <fa class="widgetItemIcon" :icon="widget.icon" fixed-width />
+              <button v-if="hasReachedMax(widget.type)" type="button" class="widgetItem widgetMax">
+                <div class="group compact">
+                  <fa class="widgetItemIcon" :icon="widget.icon" fixed-width />
+                  <div class="widgetItemName">{{ widget.name }}</div>
+                </div>
                 <div class="widgetItemContent">
-                  <div class="widgetItemName">
-                    {{ widget.name }}
-                    <PremiumLabel v-if="widget.limit === 0" />
+                  <div class="widgetLimitDesc">
+                    <span>
+                      {{ $t('settings.youHaveTheMaximumNumberAllowed') }}
+                    </span>
                   </div>
-                  <div class="widgetItemDesc">{{ widget.desc }}</div>
                 </div>
               </button>
               <button
-                v-if="!user.paid && hasReachedLimit(widget.type)"
+                v-else-if="!user.paid && hasReachedLimit(widget.type)"
                 type="button"
                 class="widgetItem widgetPremium"
                 @click.stop="handleOpenPremiumModal()"
@@ -90,6 +94,16 @@ const handleOpenPremiumModal = () => {
                   <div v-if="widget.limit === 0" class="widgetPremiumDesc">
                     <fa icon="fa-gem" /><span>{{ $t('settings.goPremiumToGetThisWidgetAndMoreCustomization') }}</span>
                   </div>
+                </div>
+              </button>
+              <button v-else type="button" class="widgetItem" @click="handleWidgetClick(widget.type)">
+                <fa class="widgetItemIcon" :icon="widget.icon" fixed-width />
+                <div class="widgetItemContent">
+                  <div class="widgetItemName">
+                    {{ widget.name }}
+                    <PremiumLabel v-if="widget.limit === 0" />
+                  </div>
+                  <div class="widgetItemDesc">{{ widget.desc }}</div>
                 </div>
               </button>
             </li>
@@ -177,6 +191,7 @@ const handleOpenPremiumModal = () => {
   color: var(--cTextSubtle);
 }
 
+.widgetMax,
 .widgetPremium {
   grid-template: auto 1fr / 1fr;
   position: absolute;

@@ -269,7 +269,8 @@
     "transformYourWallpaper": "Förvandla din bakgrundsbild genom att lägga till anpassningsbara visuella effekter som filter, oskärpa och kontrastjusteringar. Gör varje flik till ett mästerverk.",
     "visualMagic": "Visuell magi",
     "weatherDeluxe": "Väder Deluxe",
-    "widgetBoosts": "Widget Boosts"
+    "widgetBoosts": "Widget Boosts",
+    "youHaveTheMaximumNumberAllowed": "Du har det maximala antalet tillåtna widgets av denna typ. Denna begränsning beror på tekniska begränsningar."
   },
   "advanced": {
     "advancedSettings": "Avancerade inställningar",

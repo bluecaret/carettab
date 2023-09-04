@@ -269,7 +269,8 @@
     "transformYourWallpaper": "필터, 흐림 및 대비 조정과 같은 사용자 지정 가능한 시각 효과를 추가하여 배경 화면을 변화시키세요. 모든 탭을 걸작으로 만들어 보세요.",
     "visualMagic": "비주얼 매직",
     "weatherDeluxe": "날씨 디럭스",
-    "widgetBoosts": "위젯 부스트"
+    "widgetBoosts": "위젯 부스트",
+    "youHaveTheMaximumNumberAllowed": "이 유형의 위젯은 최대 개수까지만 허용됩니다. 이 제한은 기술적 제한으로 인한 것입니다."
   },
   "advanced": {
     "advancedSettings": "고급 설정",

@@ -13,6 +13,7 @@ export const widgetTypes = [
     name: 'Digital Clock',
     icon: 'fa-hashtag',
     limit: 9999,
+    max: 9999,
     desc: 'A sleek, modern way to keep track of the time, ensuring you always stay on schedule.',
   },
   {
@@ -22,6 +23,7 @@ export const widgetTypes = [
     name: 'Analog Clock',
     icon: 'fa-clock',
     limit: 9999,
+    max: 9999,
     desc: 'Embrace the charm of timeless elegance with an analog clock, offering a tasteful reminder of the passing hours and minutes.',
   },
   {
@@ -31,6 +33,7 @@ export const widgetTypes = [
     name: 'Binary Clock',
     icon: 'fa-1',
     limit: 5,
+    max: 9999,
     desc: 'The perfect blend of tech and timekeeping, for those who appreciate a unique, coded perspective.',
   },
   {
@@ -40,6 +43,7 @@ export const widgetTypes = [
     name: 'Date',
     icon: 'fa-calendar-day',
     limit: 1,
+    max: 9999,
     desc: 'Stay aligned with the rhythm of the year, displaying not only the date but also the day of the year, week of the year, and more.',
   },
   {
@@ -49,6 +53,7 @@ export const widgetTypes = [
     name: 'Weather',
     icon: 'fa-cloud-sun',
     limit: 1,
+    max: 6,
     desc: 'Your personal meteorologist in your browser, offering key weather updates and forecasts at a glance.',
   },
   {
@@ -58,6 +63,7 @@ export const widgetTypes = [
     name: 'Todo',
     icon: 'fa-clipboard-list',
     limit: 1,
+    max: 9999,
     desc: 'Your personalized task list at your fingertips, ensuring you stay focused and organized by managing your tasks directly from your new tab.',
   },
   {
@@ -67,6 +73,7 @@ export const widgetTypes = [
     name: 'Notepad',
     icon: 'fa-note-sticky',
     limit: 1,
+    max: 9999,
     desc: 'Your digital canvas for thoughts, ideas, and reminders, ensuring you never miss a beat.',
   },
   {
@@ -76,6 +83,7 @@ export const widgetTypes = [
     name: 'Quotes',
     icon: 'fa-quote-left',
     limit: 1,
+    max: 9999,
     desc: 'Your personal trove of wisdom and wit, this widget showcases your favorite quotes, handpicked and added by you.',
   },
   {
@@ -85,6 +93,7 @@ export const widgetTypes = [
     name: 'Quick Links',
     icon: 'fa-link',
     limit: 2,
+    max: 9999,
     desc: 'Your personal internet directory, curated by you, providing quick access to your favorite sites and saved bookmarks.',
   },
   {
@@ -94,6 +103,7 @@ export const widgetTypes = [
     name: 'Search Bar',
     icon: 'fa-magnifying-glass',
     limit: 1,
+    max: 9999,
     desc: 'Your portal to the web, with the freedom to choose your preferred search engine for more tailored results.',
   },
   {
@@ -102,7 +112,8 @@ export const widgetTypes = [
     store: 'loadsheddings',
     name: 'Loadshedding',
     icon: 'fa-bolt',
-    limit: 999,
+    limit: 9999,
+    max: 9999,
     desc: 'Stay ahead of power outages with this informative widget, helping South African residents manage their schedules better.',
   },
   {
@@ -112,6 +123,7 @@ export const widgetTypes = [
     name: 'Fidget',
     icon: 'fa-hands-clapping',
     limit: 0,
+    max: 9999,
     desc: 'An interactive digital fidget toy to soothe ADHD and anxiety symptoms, offering tactile-like sensations for focused relaxation.',
   },
   {
@@ -121,6 +133,7 @@ export const widgetTypes = [
     name: 'Snake Game',
     icon: 'fa-gamepad',
     limit: 0,
+    max: 9999,
     desc: 'Maneuver a digital snake to collect items, adding a layer of dexterity and strategy to your browsing experience.',
   },
   {
@@ -130,6 +143,7 @@ export const widgetTypes = [
     name: 'Shape',
     icon: 'fa-shapes',
     limit: 0,
+    max: 9999,
     desc: 'Add a touch of geometry to your browser, letting you personalize your new tab with a variety of shapes.',
   },
   {
@@ -139,6 +153,7 @@ export const widgetTypes = [
     name: 'Text',
     icon: 'fa-align-left',
     limit: 0,
+    max: 9999,
     desc: 'A customizable text area where you can write your own messages or simply use it to personalize your new tab with your favorite saying.',
   },
 ]

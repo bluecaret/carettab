@@ -269,7 +269,8 @@
     "transformYourWallpaper": "通过添加滤镜、模糊和对比度调整等可定制的视觉效果，改变你的壁纸。让每个标签都成为杰作。",
     "visualMagic": "视觉魔术",
     "weatherDeluxe": "豪华天气",
-    "widgetBoosts": "小部件提升"
+    "widgetBoosts": "小部件提升",
+    "youHaveTheMaximumNumberAllowed": "您拥有该类型部件的最大允许数量。这一限制是由于技术限制造成的。"
   },
   "advanced": {
     "advancedSettings": "高级设置",

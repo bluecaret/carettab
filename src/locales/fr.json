@@ -269,7 +269,8 @@
     "transformYourWallpaper": "Transformez votre fond d'écran en ajoutant des effets visuels personnalisables tels que des filtres, des flous et des ajustements de contraste. Faites de chaque onglet un chef-d'œuvre.",
     "visualMagic": "Magie visuelle",
     "weatherDeluxe": "Météo Deluxe",
-    "widgetBoosts": "Boosters de widgets"
+    "widgetBoosts": "Boosters de widgets",
+    "youHaveTheMaximumNumberAllowed": "Vous avez le nombre maximum de widgets autorisés de ce type. Cette restriction est due à des limitations techniques."
   },
   "advanced": {
     "advancedSettings": "Paramètres avancés",

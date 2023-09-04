@@ -269,7 +269,8 @@
     "transformYourWallpaper": "Chuyển đổi hình nền của bạn bằng cách thêm các hiệu ứng hình ảnh có thể tùy chỉnh như bộ lọc, điều chỉnh độ mờ và độ tương phản. \nBiến mỗi tab thành một kiệt tác.",
     "visualMagic": "Ảo thuật thị giác",
     "weatherDeluxe": "Thời tiết Deluxe",
-    "widgetBoosts": "Tăng cường widget"
+    "widgetBoosts": "Tăng cường widget",
+    "youHaveTheMaximumNumberAllowed": "Bạn có số lượng tiện ích tối đa được phép thuộc loại này. \nHạn chế này là do hạn chế về mặt kỹ thuật."
   },
   "advanced": {
     "advancedSettings": "Cài đặt nâng cao",

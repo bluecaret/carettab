@@ -269,7 +269,8 @@
     "transformYourWallpaper": "フィルター、ぼかし、コントラスト調整などのカスタマイズ可能な視覚効果を追加して、壁紙を変身させましょう。すべてのタブを傑作に。",
     "visualMagic": "ビジュアル・マジック",
     "weatherDeluxe": "ウェザー・デラックス",
-    "widgetBoosts": "ウィジェット・ブースト"
+    "widgetBoosts": "ウィジェット・ブースト",
+    "youHaveTheMaximumNumberAllowed": "このタイプのウィジェットは最大数まで許可されています。この制限は技術的な制限によるものです。"
   },
   "advanced": {
     "advancedSettings": "詳細設定",

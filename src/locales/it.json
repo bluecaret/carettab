@@ -269,7 +269,8 @@
     "transformYourWallpaper": "Trasformate il vostro sfondo aggiungendo effetti visivi personalizzabili come filtri, sfocature e regolazioni del contrasto. Rendete ogni scheda un capolavoro.",
     "visualMagic": "Magia visiva",
     "weatherDeluxe": "Meteo Deluxe",
-    "widgetBoosts": "Incrementi di widget"
+    "widgetBoosts": "Incrementi di widget",
+    "youHaveTheMaximumNumberAllowed": "È stato raggiunto il numero massimo di widget consentiti di questo tipo. Questa restrizione è dovuta a limitazioni tecniche."
   },
   "advanced": {
     "advancedSettings": "Impostazioni avanzate",

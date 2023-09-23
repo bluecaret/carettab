@@ -93,4 +93,7 @@ const containerStyles = computed(() => {
 .quote {
   max-width: 100%;
 }
+.quoteText {
+  white-space: pre-wrap;
+}
 </style>

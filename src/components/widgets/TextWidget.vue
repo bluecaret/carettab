@@ -33,4 +33,7 @@ const containerStyles = computed(() => {
 .text {
   max-width: 100%;
 }
+.widgetInner {
+  white-space: pre-wrap;
+}
 </style>

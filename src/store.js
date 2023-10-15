@@ -133,6 +133,7 @@ export const useSettingsStore = defineStore('settings', () => {
   const prevVersion = ref('')
   const newVersion = ref('')
   const updatedTimestamp = ref('')
+  const showTour = ref(false)
   const clearWhatsNewBox = ref(false)
   const settingsOpen = ref(false)
   const settingsPage = ref('dashboard')
@@ -174,7 +175,10 @@ export const useSettingsStore = defineStore('settings', () => {
   const config = reactive(new Defaults())
 
   const load = async () => {
-    const updateStatus = await getStorage(['status', 'prevVersion', 'newVersion', 'updatedTimestamp'], 'local')
+    const updateStatus = await getStorage(
+      ['status', 'prevVersion', 'newVersion', 'updatedTimestamp', 'showTour'],
+      'local'
+    )
     const store = await getStorage(null, 'sync')
 
     if (
@@ -189,6 +193,8 @@ export const useSettingsStore = defineStore('settings', () => {
     prevVersion.value = updateStatus.prevVersion
     newVersion.value = updateStatus.newVersion
     updatedTimestamp.value = updateStatus.updatedTimestamp
+    // showTour.value = updateStatus.showTour === true ? true : false
+    showTour.value = true
 
     if (store) {
       let keys = Object.keys(store)
@@ -562,6 +568,7 @@ export const useSettingsStore = defineStore('settings', () => {
   return {
     // Temp Settings
     status,
+    showTour,
     prevVersion,
     newVersion,
     updatedTimestamp,

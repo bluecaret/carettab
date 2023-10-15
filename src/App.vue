@@ -11,6 +11,7 @@ import { ExtPay } from '@/assets/ExtPay.js'
 import { checkVersionInRange } from '@/helpers/data.js'
 import { mergeV3Settings } from '@/helpers/mergeOldSettings.js'
 import PremiumModal from '@/components/elements/PremiumModal.vue'
+import 'intro.js/introjs.css'
 
 const { locale } = useI18n({ useScope: 'global' })
 const extpay = ExtPay('carettab')
@@ -23,7 +24,43 @@ onMounted(async () => {
   setupTempSettings()
   refreshUserCheck()
   applyUserColorSchemePreference()
+  // store.intro
+  //   .setOptions({
+  //     steps: [
+  //       {
+  //         element: document.querySelector('.settingsToggleWrapper'),
+  //         title: 'Get started with CaretTab!',
+  //         intro: 'Click the settings button to start configuring CaretTab',
+  //       },
+  //       {
+  //         element: document.querySelector('.addWidgetBar .addBtn:first-child'),
+  //         title: 'Next step',
+  //         intro: 'next step',
+  //       },
+  //     ],
+  //     showProgress: true,
+  //     showBullets: false,
+  //     exitOnOverlayClick: false,
+  //     disableInteraction: false,
+  //   })
+  //   .onbeforechange(function (targetElement) {
+  //     console.log('open settings', this._currentStep, targetElement)
+  //     nextStep(this._currentStep)
+  //   })
+  // store.intro.start()
 })
+
+// const nextStep = (step) => {
+//   console.log('Run function when next button is clicked', step)
+//   switch (step) {
+//     case 1:
+//       store.settingsOpen = true
+//       break
+
+//     default:
+//       break
+//   }
+// }
 
 watch(
   () => store.config.global.mode,

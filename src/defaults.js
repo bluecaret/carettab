@@ -2,6 +2,7 @@ export class Defaults {
   global = {
     schema: '2.0',
     lang: 'en',
+    showTour: false,
     hideSettings: false,
     mode: 'auto',
     disableSelection: false,

@@ -21,6 +21,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "convert": "^4.13.0",
+    "intro.js": "^7.2.0",
     "lodash": "^4.17.21",
     "luxon": "^3.3.0",
     "openai": "^3.2.1",

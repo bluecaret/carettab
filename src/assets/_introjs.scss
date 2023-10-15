@@ -1,0 +1,75 @@
+.tourHighlight {
+  box-shadow: 
+    var(--cTourBorder) 0px 0px 1px 3px, 
+    hsl(var(--cModalBackdropH) var(--cModalBackdropS) var(--cModalBackdropL) / .8) 0px 0px 0px 5000px !important;
+  box-sizing: content-box;
+  position: absolute;
+  z-index: 9999998;
+  border-radius: 4px;
+  transition: all .3s ease-out;
+}
+
+.tourTooltip {
+  box-shadow: inset 0 0 0 1px var(--cTourBorder), 0 0 10px 0 var(--cShadow);
+  background-color: var(--cModalBg);
+  border-radius: var(--s4);
+
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--cText);
+  .lightGrayMode &,
+  .lightMode & {
+    font-weight: 400;
+  }
+  .introjs-tooltipbuttons {
+    border-top-color: transparent;
+    padding: 0 var(--s5) var(--s5);
+  }
+  .introjs-tooltip-header {
+    display: flex;
+    gap: var(--s4);
+    align-items: center;
+    padding: var(--s5);
+    padding-bottom: 0;
+  }
+  .introjs-skipbutton {
+    width: auto;
+    height: auto;
+    line-height: 1;
+    position: static;
+    @extend .btn;
+    padding: 0;
+    min-height: auto;
+    width: var(--s6);
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+  }
+  .introjs-disabled:hover {
+    background: inherit;
+  }
+  .introjs-tooltip-title {
+    font-size: 1.8rem;
+    font-weight: 400;
+  }
+  .introjs-tooltiptext {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.4;
+    padding: var(--s5);
+  }
+  .introjs-arrow.right {
+    border-left-color: var(--cTourBorder);
+  }
+  .introjs-arrow.left {
+    border-right-color: var(--cTourBorder);
+  }
+  .introjs-arrow.top {
+    border-bottom-color: var(--cTourBorder);
+  }
+  .introjs-arrow.bottom {
+    border-top-color: var(--cTourBorder);
+  }
+}

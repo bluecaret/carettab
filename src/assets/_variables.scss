@@ -110,6 +110,7 @@
 
     createColorVars('cModalBg', 'var(--g4H)', 'var(--g4S)', 'var(--g4L)'),
     createColorVars('cModalBackdrop', '0deg', '0%', '5%', '0.5'),
+    createColorVars('cTourBorder', '0deg', '0%', '100%', '1'),
   );
   @each $colorSet in $colorSets {
     @each $key, $value in $colorSet {
@@ -188,6 +189,7 @@
 
       createColorVars('cModalBg', 'var(--g4H)', 'var(--g4S)', 'var(--g4L)'),
       createColorVars('cModalBackdrop', '0deg', '0%', '5%', '0.5'),
+      createColorVars('cTourBorder', '0deg', '0%', '100%', '1'),
     );
     @each $colorSet in $colorSets {
       @each $key, $value in $colorSet {
@@ -267,6 +269,7 @@
 
       createColorVars('cModalBg', 'var(--g4H)', 'var(--g4S)', 'var(--g4L)'),
       createColorVars('cModalBackdrop', '0deg', '0%', '5%', '0.5'),
+      createColorVars('cTourBorder', '0deg', '0%', '100%', '1'),
     );
     @each $colorSet in $colorSetsLight {
       @each $key, $value in $colorSet {
@@ -346,6 +349,7 @@
 
       createColorVars('cModalBg', 'var(--g4H)', 'var(--g4S)', 'var(--g4L)'),
       createColorVars('cModalBackdrop', '0deg', '0%', '5%', '0.5'),
+      createColorVars('cTourBorder', '0deg', '0%', '100%', '1'),
     );
     @each $colorSet in $colorSetsLightGray {
       @each $key, $value in $colorSet {

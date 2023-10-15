@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, toRaw } from 'vue'
+import introJs from 'intro.js'
 import draggable from 'vuedraggable'
 import { useSettingsStore, setStorage } from '@/store.js'
 import { widgetTypes } from '@/assets/lists.js'
@@ -17,10 +18,134 @@ const drag = ref(false)
 const renaming = ref(null)
 const renamingName = ref('')
 
+let tour = introJs()
+
 onMounted(async () => {
   if (store.status === 'updated' || store.status === 'highlightSettings') {
     await setStorage({ status: 'existing' }, 'local')
     store.status = 'existing'
+  }
+  console.log('Show tour?', store.showTour)
+  if (store.showTour) {
+    tour
+      .setOptions({
+        steps: [
+          {
+            element: document.querySelector('#settings'),
+            title: 'Welcome to CaretTab!',
+            intro:
+              "Get started creating your custom New Tab page! Let's take a quick tour to show you how to personalize your settings and make the most of your new tab page.",
+          },
+          {
+            element: document.querySelector('.addWidgetBar .addBtn:first-child'),
+            title: 'Add widgets',
+            intro:
+              'Widgets are the core of CaretTab. The Add Widget button is where you can add a widget from a wide range of options.',
+          },
+          {
+            element: document.querySelector('.addWidgetBar .addBtn:last-child'),
+            title: 'Blueprints',
+            intro: 'Save some time and choose a predefined layout. Blueprints are a great way to get started quickly.',
+          },
+          {
+            element: document.querySelector('.tourWidgetList'),
+            title: 'Widget list',
+            intro:
+              'Widgets you have added are listed here. You can drag them to reorder the list. Widgets higher up on the list will display above other widgets on the New Tab page.',
+          },
+          {
+            element: document.querySelector('.tourToolbarSettings'),
+            title: 'Toolbar',
+            intro:
+              'Enable a toolbar with several useful tools. Click the toggle button to enable the toolbar. Select "tools" to choose which tools are available.',
+          },
+          {
+            element: document.querySelector('.tourDashboardOtherSettings > .fieldAccordion:nth-child(1)'),
+            title: 'Wallpaper',
+            intro: 'Change the background color and image of the New Tab inside the Wallpaper settings.',
+          },
+          {
+            element: document.querySelector('.tourDashboardOtherSettings > .fieldAccordion:nth-child(2)'),
+            title: 'Default container settings',
+            intro:
+              'Set the default settings for widget containers here. The container is the box the widget sits inside of, you can add a background color, border, shadow, and more. These options can be overridden within the widget settings page.',
+          },
+          {
+            element: document.querySelector('.tourDashboardOtherSettings > .fieldAccordion:nth-child(3)'),
+            title: 'Default font settings',
+            intro:
+              'Set the default font and text styles for widgets here. Change the text color, font, spacing and more. These options can be overridden within the widget settings page.',
+          },
+          {
+            element: document.querySelector('.tourDashboardOtherSettings > .fieldAccordion:nth-child(5)'),
+            title: 'Other settings',
+            intro:
+              'Additional, general settings for the extension can be found here. Change things such as the language, tab title or import/export settings.',
+          },
+          {
+            element: document.querySelector('.headerLinks > .btnGroup > .btn:nth-child(1)'),
+            title: 'Preview changes',
+            intro:
+              'When making changes to your settings you may find the settings panel to be in the way. Hover your mouse over this button and the settings panel will temporarily disappear until you move your mouse off.',
+          },
+          {
+            element: document.querySelector('.headerLinks > .btnGroup > .btn:nth-child(2)'),
+            title: 'Outline widgets',
+            intro:
+              'Get better accuracy with your widget placement by clicking this button to enable an outline around widgets. Each widget will have a border added temporarily that helps you know the exact edges of a widget allowing for perfect alignment.',
+          },
+          {
+            element: document.querySelector('.headerLinks > .btnGroup > .btn:nth-child(3)'),
+            title: 'Outline widgets',
+            intro:
+              'Another option to help with positioning is the grid. Toggle this option to overlay a grid on the New Tab page for easy alignment.',
+          },
+          {
+            element: document.querySelector('.headerLinks > .btnGroup > .btn:nth-child(4)'),
+            title: 'Outline widgets',
+            intro:
+              'Changing a widget on the right side of the screen? Slide the settings panel to the other side of the screen temporarily for easier edits.',
+          },
+          {
+            element: document.querySelector('.goBack'),
+            title: 'Close and Save',
+            intro:
+              'Clicking the close button or clicking anywhere outside the settings panel will close the panel and save your settings.',
+          },
+          {
+            element: document.querySelector('.headerLinks > .btn'),
+            title: 'Save changes',
+            intro: 'The save button will save all of your current settings without closing the settings panel.',
+          },
+          {
+            element: document.querySelector('.footer'),
+            title: 'More information',
+            intro:
+              'Get info about the extension, access help and tips, leave a review for the extension, or sign up for Premium Access',
+          },
+          {
+            element: document.querySelector('.introHeader'),
+            title: 'Your tab, your rules',
+            intro:
+              'As the slogan says, this is your tab, it follows your rules. There are endless customization options available to make it exactly what you want. Time to get started!',
+          },
+        ],
+        tooltipClass: 'tourTooltip',
+        highlightClass: 'tourHighlight',
+        buttonClass: 'btn',
+        showProgress: false,
+        showBullets: false,
+        exitOnOverlayClick: false,
+        disableInteraction: true,
+        doneLabel: 'Continue',
+      })
+      .onbeforeexit(function () {
+        console.log('exit tour', this._currentStep)
+      })
+      .onbeforechange(function (targetElement) {
+        console.log('open settings', this._currentStep, targetElement)
+      })
+    tour.start()
   }
 })
 
@@ -66,7 +191,7 @@ const handleRenameSave = (id) => {
 </script>
 
 <template>
-  <PageHeading :title="$t('dashboard.settingsDashboard')"></PageHeading>
+  <PageHeading class="tourDashboardTitle" :title="$t('dashboard.settingsDashboard')"></PageHeading>
   <div class="page">
     <WhatsNew />
     <div v-if="store.storageWarning.includes('sync')" class="storageWarning">
@@ -79,7 +204,7 @@ const handleRenameSave = (id) => {
     </div>
     <h2 class="introHeader">{{ $t('common.slogan') }}</h2>
     <draggable
-      class="blockContainer"
+      class="blockContainer tourWidgetList"
       :list="store.config.layers"
       item-key="id"
       ghost-class="dragGhost"
@@ -201,9 +326,9 @@ const handleRenameSave = (id) => {
       </template>
     </draggable>
 
-    <ToolBarSettings />
+    <ToolBarSettings class="tourToolbarSettings" />
 
-    <div class="blockContainer">
+    <div class="blockContainer tourDashboardOtherSettings">
       <WallpaperSettings />
       <GlobalWidgetSettings />
       <ExtensionSettings />

@@ -15,6 +15,7 @@ import WeatherWidget from '@/components/widgets/WeatherWidget.vue'
 import NotepadWidget from '@/components/widgets/NotepadWidget.vue'
 import QuoteWidget from '@/components/widgets/QuoteWidget.vue'
 import QuickLinksWidget from '@/components/widgets/QuickLinksWidget.vue'
+import IframeWidget from '@/components/widgets/IframeWidget.vue'
 import LoadsheddingWidget from '@/components/widgets/LoadsheddingWidget.vue'
 import FidgetWidget from '@/components/widgets/FidgetWidget.vue'
 import SnakeWidget from '@/components/widgets/SnakeWidget.vue'
@@ -170,6 +171,14 @@ const setTabTitle = () => {
         >
         </QuickLinksWidget>
         <div v-if="!layer.on && layer.widget === 'quickLinks'"></div>
+        <IframeWidget
+          v-if="widgetNullCheck(layer, 'iframe', store.config.iframes)"
+          :class="{ outliner: store.showOutliner }"
+          :widget="store.config.iframes.find((c) => c.id === layer.id)"
+          :style="`z-index: ${store.config.layers.length - index}`"
+        >
+        </IframeWidget>
+        <div v-if="!layer.on && layer.widget === 'iframe'"></div>
         <LoadsheddingWidget
           v-if="widgetNullCheck(layer, 'loadshedding', store.config.loadsheddings)"
           :class="{ outliner: store.showOutliner }"

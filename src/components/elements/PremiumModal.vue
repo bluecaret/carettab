@@ -61,7 +61,7 @@ const handleSubscribe = () => {
               <span><fa icon="fa-cubes" /></span>
               <div>
                 {{ $t('settings.premiumWidgets') }}
-                <div>Shapes, Text, Fidget Toy, Snake Game.</div>
+                <div>IFrame, Shapes, Text, Fidget Toy, Snake Game.</div>
               </div>
             </li>
             <li>

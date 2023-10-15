@@ -640,7 +640,8 @@
     "startSelectedExerciseName": "Start",
     "threePartBreath": "Tredelad andning",
     "threePartBreathDesc": "En andningsteknik för hela kroppen som syftar till att fördela syre i hela kroppen, används ofta i yoga. Så här fungerar det: Andas in helt i tre delar - fyll först de nedre lungorna, sedan mitten och slutligen den övre delen, i totalt 6 sekunder. Håll andan i 2 sekunder och andas ut helt i 6 sekunder.",
-    "whyBreathingExercises": "Varför andningsövningar?"
+    "whyBreathingExercises": "Varför andningsövningar?",
+    "urlAddress": "URL-adress"
   },
   "welcome": {
     "basicLayout": "Grundläggande layout",

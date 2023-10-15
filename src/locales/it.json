@@ -640,7 +640,8 @@
     "startSelectedExerciseName": "Inizio",
     "threePartBreath": "Respiro in tre parti",
     "threePartBreathDesc": "Tecnica di respirazione per tutto il corpo che mira a distribuire l'ossigeno in tutto l'organismo, spesso utilizzata nello yoga. Come funziona: Inspirare completamente in tre parti: prima riempire i polmoni inferiori, poi quelli centrali e infine la parte superiore, per un totale di 6 secondi. Trattenere per 2 secondi ed espirare completamente in 6 secondi.",
-    "whyBreathingExercises": "Perché gli esercizi di respirazione?"
+    "whyBreathingExercises": "Perché gli esercizi di respirazione?",
+    "urlAddress": "Indirizzo URL"
   },
   "welcome": {
     "basicLayout": "Layout di base",

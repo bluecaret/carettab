@@ -640,7 +640,8 @@
     "startSelectedExerciseName": "Início",
     "threePartBreath": "Respiração em três partes",
     "threePartBreathDesc": "Uma técnica de respiração de corpo inteiro que visa distribuir o oxigénio por todo o corpo, frequentemente utilizada no ioga. Como funciona: Inspire totalmente em três partes - primeiro enchendo a parte inferior dos pulmões, depois a parte intermédia e, por fim, a parte superior, durante um total de 6 segundos. Manter durante 2 segundos e expirar completamente em 6 segundos.",
-    "whyBreathingExercises": "Porquê exercícios de respiração?"
+    "whyBreathingExercises": "Porquê exercícios de respiração?",
+    "urlAddress": "Endereço URL"
   },
   "welcome": {
     "basicLayout": "Esquema de base",

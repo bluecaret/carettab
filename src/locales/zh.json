@@ -641,7 +641,8 @@
     "threePartBreathDesc": "一种全身呼吸技巧，旨在将氧气分配到全身，常用于瑜伽。如何使用分三部分完全吸气--首先吸入肺下部，然后吸入肺中部，最后吸入肺上部，总共吸气 6 秒钟。保持 2 秒钟，然后在 6 秒钟内完全呼出。",
     "whyBreathingExercises": "为什么要进行呼吸练习?",
     "ready": "准备好了吗？",
-    "cycleCompletedOfTotal": "{1}的周期{0}"
+    "cycleCompletedOfTotal": "{1}的周期{0}",
+    "urlAddress": "URL 地址"
   },
   "welcome": {
     "basicLayout": "基本布局",

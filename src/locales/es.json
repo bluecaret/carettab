@@ -640,7 +640,8 @@
     "startSelectedExerciseName": "Inicio",
     "threePartBreath": "Respiración tripartita",
     "threePartBreathDesc": "Técnica de respiración de todo el cuerpo cuyo objetivo es distribuir el oxígeno por todo el cuerpo, utilizada a menudo en yoga. Cómo funciona: Inhale completamente en tres partes: primero llene la parte inferior de los pulmones, luego la parte media y, por último, la parte superior, durante un total de 6 segundos. Aguanta 2 segundos y exhala completamente en 6 segundos.",
-    "whyBreathingExercises": "¿Por qué ejercicios respiratorios?"
+    "whyBreathingExercises": "¿Por qué ejercicios respiratorios?",
+    "urlAddress": "Dirección URL"
   },
   "welcome": {
     "basicLayout": "Diseño básico",

@@ -641,7 +641,8 @@
     "boxBreathing": "Box Breathing",
     "boxBreathingDesc": "Also known as square breathing, this technique helps to calm the nervous system and sharpen focus. How it works: Inhale for 4 seconds, hold the breath for 4 seconds, exhale for 4 seconds, and pause for 4 seconds before the next cycle.",
     "ready": "Ready?",
-    "cycleCompletedOfTotal": "Cycle {0} of {1}"
+    "cycleCompletedOfTotal": "Cycle {0} of {1}",
+    "urlAddress": "URL address"
   },
   "welcome": {
     "selectALanguage": "Select a language",

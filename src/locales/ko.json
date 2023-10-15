@@ -640,7 +640,8 @@
     "startSelectedExerciseName": "시작",
     "threePartBreath": "세 부분으로 구성된 호흡",
     "threePartBreathDesc": "몸 전체에 산소를 분배하는 것을 목표로 하는 전신 호흡법으로, 요가에서 자주 사용됩니다. 작동 방식: 먼저 폐 아래쪽, 중간, 위쪽 등 세 부분으로 나누어 총 6초 동안 숨을 완전히 들이마십니다. 2초간 숨을 참았다가 6초 동안 완전히 숨을 내쉽니다.",
-    "whyBreathingExercises": "왜 호흡 운동을 해야 하나요?"
+    "whyBreathingExercises": "왜 호흡 운동을 해야 하나요?",
+    "urlAddress": "URL 주소"
   },
   "welcome": {
     "basicLayout": "기본 레이아웃",

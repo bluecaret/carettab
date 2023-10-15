@@ -107,6 +107,16 @@ export const widgetTypes = [
     desc: 'Your portal to the web, with the freedom to choose your preferred search engine for more tailored results.',
   },
   {
+    id: 'if',
+    type: 'iframe',
+    store: 'iframes',
+    name: 'IFrame',
+    icon: 'fa-window-maximize',
+    limit: 0,
+    max: 9999,
+    desc: 'Seamlessly embed external web pages or content into your new tab. NOTE: Some websites are not compatible with the iframe.',
+  },
+  {
     id: 'ls',
     type: 'loadshedding',
     store: 'loadsheddings',

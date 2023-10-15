@@ -14,6 +14,7 @@ import { Weather } from '@/components/widgets/Weather.js'
 import { Notepad } from '@/components/widgets/Notepad.js'
 import { Quote } from '@/components/widgets/Quote.js'
 import { QuickLinks } from '@/components/widgets/QuickLinks.js'
+import { Iframe } from '@/components/widgets/Iframe.js'
 import { Loadshedding } from '@/components/widgets/Loadshedding.js'
 import { Fidget } from '@/components/widgets/Fidget.js'
 import { Snake } from '@/components/widgets/Snake.js'
@@ -35,6 +36,7 @@ const availableWidgets = new Map([
   ['notepad', Notepad],
   ['searchBar', SearchBar],
   ['quickLinks', QuickLinks],
+  ['iframe', Iframe],
   ['loadshedding', Loadshedding],
   ['fidget', Fidget],
   ['snake', Snake],

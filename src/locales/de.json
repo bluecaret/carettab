@@ -640,7 +640,8 @@
     "startSelectedExerciseName": "Start",
     "threePartBreath": "Dreiteiliger Atem",
     "threePartBreathDesc": "Eine Ganzkörper-Atemtechnik, die darauf abzielt, den Sauerstoff im ganzen Körper zu verteilen, und die häufig beim Yoga eingesetzt wird. Wie sie funktioniert: Atmen Sie in drei Teilen vollständig ein - zuerst füllen Sie die unteren Lungenflügel, dann die mittleren und schließlich die oberen, insgesamt 6 Sekunden lang. Halten Sie die Luft 2 Sekunden lang an und atmen Sie nach 6 Sekunden vollständig aus.",
-    "whyBreathingExercises": "Warum Atemübungen?"
+    "whyBreathingExercises": "Warum Atemübungen?",
+    "urlAddress": "URL-Adresse"
   },
   "welcome": {
     "basicLayout": "Grundlegendes Layout",

@@ -640,7 +640,8 @@
     "startSelectedExerciseName": "スタート",
     "threePartBreath": "スリー・パート・ブレス",
     "threePartBreathDesc": "全身に酸素を行き渡らせることを目的とした呼吸法で、ヨガでよく用いられる。その方法まず肺の下部を満たし、次に中部、最後に上部を満たし、合計6秒間、3回に分けて息を吸い込む。2秒間キープし、6秒間で息を吐ききる。",
-    "whyBreathingExercises": "なぜ呼吸法なのか？"
+    "whyBreathingExercises": "なぜ呼吸法なのか？",
+    "urlAddress": "URLアドレス"
   },
   "welcome": {
     "basicLayout": "基本レイアウト",

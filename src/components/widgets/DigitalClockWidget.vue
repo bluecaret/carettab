@@ -197,7 +197,7 @@ const getRelativeTime = computed(() => {
           :style="props.widget.meridiem.ignoreForAlignment ? 'width: 0; margin-inline: 0;' : ''"
         >
           <span
-            v-for="(md, index) in getFormattedTime.toFormat('a') === 'AM'
+            v-for="(md, index) in getFormattedTime.hour < 12
               ? props.widget.meridiem.am.split('')
               : props.widget.meridiem.pm.split('')"
             :key="index"

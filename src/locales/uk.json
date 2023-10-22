@@ -270,7 +270,20 @@
     "visualMagic": "Візуальна магія",
     "weatherDeluxe": "Погода Делюкс",
     "widgetBoosts": "Збільшення віджетів",
-    "youHaveTheMaximumNumberAllowed": "Ви маєте максимальну кількість дозволених віджетів цього типу. Це обмеження пов'язане з технічними обмеженнями."
+    "youHaveTheMaximumNumberAllowed": "Ви маєте максимальну кількість дозволених віджетів цього типу. Це обмеження пов'язане з технічними обмеженнями.",
+    "filterByTag": "Фільтрувати за тегом",
+    "tagAll": "Усе.",
+    "tagDesign": "Дизайн",
+    "tagFocus": "Фокус",
+    "tagFree": "Безкоштовно",
+    "tagFun": "Забава",
+    "tagInformation": "Інформація",
+    "tagInspiration": "Натхнення",
+    "tagPremium": "Преміум-доступ",
+    "tagProductivity": "Продуктивність",
+    "tagTimeDate": "Час і дата",
+    "tagUtility": "Утиліта",
+    "tagWeb": "Веб"
   },
   "advanced": {
     "advancedSettings": "Додаткові налаштування",

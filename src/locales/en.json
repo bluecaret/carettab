@@ -270,7 +270,20 @@
     "keepYourNewTabEverEngaging": "Keep your new tab ever-engaging. Enjoy an ever-growing collection of premium-only widgets and tools..",
     "premiumWidgets": "Premium Widgets",
     "premiumTools": "Premium Tools",
-    "youHaveTheMaximumNumberAllowed": "You have the maximum number of allowed widgets of this type. This restriction is due to technical limitations."
+    "youHaveTheMaximumNumberAllowed": "You have the maximum number of allowed widgets of this type. This restriction is due to technical limitations.",
+    "filterByTag": "Filter by tag",
+    "tagAll": "All",
+    "tagFree": "Free",
+    "tagPremium": "Premium Access",
+    "tagDesign": "Design",
+    "tagFocus": "Focus",
+    "tagFun": "Fun",
+    "tagInformation": "Information",
+    "tagInspiration": "Inspiration",
+    "tagProductivity": "Productivity",
+    "tagTimeDate": "Time and Date",
+    "tagUtility": "Utility",
+    "tagWeb": "Web"
   },
   "advanced": {
     "importOldVersionWarning": "Settings are from an older version of CaretTab. We will do our best to import them, but some settings may not be compatible. Do you want to continue?",

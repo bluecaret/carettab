@@ -1,6 +1,6 @@
 <script setup>
-import { ref, inject } from 'vue'
-import { widgetTypes } from '@/assets/lists.js'
+import { ref, inject, computed } from 'vue'
+import { widgetTypes, widgetTags } from '@/assets/lists.js'
 import { useSettingsStore } from '@/store.js'
 
 const user = inject('user')
@@ -9,6 +9,12 @@ const emit = defineEmits(['selected'])
 const show = ref(false)
 const addWidgetBtnEl = ref(null)
 const modalCloseEl = ref(null)
+const currentTag = ref(null)
+
+const filteredWidgets = computed(() => {
+  if (!currentTag.value) return widgetTypes
+  return widgetTypes.filter((widget) => widget.tags.includes(currentTag.value))
+})
 
 const handleWidgetClick = (type) => {
   show.value = false
@@ -31,10 +37,20 @@ const handleOpenPremiumModal = () => {
   store.showPremiumModal = true
   store.premiumModalBtnRef = modalCloseEl
 }
+
+const filterByTag = (tag) => {
+  currentTag.value = tag
+}
 </script>
 
 <template>
-  <ModalWindow :show="show" :button-ref="addWidgetBtnEl" size="1000px" @close="show = false">
+  <ModalWindow
+    window-class="addWidgetModal"
+    :show="show"
+    :button-ref="addWidgetBtnEl"
+    size="1000px"
+    @close="show = false"
+  >
     <template #button>
       <button ref="addWidgetBtnEl" type="button" class="btn btnText addBtn" @click.stop="show = true">
         <fa icon="fa-plus"></fa>
@@ -56,8 +72,32 @@ const handleOpenPremiumModal = () => {
           </button>
         </header>
         <div class="modalContent">
+          <div class="widgetTags">
+            <div>
+              <fa icon="fa-tags" fixed-width :title="$t('settings.filterByTag')" />
+            </div>
+            <div>
+              <button class="btn widgetTag" :class="{ active: !currentTag }" @click="filterByTag(null)">
+                <fa :icon="!currentTag ? 'fa-check' : 'fa-tag'" fixed-width />
+                {{ $t('settings.tagAll') }}
+              </button>
+              <button
+                v-for="tag in widgetTags"
+                :key="tag.translation"
+                class="btn widgetTag"
+                :class="{ active: currentTag === tag.label }"
+                @click="filterByTag(tag.label)"
+              >
+                <fa
+                  :icon="currentTag === tag.label ? 'fa-check' : tag.label === 'Premium Access' ? 'fa-gem' : 'fa-tag'"
+                  fixed-width
+                />
+                {{ $t(tag.translation) }}
+              </button>
+            </div>
+          </div>
           <ul class="widgetList">
-            <li v-for="widget in widgetTypes" :key="widget.type">
+            <li v-for="widget in filteredWidgets" :key="widget.type">
               <button v-if="hasReachedMax(widget.type)" type="button" class="widgetItem widgetMax">
                 <div class="group compact">
                   <fa class="widgetItemIcon" :icon="widget.icon" fixed-width />
@@ -88,8 +128,8 @@ const handleOpenPremiumModal = () => {
                   <div v-if="widget.limit !== 0" class="widgetPremiumDesc">
                     <fa icon="fa-gem" /><span>{{ $t('settings.goPremiumForUnlimitedWidgetsAndMore') }}</span>
                   </div>
-                  <div v-if="widget.limit === 0" class="widgetLimitDesc">
-                    <span>{{ $t('settings.onlyAvailableWithPremiumAccess') }}</span>
+                  <div v-if="widget.limit === 0" class="widgetLimitDesc widgetLimitDescTruncate">
+                    <span :title="widget.desc">{{ widget.desc }}</span>
                   </div>
                   <div v-if="widget.limit === 0" class="widgetPremiumDesc">
                     <fa icon="fa-gem" /><span>{{ $t('settings.goPremiumToGetThisWidgetAndMoreCustomization') }}</span>
@@ -114,6 +154,12 @@ const handleOpenPremiumModal = () => {
   </ModalWindow>
 </template>
 
+<style lang="scss">
+.addWidgetModal {
+  height: min(90dvh, 1000px);
+}
+</style>
+
 <style lang="scss" scoped>
 .btn.addBtn {
   width: 100%;
@@ -127,12 +173,37 @@ const handleOpenPremiumModal = () => {
     background-color: hsl(var(--cBlockH) 0% calc(var(--cBlockL) - 11%));
   }
 }
+
+.widgetTags {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--s4);
+  margin-block-end: var(--s5);
+  max-width: 950px; // avoid scrollbar changing list
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s4);
+  }
+}
+
+.widgetTag {
+  padding: var(--s3) var(--s4);
+  border-radius: var(--s5);
+  font-size: 1.6rem;
+  min-height: unset;
+  .svg-inline--fa {
+    font-size: 1.2rem;
+  }
+}
+
 .widgetList {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 1fr;
   gap: var(--s4);
   li {
@@ -148,6 +219,7 @@ const handleOpenPremiumModal = () => {
   border: 0;
   width: 100%;
   height: 100%;
+  min-height: 16.5rem;
   display: grid;
   grid-template: auto 1fr / 1fr;
   gap: var(--s4);
@@ -193,11 +265,6 @@ const handleOpenPremiumModal = () => {
 
 .widgetMax,
 .widgetPremium {
-  grid-template: auto 1fr / 1fr;
-  position: absolute;
-  inset: 0 0 0 0;
-  height: auto;
-  z-index: 2;
   background-blend-mode: darken;
   background-color: hsl(var(--g2H) calc(var(--g2S) - 40%) calc(var(--g2L) - 0.5%));
   --iconBg: hsl(var(--g2H) calc(var(--g2S) - 40%) calc(var(--g2L) - 1.5%));
@@ -218,6 +285,12 @@ const handleOpenPremiumModal = () => {
     display: flex;
     gap: var(--s4);
     color: var(--cTextSubtle);
+  }
+  .widgetLimitDescTruncate {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
   .widgetPremiumDesc {
     font-size: 1.4rem;

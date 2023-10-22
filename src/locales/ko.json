@@ -270,7 +270,20 @@
     "visualMagic": "비주얼 매직",
     "weatherDeluxe": "날씨 디럭스",
     "widgetBoosts": "위젯 부스트",
-    "youHaveTheMaximumNumberAllowed": "이 유형의 위젯은 최대 개수까지만 허용됩니다. 이 제한은 기술적 제한으로 인한 것입니다."
+    "youHaveTheMaximumNumberAllowed": "이 유형의 위젯은 최대 개수까지만 허용됩니다. 이 제한은 기술적 제한으로 인한 것입니다.",
+    "filterByTag": "태그별 필터링",
+    "tagAll": "모두",
+    "tagDesign": "디자인",
+    "tagFocus": "초점",
+    "tagFree": "무료",
+    "tagFun": "재미",
+    "tagInformation": "정보",
+    "tagInspiration": "영감",
+    "tagPremium": "프리미엄 액세스",
+    "tagProductivity": "생산성",
+    "tagTimeDate": "시간 및 날짜",
+    "tagUtility": "유틸리티",
+    "tagWeb": "웹"
   },
   "advanced": {
     "advancedSettings": "고급 설정",

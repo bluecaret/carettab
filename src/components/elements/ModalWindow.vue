@@ -8,6 +8,10 @@ const props = defineProps({
     type: String,
     default: '800px',
   },
+  windowClass: {
+    type: String,
+    default: '',
+  },
   buttonRef: {
     type: Object,
   },
@@ -59,7 +63,12 @@ onBeforeUnmount(() => {
     <Transition name="modalTransition">
       <div v-if="props.show" class="modalWindowWrapper">
         <div class="modalOverlay"></div>
-        <div ref="modalWindowEl" tabindex="-1" class="modalWindow" :style="modalWidth">
+        <div
+          ref="modalWindowEl"
+          tabindex="-1"
+          :class="`modalWindow ${props.windowClass ? props.windowClass : ''}`"
+          :style="modalWidth"
+        >
           <slot name="window"> </slot>
         </div>
       </div>
@@ -70,7 +79,12 @@ onBeforeUnmount(() => {
       <Transition name="modalTransition">
         <div v-if="props.show" class="modalWindowWrapper">
           <div class="modalOverlay"></div>
-          <div ref="modalWindowEl" tabindex="-1" class="modalWindow" :style="modalWidth">
+          <div
+            ref="modalWindowEl"
+            tabindex="-1"
+            :class="`modalWindow ${props.windowClass ? props.windowClass : ''}`"
+            :style="modalWidth"
+          >
             <slot name="window"> </slot>
           </div>
         </div>

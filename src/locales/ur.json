@@ -270,7 +270,20 @@
     "visualMagic": "بصری جادو",
     "weatherDeluxe": "ویدر ڈیلکس",
     "widgetBoosts": "ویجیٹ بڑھاتا ہے۔",
-    "youHaveTheMaximumNumberAllowed": "آپ کے پاس اس قسم کے اجازت یافتہ ویجٹ کی زیادہ سے زیادہ تعداد ہے۔ \nیہ پابندی تکنیکی حدود کی وجہ سے ہے۔"
+    "youHaveTheMaximumNumberAllowed": "آپ کے پاس اس قسم کے اجازت یافتہ ویجٹ کی زیادہ سے زیادہ تعداد ہے۔ \nیہ پابندی تکنیکی حدود کی وجہ سے ہے۔",
+    "filterByTag": "ٹیگ کے لحاظ سے فلٹر کریں۔",
+    "tagAll": "تمام",
+    "tagDesign": "ڈیزائن",
+    "tagFocus": "فوکس",
+    "tagFree": "مفت",
+    "tagFun": "مزہ",
+    "tagInformation": "معلومات",
+    "tagInspiration": "الہام",
+    "tagPremium": "پریمیم رسائی",
+    "tagProductivity": "پیداواری صلاحیت",
+    "tagTimeDate": "وقت اور تاریخ",
+    "tagUtility": "افادیت",
+    "tagWeb": "ویب"
   },
   "advanced": {
     "advancedSettings": "اعلی درجے کی ترتیبات",

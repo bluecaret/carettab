@@ -270,7 +270,20 @@
     "visualMagic": "קסם חזותי",
     "weatherDeluxe": "מזג אוויר דלוקס",
     "widgetBoosts": "Widget Boosts",
-    "youHaveTheMaximumNumberAllowed": "יש לך את המספר המרבי של ווידג'טים מותרים מסוג זה. \nהגבלה זו נובעת ממגבלות טכניות."
+    "youHaveTheMaximumNumberAllowed": "יש לך את המספר המרבי של ווידג'טים מותרים מסוג זה. \nהגבלה זו נובעת ממגבלות טכניות.",
+    "filterByTag": "סינון לפי תג",
+    "tagAll": "את כל",
+    "tagDesign": "לְעַצֵב",
+    "tagFocus": "מוֹקֵד",
+    "tagFree": "חינם",
+    "tagFun": "כֵּיף",
+    "tagInformation": "מֵידָע",
+    "tagInspiration": "הַשׁרָאָה",
+    "tagPremium": "גישה פרימיום",
+    "tagProductivity": "פִּריוֹן",
+    "tagTimeDate": "זמן ותאריך",
+    "tagUtility": "תוֹעֶלֶת",
+    "tagWeb": "אינטרנט"
   },
   "advanced": {
     "advancedSettings": "הגדרות מתקדמות",

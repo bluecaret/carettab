@@ -270,7 +270,20 @@
     "visualMagic": "视觉魔术",
     "weatherDeluxe": "豪华天气",
     "widgetBoosts": "小部件提升",
-    "youHaveTheMaximumNumberAllowed": "您拥有该类型部件的最大允许数量。这一限制是由于技术限制造成的。"
+    "youHaveTheMaximumNumberAllowed": "您拥有该类型部件的最大允许数量。这一限制是由于技术限制造成的。",
+    "filterByTag": "按标签筛选",
+    "tagAll": "全部",
+    "tagDesign": "设计",
+    "tagFocus": "聚焦",
+    "tagFree": "免费",
+    "tagFun": "乐趣",
+    "tagInformation": "信息",
+    "tagInspiration": "灵感",
+    "tagPremium": "高级访问",
+    "tagProductivity": "生产率",
+    "tagTimeDate": "时间和日期",
+    "tagUtility": "公用设施",
+    "tagWeb": "网络"
   },
   "advanced": {
     "advancedSettings": "高级设置",

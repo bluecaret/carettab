@@ -270,7 +270,20 @@
     "visualMagic": "Visuell magi",
     "weatherDeluxe": "Väder Deluxe",
     "widgetBoosts": "Widget Boosts",
-    "youHaveTheMaximumNumberAllowed": "Du har det maximala antalet tillåtna widgets av denna typ. Denna begränsning beror på tekniska begränsningar."
+    "youHaveTheMaximumNumberAllowed": "Du har det maximala antalet tillåtna widgets av denna typ. Denna begränsning beror på tekniska begränsningar.",
+    "filterByTag": "Filtrera efter tagg",
+    "tagAll": "Alla",
+    "tagDesign": "Utformning",
+    "tagFocus": "Fokus",
+    "tagFree": "Gratis",
+    "tagFun": "Roligt",
+    "tagInformation": "Information",
+    "tagInspiration": "Inspiration",
+    "tagPremium": "Premium-åtkomst",
+    "tagProductivity": "Produktivitet",
+    "tagTimeDate": "Tid och datum",
+    "tagUtility": "Verktyg",
+    "tagWeb": "Webb"
   },
   "advanced": {
     "advancedSettings": "Avancerade inställningar",

@@ -270,7 +270,20 @@
     "visualMagic": "Визуальная магия",
     "weatherDeluxe": "Weather Deluxe",
     "widgetBoosts": "Виджеты",
-    "youHaveTheMaximumNumberAllowed": "У вас имеется максимальное количество допустимых виджетов данного типа. Данное ограничение связано с техническими ограничениями."
+    "youHaveTheMaximumNumberAllowed": "У вас имеется максимальное количество допустимых виджетов данного типа. Данное ограничение связано с техническими ограничениями.",
+    "filterByTag": "Фильтр по тегам",
+    "tagAll": "Все",
+    "tagDesign": "Дизайн",
+    "tagFocus": "Фокус",
+    "tagFree": "Бесплатно",
+    "tagFun": "Веселье",
+    "tagInformation": "Информация",
+    "tagInspiration": "Вдохновение",
+    "tagPremium": "Премиальный доступ",
+    "tagProductivity": "Производительность",
+    "tagTimeDate": "Время и дата",
+    "tagUtility": "Коммунальное хозяйство",
+    "tagWeb": "Web"
   },
   "advanced": {
     "advancedSettings": "Расширенные настройки",

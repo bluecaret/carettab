@@ -270,7 +270,20 @@
     "visualMagic": "Ảo thuật thị giác",
     "weatherDeluxe": "Thời tiết Deluxe",
     "widgetBoosts": "Tăng cường widget",
-    "youHaveTheMaximumNumberAllowed": "Bạn có số lượng tiện ích tối đa được phép thuộc loại này. \nHạn chế này là do hạn chế về mặt kỹ thuật."
+    "youHaveTheMaximumNumberAllowed": "Bạn có số lượng tiện ích tối đa được phép thuộc loại này. \nHạn chế này là do hạn chế về mặt kỹ thuật.",
+    "filterByTag": "Lọc theo thẻ",
+    "tagAll": "Tất cả",
+    "tagDesign": "Thiết kế",
+    "tagFocus": "Tập trung",
+    "tagFree": "Miễn phí",
+    "tagFun": "Vui vẻ",
+    "tagInformation": "Thông tin",
+    "tagInspiration": "Cảm hứng",
+    "tagPremium": "Quyền truy cập cao cấp",
+    "tagProductivity": "Năng suất",
+    "tagTimeDate": "Ngày và giờ",
+    "tagUtility": "Tính thiết thực",
+    "tagWeb": "Web"
   },
   "advanced": {
     "advancedSettings": "Cài đặt nâng cao",

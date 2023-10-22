@@ -270,7 +270,20 @@
     "visualMagic": "Magia visual",
     "weatherDeluxe": "Tiempo Deluxe",
     "widgetBoosts": "Widget Boosts",
-    "youHaveTheMaximumNumberAllowed": "Tiene el número máximo de widgets permitidos de este tipo. Esta restricción se debe a limitaciones técnicas."
+    "youHaveTheMaximumNumberAllowed": "Tiene el número máximo de widgets permitidos de este tipo. Esta restricción se debe a limitaciones técnicas.",
+    "filterByTag": "Filtrar por etiqueta",
+    "tagAll": "Todos",
+    "tagDesign": "Diseño",
+    "tagFocus": "Enfoque",
+    "tagFree": "Gratis",
+    "tagFun": "Diversión",
+    "tagInformation": "Información",
+    "tagInspiration": "Inspiración",
+    "tagPremium": "Acceso Premium",
+    "tagProductivity": "Productividad",
+    "tagTimeDate": "Fecha y hora",
+    "tagUtility": "Utilidad",
+    "tagWeb": "Web"
   },
   "advanced": {
     "advancedSettings": "Configuración avanzada",

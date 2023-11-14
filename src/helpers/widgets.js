@@ -120,7 +120,7 @@ export const setWidgetSegmentStyles = (widget, type, global, lsUsesMargin = fals
   const letterSpacing = lsUsesMargin
     ? `margin-inline: ${getDynamicSize(segmentWGlobal.letterSpacing, isDynamicScaling)}; `
     : `letter-spacing: ${getDynamicSize(segmentWGlobal.letterSpacing, isDynamicScaling)}; `
-  const translate = `translate: ${getDynamicSize(segment.x * -1, isDynamicScaling)} ${getDynamicSize(
+  const translate = `translate: ${getDynamicSize(segment.x, isDynamicScaling)} ${getDynamicSize(
     segment.y * -1,
     isDynamicScaling
   )}; `

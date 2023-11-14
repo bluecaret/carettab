@@ -17,6 +17,7 @@ import NotepadSettings from '@/components/widgets/NotepadSettings.vue'
 import QuoteSettings from '@/components/widgets/QuoteSettings.vue'
 import QuickLinksSettings from '@/components/widgets/QuickLinksSettings.vue'
 import IframeSettings from '@/components/widgets/IframeSettings.vue'
+import CountdownSettings from '@/components/widgets/CountdownSettings.vue'
 import LoadsheddingSettings from '@/components/widgets/LoadsheddingSettings.vue'
 import FidgetSettings from '@/components/widgets/FidgetSettings.vue'
 import SnakeSettings from '@/components/widgets/SnakeSettings.vue'
@@ -91,6 +92,7 @@ const handleOpenPremiumModal = () => {
     <QuoteSettings v-if="['quote'].includes(settingsPage)"></QuoteSettings>
     <QuickLinksSettings v-if="['quickLinks'].includes(settingsPage)"></QuickLinksSettings>
     <IframeSettings v-if="['iframe'].includes(settingsPage)"></IframeSettings>
+    <CountdownSettings v-if="['countdown'].includes(settingsPage)"></CountdownSettings>
     <LoadsheddingSettings v-if="['loadshedding'].includes(settingsPage)"></LoadsheddingSettings>
     <FidgetSettings v-if="['fidget'].includes(settingsPage)"></FidgetSettings>
     <SnakeSettings v-if="['snake'].includes(settingsPage)"></SnakeSettings>

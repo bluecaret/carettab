@@ -16,6 +16,7 @@ import NotepadWidget from '@/components/widgets/NotepadWidget.vue'
 import QuoteWidget from '@/components/widgets/QuoteWidget.vue'
 import QuickLinksWidget from '@/components/widgets/QuickLinksWidget.vue'
 import IframeWidget from '@/components/widgets/IframeWidget.vue'
+import CountdownWidget from '@/components/widgets/CountdownWidget.vue'
 import LoadsheddingWidget from '@/components/widgets/LoadsheddingWidget.vue'
 import FidgetWidget from '@/components/widgets/FidgetWidget.vue'
 import SnakeWidget from '@/components/widgets/SnakeWidget.vue'
@@ -179,6 +180,14 @@ const setTabTitle = () => {
         >
         </IframeWidget>
         <div v-if="!layer.on && layer.widget === 'iframe'"></div>
+        <CountdownWidget
+          v-if="widgetNullCheck(layer, 'countdown', store.config.countdowns)"
+          :class="{ outliner: store.showOutliner }"
+          :widget="store.config.countdowns.find((c) => c.id === layer.id)"
+          :style="`z-index: ${store.config.layers.length - index}`"
+        >
+        </CountdownWidget>
+        <div v-if="!layer.on && layer.widget === 'countdown'"></div>
         <LoadsheddingWidget
           v-if="widgetNullCheck(layer, 'loadshedding', store.config.loadsheddings)"
           :class="{ outliner: store.showOutliner }"

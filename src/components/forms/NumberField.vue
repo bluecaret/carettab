@@ -69,6 +69,7 @@ function handleArrowDone() {
       :value="modelValue"
       :min="min"
       :max="max"
+      :step="props.increment"
       :disabled="props.disabled ? 'disabled' : null"
       :placeholder="props.placeholder ? props.placeholder : ''"
       @input="handleUpdate"

@@ -142,6 +142,17 @@ export const widgetTypes = [
     tags: ['Free', 'Information'],
   },
   {
+    id: 'cd',
+    type: 'countdown',
+    store: 'countdowns',
+    name: 'Countdown',
+    icon: 'fa-hourglass-start',
+    limit: 0,
+    max: 9999,
+    desc: 'Count down the seconds to your upcoming events, helping you manage your time and never miss a moment.',
+    tags: ['Premium Access', 'Time and Date', 'Utility'],
+  },
+  {
     id: 'if',
     type: 'iframe',
     store: 'iframes',

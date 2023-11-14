@@ -15,6 +15,7 @@ import { Notepad } from '@/components/widgets/Notepad.js'
 import { Quote } from '@/components/widgets/Quote.js'
 import { QuickLinks } from '@/components/widgets/QuickLinks.js'
 import { Iframe } from '@/components/widgets/Iframe.js'
+import { Countdown } from '@/components/widgets/Countdown.js'
 import { Loadshedding } from '@/components/widgets/Loadshedding.js'
 import { Fidget } from '@/components/widgets/Fidget.js'
 import { Snake } from '@/components/widgets/Snake.js'
@@ -37,6 +38,7 @@ const availableWidgets = new Map([
   ['searchBar', SearchBar],
   ['quickLinks', QuickLinks],
   ['iframe', Iframe],
+  ['countdown', Countdown],
   ['loadshedding', Loadshedding],
   ['fidget', Fidget],
   ['snake', Snake],

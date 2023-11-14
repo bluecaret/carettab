@@ -18,6 +18,7 @@ const props = defineProps({
   letterSpacing: Number,
   x: Number,
   y: Number,
+  noOffset: Boolean,
 })
 
 const handleOverrideUpdate = (bool) => {
@@ -64,7 +65,7 @@ const resetOverride = () => {
     <ToggleField :tag-id="`${type}-override`" :model-value="props.override" @update:model-value="handleOverrideUpdate">
     </ToggleField>
   </div>
-  <div v-if="props.override" class="block">
+  <div v-if="props.override && props.noOffset !== true" class="block">
     <label :for="`${type}-offsetY`" class="label mra"> Offset Y </label>
     <NumberField
       class="w10"
@@ -74,7 +75,7 @@ const resetOverride = () => {
       @update:model-value="handleOyUpdate"
     ></NumberField>
   </div>
-  <div v-if="props.override" class="block">
+  <div v-if="props.override && props.noOffset !== true" class="block">
     <label :for="`${type}-offsetX`" class="label mra"> Offset X </label>
     <NumberField
       class="w10"

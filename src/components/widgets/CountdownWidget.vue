@@ -112,6 +112,7 @@ onUnmounted(() => {
           { unitListTop: props.widget.units.position === 'top' },
           { unitListBottom: props.widget.units.position === 'bottom' },
           { unitListMono: props.widget.monospace },
+          { unitListVertical: props.widget.direction === 'vertical' },
         ]"
       >
         <div v-if="props.widget.years.on" class="unit">
@@ -295,10 +296,16 @@ onUnmounted(() => {
 .unitList {
   display: grid;
   gap: v-bind(getUnitSpacing);
-  grid-auto-flow: column;
-  grid-auto-columns: v-bind(getAutoColumns);
   .unit {
     display: flex;
+  }
+  &:not(.unitListVertical) {
+    grid-auto-flow: column;
+    grid-auto-columns: v-bind(getAutoColumns);
+  }
+  &.unitListVertical {
+    grid-auto-flow: row;
+    grid-auto-rows: v-bind(getAutoColumns);
   }
   &.unitListInline {
     .unit {

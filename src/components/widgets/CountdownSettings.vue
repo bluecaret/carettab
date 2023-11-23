@@ -51,6 +51,13 @@ allTimezones.unshift({ id: 'local', label: 'Local' })
           "
         ></AutocompleteField>
       </div>
+      <div class="block">
+        <label for="layoutDirection" class="label">Layout direction</label>
+        <select v-model="widget.direction" tag-id="layoutDirection" class="select mla w20">
+          <option value="horizontal">Horizontal</option>
+          <option value="vertical">Vertical</option>
+        </select>
+      </div>
       <FieldAccordion>
         <template #label>
           <div class="label">Countdown label</div>

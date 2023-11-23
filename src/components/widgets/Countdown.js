@@ -7,6 +7,7 @@ export class Countdown {
   equalWidth = false
   monospace = true
   spaceBetween = 1
+  direction = 'horizontal'
   label = {
     label: 'Countdown',
     on: false,

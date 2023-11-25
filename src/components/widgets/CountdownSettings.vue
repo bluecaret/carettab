@@ -1,23 +1,98 @@
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted, computed, watch } from 'vue'
 import { DateTime } from 'luxon'
+import { useI18n } from 'vue-i18n'
 import { useSettingsStore } from '@/store.js'
 import WidgetSegmentFont from '@/components/forms/WidgetSegmentFont.vue'
 
 const store = useSettingsStore()
+const { t } = useI18n()
 
 const widgetStore = 'countdowns'
 const ci = ref(store.config[widgetStore].findIndex((c) => c.id === store.editing))
 const widget = reactive(store.config[widgetStore][ci.value])
+const weekdayNames = ref([])
 
-const allTimezones = []
-for (const zone of Intl.supportedValuesOf('timeZone')) {
-  allTimezones.push({
-    id: zone,
-    label: `${zone} - ${DateTime.local({ zone }).toFormat('ZZZZZ')} (${DateTime.local({ zone }).toFormat('ZZZZ')})`,
-  })
+const getWeekdayNames = () => {
+  const startDate = DateTime.local(2023, 1, 2).setLocale(store.config.global.lang) // January 2, 2023 was a Monday
+  weekdayNames.value = []
+  for (let i = 0; i < 7; i++) {
+    weekdayNames.value.push([
+      startDate.plus({ days: i }).toFormat('ccccc'),
+      startDate.plus({ days: i }).toFormat('cccc'),
+    ])
+  }
 }
-allTimezones.unshift({ id: 'local', label: 'Local' })
+
+const getNthWeekdayOfMonth = computed(() => {
+  const dateTime = DateTime.fromISO(widget.target)
+
+  let nth = 0
+  for (let i = 1; i <= dateTime.day; i++) {
+    let tempDate = DateTime.local(dateTime.year, dateTime.month, i)
+    if (tempDate.weekday === dateTime.weekday) {
+      nth++
+    }
+  }
+
+  let nthWord
+  switch (nth) {
+    case 2:
+      nthWord = 'widget.secondWeekdayOfMonth'
+      break
+    case 3:
+      nthWord = 'widget.thirdWeekdayOfMonth'
+      break
+    case 4:
+      nthWord = 'widget.fourthWeekdayOfMonth'
+      break
+    case 5:
+      nthWord = 'widget.fifthWeekdayOfMonth'
+      break
+    default:
+      nthWord = 'widget.firstWeekdayOfMonth'
+      break
+  }
+
+  const weekdayLocalized = dateTime.setLocale(store.config.global.lang).toLocaleString({ weekday: 'long' })
+
+  return `${t(nthWord)} ${weekdayLocalized}`
+})
+
+const setWeeklyOn = (day) => {
+  if (widget.repeat.weeklyOn.includes(day)) {
+    const index = widget.repeat.weeklyOn.findIndex((d) => day === d)
+    widget.repeat.weeklyOn.splice(index, 1)
+  } else {
+    widget.repeat.weeklyOn.push(day)
+  }
+}
+
+const updateWeeklyOn = () => {
+  if (widget.repeat.recurrence === 'week') {
+    const dateTime = DateTime.fromISO(widget.target)
+    widget.repeat.weeklyOn = []
+    widget.repeat.weeklyOn.push(dateTime.weekday)
+  }
+}
+
+watch(
+  () => widget.target,
+  () => {
+    updateWeeklyOn()
+  }
+)
+
+watch(
+  () => widget.repeat.recurrence,
+  () => {
+    updateWeeklyOn()
+  }
+)
+
+onMounted(() => {
+  getWeekdayNames()
+})
 </script>
 
 <template>
@@ -28,55 +103,123 @@ allTimezones.unshift({ id: 'local', label: 'Local' })
       <WidgetFontField :index="ci" :widget-store="widgetStore" />
     </div>
     <div class="blockContainer">
-      <div class="block">
-        <div class="label mra">
-          <label for="clockTimezone">Countdown to date</label>
+      <div class="block stack">
+        <div class="group fill">
+          <label for="countdownTarget" class="label mra">{{ $t('widget.countdownToDate') }}</label>
+          <input id="countdownTarget" v-model="widget.target" type="datetime-local" class="input w20" />
+          <div class="group compact">
+            <label for="repeatEnable" class="desc">{{ $t('widget.repeat') }}</label>
+            <ToggleField v-model="widget.repeat.on" tag-id="repeatEnable"></ToggleField>
+          </div>
         </div>
-        <input v-model="widget.target" type="datetime-local" class="input w25" />
+        <div v-if="widget.repeat.on" class="group fill compact">
+          <label for="repeatNth" class="desc mla">{{ $t('widget.repeatEvery') }}</label>
+          <NumberField v-model="widget.repeat.nth" :increment="1" class="w7" tag-id="repeatNth" />
+          <select v-model="widget.repeat.recurrence" :aria-label="$t('widget.recurrence')" class="select w12">
+            <option value="day">{{ $t('widget.day') }}</option>
+            <option value="week">{{ $t('widget.week') }}</option>
+            <option value="month">{{ $t('widget.month') }}</option>
+            <option value="year">{{ $t('widget.year') }}</option>
+          </select>
+        </div>
+        <div v-if="widget.repeat.on && widget.repeat.recurrence === 'week'" class="group fill compact">
+          <div class="desc mla">{{ $t('widget.weeklyOn') }}</div>
+          <div v-if="weekdayNames && weekdayNames.length > 6" class="btnGroup">
+            <button
+              class="btn w3"
+              :class="{ active: widget.repeat.weeklyOn.includes(7) }"
+              :title="weekdayNames[6][1]"
+              @click="setWeeklyOn(7)"
+            >
+              {{ weekdayNames[6][0] }}
+            </button>
+            <button
+              class="btn w3"
+              :class="{ active: widget.repeat.weeklyOn.includes(1) }"
+              :title="weekdayNames[0][1]"
+              @click="setWeeklyOn(1)"
+            >
+              {{ weekdayNames[0][0] }}
+            </button>
+            <button
+              class="btn w3"
+              :class="{ active: widget.repeat.weeklyOn.includes(2) }"
+              :title="weekdayNames[1][1]"
+              @click="setWeeklyOn(2)"
+            >
+              {{ weekdayNames[1][0] }}
+            </button>
+            <button
+              class="btn w3"
+              :class="{ active: widget.repeat.weeklyOn.includes(3) }"
+              :title="weekdayNames[2][1]"
+              @click="setWeeklyOn(3)"
+            >
+              {{ weekdayNames[2][0] }}
+            </button>
+            <button
+              class="btn w3"
+              :class="{ active: widget.repeat.weeklyOn.includes(4) }"
+              :title="weekdayNames[3][1]"
+              @click="setWeeklyOn(4)"
+            >
+              {{ weekdayNames[3][0] }}
+            </button>
+            <button
+              class="btn w3"
+              :class="{ active: widget.repeat.weeklyOn.includes(5) }"
+              :title="weekdayNames[4][1]"
+              @click="setWeeklyOn(5)"
+            >
+              {{ weekdayNames[4][0] }}
+            </button>
+            <button
+              class="btn w3"
+              :class="{ active: widget.repeat.weeklyOn.includes(6) }"
+              :title="weekdayNames[5][1]"
+              @click="setWeeklyOn(6)"
+            >
+              {{ weekdayNames[5][0] }}
+            </button>
+          </div>
+        </div>
+        <div v-if="widget.repeat.on && widget.repeat.recurrence === 'month'" class="group fill compact">
+          <label for="repeatMonthlyOn" class="desc mla">{{ $t('widget.monthlyOn') }}</label>
+          <select id="repeatMonthlyOn" v-model="widget.repeat.monthlyOn" class="select w20">
+            <option value="day">
+              {{ $t('widget.day') }}
+              {{ DateTime.fromISO(widget.target).toFormat('d') }}
+            </option>
+            <option value="weekday">{{ getNthWeekdayOfMonth }}</option>
+          </select>
+        </div>
       </div>
       <div class="block">
-        <div class="label mra">
-          <label for="clockTimezone">{{ $t('widget.timezone') }}</label>
-          <div class="desc">{{ $t('widget.enterATimezoneName') }}</div>
-        </div>
-        <AutocompleteField
-          tag-id="clockTimezone"
-          class="w20"
-          :list="allTimezones"
-          :selected="widget.timezone"
-          @selected="
-            (tz) => {
-              widget.timezone = tz.id
-            }
-          "
-        ></AutocompleteField>
-      </div>
-      <div class="block">
-        <label for="layoutDirection" class="label">Layout direction</label>
-        <select v-model="widget.direction" tag-id="layoutDirection" class="select mla w20">
-          <option value="horizontal">Horizontal</option>
-          <option value="vertical">Vertical</option>
+        <label for="layoutDirection" class="label">{{ $t('widget.layoutDirection') }}</label>
+        <select id="layoutDirection" v-model="widget.direction" class="select mla w20">
+          <option value="horizontal">{{ $t('widget.horizontal') }}</option>
+          <option value="vertical">{{ $t('widget.vertical') }}</option>
         </select>
       </div>
       <FieldAccordion>
         <template #label>
-          <div class="label">Countdown label</div>
+          <div class="label">{{ $t('widget.countdownLabel') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="enableLabel" class="label">Enable countdown label</label>
-            <ToggleField v-model="widget.label.on" tag-id="enableLabel" class="mla"></ToggleField>
+            <label for="enableCountdownLabel" class="label">{{ $t('widget.enableCountdownLabel') }}</label>
+            <ToggleField v-model="widget.label.on" tag-id="enableCountdownLabel" class="mla"></ToggleField>
           </div>
           <div v-if="widget.label.on" class="block">
-            <label for="labelText" class="label">{{ $t('widget.labelText') }}</label>
-            <input id="labelText" v-model="widget.label.label" type="text" class="input mla w20" />
+            <label for="countdownLabelText" class="label">{{ $t('widget.labelText') }}</label>
+            <input id="countdownLabelText" v-model="widget.label.label" type="text" class="input mla w20" />
           </div>
           <div v-if="widget.label.on" class="block">
-            <label for="labelPosition" class="label">Position</label>
-            <select v-model="widget.label.position" tag-id="labelPosition" class="select mla w20">
-              <option value="inline">Inline</option>
-              <option value="top">Top</option>
-              <option value="bottom">Bottom</option>
+            <label for="countdownLabelPosition" class="label">{{ $t('widget.position') }}</label>
+            <select id="countdownLabelPosition" v-model="widget.label.position" class="select mla w20">
+              <option value="inline">{{ $t('widget.inline') }}</option>
+              <option value="top">{{ $t('widget.top') }}</option>
+              <option value="bottom">{{ $t('widget.bottom') }}</option>
             </select>
           </div>
           <WidgetSegmentFont
@@ -96,19 +239,19 @@ allTimezones.unshift({ id: 'local', label: 'Local' })
       </FieldAccordion>
       <FieldAccordion>
         <template #label>
-          <div class="label">Unit label</div>
+          <div class="label">{{ $t('widget.unitLabel') }}</div>
         </template>
         <template #children>
           <div class="block">
-            <label for="enableLabel" class="label">Enable unit label</label>
+            <label for="enableUnitLabel" class="label">{{ $t('widget.enableUnitLabel') }}</label>
             <ToggleField v-model="widget.units.on" tag-id="enableUnitLabel" class="mla"></ToggleField>
           </div>
           <div v-if="widget.units.on" class="block">
-            <label for="unitPosition" class="label">Position</label>
-            <select v-model="widget.units.position" tag-id="unitPosition" class="select mla w20">
-              <option value="inline">Inline</option>
-              <option value="top">Top</option>
-              <option value="bottom">Bottom</option>
+            <label for="unitPosition" class="label">{{ $t('widget.position') }}</label>
+            <select id="unitPosition" v-model="widget.units.position" class="select mla w20">
+              <option value="inline">{{ $t('widget.inline') }}</option>
+              <option value="top">{{ $t('widget.top') }}</option>
+              <option value="bottom">{{ $t('widget.bottom') }}</option>
             </select>
           </div>
           <WidgetSegmentFont
@@ -133,21 +276,21 @@ allTimezones.unshift({ id: 'local', label: 'Local' })
         <template #children>
           <div class="block">
             <div class="label mra">
-              <label for="equalWidth">Equal width units</label>
-              <div class="desc">Make each unit equal width (e.g. "years" will be the same width as "seconds").</div>
+              <label for="equalWidth">{{ $t('widget.equalWidthUnits') }}</label>
+              <div class="desc">{{ $t('widget.makeEachUnitEqualWidth') }}</div>
             </div>
             <ToggleField v-model="widget.equalWidth" tag-id="equalWidth"></ToggleField>
           </div>
           <div class="block">
             <div class="label mra">
               <label for="monospace">{{ $t('widget.equalWidthDigits') }}</label>
-              <div class="desc">Make each number equal widths (e.g. "1" will be the same width as "9").</div>
+              <div class="desc">{{ $t('widget.makeEachNumberEqualWidths') }}</div>
             </div>
             <ToggleField v-model="widget.monospace" tag-id="monospace"></ToggleField>
           </div>
           <div class="block">
             <div class="label mra">
-              <label for="spaceBetween">Spacing between units</label>
+              <label for="spaceBetween">{{ $t('widget.spacingBetweenUnits') }}</label>
             </div>
             <NumberField v-model="widget.spaceBetween" :increment="0.1" class="w10" tag-id="spaceBetween">
             </NumberField>
@@ -155,7 +298,7 @@ allTimezones.unshift({ id: 'local', label: 'Local' })
         </template>
       </FieldAccordion>
       <div class="block">
-        <div class="label fill">Years</div>
+        <div class="label fill">{{ $t('widget.year') }}</div>
         <div class="group compact">
           <label for="yearsLabelEnable" class="desc">{{ $t('common.enable') }}</label>
           <ToggleField v-model="widget.years.on" tag-id="yearsLabelEnable" class=""></ToggleField>
@@ -172,7 +315,7 @@ allTimezones.unshift({ id: 'local', label: 'Local' })
         </div>
       </div>
       <div class="block">
-        <div class="label fill">Months</div>
+        <div class="label fill">{{ $t('widget.month') }}</div>
         <div class="group compact">
           <label for="monthsLabelEnable" class="desc">{{ $t('common.enable') }}</label>
           <ToggleField v-model="widget.months.on" tag-id="monthsLabelEnable" class=""></ToggleField>
@@ -189,7 +332,7 @@ allTimezones.unshift({ id: 'local', label: 'Local' })
         </div>
       </div>
       <div class="block">
-        <div class="label fill">Weeks</div>
+        <div class="label fill">{{ $t('widget.week') }}</div>
         <div class="group compact">
           <label for="weeksLabelEnable" class="desc">{{ $t('common.enable') }}</label>
           <ToggleField v-model="widget.weeks.on" tag-id="weeksLabelEnable" class=""></ToggleField>
@@ -206,7 +349,7 @@ allTimezones.unshift({ id: 'local', label: 'Local' })
         </div>
       </div>
       <div class="block">
-        <div class="label fill">Days</div>
+        <div class="label fill">{{ $t('widget.day') }}</div>
         <div class="group compact">
           <label for="daysLabelEnable" class="desc">{{ $t('common.enable') }}</label>
           <ToggleField v-model="widget.days.on" tag-id="daysLabelEnable" class=""></ToggleField>
@@ -223,7 +366,7 @@ allTimezones.unshift({ id: 'local', label: 'Local' })
         </div>
       </div>
       <div class="block">
-        <div class="label fill">Hours</div>
+        <div class="label fill">{{ $t('widget.hour') }}</div>
         <div class="group compact">
           <label for="hoursLabelEnable" class="desc">{{ $t('common.enable') }}</label>
           <ToggleField v-model="widget.hours.on" tag-id="hoursLabelEnable" class=""></ToggleField>
@@ -240,7 +383,7 @@ allTimezones.unshift({ id: 'local', label: 'Local' })
         </div>
       </div>
       <div class="block">
-        <div class="label fill">Minutes</div>
+        <div class="label fill">{{ $t('widget.minute') }}</div>
         <div class="group compact">
           <label for="minutesLabelEnable" class="desc">{{ $t('common.enable') }}</label>
           <ToggleField v-model="widget.minutes.on" tag-id="minutesLabelEnable" class=""></ToggleField>
@@ -257,7 +400,7 @@ allTimezones.unshift({ id: 'local', label: 'Local' })
         </div>
       </div>
       <div class="block">
-        <div class="label fill">Seconds</div>
+        <div class="label fill">{{ $t('widget.seconds') }}</div>
         <div class="group compact">
           <label for="secondsLabelEnable" class="desc">{{ $t('common.enable') }}</label>
           <ToggleField v-model="widget.seconds.on" tag-id="secondsLabelEnable" class=""></ToggleField>

@@ -2,15 +2,21 @@ import { baseWidgetStyles } from '@/classes/BaseWidgetStyles.js'
 
 export class Countdown {
   id = ''
-  target = '2050-01-01T00:00'
-  timezone = 'local'
+  target = '2024-01-01T00:00'
   equalWidth = false
   monospace = true
   spaceBetween = 1
   direction = 'horizontal'
+  repeat = {
+    on: true,
+    nth: 1,
+    recurrence: 'year',
+    weeklyOn: [1],
+    monthlyOn: 'day',
+  }
   label = {
-    label: 'Countdown',
-    on: false,
+    label: 'New Years Day',
+    on: true,
     position: 'top',
     override: false,
     color: [0, 0, 100, 1],

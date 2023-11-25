@@ -40,19 +40,83 @@ const getAutoColumns = computed(() => {
 
 const calculateTimeLeft = () => {
   if (activeUnits.value.length > 0) {
-    const now = DateTime.now().setZone(props.widget.timezone)
-    const target = DateTime.fromISO(props.widget.target).setZone(props.widget.timezone)
+    const now = DateTime.now()
+    let target = DateTime.fromISO(props.widget.target)
+
+    if (props.widget.repeat.on) {
+      // Repeat logic
+      while (now >= target) {
+        switch (props.widget.repeat.recurrence) {
+          case 'day':
+            target = target.plus({ days: props.widget.repeat.nth })
+            break
+          case 'week':
+            // If 'weeklyOn' array is empty, add 7*nth days; else find next specified weekday
+            if (props.widget.repeat.weeklyOn.length === 0) {
+              target = target.plus({ weeks: props.widget.repeat.nth })
+            } else {
+              // Add nth weeks to the target date
+              target = target.plus({ weeks: props.widget.repeat.nth })
+
+              // Sort the 'weeklyOn' array to ensure the days are in order
+              const sortedWeeklyOn = [...props.widget.repeat.weeklyOn].sort()
+
+              // Find the next weekday from 'weeklyOn' after adding 'nth' weeks
+              // If no weekday is found in the current week, move to the first day in 'weeklyOn' in the next week
+              let nextWeekday = sortedWeeklyOn.find((day) => day >= target.weekday)
+              if (nextWeekday === undefined) {
+                // If no such day in the current week, take the first day in the next week
+                nextWeekday = sortedWeeklyOn[0]
+                target = target
+                  .plus({ weeks: 1 })
+                  .startOf('week')
+                  .plus({ days: nextWeekday - 1 })
+              } else {
+                // Adjust the target day to the next specified weekday
+                target = target.set({ weekday: nextWeekday })
+              }
+            }
+            break
+          case 'month':
+            if (props.widget.repeat.monthlyOn === 'day') {
+              target = target.plus({ months: props.widget.repeat.nth }).set({ day: target.day })
+            }
+            // When repeating on a specific weekday of the month (e.g., 2nd Tuesday),
+            // calculate the nth occurrence of that weekday in the target month after adding 'nth' months
+            else if (props.widget.repeat.monthlyOn === 'weekday') {
+              let initialWeekday = target.weekday
+              let initialWeekdayOccurrence = Math.ceil(target.day / 7)
+
+              target = target.plus({ months: props.widget.repeat.nth }).startOf('month')
+              let specificWeekdayCount = 0
+
+              while (specificWeekdayCount < initialWeekdayOccurrence) {
+                if (target.weekday === initialWeekday) {
+                  specificWeekdayCount++
+                }
+                target = target.plus({ days: 1 })
+              }
+              // Adjust the target back by one day as it will be one day ahead after exiting the loop
+              target = target.minus({ days: 1 })
+            }
+            break
+          case 'year':
+            target = target.plus({ years: props.widget.repeat.nth })
+            break
+        }
+      }
+    }
+
     const diff = target.diff(now, activeUnits.value).toObject()
 
     // Ensure all units are whole numbers
     for (const unit in diff) {
       diff[unit] = Math.floor(diff[unit])
     }
-    // console.log(now, target, diff)
 
     timeLeft.value = diff
 
-    if (now >= target) {
+    if (now >= target && !props.widget.repeat.on) {
       clearInterval(intervalId.value)
       timeLeft.value = null
     }
@@ -120,7 +184,7 @@ onUnmounted(() => {
             {{ props.widget.years.label }}
           </div>
           <div v-if="props.widget.monospace && timeLeft && timeLeft.years" class="unitDigit">
-            <span v-for="d in timeLeft.years.toString().split('')" :key="d">
+            <span v-for="(d, index) in timeLeft.years.toString().split('')" :key="index">
               {{ d }}
             </span>
           </div>
@@ -134,7 +198,7 @@ onUnmounted(() => {
             {{ props.widget.months.label }}
           </div>
           <div v-if="props.widget.monospace && timeLeft && timeLeft.months" class="unitDigit">
-            <span v-for="d in timeLeft.months.toString().split('')" :key="d">
+            <span v-for="(d, index) in timeLeft.months.toString().split('')" :key="index">
               {{ d }}
             </span>
           </div>
@@ -148,7 +212,7 @@ onUnmounted(() => {
             {{ props.widget.weeks.label }}
           </div>
           <div v-if="props.widget.monospace && timeLeft && timeLeft.weeks" class="unitDigit">
-            <span v-for="d in timeLeft.weeks.toString().split('')" :key="d">
+            <span v-for="(d, index) in timeLeft.weeks.toString().split('')" :key="index">
               {{ d }}
             </span>
           </div>
@@ -162,7 +226,7 @@ onUnmounted(() => {
             {{ props.widget.days.label }}
           </div>
           <div v-if="props.widget.monospace && timeLeft && timeLeft.days" class="unitDigit">
-            <span v-for="d in timeLeft.days.toString().split('')" :key="d">
+            <span v-for="(d, index) in timeLeft.days.toString().split('')" :key="index">
               {{ d }}
             </span>
           </div>
@@ -176,7 +240,7 @@ onUnmounted(() => {
             {{ props.widget.hours.label }}
           </div>
           <div v-if="props.widget.monospace && timeLeft && timeLeft.hours" class="unitDigit">
-            <span v-for="d in timeLeft.hours.toString().split('')" :key="d">
+            <span v-for="(d, index) in timeLeft.hours.toString().split('')" :key="index">
               {{ d }}
             </span>
           </div>
@@ -190,7 +254,7 @@ onUnmounted(() => {
             {{ props.widget.minutes.label }}
           </div>
           <div v-if="props.widget.monospace && timeLeft && timeLeft.minutes" class="unitDigit">
-            <span v-for="d in timeLeft.minutes.toString().split('')" :key="d">
+            <span v-for="(d, index) in timeLeft.minutes.toString().split('')" :key="index">
               {{ d }}
             </span>
           </div>
@@ -204,7 +268,7 @@ onUnmounted(() => {
             {{ props.widget.seconds.label }}
           </div>
           <div v-if="props.widget.monospace && timeLeft && timeLeft.seconds" class="unitDigit">
-            <span v-for="d in timeLeft.seconds.toString().split('')" :key="d">
+            <span v-for="(d, index) in timeLeft.seconds.toString().split('')" :key="index">
               {{ d }}
             </span>
           </div>

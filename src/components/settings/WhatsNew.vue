@@ -70,27 +70,9 @@ const handleClearWhatsNew = async () => {
         <div class="modalContent">
           <div class="group">
             <div class="fill">
-              <h4 class="subtitle">v4.2.0 {{ $t('updates.newFeatures') }}</h4>
+              <h4 class="subtitle">v4.3.0 {{ $t('updates.newFeatures') }}</h4>
               <ul class="ul">
-                <li>
-                  New: Dynamic scaling is back and better! Size individual widgets based on the browser screen size.
-                </li>
-                <li>New: Widget container and font settings are all available in the free plan, no Premium needed.</li>
-                <li>New: You can now filter the widget list when adding widgets.</li>
-                <li>Added: IFrame widget for embedding websites on the New Tab.</li>
-                <li>Added: Breathing Exercise tool in the toolbar. Requires Premium Access.</li>
-                <li>Added: Snake game widget. Requires Premium Access.</li>
-                <li>Added: Fidget toy widget. Requires Premium Access.</li>
-              </ul>
-              <h4 class="subtitle">v4.2.0 {{ $t('updates.fixesAndOthers') }}</h4>
-              <ul class="ul">
-                <li>Fixed: Meridiem in digital clock would be stuck on AM depending on the selected language.</li>
-                <li>Fixed: Multiple spaces now allowed in the Quote and Text widgets.</li>
-                <li>Fixed: Various translation bugs.</li>
-                <li>Weather widget has a maximum number of widgets allowed to avoid API abuse.</li>
-                <li>Fixed: The warning about the weather failing to update was too obtrusive.</li>
-                <li>Fixed: Incorrect favicon was showing depending on theme.</li>
-                <li>Fixed: Weather container styles not applying correctly.</li>
+                <li>Added: Countdown widget. Requires Premium Access.</li>
               </ul>
             </div>
           </div>

@@ -145,16 +145,6 @@ const handleBlueprintSelection = async (blueprint) => {
                 </template>
               </ModalWindow>
             </li>
-            <li>
-              <div class="blueprintItem explanation">
-                <div class="explanationTitle">{{ $t('settings.shareYourCreation') }}</div>
-                <div class="explanationDesc">
-                  {{ store.tSplit($t('settings.doYouHaveALayout'))[0] }}
-                  <a href="mailto:dev@bluecaret.com">dev@bluecaret.com</a>
-                  {{ store.tSplit($t('settings.doYouHaveALayout'))[1] }}
-                </div>
-              </div>
-            </li>
           </ul>
         </div>
       </div>

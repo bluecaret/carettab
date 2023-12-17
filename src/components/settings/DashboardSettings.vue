@@ -7,6 +7,7 @@ import WhatsNew from '@/components/settings/WhatsNew.vue'
 import ToolBarSettings from '@/components/tools/ToolBarSettings.vue'
 import AddWidgetModal from '@/components/elements/AddWidgetModal.vue'
 import BlueprintModal from '@/components/elements/BlueprintModal.vue'
+import BuyMeACoffeeModal from '@/components/elements/BuyMeACoffeeModal.vue'
 import WallpaperSettings from '@/components/settings/WallpaperSettings.vue'
 import GlobalWidgetSettings from '@/components/settings/GlobalWidgetSettings.vue'
 import ExtensionSettings from '@/components/settings/ExtensionSettings.vue'
@@ -77,7 +78,10 @@ const handleRenameSave = (id) => {
         </h3>
       </div>
     </div>
-    <h2 class="introHeader">{{ $t('common.slogan') }}</h2>
+    <div class="introHeaderWrapper group">
+      <h2 class="introHeader">{{ $t('common.sloganPart1') }}<br />{{ $t('common.sloganPart2') }}</h2>
+      <buy-me-a-coffee-modal />
+    </div>
     <draggable
       class="blockContainer"
       :list="store.config.layers"
@@ -219,11 +223,17 @@ const handleRenameSave = (id) => {
   }
 }
 
+.introHeaderWrapper {
+  margin: 0 auto 2rem auto;
+}
+
 .introHeader {
+  margin: 0 auto;
+  text-wrap: pretty;
+  flex: 0 1 auto;
   font-size: 2rem;
   font-weight: 300;
   letter-spacing: 0.02em;
-  margin: 0 auto 2rem auto;
   text-align: center;
   color: var(--b2);
   .lightGrayMode &,

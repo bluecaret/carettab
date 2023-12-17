@@ -1,12 +1,11 @@
 <script setup>
-import { ref, computed, inject } from 'vue'
+import { ref, computed } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { setWidgetContainerStyles, getDynamicSize } from '@/helpers/widgets.js'
 import FidgetBubblewrap from '@/components/widgets/FidgetBubblewrap.vue'
 import FidgetSpinner from '@/components/widgets/FidgetSpinner.vue'
 
 const store = useSettingsStore()
-const user = inject('user')
 
 const props = defineProps({
   widget: {

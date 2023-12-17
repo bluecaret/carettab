@@ -1,10 +1,9 @@
 <script setup>
-import { computed, inject, ref, onMounted, onBeforeUnmount, nextTick, watch, toRaw } from 'vue'
+import { computed, ref, onMounted, onBeforeUnmount, nextTick, watch, toRaw } from 'vue'
 import { useSettingsStore, setStorage } from '@/store.js'
 import { setWidgetContainerStyles, hsl, shadow } from '@/helpers/widgets.js'
 
 const store = useSettingsStore()
-const user = inject('user')
 
 const props = defineProps({
   widget: {

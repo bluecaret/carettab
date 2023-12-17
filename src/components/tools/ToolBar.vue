@@ -1,5 +1,5 @@
 <script setup>
-import { ref, inject } from 'vue'
+import { ref } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { useStopwatchStore, useTimerStore } from '@/components/tools/toolStore.js'
 import CalculatorTool from '@/components/tools/CalculatorTool.vue'
@@ -14,7 +14,6 @@ import { toolTypes } from '@/assets/lists.js'
 const store = useSettingsStore()
 const stopwatchStore = useStopwatchStore()
 const timerStore = useTimerStore()
-const user = inject('user')
 const selected = ref('')
 
 const toggleTool = (tool) => {
@@ -31,7 +30,7 @@ const getToolType = (id) => {
   <div class="toolbar">
     <ul>
       <template v-for="tool in store.config.toolbar.tools" :key="tool.id">
-        <li v-if="tool.on && (!getToolType(tool.id).premium || user.paid)">
+        <li v-if="tool.on">
           <button
             class="toolBtn"
             type="button"

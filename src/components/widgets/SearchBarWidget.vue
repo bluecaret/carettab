@@ -1,11 +1,10 @@
 <script setup>
-import { ref, computed, watch, inject } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { setWidgetContainerStyles, hsl, shadow, getDynamicSize } from '@/helpers/widgets.js'
 import { searchEngines } from '@/assets/lists.js'
 
 const store = useSettingsStore()
-const user = inject('user')
 
 const props = defineProps({
   widget: {

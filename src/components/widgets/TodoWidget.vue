@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, inject, toRaw, onMounted, nextTick } from 'vue'
+import { ref, computed, toRaw, onMounted, nextTick } from 'vue'
 import draggable from 'vuedraggable'
 import { useSettingsStore, generateUID, setStorage } from '@/store.js'
 import { setWidgetContainerStyles, hsl } from '@/helpers/widgets.js'
@@ -8,7 +8,6 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 const store = useSettingsStore()
-const user = inject('user')
 const newNameEl = ref(null)
 const taskMenuEl = ref(null)
 const addTaskMenuEl = ref(null)

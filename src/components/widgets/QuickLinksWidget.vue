@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount, nextTick, computed, watch, inject } from 'vue'
+import { ref, onMounted, onBeforeUnmount, nextTick, computed, watch } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { hsl, shadow, checkPermission, setWidgetContainerStyles, getDynamicSize } from '@/helpers/widgets.js'
 import QuickLinksNode from '@/components/widgets/QuickLinksNode.vue'
@@ -12,7 +12,6 @@ const props = defineProps({
 })
 
 const store = useSettingsStore()
-const user = inject('user')
 const loading = ref(false)
 const containerSize = ref(0)
 const availableSpace = ref(0)

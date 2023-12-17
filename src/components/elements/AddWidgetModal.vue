@@ -1,9 +1,8 @@
 <script setup>
-import { ref, inject, computed } from 'vue'
+import { ref, computed } from 'vue'
 import { widgetTypes, widgetTags } from '@/assets/lists.js'
 import { useSettingsStore } from '@/store.js'
 
-const user = inject('user')
 const store = useSettingsStore()
 const emit = defineEmits(['selected'])
 const show = ref(false)
@@ -21,21 +20,10 @@ const handleWidgetClick = (type) => {
   emit('selected', type)
 }
 
-const hasReachedLimit = (type) => {
-  const widgetLayers = store.config.layers.filter((layer) => layer.widget === type)
-  const widget = widgetTypes.find((w) => w.type === type)
-  return widgetLayers.length >= widget.limit
-}
-
 const hasReachedMax = (type) => {
   const widgetLayers = store.config.layers.filter((layer) => layer.widget === type)
   const widget = widgetTypes.find((w) => w.type === type)
   return widgetLayers.length >= widget.max
-}
-
-const handleOpenPremiumModal = () => {
-  store.showPremiumModal = true
-  store.premiumModalBtnRef = modalCloseEl
 }
 
 const filterByTag = (tag) => {
@@ -88,10 +76,7 @@ const filterByTag = (tag) => {
                 :class="{ active: currentTag === tag.label }"
                 @click="filterByTag(tag.label)"
               >
-                <fa
-                  :icon="currentTag === tag.label ? 'fa-check' : tag.label === 'Premium Access' ? 'fa-gem' : 'fa-tag'"
-                  fixed-width
-                />
+                <fa :icon="currentTag === tag.label ? 'fa-check' : 'fa-tag'" fixed-width />
                 {{ $t(tag.translation) }}
               </button>
             </div>
@@ -111,37 +96,11 @@ const filterByTag = (tag) => {
                   </div>
                 </div>
               </button>
-              <button
-                v-else-if="!user.paid && hasReachedLimit(widget.type)"
-                type="button"
-                class="widgetItem widgetPremium"
-                @click.stop="handleOpenPremiumModal()"
-              >
-                <div class="group compact">
-                  <fa class="widgetItemIcon" :icon="widget.icon" fixed-width />
-                  <div class="widgetItemName">{{ widget.name }}</div>
-                </div>
-                <div class="widgetItemContent">
-                  <div v-if="widget.limit !== 0" class="widgetLimitDesc">
-                    <span>{{ $t('settings.youReachedTheLimitForThisWidget') }}</span>
-                  </div>
-                  <div v-if="widget.limit !== 0" class="widgetPremiumDesc">
-                    <fa icon="fa-gem" /><span>{{ $t('settings.goPremiumForUnlimitedWidgetsAndMore') }}</span>
-                  </div>
-                  <div v-if="widget.limit === 0" class="widgetLimitDesc widgetLimitDescTruncate">
-                    <span :title="widget.desc">{{ widget.desc }}</span>
-                  </div>
-                  <div v-if="widget.limit === 0" class="widgetPremiumDesc">
-                    <fa icon="fa-gem" /><span>{{ $t('settings.goPremiumToGetThisWidgetAndMoreCustomization') }}</span>
-                  </div>
-                </div>
-              </button>
               <button v-else type="button" class="widgetItem" @click="handleWidgetClick(widget.type)">
                 <fa class="widgetItemIcon" :icon="widget.icon" fixed-width />
                 <div class="widgetItemContent">
                   <div class="widgetItemName">
                     {{ widget.name }}
-                    <PremiumLabel v-if="widget.limit === 0" />
                   </div>
                   <div class="widgetItemDesc">{{ widget.desc }}</div>
                 </div>
@@ -263,8 +222,7 @@ const filterByTag = (tag) => {
   color: var(--cTextSubtle);
 }
 
-.widgetMax,
-.widgetPremium {
+.widgetMax {
   background-blend-mode: darken;
   background-color: hsl(var(--g2H) calc(var(--g2S) - 40%) calc(var(--g2L) - 0.5%));
   --iconBg: hsl(var(--g2H) calc(var(--g2S) - 40%) calc(var(--g2L) - 1.5%));
@@ -291,16 +249,6 @@ const filterByTag = (tag) => {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-  }
-  .widgetPremiumDesc {
-    font-size: 1.4rem;
-    display: flex;
-    gap: var(--s4);
-    margin-block-start: var(--s5);
-    color: var(--b2);
-    .svg-inline--fa {
-      font-size: 1.8rem;
-    }
   }
 }
 </style>

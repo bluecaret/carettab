@@ -56,7 +56,7 @@ const getTextColor = computed(() => {
       @click="toggleSettings"
     >
       <fa v-if="!store.settingsOpen" icon="fa-bars" />
-      <div v-if="status === 'updated'" class="updateNotice"><fa icon="fa-asterisk" /></div>
+      <div v-if="status === 'updated'" class="updateNotice">NEW!</div>
     </button>
   </div>
 </template>
@@ -124,13 +124,19 @@ const getTextColor = computed(() => {
     position: absolute;
     top: 50%;
     right: 2.7em;
-    transform: translateY(-70%);
-    transform-origin: bottom center;
-    color: currentColor;
-    font-size: 0.8em;
-    > .svg-inline--fa {
-      filter: drop-shadow(v-bind(getShadow));
-    }
+    transform: translate(-50%, -50%);
+    transform-origin: top left;
+    color: black;
+    font-size: 0.55em;
+    font-weight: 700;
+    line-height: 1;
+    background-color: goldenrod;
+    display: grid;
+    place-items: center;
+    padding: 0.05rem 0.3rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.3rem 0 black;
+    animation: pulse2 1s ease-in-out infinite alternate;
   }
 
   &.open .quietUpdateNotice {
@@ -163,6 +169,16 @@ const getTextColor = computed(() => {
   100% {
     opacity: 1;
     scale: 3;
+  }
+}
+
+@keyframes pulse2 {
+  0% {
+    scale: 1;
+  }
+
+  100% {
+    scale: 1.2;
   }
 }
 </style>

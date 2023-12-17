@@ -43,7 +43,7 @@ const handleClearWhatsNew = async () => {
       <div class="whatsNewBox" @click="whatsNewModal = true">
         <div class="group fill">
           <fa class="whatsNewIcon" icon="fa-bell"></fa>
-          <h3 class="fill">{{ $t('dashboard.newUpdate') }} &mdash; {{ $t('settings.version', [ver]) }}</h3>
+          <h3 class="fill">All Premium Access features are now FREE</h3>
           <button type="button" class="btn fit" @click="whatsNewModal = true">
             <div class="fit">{{ $t('dashboard.readWhatsNew') }}</div>
           </button>
@@ -58,6 +58,24 @@ const handleClearWhatsNew = async () => {
           </button>
         </div>
       </div>
+      <!-- <div class="whatsNewBox" @click="whatsNewModal = true">
+        <div class="group fill">
+          <fa class="whatsNewIcon" icon="fa-bell"></fa>
+          <h3 class="fill">{{ $t('dashboard.newUpdate') }} &mdash; {{ $t('settings.version', [ver]) }}</h3>
+          <button type="button" class="btn fit" @click="whatsNewModal = true">
+            <div class="fit">{{ $t('dashboard.readWhatsNew') }}</div>
+          </button>
+          <button
+            type="button"
+            class="btn fit btnText"
+            :title="$t('dashboard.dismiss')"
+            :aria-label="$t('dashboard.dismiss')"
+            @click.stop="handleClearWhatsNew"
+          >
+            <fa icon="fa-xmark"></fa>
+          </button>
+        </div>
+      </div> -->
     </template>
     <template #window>
       <div class="modal whatsNewModal">
@@ -70,10 +88,42 @@ const handleClearWhatsNew = async () => {
         <div class="modalContent">
           <div class="group">
             <div class="fill">
-              <h4 class="subtitle">v4.3.0 {{ $t('updates.newFeatures') }}</h4>
-              <ul class="ul">
-                <li>Added: Countdown widget. Requires Premium Access.</li>
-              </ul>
+              <h4 class="subtitle">All CaretTab Premium Access features now FREE!</h4>
+              <p>
+                After much consideration, I've decided to make all Premium features of CaretTab available for free. This
+                decision stems from many reasons including the complexities involved in managing subscription services
+                for browser extensions and a desire to branch out to other endeavors.
+              </p>
+              <h4 class="subtitle">A Shift in Focus</h4>
+              <p>
+                I am also excited to share that I will be exploring new horizons in Android App development. This shift
+                means that while CaretTab will remain available and functional, my focus on its development will be
+                reduced. This transition to free access ensures that CaretTab can continue to be a part of your daily
+                routine, with less need for active management from my end. Please be assured that I plan to continue
+                keeping CaretTab available for the foreseeable future.
+              </p>
+              <h4 class="subtitle">Current Premium Access Subscriptions</h4>
+              <p>
+                If you have a current Premium Access subscription, it will automatically be cancelled. You don't need to
+                take any action regarding this change.
+              </p>
+              <h4 class="subtitle">Your Support is Valuable</h4>
+              <p>
+                Your support has been the driving force behind CaretTab. If you wish to continue supporting my
+                endeavors, contributions are welcome at
+                <a href="https://www.buymeacoffee.com/bluecaret" target="_blank">Buy Me a Coffee</a>. Your generosity
+                fuels my passion and allows me to explore new creative avenues.
+              </p>
+              <h4 class="subtitle">Feedback and Suggestions</h4>
+              <p>
+                As always, your thoughts and feedback are invaluable. They have shaped CaretTab into what it is today
+                and will continue to be a vital part of its journey.
+              </p>
+              <p>
+                Thank you for being with CaretTab through its evolution. Your understanding and support mean the world
+                to me as I venture into new areas of development.
+              </p>
+              <p>Warm regards,<br />John Hancock (BlueCaret)<br />Creator of CaretTab</p>
             </div>
           </div>
           <div
@@ -264,6 +314,8 @@ const handleClearWhatsNew = async () => {
 
   .whatsNewIcon {
     font-size: 2.4rem;
+    transform-origin: top center;
+    animation: bell 0.7s ease-in-out infinite alternate;
   }
   h3 {
     display: block;
@@ -283,6 +335,16 @@ const handleClearWhatsNew = async () => {
 
   .modalContent .group {
     align-items: start;
+  }
+}
+
+@keyframes bell {
+  0% {
+    rotate: 10deg;
+  }
+
+  100% {
+    rotate: -10deg;
   }
 }
 </style>

@@ -81,7 +81,6 @@ const importSettings = () => {
             <label for="hideSettings">{{ $t('advanced.resetToDefault') }}</label>
             <div class="desc">
               <strong>{{ $t('advanced.resetToDefaultDescription') }}</strong>
-              {{ $t('advanced.resetToDefaultDescription2') }}
             </div>
           </div>
           <div class="fit">

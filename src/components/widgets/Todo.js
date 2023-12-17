@@ -14,7 +14,7 @@ export class Todo {
   }
   list = [
     { id: 'one', name: 'Leave a review for CaretTab', done: true, flag: false },
-    { id: 'two', name: 'Signup for CaretTab Premium', done: false, flag: true },
+    { id: 'two', name: 'Customize my NEW New Tab page', done: false, flag: true },
     { id: 'three', name: 'Fill out this todo list', done: false, flag: false },
   ]
   base = { ...baseWidgetStyles, font: { ...baseWidgetStyles.font, size: 20 } }

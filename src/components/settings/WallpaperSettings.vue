@@ -1,6 +1,6 @@
 <!-- eslint-disable no-undef -->
 <script setup>
-import { ref, inject } from 'vue'
+import { ref } from 'vue'
 import { useSettingsStore, getStorage, setStorage } from '@/store.js'
 import {
   prepareUnsplashWallpaperObj,
@@ -16,7 +16,6 @@ if (typeof browser === 'undefined') {
   var browser = chrome
 }
 
-const user = inject('user')
 const store = useSettingsStore()
 const uploadImageField = ref(null)
 const imageTypeMenu = ref(null)
@@ -377,14 +376,10 @@ const handleImageLock = () => {
                       </button>
                     </li>
                     <li>
-                      <button :disabled="!user.paid" class="btn btnBlock" type="button" @click="store.goTo('pexels')">
-                        <PremiumLabel />Pexels.com
-                      </button>
+                      <button class="btn btnBlock" type="button" @click="store.goTo('pexels')">Pexels.com</button>
                     </li>
                     <li>
-                      <button :disabled="!user.paid" class="btn btnBlock" type="button" @click="store.goTo('unsplash')">
-                        <PremiumLabel />Unsplash.com
-                      </button>
+                      <button class="btn btnBlock" type="button" @click="store.goTo('unsplash')">Unsplash.com</button>
                     </li>
                   </ul>
                 </template>
@@ -472,23 +467,16 @@ const handleImageLock = () => {
         </div>
         <div class="block">
           <div class="label mra">
-            <div><PremiumLabel />{{ $t('settings.contrast') }}</div>
+            <div>{{ $t('settings.contrast') }}</div>
           </div>
           <div class="range w20">
             <output class="output">{{ store.config.global.wallpaper.contrast }}</output>
-            <input
-              v-model="store.config.global.wallpaper.contrast"
-              type="range"
-              class="rangeInput"
-              min="0"
-              max="30"
-              :disabled="!user.paid"
-            />
+            <input v-model="store.config.global.wallpaper.contrast" type="range" class="rangeInput" min="0" max="30" />
           </div>
         </div>
         <div class="block">
           <div class="label mra">
-            <div><PremiumLabel />{{ $t('settings.saturation') }}</div>
+            <div>{{ $t('settings.saturation') }}</div>
           </div>
           <div class="range w20">
             <output class="output">{{ store.config.global.wallpaper.saturation }}</output>
@@ -498,24 +486,16 @@ const handleImageLock = () => {
               class="rangeInput"
               min="0"
               max="30"
-              :disabled="!user.paid"
             />
           </div>
         </div>
         <div class="block">
           <div class="label mra">
-            <div><PremiumLabel />{{ $t('settings.blur') }}</div>
+            <div>{{ $t('settings.blur') }}</div>
           </div>
           <div class="range w20">
             <output class="output">{{ store.config.global.wallpaper.blur }}</output>
-            <input
-              v-model="store.config.global.wallpaper.blur"
-              type="range"
-              class="rangeInput"
-              min="0"
-              max="50"
-              :disabled="!user.paid"
-            />
+            <input v-model="store.config.global.wallpaper.blur" type="range" class="rangeInput" min="0" max="50" />
           </div>
         </div>
         <div class="block">

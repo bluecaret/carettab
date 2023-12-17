@@ -6,8 +6,6 @@ export const newFeatureCheckIgnoreList = [
 ]
 
 export const widgetTags = [
-  { label: 'Premium Access', translation: 'settings.tagPremium' },
-  { label: 'Free', translation: 'settings.tagFree' },
   { label: 'Design', translation: 'settings.tagDesign' },
   { label: 'Focus', translation: 'settings.tagFocus' },
   { label: 'Fun', translation: 'settings.tagFun' },
@@ -29,7 +27,7 @@ export const widgetTypes = [
     limit: 9999,
     max: 9999,
     desc: 'A sleek, modern way to keep track of the time, ensuring you always stay on schedule.',
-    tags: ['Free', 'Time and Date', 'Utility'],
+    tags: ['Time and Date', 'Utility'],
   },
   {
     id: 'ac',
@@ -40,7 +38,7 @@ export const widgetTypes = [
     limit: 9999,
     max: 9999,
     desc: 'Embrace the charm of timeless elegance with an analog clock, offering a tasteful reminder of the passing hours and minutes.',
-    tags: ['Free', 'Time and Date', 'Utility'],
+    tags: ['Time and Date', 'Utility'],
   },
   {
     id: 'bc',
@@ -51,7 +49,7 @@ export const widgetTypes = [
     limit: 5,
     max: 9999,
     desc: 'The perfect blend of tech and timekeeping, for those who appreciate a unique, coded perspective.',
-    tags: ['Free', 'Time and Date', 'Utility'],
+    tags: ['Time and Date', 'Utility'],
   },
   {
     id: 'dt',
@@ -62,7 +60,7 @@ export const widgetTypes = [
     limit: 1,
     max: 9999,
     desc: 'Stay aligned with the rhythm of the year, displaying not only the date but also the day of the year, week of the year, and more.',
-    tags: ['Free', 'Time and Date', 'Utility'],
+    tags: ['Time and Date', 'Utility'],
   },
   {
     id: 'wr',
@@ -73,7 +71,7 @@ export const widgetTypes = [
     limit: 1,
     max: 6,
     desc: 'Your personal meteorologist in your browser, offering key weather updates and forecasts at a glance.',
-    tags: ['Free', 'Information', 'Utility'],
+    tags: ['Information', 'Utility'],
   },
   {
     id: 'td',
@@ -84,7 +82,7 @@ export const widgetTypes = [
     limit: 1,
     max: 9999,
     desc: 'Your personalized task list at your fingertips, ensuring you stay focused and organized by managing your tasks directly from your new tab.',
-    tags: ['Free', 'Productivity', 'Utility'],
+    tags: ['Productivity', 'Utility'],
   },
   {
     id: 'np',
@@ -95,7 +93,7 @@ export const widgetTypes = [
     limit: 1,
     max: 9999,
     desc: 'Your digital canvas for thoughts, ideas, and reminders, ensuring you never miss a beat.',
-    tags: ['Free', 'Productivity', 'Utility'],
+    tags: ['Productivity', 'Utility'],
   },
   {
     id: 'qt',
@@ -106,7 +104,7 @@ export const widgetTypes = [
     limit: 1,
     max: 9999,
     desc: 'Your personal trove of wisdom and wit, this widget showcases your favorite quotes, handpicked and added by you.',
-    tags: ['Free', 'Inspiration'],
+    tags: ['Inspiration'],
   },
   {
     id: 'ql',
@@ -117,7 +115,7 @@ export const widgetTypes = [
     limit: 2,
     max: 9999,
     desc: 'Your personal internet directory, curated by you, providing quick access to your favorite sites and saved bookmarks.',
-    tags: ['Free', 'Utility', 'Web', 'Productivity'],
+    tags: ['Utility', 'Web', 'Productivity'],
   },
   {
     id: 'sb',
@@ -128,7 +126,7 @@ export const widgetTypes = [
     limit: 1,
     max: 9999,
     desc: 'Your portal to the web, with the freedom to choose your preferred search engine for more tailored results.',
-    tags: ['Free', 'Utility', 'Web', 'Productivity'],
+    tags: ['Utility', 'Web', 'Productivity'],
   },
   {
     id: 'cd',
@@ -139,7 +137,7 @@ export const widgetTypes = [
     limit: 1,
     max: 9999,
     desc: 'Count down the seconds to your upcoming events, helping you manage your time and never miss a moment.',
-    tags: ['Premium Access', 'Time and Date', 'Utility'],
+    tags: ['Time and Date', 'Utility'],
   },
   {
     id: 'ls',
@@ -150,7 +148,7 @@ export const widgetTypes = [
     limit: 9999,
     max: 9999,
     desc: 'Stay ahead of power outages with this informative widget, helping South African residents manage their schedules better.',
-    tags: ['Free', 'Information'],
+    tags: ['Information'],
   },
   {
     id: 'if',
@@ -161,7 +159,7 @@ export const widgetTypes = [
     limit: 0,
     max: 9999,
     desc: 'Seamlessly embed external web pages or content into your new tab. NOTE: Some websites are not compatible with the iframe.',
-    tags: ['Premium Access', 'Utility', 'Web'],
+    tags: ['Utility', 'Web'],
   },
   {
     id: 'fg',
@@ -172,7 +170,7 @@ export const widgetTypes = [
     limit: 0,
     max: 9999,
     desc: 'An interactive digital fidget toy to soothe ADHD and anxiety symptoms, offering tactile-like sensations for focused relaxation.',
-    tags: ['Premium Access', 'Fun', 'Focus'],
+    tags: ['Fun', 'Focus'],
   },
   {
     id: 'sk',
@@ -183,7 +181,7 @@ export const widgetTypes = [
     limit: 0,
     max: 9999,
     desc: 'Maneuver a digital snake to collect items, adding a layer of dexterity and strategy to your browsing experience.',
-    tags: ['Premium Access', 'Fun'],
+    tags: ['Fun'],
   },
   {
     id: 'sh',
@@ -194,7 +192,7 @@ export const widgetTypes = [
     limit: 0,
     max: 9999,
     desc: 'Add a touch of geometry to your browser, letting you personalize your new tab with a variety of shapes.',
-    tags: ['Premium Access', 'Design'],
+    tags: ['Design'],
   },
   {
     id: 'tx',
@@ -205,18 +203,18 @@ export const widgetTypes = [
     limit: 0,
     max: 9999,
     desc: 'A customizable text area where you can write your own messages or simply use it to personalize your new tab with your favorite saying.',
-    tags: ['Premium Access', 'Design'],
+    tags: ['Design'],
   },
 ]
 
 export const toolTypes = [
-  { tool: 'calculator', name: 'Calculator', icon: 'fa-calculator', premium: false },
-  { tool: 'converter', name: 'Unit Converter', icon: 'fa-right-left', premium: false },
-  { tool: 'timer', name: 'Timer', icon: 'fa-hourglass-half', premium: false },
-  { tool: 'stopwatch', name: 'Stopwatch', icon: 'fa-stopwatch', premium: false },
-  { tool: 'passwordGenerator', name: 'Password Generator', icon: 'fa-asterisk', premium: false },
-  { tool: 'aiChat', name: 'AI Chat', icon: 'fa-robot', premium: true },
-  { tool: 'breathingExercise', name: 'Breathing Exercise', icon: 'fa-wind', premium: true },
+  { tool: 'calculator', name: 'Calculator', icon: 'fa-calculator' },
+  { tool: 'converter', name: 'Unit Converter', icon: 'fa-right-left' },
+  { tool: 'timer', name: 'Timer', icon: 'fa-hourglass-half' },
+  { tool: 'stopwatch', name: 'Stopwatch', icon: 'fa-stopwatch' },
+  { tool: 'passwordGenerator', name: 'Password Generator', icon: 'fa-asterisk' },
+  { tool: 'aiChat', name: 'AI Chat', icon: 'fa-robot' },
+  { tool: 'breathingExercise', name: 'Breathing Exercise', icon: 'fa-wind' },
 ]
 
 export const languages = [

@@ -6,8 +6,8 @@ const getManifestSettings = (env) => {
     short_name: 'CaretTab',
     name: env.mode === 'beta' ? 'CaretTab BETA' : '__MSG_appName__',
     description: env.mode === 'beta' ? 'Beta version of the New Tab extension, CaretTab' : '__MSG_appDesc__',
-    version: `4.3.0`,
-    version_name: `4.3.0`,
+    version: `4.4.0`,
+    version_name: `4.4.0`,
     default_locale: 'en',
     icons: {
       16: 'img/icon16.png',
@@ -17,13 +17,6 @@ const getManifestSettings = (env) => {
     chrome_url_overrides: {
       newtab: 'index.html',
     },
-    content_scripts: [
-      {
-        matches: ['https://extensionpay.com/*'],
-        js: ['import-ExtPay.js'],
-        run_at: 'document_start',
-      },
-    ],
     background: {
       service_worker: 'src/service_worker.js',
       type: 'module',
@@ -73,12 +66,6 @@ const getManifestSettings = (env) => {
         description: 'Load Quick Link 9',
       },
     },
-    web_accessible_resources: [
-      {
-        resources: ['src/assets/ExtPay.js'],
-        matches: ['https://extensionpay.com/*'],
-      },
-    ],
   }
 
   return baseManifest

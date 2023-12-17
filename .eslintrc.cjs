@@ -10,7 +10,6 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
   },
-  ignorePatterns: ['src/assets/ExtPay.js'],
   rules: {
     'vue/require-default-prop': 'off',
     'vue/multi-word-component-names': 'off',

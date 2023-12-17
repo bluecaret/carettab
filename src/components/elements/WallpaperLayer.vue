@@ -1,12 +1,11 @@
 <script setup>
-import { ref, watch, onMounted, computed, inject } from 'vue'
+import { ref, watch, onMounted, computed } from 'vue'
 import { DateTime } from 'luxon'
 import { useSettingsStore, getStorage, setStorage } from '@/store.js'
 import { prepareUnsplashWallpaperObj, getRandomPhotoFromUnsplashList } from '@/helpers/unsplash.js'
 import { preparePexelsWallpaperObj, getRandomPhotoFromPexelsList } from '@/helpers/pexels.js'
 import cloneDeep from 'lodash/cloneDeep'
 
-const user = inject('user')
 const store = useSettingsStore()
 const wallpaperSrc = ref(store.wallpaper)
 const defaultWallpaper = 'url("/img/juniper.jpg")'
@@ -20,10 +19,8 @@ onMounted(async () => {
 
 const filter = computed(() => {
   return `brightness(${store.config.global.wallpaper.brightness * 0.1}) saturate(${
-    user.value.paid ? store.config.global.wallpaper.saturation * 0.1 : 1
-  }) contrast(${user.value.paid ? store.config.global.wallpaper.contrast * 0.1 : 1}) blur(${
-    user.value.paid ? store.config.global.wallpaper.blur : 0
-  }px)`
+    store.config.global.wallpaper.saturation * 0.1
+  }) contrast(${store.config.global.wallpaper.contrast * 0.1}) blur(${store.config.global.wallpaper.blur}px)`
 })
 
 const blendMode = computed(() => {
@@ -100,12 +97,7 @@ const loadWallpaper = async () => {
   }
 
   loadCurrentWallpaper(imageType)
-  if (
-    user.value.paid &&
-    globalStorage.global &&
-    globalStorage.global.wallpaper &&
-    globalStorage.global.wallpaper.lock === false
-  ) {
+  if (globalStorage.global && globalStorage.global.wallpaper && globalStorage.global.wallpaper.lock === false) {
     getNextWallpaper(
       globalStorage.global.wallpaper.type,
       globalStorage.global.wallpaper.timestamp,
@@ -119,9 +111,9 @@ const loadCurrentWallpaper = async (imageType) => {
     wallpaperSrc.value = defaultWallpaper
   }
   if (
-    ['upload'].includes(imageType) ||
-    (['unphoto', 'untopic', 'uncollection', 'pxphoto', 'pxcurated', 'pxcollection', 'pxcarettab'].includes(imageType) &&
-      user.value.paid)
+    ['upload', 'unphoto', 'untopic', 'uncollection', 'pxphoto', 'pxcurated', 'pxcollection', 'pxcarettab'].includes(
+      imageType
+    )
   ) {
     let getCurrentWallpaper = await getStorage('currentWallpaper', 'local')
 

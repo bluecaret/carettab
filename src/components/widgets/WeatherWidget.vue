@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted, inject, onBeforeUnmount } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { DateTime } from 'luxon'
 import { useSettingsStore, setStorage, getStorage } from '@/store.js'
 import { setWidgetContainerStyles, hsl, shadow } from '@/helpers/widgets.js'
@@ -7,7 +7,6 @@ import { getWeather } from '@/helpers/weather.js'
 import WeatherIcon from '@/components/widgets/WeatherIcon.vue'
 import WeatherAuxIcon from '@/components/widgets/WeatherAuxIcon.vue'
 
-const user = inject('user')
 const store = useSettingsStore()
 
 const props = defineProps({

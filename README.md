@@ -15,7 +15,6 @@ For help or feature suggestions visit the [CaretTab Support page](https://carett
 - **Storage**: Used to store your settings in the browser's storage area.
 - **Replace the page you see when opening a new tab**: Used to replace the New Tab page with this extension.
 - **This extension can read and change your data on sites**: The sites listed with this permission are used to retrieve data for CaretTab to function.
-- **https://extensionpay.com/***: This is the payment provider CaretTab users. It is required to allow payments for Premium Access to work.
 - **https://fonts.googleapis.com/***: The fonts available in the extension are from Google Fonts; this URL is where the fonts are loaded from.
 - **https://dtfv5mvrx9.execute-api.us-west-2.amazonaws.com/***: This is an Amazon Web Services server that CaretTab accesses to retrieve various data such us API access for weather among other data. Data is only ever retrieved from this address, never sent.
 - (Optional) **https://developer.sepush.co.za/***: Used to retrieve data for the Loadshedding widget.

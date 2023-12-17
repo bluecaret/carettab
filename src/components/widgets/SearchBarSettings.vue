@@ -1,10 +1,9 @@
 <script setup>
-import { ref, reactive, inject } from 'vue'
+import { ref, reactive } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { searchEngines } from '@/assets/lists.js'
 
 const store = useSettingsStore()
-const user = inject('user')
 
 const widgetStore = 'searchBars'
 const ci = ref(store.config[widgetStore].findIndex((c) => c.id === store.editing))
@@ -21,35 +20,29 @@ const widget = reactive(store.config[widgetStore][ci.value])
     <div class="blockContainer">
       <div class="block">
         <label for="engine" class="label">{{ $t('widget.searchEngine') }}</label>
-        <select
-          v-if="widget.customEngine && user.paid"
-          id="engine"
-          name="engine"
-          class="select w20"
-          disabled="disabled"
-        >
+        <select v-if="widget.customEngine" id="engine" name="engine" class="select w20" disabled="disabled">
           <option selected>{{ $t('widget.customEngine') }}</option>
         </select>
         <select
-          v-if="!widget.customEngine || !user.paid"
+          v-if="!widget.customEngine"
           id="engine"
           v-model="widget.engine"
           name="engine"
           class="select w20"
-          :disabled="widget.customEngine && user.paid"
+          :disabled="widget.customEngine"
         >
           <option v-for="engine in searchEngines" :key="engine.id" :value="engine.id">{{ engine.label }}</option>
         </select>
       </div>
       <div class="block">
         <label for="custom" class="label">
-          <div><PremiumLabel />{{ $t('widget.customSearchEngine') }}</div>
+          <div>{{ $t('widget.customSearchEngine') }}</div>
         </label>
-        <ToggleField id="custom" v-model="widget.customEngine" name="custom" :disabled="!user.paid"></ToggleField>
+        <ToggleField id="custom" v-model="widget.customEngine" name="custom"></ToggleField>
       </div>
-      <div v-if="widget.customEngine && user.paid" class="block">
+      <div v-if="widget.customEngine" class="block">
         <label for="customUrl" class="label">
-          <div><PremiumLabel />{{ $t('widget.customSearchEngineUrl') }}</div>
+          <div>{{ $t('widget.customSearchEngineUrl') }}</div>
         </label>
         <input
           v-if="widget.customEngine"
@@ -67,9 +60,9 @@ const widget = reactive(store.config[widgetStore][ci.value])
       </div>
       <div class="block">
         <label for="icon" class="label">
-          <div><PremiumLabel />{{ $t('widget.showEngineSelectionMenu') }}</div>
+          <div>{{ $t('widget.showEngineSelectionMenu') }}</div>
         </label>
-        <ToggleField id="icon" v-model="widget.dropdown" name="icon" :disabled="!user.paid"></ToggleField>
+        <ToggleField id="icon" v-model="widget.dropdown" name="icon"></ToggleField>
       </div>
       <div class="block">
         <label for="label" class="label">{{ $t('widget.placeholderText') }}</label>

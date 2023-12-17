@@ -1,8 +1,6 @@
 <script setup>
-import { ref, nextTick, inject, computed } from 'vue'
+import { ref, nextTick, computed } from 'vue'
 import { useSettingsStore } from '@/store.js'
-
-const user = inject('user')
 
 const props = defineProps({
   globalSetting: Boolean,

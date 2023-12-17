@@ -1,8 +1,3 @@
-import { ExtPay } from './assets/ExtPay.js'
-
-const extpay = ExtPay('carettab')
-extpay.startBackground()
-
 // Check whether new version is installed
 if (typeof chrome.runtime.onInstalled !== 'undefined') {
   chrome.runtime.onInstalled.addListener(function (details) {

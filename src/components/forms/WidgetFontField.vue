@@ -1,5 +1,5 @@
 <script setup>
-import { inject, computed, ref, nextTick } from 'vue'
+import { computed, ref, nextTick } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { fontList, fontWeight, textTransform } from '@/assets/lists.js'
 
@@ -15,7 +15,6 @@ const store = useSettingsStore()
 const refreshDisplay = ref(false)
 const editGlobalModal = ref(false)
 const copyGlobalModal = ref(false)
-const user = inject('user')
 const widget = computed({
   get: () => {
     if (props.widgetStore === 'global') {

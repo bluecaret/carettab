@@ -1,10 +1,9 @@
 <script setup>
-import { computed, inject } from 'vue'
+import { computed } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { setWidgetContainerStyles } from '@/helpers/widgets.js'
 
 const store = useSettingsStore()
-const user = inject('user')
 
 const props = defineProps({
   widget: {

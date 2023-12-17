@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, inject } from 'vue'
+import { ref, reactive } from 'vue'
 import { useSettingsStore, setStorage } from '@/store.js'
 import { getLocation, getWeather } from '@/helpers/weather.js'
 import { useI18n } from 'vue-i18n'
@@ -7,7 +7,6 @@ const { t } = useI18n()
 
 const store = useSettingsStore()
 
-const user = inject('user')
 const widgetStore = 'weathers'
 const ci = ref(store.config[widgetStore].findIndex((c) => c.id === store.editing))
 const widget = reactive(store.config[widgetStore][ci.value])
@@ -339,13 +338,9 @@ const refreshWeather = async () => {
           </div>
           <div v-if="widget.current.icon.on" class="block">
             <label for="currentIconAnimated" class="label mra">
-              <div><PremiumLabel />{{ $t('widget.animatedIcons') }}</div>
+              <div>{{ $t('widget.animatedIcons') }}</div>
             </label>
-            <ToggleField
-              v-model="widget.current.icon.animated"
-              tag-id="currentIconAnimated"
-              :disabled="!user.paid"
-            ></ToggleField>
+            <ToggleField v-model="widget.current.icon.animated" tag-id="currentIconAnimated"></ToggleField>
           </div>
           <template v-if="widget.current.icon.on">
             <div class="block">
@@ -454,13 +449,9 @@ const refreshWeather = async () => {
           </div>
           <div v-if="widget.forecast.icon.on" class="block">
             <label for="forecastIconAnimated" class="label mra">
-              <div><PremiumLabel />{{ $t('widget.animatedIcons') }}</div>
+              <div>{{ $t('widget.animatedIcons') }}</div>
             </label>
-            <ToggleField
-              v-model="widget.forecast.icon.animated"
-              tag-id="forecastIconAnimated"
-              :disabled="!user.paid"
-            ></ToggleField>
+            <ToggleField v-model="widget.forecast.icon.animated" tag-id="forecastIconAnimated"></ToggleField>
           </div>
           <div v-if="widget.forecast.icon.on" class="block">
             <label for="fcolorSun" class="label mra">{{ $t('widget.sunColor') }}</label>

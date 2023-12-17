@@ -1,11 +1,10 @@
 <script setup>
-import { ref, computed, onMounted, inject, watch } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { useSettingsStore, setStorage, getStorage } from '@/store.js'
 import { setWidgetContainerStyles } from '@/helpers/widgets.js'
 import { DateTime } from 'luxon'
 
 const store = useSettingsStore()
-const user = inject('user')
 
 const props = defineProps({
   widget: {

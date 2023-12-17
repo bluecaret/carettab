@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted, inject, watch, nextTick } from 'vue'
+import { ref, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { useSettingsStore } from '@/store.js'
 import { storeToRefs } from 'pinia'
 import DashboardSettings from '@/components/settings/DashboardSettings.vue'
@@ -24,12 +24,11 @@ import SnakeSettings from '@/components/widgets/SnakeSettings.vue'
 import ShapeSettings from '@/components/widgets/ShapeSettings.vue'
 import TextSettings from '@/components/widgets/TextSettings.vue'
 import TodoSettings from '@/components/widgets/TodoSettings.vue'
+import BuyMeACoffeeModal from '@/components/elements/BuyMeACoffeeModal.vue'
 
-const user = inject('user')
 const store = useSettingsStore()
 const { settingsPage } = storeToRefs(store)
 const panelEl = ref(null)
-const premiumBtnRef = ref(null)
 
 let ver = ref('#.#.#')
 
@@ -61,12 +60,7 @@ const getReviewLink = () => {
   if (navigator.userAgent.match(/edg/i)) {
     return 'https://microsoftedge.microsoft.com/addons/detail/bfpmncaohmjelebfobabccfjgmeolloe'
   }
-  return 'https://chrome.google.com/webstore/detail/carettab-new-tab-clock-an/cojpndognjdcakkimaloeealehpkljna/reviews'
-}
-
-const handleOpenPremiumModal = () => {
-  store.showPremiumModal = true
-  store.premiumModalBtnRef = premiumBtnRef.value
+  return 'https://chromewebstore.google.com/detail/carettab-new-tab-dashboar/cojpndognjdcakkimaloeealehpkljna/reviews'
 }
 </script>
 
@@ -160,19 +154,7 @@ const handleOpenPremiumModal = () => {
         <fa icon="fa-star-half-stroke" fixed-width></fa>
         {{ $t('dashboard.review') }}
       </a>
-      <button
-        ref="premiumBtnRef"
-        class="btn footerPremium mla"
-        :class="user.paid ? 'footerPremiumPaid' : ''"
-        type="button"
-        @click="handleOpenPremiumModal()"
-      >
-        <div>
-          <fa icon="fa-gem" fixed-width></fa>
-          {{ user.paid ? $t('settings.youHavePremiumAccess') : $t('settings.getPremiumAccess') }}
-        </div>
-        <span v-if="user.paid">{{ $t('settings.manageSubscription') }}</span>
-      </button>
+      <buy-me-a-coffee-modal subtle />
     </footer>
   </div>
 </template>
@@ -219,40 +201,5 @@ const handleOpenPremiumModal = () => {
   padding: var(--s4) var(--s4) var(--s4) var(--s5);
   gap: var(--s4);
   align-items: center;
-}
-
-.footerPremium {
-  --getPremiumAdBg: var(--cPremium);
-  --getPremiumAdBg2: var(--cPremium2);
-  --getPremiumAdColor: hsla(0, 0%, 0%, 1);
-  color: var(--getPremiumAdColor);
-  background-color: var(--getPremiumAdBg);
-  background-image: radial-gradient(80% 85% at 0% 0%, var(--getPremiumAdBg2) 0%, var(--getPremiumAdBg) 100%);
-  font-size: 1.8rem;
-  font-weight: 600;
-  border-width: 0;
-  padding: 1rem var(--s5);
-  border-radius: var(--s4);
-}
-
-.footerPremiumPaid {
-  background-color: transparent;
-  background-image: none;
-  color: var(--cTextSubtle);
-  flex-direction: column;
-  gap: var(--s1);
-  padding: var(--s2) var(--s4);
-  font-size: 1.6rem;
-  div {
-    display: flex;
-    align-items: center;
-    gap: var(--s3);
-  }
-  span {
-    font-size: 1.4rem;
-  }
-  .svg-inline--fa {
-    color: var(--cTextSubtle);
-  }
 }
 </style>

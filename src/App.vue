@@ -1,27 +1,34 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { computed, onMounted, inject, watch } from 'vue'
+import { computed, onMounted, watch } from 'vue'
 import { useSettingsStore, getStorage, setStorage } from '@/store.js'
 import { storeToRefs } from 'pinia'
 import NewTab from '@/components/NewTab.vue'
 import SettingsPanel from '@/components/settings/SettingsPanel.vue'
 import LoadingOverlay from '@/components/elements/LoadingOverlay.vue'
 import { fontList } from '@/assets/lists.js'
-import { ExtPay } from '@/assets/ExtPay.js'
 import { checkVersionInRange } from '@/helpers/data.js'
 import { mergeV3Settings } from '@/helpers/mergeOldSettings.js'
-import PremiumModal from '@/components/elements/PremiumModal.vue'
 
 const { locale } = useI18n({ useScope: 'global' })
-const extpay = ExtPay('carettab')
-const updateUser = inject('updateUser')
 const store = useSettingsStore()
 const { isLoading, settingsOpen } = storeToRefs(store)
 
 onMounted(async () => {
   await store.load()
   setupTempSettings()
-  refreshUserCheck()
+
+  if (store.status === 'updated' && checkVersionInRange(store.prevVersion, '3.X.X')) {
+    mergeV3Settings()
+  }
+
+  // If status is still set to installed, but there are already layers,
+  // this is probably incorrect and needs changed to existing.
+  if (store.status === 'installed' && store.config.layers?.length > 0) {
+    store.status = 'existing'
+    setStorage({ status: 'existing' }, 'local')
+  }
+
   applyUserColorSchemePreference()
 })
 
@@ -73,27 +80,6 @@ const setupTempSettings = async () => {
   store.clearWhatsNewBox = whatsNew.clearWhatsNewBox
 }
 
-// Run a full user check against the server now that the app has loaded
-const refreshUserCheck = async () => {
-  try {
-    const getUser = await extpay.getUser()
-    updateUser({ ...getUser })
-  } catch (error) {
-    console.warn('Failed to check extensionPay user', error)
-  }
-  // after checking paid status, run v3 migration
-  if (store.status === 'updated' && checkVersionInRange(store.prevVersion, '3.X.X')) {
-    mergeV3Settings()
-  }
-
-  // If status is still set to installed, but there are already layers,
-  // this is probably incorrect and needs changed to existing.
-  if (store.status === 'installed' && store.config.layers?.length > 0) {
-    store.status = 'existing'
-    setStorage({ status: 'existing' }, 'local')
-  }
-}
-
 const updateTime = () => {
   store.currentTime = new Date()
   setInterval(() => {
@@ -137,7 +123,6 @@ const getFontFamily = computed(() => {
     <NewTab></NewTab>
     <SettingsPanel v-if="settingsOpen"></SettingsPanel>
     <div id="modals"></div>
-    <PremiumModal />
     <div id="dropdowns"></div>
     <LoadingOverlay v-if="isLoading"></LoadingOverlay>
   </div>

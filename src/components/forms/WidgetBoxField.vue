@@ -18,6 +18,7 @@ const store = useSettingsStore()
 const refreshDisplay = ref(false)
 const editGlobalModal = ref(false)
 const copyGlobalModal = ref(false)
+const positionHelpModal = ref(false)
 const widget = computed({
   get: () => {
     if (props.widgetStore === 'global') {
@@ -52,7 +53,54 @@ const handleGlobalCopy = () => {
 </script>
 
 <template>
-  <FieldAccordion :start-open="startOpen" :hide-toggle="hideToggle">
+  <ModalWindow :show="positionHelpModal" size="670px" @close="positionHelpModal = false">
+    <template #button>
+      <SizeAndPositionField
+        v-if="!props.globalSetting"
+        :index="props.index"
+        :widget-store="props.widgetStore"
+        :no-container-alignment="props.noContainerAlignment"
+        @open-help="positionHelpModal = true"
+      />
+    </template>
+    <template #window>
+      <div class="modal">
+        <header class="modalHeader">
+          <h1 class="modalTitle">{{ $t('settings.instructionsForPositionAndSizeOptions') }}</h1>
+          <button class="modalClose" type="button" :aria-label="$t('common.close')" @click="positionHelpModal = false">
+            <fa icon="fa-xmark" />
+          </button>
+        </header>
+        <div class="modalContent">
+          <div
+            class="block globalSettingsContainer"
+            style="background-color: var(--g3); border-radius: var(--s3); border: 2px solid var(--b1)"
+          >
+            <SizeAndPositionField help-diagram @open-help="positionHelpModal = true" />
+          </div>
+          <ol class="instructions">
+            <li>
+              {{ $t('settings.useTheArrowsToAdjustTheHorizontalAndVerticalOffset') }}
+            </li>
+            <li>{{ $t('settings.manuallySetTheHorizontalOffset') }}</li>
+            <li>{{ $t('settings.unitOfMeasureForTheHorizontalOffset') }}</li>
+            <li>{{ $t('settings.manuallySetTheVerticalOffset') }}</li>
+            <li>{{ $t('settings.unitOfMeasureForTheVerticalOffset') }}</li>
+            <li>{{ $t('settings.anchorPositionDeterminesWhere') }}</li>
+            <li>
+              {{ $t('settings.alignmentOfContentWithinTheWidgetContainer') }}
+            </li>
+            <li>{{ $t('settings.widthOfTheWidgetsContainer') }}</li>
+            <li>{{ $t('settings.unitOfMeasureForTheWidth') }}</li>
+            <li>{{ $t('settings.heightOfTheWidgetsContainer') }}</li>
+            <li>{{ $t('settings.unitOfMeasureForTheHeight') }}</li>
+          </ol>
+          <p>{{ $t('settings.widgetPositionsAreIndependent') }}</p>
+        </div>
+      </div>
+    </template>
+  </ModalWindow>
+  <FieldAccordion v-if="!refreshDisplay && !props.noBoxStyles" :start-open="startOpen" :hide-toggle="hideToggle">
     <template #label>
       <div class="label">
         <div>{{ $t('settings.widgetContainer') }}</div>
@@ -66,14 +114,6 @@ const handleGlobalCopy = () => {
       </div>
     </template>
     <template #children>
-      <SizeAndPositionField
-        v-if="!props.globalSetting"
-        :index="props.index"
-        :widget-store="props.widgetStore"
-        :window-title="props.windowTitle"
-        :container-title="props.containerTitle"
-        :no-container-alignment="props.noContainerAlignment"
-      />
       <div v-if="!props.noBoxStyles && !props.globalSetting" class="block">
         <div class="label mra">
           <label for="overrideGlobalContainer">
@@ -151,7 +191,16 @@ const handleGlobalCopy = () => {
         </div>
         <ToggleField v-model="widget.override" tag-id="overrideGlobalContainer"> </ToggleField>
       </div>
-      <template v-if="!refreshDisplay && !props.noBoxStyles && (props.globalSetting || widget.override)">
+      <template v-if="props.globalSetting || widget.override">
+        <div class="block">
+          <label for="dynamicScaling" class="label mra">
+            {{ $t('settings.dynamicScaling') }}
+            <div class="desc">
+              {{ $t('settings.dynamicScalingDesc') }}
+            </div>
+          </label>
+          <ToggleField v-model="widget.dynamicScaling" tag-id="dynamicScaling"> </ToggleField>
+        </div>
         <div class="block">
           <label for="boxBg" class="label mra">
             {{ $t('common.background') }}
@@ -188,15 +237,6 @@ const handleGlobalCopy = () => {
           </label>
           <NumberField v-model="widget.padding" tag-id="boxPadding" :increment="1" :min="0" class="w10"> </NumberField>
         </div>
-        <div class="block">
-          <label for="dynamicScaling" class="label mra">
-            {{ $t('settings.dynamicScaling') }}
-            <div class="desc">
-              {{ $t('settings.dynamicScalingDesc') }}
-            </div>
-          </label>
-          <ToggleField v-model="widget.dynamicScaling" tag-id="dynamicScaling"> </ToggleField>
-        </div>
       </template>
     </template>
   </FieldAccordion>
@@ -205,5 +245,14 @@ const handleGlobalCopy = () => {
 <style lang="scss" scoped>
 .globalSettingsContainer {
   padding: 0;
+}
+.instructions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+  font-size: 1.6rem;
+  li {
+    padding-left: 0.6rem;
+  }
 }
 </style>

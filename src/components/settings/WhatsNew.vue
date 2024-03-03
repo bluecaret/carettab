@@ -40,7 +40,11 @@ const handleClearWhatsNew = async () => {
 <template>
   <ModalWindow v-if="!store.clearWhatsNewBox" :show="whatsNewModal" @close="whatsNewModal = false">
     <template #button>
-      <div class="whatsNewBox" @click="whatsNewModal = true">
+      <div
+        v-if="compareVersions(store.prevVersion, '4.4.0') === -1 && checkVersionInRange(store.prevVersion, '4.X.X')"
+        class="whatsNewBox"
+        @click="whatsNewModal = true"
+      >
         <div class="group fill">
           <fa class="whatsNewIcon" icon="fa-bell"></fa>
           <h3 class="fill">All Premium Access features are now FREE</h3>
@@ -58,7 +62,7 @@ const handleClearWhatsNew = async () => {
           </button>
         </div>
       </div>
-      <!-- <div class="whatsNewBox" @click="whatsNewModal = true">
+      <div v-else class="whatsNewBox" @click="whatsNewModal = true">
         <div class="group fill">
           <fa class="whatsNewIcon" icon="fa-bell"></fa>
           <h3 class="fill">{{ $t('dashboard.newUpdate') }} &mdash; {{ $t('settings.version', [ver]) }}</h3>
@@ -75,7 +79,7 @@ const handleClearWhatsNew = async () => {
             <fa icon="fa-xmark"></fa>
           </button>
         </div>
-      </div> -->
+      </div>
     </template>
     <template #window>
       <div class="modal whatsNewModal">
@@ -86,7 +90,26 @@ const handleClearWhatsNew = async () => {
           </button>
         </header>
         <div class="modalContent">
-          <div class="group">
+          <div v-if="compareVersions(store.prevVersion, '4.3.9') === 1" class="group">
+            <div class="fill">
+              <h4 class="subtitle">v4.5.0 {{ $t('updates.newFeatures') }}</h4>
+              <ul class="ul">
+                <li>Added a new blueprint, "Futuristic Minimal Dash".</li>
+              </ul>
+            </div>
+            <div class="fill">
+              <h4 class="subtitle">v4.5.0 {{ $t('updates.fixesAndOthers') }}</h4>
+              <ul class="ul">
+                <li>Improved display of widget position and size settings to make them more intuitive.</li>
+                <li>Fixed: Two-digit week number for date widget was not working.</li>
+                <li>Translation fixes.</li>
+              </ul>
+            </div>
+          </div>
+          <div
+            v-if="compareVersions(store.prevVersion, '4.4.0') === -1 && checkVersionInRange(store.prevVersion, '4.X.X')"
+            class="group"
+          >
             <div class="fill">
               <h4 class="subtitle">All CaretTab Premium Access features now FREE!</h4>
               <p>

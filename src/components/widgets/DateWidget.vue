@@ -167,7 +167,7 @@ const getQuarterOffset = () => {
         }}{{ props.widget.dayOfYear.suffixLabel }}
       </div>
       <div v-if="props.widget.week.on" class="textWrapper" :style="segmentStyles('week')">
-        {{ props.widget.week.prefixLabel }}{{ getFormattedDate.toFormat(props.widget.dayOfYear.threeDigit ? 'WW' : 'W')
+        {{ props.widget.week.prefixLabel }}{{ getFormattedDate.toFormat(props.widget.week.twoDigit ? 'WW' : 'W')
         }}{{ props.widget.week.suffixLabel }}
       </div>
       <div v-if="props.widget.quarter.on" class="textWrapper" :style="segmentStyles('quarter')">

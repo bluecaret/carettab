@@ -9,6 +9,8 @@ const props = defineProps({
   tagId: String,
   placeholder: String,
   disabled: Boolean,
+  upButtonOnly: { type: Boolean, default: false },
+  downButtonOnly: { type: Boolean, default: false },
 })
 const emit = defineEmits(['update:modelValue'])
 const delay = ref(null)
@@ -40,6 +42,7 @@ function handleArrowUpdate(up) {
 }
 
 function handleArrowStart(up) {
+  if (props.disabled) return
   handleArrowUpdate(up)
   isHold.value = true
   delay.value = setTimeout(() => {
@@ -54,6 +57,7 @@ function handleArrowStart(up) {
 }
 
 function handleArrowDone() {
+  if (props.disabled) return
   isHold.value = false
   if (delay.value) clearTimeout(delay.value)
   if (timer.value) clearInterval(timer.value)
@@ -61,45 +65,81 @@ function handleArrowDone() {
 </script>
 
 <template>
-  <div class="num">
-    <input
+  <div :class="!props.upButtonOnly && !props.downButtonOnly ? 'num' : 'numBtnOnly'">
+    <button
+      v-if="props.upButtonOnly"
       :id="tagId"
-      type="number"
-      class="input"
-      :value="modelValue"
-      :min="min"
-      :max="max"
-      :step="props.increment"
-      :disabled="props.disabled ? 'disabled' : null"
-      :placeholder="props.placeholder ? props.placeholder : ''"
-      @input="handleUpdate"
-    />
-    <div class="numBtnGroup">
-      <button
-        class="numBtn"
-        tabindex="-1"
-        :aria-label="$t('settings.increaseNumber')"
-        :disabled="props.disabled ? 'disabled' : null"
-        @pointerdown="handleArrowStart(true)"
-        @pointerup="handleArrowDone()"
-      >
+      class="btn"
+      :class="{ active: isHold }"
+      :aria-label="$t('settings.increaseNumber')"
+      :disabled="props.disabled ? true : undefined"
+      @pointerdown="handleArrowStart(true)"
+      @pointerup="handleArrowDone()"
+    >
+      <slot>
         <fa icon="fa-plus"></fa>
-      </button>
-      <button
-        class="numBtn"
-        tabindex="-1"
-        :aria-label="$t('settings.decreaseNumber')"
-        :disabled="props.disabled ? 'disabled' : null"
-        @pointerdown="handleArrowStart(false)"
-        @pointerup="handleArrowDone()"
-      >
+      </slot>
+    </button>
+    <button
+      v-else-if="props.downButtonOnly"
+      :id="tagId"
+      class="btn"
+      :class="{ active: isHold }"
+      :aria-label="$t('settings.decreaseNumber')"
+      :disabled="props.disabled ? true : undefined"
+      @pointerdown="handleArrowStart(false)"
+      @pointerup="handleArrowDone()"
+    >
+      <slot>
         <fa icon="fa-minus"></fa>
-      </button>
-    </div>
+      </slot>
+    </button>
+    <template v-else>
+      <input
+        :id="tagId"
+        type="number"
+        class="input"
+        :value="modelValue"
+        :min="min"
+        :max="max"
+        :step="props.increment"
+        :disabled="props.disabled ? 'disabled' : null"
+        :placeholder="props.placeholder ? props.placeholder : ''"
+        @input="handleUpdate"
+      />
+      <div class="numBtnGroup">
+        <button
+          class="numBtn"
+          tabindex="-1"
+          :aria-label="$t('settings.increaseNumber')"
+          :disabled="props.disabled ? true : undefined"
+          @pointerdown="handleArrowStart(true)"
+          @pointerup="handleArrowDone()"
+        >
+          <fa icon="fa-plus"></fa>
+        </button>
+        <button
+          class="numBtn"
+          tabindex="-1"
+          :aria-label="$t('settings.decreaseNumber')"
+          :disabled="props.disabled ? true : undefined"
+          @pointerdown="handleArrowStart(false)"
+          @pointerup="handleArrowDone()"
+        >
+          <fa icon="fa-minus"></fa>
+        </button>
+      </div>
+    </template>
   </div>
 </template>
 
 <style lang="scss">
+.numBtnOnly {
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+}
 .num {
   display: grid;
   grid-template-columns: 1fr 2rem;

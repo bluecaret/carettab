@@ -95,6 +95,12 @@ a.link {
   border: 0;
 }
 
+.btnSmall {
+  padding: var(--s1) var(--s3);
+  font-size: 1.4rem;
+  min-height: 2.2rem;
+}
+
 .btnLink {
   min-height: auto;
   font-size: inherit;

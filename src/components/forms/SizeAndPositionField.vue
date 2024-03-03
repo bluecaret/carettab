@@ -142,7 +142,7 @@ const handleCAlignUpdate = (alignment) => {
           <div v-if="props.helpDiagram" class="helpNumber" style="top: 3.8rem; left: -0.5rem">7</div>
           <DropdownMenu>
             <template #button>
-              <button id="anchorPosition" :title="$t('settings.anchorPosition')" class="btn btnText">
+              <button id="anchorPosition" :title="$t('settings.anchorPosition')" class="btn">
                 <fa icon="fa-anchor" fixed-width />
                 <div class="anchorSetting">
                   <fa
@@ -282,7 +282,7 @@ const handleCAlignUpdate = (alignment) => {
           </DropdownMenu>
           <DropdownMenu v-if="!props.noContainerAlignment">
             <template #button>
-              <button id="contentAlignment" :title="$t('settings.contentAlignment')" class="btn btnText">
+              <button id="contentAlignment" :title="$t('settings.contentAlignment')" class="btn">
                 <fa icon="fa-align-left" fixed-width />
                 <div class="anchorSetting">
                   <fa
@@ -550,10 +550,6 @@ const handleCAlignUpdate = (alignment) => {
   min-height: 1.6rem;
   font-size: 1.4rem;
   font-weight: 400;
-}
-.positionAltBtn {
-  border-color: transparent;
-  color: var(--b1);
 }
 
 .helpRelative {

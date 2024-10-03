@@ -154,8 +154,7 @@ const organizeLinks = () => {
       availableSpace.value =
         linkListEl.value.getBoundingClientRect().width - moreButtonEl.value?.getBoundingClientRect().width
     } else if (['cv', 'iv'].includes(props.widget.layout)) {
-      availableSpace.value =
-        linkListEl.value.getBoundingClientRect().height - moreButtonEl.value?.getBoundingClientRect().height
+      availableSpace.value = linkListEl.value.getBoundingClientRect().height
     }
     if (containerSize.value > availableSpace.value) {
       let size = 0
@@ -180,6 +179,12 @@ const organizeLinks = () => {
       visibleLinks.value = [
         ...visibleLinks.value.splice(0, ['cv', 'iv'].includes(props.widget.layout) ? index - 1 : index),
       ]
+
+      // If there is only one link left, move it back to visible links otherwise more just takes the place of the last link.
+      if (hiddenLinks.value.length === 1) {
+        visibleLinks.value = allLinks.value
+        hiddenLinks.value = []
+      }
     }
     showMore.value = hiddenLinks.value.length > 0
   })

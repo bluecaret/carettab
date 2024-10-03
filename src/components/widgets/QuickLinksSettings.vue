@@ -49,6 +49,10 @@ const addLink = (type = 'none') => {
       title = 'History'
       url = 'History'
       break
+    case 'downloads':
+      title = 'Downloads'
+      url = 'Downloads'
+      break
     case 'defaultTab':
       title = 'Default Tab'
       url = 'Default Tab'
@@ -56,6 +60,26 @@ const addLink = (type = 'none') => {
     case 'mostVisited':
       title = 'Most Visited'
       url = 'Most Visited'
+      break
+    case 'extensions':
+      title = 'Extensions'
+      url = 'Extensions'
+      break
+    case 'settings':
+      title = 'Browser Settings'
+      url = 'Browser Settings'
+      break
+    case 'about':
+      title = 'Browser About'
+      url = 'Browser About'
+      break
+    case 'inspect':
+      title = 'Browser Inspect'
+      url = 'Browser Inspect'
+      break
+    case 'flags':
+      title = 'Browser Flags'
+      url = 'Browser Flags'
       break
 
     default:
@@ -295,6 +319,9 @@ const deleteLink = (id) => {
                       <button class="btn btnBlock" type="button" @click="addLink('history')">History</button>
                     </li>
                     <li>
+                      <button class="btn btnBlock" type="button" @click="addLink('downloads')">Downloads</button>
+                    </li>
+                    <li>
                       <button class="btn btnBlock" type="button" @click="addLink('defaultTab')">Default Tab</button>
                     </li>
                     <li>
@@ -314,6 +341,21 @@ const deleteLink = (id) => {
                         :reason="$t('widget.theTopSitesPermissionIsNeeded')"
                         @requested="checkTopSitesPermission()"
                       />
+                    </li>
+                    <li>
+                      <button class="btn btnBlock" type="button" @click="addLink('extensions')">Extensions</button>
+                    </li>
+                    <li>
+                      <button class="btn btnBlock" type="button" @click="addLink('settings')">Browser Settings</button>
+                    </li>
+                    <li>
+                      <button class="btn btnBlock" type="button" @click="addLink('about')">Browser About</button>
+                    </li>
+                    <li>
+                      <button class="btn btnBlock" type="button" @click="addLink('flags')">Browser Flags</button>
+                    </li>
+                    <li>
+                      <button class="btn btnBlock" type="button" @click="addLink('inspect')">Browser Inspect</button>
                     </li>
                   </ul>
                 </template>

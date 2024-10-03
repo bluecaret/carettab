@@ -232,6 +232,48 @@ const handleSpecialClick = (special) => {
       chrome.tabs.update({ url: 'chrome-search://local-ntp/local-ntp.html' })
     }
   }
+  if (special === 'downloads') {
+    if (props.widget.openInNewTab) {
+      chrome.tabs.create({ url: 'chrome://downloads' })
+    } else {
+      chrome.tabs.update({ url: 'chrome://downloads' })
+    }
+  }
+  if (special === 'extensions') {
+    if (props.widget.openInNewTab) {
+      chrome.tabs.create({ url: 'chrome://extensions' })
+    } else {
+      chrome.tabs.update({ url: 'chrome://extensions' })
+    }
+  }
+  if (special === 'settings') {
+    if (props.widget.openInNewTab) {
+      chrome.tabs.create({ url: 'chrome://settings' })
+    } else {
+      chrome.tabs.update({ url: 'chrome://settings' })
+    }
+  }
+  if (special === 'about') {
+    if (props.widget.openInNewTab) {
+      chrome.tabs.create({ url: 'chrome://about' })
+    } else {
+      chrome.tabs.update({ url: 'chrome://about' })
+    }
+  }
+  if (special === 'flags') {
+    if (props.widget.openInNewTab) {
+      chrome.tabs.create({ url: 'chrome://flags' })
+    } else {
+      chrome.tabs.update({ url: 'chrome://flags' })
+    }
+  }
+  if (special === 'inspect') {
+    if (props.widget.openInNewTab) {
+      chrome.tabs.create({ url: 'chrome://inspect' })
+    } else {
+      chrome.tabs.update({ url: 'chrome://inspect' })
+    }
+  }
 }
 
 const getIcon = (link) => {
@@ -334,6 +376,12 @@ const setQuickLinksVars = computed(() => {
             <fa v-if="link.special === 'bookmarksManager'" icon="fa-star" class="linkFavicon linkFaviconSvg" />
             <fa v-if="link.special === 'history'" icon="fa-clock-rotate-left" class="linkFavicon linkFaviconSvg" />
             <fa v-if="link.special === 'defaultTab'" icon="fa-globe" class="linkFavicon linkFaviconSvg" />
+            <fa v-if="link.special === 'downloads'" icon="fa-download" class="linkFavicon linkFaviconSvg" />
+            <fa v-if="link.special === 'extensions'" icon="fa-puzzle-piece" class="linkFavicon linkFaviconSvg" />
+            <fa v-if="link.special === 'settings'" icon="fa-gear" class="linkFavicon linkFaviconSvg" />
+            <fa v-if="link.special === 'about'" icon="fa-circle-info" class="linkFavicon linkFaviconSvg" />
+            <fa v-if="link.special === 'flags'" icon="fa-flag" class="linkFavicon linkFaviconSvg" />
+            <fa v-if="link.special === 'inspect'" icon="fa-binoculars" class="linkFavicon linkFaviconSvg" />
             <div v-if="link.title && props.widget.link.titles" class="linkName">{{ link.title }}</div>
           </button>
           <QuickLinksNode

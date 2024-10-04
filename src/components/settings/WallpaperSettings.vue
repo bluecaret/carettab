@@ -47,7 +47,9 @@ const getUploadedImage = () => {
 }
 
 const processImage = (imgSrc) => {
-  const toLargeMsg = t('settings.fileSizeTooBig', ['https://www.reduceimages.com/'])
+  // const toLargeMsg = t('settings.fileSizeTooBig', ['https://www.reduceimages.com/'])
+  const toLargeMsg =
+    'This image is fairly large and may decrease performance when loading the new tab page. Consider reducing the file size using a tool like https://www.reduceimages.com/'
   const generalErrorMsg = t('settings.imageFailedToSave')
 
   const newBg = { base64: imgSrc }
@@ -55,7 +57,7 @@ const processImage = (imgSrc) => {
 
   if (newBgSize > 4000000) {
     alert(toLargeMsg)
-    return
+    // return
   }
 
   browser.storage.local.set({ currentWallpaper: newBg }, () => {

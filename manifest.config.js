@@ -21,7 +21,7 @@ const getManifestSettings = (env) => {
       service_worker: 'src/service_worker.js',
       type: 'module',
     },
-    permissions: ['storage'],
+    permissions: ['storage', 'unlimitedStorage'],
     host_permissions: [
       'https://filplrhe2she7oc2pc3wmqvzvq0gdffl.lambda-url.us-west-2.on.aws/*', // Weather
       'https://lbepjjthnvo4yrub7hdg7ilwp40uyowa.lambda-url.us-west-2.on.aws/*', // Pexels

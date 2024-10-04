@@ -22,7 +22,12 @@ const getManifestSettings = (env) => {
       type: 'module',
     },
     permissions: ['storage'],
-    host_permissions: ['https://dtfv5mvrx9.execute-api.us-west-2.amazonaws.com/*', 'https://fonts.googleapis.com/*'],
+    host_permissions: [
+      'https://filplrhe2she7oc2pc3wmqvzvq0gdffl.lambda-url.us-west-2.on.aws/*', // Weather
+      'https://lbepjjthnvo4yrub7hdg7ilwp40uyowa.lambda-url.us-west-2.on.aws/*', // Pexels
+      'https://7xhdzsrkjuon7xubpy3htk4u740fwtmk.lambda-url.us-west-2.on.aws/*', // Unsplash
+      'https://fonts.googleapis.com/*',
+    ],
     optional_permissions: ['favicon', 'bookmarks', 'topSites'],
     optional_host_permissions: ['https://developer.sepush.co.za/*', 'https://api.openai.com/'],
     commands: {

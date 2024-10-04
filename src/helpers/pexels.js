@@ -2,13 +2,15 @@
 import { blobToBase64 } from '@/helpers/data.js'
 import { useSettingsStore } from '@/store.js'
 
-export const requestPexelsData = async (path) => {
+export const requestPexelsData = async (headers) => {
   let retrievedData
+  const fullHeaders = {
+    authorizationtoken: chrome.runtime.id,
+    ...headers,
+  }
   try {
-    const request = await fetch(`https://dtfv5mvrx9.execute-api.us-west-2.amazonaws.com/v1/pexels${encodeURI(path)}`, {
-      method: 'GET',
-      redirect: 'follow',
-      headers: { authorizationToken: chrome.runtime.id },
+    const request = await fetch('https://lbepjjthnvo4yrub7hdg7ilwp40uyowa.lambda-url.us-west-2.on.aws/', {
+      headers: fullHeaders,
     })
     const data = await request.json()
     retrievedData = data.data
@@ -84,19 +86,35 @@ export const getList = async (page) => {
   }
   store.isLoading = true
 
-  let path = `/curated/list/${page}`
+  let headers = {}
   if (store.pexelsTab === 'collections') {
-    path = `/collections/list/${page}`
+    headers = {
+      resource: 'collections/list',
+      page: page,
+    }
   }
   if (store.pexelsTab === 'carettab') {
-    path = `/collections/carettab/${page}`
+    headers = {
+      resource: 'collections/carettab',
+      page: page,
+    }
   }
   if (store.pexelsTab === 'search') {
-    path = `/search/${encodeURI(store.pexelsSearchTerm.trim())}/${page}`
+    headers = {
+      resource: 'search',
+      query: `${encodeURI(store.pexelsSearchTerm.trim())}`,
+      page: page,
+    }
+  }
+  if (store.pexelsTab === 'curated') {
+    headers = {
+      resource: 'curated/list',
+      page: page,
+    }
   }
 
   // send request to Pexels
-  const list = await requestPexelsData(path)
+  const list = await requestPexelsData(headers)
 
   switch (store.pexelsTab) {
     case 'search':
@@ -124,11 +142,19 @@ export const getList = async (page) => {
 }
 
 export const getRandomPhotoFromPexelsList = async (imageType, id) => {
-  let path = `/curated/random`
-  if (imageType === 'pxcollection') path = `/collections/random/${id}`
-  if (imageType === 'pxcarettab') path = `/collections/random/${id}`
+  let headers = {}
+  if (imageType === 'pxcollection' || imageType === 'pxcarettab') {
+    headers = {
+      resource: 'collections/random',
+      id: id,
+    }
+  } else {
+    headers = {
+      resource: 'curated/random',
+    }
+  }
 
-  const list = await requestPexelsData(path)
+  const list = await requestPexelsData(headers)
   let randomImage
   if (imageType === 'pxcurated') {
     randomImage = list.photos[Math.floor(Math.random() * list.photos.length)]
@@ -194,12 +220,15 @@ export const getSelectedPexelsImage = async (id = '', title = '', link = '') => 
       const getNextImage = await getRandomPhotoFromPexelsList(pexelsType, null)
       modifiedNextImage = await preparePexelsWallpaperObj(getNextImage)
     } else {
-      let path = `/photo/${id}`
+      let headers = {
+        resource: 'photo',
+        id: id,
+      }
 
       // If curated photo but not random, change type to pxphoto
       if (['curated'].includes(store.pexelsTab) && id) pexelsType = 'pxphoto'
 
-      const getImage = await requestPexelsData(path)
+      const getImage = await requestPexelsData(headers)
       const base64Image = await setupPexelsBase64Data(getImage)
       modifiedImage = await preparePexelsWallpaperObj(base64Image)
     }

@@ -2,17 +2,16 @@
 import { blobToBase64 } from '@/helpers/data.js'
 import { useSettingsStore } from '@/store.js'
 
-export const requestUnsplashData = async (path) => {
+export const requestUnsplashData = async (headers) => {
   let retrievedData
+  const fullHeaders = {
+    authorizationtoken: chrome.runtime.id,
+    ...headers,
+  }
   try {
-    const request = await fetch(
-      `https://dtfv5mvrx9.execute-api.us-west-2.amazonaws.com/v1/unsplash${encodeURI(path)}`,
-      {
-        method: 'GET',
-        redirect: 'follow',
-        headers: { authorizationToken: chrome.runtime.id },
-      }
-    )
+    const request = await fetch('https://7xhdzsrkjuon7xubpy3htk4u740fwtmk.lambda-url.us-west-2.on.aws/', {
+      headers: fullHeaders,
+    })
     const data = await request.json()
     retrievedData = data.data
   } catch (error) {
@@ -31,37 +30,55 @@ export const setupBase64Data = async (image) => {
 
   // Trigger download location link for Unsplash analytics.
   const unsplashDownloadLocation = unsplashImage.links.download_location
+  const headers = {
+    resource: 'downloadlocation',
+    loc: unsplashDownloadLocation,
+  }
   // eslint-disable-next-line no-unused-vars
-  const unsplashDownloadLocationResponse = requestUnsplashData('/downloadlocation?loc=' + unsplashDownloadLocation)
+  const unsplashDownloadLocationResponse = requestUnsplashData(headers)
 
   // Return entire built image object
   return unsplashImage
 }
 
 export const getRandomPhotoFromUnsplashList = async (imageType, id) => {
-  let type = imageType
+  let headers = {}
   switch (imageType) {
     case 'unphoto':
-      type = 'search'
+      headers = {
+        resource: 'photo/random',
+        type: 'search',
+        id: id,
+      }
       break
     case 'untopic':
-      type = 'topics'
+      headers = {
+        resource: 'photo/random',
+        type: 'topics',
+        id: id,
+      }
       break
     case 'uncollection':
-      type = 'collections'
+      headers = {
+        resource: 'photo/random',
+        type: 'collections',
+        id: id,
+      }
       break
     default:
       break
   }
-  let path = `/photo/random/${type}/${id}`
-  const unsplashImage = await requestUnsplashData(path)
+  const unsplashImage = await requestUnsplashData(headers)
   const modifiedImage = await setupBase64Data(unsplashImage)
   return modifiedImage
 }
 
 export const getSinglePhotoFromUnsplash = async (id) => {
-  let path = `/photo/single/${id}`
-  const unsplashImage = await requestUnsplashData(path)
+  const headers = {
+    resource: 'photo/single',
+    id: id,
+  }
+  const unsplashImage = await requestUnsplashData(headers)
   const modifiedImage = await setupBase64Data(unsplashImage)
   return modifiedImage
 }
@@ -115,16 +132,26 @@ export const getList = async (page) => {
   }
   store.isLoading = true
 
-  let path = `/list/topics/${page}`
+  let headers = {
+    resource: 'list/topics',
+    page: page,
+  }
   if (store.unsplashTab === 'collections') {
-    path = `/list/collections/${page}`
+    headers = {
+      resource: 'list/collections',
+      page: page,
+    }
   }
   if (store.unsplashTab === 'search') {
-    path = `/list/search/${encodeURI(store.unsplashSearchTerm.trim())}/${page}`
+    headers = {
+      resource: 'list/search',
+      query: encodeURI(store.unsplashSearchTerm.trim()),
+      page: page,
+    }
   }
 
   // send request to Unsplash
-  const list = await requestUnsplashData(path)
+  const list = await requestUnsplashData(headers)
 
   switch (store.unsplashTab) {
     case 'search':
@@ -170,15 +197,29 @@ export const getSelectedUnsplashImage = async (id, title = '', link = '') => {
         break
     }
 
-    let path = `/photo/single/${id}`
-    if (['topics', 'collections'].includes(store.unsplashTab)) {
-      path = `/photo/random/${unsplashType}/${id}`
+    let headers = {
+      resource: 'photo/single',
+      id: id,
+    }
+    if (['topics'].includes(store.unsplashTab)) {
+      headers = {
+        resource: 'photo/random',
+        phototype: 'topics',
+        id: id,
+      }
+    }
+    if (['collections'].includes(store.unsplashTab)) {
+      headers = {
+        resource: 'photo/random',
+        phototype: 'collection',
+        id: id,
+      }
     }
 
     // send request to Unsplash
-    const getImage = await requestUnsplashData(path)
+    const getImage = await requestUnsplashData(headers)
     const modifiedImage = await setupBase64Data(getImage)
-    const getNextImage = unsplashType !== 'search' ? await requestUnsplashData(path) : {}
+    const getNextImage = unsplashType !== 'search' ? await requestUnsplashData(headers) : {}
     const modifiedNextImage = unsplashType !== 'search' ? await setupBase64Data(getNextImage) : {}
 
     image = prepareUnsplashWallpaperObj(modifiedImage)

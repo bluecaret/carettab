@@ -7,7 +7,7 @@ import NewTab from '@/components/NewTab.vue'
 import SettingsPanel from '@/components/settings/SettingsPanel.vue'
 import LoadingOverlay from '@/components/elements/LoadingOverlay.vue'
 import { fontList } from '@/assets/lists.js'
-import { checkVersionInRange } from '@/helpers/data.js'
+import { checkVersionInRange, compareVersions } from '@/helpers/data.js'
 import { mergeV3Settings } from '@/helpers/mergeOldSettings.js'
 
 const { locale } = useI18n({ useScope: 'global' })
@@ -20,6 +20,18 @@ onMounted(async () => {
 
   if (store.status === 'updated' && checkVersionInRange(store.prevVersion, '3.X.X')) {
     mergeV3Settings()
+  }
+
+  if (store.status === 'updated' && compareVersions(store.prevVersion, '4.6.0') < 0) {
+    // If the user is updating from a version before 4.5.0, we need to update the weather forecast days to be a max of 3 due to lower API plan
+    store.config.weathers.forEach((weather) => {
+      if (weather.forecast.days > 3) {
+        console.log(
+          'Migrating data from previous version: Updating weather forecast days to 3 due to API plan limitations.'
+        )
+        weather.forecast.days = 3
+      }
+    })
   }
 
   // If status is still set to installed, but there are already layers,

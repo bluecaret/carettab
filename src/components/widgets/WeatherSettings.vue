@@ -386,7 +386,7 @@ const refreshWeather = async () => {
             <label for="forecastDays" class="label mra">{{ $t('widget.numberOfDaysToShow') }}</label>
             <div class="range w20">
               <output class="output">{{ widget.forecast.days }}</output>
-              <input id="forecastDays" v-model="widget.forecast.days" type="range" class="rangeInput" min="1" max="5" />
+              <input id="forecastDays" v-model="widget.forecast.days" type="range" class="rangeInput" min="1" max="3" />
             </div>
           </div>
           <div class="block">

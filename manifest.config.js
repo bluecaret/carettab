@@ -1,5 +1,16 @@
 import { defineManifest } from '@crxjs/vite-plugin'
 
+/* TODO: Get Firefox working. 
+Requires Firefox version 130+ due to newer CSS features used.
+Currently has errors including:
+
+- Security policy errors due to node_module packages:
+`Content-Security-Policy: The page’s settings blocked a JavaScript eval (script-src) from being executed because it violates the following directive: “script-src 'self' 'wasm-unsafe-eval'” (Missing 'unsafe-eval')`
+
+- Errors for favicon permissions. Possibly need alternative method to get favicon images for firefox.
+`Error: Type error for parameter permissions (Error processing permissions.0: Value "favicon" must either: must either .....`
+*/
+
 const getManifestSettings = (env) => {
   const baseManifest = {
     manifest_version: 3,
@@ -17,10 +28,16 @@ const getManifestSettings = (env) => {
     chrome_url_overrides: {
       newtab: 'index.html',
     },
-    background: {
-      service_worker: 'src/service_worker.js',
-      type: 'module',
-    },
+    background:
+      env.mode === 'firefox'
+        ? {
+            scripts: ['src/service_worker.js'],
+            type: 'module',
+          }
+        : {
+            service_worker: 'src/service_worker.js',
+            type: 'module',
+          },
     permissions: ['storage', 'unlimitedStorage'],
     host_permissions: [
       'https://filplrhe2she7oc2pc3wmqvzvq0gdffl.lambda-url.us-west-2.on.aws/*', // Weather
@@ -71,6 +88,16 @@ const getManifestSettings = (env) => {
         description: 'Load Quick Link 9',
       },
     },
+    ...(env.mode === 'firefox'
+      ? {
+          browser_specific_settings: {
+            gecko: {
+              id: '{1ab49626-2e16-405b-ad65-dcaab8decd7b}',
+              strict_min_version: '130.0',
+            },
+          },
+        }
+      : {}),
   }
 
   return baseManifest

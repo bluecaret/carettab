@@ -497,11 +497,7 @@ export const useSettingsStore = defineStore('settings', () => {
 
   const resetAll = async () => {
     // clear all settings in chrome.storage
-    if (
-      confirm(
-        'Are you sure you want to clear everything and start completely fresh? If signed into Premium, you will need to login again.'
-      ) == true
-    ) {
+    if (confirm('Are you sure you want to clear everything and start completely fresh?') == true) {
       await clearAllStorage('sync')
       await clearAllStorage('local')
       window.location.reload()

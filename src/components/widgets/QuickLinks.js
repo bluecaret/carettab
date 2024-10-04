@@ -20,7 +20,7 @@ export class QuickLinks {
     maxWidth: 130,
   }
   quickLinks = [
-    { title: 'CaretTab', url: 'https://www.carettab.com', id: 'carettab', special: 'none' },
+    { title: 'CaretTab', url: 'https://www.bluecaret.com/carettab', id: 'carettab', special: 'none' },
     { title: 'Google', url: 'https://www.google.com', id: 'google', special: 'none' },
     { title: 'Gmail', url: 'https://www.gmail.com', id: 'gmail', special: 'none' },
   ]

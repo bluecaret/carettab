@@ -114,7 +114,7 @@ const handleFinish = () => {
         </p>
         <p>
           {{ store.tSplit($t('updates.v400.imExcitedForYouToDiveInto'))[0] }}
-          <a href="https://carettab.com/help" target="_blank">{{
+          <a href="https://bluecaret.com/carettab/help" target="_blank">{{
             store.tSplit($t('updates.v400.imExcitedForYouToDiveInto'))[1]
           }}</a>
           {{ store.tSplit($t('updates.v400.imExcitedForYouToDiveInto'))[2] }}

@@ -2377,7 +2377,7 @@ export const blueprints = [
               titles: true,
             },
             quickLinks: [
-              { id: 'carettab', special: 'none', title: 'CaretTab', url: 'https://www.carettab.com' },
+              { id: 'carettab', special: 'none', title: 'CaretTab', url: 'https://www.bluecaret.com/carettab' },
               { id: 'google', special: 'none', title: 'Google', url: 'https://www.google.com' },
               { id: 'gmail', special: 'none', title: 'Gmail', url: 'https://www.gmail.com' },
               { id: '2mg9ox', special: 'none', title: 'Reddit', url: 'https://reddit.com' },

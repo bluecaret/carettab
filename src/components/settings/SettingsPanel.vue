@@ -94,7 +94,7 @@ const getReviewLink = () => {
     <TextSettings v-if="['text'].includes(settingsPage)"></TextSettings>
     <TodoSettings v-if="['todo'].includes(settingsPage)"></TodoSettings>
     <footer class="footer">
-      <a href="https://carettab.com" class="btn btnText appName">
+      <a href="https://bluecaret.com/carettab" class="btn btnText appName">
         <svg :alt="$t('settings.logoAlt')" class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 369">
           <path
             d="M20 332 201 18h99l181 314-10 19H334l-83-145-84 145H31l-11-19Zm32-7h101l87-150h21l87 150h101L286 43h-70L52 325Z"
@@ -124,7 +124,9 @@ const getReviewLink = () => {
                   <small class="version">{{ $t('settings.version', [ver]) }}</small>
                 </div>
                 <div>
-                  <a href="https://www.carettab.com/" class="link">{{ store.tSplit($t('settings.credit'))[0] }}</a
+                  <a href="https://www.bluecaret.com/carettab/" class="link">{{
+                    store.tSplit($t('settings.credit'))[0]
+                  }}</a
                   >{{ store.tSplit($t('settings.credit'))[1] }}
                   <a href="https://www.bluecaret.com" class="link">{{ store.tSplit($t('settings.credit'))[2] }}</a
                   >{{ store.tSplit($t('settings.credit'))[3] }}
@@ -146,7 +148,7 @@ const getReviewLink = () => {
           </div>
         </template>
       </DropdownMenu>
-      <a href="https://carettab.com/help" class="btn btnText" target="_blank">
+      <a href="https://bluecaret.com/carettab/help" class="btn btnText" target="_blank">
         <fa icon="fa-question" fixed-width></fa>
         {{ $t('settings.help') }}
       </a>

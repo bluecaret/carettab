@@ -2,9 +2,9 @@
 
 A browser extension that replaces your New Tab page with a unique and fully customizable dashboard. **Your Tab, Your Rules!** Explore the realm of infinite customization right at your fingertips and transform the way you experience browsing. Get it today for free!
 
-For more information visit the website for [CaretTab](http://www.carettab.com)
+For more information visit the website for [CaretTab](http://www.bluecaret.com/carettab)
 
-For help or feature suggestions visit the [CaretTab Support page](https://carettab.com/help)
+For help or feature suggestions visit the [CaretTab Support page](https://bluecaret.com/carettab/help)
 
 ## Changelog
 
@@ -68,4 +68,4 @@ Run `npm run compile:all` to prep extension for updating to the store.
 
 CaretTab was designed and developed by BlueCaret (John W Hancock)
 
-[http://www.carettab.com](http://www.carettab.com) - [http://www.bluecaret.com](http://www.bluecaret.com)
+[http://www.bluecaret.com/carettab](http://www.bluecaret.com/carettab) - [http://www.bluecaret.com](http://www.bluecaret.com)

@@ -305,7 +305,9 @@ const handleClearWhatsNew = async () => {
                 <li>The notepad widget is now available in the free plan. Add multiple notepads with Premium.</li>
                 <li>The message widget is now called Quotes with a new optional Author field.</li>
                 <li>New extension logo!</li>
-                <li>Better support website: <a href="https://carettab.com/help">carettab.com/help</a></li>
+                <li>
+                  Better support website: <a href="https://bluecaret.com/carettab/help">bluecaret.com/carettab/help</a>
+                </li>
               </ul>
             </div>
           </div>

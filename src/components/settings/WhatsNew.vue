@@ -90,229 +90,37 @@ const handleClearWhatsNew = async () => {
           </button>
         </header>
         <div class="modalContent">
-          <div v-if="compareVersions(store.prevVersion, '4.3.9') === 1" class="group">
+          <div class="group">
             <div class="fill">
-              <h4 class="subtitle">v4.5.0 {{ $t('updates.newFeatures') }}</h4>
+              <h4 class="subtitle">v{{ ver }} {{ $t('updates.newFeatures') }}</h4>
               <ul class="ul">
-                <li>Added a new blueprint, "Futuristic Minimal Dash".</li>
+                <li>
+                  Wallpapers can now be any file size! You will still receive a warning message if the file is large
+                  saying that it can affect performance, but the wallpaper will apply regardless.
+                </li>
+                <li>
+                  Added additional "special links" to Quick Links include downloads page, extensions page, browser
+                  inspect, browser flags, browser settings, browser about.
+                </li>
               </ul>
             </div>
             <div class="fill">
-              <h4 class="subtitle">v4.5.0 {{ $t('updates.fixesAndOthers') }}</h4>
+              <h4 class="subtitle">v{{ ver }} {{ $t('updates.fixesAndOthers') }}</h4>
               <ul class="ul">
-                <li>Improved display of widget position and size settings to make them more intuitive.</li>
-                <li>Fixed: Two-digit week number for date widget was not working.</li>
+                <li>
+                  Changed weather forecast days to be capped at 3 days instead of 5. This allows me to use a lower tier
+                  plan for the weather API so I don't have to eat the costs for the data since I'm not making money on
+                  CaretTab anymore.
+                </li>
+                <li>Changed general API used to reduce costs</li>
+                <li>Adjusted some links to CaretTab's homepage.</li>
+                <li>
+                  Fixed: Quick links set to a vertical list had an issue where the last link in the list would always
+                  display in the more menu even if it has room.
+                </li>
                 <li>Translation fixes.</li>
               </ul>
             </div>
-          </div>
-          <div
-            v-if="compareVersions(store.prevVersion, '4.4.0') === -1 && checkVersionInRange(store.prevVersion, '4.X.X')"
-            class="group"
-          >
-            <div class="fill">
-              <h4 class="subtitle">All CaretTab Premium Access features now FREE!</h4>
-              <p>
-                After much consideration, I've decided to make all Premium features of CaretTab available for free. This
-                decision stems from many reasons including the complexities involved in managing subscription services
-                for browser extensions and a desire to branch out to other endeavors.
-              </p>
-              <h4 class="subtitle">A Shift in Focus</h4>
-              <p>
-                I am also excited to share that I will be exploring new horizons in Android App development. This shift
-                means that while CaretTab will remain available and functional, my focus on its development will be
-                reduced. This transition to free access ensures that CaretTab can continue to be a part of your daily
-                routine, with less need for active management from my end. Please be assured that I plan to continue
-                keeping CaretTab available for the foreseeable future.
-              </p>
-              <h4 class="subtitle">Current Premium Access Subscriptions</h4>
-              <p>
-                If you have a current Premium Access subscription, it will automatically be cancelled. You don't need to
-                take any action regarding this change.
-              </p>
-              <h4 class="subtitle">Your Support is Valuable</h4>
-              <p>
-                Your support has been the driving force behind CaretTab. If you wish to continue supporting my
-                endeavors, contributions are welcome at
-                <a href="https://www.buymeacoffee.com/bluecaret" target="_blank">Buy Me a Coffee</a>. Your generosity
-                fuels my passion and allows me to explore new creative avenues.
-              </p>
-              <h4 class="subtitle">Feedback and Suggestions</h4>
-              <p>
-                As always, your thoughts and feedback are invaluable. They have shaped CaretTab into what it is today
-                and will continue to be a vital part of its journey.
-              </p>
-              <p>
-                Thank you for being with CaretTab through its evolution. Your understanding and support mean the world
-                to me as I venture into new areas of development.
-              </p>
-              <p>Warm regards,<br />John Hancock (BlueCaret)<br />Creator of CaretTab</p>
-            </div>
-          </div>
-          <div
-            v-if="compareVersions(store.prevVersion, '4.1.0') === -1 && checkVersionInRange(store.prevVersion, '4.X.X')"
-            class="group"
-          >
-            <div class="fill">
-              <h4 class="subtitle">v4.1.0 {{ $t('updates.newFeatures') }}</h4>
-              <ul class="ul">
-                <li>
-                  Added multiple color modes for the settings UI, choose from dark, dark gray, light, or light gray.
-                </li>
-                <li>
-                  Added three additional fonts, all based on a 7-segment LED display: "7 segments", "7 segmental digital
-                  display", and "Display Free TFB"
-                </li>
-                <li>Added new "Vintage Digits" blueprint using the new segmented font.</li>
-                <li>
-                  Added new unit option for placement of widgets. You can now set the position of widgets based on a
-                  percentage of the screen.
-                </li>
-                <li>Added a small preview of blueprints so you know what you are getting into.</li>
-                <li>
-                  Added a settings shortcut for Global Container Styles and Global Font styles from within a widget's
-                  settings.
-                </li>
-                <li>
-                  Added ability to copy current global settings to the container or font styles when overriding the
-                  global.
-                </li>
-                <li>Backend change to ensure new features are correctly added to existing settings.</li>
-              </ul>
-            </div>
-            <div class="fill">
-              <h4 class="subtitle">v4.1.0 {{ $t('updates.fixesAndOthers') }}</h4>
-              <ul class="ul">
-                <li>Fixed: Todo widget label toggle wasn't toggling.</li>
-                <li>Fixed: Todo widget font setting was not applying.</li>
-                <li>
-                  Fixed: better error handling for version 3.x migration for those still experiencing the stuck loading
-                  screen.
-                </li>
-                <li>
-                  Fixed: Sync issue where a new install on a different machine will be stuck on the welcome page after
-                  settings have synced potentially leading to a loss of settings.
-                </li>
-                <li>Fixed: The 90's fever dream blueprint had the incorrect weather layout set.</li>
-                <li>Many changes to the Chinese translation (thank you @future93)</li>
-              </ul>
-            </div>
-          </div>
-          <div v-if="checkVersionInRange(store.prevVersion, '3.X.X')" class="group">
-            <div class="fill">
-              <h4 class="subtitle">v4.0.0 {{ $t('updates.newFeatures') }}</h4>
-              <ul class="ul">
-                <li>Improved settings panel design</li>
-                <li>Todo widget. Keep track of your tasks.</li>
-                <li>
-                  Shape and Text widgets. These are purely presentational widgets to help you design the perfect tab.*
-                </li>
-                <li>
-                  Toolbar with tools such as AI Chat*, calculator, unit conversion, password generator, timer,
-                  stopwatch.
-                </li>
-                <li>Add multiples of any widget. *Some widgets require Premium Access to add multiple.</li>
-                <li>Blueprints. Quickly get a New Tab layout with the click of a button.</li>
-                <li>Give the widget a name for easier managing of your multiple widgets.</li>
-                <li>
-                  Show an outline around widgets and a grid on the page to help with widget positioning. You can also
-                  temporarily move the settings to the other side if it is in the way.
-                </li>
-                <li>Get wallpapers from Pexels.com.*</li>
-                <li>Easily set default styling for widgets.</li>
-                <li>Add container styles to every widget such as a background color and border.*</li>
-                <li>Set a different font, color, and text styles for every widget.</li>
-                <li>
-                  New positioning system for widgets. Placing widgets will now be easier, more precise, and provide tons
-                  more freedom.
-                </li>
-                <li>Search engine select menu. Easily change the search engine temporarily from the tab page.*</li>
-                <li>
-                  Some widgets have even more customization that allow you to customize the color and other styles of
-                  specific elements within the widget.
-                </li>
-                <li>
-                  New color picker with color sliders, swatches, opacity, and an option to save colors to use them
-                  elsewhere.
-                </li>
-                <li>
-                  Weather layouts. Now choose between several layouts for the weather widget including some utility
-                  layouts that make it easier to show a single detail for extra customization.
-                </li>
-                <li>
-                  The weather icons have been updated and are now animated* and multi-colored. And yes, you can
-                  customize the colors!
-                </li>
-                <li>
-                  Improved use of storage space in your browser. This allows even more widgets and content before
-                  hitting the storage limit. A warning will also show in case you do get close to that limit anyway.
-                </li>
-                <li>
-                  Default wallpaper. CaretTab now comes out of the box with a beautiful photo of a Juniper plant as the
-                  default background. You can easily switch to this photo at any time.
-                </li>
-                <li>
-                  New layout options for Quick Links including the option of placing the "Bookmarks bar" anywhere like a
-                  standard widget.
-                </li>
-                <li>
-                  But wait, there's more! I've been at this for a while now, there are many, many new additions and
-                  changes that are just too numerous to list here. Explore the settings panel to find them all!
-                </li>
-              </ul>
-            </div>
-            <div class="fill">
-              <h4 class="subtitle">v4.0.0 Changes from previous version</h4>
-              <ul class="ul">
-                <li>
-                  Rebuilt the entire extension from scratch in a new, modern framework. This will make it easier and
-                  quicker for me to build out more features in the future.
-                </li>
-                <li>
-                  Saved settings been tweaked for better performance and space utilization. The result in this is an
-                  unfortunate clearing of your saved settings. I tried to migrate as many settings as I was able.
-                </li>
-                <li>Smaller file size!</li>
-                <li>
-                  Dynamic scaling is no longer an option. This option added too much complexity and issues with the
-                  improved positioning system.
-                </li>
-                <li>
-                  Global size is no longer an option. Each widget has a default size applied, and can be changed
-                  independently.
-                </li>
-                <li>All fonts are available under the free plan.</li>
-                <li>All fonts other than the default Source Sans 3 now require internet to load.</li>
-                <li>
-                  Color themes and random color theme options have been removed. These may come back in a different
-                  manner in the future.
-                </li>
-                <li>
-                  Tab title no longer relies on an added clock to show the time/date. You can now set the title's own
-                  timezone and time format.
-                </li>
-                <li>
-                  Offset and margin options have been removed as they are no longer needed with the new positioning
-                  system.
-                </li>
-                <li>Settings panel only has dark mode now. Light mode may return in the future.</li>
-                <li>
-                  Due to so many changes, translations have been completely redone using DeepL. This means some
-                  translations are possibly worse now. Contact me if you notice any major issues.
-                </li>
-                <li>Clock styles (digital, analog, binary) have been split into individual widgets.</li>
-                <li>All analog clock face and hand styles are now available in the free plan.</li>
-                <li>The notepad widget is now available in the free plan. Add multiple notepads with Premium.</li>
-                <li>The message widget is now called Quotes with a new optional Author field.</li>
-                <li>New extension logo!</li>
-                <li>
-                  Better support website: <a href="https://bluecaret.com/carettab/help">bluecaret.com/carettab/help</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div v-if="checkVersionInRange(store.prevVersion, '3.X.X')">
-            <small>* Only available with Premium Access</small>
           </div>
         </div>
       </div>

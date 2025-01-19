@@ -33,6 +33,7 @@ const open = ref(null)
 
 <style lang="scss" scoped>
 .fieldAccordion {
+  display: block;
   summary {
     min-height: 6.6rem;
     cursor: pointer;

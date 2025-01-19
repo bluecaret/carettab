@@ -3,7 +3,7 @@
 import { ref, onMounted } from 'vue'
 import { DateTime } from 'luxon'
 import { useSettingsStore, setStorage } from '@/store.js'
-import { checkVersionInRange, compareVersions } from '@/helpers/data.js'
+// import { checkVersionInRange, compareVersions } from '@/helpers/data.js'
 
 const store = useSettingsStore()
 const whatsNewModal = ref(false)
@@ -40,29 +40,7 @@ const handleClearWhatsNew = async () => {
 <template>
   <ModalWindow v-if="!store.clearWhatsNewBox" :show="whatsNewModal" @close="whatsNewModal = false">
     <template #button>
-      <div
-        v-if="compareVersions(store.prevVersion, '4.4.0') === -1 && checkVersionInRange(store.prevVersion, '4.X.X')"
-        class="whatsNewBox"
-        @click="whatsNewModal = true"
-      >
-        <div class="group fill">
-          <fa class="whatsNewIcon" icon="fa-bell"></fa>
-          <h3 class="fill">All Premium Access features are now FREE</h3>
-          <button type="button" class="btn fit" @click="whatsNewModal = true">
-            <div class="fit">{{ $t('dashboard.readWhatsNew') }}</div>
-          </button>
-          <button
-            type="button"
-            class="btn fit btnText"
-            :title="$t('dashboard.dismiss')"
-            :aria-label="$t('dashboard.dismiss')"
-            @click.stop="handleClearWhatsNew"
-          >
-            <fa icon="fa-xmark"></fa>
-          </button>
-        </div>
-      </div>
-      <div v-else class="whatsNewBox" @click="whatsNewModal = true">
+      <div class="whatsNewBox" @click="whatsNewModal = true">
         <div class="group fill">
           <fa class="whatsNewIcon" icon="fa-bell"></fa>
           <h3 class="fill">{{ $t('dashboard.newUpdate') }} &mdash; {{ $t('settings.version', [ver]) }}</h3>
@@ -91,7 +69,7 @@ const handleClearWhatsNew = async () => {
         </header>
         <div class="modalContent">
           <div class="group">
-            <div class="fill">
+            <!-- <div class="fill">
               <h4 class="subtitle">v{{ ver }} {{ $t('updates.newFeatures') }}</h4>
               <ul class="ul">
                 <li>
@@ -103,22 +81,19 @@ const handleClearWhatsNew = async () => {
                   inspect, browser flags, browser settings, browser about.
                 </li>
               </ul>
-            </div>
+            </div> -->
             <div class="fill">
               <h4 class="subtitle">v{{ ver }} {{ $t('updates.fixesAndOthers') }}</h4>
               <ul class="ul">
                 <li>
-                  Changed weather forecast days to be capped at 3 days instead of 5. This allows me to use a lower tier
-                  plan for the weather API so I don't have to eat the costs for the data since I'm not making money on
-                  CaretTab anymore.
+                  SEARCH BAR CHANGES: Due to restrictions by Google Chrome, CaretTab can no longer provide a custom
+                  search experience. CaretTab is now limited to only being able to search the default search engine that
+                  is set in your browser settings (the same engine that is used when you search from the browser address
+                  bar). I apologize for this inconvenience, however it was either this or CaretTab gets removed from the
+                  web store by Google.
                 </li>
-                <li>Changed general API used to reduce costs</li>
-                <li>Adjusted some links to CaretTab's homepage.</li>
-                <li>
-                  Fixed: Quick links set to a vertical list had an issue where the last link in the list would always
-                  display in the more menu even if it has room.
-                </li>
-                <li>Translation fixes.</li>
+                <li>Fixed styling bug in settings.</li>
+                <li>Fixed missing suffix label on date widget.</li>
               </ul>
             </div>
           </div>

@@ -19,6 +19,14 @@ const widget = reactive(store.config[widgetStore][ci.value])
     </div>
     <div class="blockContainer">
       <div class="block">
+        <p>
+          NOTE: Due to restrictions by Google Chrome, CaretTab can no longer provide a custom search experience.
+          CaretTab is now limited to only being able to search the default search engine that is set in your browser
+          settings (the same engine that is used when you search from the browser address bar). I apologize for this
+          inconvenience, however it was either this or CaretTab gets removed from the web store by Google.
+        </p>
+      </div>
+      <!-- <div class="block">
         <label for="engine" class="label">{{ $t('widget.searchEngine') }}</label>
         <select v-if="widget.customEngine" id="engine" name="engine" class="select w20" disabled="disabled">
           <option selected>{{ $t('widget.customEngine') }}</option>
@@ -33,14 +41,14 @@ const widget = reactive(store.config[widgetStore][ci.value])
         >
           <option v-for="engine in searchEngines" :key="engine.id" :value="engine.id">{{ engine.label }}</option>
         </select>
-      </div>
-      <div class="block">
+      </div> -->
+      <!-- <div class="block">
         <label for="custom" class="label">
           <div>{{ $t('widget.customSearchEngine') }}</div>
         </label>
         <ToggleField id="custom" v-model="widget.customEngine" name="custom"></ToggleField>
-      </div>
-      <div v-if="widget.customEngine" class="block">
+      </div> -->
+      <!-- <div v-if="widget.customEngine" class="block">
         <label for="customUrl" class="label">
           <div>{{ $t('widget.customSearchEngineUrl') }}</div>
         </label>
@@ -53,17 +61,17 @@ const widget = reactive(store.config[widgetStore][ci.value])
           class="input w30"
           placeholder="https://www.google.com/search?q=%s"
         />
-      </div>
-      <div class="block">
+      </div> -->
+      <!-- <div class="block">
         <label for="icon" class="label">{{ $t('widget.showEngineName') }}</label>
         <ToggleField id="icon" v-model="widget.engineLabel" name="icon"></ToggleField>
-      </div>
-      <div class="block">
+      </div> -->
+      <!-- <div class="block">
         <label for="icon" class="label">
           <div>{{ $t('widget.showEngineSelectionMenu') }}</div>
         </label>
         <ToggleField id="icon" v-model="widget.dropdown" name="icon"></ToggleField>
-      </div>
+      </div> -->
       <div class="block">
         <label for="label" class="label">{{ $t('widget.placeholderText') }}</label>
         <input id="label" v-model="widget.label" type="text" name="label" class="input w20" />

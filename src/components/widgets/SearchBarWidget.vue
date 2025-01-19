@@ -13,7 +13,6 @@ const props = defineProps({
   },
 })
 
-const engineMenu = ref(null)
 const searchText = ref('')
 const engine = computed(() => searchEngines.find((e) => e.id === props.widget.engine))
 const customEngine = computed(() => {
@@ -61,22 +60,15 @@ const containerStyles = computed(() => {
   return setWidgetContainerStyles(props.widget, store.config.global)
 })
 
-const setEngine = (en) => {
-  currentEngine.value = en
-  engineMenu.value.close()
-}
-
 const performSearch = () => {
   if (!searchText.value || searchText.value.trim() == '') {
     return
   }
 
-  let engine = currentEngine.value.url
-  let searchUrl = `${engine.split('%s')[0] ? engine.split('%s')[0] : ''}${encodeURIComponent(searchText.value)}${
-    engine.split('%s')[1] ? engine.split('%s')[1] : ''
-  }`
-
-  location.replace(searchUrl)
+  chrome.search.query({
+    text: searchText.value,
+    disposition: 'CURRENT_TAB',
+  })
 }
 
 const setBarStyles = computed(() => {
@@ -143,40 +135,9 @@ const elementStyles = computed(() => {
           :placeholder="placeholderText"
           :style="elementStyles"
         />
-        <button v-if="props.widget.icon || props.widget.engineLabel" type="submit" :style="elementStyles">
+        <button v-if="props.widget.icon" type="submit" :style="elementStyles">
           <fa v-if="props.widget.icon" icon="fa-magnifying-glass" fixed-width></fa>
-          {{ props.widget.engineLabel ? currentEngine.label : '' }}
         </button>
-        <DropdownMenu v-if="props.widget.dropdown" ref="engineMenu">
-          <template #button>
-            <button type="button" :style="elementStyles">
-              <fa icon="fa-caret-down" fixed-width></fa>
-            </button>
-          </template>
-          <template #menu>
-            <div class="block">
-              <div class="group compact stack">
-                <button
-                  v-if="props.widget.customEngine"
-                  class="btn btnBlock w20"
-                  :class="{ active: currentEngine.id === 'custom' }"
-                  @click="setEngine(customEngine)"
-                >
-                  Custom
-                </button>
-                <button
-                  v-for="en in searchEngines"
-                  :key="en.id"
-                  class="btn btnBlock w20"
-                  :class="{ active: currentEngine.id === en.id }"
-                  @click="setEngine(en)"
-                >
-                  {{ en.label }}
-                </button>
-              </div>
-            </div>
-          </template>
-        </DropdownMenu>
       </form>
     </div>
   </div>

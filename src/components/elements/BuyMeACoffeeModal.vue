@@ -99,8 +99,18 @@ const getReviewLink = () => {
           </button>
         </header>
         <div class="suportTheExtension modalContent">
-          <p class="supportDesc">
+          <p class="supportDesc" style="text-decoration: line-through">
             {{ $t('settings.supportCarettabAndHelpItGrow') }}
+          </p>
+          <p class="supportDesc">
+            CaretTab is no longer in active development. There may be additional updates in the future, but will be rare
+            and only small changes. Due to this I can no longer in good conscience accept donations with a promise of
+            continued work. That said, if you would still like to show your appreciation for the work I have done, I'd
+            still appreciate a small tip and I'll buy myself an actual coffee with it. :) Thank you for your support!
+          </p>
+          <p>
+            Don't be alarmed with the lack of development though, I hope to continue to leave CaretTab available for as
+            long as possible baring technical limitations or future Web Store restrictions.
           </p>
           <p>{{ $t('settings.warmRegards') }}<br />John Hancock (BlueCaret), Creator of CaretTab</p>
           <div class="group">

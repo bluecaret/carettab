@@ -160,6 +160,11 @@ const getQuarterOffset = () => {
             }}</span>
           </div>
         </template>
+        <div v-if="props.widget.delimiter.on" :class="`datePart delimiter-5`" :style="segmentStyles('delimiter')">
+          <span>{{
+            props.widget.short ? props.widget.delimiter[`shortSymbol5`] : props.widget.delimiter[`longSymbol5`]
+          }}</span>
+        </div>
       </div>
       <div v-if="props.widget.dayOfYear.on" class="textWrapper" :style="segmentStyles('dayOfYear')">
         {{ props.widget.dayOfYear.prefixLabel

@@ -17,8 +17,8 @@ const getManifestSettings = (env) => {
     short_name: 'CaretTab',
     name: env.mode === 'beta' ? 'CaretTab BETA' : '__MSG_appName__',
     description: env.mode === 'beta' ? 'Beta version of the New Tab extension, CaretTab' : '__MSG_appDesc__',
-    version: `4.6.0`,
-    version_name: `4.6.0`,
+    version: `4.7.0`,
+    version_name: `4.7.0`,
     default_locale: 'en',
     icons: {
       16: 'img/icon16.png',
@@ -38,7 +38,7 @@ const getManifestSettings = (env) => {
             service_worker: 'src/service_worker.js',
             type: 'module',
           },
-    permissions: ['storage', 'unlimitedStorage'],
+    permissions: ['storage', 'unlimitedStorage', 'search'],
     host_permissions: [
       'https://filplrhe2she7oc2pc3wmqvzvq0gdffl.lambda-url.us-west-2.on.aws/*', // Weather
       'https://lbepjjthnvo4yrub7hdg7ilwp40uyowa.lambda-url.us-west-2.on.aws/*', // Pexels
